@@ -1,5 +1,5 @@
-import type { Champion } from '@wildrift-forge/game-data';
-import { insertRawSource, upsertChampion } from '@wildrift-forge/database';
+import type { Champion } from '@wild-rift-forge/game-data';
+import { insertRawSource, upsertChampion } from '@wild-rift-forge/database';
 import { fetchHtml } from '../fetchers/fetch-html';
 import { parseChampionList } from '../sources/riot/champions/list.parser';
 import { parseChampionDetail } from '../sources/riot/champions/detail.parser';

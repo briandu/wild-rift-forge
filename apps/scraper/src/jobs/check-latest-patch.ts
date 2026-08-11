@@ -1,7 +1,7 @@
 import { fetchHtml } from '../fetchers/fetch-html';
 import { parsePatchIndex } from '../sources/riot/patch-notes/index.parser';
 import { extractPatchVersion } from '../sources/riot/patch-notes/version';
-import { getPatchByVersion } from '@wildrift-forge/database';
+import { getPatchByVersion } from '@wild-rift-forge/database';
 import { ingestPatchFromUrl } from './ingest-patch';
 
 const PATCH_INDEX_URL = 'https://wildrift.leagueoflegends.com/en-us/news/tags/patch-notes/';

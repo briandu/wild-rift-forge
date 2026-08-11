@@ -1,5 +1,5 @@
 // Local development database: a self-contained embedded Postgres instance.
-// Used until the WildRift Forge Supabase project exists — the app connects via
+// Used until the Wild Rift Forge Supabase project exists — the app connects via
 // SUPABASE_DB_URL either way, so switching later is just an .env change.
 //
 // Usage: node scripts/dev-db.mjs   (keeps running; Ctrl+C to stop)
@@ -30,14 +30,14 @@ if (!isInitialized) {
 await pg.start();
 
 try {
-  await pg.createDatabase('wildrift_forge');
-  console.log('Created database wildrift_forge.');
+  await pg.createDatabase('wild_rift_forge');
+  console.log('Created database wild_rift_forge.');
 } catch {
   // Database already exists.
 }
 
 console.log(`Local Postgres running on port ${PORT}.`);
-console.log(`Connection string: postgresql://postgres:postgres@localhost:${PORT}/wildrift_forge`);
+console.log(`Connection string: postgresql://postgres:postgres@localhost:${PORT}/wild_rift_forge`);
 console.log('Press Ctrl+C to stop.');
 
 const stop = async () => {

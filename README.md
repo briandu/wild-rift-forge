@@ -1,4 +1,4 @@
-# WildRift Forge
+# Wild Rift Forge
 
 Wild Rift strategy, counter, matchup, patch-data, and draft-analysis platform.
 
@@ -28,7 +28,7 @@ node scripts/dev-db.mjs          # starts embedded Postgres on port 5544 (keep r
 node scripts/apply-migrations.mjs # applies supabase/migrations/*.sql locally
 ```
 
-`.env` default: `postgresql://postgres:postgres@localhost:5544/wildrift_forge`
+`.env` default: `postgresql://postgres:postgres@localhost:5544/wild_rift_forge`
 
 ### Supabase (production)
 

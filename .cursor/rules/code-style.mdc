@@ -22,11 +22,11 @@ alwaysApply: false
 
 ## Imports
 
-- Group: node builtins, external packages, workspace packages (`@wildrift-forge/*`), then relative imports.
+- Group: node builtins, external packages, workspace packages (`@wild-rift-forge/*`), then relative imports.
 - Extensionless relative imports (`./client`, not `./client.js`).
 
 ## Architecture boundaries
 
 - Riot-specific page structures (blades, `__NEXT_DATA__`, HTML shapes) live ONLY under `apps/scraper/src/sources/riot/`.
-- Everything else consumes canonical types from `@wildrift-forge/game-data`.
+- Everything else consumes canonical types from `@wild-rift-forge/game-data`.
 - Keep recommendation/scoring logic (future `packages/recommendation`) free of Express/Next.js dependencies.

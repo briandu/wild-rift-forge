@@ -1,4 +1,4 @@
-import type { Patch, PatchChange } from '@wildrift-forge/game-data';
+import type { Patch, PatchChange } from '@wild-rift-forge/game-data';
 import { getPool } from './client';
 
 export interface StoredPatch extends Patch {

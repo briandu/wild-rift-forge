@@ -1,5 +1,5 @@
 /**
- * Canonical WildRift Forge game-data types.
+ * Canonical Wild Rift Forge game-data types.
  *
  * These types are the internal source of truth consumed by the API, web app,
  * and recommendation engine. They must know nothing about Riot's HTML or

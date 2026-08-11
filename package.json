@@ -1,5 +1,5 @@
 {
-  "name": "wildrift-forge",
+  "name": "wild-rift-forge",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,9 +8,9 @@
     "packages/*"
   ],
   "scripts": {
-    "scrape:latest": "npm run --workspace @wildrift-forge/scraper latest",
-    "scrape:backfill": "npm run --workspace @wildrift-forge/scraper backfill --",
-    "scrape:champions": "npm run --workspace @wildrift-forge/scraper champions --",
+    "scrape:latest": "npm run --workspace @wild-rift-forge/scraper latest",
+    "scrape:backfill": "npm run --workspace @wild-rift-forge/scraper backfill --",
+    "scrape:champions": "npm run --workspace @wild-rift-forge/scraper champions --",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },

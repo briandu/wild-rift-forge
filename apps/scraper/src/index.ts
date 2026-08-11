@@ -1,5 +1,5 @@
 import { loadEnv } from './env';
-import { closePool } from '@wildrift-forge/database';
+import { closePool } from '@wild-rift-forge/database';
 import { checkLatestPatch } from './jobs/check-latest-patch';
 import { backfillPatches } from './jobs/backfill-patches';
 import { syncChampions } from './jobs/sync-champions';

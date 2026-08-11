@@ -1,4 +1,4 @@
-import { getPatchByVersion, insertPatchWithChanges, insertRawSource } from '@wildrift-forge/database';
+import { getPatchByVersion, insertPatchWithChanges, insertRawSource } from '@wild-rift-forge/database';
 import { fetchHtml } from '../fetchers/fetch-html';
 import { parsePatchArticle } from '../sources/riot/patch-notes/article.parser';
 import { extractPatchVersion } from '../sources/riot/patch-notes/version';

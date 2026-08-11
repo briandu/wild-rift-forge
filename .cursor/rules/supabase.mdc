@@ -29,7 +29,7 @@ This covers: tables, columns, types, constraints, indexes, foreign keys, functio
 
 Prefer the Supabase MCP tools (`list_tables`, read-only `execute_sql`) for live schema context before falling back to reading migration files.
 
-⚠️ Verify the MCP is connected to the WildRift Forge project before ANY write operation. A Supabase MCP connection may point at an unrelated production project.
+⚠️ Verify the MCP is connected to the Wild Rift Forge project before ANY write operation. A Supabase MCP connection may point at an unrelated production project.
 
 ## Conventions
 

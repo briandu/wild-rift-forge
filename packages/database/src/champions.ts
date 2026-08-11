@@ -1,4 +1,4 @@
-import type { Champion } from '@wildrift-forge/game-data';
+import type { Champion } from '@wild-rift-forge/game-data';
 import { getPool } from './client';
 
 export interface StoredChampion extends Champion {

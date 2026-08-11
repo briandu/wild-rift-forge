@@ -1,4 +1,4 @@
--- WildRift Forge initial schema: raw source storage, patches, patch changes, champions.
+-- Wild Rift Forge initial schema: raw source storage, patches, patch changes, champions.
 -- History is append-only: patch_changes rows are never overwritten by later game data.
 
 CREATE TABLE IF NOT EXISTS raw_sources (

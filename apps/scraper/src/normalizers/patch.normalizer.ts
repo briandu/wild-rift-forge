@@ -1,9 +1,9 @@
 import * as cheerio from 'cheerio';
-import type { ChangeType, Patch, PatchChange } from '@wildrift-forge/game-data';
+import type { ChangeType, Patch, PatchChange } from '@wild-rift-forge/game-data';
 import type { ParsedPatchArticle } from '../sources/riot/patch-notes/article.parser';
 
 /**
- * Convert the Riot-shaped parsed article into canonical WildRift Forge
+ * Convert the Riot-shaped parsed article into canonical Wild Rift Forge
  * records. Everything downstream (API, web, recommendation engine) consumes
  * this format — never Riot page structures.
  */

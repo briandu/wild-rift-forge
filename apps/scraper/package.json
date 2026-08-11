@@ -1,5 +1,5 @@
 {
-  "name": "@wildrift-forge/scraper",
+  "name": "@wild-rift-forge/scraper",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -10,8 +10,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@wildrift-forge/database": "*",
-    "@wildrift-forge/game-data": "*",
+    "@wild-rift-forge/database": "*",
+    "@wild-rift-forge/game-data": "*",
     "cheerio": "^1.0.0",
     "zod": "^3.24.0"
   }

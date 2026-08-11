@@ -3,7 +3,7 @@ import { extractNextData, getBlades, type RiotBlade } from '../extract-next-data
 /**
  * Riot-shaped intermediate representation of a patch notes article.
  * This is still source-specific; the normalizer converts it into canonical
- * WildRift Forge PatchChange records.
+ * Wild Rift Forge PatchChange records.
  */
 export interface ParsedPatchArticle {
   title: string;

@@ -1,5 +1,5 @@
 {
-  "name": "@wildrift-forge/database",
+  "name": "@wild-rift-forge/database",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,7 @@
     ".": "./src/index.ts"
   },
   "dependencies": {
-    "@wildrift-forge/game-data": "*",
+    "@wild-rift-forge/game-data": "*",
     "pg": "^8.13.0"
   },
   "devDependencies": {
