@@ -1,0 +1,32 @@
+---
+description: TypeScript code style and formatting conventions
+globs: ["**/*.ts", "**/*.tsx"]
+alwaysApply: false
+---
+
+# Code Style
+
+## Formatting (Prettier: .prettierrc.json)
+
+- Single quotes, semicolons, 2-space indent, trailing commas (`all`), printWidth 100.
+- Exactly ONE empty line between functions and logical blocks; never 2+ consecutive empty lines.
+- Every file ends with exactly 1 trailing newline.
+- Do not add or remove empty lines unrelated to your change — keep diffs clean.
+
+## TypeScript
+
+- Strict mode is on; no `any` unless interoperating with untyped payloads (prefer `unknown` + narrowing).
+- `const` over `let`; never `var`.
+- Named exports for utilities; camelCase for variables/functions, PascalCase for types/interfaces.
+- Template literals for interpolation; optional chaining (`?.`) and nullish coalescing (`??`) where they aid readability.
+
+## Imports
+
+- Group: node builtins, external packages, workspace packages (`@wildrift-forge/*`), then relative imports.
+- Extensionless relative imports (`./client`, not `./client.js`).
+
+## Architecture boundaries
+
+- Riot-specific page structures (blades, `__NEXT_DATA__`, HTML shapes) live ONLY under `apps/scraper/src/sources/riot/`.
+- Everything else consumes canonical types from `@wildrift-forge/game-data`.
+- Keep recommendation/scoring logic (future `packages/recommendation`) free of Express/Next.js dependencies.

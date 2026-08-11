@@ -1,0 +1,41 @@
+---
+description: Testing conventions - Vitest, fixture-based parser tests, when tests are required
+globs: ["apps/scraper/**", "packages/**", "**/*.test.ts"]
+alwaysApply: false
+---
+
+# Testing
+
+## Commands
+
+```bash
+npm test                 # run the full suite once (Vitest)
+npx vitest               # watch mode
+```
+
+## When you MUST add or extend tests (same change, not later)
+
+- Adding or changing a parser, validator, or normalizer in `apps/scraper`
+- Adding or changing pure functions in `packages/`
+- Fixing a bug that could regress — add the test that would have FAILED before the fix
+- Supporting a new patch-notes era/layout — add a fixture for it
+
+## When tests are optional
+
+- Config or env-only changes (still run the existing suite before committing)
+- Documentation and copy changes
+
+## Fixture rules
+
+- Parser/normalizer tests run against committed HTML fixtures in `apps/scraper/fixtures/` — NEVER the network. Tests must pass offline.
+- Fixtures are real downloaded pages; keep at least one per distinct page layout era (currently: 2.6a, 5.0, 7.2b patches, champions list, champion detail, patch index).
+- Assert concrete known values (e.g. Jayce Base Armor 46 → 37 in patch 7.2b), not just "no throw".
+
+## Layout
+
+```
+apps/scraper/test/*.test.ts      # tests
+apps/scraper/fixtures/*.html     # committed page snapshots
+```
+
+Database write paths (packages/database) are exercised by running the scraper jobs against a dev database, not by unit tests, until an integration harness exists.

@@ -1,0 +1,60 @@
+---
+description: Commit conventions - Conventional Commits, logical grouping, secret scanning, debug cleanup. Use when committing changes or when the user asks to "commit" or "smart commit".
+alwaysApply: false
+---
+
+# Commits
+
+## Format
+
+All commits follow Conventional Commits:
+
+```
+<type>(<scope>): <description>
+```
+
+- **Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`, `ci`, `schema`
+- **Scopes for this repo**: `scraper`, `db`, `game-data`, `parser`, `normalizer`, `jobs`, `api`, `web`, `tests`, `rules`
+- Prefer a **single-line** subject when the change is self-explanatory. Add a body only for factual bullets or decisions reviewers need.
+- Body bullets MUST be consecutive with NO blank lines between them.
+- NEVER use multiple `-m` flags (git inserts blank lines between them). Use a single `-m` with a heredoc:
+
+```bash
+git commit -m "$(cat <<'EOF'
+feat(parser): handle accordion blades in old patch layouts
+
+- Parse articleRichTextAccordion groups into rich-text sections
+- Add patch 5.0 fixture covering the accordion layout
+EOF
+)"
+```
+
+## Grouping and order
+
+- One commit per logical change group; stage only the relevant files.
+- Respect dependencies: files that are imported must be committed before files that use them.
+- Order: schema/migrations first, then core utilities/types, then feature code, then tests, then docs.
+- Document crucial business or architectural decisions in the commit body (the "why").
+
+## Before committing
+
+1. Remove temporary debug code: `console.log` used for debugging (not intentional logging), `debugger`, commented-out test code.
+2. Scan staged files for secrets — NEVER commit:
+   - `postgres://` / `postgresql://` connection strings with real credentials
+   - Supabase keys (`sb_secret`, `supabase_url`/`supabase_key` with real values)
+   - JWTs (`eyJ...`), API keys (`sk-...`, `ghp_`, `AKIA`, `sk_live_`, etc.)
+   - `.env` file contents pasted into code
+   - If found: move to `.env` and confirm `.env` is gitignored.
+3. Verify `.gitignore` covers `.env`, `node_modules/`, `dist/`. Note: `apps/scraper/fixtures/*.html` ARE committed intentionally (parser test inputs).
+4. Run `npm test` (see testing rule).
+5. No unnecessary whitespace changes; files end with exactly 1 trailing newline.
+
+## After each commit
+
+- Check `git log -1 --format=%B` for a `Made-with: Cursor` trailer added by hooks; if present, amend to remove it.
+
+## Guardrails
+
+- Commit locally only. Do not push unless explicitly requested.
+- No attribution trailers or tooling ads in commit messages.
+- If in doubt whether something is sensitive, ask before committing.

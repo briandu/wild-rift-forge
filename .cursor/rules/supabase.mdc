@@ -1,0 +1,40 @@
+---
+description: Database and Supabase migration discipline for schema changes, migrations, and SQL work
+alwaysApply: true
+---
+
+# Database / Supabase
+
+## Migrations are mandatory
+
+ALL database schema changes MUST go through migration files. NO EXCEPTIONS.
+
+- Location: `supabase/migrations/`
+- Naming: `YYYYMMDDHHMMSS_description.sql`
+- Make migrations idempotent where possible (`IF NOT EXISTS`, `IF EXISTS`).
+- Keep migrations small and focused on a single change.
+- Comment the migration file to document schema decisions.
+
+This covers: tables, columns, types, constraints, indexes, foreign keys, functions, triggers, views, RLS policies, and data migrations.
+
+## Applying migrations
+
+- The ONLY approved way to apply migrations to the remote Supabase project is `npx supabase db push`.
+- NEVER apply schema changes via the Supabase Dashboard SQL Editor, MCP `execute_sql`, or a direct SQL client — these bypass migration tracking and cause sync issues.
+- MCP `execute_sql` is for read-only inspection queries ONLY (never DDL).
+- If the user explicitly requests a bypass method, warn about migration-tracking consequences and get confirmation first.
+- Local development Postgres (Docker) may apply the same migration files directly with psql — the tracking discipline applies to the Supabase remote.
+
+## Schema inspection
+
+Prefer the Supabase MCP tools (`list_tables`, read-only `execute_sql`) for live schema context before falling back to reading migration files.
+
+⚠️ Verify the MCP is connected to the WildRift Forge project before ANY write operation. A Supabase MCP connection may point at an unrelated production project.
+
+## Conventions
+
+- snake_case for tables, columns, and functions.
+- Every table has `created_at timestamptz NOT NULL DEFAULT now()`; mutable tables also have `updated_at`.
+- History tables (`patch_changes`, `raw_sources`) are append-only — never overwrite historical patch data because current game data changed.
+- Use JSONB for irregular structured metadata rather than forcing rigid columns.
+- Keep the data model PostgreSQL-native; avoid proprietary Supabase features where standard Postgres works.
