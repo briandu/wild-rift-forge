@@ -1,0 +1,35 @@
+name: Check for patch updates
+
+on:
+  schedule:
+    # Every 6 hours. Offset from the top of the hour because GitHub delays
+    # (or drops) crons scheduled at :00 during peak load.
+    - cron: '17 */6 * * *'
+  # Allow manual runs from the Actions tab.
+  workflow_dispatch:
+
+# Never run two checks at once; a delayed run just waits for the previous one.
+concurrency:
+  group: patch-check
+  cancel-in-progress: false
+
+jobs:
+  check-latest-patch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # process.loadEnvFile (used by the scraper) requires Node >= 20.12
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check latest patch and ingest if new
+        run: npm run scrape:latest
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
