@@ -3,5 +3,10 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["apps/*/src/**/*.ts", "apps/*/test/**/*.ts", "packages/*/src/**/*.ts"]
+  "include": [
+    "apps/scraper/src/**/*.ts",
+    "apps/scraper/test/**/*.ts",
+    "apps/api/src/**/*.ts",
+    "packages/*/src/**/*.ts"
+  ]
 }

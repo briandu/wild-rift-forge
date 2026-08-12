@@ -1,3 +1,23 @@
-# apps/api (placeholder)
+# apps/api
 
-Node.js + Express + TypeScript REST API. Not built yet — see the project brief, Phase 6.
+Express + TypeScript REST API for `@wild-rift-forge/web`.
+
+## Dev
+
+```bash
+# From repo root — loads SUPABASE_DB_URL from .env
+npm run dev:api
+```
+
+Listens on `http://localhost:4000` (`API_PORT` to override).
+
+## Endpoints
+
+| Method | Path | Notes |
+| --- | --- | --- |
+| `GET` | `/health` | Liveness |
+| `GET` | `/champions` | Roster from Postgres (`listChampions`) |
+| `GET` | `/champions/:slug` | Single champion |
+| `GET` | `/counters/:slug` | **Stub** matchup payload for UI (not live ranked facts) |
+
+If the database is unavailable, `/champions` returns `[]` and `/counters/:slug` still returns stub scores with a synthetic enemy name.
