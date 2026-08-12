@@ -1,10 +1,10 @@
 import { createHash } from 'node:crypto';
 import { awaitRequestSlot, sleep } from './request-throttle';
 
-export interface FetchedPage {
+export interface FetchedBinary {
   /** Final URL after redirects. */
   url: string;
-  body: string;
+  bytes: Buffer;
   contentType: string;
   contentHash: string;
   fetchedAt: Date;
@@ -16,27 +16,26 @@ const USER_AGENT =
 const MAX_RETRIES = 3;
 
 /**
- * Fetch a page over plain HTTP with a browser-like User-Agent, retries with
- * backoff, and a politeness delay between consecutive requests.
+ * Download a binary asset (image) with the shared politeness throttle and retries.
  */
-export async function fetchHtml(url: string): Promise<FetchedPage> {
+export async function fetchBinary(url: string): Promise<FetchedBinary> {
   let lastError: unknown;
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     await awaitRequestSlot();
     try {
       const response = await fetch(url, {
-        headers: { 'user-agent': USER_AGENT, accept: 'text/html' },
+        headers: { 'user-agent': USER_AGENT, accept: 'image/*,*/*;q=0.8' },
         redirect: 'follow',
       });
       if (!response.ok) {
         throw new Error(`HTTP ${response.status} for ${url}`);
       }
-      const body = await response.text();
+      const bytes = Buffer.from(await response.arrayBuffer());
       return {
         url: response.url || url,
-        body,
-        contentType: response.headers.get('content-type') ?? 'text/html',
-        contentHash: createHash('sha256').update(body).digest('hex'),
+        bytes,
+        contentType: response.headers.get('content-type') ?? 'application/octet-stream',
+        contentHash: createHash('sha256').update(bytes).digest('hex'),
         fetchedAt: new Date(),
       };
     } catch (error) {

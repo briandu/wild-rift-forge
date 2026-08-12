@@ -9,4 +9,12 @@ export {
   insertPatchWithChanges,
   type StoredPatch,
 } from './patches';
-export { upsertChampion, listChampions, type StoredChampion } from './champions';
+export {
+  upsertChampion,
+  updateChampionImageAsset,
+  listChampions,
+  getChampionBySlug,
+  listChampionsNeedingAssetSync,
+  type StoredChampion,
+  type ChampionImageAsset,
+} from './champions';

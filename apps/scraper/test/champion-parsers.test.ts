@@ -31,4 +31,11 @@ describe('parseChampionDetail', () => {
     expect(detail.roles).toEqual(['fighter']);
     expect(detail.difficulty).toBe('Medium');
   });
+
+  it('uses the first Available Skins image as the default skin splash', () => {
+    const detail = parseChampionDetail(fixture('champion-aatrox.html'));
+    expect(detail.defaultSkinImageUrl).toMatch(
+      /^https:\/\/cmsassets\.rgpub\.io\/sanity\/images\/.+\.jpg/,
+    );
+  });
 });

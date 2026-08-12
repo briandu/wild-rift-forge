@@ -7,9 +7,11 @@
     "latest": "tsx src/index.ts latest",
     "backfill": "tsx src/index.ts backfill",
     "champions": "tsx src/index.ts champions",
+    "champion-assets": "tsx src/index.ts champion-assets",
     "test": "vitest run"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.0",
     "@wild-rift-forge/database": "*",
     "@wild-rift-forge/game-data": "*",
     "cheerio": "^1.0.0",

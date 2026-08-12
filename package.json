@@ -8,11 +8,17 @@
     "packages/*"
   ],
   "scripts": {
+    "dev:web": "npm run --workspace @wild-rift-forge/web dev",
+    "dev:api": "npm run --workspace @wild-rift-forge/api dev",
+    "build:web": "npm run --workspace @wild-rift-forge/web build",
     "scrape:latest": "npm run --workspace @wild-rift-forge/scraper latest",
     "scrape:backfill": "npm run --workspace @wild-rift-forge/scraper backfill --",
     "scrape:champions": "npm run --workspace @wild-rift-forge/scraper champions --",
+    "scrape:champion-assets": "npm run --workspace @wild-rift-forge/scraper champion-assets --",
+    "design:ingest": "node scripts/ingest-claude-design.mjs",
+    "design:preview": "node scripts/preview-claude-design.mjs",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit && npm run --workspace @wild-rift-forge/web typecheck && npm run --workspace @wild-rift-forge/api typecheck"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

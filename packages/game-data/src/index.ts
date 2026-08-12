@@ -53,5 +53,8 @@ export interface Champion {
   roles: string[];
   /** Difficulty label, e.g. "Medium". */
   difficulty: string | null;
+  /** Public URL served to clients (hosted Storage URL once synced). */
   imageUrl: string | null;
+  /** Upstream Riot CDN URL used as the download source for asset sync. */
+  imageSourceUrl?: string | null;
 }

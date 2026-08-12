@@ -3,6 +3,7 @@ import { closePool } from '@wild-rift-forge/database';
 import { checkLatestPatch } from './jobs/check-latest-patch';
 import { backfillPatches } from './jobs/backfill-patches';
 import { syncChampions } from './jobs/sync-champions';
+import { syncChampionAssets } from './jobs/sync-champion-assets';
 
 function getFlag(name: string, fallback: number): number {
   const index = process.argv.indexOf(`--${name}`);
@@ -27,11 +28,19 @@ async function main(): Promise<void> {
     case 'champions':
       await syncChampions(getFlag('limit', 10));
       break;
+    case 'champion-assets':
+      await syncChampionAssets(getFlag('limit', 20));
+      break;
     default:
       console.log('Usage: scraper <command>');
-      console.log('  latest                 ingest the latest patch if new');
-      console.log('  backfill --limit N     backfill up to N recent patches (default 5)');
-      console.log('  champions --limit N    sync roster; fetch detail pages for N champions (default 10)');
+      console.log('  latest                      ingest the latest patch if new');
+      console.log('  backfill --limit N          backfill up to N recent patches (default 5)');
+      console.log(
+        '  champions --limit N         sync roster; fetch detail pages for N champions (default 10)',
+      );
+      console.log(
+        '  champion-assets --limit N   host N champion portraits in Storage (default 20; cheap hash skip)',
+      );
       process.exitCode = 1;
   }
 }
