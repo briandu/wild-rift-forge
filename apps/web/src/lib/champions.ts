@@ -46,6 +46,14 @@ export const FALLBACK_CHAMPIONS: ApiChampion[] = [
 
 export const HERO_FALLBACK = '/hero-fallback.avif';
 
+export const ART_BY_SLUG: Record<string, string> = {
+  sett: '/more_art-1786470895700-w5u0.avif',
+  ashe: '/more_art-1786470895704-yijl.avif',
+  volibear: '/more_art-1786470895708-zrx7.avif',
+  gwen: '/more_art-1786470895713-hupj.avif',
+  renekton: '/more_art-1786470895717-2xza.avif',
+};
+
 export function withRoster(champions: ApiChampion[]): ApiChampion[] {
   return champions.length > 0 ? champions : FALLBACK_CHAMPIONS;
 }
@@ -57,4 +65,8 @@ export function roleLabel(roles: string[]): string {
 
 export function initials(name: string): string {
   return name.slice(0, 1).toUpperCase();
+}
+
+export function artFor(slug: string, imageUrl?: string | null): string {
+  return imageUrl || ART_BY_SLUG[slug.toLowerCase()] || HERO_FALLBACK;
 }

@@ -194,6 +194,10 @@
   overflow: hidden;
 }
 
+.pickCover {
+  object-fit: cover;
+}
+
 .pickInitial {
   position: absolute;
   left: 12px;
@@ -222,6 +226,7 @@
   background: rgba(9, 8, 16, 0.68);
   border: 1px solid;
   backdrop-filter: blur(6px);
+  z-index: 1;
 }
 
 .scoreBlock {
@@ -229,6 +234,7 @@
   right: 16px;
   bottom: 12px;
   text-align: right;
+  z-index: 1;
 }
 
 .score {

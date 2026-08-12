@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import type { CountersResponse } from '@/lib/api';
-import { HERO_FALLBACK, initials } from '@/lib/champions';
+import { bannerFocusFor } from '@/lib/banner-focus';
+import { artFor, HERO_FALLBACK, initials } from '@/lib/champions';
 import styles from './CounterResults.module.css';
 
 const LANES = ['Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
@@ -73,10 +74,19 @@ export function CounterResults({ data }: { data: CountersResponse }) {
         <div className={styles.picks}>
           {data.picks.map((c) => {
             const strong = c.tag === 'STRONG COUNTER';
+            const cover = artFor(c.slug, c.imageUrl);
+            const focus = bannerFocusFor(c.slug);
             return (
               <Link key={c.slug} href={`/champions/${c.slug}`} className={styles.pick}>
                 <div className={styles.pickArt}>
-                  <span className={styles.pickInitial}>{initials(c.name)}</span>
+                  <Image
+                    src={cover}
+                    alt=""
+                    fill
+                    className={styles.pickCover}
+                    style={{ objectPosition: `${focus.x}% ${focus.y}%` }}
+                    sizes="320px"
+                  />
                   <div className={styles.pickArtFade} />
                   <span
                     className={styles.tag}

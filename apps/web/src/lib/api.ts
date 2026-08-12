@@ -13,6 +13,7 @@ export interface CounterPick {
   winRate: string;
   tag: 'STRONG COUNTER' | 'GOOD COUNTER';
   why: string;
+  imageUrl?: string | null;
 }
 
 export interface AlsoPick {
