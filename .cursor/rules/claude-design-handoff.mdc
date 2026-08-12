@@ -1,0 +1,34 @@
+---
+description: Claude Design → apps/web handoff conventions (Riftline / Premium Gaming)
+globs:
+  - design/**/*
+  - apps/web/**/*
+alwaysApply: false
+---
+
+# Claude Design handoffs
+
+## Source of truth
+
+- Visual direction: **Premium Gaming** (RIFTLINE) — see `design/STACK.md` and the latest folder under `design/handoffs/` (or `design/claude-baseline/` if not yet re-ingested).
+- Product data / types: `@wild-rift-forge/game-data`, Supabase schema via migrations, champion art via Storage `game-assets`.
+- Implementation target: **`apps/web`** (Next.js App Router + React + TypeScript). API in `apps/api`.
+
+## When the user drops a zip / asks to import design
+
+1. Run `npm run design:ingest -- "<path-to.zip>"` (or `--latest`) unless files are already under `design/handoffs/<slug>/`.
+2. Read that handoff’s `MANIFEST.json` and entry `*.dc.html` files. Preview via `npm run design:preview` if visual check is needed.
+3. **Translate** into Next.js components/routes — do not copy `support.js`, `<x-dc>`, or `sc-*` runtime into production.
+4. Map mock data to real shapes from `packages/game-data`; never treat design mock WR/pick rates as production facts.
+5. Prefer CSS variables / shared tokens in `apps/web` over one-off inline style dumps.
+6. Preserve Premium Gaming language (dark base `#0B0A12`, purple accent, Archivo, art-led heroes). Do not reopen directions 1A/1C unless asked.
+
+## Stack boundaries
+
+- Riot page scraping stays in `apps/scraper`.
+- Schema changes only via `supabase/migrations/` + `npx supabase db push` for remote.
+- Keep recommendation logic out of Next/Express when it lands in a package.
+
+## Handoff quality bar
+
+Implement structure, hierarchy, and interaction model from the mock. Tighten spacing only after the screen is wired. Match empty/loading/sparse states when the handoff includes them.

@@ -1,0 +1,28 @@
+{
+  "slug": "2026-08-11-champion-art-plan",
+  "ingested_at": "2026-08-11T19:15:18.504Z",
+  "source_zip": "C:\\Users\\Brian Du\\Downloads\\Champion-art plan update.zip",
+  "source_zip_basename": "Champion-art plan update.zip",
+  "visual_direction": "premium-gaming",
+  "implement_into": "apps/web",
+  "stack_brief": "design/STACK.md",
+  "entry_html": [
+    "Riftline - Next Screens.dc.html",
+    "Riftline - Premium Gaming.dc.html",
+    "WildRift Directions.dc.html"
+  ],
+  "files": [
+    ".thumbnail",
+    "Riftline - Next Screens.dc.html",
+    "Riftline - Premium Gaming.dc.html",
+    "WildRift Directions.dc.html",
+    "support.js",
+    "uploads/art_files-1786469819275-kw5c.avif",
+    "uploads/more_art-1786470895700-w5u0.avif",
+    "uploads/more_art-1786470895704-yijl.avif",
+    "uploads/more_art-1786470895708-zrx7.avif",
+    "uploads/more_art-1786470895713-hupj.avif",
+    "uploads/more_art-1786470895717-2xza.avif"
+  ],
+  "notes": "Preview-only Claude Design export. Translate into Next.js — do not ship support.js to production."
+}

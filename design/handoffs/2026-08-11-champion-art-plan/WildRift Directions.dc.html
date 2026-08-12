@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Semi+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;background:#08080A;}
+a{color:#A9A2FF;text-decoration:none;}
+a:hover{color:#C9C4FF;}
+</style>
+</helmet>
+
+<section style="padding:72px 64px 140px;background:#08080A;font-family:Barlow,system-ui,sans-serif;color:#fff;min-width:max-content;box-sizing:border-box;">
+  <div style="display:flex;align-items:flex-end;gap:24px;margin-bottom:12px;">
+    <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:34px;letter-spacing:-0.02em;">Three directions, one brief</div>
+    <div style="font-size:15px;color:#6E727C;padding-bottom:6px;">Homepage + counter results for each · desktop 1240px · static mockups</div>
+  </div>
+  <div style="font-size:15px;color:#8A8F99;max-width:820px;margin-bottom:56px;line-height:1.6;">Each direction was built as if a separate team took the brief: different layout, navigation, density, type and champion-art treatment. All three share the same dark, Discord-adjacent base so the comparison is about structure and personality, not brightness.</div>
+
+  <div style="display:flex;gap:72px;align-items:flex-start;">
+
+    <div id="1a" style="display:flex;flex-direction:column;gap:20px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#0B0B0D;background:{{ accentA }};padding:5px 10px;border-radius:6px;letter-spacing:0.06em;">1A</div>
+        <div style="font-family:Archivo,sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.01em;">Competitive Analytics</div>
+      </div>
+      <div style="font-size:15px;line-height:1.6;color:#8A8F99;max-width:900px;">A ranked-climb instrument. Icon rail plus persistent filter bar, graphite surfaces, one amber accent, and counter results laid out as a ranked table with scores, win rates and difficulty. Champion art appears only as small square portraits — data carries the page. <span style="color:#C9CDD6;">Different from B and C:</span> highest density, most numbers, least art.</div>
+
+      <sc-if value="{{ showHome }}" hint-placeholder-val="{{ true }}">
+      <div style="width:1240px;height:880px;border-radius:14px;overflow:hidden;background:#0B0C0F;border:1px solid #1B1D23;display:flex;box-shadow:0 40px 90px rgba(0,0,0,.5);">
+        <div style="width:72px;background:#0E0F13;border-right:1px solid #1A1C22;display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:8px;">
+          <div style="width:40px;height:40px;border-radius:12px;background:{{ accentA }};color:#111;display:flex;align-items:center;justify-content:center;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:17px;margin-bottom:12px;">WR</div>
+          <div style="width:40px;height:40px;border-radius:12px;background:#181A20;color:#E7E9EE;display:flex;align-items:center;justify-content:center;border:1px solid #24272F;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"></path></svg></div>
+          <sc-for list="{{ aRailIcons }}" as="ic" hint-placeholder-count="5">
+            <div style="width:40px;height:40px;border-radius:12px;background:transparent;color:#5C616D;display:flex;align-items:center;justify-content:center;" style-hover="background:#15171C;color:#9AA0AC;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="{{ ic.d }}"></path></svg>
+            </div>
+          </sc-for>
+          <div style="flex:1;"></div>
+          <div style="width:34px;height:34px;border-radius:11px;background:#20232B;border:1px solid #2A2E38;"></div>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+          <div style="height:56px;border-bottom:1px solid #1A1C22;display:flex;align-items:center;padding:0 24px;gap:14px;background:#0D0E12;">
+            <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:16px;letter-spacing:0.02em;color:#E7E9EE;">COUNTERS</div>
+            <div style="width:1px;height:20px;background:#22252C;"></div>
+            <div style="display:flex;gap:6px;">
+              <div style="font-size:12px;font-weight:600;color:#0B0B0D;background:{{ accentA }};padding:5px 10px;border-radius:6px;">Patch 6.2b</div>
+              <div style="font-size:12px;font-weight:500;color:#9AA0AC;background:#15171C;border:1px solid #23262E;padding:5px 10px;border-radius:6px;">Emerald+</div>
+              <div style="font-size:12px;font-weight:500;color:#9AA0AC;background:#15171C;border:1px solid #23262E;padding:5px 10px;border-radius:6px;">All regions</div>
+            </div>
+            <div style="flex:1;"></div>
+            <div style="display:flex;align-items:center;gap:8px;background:#131519;border:1px solid #23262E;border-radius:8px;padding:7px 12px;width:250px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C616D" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+              <div style="font-size:13px;color:#5C616D;">Search champion</div>
+              <div style="flex:1;"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#5C616D;border:1px solid #2A2E38;border-radius:4px;padding:2px 5px;">/</div>
+            </div>
+          </div>
+
+          <div style="flex:1;padding:34px 32px;display:flex;flex-direction:column;min-height:0;">
+            <div style="font-family:'Barlow Semi Condensed',sans-serif;font-size:15px;font-weight:600;letter-spacing:0.14em;color:{{ accentA }};margin-bottom:10px;">MATCHUP LOOKUP</div>
+            <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:52px;line-height:1;letter-spacing:-0.01em;margin-bottom:8px;">Find the right counter.</div>
+            <div style="font-size:15px;color:#7A808C;margin-bottom:24px;">Pick the enemy champion. Get ranked answers before the timer runs out.</div>
+
+            <div style="display:flex;gap:10px;margin-bottom:14px;">
+              <div style="flex:1;display:flex;align-items:center;gap:12px;height:56px;background:#131519;border:1px solid #2B2F38;border-radius:10px;padding:0 18px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8A909C" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+                <div style="font-size:17px;color:#6A707C;">Search champion…</div>
+              </div>
+              <div style="display:flex;background:#131519;border:1px solid #23262E;border-radius:10px;padding:5px;gap:2px;">
+                <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="5">
+                  <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:0.04em;padding:0 15px;height:46px;display:flex;align-items:center;border-radius:7px;color:{{ l.fg }};background:{{ l.bg }};">{{ l.name }}</div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:30px;">
+              <div style="font-size:12px;color:#5C616D;">Recent</div>
+              <sc-for list="{{ aRecent }}" as="r" hint-placeholder-count="4">
+                <div style="display:flex;align-items:center;gap:7px;background:#111318;border:1px solid #1F222A;border-radius:20px;padding:4px 12px 4px 4px;">
+                  <div style="width:22px;height:22px;border-radius:50%;background:{{ r.bg }};color:#0B0B0D;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;">{{ r.ini }}</div>
+                  <div style="font-size:12px;color:#C9CDD6;font-weight:500;">{{ r.name }}</div>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="display:flex;gap:24px;flex:1;min-height:0;">
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;">
+                  <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.08em;color:#E7E9EE;">POPULAR CHAMPIONS</div>
+                  <div style="font-size:12px;color:#5C616D;">by lookups, last 24h</div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;">
+                  <sc-for list="{{ aPopular }}" as="c" hint-placeholder-count="5">
+                    <div style="background:#101216;border:1px solid #1E2128;border-radius:10px;padding:12px;" style-hover="border-color:#33373F;">
+                      <div style="width:100%;height:78px;border-radius:8px;background:{{ c.bg }};display:flex;align-items:flex-end;justify-content:center;font-family:Archivo,sans-serif;font-weight:900;font-size:40px;color:rgba(0,0,0,.34);line-height:.9;">{{ c.ini }}</div>
+                      <div style="font-size:14px;font-weight:600;margin-top:10px;color:#EDEFF3;">{{ c.name }}</div>
+                      <div style="font-size:11px;color:#5C616D;margin-bottom:9px;">{{ c.role }}</div>
+                      <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8A909C;">
+                        <span>WR {{ c.wr }}</span><span style="color:{{ c.prc }};">{{ c.pr }}</span>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+
+                <div style="display:flex;align-items:baseline;justify-content:space-between;margin:26px 0 12px;">
+                  <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.08em;color:#E7E9EE;">MOST-SEARCHED MATCHUPS</div>
+                  <div style="font-size:12px;color:#5C616D;">Top lane</div>
+                </div>
+                <div style="border:1px solid #1E2128;border-radius:10px;overflow:hidden;">
+                  <sc-for list="{{ aMatchups }}" as="m" hint-placeholder-count="4">
+                    <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-bottom:1px solid #171A20;background:{{ m.zebra }};">
+                      <div style="width:26px;height:26px;border-radius:6px;background:{{ m.abg }};color:#0B0B0D;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;">{{ m.aini }}</div>
+                      <div style="font-size:13px;color:#C9CDD6;font-weight:500;width:78px;">{{ m.a }}</div>
+                      <div style="font-family:'Barlow Semi Condensed',sans-serif;font-size:12px;color:#4E535D;letter-spacing:0.1em;">VS</div>
+                      <div style="width:26px;height:26px;border-radius:6px;background:{{ m.bbg }};color:#0B0B0D;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-left:8px;">{{ m.bini }}</div>
+                      <div style="font-size:13px;color:#C9CDD6;font-weight:500;width:78px;">{{ m.b }}</div>
+                      <div style="flex:1;height:6px;border-radius:3px;background:#1C1F26;overflow:hidden;display:flex;">
+                        <div style="width:{{ m.split }};background:{{ m.col }};"></div>
+                      </div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#EDEFF3;width:52px;text-align:right;">{{ m.split }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+
+              <div style="width:296px;flex:none;">
+                <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:17px;letter-spacing:0.08em;color:#E7E9EE;margin-bottom:12px;">PATCH 6.2b</div>
+                <div style="background:#101216;border:1px solid #1E2128;border-radius:10px;padding:6px 4px;">
+                  <sc-for list="{{ aChanges }}" as="c" hint-placeholder-count="6">
+                    <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;">
+                      <div style="width:28px;height:28px;border-radius:7px;background:{{ c.bg }};color:#0B0B0D;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;">{{ c.ini }}</div>
+                      <div style="flex:1;min-width:0;">
+                        <div style="font-size:13px;color:#DDE0E6;font-weight:500;">{{ c.name }}</div>
+                        <div style="font-size:11px;color:#5C616D;">{{ c.note }}</div>
+                      </div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:{{ c.col }};">{{ c.delta }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="margin-top:16px;background:#101216;border:1px solid #1E2128;border-radius:10px;padding:16px;">
+                  <div style="font-size:12px;letter-spacing:0.1em;color:{{ accentA }};font-weight:600;margin-bottom:8px;">YOUR LANE</div>
+                  <div style="font-size:14px;color:#C9CDD6;line-height:1.5;">Top · 61 games this patch. Your best blind picks are indexed against the current meta.</div>
+                  <div style="display:flex;gap:16px;margin-top:14px;">
+                    <div><div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#EDEFF3;">54.2%</div><div style="font-size:11px;color:#5C616D;">Win rate</div></div>
+                    <div><div style="font-family:'JetBrains Mono',monospace;font-size:22px;color:#EDEFF3;">+18</div><div style="font-size:11px;color:#5C616D;">LP / win</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ showCounter }}" hint-placeholder-val="{{ true }}">
+      <div style="width:1240px;height:880px;border-radius:14px;overflow:hidden;background:#0B0C0F;border:1px solid #1B1D23;display:flex;box-shadow:0 40px 90px rgba(0,0,0,.5);">
+        <div style="width:72px;background:#0E0F13;border-right:1px solid #1A1C22;display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:8px;">
+          <div style="width:40px;height:40px;border-radius:12px;background:{{ accentA }};color:#111;display:flex;align-items:center;justify-content:center;font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:17px;margin-bottom:12px;">WR</div>
+          <div style="width:40px;height:40px;border-radius:12px;background:#181A20;color:#E7E9EE;display:flex;align-items:center;justify-content:center;border:1px solid #24272F;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4l16 16M20 4L4 20"></path></svg></div>
+          <sc-for list="{{ aRailIcons }}" as="ic" hint-placeholder-count="5">
+            <div style="width:40px;height:40px;border-radius:12px;color:#5C616D;display:flex;align-items:center;justify-content:center;">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="{{ ic.d }}"></path></svg>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="flex:1;display:flex;flex-direction:column;min-width:0;">
+          <div style="height:56px;border-bottom:1px solid #1A1C22;display:flex;align-items:center;padding:0 24px;gap:12px;background:#0D0E12;">
+            <div style="font-size:13px;color:#5C616D;">Counters</div>
+            <div style="font-size:13px;color:#33373F;">/</div>
+            <div style="font-size:13px;color:#C9CDD6;font-weight:500;">Sett</div>
+            <div style="flex:1;"></div>
+            <div style="display:flex;align-items:center;gap:8px;background:#131519;border:1px solid #23262E;border-radius:8px;padding:7px 12px;width:250px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5C616D" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+              <div style="font-size:13px;color:#5C616D;">Search champion</div>
+            </div>
+          </div>
+
+          <div style="padding:26px 32px 0;display:flex;align-items:flex-start;gap:18px;">
+            <div style="width:66px;height:66px;border-radius:12px;background:linear-gradient(150deg,#E8734A,#B4341F);display:flex;align-items:flex-end;justify-content:center;font-family:Archivo,sans-serif;font-weight:900;font-size:34px;color:rgba(0,0,0,.35);line-height:1;">S</div>
+            <div style="flex:1;">
+              <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:40px;line-height:1.05;">Sett Counters</div>
+              <div style="font-size:14px;color:#7A808C;margin-top:2px;">Top Lane · Patch 6.2b · 214,806 ranked matches · Emerald+</div>
+            </div>
+            <div style="display:flex;background:#131519;border:1px solid #23262E;border-radius:9px;padding:4px;gap:2px;">
+              <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="5">
+                <div style="font-family:'Barlow Semi Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.04em;padding:0 13px;height:36px;display:flex;align-items:center;border-radius:6px;color:{{ l.fg }};background:{{ l.bg }};">{{ l.name }}</div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="flex:1;display:flex;gap:22px;padding:26px 32px 32px;min-height:0;">
+            <div style="flex:1;min-width:0;">
+              <div style="display:flex;align-items:center;gap:16px;padding:0 14px 10px;font-family:'Barlow Semi Condensed',sans-serif;font-size:12px;letter-spacing:0.12em;color:#4E535D;">
+                <div style="width:24px;">#</div>
+                <div style="flex:1;">CHAMPION</div>
+                <div style="width:168px;">COUNTER SCORE</div>
+                <div style="width:60px;text-align:right;">WR</div>
+                <sc-if value="{{ denseStats }}" hint-placeholder-val="{{ true }}"><div style="width:66px;text-align:right;">GD@10</div></sc-if>
+                <div style="width:72px;text-align:right;">DIFFICULTY</div>
+              </div>
+              <div style="border:1px solid #1E2128;border-radius:11px;overflow:hidden;">
+                <sc-for list="{{ aCounters }}" as="c" hint-placeholder-count="7">
+                  <div style="display:flex;align-items:center;gap:16px;padding:12px 14px;border-bottom:1px solid #171A20;background:{{ c.zebra }};" style-hover="background:#14171D;">
+                    <div style="width:24px;font-family:'JetBrains Mono',monospace;font-size:13px;color:{{ c.rankcol }};">{{ c.rank }}</div>
+                    <div style="width:44px;height:44px;flex:none;border-radius:9px;background:{{ c.bg }};display:flex;align-items:flex-end;justify-content:center;font-family:Archivo,sans-serif;font-weight:900;font-size:22px;color:rgba(0,0,0,.35);line-height:1.1;">{{ c.ini }}</div>
+                    <div style="flex:1;min-width:0;">
+                      <div style="display:flex;align-items:center;gap:8px;">
+                        <div style="font-size:15px;font-weight:600;color:#EDEFF3;">{{ c.name }}</div>
+                        <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;padding:2px 6px;border-radius:4px;color:{{ c.tagfg }};background:{{ c.tagbg }};">{{ c.tag }}</div>
+                      </div>
+                      <div style="font-size:12px;color:#6E737E;margin-top:2px;">{{ c.why }}</div>
+                    </div>
+                    <div style="width:168px;display:flex;align-items:center;gap:10px;">
+                      <div style="flex:1;height:6px;border-radius:3px;background:#1C1F26;overflow:hidden;"><div style="width:{{ c.barw }};height:100%;background:{{ c.barcol }};"></div></div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#EDEFF3;width:38px;text-align:right;">{{ c.score }}</div>
+                    </div>
+                    <div style="width:60px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:13px;color:#B6BBC4;">{{ c.wr }}</div>
+                    <sc-if value="{{ denseStats }}" hint-placeholder-val="{{ true }}"><div style="width:66px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:13px;color:{{ c.gdcol }};">{{ c.gd }}</div></sc-if>
+                    <div style="width:72px;display:flex;justify-content:flex-end;gap:3px;">
+                      <sc-for list="{{ c.pips }}" as="p" hint-placeholder-count="3">
+                        <div style="width:12px;height:5px;border-radius:2px;background:{{ p.c }};"></div>
+                      </sc-for>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;margin-top:14px;">
+                <div style="font-size:12px;color:#5C616D;">Counter score blends lane win rate, gold differential at 10 and pick frequency in Emerald+ games.</div>
+              </div>
+            </div>
+
+            <div style="width:290px;flex:none;display:flex;flex-direction:column;gap:14px;">
+              <div style="background:#101216;border:1px solid #1E2128;border-radius:11px;padding:16px;">
+                <div style="font-size:12px;letter-spacing:0.1em;color:{{ accentA }};font-weight:600;margin-bottom:10px;">HOW SETT LOSES</div>
+                <sc-for list="{{ aNotes }}" as="n" hint-placeholder-count="3">
+                  <div style="display:flex;gap:9px;margin-bottom:10px;">
+                    <div style="width:5px;height:5px;border-radius:50%;background:#4E535D;margin-top:7px;flex:none;"></div>
+                    <div style="font-size:13px;color:#B6BBC4;line-height:1.5;">{{ n }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="background:#101216;border:1px solid #1E2128;border-radius:11px;padding:16px;">
+                <div style="font-size:12px;letter-spacing:0.1em;color:#8A909C;font-weight:600;margin-bottom:12px;">AVOID PICKING</div>
+                <sc-for list="{{ aAvoid }}" as="c" hint-placeholder-count="3">
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:9px;">
+                    <div style="width:28px;height:28px;border-radius:7px;background:{{ c.bg }};color:rgba(0,0,0,.4);font-family:Archivo,sans-serif;font-weight:900;font-size:14px;display:flex;align-items:center;justify-content:center;">{{ c.ini }}</div>
+                    <div style="flex:1;font-size:13px;color:#DDE0E6;">{{ c.name }}</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#D9564E;">{{ c.wr }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="background:#101216;border:1px solid #1E2128;border-radius:11px;padding:16px;">
+                <div style="font-size:12px;letter-spacing:0.1em;color:#8A909C;font-weight:600;margin-bottom:8px;">LANE PLAN</div>
+                <div style="font-size:13px;color:#B6BBC4;line-height:1.55;">Trade at level 1–3, respect the grit window after he takes damage, and hold a hard-CC ability for the pull.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+
+    <div id="1b" style="display:flex;flex-direction:column;gap:20px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#fff;background:#6A5CF0;padding:5px 10px;border-radius:6px;letter-spacing:0.06em;">1B</div>
+        <div style="font-family:Archivo,sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.01em;">Premium Gaming</div>
+      </div>
+      <div style="font-size:15px;line-height:1.6;color:#8A8F99;max-width:900px;">Editorial and expressive. Wide horizontal nav, splash art running full-bleed, heavy display type, and counters presented as a staged matchup rather than a list. Numbers are still there, just fewer and larger. <span style="color:#C9CDD6;">Different from A and C:</span> art leads, one recommendation dominates the page.</div>
+
+      <sc-if value="{{ showHome }}" hint-placeholder-val="{{ true }}">
+      <div style="width:1240px;height:880px;border-radius:14px;overflow:hidden;background:#0B0A12;border:1px solid #211E33;position:relative;box-shadow:0 40px 90px rgba(0,0,0,.5);font-family:Archivo,sans-serif;">
+        <div style="position:absolute;inset:0;background:radial-gradient(900px 500px at 78% 8%,rgba(106,92,240,.30),transparent 62%),radial-gradient(700px 480px at 8% 30%,rgba(52,120,220,.16),transparent 60%);"></div>
+        <div style="position:relative;height:78px;display:flex;align-items:center;padding:0 40px;gap:36px;border-bottom:1px solid rgba(255,255,255,.06);">
+          <div style="display:flex;align-items:center;flex:none;">
+            <img src="uploads/logo-wr-forge.png" alt="Wild Rift Forge" style="height:48px;width:auto;display:block;">
+          </div>
+          <div style="display:flex;gap:28px;">
+            <sc-for list="{{ bNav }}" as="n" hint-placeholder-count="6">
+              <div style="font-size:15px;font-weight:{{ n.w }};color:{{ n.c }};">{{ n.name }}</div>
+            </sc-for>
+          </div>
+          <div style="flex:1;"></div>
+          <div style="font-size:13px;font-weight:600;color:#B7B2E0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);padding:7px 13px;border-radius:20px;">Patch 6.2b</div>
+          <div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(140deg,#6A5CF0,#3C7BD6);"></div>
+        </div>
+
+        <div style="position:relative;height:472px;display:flex;align-items:center;">
+          <div style="position:absolute;right:0;top:0;bottom:0;width:760px;overflow:hidden;">
+            <img src="uploads/art_files-1786469819275-kw5c.avif" alt="Champion splash art" style="width:100%;height:100%;object-fit:cover;object-position:60% 34%;">
+            <div style="position:absolute;inset:0;background:linear-gradient(90deg,#0B0A12 4%,rgba(11,10,18,.72) 32%,rgba(11,10,18,.1) 78%);"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg,#0B0A12 2%,transparent 42%);"></div>
+          </div>
+          <div style="position:relative;padding:0 40px;width:660px;">
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.22em;color:#8E85F5;margin-bottom:18px;">WILD RIFT COMPANION</div>
+            <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:76px;line-height:.94;letter-spacing:-0.035em;">Find the right<br>counter.</div>
+            <div style="font-size:17px;line-height:1.55;color:#A9A5C4;margin:20px 0 30px;max-width:430px;text-wrap:pretty;">Tell us who you're up against. We'll show you the picks that beat them, and the reason they work.</div>
+            <div style="display:flex;align-items:center;gap:10px;height:64px;background:rgba(20,18,34,.82);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:0 8px 0 20px;width:520px;backdrop-filter:blur(8px);">
+              <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#8E85F5" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+              <div style="font-size:17px;color:#7B769B;flex:1;">Search champion…</div>
+              <div style="height:48px;padding:0 24px;border-radius:10px;background:linear-gradient(135deg,#6A5CF0,#4E3FD6);display:flex;align-items:center;font-size:15px;font-weight:700;">Counter</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;margin-top:20px;">
+              <div style="font-size:13px;color:#6E6A8C;">Popular</div>
+              <sc-for list="{{ bPopular }}" as="c" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:5px 14px 5px 5px;" style-hover="background:rgba(255,255,255,.1);">
+                  <div style="width:26px;height:26px;border-radius:50%;background:{{ c.bg }};color:rgba(0,0,0,.45);font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center;">{{ c.ini }}</div>
+                  <div style="font-size:14px;font-weight:600;color:#DEDCEE;">{{ c.name }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="position:relative;padding:34px 40px 0;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:18px;">
+            <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:26px;letter-spacing:-0.02em;">Climbing this patch</div>
+            <div style="font-size:14px;color:#7B769B;">Top lane · Emerald+</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+            <sc-for list="{{ bTrending }}" as="c" hint-placeholder-count="4">
+              <div style="height:214px;border-radius:16px;overflow:hidden;position:relative;background:{{ c.bg }};">
+                <div style="position:absolute;right:-14px;bottom:-26px;font-family:Archivo,sans-serif;font-weight:900;font-size:150px;color:rgba(0,0,0,.22);line-height:.8;">{{ c.ini }}</div>
+                <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,7,14,.9) 12%,rgba(8,7,14,.15) 62%);"></div>
+                <div style="position:absolute;left:16px;right:16px;bottom:14px;">
+                  <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;color:{{ c.tagc }};margin-bottom:5px;">{{ c.tag }}</div>
+                  <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.01em;">{{ c.name }}</div>
+                  <div style="display:flex;gap:14px;margin-top:8px;font-size:13px;color:#A9A5C4;">
+                    <div>WR <span style="color:#fff;font-weight:600;">{{ c.wr }}</span></div>
+                    <div>Pick <span style="color:#fff;font-weight:600;">{{ c.pr }}</span></div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ showCounter }}" hint-placeholder-val="{{ true }}">
+      <div style="width:1240px;height:880px;border-radius:14px;overflow:hidden;background:#0B0A12;border:1px solid #211E33;position:relative;box-shadow:0 40px 90px rgba(0,0,0,.5);font-family:Archivo,sans-serif;">
+        <div style="position:relative;height:78px;display:flex;align-items:center;padding:0 40px;gap:36px;border-bottom:1px solid rgba(255,255,255,.06);z-index:3;background:rgba(11,10,18,.6);backdrop-filter:blur(10px);">
+          <div style="display:flex;align-items:center;flex:none;">
+            <img src="uploads/logo-wr-forge.png" alt="Wild Rift Forge" style="height:48px;width:auto;display:block;">
+          </div>
+          <div style="display:flex;gap:28px;">
+            <sc-for list="{{ bNav }}" as="n" hint-placeholder-count="6">
+              <div style="font-size:15px;font-weight:{{ n.w }};color:{{ n.c }};">{{ n.name }}</div>
+            </sc-for>
+          </div>
+          <div style="flex:1;"></div>
+          <div style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:7px 14px;width:190px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8E85F5" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+            <div style="font-size:13px;color:#7B769B;">Search</div>
+          </div>
+        </div>
+
+        <div style="position:relative;height:412px;">
+          <img src="uploads/art_files-1786469819275-kw5c.avif" alt="Ashe splash art" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;">
+          <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,10,18,.94) 22%,rgba(11,10,18,.45) 62%,rgba(11,10,18,.85));"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(0deg,#0B0A12 3%,transparent 46%);"></div>
+          <div style="position:absolute;left:40px;top:52px;right:40px;">
+            <div style="font-size:13px;font-weight:700;letter-spacing:0.22em;color:#8E85F5;margin-bottom:14px;">ENEMY PICK · DRAGON LANE</div>
+            <div style="font-family:Archivo,sans-serif;font-weight:900;font-size:96px;line-height:.9;letter-spacing:-0.04em;">ASHE</div>
+            <div style="font-size:17px;color:#BBB7D4;margin-top:14px;max-width:420px;line-height:1.5;">Long-range poke with permanent slows. Punish her before six, or out-range her after.</div>
+            <div style="display:flex;gap:34px;margin-top:30px;">
+              <sc-for list="{{ bStats }}" as="s" hint-placeholder-count="3">
+                <div>
+                  <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:32px;letter-spacing:-0.02em;">{{ s.v }}</div>
+                  <div style="font-size:12px;font-weight:600;letter-spacing:0.12em;color:#7B769B;margin-top:3px;">{{ s.k }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="position:relative;padding:6px 40px 0;margin-top:-46px;z-index:2;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px;">
+            <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:28px;letter-spacing:-0.02em;">Best picks against her</div>
+            <div style="font-size:14px;color:#7B769B;">Ranked by matchup score · 68,204 games</div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+            <sc-for list="{{ bPicks }}" as="c" hint-placeholder-count="3">
+              <div style="border-radius:18px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);">
+                <div style="height:150px;position:relative;background:{{ c.bg }};overflow:hidden;">
+                  <div style="position:absolute;left:10px;bottom:-30px;font-family:Archivo,sans-serif;font-weight:900;font-size:132px;color:rgba(0,0,0,.22);line-height:.8;">{{ c.ini }}</div>
+                  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,10,20,.78),transparent 62%);"></div>
+                  <div style="position:absolute;left:16px;top:14px;font-size:11px;font-weight:700;letter-spacing:0.1em;padding:5px 10px;border-radius:14px;background:rgba(9,8,16,.66);border:1px solid {{ c.tagbd }};color:{{ c.tagc }};">{{ c.tag }}</div>
+                  <div style="position:absolute;right:16px;bottom:12px;text-align:right;">
+                    <div style="font-family:Archivo,sans-serif;font-weight:900;font-size:34px;line-height:1;">{{ c.score }}</div>
+                    <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;color:rgba(255,255,255,.62);">MATCHUP</div>
+                  </div>
+                </div>
+                <div style="padding:16px 18px 18px;">
+                  <div style="font-family:Archivo,sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.01em;">{{ c.name }}</div>
+                  <div style="font-size:14px;color:#A9A5C4;line-height:1.5;margin-top:6px;height:42px;">{{ c.why }}</div>
+                  <div style="display:flex;align-items:center;gap:12px;margin-top:12px;">
+                    <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden;"><div style="width:{{ c.barw }};height:100%;background:linear-gradient(90deg,#6A5CF0,#8E85F5);"></div></div>
+                    <div style="font-size:13px;font-weight:600;color:#DEDCEE;">{{ c.wr }} WR</div>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+
+    <div id="1c" style="display:flex;flex-direction:column;gap:20px;">
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#0B0B0D;background:#DCDCE2;padding:5px 10px;border-radius:6px;letter-spacing:0.06em;">1C</div>
+        <div style="font-family:Archivo,sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.01em;">Modern Utility</div>
+      </div>
+      <div style="font-size:15px;line-height:1.6;color:#8A8F99;max-width:900px;">The search is the product. No nav bar, no sidebar — a command palette on an almost-empty canvas, keyboard hints everywhere, and results as hairline-separated rows with one number and one reason each. Portraits are 28px accents. <span style="color:#C9CDD6;">Different from A and B:</span> fastest to read, least decoration, strongest typography.</div>
+
+      <sc-if value="{{ showHome }}" hint-placeholder-val="{{ true }}">
+      <div style="width:1240px;height:880px;border-radius:14px;overflow:hidden;background:#08080A;border:1px solid #17171B;position:relative;box-shadow:0 40px 90px rgba(0,0,0,.5);font-family:'Space Grotesk',sans-serif;">
+        <div style="position:absolute;inset:0;background:radial-gradient(700px 380px at 50% -6%,rgba(139,124,255,.12),transparent 70%);"></div>
+        <div style="position:relative;height:50px;display:flex;align-items:center;padding:0 20px;gap:12px;border-bottom:1px solid #131317;">
+          <div style="width:20px;height:20px;border-radius:6px;background:#8B7CFF;"></div>
+          <div style="font-size:13px;font-weight:600;letter-spacing:-0.01em;color:#D6D6DC;">rift</div>
+          <div style="flex:1;"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5A5A64;">patch 6.2b</div>
+          <div style="width:1px;height:14px;background:#1E1E24;"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5A5A64;border:1px solid #22222A;border-radius:5px;padding:3px 7px;">⌘K</div>
+        </div>
+
+        <div style="position:relative;display:flex;flex-direction:column;align-items:center;padding-top:118px;">
+          <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:46px;letter-spacing:-0.035em;color:#F2F2F5;">Who are you playing against?</div>
+          <div style="font-size:16px;color:#63636E;margin-top:12px;">Type a champion. Get the three picks that beat them.</div>
+
+          <div style="width:720px;margin-top:44px;border:1px solid #23232B;border-radius:14px;background:#0D0D11;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.6);">
+            <div style="display:flex;align-items:center;gap:12px;padding:0 18px;height:62px;border-bottom:1px solid #191920;">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#8B7CFF" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+              <div style="font-size:19px;color:#EDEDF2;letter-spacing:-0.01em;">set</div>
+              <div style="width:1.5px;height:22px;background:#8B7CFF;"></div>
+              <div style="flex:1;"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#4E4E58;">6 results</div>
+            </div>
+            <div style="padding:6px;">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:#4E4E58;padding:8px 12px 6px;">CHAMPIONS</div>
+              <sc-for list="{{ cResults }}" as="r" hint-placeholder-count="5">
+                <div style="display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:9px;background:{{ r.bgsel }};">
+                  <div style="width:28px;height:28px;border-radius:50%;background:{{ r.bg }};color:rgba(0,0,0,.45);font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;">{{ r.ini }}</div>
+                  <div style="font-size:15px;font-weight:500;color:{{ r.fg }};letter-spacing:-0.01em;">{{ r.name }}</div>
+                  <div style="font-size:13px;color:#5A5A64;">{{ r.role }}</div>
+                  <div style="flex:1;"></div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5A5A64;">{{ r.hint }}</div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;align-items:center;gap:18px;padding:10px 16px;border-top:1px solid #191920;background:#0A0A0E;">
+              <sc-for list="{{ cKeys }}" as="k" hint-placeholder-count="4">
+                <div style="display:flex;align-items:center;gap:7px;">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#8A8A96;border:1px solid #26262E;border-radius:4px;padding:2px 6px;">{{ k.k }}</div>
+                  <div style="font-size:12px;color:#5A5A64;">{{ k.l }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px;margin-top:34px;">
+            <div style="font-size:13px;color:#4E4E58;margin-right:4px;">Popular</div>
+            <sc-for list="{{ cPopular }}" as="c" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:8px;border:1px solid #1D1D24;border-radius:8px;padding:5px 11px 5px 5px;" style-hover="border-color:#33333D;">
+                <div style="width:22px;height:22px;border-radius:50%;background:{{ c.bg }};color:rgba(0,0,0,.45);font-weight:700;font-size:10px;display:flex;align-items:center;justify-content:center;">{{ c.ini }}</div>
+                <div style="font-size:13px;color:#B4B4BE;font-weight:500;">{{ c.name }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="position:absolute;bottom:26px;left:0;right:0;display:flex;justify-content:center;gap:22px;font-size:12px;color:#3E3E46;">
+            <div>218 champions indexed</div><div>·</div><div>Updated 4 hours ago</div><div>·</div><div>Emerald+ ranked data</div>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ showCounter }}" hint-placeholder-val="{{ true }}">
+      <div style="width:1240px;height:880px;border-radius:14px;overflow:hidden;background:#08080A;border:1px solid #17171B;position:relative;box-shadow:0 40px 90px rgba(0,0,0,.5);font-family:'Space Grotesk',sans-serif;">
+        <div style="height:50px;display:flex;align-items:center;padding:0 20px;gap:12px;border-bottom:1px solid #131317;">
+          <div style="width:20px;height:20px;border-radius:6px;background:#8B7CFF;"></div>
+          <div style="font-size:13px;font-weight:600;color:#D6D6DC;">rift</div>
+          <div style="width:1px;height:14px;background:#1E1E24;margin:0 4px;"></div>
+          <div style="display:flex;align-items:center;gap:8px;border:1px solid #1D1D24;border-radius:8px;padding:4px 10px 4px 4px;">
+            <div style="width:20px;height:20px;border-radius:50%;background:linear-gradient(150deg,#E8734A,#B4341F);color:rgba(0,0,0,.45);font-weight:700;font-size:10px;display:flex;align-items:center;justify-content:center;">S</div>
+            <div style="font-size:13px;color:#D6D6DC;font-weight:500;">Sett</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#4E4E58;">esc</div>
+          </div>
+          <div style="flex:1;"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5A5A64;">top lane</div>
+          <div style="width:1px;height:14px;background:#1E1E24;"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5A5A64;">patch 6.2b</div>
+        </div>
+
+        <div style="display:flex;padding:56px 64px 0;gap:56px;">
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:38px;letter-spacing:-0.035em;color:#F2F2F5;">Pick one of these against Sett.</div>
+            <div style="font-size:15px;color:#63636E;margin-top:10px;">Ranked by matchup score across 214,806 Emerald+ games this patch.</div>
+
+            <div style="margin-top:38px;">
+              <sc-for list="{{ cPrimary }}" as="c" hint-placeholder-count="3">
+                <div style="display:flex;align-items:center;gap:18px;padding:20px 4px;border-top:1px solid #17171B;">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#4E4E58;width:18px;">{{ c.rank }}</div>
+                  <div style="width:46px;height:46px;border-radius:12px;background:{{ c.bg }};color:rgba(0,0,0,.4);font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;display:flex;align-items:center;justify-content:center;flex:none;">{{ c.ini }}</div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="display:flex;align-items:center;gap:10px;">
+                      <div style="font-size:22px;font-weight:600;letter-spacing:-0.025em;color:#F2F2F5;">{{ c.name }}</div>
+                      <div style="font-size:11px;font-weight:600;letter-spacing:0.04em;color:{{ c.tagc }};border:1px solid {{ c.tagb }};border-radius:5px;padding:2px 7px;">{{ c.tag }}</div>
+                    </div>
+                    <div style="font-size:14px;color:#7A7A86;margin-top:5px;line-height:1.5;">{{ c.why }}</div>
+                  </div>
+                  <div style="text-align:right;width:96px;">
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:24px;color:#F2F2F5;letter-spacing:-0.02em;">{{ c.score }}</div>
+                    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#5A5A64;margin-top:3px;">{{ c.wr }} wr</div>
+                  </div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#4E4E58;border:1px solid #1F1F27;border-radius:5px;padding:3px 7px;width:18px;text-align:center;">{{ c.key }}</div>
+                </div>
+              </sc-for>
+              <div style="border-top:1px solid #17171B;"></div>
+            </div>
+
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#4E4E58;margin:36px 0 6px;">ALSO WORKS</div>
+            <sc-for list="{{ cSecondary }}" as="c" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:14px;padding:12px 4px;border-top:1px solid #131317;">
+                <div style="width:26px;height:26px;border-radius:8px;background:{{ c.bg }};color:rgba(0,0,0,.4);font-weight:700;font-size:11px;display:flex;align-items:center;justify-content:center;">{{ c.ini }}</div>
+                <div style="font-size:15px;font-weight:500;color:#C4C4CE;width:110px;">{{ c.name }}</div>
+                <div style="flex:1;font-size:13px;color:#63636E;">{{ c.why }}</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#9A9AA6;">{{ c.score }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="width:250px;flex:none;padding-top:6px;">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#4E4E58;margin-bottom:14px;">WHY THESE WORK</div>
+            <sc-for list="{{ cNotes }}" as="n" hint-placeholder-count="3">
+              <div style="padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid #131317;">
+                <div style="font-size:14px;font-weight:600;color:#D6D6DC;letter-spacing:-0.01em;margin-bottom:5px;">{{ n.t }}</div>
+                <div style="font-size:13px;color:#6E6E7A;line-height:1.55;">{{ n.b }}</div>
+              </div>
+            </sc-for>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.12em;color:#4E4E58;margin:26px 0 12px;">AVOID</div>
+            <sc-for list="{{ cAvoid }}" as="c" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                <div style="width:22px;height:22px;border-radius:7px;background:{{ c.bg }};color:rgba(0,0,0,.4);font-weight:700;font-size:10px;display:flex;align-items:center;justify-content:center;">{{ c.ini }}</div>
+                <div style="flex:1;font-size:13px;color:#8A8A96;">{{ c.name }}</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#63636E;">{{ c.score }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;compareMode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Both screens&quot;,&quot;Homepages only&quot;,&quot;Counter pages only&quot;],&quot;default&quot;:&quot;Both screens&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Comparison&quot;},&quot;denseStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comparison&quot;},&quot;accentA&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;options&quot;:[&quot;#F2A93B&quot;,&quot;#4ED8C0&quot;,&quot;#FF6B4A&quot;,&quot;#8B7CFF&quot;],&quot;default&quot;:&quot;#F2A93B&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Direction A&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const mode = p.compareMode ?? "Both screens";
+    const accentA = p.accentA ?? "#F2A93B";
+    const denseStats = p.denseStats ?? true;
+    const g = (a, b) => `linear-gradient(150deg,${a},${b})`;
+
+    const art = {
+      Sett: g("#E8734A", "#B4341F"), Ahri: g("#F07AB5", "#A8317A"), Yasuo: g("#66C6E8", "#2E6E9E"),
+      Garen: g("#E5C067", "#9A7526"), Jinx: g("#9B84FF", "#4B34B8"), Volibear: g("#5BC0F0", "#2A6FA8"),
+      Renekton: g("#E39A55", "#9A5220"), Gwen: g("#8FE0D0", "#2E8F84"), Darius: g("#D4604A", "#8A2A22"),
+      Camille: g("#8E9BE6", "#3E4A9E"), Fiora: g("#E894AE", "#9E3E62"), Malphite: g("#93A2B4", "#4A5666"),
+      Jax: g("#B9C46A", "#6B7530"), Irelia: g("#A6C7E8", "#4B6E96"), Caitlyn: g("#E2C15F", "#94722A"),
+      Draven: g("#D96A5C", "#8E2E2C"), Vayne: g("#9C8CF0", "#4E3AA8"), Teemo: g("#8FD48F", "#3E8446"),
+      Nasus: g("#E0B370", "#96682C"), Lucian: g("#E6CBA0", "#96764A"), Kennen: g("#EFD46B", "#A08928"),
+      Setti: g("#E8734A", "#B4341F")
+    };
+    const ini = n => n.slice(0, 1);
+    const chip = n => ({ name: n, ini: ini(n), bg: art[n] });
+
+    const pips = (n) => [0, 1, 2].map(i => ({ c: i < n ? (n === 1 ? "#5BC08A" : n === 2 ? "#E0A93B" : "#D9564E") : "#22252C" }));
+
+    const aCounters = [
+      { rank: "1", name: "Volibear", score: "78.4", wr: "56.2%", gd: "+412", why: "Wins extended trades and ignores his grit shield", tag: "STRONG", d: 1 },
+      { rank: "2", name: "Renekton", score: "75.1", wr: "55.4%", gd: "+388", why: "Level 1–3 dominance, stuns through the pull", tag: "STRONG", d: 2 },
+      { rank: "3", name: "Gwen", score: "71.6", wr: "54.0%", gd: "+241", why: "Untargetable window blanks his ultimate", tag: "GOOD", d: 3 },
+      { rank: "4", name: "Malphite", score: "68.9", wr: "53.1%", gd: "+164", why: "Armour scaling neutralises his damage curve", tag: "GOOD", d: 1 },
+      { rank: "5", name: "Camille", score: "66.2", wr: "52.4%", gd: "+120", why: "Shields the trade, disengages the all-in", tag: "GOOD", d: 3 },
+      { rank: "6", name: "Fiora", score: "63.8", wr: "51.9%", gd: "+86", why: "Parries the true-damage punch if timed", tag: "EVEN", d: 3 },
+      { rank: "7", name: "Jax", score: "61.0", wr: "51.2%", gd: "-14", why: "Counter-strike beats the grit window post-6", tag: "EVEN", d: 2 }
+    ].map((c, i) => ({
+      ...c, ini: ini(c.name), bg: art[c.name], zebra: i % 2 ? "#0D0F13" : "transparent",
+      rankcol: i < 3 ? accentA : "#4E535D", barw: `${Math.round(parseFloat(c.score))}%`,
+      barcol: c.tag === "STRONG" ? "#5BC08A" : c.tag === "GOOD" ? accentA : "#6E737E",
+      tagfg: c.tag === "STRONG" ? "#0B0B0D" : c.tag === "GOOD" ? "#E0A93B" : "#8A909C",
+      tagbg: c.tag === "STRONG" ? "#5BC08A" : c.tag === "GOOD" ? "rgba(224,169,59,.14)" : "rgba(138,144,156,.14)",
+      gdcol: c.gd.startsWith("+") ? "#5BC08A" : "#D9564E", pips: pips(c.d)
+    }));
+
+    const lanes = ["TOP", "JGL", "MID", "ADC", "SUP"].map((n, i) => ({
+      name: n, fg: i === 0 ? "#0B0B0D" : "#8A909C", bg: i === 0 ? accentA : "transparent"
+    }));
+
+    return {
+      accentA, denseStats,
+      showHome: mode !== "Counter pages only",
+      showCounter: mode !== "Homepages only",
+      lanes,
+      aRailIcons: [
+        { d: "M12 5.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zM5 19c1.6-3.2 4-4.8 7-4.8s5.4 1.6 7 4.8" },
+        { d: "M4 14h5v6H4zM10 8h5v12h-5zM16 4h4v16h-4z" },
+        { d: "M4 6h16M4 12h16M4 18h10" },
+        { d: "M5 5h6v14H5zM13 5h6v14h-6z" },
+        { d: "M12 3l7 4v10l-7 4-7-4V7z" }
+      ],
+      aRecent: ["Sett", "Darius", "Ahri", "Jinx"].map(chip),
+      aPopular: [
+        { name: "Sett", role: "Top · Fighter", wr: "51.4%", pr: "▲ 12.8%", up: 1 },
+        { name: "Ahri", role: "Mid · Mage", wr: "52.0%", pr: "▲ 9.4%", up: 1 },
+        { name: "Yasuo", role: "Mid · Fighter", wr: "49.1%", pr: "▼ 8.2%", up: 0 },
+        { name: "Garen", role: "Top · Fighter", wr: "53.3%", pr: "▲ 7.6%", up: 1 },
+        { name: "Jinx", role: "ADC · Marksman", wr: "51.9%", pr: "▼ 7.1%", up: 0 }
+      ].map(c => ({ ...c, ini: ini(c.name), bg: art[c.name], prc: c.up ? "#5BC08A" : "#D9564E" })),
+      aMatchups: [
+        { a: "Sett", b: "Volibear", split: "56%", col: "#5BC08A" },
+        { a: "Darius", b: "Gwen", split: "54%", col: "#5BC08A" },
+        { a: "Yasuo", b: "Malphite", split: "58%", col: "#5BC08A" },
+        { a: "Ahri", b: "Fiora", split: "49%", col: "#E0A93B" }
+      ].map((m, i) => ({
+        ...m, aini: ini(m.a), bini: ini(m.b), abg: art[m.a], bbg: art[m.b],
+        zebra: i % 2 ? "#0D0F13" : "transparent"
+      })),
+      aChanges: [
+        { name: "Volibear", note: "Q damage 45→52", delta: "+3.1", up: 1 },
+        { name: "Gwen", note: "W duration 2.5s→3s", delta: "+2.4", up: 1 },
+        { name: "Sett", note: "Grit decay increased", delta: "-1.8", up: 0 },
+        { name: "Jax", note: "E cooldown 16→18", delta: "-1.5", up: 0 },
+        { name: "Irelia", note: "Passive stacks capped", delta: "-0.9", up: 0 },
+        { name: "Teemo", note: "Trap arm time 1s→0.8s", delta: "+0.7", up: 1 }
+      ].map(c => ({ ...c, ini: ini(c.name), bg: art[c.name], col: c.up ? "#5BC08A" : "#D9564E" })),
+      aCounters,
+      aNotes: [
+        "Grit only converts damage he has already taken — trade first, commit second.",
+        "His pull needs both targets; standing away from minions removes half his kit.",
+        "After level 6 he wants an all-in. Sustained damage beats burst here."
+      ],
+      aAvoid: [
+        { name: "Nasus", wr: "44.1%" }, { name: "Teemo", wr: "45.6%" }, { name: "Kennen", wr: "46.9%" }
+      ].map(c => ({ ...c, ini: ini(c.name), bg: art[c.name] })),
+
+      bNav: ["Champions", "Counters", "Builds", "Tier List", "Draft", "Patch"].map((n, i) => ({
+        name: n, w: i === 1 ? 600 : 500, c: i === 1 ? "#FFFFFF" : "#8B87A8"
+      })),
+      bPopular: ["Sett", "Ahri", "Yasuo", "Garen", "Jinx"].map(chip),
+      bTrending: [
+        { name: "Volibear", tag: "RISING", wr: "56.2%", pr: "14.1%", tagc: "#7BE0A8" },
+        { name: "Gwen", tag: "BUFFED", wr: "54.0%", pr: "11.8%", tagc: "#7BE0A8" },
+        { name: "Camille", tag: "META", wr: "52.4%", pr: "9.6%", tagc: "#B7B2E0" },
+        { name: "Darius", tag: "CONTESTED", wr: "51.1%", pr: "18.2%", tagc: "#F0A87B" }
+      ].map(c => ({ ...c, ini: ini(c.name), bg: art[c.name] })),
+      bStats: [
+        { v: "51.8%", k: "WIN RATE" }, { v: "22.4%", k: "PICK RATE" }, { v: "6.1%", k: "BAN RATE" }
+      ],
+      bPicks: [
+        { name: "Caitlyn", tag: "STRONG COUNTER", score: "79", wr: "56.4%", why: "Out-ranges her poke and denies the wave with traps.", barw: "79%" },
+        { name: "Draven", tag: "STRONG COUNTER", score: "76", wr: "55.1%", why: "Wins every level 1–5 trade if he lands the axes.", barw: "76%" },
+        { name: "Vayne", tag: "GOOD COUNTER", score: "71", wr: "53.6%", why: "Condemn breaks her arrow, and she scales past it.", barw: "71%" }
+      ].map(c => ({
+        ...c, ini: ini(c.name), bg: art[c.name],
+        tagbd: c.tag === "STRONG COUNTER" ? "rgba(123,224,168,.45)" : "rgba(255,255,255,.28)",
+        tagc: c.tag === "STRONG COUNTER" ? "#8FEDB8" : "#EDECF7"
+      })),
+
+      cResults: [
+        { name: "Sett", role: "Top · Fighter", hint: "↵", sel: 1 },
+        { name: "Setter (skin)", role: "Cosmetic", hint: "" },
+        { name: "Seraphine", role: "Mid · Mage", hint: "" },
+        { name: "Senna", role: "ADC · Support", hint: "" },
+        { name: "Sejuani", role: "Jungle · Tank", hint: "" }
+      ].map(r => ({
+        ...r, ini: ini(r.name), bg: art[r.name] || "linear-gradient(150deg,#9A9AA6,#4E4E58)",
+        bgsel: r.sel ? "#17161F" : "transparent", fg: r.sel ? "#F2F2F5" : "#B4B4BE"
+      })),
+      cKeys: [{ k: "↑↓", l: "navigate" }, { k: "↵", l: "counters" }, { k: "⇥", l: "builds" }, { k: "esc", l: "close" }],
+      cPopular: ["Sett", "Ahri", "Yasuo", "Garen", "Jinx"].map(chip),
+      cPrimary: [
+        { rank: "01", name: "Volibear", tag: "STRONG", score: "78", wr: "56.2%", key: "1", why: "Wins extended trades outright and ignores the grit shield.", strong: 1 },
+        { rank: "02", name: "Renekton", tag: "STRONG", score: "75", wr: "55.4%", key: "2", why: "Owns levels 1–3 and stuns through the pull.", strong: 1 },
+        { rank: "03", name: "Gwen", tag: "GOOD", score: "72", wr: "54.0%", key: "3", why: "Untargetable window blanks his ultimate entirely.", strong: 0 }
+      ].map(c => ({
+        ...c, ini: ini(c.name), bg: art[c.name],
+        tagc: c.strong ? "#7BE0A8" : "#9A9AA6", tagb: c.strong ? "rgba(123,224,168,.3)" : "#26262E"
+      })),
+      cSecondary: [
+        { name: "Malphite", score: "69", why: "Armour scaling flattens his damage curve" },
+        { name: "Camille", score: "66", why: "Shields the trade, disengages the all-in" },
+        { name: "Fiora", score: "64", why: "Parry beats the punch if you time it" },
+        { name: "Jax", score: "61", why: "Counter-strike wins the post-6 all-in" }
+      ].map(c => ({ ...c, ini: ini(c.name), bg: art[c.name] })),
+      cNotes: [
+        { t: "Trade before he stacks", b: "Grit only converts damage he has already taken. Hit first and the shield is empty." },
+        { t: "Stand away from minions", b: "His pull needs two targets. Positioning removes half the kit." },
+        { t: "Sustain beats burst", b: "After six he wants a single all-in. Champions with continuous damage win the fight." }
+      ],
+      cAvoid: [
+        { name: "Nasus", score: "44" }, { name: "Teemo", score: "46" }, { name: "Kennen", score: "47" }
+      ].map(c => ({ ...c, ini: ini(c.name), bg: art[c.name] }))
+    };
+  }
+}
+</script>
+</body>
+</html>
