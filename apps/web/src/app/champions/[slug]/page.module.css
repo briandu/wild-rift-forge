@@ -1,0 +1,62 @@
+.panel {
+  padding: 72px 48px 100px;
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-soft);
+}
+
+.title {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(40px, 7vw, 72px);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.copy {
+  margin: 20px 0 0;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 480px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+}
+
+@media (max-width: 720px) {
+  .panel {
+    padding: 48px 20px 80px;
+  }
+}

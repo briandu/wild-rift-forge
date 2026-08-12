@@ -1,0 +1,391 @@
+.hero {
+  position: relative;
+  height: 440px;
+  overflow: hidden;
+}
+
+.heroArt {
+  object-fit: cover;
+  object-position: 52% 28%;
+}
+
+.heroFade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11, 10, 18, 0.95) 24%, rgba(11, 10, 18, 0.42) 66%, rgba(11, 10, 18, 0.86)),
+    linear-gradient(0deg, #0b0a12 2%, transparent 48%);
+}
+
+.heroContent {
+  position: absolute;
+  left: 48px;
+  top: 44px;
+  right: 48px;
+  z-index: 1;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #b7b2e0;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border);
+  padding: 6px 14px 6px 10px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+.back:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-soft);
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.title {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 0.88;
+  letter-spacing: -0.042em;
+}
+
+.profileLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border-strong);
+  padding: 8px 16px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.profileLink:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.blurb {
+  font-size: 17px;
+  color: #bbb7d4;
+  margin: 16px 0 0;
+  max-width: 440px;
+  line-height: 1.5;
+}
+
+.stats {
+  display: flex;
+  gap: 36px;
+  margin-top: 30px;
+}
+
+.statValue {
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-top: 3px;
+}
+
+.lanes {
+  position: absolute;
+  right: 48px;
+  bottom: 96px;
+  display: flex;
+  gap: 6px;
+  background: rgba(16, 14, 28, 0.7);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 5px;
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+.lane,
+.laneActive {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 16px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  color: var(--text-dim);
+}
+
+.laneActive {
+  color: #fff;
+  background: var(--accent);
+}
+
+.body {
+  position: relative;
+  padding: 0 48px 90px;
+  margin-top: -52px;
+  z-index: 2;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: -0.022em;
+}
+
+.sectionMeta {
+  margin: 0;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.picks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.pick {
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: border-color 0.15s ease;
+}
+
+.pick:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.pickArt {
+  height: 196px;
+  position: relative;
+  background: linear-gradient(140deg, rgba(106, 92, 240, 0.35), rgba(60, 123, 214, 0.25));
+  overflow: hidden;
+}
+
+.pickInitial {
+  position: absolute;
+  left: 12px;
+  bottom: -30px;
+  font-weight: 900;
+  font-size: 140px;
+  color: rgba(0, 0, 0, 0.22);
+  line-height: 0.8;
+}
+
+.pickArtFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(12, 10, 20, 0.8), transparent 62%);
+}
+
+.tag {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 5px 11px;
+  border-radius: 14px;
+  background: rgba(9, 8, 16, 0.68);
+  border: 1px solid;
+  backdrop-filter: blur(6px);
+}
+
+.scoreBlock {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  text-align: right;
+}
+
+.score {
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+.scoreLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.pickBody {
+  padding: 16px 18px 18px;
+}
+
+.pickName {
+  margin: 0;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.012em;
+}
+
+.why {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 6px 0 0;
+  min-height: 42px;
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.barTrack {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+}
+
+.wr {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.alsoHead {
+  margin: 36px 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--text-dim);
+}
+
+.also {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.alsoItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.alsoItem:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.alsoAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  background: rgba(106, 92, 240, 0.25);
+  flex: none;
+}
+
+.alsoName {
+  flex: 1;
+  font-weight: 600;
+}
+
+.alsoScore {
+  font-weight: 800;
+}
+
+.alsoWr {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.notes {
+  margin-top: 40px;
+  max-width: 720px;
+}
+
+.notesTitle {
+  margin: 0 0 12px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.notes ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 980px) {
+  .picks,
+  .also {
+    grid-template-columns: 1fr;
+  }
+
+  .lanes {
+    display: none;
+  }
+
+  .heroContent,
+  .body {
+    left: 20px;
+    right: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .heroContent {
+    left: 20px;
+    right: 20px;
+  }
+
+  .body {
+    padding: 0 20px 72px;
+  }
+}

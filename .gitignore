@@ -8,6 +8,8 @@ node_modules/
 
 # Build output
 dist/
+apps/web/.next/
+apps/web/out/
 
 # Local dev database
 .local/
@@ -19,3 +21,9 @@ supabase/.branches/
 # OS
 .DS_Store
 Thumbs.db
+
+# Claude Design handoff archives (unpacked folders under design/handoffs are kept)
+design/handoffs/**/*.zip
+design/**/*.zip
+
+*.tsbuildinfo
