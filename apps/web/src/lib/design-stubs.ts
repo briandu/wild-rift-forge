@@ -361,3 +361,58 @@ export const TIER_DEFS = [
     badgebg: 'rgba(255,255,255,.035)',
   },
 ] as const;
+
+export function coachBriefFor(mu = MATCHUP_STUB) {
+  const win = mu.spikes.find((s) => s.who === 'you') ?? mu.spikes[mu.spikes.length - 1];
+  const windowLine = win
+    ? `${win.at} is your first real window: ${win.label}`
+    : 'Wait for your first item before looking for a fight.';
+  return [
+    { n: '1', t: mu.rule },
+    {
+      n: '2',
+      t: `Play ${mu.style.toLowerCase().replace(' / ', ' with ')} until your first item. ${windowLine}`,
+    },
+    { n: '3', t: `Build ${mu.items[0]!.n} first for this lane. ${mu.items[0]!.short}` },
+    {
+      n: '4',
+      t: `Their comp is ${mu.tags.join(', ').toLowerCase()}, so tenacity and armour buy you more than raw damage does.`,
+    },
+  ];
+}
+
+export const ACCOUNT_STUB = {
+  riotId: 'Kaelan#NA1',
+  rankLine: 'Emerald II · 42 LP',
+  rank: 'Emerald II',
+  lp: '42 / 100 LP',
+  lpBar: 42,
+  nextRank: '58 LP to Emerald I. Last ten games: 6 wins.',
+  passAge: 'three months ago',
+  stats: [
+    { v: 'Emerald II', k: 'RANK', c: '#8FEDB8' },
+    { v: '53.4%', k: 'WIN RATE', c: '#DEDCEE' },
+    { v: '218', k: 'RANKED GAMES', c: '#DEDCEE' },
+    { v: 'Top', k: 'MAIN LANE', c: '#DEDCEE' },
+  ],
+  pool: ['Garen', 'Volibear', 'Renekton', 'Gwen'],
+  saved: [
+    { you: 'Garen', them: 'Darius', verdict: 'DARIUS FAVOURED', side: 'them' as const, lane: 'Top' },
+    { you: 'Gwen', them: 'Sett', verdict: 'GWEN FAVOURED', side: 'you' as const, lane: 'Top' },
+    { you: 'Volibear', them: 'Renekton', verdict: 'EVEN MATCHUP', side: 'even' as const, lane: 'Jungle' },
+  ],
+  mostPlayed: [
+    { name: 'Garen', games: 64, lane: 'Top' },
+    { name: 'Volibear', games: 41, lane: 'Jungle' },
+    { name: 'Renekton', games: 27, lane: 'Top' },
+  ],
+  suggestions: ['Malphite', 'Camille', 'Fiora', 'Jax', 'Sett', 'Nasus', 'Irelia', 'Ahri'],
+};
+
+export const ACCOUNT_MENU = [
+  { href: '/me', label: 'Account' },
+  { href: '/me?tab=pool', label: 'Champion pool', meta: String(ACCOUNT_STUB.pool.length) },
+  { href: '/me?tab=saved', label: 'Saved matchups', meta: String(ACCOUNT_STUB.saved.length) },
+  { href: '/me?tab=notifications', label: 'Notifications' },
+  { href: '/me?tab=plan', label: 'Plan', meta: 'Beta' },
+] as const;

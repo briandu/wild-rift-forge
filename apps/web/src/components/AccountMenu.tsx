@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
+import { ACCOUNT_MENU, ACCOUNT_STUB } from '@/lib/design-stubs';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import styles from './Shell.module.css';
@@ -18,6 +19,11 @@ function initialsFor(user: User): string {
   }
   if (user.email) return user.email.slice(0, 2).toUpperCase();
   return '?';
+}
+
+function riotIdFor(user: User): string {
+  const meta = user.user_metadata as { riot_id?: string } | undefined;
+  return meta?.riot_id?.trim() || ACCOUNT_STUB.riotId;
 }
 
 export function AccountMenu() {
@@ -75,14 +81,18 @@ export function AccountMenu() {
 
   if (!user) {
     return (
-      <Link href="/auth" className={styles.avatar} aria-label="Sign in">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-          <circle cx="12" cy="8" r="3.2" />
-          <path d="M5.5 19c1.4-3.2 3.7-4.8 6.5-4.8s5.1 1.6 6.5 4.8" />
-        </svg>
-      </Link>
+      <div className={styles.authActions}>
+        <Link href="/login" className={styles.signIn}>
+          Sign in
+        </Link>
+        <Link href="/login?mode=signup" className={styles.createAccount}>
+          Create account
+        </Link>
+      </div>
     );
   }
+
+  const riotId = riotIdFor(user);
 
   return (
     <div className={styles.account} ref={rootRef}>
@@ -97,8 +107,27 @@ export function AccountMenu() {
       </button>
       {open ? (
         <div className={styles.accountMenu} role="menu">
-          <div className={styles.accountEmail}>{user.email}</div>
-          <button type="button" className={styles.accountAction} role="menuitem" onClick={() => void signOut()}>
+          <div className={styles.accountHead}>
+            <div className={styles.accountHeadFace} aria-hidden />
+            <div className={styles.accountHeadCopy}>
+              <div className={styles.accountName}>{riotId}</div>
+              <div className={styles.accountRank}>{ACCOUNT_STUB.rankLine}</div>
+            </div>
+          </div>
+          <div className={styles.accountRule} />
+          {ACCOUNT_MENU.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={styles.accountItem}
+              role="menuitem"
+              onClick={() => setOpen(false)}
+            >
+              <span>{item.label}</span>
+              {'meta' in item && item.meta ? <span className={styles.accountMeta}>{item.meta}</span> : null}
+            </Link>
+          ))}
+          <button type="button" className={styles.accountSignOut} role="menuitem" onClick={() => void signOut()}>
             Sign out
           </button>
         </div>
