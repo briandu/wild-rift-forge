@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ChampionProfile } from '@/components/ChampionProfile';
 import { Shell } from '@/components/Shell';
-import { fetchChampion, fetchCounters } from '@/lib/api';
+import { fetchChampion, fetchCounters, fetchLatestPatch } from '@/lib/api';
 import { FALLBACK_CHAMPIONS } from '@/lib/champions';
 
 export default async function ChampionProfilePage({
@@ -10,6 +10,8 @@ export default async function ChampionProfilePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const patch = await fetchLatestPatch();
+  const patchNote = patch?.champions.find((row) => row.slug === slug.toLowerCase()) ?? null;
   const champion =
     (await fetchChampion(slug)) ??
     FALLBACK_CHAMPIONS.find((c) => c.slug === slug.toLowerCase()) ??
@@ -29,6 +31,7 @@ export default async function ChampionProfilePage({
           thumbnailUrl={counters.enemy.thumbnailUrl}
           abilities={counters.abilities}
           counters={counters}
+          patchNote={patchNote}
         />
       </Shell>
     );
@@ -47,6 +50,7 @@ export default async function ChampionProfilePage({
         thumbnailUrl={champion.thumbnailUrl}
         abilities={champion.abilities}
         counters={counters}
+        patchNote={patchNote}
       />
     </Shell>
   );

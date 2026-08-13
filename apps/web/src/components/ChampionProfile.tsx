@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import type { AbilityDto, CountersResponse } from '@/lib/api-types';
+import type { AbilityDto, CountersResponse, PatchChampionChangeDto } from '@/lib/api-types';
 import { resolveAbilities } from '@/lib/abilities';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { ART_BY_SLUG, HERO_FALLBACK, initials, portraitFor, roleLabel } from '@/lib/champions';
@@ -22,6 +22,7 @@ export function ChampionProfile({
   thumbnailUrl,
   abilities: abilitiesProp,
   counters,
+  patchNote,
 }: {
   slug: string;
   name: string;
@@ -31,6 +32,7 @@ export function ChampionProfile({
   thumbnailUrl?: string | null;
   abilities?: AbilityDto[] | null;
   counters: CountersResponse | null;
+  patchNote?: PatchChampionChangeDto | null;
 }) {
   const [tab, setTab] = useState<(typeof TABS)[number]>('Matchups');
   const [dir, setDir] = useState<'beaten' | 'beats'>('beaten');
@@ -41,9 +43,9 @@ export function ChampionProfile({
   const rows = counters
     ? dir === 'beaten'
       ? [...counters.picks, ...counters.also.map((c) => ({ ...c, why: 'Reliable pick into this lane' }))]
-      : counters.also.slice(0, 4).map((c) => ({
+      : (counters.beats ?? counters.also.slice(0, 4)).map((c) => ({
           ...c,
-          why: `Favoured lane for ${name}`,
+          why: `Lower ${counters.lane.toLowerCase()} win rate than ${name}`,
           tag: 'GOOD COUNTER' as const,
         }))
     : [];
@@ -121,11 +123,29 @@ export function ChampionProfile({
       </section>
 
       <section className={styles.body}>
-        {tab !== 'Matchups' ? (
+        {tab === 'Overview' ? (
           <div className={styles.stubPanel}>
-            <h2 className={styles.stubTitle}>{tab} coming next</h2>
+            <h2 className={styles.stubTitle}>Kit</h2>
             <p className={styles.stubCopy}>
-              This tab is sketched in the handoff. Matchups are live below with stub scores.
+              {title ? `${name}, ${title}. ` : ''}
+              {counters?.blurb ?? 'Abilities are in the banner above. Matchups use live lane win rates.'}
+            </p>
+            {patchNote ? (
+              <p className={styles.stubCopy}>
+                This patch: {patchNote.kind.toLowerCase()} · {patchNote.lines.map((line) => line.t).join(' ')}
+              </p>
+            ) : (
+              <p className={styles.stubCopy}>No numbered change for {name} in the latest patch notes.</p>
+            )}
+            <button type="button" className={styles.primary} onClick={() => setTab('Matchups')}>
+              Open matchups
+            </button>
+          </div>
+        ) : tab === 'Builds' || tab === 'Skill order' || tab === 'Pro play' ? (
+          <div className={styles.stubPanel}>
+            <h2 className={styles.stubTitle}>{tab} needs a data source</h2>
+            <p className={styles.stubCopy}>
+              We will not invent builds or skill orders. Matchups below use live lane win rates.
             </p>
             <button type="button" className={styles.primary} onClick={() => setTab('Matchups')}>
               Open matchups
