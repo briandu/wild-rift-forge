@@ -82,6 +82,77 @@ export async function insertPatchWithChanges(
   }
 }
 
+export interface StoredPatchChange extends PatchChange {
+  id: number;
+}
+
+export async function listPatchChanges(patchId: number): Promise<StoredPatchChange[]> {
+  const result = await getPool().query(
+    `SELECT id, entity_type, entity_name, change_type, ability, property,
+            old_value, new_value, description, metadata
+     FROM patch_changes
+     WHERE patch_id = $1
+     ORDER BY id`,
+    [patchId],
+  );
+  return result.rows.map((row) => ({
+    id: row.id as number,
+    entityType: row.entity_type as PatchChange['entityType'],
+    entityName: row.entity_name as string,
+    changeType: row.change_type as PatchChange['changeType'],
+    ability: (row.ability as string) ?? null,
+    property: (row.property as string) ?? null,
+    oldValue: row.old_value ?? null,
+    newValue: row.new_value ?? null,
+    description: (row.description as string) ?? null,
+    metadata: (row.metadata as Record<string, unknown>) ?? null,
+  }));
+}
+
+export interface StoredPatchAnalysis {
+  patchId: number;
+  model: string;
+  promptHash: string;
+  payload: Record<string, unknown>;
+  createdAt: string;
+}
+
+export async function getPatchAnalysis(patchId: number): Promise<StoredPatchAnalysis | null> {
+  const result = await getPool().query(
+    `SELECT patch_id, model, prompt_hash, payload, created_at
+     FROM patch_analyses
+     WHERE patch_id = $1`,
+    [patchId],
+  );
+  const row = result.rows[0];
+  if (!row) {
+    return null;
+  }
+  return {
+    patchId: row.patch_id as number,
+    model: row.model as string,
+    promptHash: row.prompt_hash as string,
+    payload: (row.payload as Record<string, unknown>) ?? {},
+    createdAt: new Date(row.created_at as string).toISOString(),
+  };
+}
+
+export async function insertPatchAnalysis(input: {
+  patchId: number;
+  model: string;
+  promptHash: string;
+  payload: unknown;
+}): Promise<{ inserted: boolean }> {
+  const result = await getPool().query(
+    `INSERT INTO patch_analyses (patch_id, model, prompt_hash, payload)
+     VALUES ($1, $2, $3, $4)
+     ON CONFLICT (patch_id) DO NOTHING
+     RETURNING id`,
+    [input.patchId, input.model, input.promptHash, JSON.stringify(input.payload)],
+  );
+  return { inserted: Boolean(result.rows[0]) };
+}
+
 function rowToPatch(row: Record<string, unknown>): StoredPatch {
   return {
     id: row.id as number,

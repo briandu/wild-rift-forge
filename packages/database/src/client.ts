@@ -15,9 +15,11 @@ export function getPool(): pg.Pool {
       'SUPABASE_DB_URL is not set. Copy .env.example to .env and fill in the Supabase connection string.',
     );
   }
+  const serverless = Boolean(process.env.VERCEL);
   pool = new pg.Pool({
     connectionString,
-    max: 5,
+    max: serverless ? 1 : 5,
+    idleTimeoutMillis: serverless ? 10_000 : 30_000,
     // Supabase requires SSL; local Postgres typically does not.
     ssl: connectionString.includes('supabase.co') || connectionString.includes('supabase.com')
       ? { rejectUnauthorized: false }

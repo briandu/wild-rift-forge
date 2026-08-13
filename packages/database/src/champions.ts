@@ -6,6 +6,10 @@ export interface StoredChampion extends Champion {
   imageSourceUrl: string | null;
   imageContentHash: string | null;
   imageStoragePath: string | null;
+  thumbnailUrl: string | null;
+  thumbnailSourceUrl: string | null;
+  thumbnailContentHash: string | null;
+  thumbnailStoragePath: string | null;
 }
 
 export interface ChampionImageAsset {
@@ -13,6 +17,10 @@ export interface ChampionImageAsset {
   imageContentHash: string;
   imageStoragePath: string;
 }
+
+const CHAMPION_COLUMNS = `id, slug, name, title, roles, difficulty,
+            image_url, image_source_url, image_content_hash, image_storage_path,
+            thumbnail_url, thumbnail_source_url, thumbnail_content_hash, thumbnail_storage_path`;
 
 /** Insert or update a champion by slug. Returns the champion id. */
 export async function upsertChampion(champion: Champion): Promise<number> {
@@ -68,10 +76,56 @@ export async function updateChampionImageAsset(
   );
 }
 
+/** Set the upstream square-portrait URL from WildRiftFire. */
+export async function updateChampionThumbnailSource(
+  slug: string,
+  sourceUrl: string,
+): Promise<void> {
+  await getPool().query(
+    `UPDATE champions
+     SET thumbnail_source_url = $2,
+         updated_at = now()
+     WHERE slug = $1`,
+    [slug, sourceUrl],
+  );
+}
+
+/** Persist a hosted face-crop thumbnail after a successful Storage upload. */
+export async function updateChampionThumbnailAsset(
+  slug: string,
+  asset: ChampionImageAsset,
+): Promise<void> {
+  await getPool().query(
+    `UPDATE champions
+     SET thumbnail_url = $2,
+         thumbnail_content_hash = $3,
+         thumbnail_storage_path = $4,
+         updated_at = now()
+     WHERE slug = $1`,
+    [slug, asset.imageUrl, asset.imageContentHash, asset.imageStoragePath],
+  );
+}
+
+/** Champions that have a thumbnail source URL and are eligible for thumbnail sync. */
+export async function listChampionsNeedingThumbnailSync(
+  limit?: number,
+): Promise<StoredChampion[]> {
+  const result = await getPool().query(
+    `SELECT ${CHAMPION_COLUMNS}
+     FROM champions
+     WHERE thumbnail_source_url IS NOT NULL
+     ORDER BY
+       CASE WHEN thumbnail_storage_path IS NULL THEN 0 ELSE 1 END,
+       name
+     LIMIT $1`,
+    [limit ?? 10_000],
+  );
+  return result.rows.map(mapChampionRow);
+}
+
 export async function listChampions(): Promise<StoredChampion[]> {
   const result = await getPool().query(
-    `SELECT id, slug, name, title, roles, difficulty,
-            image_url, image_source_url, image_content_hash, image_storage_path
+    `SELECT ${CHAMPION_COLUMNS}
      FROM champions
      ORDER BY name`,
   );
@@ -81,8 +135,7 @@ export async function listChampions(): Promise<StoredChampion[]> {
 /** Look up a champion by slug. Returns null when missing. */
 export async function getChampionBySlug(slug: string): Promise<StoredChampion | null> {
   const result = await getPool().query(
-    `SELECT id, slug, name, title, roles, difficulty,
-            image_url, image_source_url, image_content_hash, image_storage_path
+    `SELECT ${CHAMPION_COLUMNS}
      FROM champions
      WHERE slug = $1`,
     [slug],
@@ -94,8 +147,7 @@ export async function getChampionBySlug(slug: string): Promise<StoredChampion | 
 /** Champions that have a Riot source URL and are eligible for asset sync. */
 export async function listChampionsNeedingAssetSync(limit?: number): Promise<StoredChampion[]> {
   const result = await getPool().query(
-    `SELECT id, slug, name, title, roles, difficulty,
-            image_url, image_source_url, image_content_hash, image_storage_path
+    `SELECT ${CHAMPION_COLUMNS}
      FROM champions
      WHERE image_source_url IS NOT NULL
      ORDER BY
@@ -119,5 +171,9 @@ function mapChampionRow(row: Record<string, unknown>): StoredChampion {
     imageSourceUrl: (row.image_source_url as string) ?? null,
     imageContentHash: (row.image_content_hash as string) ?? null,
     imageStoragePath: (row.image_storage_path as string) ?? null,
+    thumbnailUrl: (row.thumbnail_url as string) ?? null,
+    thumbnailSourceUrl: (row.thumbnail_source_url as string) ?? null,
+    thumbnailContentHash: (row.thumbnail_content_hash as string) ?? null,
+    thumbnailStoragePath: (row.thumbnail_storage_path as string) ?? null,
   };
 }
