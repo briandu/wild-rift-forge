@@ -1,13 +1,14 @@
 import { Suspense, type ReactNode } from 'react';
+import { fetchLatestPatch } from '@/lib/api';
 import { MobileBottomNav } from './MobileBottomNav';
 import { NavSearch } from './NavSearch';
 import { SiteHeader } from './SiteHeader';
 import styles from './Shell.module.css';
 
-export function Shell({
+export async function Shell({
   children,
   pathname = '/',
-  patchLabel = 'Patch 6.2b',
+  patchLabel,
   showChrome = true,
 }: {
   children: ReactNode;
@@ -15,22 +16,30 @@ export function Shell({
   patchLabel?: string;
   showChrome?: boolean;
 }) {
+  const latestVersion = showChrome && !patchLabel ? (await fetchLatestPatch())?.patch.version : undefined;
+  const liveLabel = patchLabel ?? (latestVersion ? `Patch ${latestVersion}` : 'Patch');
+
   return (
     <div className={styles.root}>
       {showChrome ? (
         <>
           <SiteHeader
             pathname={pathname}
-            patchLabel={patchLabel}
+            patchLabel={liveLabel}
+            showSearch={pathname !== '/'}
             compactSearch={
-              <Suspense fallback={<div className={styles.searchFallback} aria-hidden />}>
-                <NavSearch />
-              </Suspense>
+              pathname === '/' ? null : (
+                <Suspense fallback={<div className={styles.searchFallback} aria-hidden />}>
+                  <NavSearch />
+                </Suspense>
+              )
             }
             overlaySearch={
-              <Suspense fallback={null}>
-                <NavSearch variant="overlay" />
-              </Suspense>
+              pathname === '/' ? null : (
+                <Suspense fallback={null}>
+                  <NavSearch variant="overlay" />
+                </Suspense>
+              )
             }
           />
           <MobileBottomNav pathname={pathname} />

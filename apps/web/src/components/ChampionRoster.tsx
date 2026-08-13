@@ -45,12 +45,10 @@ function uniqueLanes(rows: TierPlacementDto[]): string[] {
 export function ChampionRoster({
   champions,
   placements,
-  patchVersion,
   sourceLabel,
 }: {
   champions: ApiChampion[];
   placements: TierPlacementDto[];
-  patchVersion: string | null;
   sourceLabel: string;
 }) {
   const [query, setQuery] = useState('');
@@ -109,8 +107,10 @@ export function ChampionRoster({
     return decorated;
   }, [champions, bySlug, query, lane, sort]);
 
-  const bracket = sourceLabel.replace(/ ranked stats/i, '').toUpperCase();
-  const eyebrow = patchVersion ? `PATCH ${patchVersion} · ${bracket}` : bracket;
+  const eyebrow = sourceLabel
+    .replace(/^CN\s+/i, '')
+    .replace(/ ranked stats/i, '')
+    .toUpperCase();
   const emptyLabel = query.trim()
     ? `No champion called “${query.trim()}”`
     : 'Nothing in that lane yet';

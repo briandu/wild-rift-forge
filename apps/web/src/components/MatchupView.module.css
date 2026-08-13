@@ -12,11 +12,11 @@
 }
 
 .youPane {
-  right: 44%;
+  right: 50%;
 }
 
 .themPane {
-  left: 44%;
+  left: 50%;
 }
 
 .splash {
@@ -766,17 +766,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
-  font-size: 9px;
-  color: #5c5878;
 }
 
-.teamChamp span {
+.teamArt {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+.teamName {
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   text-align: center;
+  font-size: 9px;
+  color: #5c5878;
+  margin-top: 5px;
 }
 
 .tags {
@@ -891,7 +898,7 @@
 }
 
 .coachBtn {
-  height: 42px;
+  height: 44px;
   border-radius: 11px;
   background: linear-gradient(135deg, var(--accent), var(--accent-deep));
   display: flex;
@@ -905,6 +912,86 @@
 
 .coachBtn:hover {
   filter: brightness(1.12);
+}
+
+.coachGhost {
+  height: 44px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+  margin-top: 16px;
+  width: 100%;
+}
+
+.coachGhost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.coachSkel {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.coachBar {
+  height: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.09);
+  animation: muShimmer 1.5s ease-in-out infinite;
+}
+
+.coachBar:nth-child(2) {
+  width: 84%;
+  background: rgba(255, 255, 255, 0.08);
+  animation-delay: 0.18s;
+}
+
+.coachBar:nth-child(3) {
+  width: 62%;
+  background: rgba(255, 255, 255, 0.07);
+  animation-delay: 0.34s;
+}
+
+.coachLine {
+  display: flex;
+  gap: 11px;
+  margin-top: 13px;
+}
+
+.coachN {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--accent-soft);
+  width: 12px;
+  flex: none;
+  line-height: 1.5;
+}
+
+.coachT {
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.55;
+  min-width: 0;
+  text-wrap: pretty;
+}
+
+@keyframes muShimmer {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.4;
+  }
 }
 
 @media (max-width: 1200px) {

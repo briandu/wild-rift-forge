@@ -9,20 +9,27 @@ export function ChampFace({
   size = 58,
   round = 'circle',
   portraits,
+  fill = false,
 }: {
   name: string;
   slug?: string;
   size?: number;
   round?: 'circle' | 'soft';
   portraits?: Record<string, string>;
+  fill?: boolean;
 }) {
   const meta = metaFor(name);
   const key = slug ?? meta.slug;
   const src = portraits?.[key] || ART_BY_SLUG[key];
   return (
     <span
-      className={`${styles.face} ${round === 'soft' ? styles.soft : styles.circle}`}
-      style={{ width: size, height: size, background: meta.bg, fontSize: Math.round(size * 0.38) }}
+      className={`${styles.face} ${round === 'soft' ? styles.soft : styles.circle} ${fill ? styles.fill : ''}`}
+      style={{
+        width: fill ? undefined : size,
+        height: fill ? undefined : size,
+        background: meta.bg,
+        fontSize: Math.round(size * 0.38),
+      }}
     >
       {src ? <Image src={src} alt="" width={size} height={size} /> : initials(name)}
     </span>

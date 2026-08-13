@@ -10,7 +10,6 @@ export default async function ChampionsPage() {
       <ChampionRoster
         champions={withRoster(roster)}
         placements={tiers?.placements ?? []}
-        patchVersion={tiers?.patchVersion ?? null}
         sourceLabel={tiers?.sourceLabel ?? 'CN Diamond+ ranked stats'}
       />
     </Shell>

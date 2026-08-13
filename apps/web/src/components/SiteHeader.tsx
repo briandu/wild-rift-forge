@@ -22,11 +22,13 @@ function isActive(pathname: string, item: (typeof NAV)[number]): boolean {
 export function SiteHeader({
   pathname,
   patchLabel,
+  showSearch = true,
   compactSearch,
   overlaySearch,
 }: {
   pathname: string;
   patchLabel: string;
+  showSearch?: boolean;
   compactSearch: ReactNode;
   overlaySearch: ReactNode;
 }) {
@@ -40,19 +42,26 @@ export function SiteHeader({
   }, [pathname]);
 
   useEffect(() => {
+    if (!showSearch) setSearchOpen(false);
+  }, [showSearch]);
+
+  useEffect(() => {
     const searchMq = window.matchMedia('(min-width: 1241px)');
-    const menuMq = window.matchMedia('(min-width: 601px)');
+    const menuDesktopMq = window.matchMedia('(min-width: 901px)');
+    const menuPhoneMq = window.matchMedia('(max-width: 600px)');
 
     function onViewport() {
       if (searchMq.matches) setSearchOpen(false);
-      if (menuMq.matches) setMenuOpen(false);
+      if (menuDesktopMq.matches || menuPhoneMq.matches) setMenuOpen(false);
     }
 
     searchMq.addEventListener('change', onViewport);
-    menuMq.addEventListener('change', onViewport);
+    menuDesktopMq.addEventListener('change', onViewport);
+    menuPhoneMq.addEventListener('change', onViewport);
     return () => {
       searchMq.removeEventListener('change', onViewport);
-      menuMq.removeEventListener('change', onViewport);
+      menuDesktopMq.removeEventListener('change', onViewport);
+      menuPhoneMq.removeEventListener('change', onViewport);
     };
   }, []);
 
@@ -155,34 +164,38 @@ export function SiteHeader({
       </nav>
       <div className={styles.spacer} />
       <div className={styles.navRight}>
-        <button
-          type="button"
-          className={styles.searchBtn}
-          aria-label={searchOpen ? 'Close search' : 'Search champion'}
-          aria-expanded={searchOpen}
-          onClick={() => {
-            setMenuOpen(false);
-            setSearchOpen((open) => !open);
-          }}
-        >
-          {searchOpen ? (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBB7D4" strokeWidth="2.2" aria-hidden>
-              <path d="M6 6l12 12M18 6L6 18" />
-            </svg>
-          ) : (
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" strokeWidth="2" aria-hidden>
-              <circle cx="11" cy="11" r="7" />
-              <path d="M20 20l-3.5-3.5" />
-            </svg>
-          )}
-        </button>
-        <div className={styles.search}>{compactSearch}</div>
+        {showSearch ? (
+          <>
+            <button
+              type="button"
+              className={styles.searchBtn}
+              aria-label={searchOpen ? 'Close search' : 'Search champion'}
+              aria-expanded={searchOpen}
+              onClick={() => {
+                setMenuOpen(false);
+                setSearchOpen((open) => !open);
+              }}
+            >
+              {searchOpen ? (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBB7D4" strokeWidth="2.2" aria-hidden>
+                  <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" strokeWidth="2" aria-hidden>
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M20 20l-3.5-3.5" />
+                </svg>
+              )}
+            </button>
+            <div className={styles.search}>{compactSearch}</div>
+          </>
+        ) : null}
         <Link href="/patch" className={styles.patch}>
           {patchLabel}
         </Link>
         <AccountMenu />
       </div>
-      {searchOpen ? (
+      {showSearch && searchOpen ? (
         <div className={styles.searchOverlay} role="search">
           {overlaySearch}
         </div>

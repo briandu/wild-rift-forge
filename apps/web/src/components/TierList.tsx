@@ -72,7 +72,7 @@ export function TierList({
         <div className={styles.heroInner}>
           <div>
             <p className={styles.eyebrow}>
-              {patchVersion ? `PATCH ${patchVersion}` : 'TIER LIST'} · CN DIAMOND+
+              {sourceLabel.replace(/^CN\s+/i, '').replace(/ ranked stats/i, '').toUpperCase()}
             </p>
             <h1 className={styles.title}>Tier list</h1>
             <p className={styles.copy}>

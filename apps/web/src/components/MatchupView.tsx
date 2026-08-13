@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useState, type CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 import type { ApiChampion } from '@/lib/api';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { initials, portraitsFromRoster, splashFor } from '@/lib/champions';
-import { MATCHUP_STUB, metaFor } from '@/lib/design-stubs';
+import { coachBriefFor, MATCHUP_STUB, metaFor } from '@/lib/design-stubs';
 import { ChampFace } from './ChampFace';
 import styles from './MatchupView.module.css';
 
@@ -16,8 +16,8 @@ function laneNice(lane: string): string {
 function heroFocus(slug: string, side: 'you' | 'them') {
   const focus = bannerFocusFor(slug);
   return {
-    x: side === 'you' ? Math.min(focus.x, 48) : Math.max(focus.x, 52),
-    y: focus.y > 8 ? focus.y : 20,
+    x: side === 'you' ? focus.x || 46 : focus.x || 56,
+    y: focus.y > 8 ? focus.y : side === 'you' ? 20 : 18,
   };
 }
 
@@ -27,6 +27,17 @@ export function MatchupView({ champions = [] }: { champions?: ApiChampion[] }) {
   const them = metaFor(mu.them);
   const portraits = portraitsFromRoster(champions);
   const [open, setOpen] = useState<string | null>(null);
+  const [coach, setCoach] = useState<'idle' | 'loading' | 'done'>('idle');
+  const coachTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const brief = coachBriefFor(mu);
+
+  useEffect(() => () => clearTimeout(coachTimer.current), []);
+
+  function runCoach() {
+    clearTimeout(coachTimer.current);
+    setCoach('loading');
+    coachTimer.current = setTimeout(() => setCoach('done'), 1100);
+  }
 
   const verdictC = mu.side === 'them' ? '#E58B7B' : mu.side === 'you' ? '#8FEDB8' : '#F0A87B';
   const verdictBg =
@@ -186,8 +197,10 @@ export function MatchupView({ champions = [] }: { champions?: ApiChampion[] }) {
           <div className={styles.team}>
             {mu.team.map((n) => (
               <div key={n} className={styles.teamChamp}>
-                <ChampFace name={n} size={48} round="soft" portraits={portraits} />
-                <span>{n}</span>
+                <div className={styles.teamArt}>
+                  <ChampFace name={n} size={48} round="soft" fill portraits={portraits} />
+                </div>
+                <span className={styles.teamName}>{n}</span>
               </div>
             ))}
           </div>
@@ -248,12 +261,39 @@ export function MatchupView({ champions = [] }: { champions?: ApiChampion[] }) {
           <div className={styles.coach}>
             <div className={styles.railLabel}>COACHING</div>
             <div className={styles.coachTitle}>Explain my game plan</div>
-            <p className={styles.coachCopy}>
-              Combines this matchup with both teams and your build into a short brief.
-            </p>
-            <button type="button" className={styles.coachBtn}>
-              Generate
-            </button>
+            {coach === 'idle' ? (
+              <>
+                <p className={styles.coachCopy}>
+                  Combines this matchup with both teams and your build into a short brief.
+                </p>
+                <button type="button" className={styles.coachBtn} onClick={runCoach}>
+                  Generate
+                </button>
+              </>
+            ) : null}
+            {coach === 'loading' ? (
+              <>
+                <p className={styles.coachCopy}>Reading {mu.sample}…</p>
+                <div className={styles.coachSkel} aria-hidden>
+                  <div className={styles.coachBar} />
+                  <div className={styles.coachBar} />
+                  <div className={styles.coachBar} />
+                </div>
+              </>
+            ) : null}
+            {coach === 'done' ? (
+              <>
+                {brief.map((b) => (
+                  <div key={b.n} className={styles.coachLine}>
+                    <div className={styles.coachN}>{b.n}</div>
+                    <div className={styles.coachT}>{b.t}</div>
+                  </div>
+                ))}
+                <button type="button" className={styles.coachGhost} onClick={runCoach}>
+                  Regenerate
+                </button>
+              </>
+            ) : null}
           </div>
         </aside>
       </div>

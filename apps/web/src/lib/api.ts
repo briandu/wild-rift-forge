@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import type {
   ApiChampion,
   CountersResponse,
@@ -83,14 +84,15 @@ export async function fetchTiers(): Promise<TiersResponse | null> {
   }
 }
 
-export async function fetchLatestPatch(): Promise<LatestPatchResponse | null> {
-  if (useDirectDb()) {
-    const { loadLatestPatch } = await import('./server/game');
-    return loadLatestPatch();
-  }
+export const fetchLatestPatch = cache(async function fetchLatestPatch(): Promise<LatestPatchResponse | null> {
   try {
+    if (useDirectDb()) {
+      const { loadLatestPatch } = await import('./server/game');
+      return loadLatestPatch();
+    }
     return await apiFetch<LatestPatchResponse>('/patches/latest');
-  } catch {
+  } catch (err) {
+    console.warn('fetchLatestPatch failed:', err instanceof Error ? err.message : err);
     return null;
   }
-}
+});

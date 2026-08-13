@@ -16,6 +16,13 @@
   border-radius: 20%;
 }
 
+.fill {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
 .face img {
   width: 100%;
   height: 100%;
