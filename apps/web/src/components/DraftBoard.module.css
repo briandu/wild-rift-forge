@@ -1,6 +1,12 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--shell-height));
+}
+
 .board {
   display: flex;
-  min-height: calc(100vh - var(--shell-height));
+  flex: 1;
   flex-wrap: wrap;
 }
 
@@ -45,6 +51,7 @@
 
 .slot,
 .slotActive {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -63,6 +70,45 @@
 .slotActive {
   background: rgba(22, 192, 255, 0.14);
   border-color: var(--accent);
+}
+
+.slotMine {
+  border-color: rgba(123, 196, 224, 0.45);
+  background: rgba(123, 196, 224, 0.07);
+}
+
+.slotMineTag {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--ally);
+}
+
+.laneChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.laneChip,
+.laneChipActive {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 11px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.laneChipActive {
+  border-color: var(--accent);
+  background: rgba(22, 192, 255, 0.16);
+  color: var(--text);
 }
 
 .slotAvatar {
@@ -385,9 +431,11 @@
 .bans {
   display: flex;
   gap: 7px;
+  flex-wrap: wrap;
 }
 
-.ban {
+.ban,
+.banFilled {
   width: 32px;
   height: 32px;
   border-radius: 9px;
@@ -397,10 +445,24 @@
   justify-content: center;
   font-weight: 900;
   font-size: 12px;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-dim);
   opacity: 0.45;
   border: 0;
   cursor: pointer;
+  overflow: hidden;
+  flex: none;
+}
+
+.banFilled {
+  opacity: 1;
+  filter: grayscale(1);
+}
+
+.ban img,
+.banFilled img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 980px) {
@@ -412,5 +474,11 @@
 
   .board {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .board {
+    display: none;
   }
 }

@@ -87,3 +87,15 @@
   border-color: var(--accent);
   background: rgba(22, 192, 255, 0.1);
 }
+
+@media (max-width: 600px) {
+  .backdrop {
+    padding: 12px 12px 88px;
+    align-items: end;
+  }
+
+  .panel {
+    max-height: min(72vh, 640px);
+    border-radius: 18px 18px 14px 14px;
+  }
+}

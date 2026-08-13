@@ -1,0 +1,159 @@
+.bar {
+  padding: 14px 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-extra-dim);
+  flex: none;
+}
+
+.dotLive {
+  background: var(--ally);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ally) 22%, transparent);
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-right: 4px;
+}
+
+.primary,
+.secondary {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 700;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  border: none;
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.secondary:hover,
+.primary:hover {
+  filter: brightness(1.12);
+}
+
+.primary:disabled,
+.secondary:disabled {
+  opacity: 0.55;
+  cursor: default;
+  filter: none;
+}
+
+.kbd {
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+
+.note {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+.warn {
+  font-size: 12.5px;
+  color: var(--text-extra-dim);
+}
+
+.error {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+  color: var(--danger);
+}
+
+.review {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.reviewItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px 5px 5px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reviewArt {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 12px;
+  color: var(--text-dim);
+  flex: none;
+}
+
+.reviewArt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.reviewText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.reviewText strong {
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.reviewSlot {
+  font-size: 11px;
+  color: var(--text-extra-dim);
+}
+
+.reviewHint {
+  font-size: 12px;
+  color: var(--text-extra-dim);
+}
+
+@media (max-width: 600px) {
+  .bar {
+    display: none;
+  }
+}

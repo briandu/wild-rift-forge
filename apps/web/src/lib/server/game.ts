@@ -4,6 +4,7 @@ import {
   getChampionPayload,
   getChampionsPayload,
   getCountersPayload,
+  getIconSignaturesPayload,
   getLatestPatchPayload,
   getMatchupPayload,
   getTiersPayload,
@@ -11,6 +12,7 @@ import {
 import type {
   ApiChampion,
   CountersResponse,
+  IconSignaturesResponse,
   LatestPatchResponse,
   MatchupResponse,
   TiersResponse,
@@ -44,4 +46,8 @@ export async function loadTiers(): Promise<TiersResponse> {
 
 export async function loadLatestPatch(): Promise<LatestPatchResponse | null> {
   return (await getLatestPatchPayload()) as LatestPatchResponse | null;
+}
+
+export async function loadIconSignatures(): Promise<IconSignaturesResponse> {
+  return (await getIconSignaturesPayload()) as IconSignaturesResponse;
 }

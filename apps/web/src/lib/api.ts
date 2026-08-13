@@ -2,6 +2,7 @@ import { cache } from 'react';
 import type {
   ApiChampion,
   CountersResponse,
+  IconSignaturesResponse,
   LatestPatchResponse,
   MatchupResponse,
   TiersResponse,
@@ -13,6 +14,8 @@ export type {
   ApiChampion,
   CounterPick,
   CountersResponse,
+  IconSignatureDto,
+  IconSignaturesResponse,
   LatestPatchResponse,
   MatchupResponse,
   PatchChampionChangeDto,
@@ -93,6 +96,19 @@ export async function fetchMatchup(
     return await apiFetch<MatchupResponse>(`/matchups?${params}`);
   } catch {
     return null;
+  }
+}
+
+export async function fetchIconSignatures(): Promise<IconSignaturesResponse> {
+  if (useDirectDb()) {
+    const { loadIconSignatures } = await import('./server/game');
+    return loadIconSignatures();
+  }
+  try {
+    return await apiFetch<IconSignaturesResponse>('/draft/icon-signatures');
+  } catch {
+    // An empty library degrades capture to the manual board rather than breaking it.
+    return { hashAlgo: 'dhash8x8', signatures: [] };
   }
 }
 

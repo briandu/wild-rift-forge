@@ -125,3 +125,16 @@ export interface LatestPatchResponse {
   champions: PatchChampionChangeDto[];
   items: string[];
 }
+
+export interface IconSignatureDto {
+  slug: string;
+  variant: 'thumb' | 'portrait' | 'captured';
+  hash: string;
+  color: string | null;
+}
+
+/** Reference library the browser uses to recognise champion-select portraits. */
+export interface IconSignaturesResponse {
+  hashAlgo: string;
+  signatures: IconSignatureDto[];
+}

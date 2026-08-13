@@ -3,7 +3,6 @@ import styles from './MobileBottomNav.module.css';
 
 const TABS = [
   { href: '/', label: 'Counters', match: 'counters', icon: 'search' },
-  { href: '/champions', label: 'Champs', match: 'champions', icon: 'champs' },
   { href: '/tier', label: 'Tiers', match: 'tier', icon: 'tier' },
   { href: '/draft', label: 'Draft', match: 'draft', icon: 'draft' },
   { href: '/patch', label: 'Patch', match: 'patch', icon: 'patch' },
@@ -12,7 +11,12 @@ const TABS = [
 
 function isActive(pathname: string, match: string): boolean {
   if (match === 'counters') {
-    return pathname === '/' || pathname.startsWith('/counters') || pathname.startsWith('/matchups');
+    return (
+      pathname === '/' ||
+      pathname.startsWith('/counters') ||
+      pathname.startsWith('/matchups') ||
+      pathname.startsWith('/champions')
+    );
   }
   if (match === 'me') {
     return pathname === '/me' || pathname.startsWith('/login');
@@ -29,13 +33,6 @@ function TabIcon({ name, active }: { name: (typeof TABS)[number]['icon']; active
         <g>
           <circle cx="11" cy="11" r="7" />
           <path d="M20 20l-3.6-3.6" />
-        </g>
-      ) : null}
-      {name === 'champs' ? (
-        <g>
-          <rect x="5" y="3.5" width="14" height="17" rx="3.5" />
-          <circle cx="12" cy="9.5" r="2.4" />
-          <path d="M8.2 16.8c.7-2.1 2.2-3.2 3.8-3.2s3.1 1.1 3.8 3.2" />
         </g>
       ) : null}
       {name === 'tier' ? (
