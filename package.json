@@ -24,7 +24,9 @@
     "design:ingest": "node scripts/ingest-claude-design.mjs",
     "design:preview": "node scripts/preview-claude-design.mjs",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit && npm run --workspace @wild-rift-forge/web typecheck && npm run --workspace @wild-rift-forge/api typecheck"
+    "typecheck": "tsc --noEmit && npm run --workspace @wild-rift-forge/web typecheck && npm run --workspace @wild-rift-forge/api typecheck",
+    "emails:smtp": "node scripts/configure-resend-smtp.mjs",
+    "emails:push": "node scripts/push-auth-email-templates.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

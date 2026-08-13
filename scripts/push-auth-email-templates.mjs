@@ -72,17 +72,20 @@ const body = {
   mailer_templates_reauthentication_content: html('reauthentication.html'),
 };
 
+const headers = {
+  Authorization: `Bearer ${token}`,
+  'Content-Type': 'application/json',
+  'User-Agent': 'SupabaseCLI/2.0',
+};
+
 const res = await fetch(`https://api.supabase.com/v1/projects/${ref}/config/auth`, {
   method: 'PATCH',
-  headers: {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'application/json',
-  },
+  headers,
   body: JSON.stringify(body),
 });
 
 if (!res.ok) {
-  const text = await res.text();
+  const text = (await res.text()).replaceAll(token, '[redacted]');
   console.error(`Auth config update failed (${res.status}): ${text.slice(0, 500)}`);
   process.exit(1);
 }
