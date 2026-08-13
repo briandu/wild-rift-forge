@@ -227,6 +227,18 @@ function lineKey(ability: string | null): string {
   return ability.slice(0, 1).toUpperCase();
 }
 
+function lineText(property: string | null, description: string | null): string {
+  const prop = property?.trim() ?? '';
+  const desc = description?.trim() ?? '';
+  if (!prop) {
+    return desc;
+  }
+  if (!desc || desc.toLowerCase().startsWith(prop.toLowerCase())) {
+    return desc || prop;
+  }
+  return `${prop}: ${desc}`;
+}
+
 function asAnalysis(payload: Record<string, unknown> | null): PatchAnalysisPayload | null {
   if (!payload || typeof payload.lede !== 'string') {
     return null;
@@ -286,9 +298,11 @@ export async function getLatestPatchPayload() {
   const items: string[] = [];
   for (const change of changes) {
     if (change.entityType !== 'champion') {
-      const text = [change.entityName, change.description].filter(Boolean).join(': ');
-      if (text) {
-        items.push(text);
+      if (change.entityType === 'item' || change.entityType === 'rune') {
+        const text = lineText(change.entityName, change.description);
+        if (text) {
+          items.push(text);
+        }
       }
       continue;
     }
@@ -300,7 +314,7 @@ export async function getLatestPatchPayload() {
       lines: [],
     };
     current.kinds.push(change.changeType);
-    const text = [change.property, change.description].filter(Boolean).join(': ');
+    const text = lineText(change.property, change.description);
     if (text) {
       current.lines.push({ k: lineKey(change.ability), t: text });
     }
