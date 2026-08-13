@@ -30,6 +30,21 @@ jobs:
         run: npm ci
 
       - name: Check latest patch and ingest if new
-        run: npm run scrape:latest
+        id: patch
+        run: |
+          set -o pipefail
+          npm run scrape:latest | tee scrape-latest.log
+          if grep -q '^WRF_PATCH_INSERTED=true$' scrape-latest.log; then
+            echo "inserted=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "inserted=false" >> "$GITHUB_OUTPUT"
+          fi
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+
+      - name: Analyze new patch
+        if: steps.patch.outputs.inserted == 'true'
+        run: npm run scrape:analyze-patch
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

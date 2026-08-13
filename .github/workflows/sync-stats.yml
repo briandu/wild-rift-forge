@@ -1,0 +1,31 @@
+name: Sync champion stats
+
+on:
+  schedule:
+    # Daily, offset from the hour so it is less likely to be dropped.
+    - cron: '41 7 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: stats-sync
+  cancel-in-progress: false
+
+jobs:
+  sync-stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Ingest Tencent CN stats and recompute tiers
+        run: npm run scrape:stats
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
