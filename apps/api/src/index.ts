@@ -4,6 +4,8 @@ import { closePool } from '@wild-rift-forge/database';
 import { loadEnv } from './env.js';
 import { championsRouter } from './routes/champions.js';
 import { countersRouter } from './routes/counters.js';
+import { patchesRouter } from './routes/patches.js';
+import { tiersRouter } from './routes/tiers.js';
 
 loadEnv();
 
@@ -19,6 +21,8 @@ app.get('/health', (_req, res) => {
 
 app.use('/champions', championsRouter);
 app.use('/counters', countersRouter);
+app.use('/tiers', tiersRouter);
+app.use('/patches', patchesRouter);
 
 app.use((err: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error(err);

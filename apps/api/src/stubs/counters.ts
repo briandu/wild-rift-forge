@@ -11,6 +11,7 @@ export interface CounterPick {
   tag: 'STRONG COUNTER' | 'GOOD COUNTER';
   why: string;
   imageUrl?: string | null;
+  thumbnailUrl?: string | null;
 }
 
 export interface AlsoPick {
@@ -18,6 +19,8 @@ export interface AlsoPick {
   name: string;
   score: number;
   winRate: string;
+  imageUrl?: string | null;
+  thumbnailUrl?: string | null;
 }
 
 export interface CounterStat {
@@ -36,6 +39,9 @@ export interface CounterPayload {
   notes: string[];
   picks: CounterPick[];
   also: AlsoPick[];
+  thin?: boolean;
+  sample?: number;
+  target?: number;
 }
 
 function slugify(name: string): string {
@@ -192,7 +198,10 @@ const MATCHUPS: Record<string, Omit<CounterPayload, 'stub' | 'enemySlug' | 'enem
 function fallback(enemyName: string): Omit<CounterPayload, 'stub' | 'enemySlug' | 'enemyName'> {
   return {
     lane: 'TOP LANE',
-    games: '41,120',
+    games: '214',
+    thin: true,
+    sample: 214,
+    target: 2000,
     blurb: `Early matchup data for ${enemyName} is still thin. These are the safest picks into the lane.`,
     stats: [
       { value: '50.6%', label: 'WIN RATE' },
