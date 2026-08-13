@@ -1,7 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { buildLaneCounters, counterScore, matchupVerdict, pickEnemyLane } from './counters';
 import type { LaneStatRow } from './counters';
-import { compNeeds, draftFitScore, rankDraftSuggestions } from './draft';
+import {
+  banLift,
+  compGaps,
+  compNeeds,
+  draftFitScore,
+  rankDraftSuggestions,
+  traitsForRoles,
+  type DraftPlacement,
+} from './draft';
 
 const rows: LaneStatRow[] = [
   { slug: 'sett', name: 'Sett', lane: 'Top', winRate: 51.4, pickRate: 18, banRate: 9, imageUrl: null, thumbnailUrl: null },
@@ -48,51 +56,128 @@ describe('matchupVerdict', () => {
   });
 });
 
+const volibear: DraftPlacement = {
+  slug: 'volibear',
+  name: 'Volibear',
+  lane: 'Top',
+  letter: 'S',
+  score: 70,
+  winRate: 56,
+  roles: ['fighter'],
+};
+const gwen: DraftPlacement = {
+  slug: 'gwen',
+  name: 'Gwen',
+  lane: 'Top',
+  letter: 'A',
+  score: 60,
+  winRate: 54,
+  roles: ['fighter'],
+};
+const nasus: DraftPlacement = {
+  slug: 'nasus',
+  name: 'Nasus',
+  lane: 'Top',
+  letter: 'C',
+  score: 40,
+  winRate: 44,
+  roles: ['fighter'],
+};
+const lanePool = [volibear, gwen, nasus];
+
 describe('draftFitScore', () => {
   it('boosts pool members and higher WR into the lane opponent', () => {
-    const candidate = {
-      slug: 'volibear',
-      name: 'Volibear',
-      lane: 'Top' as const,
-      letter: 'S' as const,
-      score: 60,
-      winRate: 56.2,
-      roles: ['fighter'],
-    };
-    const enemy = { ...candidate, slug: 'sett', name: 'Sett', letter: 'B' as const, winRate: 51.4, score: 50 };
-    const pooled = draftFitScore(candidate, enemy, true);
-    const raw = draftFitScore(candidate, enemy, false);
+    const enemy: DraftPlacement = { ...volibear, slug: 'sett', name: 'Sett', letter: 'B', winRate: 51.4, score: 50 };
+    const pooled = draftFitScore(volibear, { enemy, pool: new Set(['volibear']) });
+    const raw = draftFitScore(volibear, { enemy });
     expect(pooled.score).toBeGreaterThan(raw.score);
     expect(pooled.reasons).toContain('In your pool');
+  });
+
+  it('rewards a candidate whose stronger lane rivals are banned', () => {
+    const bans = new Set(['volibear']);
+    const lifted = draftFitScore(gwen, { bans }, lanePool);
+    const plain = draftFitScore(gwen, {}, lanePool);
+    expect(lifted.score).toBeGreaterThan(plain.score);
+    expect(lifted.reasons).toContain('Bans opened this lane');
+  });
+
+  it('ignores bans that only remove weaker lane rivals', () => {
+    const result = draftFitScore(gwen, { bans: new Set(['nasus']) }, lanePool);
+    expect(result.reasons).not.toContain('Bans opened this lane');
+  });
+
+  it('rewards filling a trait the locked allies are missing', () => {
+    const allyRoles = [['marksman'], ['marksman']];
+    const filling = draftFitScore(volibear, { allyRoles });
+    const plain = draftFitScore(volibear, {});
+    expect(filling.score).toBeGreaterThan(plain.score);
+    expect(filling.reasons.some((reason) => reason.startsWith('Fills your'))).toBe(true);
+  });
+});
+
+describe('banLift', () => {
+  it('counts only banned champions scoring above the candidate', () => {
+    expect(banLift(gwen, lanePool, new Set(['volibear', 'nasus']))).toBe(1);
+    expect(banLift(volibear, lanePool, new Set(['gwen']))).toBe(0);
+    expect(banLift(gwen, lanePool, new Set())).toBe(0);
   });
 });
 
 describe('rankDraftSuggestions', () => {
   it('skips taken champions and returns a capped list', () => {
     const suggestions = rankDraftSuggestions(
-      [
-        { slug: 'volibear', name: 'Volibear', lane: 'Top', letter: 'S', score: 70, winRate: 56, roles: ['fighter'] },
-        { slug: 'gwen', name: 'Gwen', lane: 'Top', letter: 'A', score: 60, winRate: 54, roles: ['fighter'] },
-        { slug: 'nasus', name: 'Nasus', lane: 'Top', letter: 'C', score: 40, winRate: 44, roles: ['fighter'] },
-      ],
-      null,
-      new Set(['gwen']),
-      new Set(['volibear']),
+      lanePool,
+      { pool: new Set(['gwen']), taken: new Set(['volibear']) },
       2,
     );
     expect(suggestions).toHaveLength(2);
     expect(suggestions[0]?.slug).toBe('gwen');
+  });
+
+  it('explains when bans cleared the lane', () => {
+    const bans = new Set(['volibear']);
+    const suggestions = rankDraftSuggestions(lanePool, { bans, taken: bans }, 3);
+    expect(suggestions[0]?.slug).toBe('gwen');
+    expect(suggestions[0]?.why).toContain('bans cleared');
+  });
+});
+
+describe('traitsForRoles', () => {
+  it('maps roles onto comp traits and ignores unknown roles', () => {
+    expect(traitsForRoles(['tank']).frontline).toBeGreaterThan(0);
+    expect(traitsForRoles(['marksman']).frontline).toBe(0);
+    expect(traitsForRoles(['marksman']).physical).toBeGreaterThan(0);
+    expect(traitsForRoles(['bard']).magic).toBe(0);
   });
 });
 
 describe('compNeeds', () => {
   it('marks frontline missing when the team is all marksmen', () => {
     const needs = compNeeds([['marksman'], ['marksman']]);
-    expect(needs[0]?.v).toBe('Missing');
+    expect(needs[0]?.trait).toBe('frontline');
+    expect(needs[0]?.status).toBe('Missing');
   });
 
-  it('marks frontline covered with two tanks', () => {
+  it('marks frontline covered with a tank and a fighter', () => {
     const needs = compNeeds([['tank'], ['fighter']]);
-    expect(needs[0]?.v).toBe('Covered');
+    expect(needs[0]?.status).toBe('Covered');
+  });
+
+  it('separates engage from frontline', () => {
+    const needs = compNeeds([['mage'], ['mage']]);
+    const engage = needs.find((need) => need.trait === 'engage');
+    const magic = needs.find((need) => need.trait === 'magic');
+    expect(engage?.status).toBe('Missing');
+    expect(magic?.status).toBe('Covered');
+  });
+});
+
+describe('compGaps', () => {
+  it('orders the worst-covered traits first', () => {
+    const gaps = compGaps([['marksman'], ['marksman']]);
+    expect(gaps).toContain('frontline');
+    expect(gaps).toContain('magic');
+    expect(gaps).not.toContain('physical');
   });
 });

@@ -166,10 +166,17 @@ export {
   type MatchupSide,
 } from './counters';
 export {
+  banLift,
+  compGaps,
   compNeeds,
   draftFitScore,
   rankDraftSuggestions,
+  traitCoverage,
+  traitsForRoles,
   type CompNeed,
+  type CompStatus,
+  type CompTrait,
+  type DraftContext,
   type DraftPlacement,
   type DraftSuggestion,
 } from './draft';
