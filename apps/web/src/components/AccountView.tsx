@@ -1,15 +1,28 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
+import { useChampionAvatar } from '@/hooks/useChampionAvatar';
 import type { ApiChampion } from '@/lib/api';
+import {
+  ACCOUNT_CHANNELS,
+  ACCOUNT_REGIONS,
+  loadAccountState,
+  patchProfile,
+  type AccountChannel,
+  type AccountProfile,
+  type AccountRegion,
+  type SavedMatchupRow,
+} from '@/lib/account';
 import { portraitsFromRoster } from '@/lib/champions';
-import { ACCOUNT_STUB, CHAMP_META, metaFor } from '@/lib/design-stubs';
+import { CHAMP_META, metaFor } from '@/lib/design-stubs';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { ChampFace } from './ChampFace';
+import { ChampionPicker } from './ChampionPicker';
 import styles from './AccountView.module.css';
 
 const TABS = [
@@ -22,11 +35,14 @@ const TABS = [
 ] as const;
 
 type TabId = (typeof TABS)[number]['id'];
-type SavedPair = (typeof ACCOUNT_STUB.saved)[number];
+type SavedPair = SavedMatchupRow & {
+  you: string;
+  them: string;
+  verdict: string;
+  side: 'you' | 'them' | 'even';
+};
 
 const LANES = ['All', 'Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
-const CHANNELS = ['Email', 'Push', 'Both'] as const;
-const REGIONS = ['NA', 'EUW', 'BR', 'KR', 'SEA'] as const;
 const NOTIFS = [
   { k: 'pool', name: 'Patch changes to my pool', note: 'When a champion you play, or a common opponent, is buffed or nerfed.' },
   { k: 'tier', name: 'Tier shifts in my lanes', note: 'Only when something moves a full tier, not every decimal.' },
@@ -59,12 +75,31 @@ function sideTone(side: SavedPair['side']) {
   return { c: '#F0A87B', bg: 'rgba(240,168,123,.12)', bd: 'rgba(240,168,123,.38)' };
 }
 
-function riotIdFor(user: User | null, connected: boolean, draft: string): string {
-  if (!connected) return 'No Riot ID';
-  if (draft.trim()) return draft.trim();
-  const meta = user?.user_metadata as { riot_id?: string } | undefined;
-  return meta?.riot_id?.trim() || ACCOUNT_STUB.riotId;
+function nameFor(slug: string, champions: ApiChampion[]): string {
+  return champions.find((champion) => champion.slug === slug)?.name ?? slug;
 }
+
+function toSavedPair(row: SavedMatchupRow, champions: ApiChampion[]): SavedPair {
+  const you = nameFor(row.youSlug, champions);
+  const them = nameFor(row.themSlug, champions);
+  const youWr = parseFloat(metaFor(you).wr);
+  const themWr = parseFloat(metaFor(them).wr);
+  const side: SavedPair['side'] = youWr - themWr >= 1.5 ? 'you' : themWr - youWr >= 1.5 ? 'them' : 'even';
+  const verdict =
+    side === 'you' ? `${you.toUpperCase()} FAVOURED` : side === 'them' ? `${them.toUpperCase()} FAVOURED` : 'EVEN MATCHUP';
+  return { ...row, you, them, side, verdict };
+}
+
+const EMPTY_PROFILE: AccountProfile = {
+  riotId: null,
+  region: 'NA',
+  notifyPool: true,
+  notifyTier: true,
+  notifyCounters: false,
+  notifyDigest: true,
+  channel: 'Email',
+  proWaitlisted: false,
+};
 
 export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
   const router = useRouter();
@@ -73,25 +108,17 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
   const portraits = portraitsFromRoster(champions);
 
   const [user, setUser] = useState<User | null>(null);
-  const [riotConnected, setRiotConnected] = useState(true);
+  const [profile, setProfile] = useState<AccountProfile>(EMPTY_PROFILE);
   const [riotDraft, setRiotDraft] = useState('');
-  const [pool, setPool] = useState<string[]>(() => [...ACCOUNT_STUB.pool]);
-  const [saved, setSaved] = useState<SavedPair[]>(() => [...ACCOUNT_STUB.saved]);
+  const [pool, setPool] = useState<string[]>([]);
+  const [saved, setSaved] = useState<SavedMatchupRow[]>([]);
   const [poolLane, setPoolLane] = useState<(typeof LANES)[number]>('All');
-  const [notifs, setNotifs] = useState<Record<string, boolean>>({
-    pool: true,
-    tier: true,
-    counters: false,
-    digest: true,
-  });
-  const [channel, setChannel] = useState<(typeof CHANNELS)[number]>('Email');
-  const [waitlist, setWaitlist] = useState(false);
-  const [region, setRegion] = useState<(typeof REGIONS)[number]>('NA');
   const [emailEdit, setEmailEdit] = useState(false);
   const [emailDraft, setEmailDraft] = useState('');
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const [notice, setNotice] = useState('');
-  const [refreshed, setRefreshed] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const { url: avatarUrl, choose } = useChampionAvatar(user);
 
   useEffect(() => {
     if (!isSupabaseConfigured()) return;
@@ -105,25 +132,47 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    if (!user || !isSupabaseConfigured()) return;
+    const supabase = createClient();
+    void loadAccountState(supabase, user.id).then((state) => {
+      setProfile(state.profile);
+      setPool(state.pool);
+      setSaved(state.saved);
+    });
+  }, [user]);
+
   const email = user?.email ?? 'you@example.com';
-  const riotId = riotIdFor(user, riotConnected, riotDraft);
-  const rankLine = riotConnected ? ACCOUNT_STUB.rankLine : 'Not connected';
+  const riotConnected = Boolean(profile.riotId);
+  const riotId = profile.riotId || 'No Riot ID';
+  const displayName = profile.riotId || user?.email || 'Account';
+  const savedPairs = useMemo(() => saved.map((row) => toSavedPair(row, champions)), [saved, champions]);
+  const poolNames = useMemo(() => pool.map((slug) => nameFor(slug, champions)), [pool, champions]);
 
   const visiblePool = useMemo(
-    () => pool.filter((name) => poolLane === 'All' || metaFor(name).lanes.includes(poolLane)),
-    [pool, poolLane],
+    () =>
+      poolNames.filter((name) => poolLane === 'All' || metaFor(name).lanes.includes(poolLane)),
+    [pool, poolLane, poolNames],
   );
 
   const suggestions = useMemo(
     () =>
-      ACCOUNT_STUB.suggestions
+      champions
+        .map((champion) => champion.name)
         .concat(Object.keys(CHAMP_META))
         .filter((name, i, all) => all.indexOf(name) === i)
-        .filter((name) => !pool.includes(name))
+        .filter((name) => !poolNames.includes(name))
         .filter((name) => poolLane === 'All' || metaFor(name).lanes.includes(poolLane))
         .slice(0, 8),
-    [pool, poolLane],
+    [champions, poolLane, poolNames],
   );
+
+  const stats = [
+    { v: riotConnected ? profile.region : '—', k: 'REGION', c: '#8FEDB8' },
+    { v: String(pool.length), k: 'POOL', c: '#DEDCEE' },
+    { v: String(saved.length), k: 'SAVED', c: '#DEDCEE' },
+    { v: 'Beta', k: 'PLAN', c: '#DEDCEE' },
+  ];
 
   function goTab(id: TabId) {
     setDeleteConfirm(false);
@@ -136,8 +185,68 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
       await createClient().auth.signOut();
       setUser(null);
     }
-    router.push('/');
+    router.replace('/');
     router.refresh();
+  }
+
+  async function persistProfile(patch: Record<string, unknown>, next: AccountProfile, ok: string) {
+    if (!user || !isSupabaseConfigured()) {
+      setProfile(next);
+      setNotice(ok);
+      return;
+    }
+    try {
+      await patchProfile(createClient(), user.id, patch);
+      setProfile(next);
+      setNotice(ok);
+    } catch (error) {
+      setNotice(error instanceof Error ? error.message : 'Could not save.');
+    }
+  }
+
+  async function addPool(name: string) {
+    const slug = champions.find((champion) => champion.name === name)?.slug ?? metaFor(name).slug;
+    setPool((cur) => (cur.includes(slug) ? cur : [...cur, slug]));
+    setNotice(`${name} added to your pool.`);
+    if (user && isSupabaseConfigured()) {
+      const supabase = createClient();
+      await supabase.rpc('ensure_default_avatar');
+      const { error } = await supabase
+        .from('user_champion_pool')
+        .insert({ user_id: user.id, champion_slug: slug });
+      if (error && !error.message.includes('duplicate')) {
+        setNotice(error.message);
+      }
+    }
+  }
+
+  async function removePool(name: string) {
+    const slug = champions.find((champion) => champion.name === name)?.slug ?? metaFor(name).slug;
+    setPool((cur) => cur.filter((item) => item !== slug));
+    setNotice(`${name} removed from your pool.`);
+    if (user && isSupabaseConfigured()) {
+      await createClient()
+        .from('user_champion_pool')
+        .delete()
+        .eq('user_id', user.id)
+        .eq('champion_slug', slug);
+    }
+  }
+
+  async function removeSaved(pair: SavedPair) {
+    setSaved((cur) =>
+      cur.filter((row) => !(row.youSlug === pair.youSlug && row.themSlug === pair.themSlug && row.lane === pair.lane)),
+    );
+    setNotice(`${pair.you} vs ${pair.them} removed.`);
+    if (user && isSupabaseConfigured()) {
+      await createClient()
+        .from('user_saved_matchups')
+        .delete()
+        .eq('user_id', user.id)
+        .eq('you_slug', pair.youSlug)
+        .eq('them_slug', pair.themSlug)
+        .eq('lane', pair.lane);
+    }
   }
 
   return (
@@ -146,17 +255,24 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
         <div className={styles.glow} aria-hidden />
         <div className={styles.heroInner}>
           <div className={styles.identity}>
-            <div className={styles.avatar} aria-hidden />
+            <button
+              type="button"
+              className={styles.avatar}
+              onClick={() => user && setPickerOpen(true)}
+              aria-label="Change avatar"
+            >
+              {avatarUrl ? <Image src={avatarUrl} alt="" width={78} height={78} /> : null}
+            </button>
             <div className={styles.identityCopy}>
               <div className={styles.kicker}>ACCOUNT</div>
-              <h1 className={styles.name}>{riotId}</h1>
+              <h1 className={styles.name}>{displayName}</h1>
               <p className={styles.meta}>
-                {email} · {rankLine}
+                {email} · {riotConnected ? riotId : 'Not connected'}
               </p>
             </div>
           </div>
           <div className={styles.stats}>
-            {ACCOUNT_STUB.stats.map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.k}>
                 <div className={styles.statValue} style={{ color: stat.c }}>
                   {stat.v}
@@ -180,6 +296,17 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
         </nav>
       </header>
 
+      <ChampionPicker
+        open={pickerOpen}
+        title="Choose a champion face"
+        champions={champions}
+        portraits={portraits}
+        onClose={() => setPickerOpen(false)}
+        onPick={(champion) => {
+          void choose(champion.slug).then(() => setNotice(`Avatar set to ${champion.name}.`));
+        }}
+      />
+
       <div className={styles.body}>
         {notice ? (
           <div className={styles.notice} role="status">
@@ -197,20 +324,18 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
             riotConnected={riotConnected}
             riotId={riotId}
             riotDraft={riotDraft}
-            refreshed={refreshed}
-            pool={pool}
+            pool={poolNames}
             onRiotDraft={setRiotDraft}
-            onRefresh={() => {
-              setRefreshed(true);
-              setNotice('Read your last 20 ranked games.');
-            }}
-            onDisconnect={() => {
-              setRiotConnected(false);
-              setNotice('Riot ID disconnected. Rankings are global again.');
-            }}
+            onDisconnect={() =>
+              void persistProfile({ riot_id: null }, { ...profile, riotId: null }, 'Riot ID disconnected.')
+            }
             onConnect={() => {
-              setRiotConnected(true);
-              setNotice('Riot ID connected.');
+              const next = riotDraft.trim();
+              if (!next.includes('#')) {
+                setNotice('Use Summoner#TAG.');
+                return;
+              }
+              void persistProfile({ riot_id: next }, { ...profile, riotId: next }, 'Riot ID saved.');
             }}
           />
         ) : null}
@@ -221,50 +346,78 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
             pool={visiblePool}
             lane={poolLane}
             empty={visiblePool.length === 0}
-            blurb={`${pool.length} champions across ${new Set(pool.flatMap((n) => metaFor(n).lanes)).size} lanes. Their matchups come first everywhere in the app.`}
+            blurb={`${pool.length} champions in your pool. Their matchups come first everywhere in the app.`}
             suggestions={suggestions}
             onLane={setPoolLane}
             onOpen={(name) => router.push(`/champions/${metaFor(name).slug}`)}
-            onRemove={(name) => {
-              setPool((cur) => cur.filter((n) => n !== name));
-              setNotice(`${name} removed from your pool.`);
-            }}
-            onAdd={(name) => {
-              setPool((cur) => [...cur, name]);
-              setNotice(`${name} added to your pool.`);
-            }}
+            onRemove={(name) => void removePool(name)}
+            onAdd={(name) => void addPool(name)}
           />
         ) : null}
 
         {tab === 'saved' ? (
           <Saved
             portraits={portraits}
-            saved={saved}
-            onOpen={() => router.push('/matchups')}
-            onRemove={(pair) => {
-              setSaved((cur) => cur.filter((p) => !(p.you === pair.you && p.them === pair.them)));
-              setNotice(`${pair.you} vs ${pair.them} removed.`);
-            }}
+            saved={savedPairs}
+            onOpen={(pair) => router.push(`/matchups?you=${pair.youSlug}&them=${pair.themSlug}&lane=${pair.lane}`)}
+            onRemove={(pair) => void removeSaved(pair)}
           />
         ) : null}
 
         {tab === 'notifications' ? (
           <Notifications
-            notifs={notifs}
-            channel={channel}
-            onToggle={(key) => setNotifs((cur) => ({ ...cur, [key]: !cur[key] }))}
-            onChannel={setChannel}
+            notifs={{
+              pool: profile.notifyPool,
+              tier: profile.notifyTier,
+              counters: profile.notifyCounters,
+              digest: profile.notifyDigest,
+            }}
+            channel={profile.channel}
+            onToggle={(key) => {
+              const map = {
+                pool: 'notify_pool',
+                tier: 'notify_tier',
+                counters: 'notify_counters',
+                digest: 'notify_digest',
+              } as const;
+              const local = {
+                pool: 'notifyPool',
+                tier: 'notifyTier',
+                counters: 'notifyCounters',
+                digest: 'notifyDigest',
+              } as const;
+              const field = map[key as keyof typeof map];
+              const localKey = local[key as keyof typeof local];
+              if (!field || !localKey) return;
+              const nextValue = !profile[localKey];
+              void persistProfile({ [field]: nextValue }, { ...profile, [localKey]: nextValue }, 'Notification saved.');
+            }}
+            onChannel={(channel) =>
+              void persistProfile({ notify_channel: channel }, { ...profile, channel }, 'Delivery saved.')
+            }
           />
         ) : null}
 
-        {tab === 'plan' ? <Plan waitlist={waitlist} onWaitlist={() => setWaitlist((v) => !v)} /> : null}
+        {tab === 'plan' ? (
+          <Plan
+            waitlist={profile.proWaitlisted}
+            onWaitlist={() => {
+              const next = !profile.proWaitlisted;
+              void persistProfile(
+                { pro_waitlisted_at: next ? new Date().toISOString() : null },
+                { ...profile, proWaitlisted: next },
+                next ? 'You are on the waitlist.' : 'Removed from the waitlist.',
+              );
+            }}
+          />
+        ) : null}
 
         {tab === 'settings' ? (
           <Settings
             email={email}
             emailEdit={emailEdit}
             emailDraft={emailDraft}
-            region={region}
+            region={profile.region}
             deleteConfirm={deleteConfirm}
             onEmailDraft={setEmailDraft}
             onToggleEmail={() => {
@@ -278,17 +431,34 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
                 setNotice('That does not look like an email address.');
                 return;
               }
-              setEmailEdit(false);
-              setNotice('Email updated. Check the new address to confirm it.');
+              void (async () => {
+                if (user && isSupabaseConfigured()) {
+                  const { error } = await createClient().auth.updateUser({ email: next });
+                  if (error) {
+                    setNotice(error.message);
+                    return;
+                  }
+                }
+                setEmailEdit(false);
+                setNotice('Email updated. Check the new address to confirm it.');
+              })();
             }}
             onChangePass={() => router.push('/login?mode=forgot')}
-            onRegion={setRegion}
+            onRegion={(region) => void persistProfile({ region }, { ...profile, region }, 'Region saved.')}
             onSignOut={() => void signOut()}
             onAskDelete={() => setDeleteConfirm(true)}
             onCancelDelete={() => setDeleteConfirm(false)}
             onConfirmDelete={() => {
-              setDeleteConfirm(false);
-              setNotice('Account deletion is not available yet.');
+              void (async () => {
+                const res = await fetch('/api/account/delete', { method: 'POST' });
+                if (!res.ok) {
+                  const body = (await res.json().catch(() => ({}))) as { error?: string };
+                  setNotice(body.error ?? 'Account deletion failed.');
+                  return;
+                }
+                router.push('/');
+                router.refresh();
+              })();
             }}
           />
         ) : null}
@@ -302,10 +472,8 @@ function Overview({
   riotConnected,
   riotId,
   riotDraft,
-  refreshed,
   pool,
   onRiotDraft,
-  onRefresh,
   onDisconnect,
   onConnect,
 }: {
@@ -313,24 +481,19 @@ function Overview({
   riotConnected: boolean;
   riotId: string;
   riotDraft: string;
-  refreshed: boolean;
   pool: string[];
   onRiotDraft: (value: string) => void;
-  onRefresh: () => void;
   onDisconnect: () => void;
   onConnect: () => void;
 }) {
-  const played = pool.slice(0, 3).map((name, i) => {
-    const preset = ACCOUNT_STUB.mostPlayed[i];
+  const played = pool.slice(0, 3).map((name) => {
     const meta = metaFor(name);
-    const wr = parseFloat(meta.wr);
     return {
       name,
       slug: meta.slug,
-      games: preset?.name === name ? preset.games : 18,
-      lane: preset?.name === name ? preset.lane : meta.lanes[0] ?? 'Top',
+      lane: meta.lanes[0] ?? 'Top',
       wr: meta.wr,
-      wrc: wr >= 52 ? '#8FEDB8' : '#F0A87B',
+      wrc: parseFloat(meta.wr) >= 52 ? '#8FEDB8' : '#F0A87B',
     };
   });
 
@@ -348,33 +511,19 @@ function Overview({
               </div>
               <div className={styles.riotCopy}>
                 <div className={styles.riotId}>{riotId}</div>
-                <div className={styles.muted}>
-                  {refreshed ? 'Match history read just now' : 'Match history read 2 hours ago'}
-                </div>
+                <div className={styles.muted}>Saved on your account. Match history comes later.</div>
               </div>
               <div className={styles.riotActions}>
-                <button type="button" className={styles.ghost} onClick={onRefresh}>
-                  {refreshed ? 'Up to date' : 'Refresh'}
-                </button>
                 <button type="button" className={styles.dangerGhost} onClick={onDisconnect}>
                   Disconnect
                 </button>
               </div>
             </div>
-            <div className={styles.rule} />
-            <div className={styles.lpRow}>
-              <div className={styles.lpRank}>{ACCOUNT_STUB.rank}</div>
-              <div className={styles.muted}>{ACCOUNT_STUB.lp}</div>
-            </div>
-            <div className={styles.lpTrack}>
-              <div className={styles.lpFill} style={{ width: `${ACCOUNT_STUB.lpBar}%` }} />
-            </div>
-            <div className={styles.lpNote}>{ACCOUNT_STUB.nextRank}</div>
           </>
         ) : (
           <>
             <p className={styles.connectCopy}>
-              No Riot ID connected. Counters are ranked on global data until you add one.
+              No Riot ID connected. Counters stay on global data until you add one.
             </p>
             <div className={styles.connectRow}>
               <input
@@ -387,27 +536,34 @@ function Overview({
                 Connect
               </button>
             </div>
+            {process.env.NEXT_PUBLIC_RIOT_CLIENT_ID ? (
+              <p className={styles.connectCopy}>
+                <a href="/auth/riot">Or verify with Riot Sign-On</a>
+              </p>
+            ) : null}
           </>
         )}
       </section>
 
       <section className={styles.card}>
-        <div className={styles.cardK}>MOST PLAYED THIS SEASON</div>
+        <div className={styles.cardK}>YOUR POOL</div>
         <div className={styles.played}>
-          {played.map((c) => (
-            <Link key={c.name} href={`/champions/${c.slug}`} className={styles.playedRow}>
-              <ChampFace name={c.name} size={40} portraits={portraits} />
-              <div className={styles.playedCopy}>
-                <div className={styles.playedName}>{c.name}</div>
-                <div className={styles.playedMeta}>
-                  {c.games} games · {c.lane}
+          {played.length ? (
+            played.map((c) => (
+              <Link key={c.name} href={`/champions/${c.slug}`} className={styles.playedRow}>
+                <ChampFace name={c.name} size={40} portraits={portraits} />
+                <div className={styles.playedCopy}>
+                  <div className={styles.playedName}>{c.name}</div>
+                  <div className={styles.playedMeta}>{c.lane}</div>
                 </div>
-              </div>
-              <div className={styles.playedWr} style={{ color: c.wrc }}>
-                {c.wr}
-              </div>
-            </Link>
-          ))}
+                <div className={styles.playedWr} style={{ color: c.wrc }}>
+                  {c.wr}
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p className={styles.connectCopy}>Add champions on the pool tab and they show up here.</p>
+          )}
         </div>
       </section>
     </div>
@@ -502,15 +658,13 @@ function Saved({
 }: {
   portraits: Record<string, string>;
   saved: SavedPair[];
-  onOpen: () => void;
+  onOpen: (pair: SavedPair) => void;
   onRemove: (pair: SavedPair) => void;
 }) {
   return (
     <div>
       <h2 className={styles.h2}>Saved matchups</h2>
-      <p className={styles.sub}>
-        {saved.length ? 'Open one in champion select and the plan is already there.' : ''}
-      </p>
+      <p className={styles.sub}>{saved.length ? 'Open one and the plan is already there.' : ''}</p>
       {saved.length === 0 ? (
         <div className={styles.empty}>
           <div className={styles.emptyTitle}>Nothing saved yet</div>
@@ -526,7 +680,7 @@ function Saved({
           {saved.map((pair) => {
             const tone = sideTone(pair.side);
             return (
-              <div key={`${pair.you}-${pair.them}`} className={styles.savedRow}>
+              <div key={`${pair.youSlug}-${pair.themSlug}-${pair.lane}`} className={styles.savedRow}>
                 <div className={styles.savedFaces}>
                   <ChampFace name={pair.you} size={44} portraits={portraits} />
                   <span className={styles.savedThem}>
@@ -537,14 +691,14 @@ function Saved({
                   <div className={styles.savedTitle}>
                     {pair.you} vs {pair.them}
                   </div>
-                  <div className={styles.savedMeta}>{pair.lane} lane · saved this patch</div>
+                  <div className={styles.savedMeta}>{pair.lane} lane</div>
                 </div>
                 <div className={styles.savedChip} style={{ color: tone.c, background: tone.bg, borderColor: tone.bd }}>
                   <span style={{ background: tone.c }} />
                   {pair.verdict}
                 </div>
                 <div className={styles.savedActions}>
-                  <button type="button" className={styles.openBtn} onClick={onOpen}>
+                  <button type="button" className={styles.openBtn} onClick={() => onOpen(pair)}>
                     Open
                   </button>
                   <button
@@ -572,9 +726,9 @@ function Notifications({
   onChannel,
 }: {
   notifs: Record<string, boolean>;
-  channel: (typeof CHANNELS)[number];
+  channel: AccountChannel;
   onToggle: (key: string) => void;
-  onChannel: (channel: (typeof CHANNELS)[number]) => void;
+  onChannel: (channel: AccountChannel) => void;
 }) {
   return (
     <div className={styles.narrow}>
@@ -598,7 +752,7 @@ function Notifications({
       </div>
       <div className={styles.addK}>SEND THEM BY</div>
       <div className={styles.pills}>
-        {CHANNELS.map((item) => (
+        {ACCOUNT_CHANNELS.map((item) => (
           <button
             key={item}
             type="button"
@@ -645,11 +799,7 @@ function Plan({ waitlist, onWaitlist }: { waitlist: boolean; onWaitlist: () => v
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <button
-          type="button"
-          className={waitlist ? styles.waitOn : styles.wait}
-          onClick={onWaitlist}
-        >
+        <button type="button" className={waitlist ? styles.waitOn : styles.wait} onClick={onWaitlist}>
           {waitlist ? 'You are on the waitlist' : 'Join the Pro waitlist'}
         </button>
         <p className={styles.waitNote}>Beta accounts keep free access for a season after Pro launches.</p>
@@ -676,12 +826,12 @@ function Settings({
   email: string;
   emailEdit: boolean;
   emailDraft: string;
-  region: (typeof REGIONS)[number];
+  region: AccountRegion;
   deleteConfirm: boolean;
   onEmailDraft: (value: string) => void;
   onToggleEmail: () => void;
   onChangePass: () => void;
-  onRegion: (region: (typeof REGIONS)[number]) => void;
+  onRegion: (region: AccountRegion) => void;
   onSignOut: () => void;
   onAskDelete: () => void;
   onCancelDelete: () => void;
@@ -707,7 +857,7 @@ function Settings({
         <div className={styles.settingRow}>
           <div className={styles.settingCopy}>
             <div className={styles.settingK}>PASSWORD</div>
-            <div className={styles.settingV}>Last changed {ACCOUNT_STUB.passAge}</div>
+            <div className={styles.settingV}>Use the reset link to set a new one</div>
           </div>
           <button type="button" className={styles.ghost} onClick={onChangePass}>
             Change password
@@ -716,7 +866,7 @@ function Settings({
         <div className={styles.settingBlock}>
           <div className={styles.settingK}>REGION</div>
           <div className={styles.regionRow}>
-            {REGIONS.map((item) => (
+            {ACCOUNT_REGIONS.map((item) => (
               <button
                 key={item}
                 type="button"

@@ -59,7 +59,7 @@ export const MATCHUP_STUB = {
   them: 'Darius',
   lane: 'BARON LANE',
   verdict: 'DARIUS FAVOURED',
-  side: 'them' as const,
+  side: 'them' as 'you' | 'them' | 'even',
   difficulty: 'Hard',
   score: 7.5,
   confidence: 'High confidence',
@@ -411,8 +411,8 @@ export const ACCOUNT_STUB = {
 
 export const ACCOUNT_MENU = [
   { href: '/me', label: 'Account' },
-  { href: '/me?tab=pool', label: 'Champion pool', meta: String(ACCOUNT_STUB.pool.length) },
-  { href: '/me?tab=saved', label: 'Saved matchups', meta: String(ACCOUNT_STUB.saved.length) },
+  { href: '/me?tab=pool', label: 'Champion pool' },
+  { href: '/me?tab=saved', label: 'Saved matchups' },
   { href: '/me?tab=notifications', label: 'Notifications' },
   { href: '/me?tab=plan', label: 'Plan', meta: 'Beta' },
 ] as const;

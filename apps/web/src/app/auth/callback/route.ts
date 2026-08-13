@@ -32,6 +32,11 @@ export async function GET(request: Request) {
     return NextResponse.redirect(`${origin}/login?error=${encodeURIComponent(error.message)}`);
   }
 
+  const { data: sessionData } = await supabase.auth.getUser();
+  if (sessionData.user) {
+    await supabase.rpc('ensure_default_avatar');
+  }
+
   const forwardedHost = request.headers.get('x-forwarded-host');
   const isLocalEnv = process.env.NODE_ENV === 'development';
   if (isLocalEnv) {

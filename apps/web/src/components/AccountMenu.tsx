@@ -1,10 +1,12 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
-import { ACCOUNT_MENU, ACCOUNT_STUB } from '@/lib/design-stubs';
+import { useChampionAvatar } from '@/hooks/useChampionAvatar';
+import { ACCOUNT_MENU } from '@/lib/design-stubs';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import styles from './Shell.module.css';
@@ -21,17 +23,31 @@ function initialsFor(user: User): string {
   return '?';
 }
 
-function riotIdFor(user: User): string {
+function riotIdFor(user: User): string | null {
   const meta = user.user_metadata as { riot_id?: string } | undefined;
-  return meta?.riot_id?.trim() || ACCOUNT_STUB.riotId;
+  return meta?.riot_id?.trim() || null;
+}
+
+function displayName(user: User, riotId: string | null): string {
+  if (riotId) return riotId;
+  const meta = user.user_metadata as { full_name?: string; name?: string } | undefined;
+  return meta?.full_name || meta?.name || user.email || 'Account';
+}
+
+function pathAfterSignOut(pathname: string): string {
+  if (pathname === '/me' || pathname.startsWith('/me/')) return '/';
+  return pathname;
 }
 
 export function AccountMenu() {
   const router = useRouter();
+  const pathname = usePathname();
   const rootRef = useRef<HTMLDivElement>(null);
   const [user, setUser] = useState<User | null>(null);
+  const [riotId, setRiotId] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
+  const { url: avatarUrl } = useChampionAvatar(user);
 
   useEffect(() => {
     if (!isSupabaseConfigured()) {
@@ -50,6 +66,22 @@ export function AccountMenu() {
     });
     return () => subscription.unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (!user || !isSupabaseConfigured()) {
+      setRiotId(null);
+      return;
+    }
+    const supabase = createClient();
+    void supabase
+      .from('profiles')
+      .select('riot_id')
+      .eq('id', user.id)
+      .maybeSingle()
+      .then(({ data }) => {
+        setRiotId((data as { riot_id?: string | null } | null)?.riot_id?.trim() || riotIdFor(user));
+      });
+  }, [user]);
 
   useEffect(() => {
     if (!open) return;
@@ -72,6 +104,8 @@ export function AccountMenu() {
     setOpen(false);
     await createClient().auth.signOut();
     setUser(null);
+    const next = pathAfterSignOut(pathname);
+    if (next !== pathname) router.push(next);
     router.refresh();
   }
 
@@ -92,7 +126,7 @@ export function AccountMenu() {
     );
   }
 
-  const riotId = riotIdFor(user);
+  const name = displayName(user, riotId);
 
   return (
     <div className={styles.account} ref={rootRef}>
@@ -103,15 +137,21 @@ export function AccountMenu() {
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
-        {initialsFor(user)}
+        {avatarUrl ? (
+          <Image src={avatarUrl} alt="" width={34} height={34} />
+        ) : (
+          initialsFor(user)
+        )}
       </button>
       {open ? (
         <div className={styles.accountMenu} role="menu">
           <div className={styles.accountHead}>
-            <div className={styles.accountHeadFace} aria-hidden />
+            <div className={styles.accountHeadFace} aria-hidden>
+              {avatarUrl ? <Image src={avatarUrl} alt="" width={38} height={38} /> : null}
+            </div>
             <div className={styles.accountHeadCopy}>
-              <div className={styles.accountName}>{riotId}</div>
-              <div className={styles.accountRank}>{ACCOUNT_STUB.rankLine}</div>
+              <div className={styles.accountName}>{name}</div>
+              <div className={styles.accountRank}>{riotId ? 'Riot ID connected' : 'No Riot ID connected'}</div>
             </div>
           </div>
           <div className={styles.accountRule} />
