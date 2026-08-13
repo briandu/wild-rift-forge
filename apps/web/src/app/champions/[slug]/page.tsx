@@ -1,24 +1,31 @@
 import { notFound } from 'next/navigation';
 import { ChampionProfile } from '@/components/ChampionProfile';
 import { Shell } from '@/components/Shell';
-import { fetchChampion, fetchCounters, fetchLatestPatch } from '@/lib/api';
+import { fetchChampion, fetchCounters, fetchLatestPatch, fetchTiers } from '@/lib/api';
 import { FALLBACK_CHAMPIONS } from '@/lib/champions';
+import { parseTierLane, placementsForSlug } from '@/lib/placements';
 
 export default async function ChampionProfilePage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lane?: string }>;
 }) {
   const { slug } = await params;
-  const patch = await fetchLatestPatch();
+  const { lane: laneParam } = await searchParams;
+  const lane = parseTierLane(laneParam);
+  const [patch, tiers] = await Promise.all([fetchLatestPatch(), fetchTiers()]);
   const patchNote = patch?.champions.find((row) => row.slug === slug.toLowerCase()) ?? null;
   const champion =
     (await fetchChampion(slug)) ??
     FALLBACK_CHAMPIONS.find((c) => c.slug === slug.toLowerCase()) ??
     null;
+  const resolvedSlug = champion?.slug ?? slug.toLowerCase();
+  const placements = placementsForSlug(tiers?.placements ?? [], resolvedSlug);
 
   if (!champion) {
-    const counters = await fetchCounters(slug);
+    const counters = await fetchCounters(slug, lane);
     if (!counters) notFound();
     return (
       <Shell pathname={`/champions/${slug}`}>
@@ -32,12 +39,13 @@ export default async function ChampionProfilePage({
           abilities={counters.abilities}
           counters={counters}
           patchNote={patchNote}
+          placements={placements}
         />
       </Shell>
     );
   }
 
-  const counters = await fetchCounters(champion.slug);
+  const counters = await fetchCounters(champion.slug, lane);
 
   return (
     <Shell pathname={`/champions/${champion.slug}`}>
@@ -51,6 +59,7 @@ export default async function ChampionProfilePage({
         abilities={champion.abilities}
         counters={counters}
         patchNote={patchNote}
+        placements={placements}
       />
     </Shell>
   );

@@ -3,15 +3,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import type { AbilityDto, CountersResponse, PatchChampionChangeDto } from '@/lib/api-types';
+import { TIER_LANES } from '@wild-rift-forge/game-data';
+import type {
+  AbilityDto,
+  CountersResponse,
+  PatchChampionChangeDto,
+  TierPlacementDto,
+} from '@/lib/api-types';
 import { resolveAbilities } from '@/lib/abilities';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { ART_BY_SLUG, HERO_FALLBACK, initials, portraitFor, roleLabel } from '@/lib/champions';
+import { bestPlacement, formatRate, laneFromLabel, tierBadge } from '@/lib/placements';
 import { AbilityStrip } from './AbilityStrip';
 import styles from './ChampionProfile.module.css';
 
 const TABS = ['Overview', 'Matchups', 'Builds', 'Skill order', 'Pro play'] as const;
-const LANES = ['Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
+
+const TIER_CLASS: Record<string, string> = {
+  S: styles.tierS ?? '',
+  A: styles.tierA ?? '',
+  B: styles.tierB ?? '',
+  C: styles.tierC ?? '',
+};
 
 export function ChampionProfile({
   slug,
@@ -23,6 +36,7 @@ export function ChampionProfile({
   abilities: abilitiesProp,
   counters,
   patchNote,
+  placements,
 }: {
   slug: string;
   name: string;
@@ -33,6 +47,7 @@ export function ChampionProfile({
   abilities?: AbilityDto[] | null;
   counters: CountersResponse | null;
   patchNote?: PatchChampionChangeDto | null;
+  placements: TierPlacementDto[];
 }) {
   const [tab, setTab] = useState<(typeof TABS)[number]>('Matchups');
   const [dir, setDir] = useState<'beaten' | 'beats'>('beaten');
@@ -40,9 +55,14 @@ export function ChampionProfile({
   const focus = bannerFocusFor(slug);
   const avatar = portraitFor(slug, imageUrl, thumbnailUrl);
   const abilities = resolveAbilities(slug, abilitiesProp ?? counters?.abilities);
+  const activeLane = laneFromLabel(counters?.lane);
+  const placement = bestPlacement(placements, activeLane);
   const rows = counters
     ? dir === 'beaten'
-      ? [...counters.picks, ...counters.also.map((c) => ({ ...c, why: 'Reliable pick into this lane' }))]
+      ? [
+          ...counters.picks,
+          ...counters.also.map((c) => ({ ...c, why: 'Reliable pick into this lane' })),
+        ]
       : (counters.beats ?? counters.also.slice(0, 4)).map((c) => ({
           ...c,
           why: `Lower ${counters.lane.toLowerCase()} win rate than ${name}`,
@@ -67,7 +87,15 @@ export function ChampionProfile({
         <div className={styles.heroInner}>
           <div className={styles.heroLead}>
             <Link href="/champions" className={styles.back}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                aria-hidden
+              >
                 <path d="M14 6l-6 6 6 6" />
               </svg>
               All champions
@@ -85,7 +113,12 @@ export function ChampionProfile({
                 <p className={styles.meta}>
                   {roleLabel(roles)}
                   {title ? ` · ${title}` : ''}
-                  <span className={styles.tier}>A TIER</span>
+                  {placement ? (
+                    <span className={`${styles.tier} ${TIER_CLASS[placement.letter] ?? ''}`}>
+                      {tierBadge(placement.letter)}
+                      {activeLane ? ` · ${activeLane}` : ''}
+                    </span>
+                  ) : null}
                 </p>
               </div>
             </div>
@@ -124,28 +157,68 @@ export function ChampionProfile({
 
       <section className={styles.body}>
         {tab === 'Overview' ? (
-          <div className={styles.stubPanel}>
-            <h2 className={styles.stubTitle}>Kit</h2>
-            <p className={styles.stubCopy}>
-              {title ? `${name}, ${title}. ` : ''}
-              {counters?.blurb ?? 'Abilities are in the banner above. Matchups use live lane win rates.'}
-            </p>
-            {patchNote ? (
+          <div className={styles.overview}>
+            <div>
+              <h2 className={styles.stubTitle}>{name}</h2>
               <p className={styles.stubCopy}>
-                This patch: {patchNote.kind.toLowerCase()} · {patchNote.lines.map((line) => line.t).join(' ')}
+                {title ? `${title}. ` : ''}
+                {counters?.blurb ?? 'Matchups use live lane win rates, not pairwise samples.'}
               </p>
-            ) : (
-              <p className={styles.stubCopy}>No numbered change for {name} in the latest patch notes.</p>
-            )}
-            <button type="button" className={styles.primary} onClick={() => setTab('Matchups')}>
-              Open matchups
-            </button>
+              {placement ? (
+                <dl className={styles.snapshot}>
+                  <div>
+                    <dt>Lane</dt>
+                    <dd>{placement.lane}</dd>
+                  </div>
+                  <div>
+                    <dt>Tier</dt>
+                    <dd>{placement.letter}</dd>
+                  </div>
+                  <div>
+                    <dt>Win rate</dt>
+                    <dd>{formatRate(placement.winRate)}</dd>
+                  </div>
+                  <div>
+                    <dt>Pick rate</dt>
+                    <dd>{formatRate(placement.pickRate)}</dd>
+                  </div>
+                </dl>
+              ) : (
+                <p className={styles.stubCopy}>No ranked snapshot for this champion yet.</p>
+              )}
+              {patchNote ? (
+                <p className={styles.stubCopy}>
+                  This patch: {patchNote.kind.toLowerCase()}
+                  {patchNote.lines.length
+                    ? ` · ${patchNote.lines.map((line) => line.t).join(' ')}`
+                    : ''}
+                </p>
+              ) : (
+                <p className={styles.stubCopy}>
+                  No numbered change for {name} in the latest patch notes.
+                </p>
+              )}
+              <button type="button" className={styles.primary} onClick={() => setTab('Matchups')}>
+                Open matchups
+              </button>
+            </div>
+            <ul className={styles.kit}>
+              {abilities.map((ability) => (
+                <li key={ability.key}>
+                  <span className={styles.kitKey}>{ability.key}</span>
+                  <span>
+                    <strong>{ability.name}</strong>
+                    <span className={styles.kitDesc}>{ability.description}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         ) : tab === 'Builds' || tab === 'Skill order' || tab === 'Pro play' ? (
           <div className={styles.stubPanel}>
             <h2 className={styles.stubTitle}>{tab} needs a data source</h2>
             <p className={styles.stubCopy}>
-              We will not invent builds or skill orders. Matchups below use live lane win rates.
+              We will not invent builds or skill orders. Matchups use live lane win rates.
             </p>
             <button type="button" className={styles.primary} onClick={() => setTab('Matchups')}>
               Open matchups
@@ -155,13 +228,21 @@ export function ChampionProfile({
           <div className={styles.grid}>
             <div>
               <div className={styles.controls}>
-                <div className={styles.lanes}>
-                  {LANES.map((lane) => {
-                    const active = (counters?.lane ?? 'TOP').toLowerCase().includes(lane.toLowerCase());
+                <div className={styles.lanes} role="group" aria-label="Lane">
+                  {TIER_LANES.map((lane) => {
+                    const active = activeLane === lane;
+                    const hasData = placements.some((row) => row.lane === lane);
                     return (
-                      <span key={lane} className={active ? styles.laneActive : styles.lane}>
+                      <Link
+                        key={lane}
+                        href={`/champions/${slug}?lane=${lane}`}
+                        scroll={false}
+                        className={active ? styles.laneActive : styles.lane}
+                        aria-current={active ? 'page' : undefined}
+                        data-thin={hasData ? undefined : 'true'}
+                      >
                         {lane}
-                      </span>
+                      </Link>
                     );
                   })}
                 </div>

@@ -14,7 +14,12 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(11, 10, 18, 0.92) 18%, rgba(11, 10, 18, 0.45) 70%, rgba(11, 10, 18, 0.88)),
+    linear-gradient(
+      90deg,
+      rgba(11, 10, 18, 0.92) 18%,
+      rgba(11, 10, 18, 0.45) 70%,
+      rgba(11, 10, 18, 0.88)
+    ),
     linear-gradient(0deg, #0b0a12 0%, rgba(11, 10, 18, 0.82) 28%, transparent 62%);
 }
 
@@ -120,6 +125,30 @@
   padding: 3px 9px;
 }
 
+.tierS {
+  color: #8fedb8;
+  background: rgba(143, 237, 184, 0.12);
+  border-color: rgba(143, 237, 184, 0.36);
+}
+
+.tierA {
+  color: #f0a87b;
+  background: rgba(240, 168, 123, 0.14);
+  border-color: rgba(240, 168, 123, 0.32);
+}
+
+.tierB {
+  color: #9fcbe4;
+  background: rgba(159, 203, 228, 0.12);
+  border-color: rgba(159, 203, 228, 0.32);
+}
+
+.tierC {
+  color: #8b87a8;
+  background: rgba(139, 135, 168, 0.12);
+  border-color: rgba(139, 135, 168, 0.28);
+}
+
 .stats {
   display: flex;
   gap: 28px;
@@ -200,6 +229,10 @@
   align-items: center;
   border-radius: 8px;
   color: var(--text-dim);
+}
+
+.lane[data-thin='true'] {
+  opacity: 0.55;
 }
 
 .laneActive,
@@ -363,6 +396,73 @@
   color: var(--text-body);
 }
 
+.overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+  gap: 36px;
+  align-items: start;
+}
+
+.snapshot {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 20px;
+}
+
+.snapshot div {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.snapshot dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+}
+
+.snapshot dd {
+  margin: 6px 0 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.kit {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.kit li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.kitKey {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--accent-soft);
+  padding-top: 2px;
+}
+
+.kitDesc {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
 .stubPanel {
   max-width: 520px;
   padding: 24px 0;
@@ -393,8 +493,13 @@
     height: 380px;
   }
 
+  .overview,
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .snapshot {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .stats {

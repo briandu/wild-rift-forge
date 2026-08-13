@@ -1,34 +1,38 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ApiChampion } from '@/lib/api-types';
-import { metaFor } from '@/lib/design-stubs';
-import { HERO_FALLBACK, initials, portraitFor } from '@/lib/champions';
+import type { ApiChampion, PatchChampionChangeDto, TierPlacementDto } from '@/lib/api-types';
+import { cardFocusFor } from '@/lib/banner-focus';
+import { HERO_FALLBACK, initials, portraitFor, splashFor } from '@/lib/champions';
+import { formatRate, patchNoteFor, patchNoteLine, rosterBySlug, tierBadge } from '@/lib/placements';
 import { ChampionSearch } from './ChampionSearch';
 import styles from './HomeHero.module.css';
 
-const TRENDING = [
-  { name: 'Volibear', tag: 'RISING', pr: '14.1%', tagc: '#8FEDB8' },
-  { name: 'Caitlyn', tag: 'S TIER', pr: '19.8%', tagc: '#8FEDB8' },
-  { name: 'Gwen', tag: 'BUFFED', pr: '11.8%', tagc: '#7FDCFF' },
-  { name: 'Renekton', tag: 'CONTESTED', pr: '16.2%', tagc: '#F0A87B' },
-] as const;
-
-const RECENT = [
-  { name: 'Sett', note: 'You lost 3 of 5 into him' },
-  { name: 'Renekton', note: 'Most banned in your lane' },
-  { name: 'Gwen', note: 'Buffed in 6.2b' },
-  { name: 'Ashe', note: 'Picked into you twice today' },
-] as const;
+const TIER_COLOR: Record<string, string> = {
+  S: '#8FEDB8',
+  A: '#F0A87B',
+  B: '#9FCBE4',
+  C: '#8B87A8',
+};
 
 export function HomeHero({
   champions,
   popular,
   heroImage,
+  climbing,
+  laneLeaders,
+  patchVersion,
+  patchNotes,
 }: {
   champions: ApiChampion[];
   popular: ApiChampion[];
   heroImage: string;
+  climbing: TierPlacementDto[];
+  laneLeaders: TierPlacementDto[];
+  patchVersion: string | null;
+  patchNotes: PatchChampionChangeDto[];
 }) {
+  const bySlug = rosterBySlug(champions);
+
   return (
     <>
       <section className={`${styles.hero} ${styles.desktop}`}>
@@ -54,8 +58,8 @@ export function HomeHero({
             counter.
           </h1>
           <p className={`${styles.sub} animate-fade-up-delay`}>
-            Tell us who you&apos;re up against. We&apos;ll show you the picks that beat them, and the
-            reason they work.
+            Tell us who you&apos;re up against. We&apos;ll show you the picks that beat them, and
+            the reason they work.
           </p>
 
           <ChampionSearch champions={champions} variant="hero" />
@@ -114,64 +118,98 @@ export function HomeHero({
         </div>
 
         <div className={styles.climbHead}>
-          <h2 className={styles.sectionTitle}>Climbing this patch</h2>
+          <h2 className={styles.sectionTitle}>Picked this patch</h2>
           <Link href="/tier" className={styles.tierLink}>
             Tier list
           </Link>
         </div>
-        <div className={styles.climbTrack}>
-          {TRENDING.map((t) => {
-            const meta = metaFor(t.name);
-            const art = portraitFor(meta.slug);
-            return (
-              <Link key={t.name} href={`/counters/${meta.slug}`} className={styles.climbCard}>
-                <div className={styles.climbBg} style={{ background: meta.bg }} aria-hidden />
-                {art ? (
-                  <Image src={art} alt="" fill className={styles.climbArt} sizes="212px" />
-                ) : (
-                  <span className={styles.climbInitial}>{initials(t.name)}</span>
-                )}
-                <div className={styles.climbFade} aria-hidden />
-                <span className={styles.climbTag} style={{ color: t.tagc }}>
-                  {t.tag}
-                </span>
-                <div className={styles.climbMeta}>
-                  <div className={styles.climbName}>{t.name}</div>
-                  <div className={styles.climbStats}>
-                    <span>{meta.wr} WR</span>
-                    <span className={styles.climbPr}>{t.pr} PR</span>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-
-        <h2 className={`${styles.sectionTitle} ${styles.laneTitle}`}>Your lane, this week</h2>
-        <div className={styles.laneList}>
-          {RECENT.map((r) => {
-            const meta = metaFor(r.name);
-            const art = portraitFor(meta.slug);
-            return (
-              <Link key={r.name} href={`/counters/${meta.slug}`} className={styles.laneRow}>
-                <span className={styles.laneAvatar} style={{ background: meta.bg }}>
+        {climbing.length > 0 ? (
+          <div className={styles.climbTrack}>
+            {climbing.map((row) => {
+              const champ = bySlug.get(row.slug);
+              const art = splashFor(row.slug, champ?.imageUrl ?? row.imageUrl);
+              const focus = cardFocusFor(row.slug);
+              return (
+                <Link key={row.slug} href={`/counters/${row.slug}`} className={styles.climbCard}>
+                  <div className={styles.climbBg} aria-hidden />
                   {art ? (
-                    <Image src={art} alt="" width={46} height={46} />
+                    <Image
+                      src={art}
+                      alt=""
+                      fill
+                      className={styles.climbArt}
+                      style={{ objectPosition: `${focus.x}% ${focus.y}%` }}
+                      sizes="212px"
+                    />
                   ) : (
-                    initials(r.name)
+                    <span className={styles.climbInitial}>{initials(row.name)}</span>
                   )}
-                </span>
-                <span className={styles.laneCopy}>
-                  <span className={styles.laneName}>{r.name}</span>
-                  <span className={styles.laneNote}>{r.note}</span>
-                </span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A4560" strokeWidth="2.4" aria-hidden>
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </Link>
-            );
-          })}
-        </div>
+                  <div className={styles.climbFade} aria-hidden />
+                  <span
+                    className={styles.climbTag}
+                    style={{ color: TIER_COLOR[row.letter] ?? '#8B87A8' }}
+                  >
+                    {tierBadge(row.letter)}
+                  </span>
+                  <div className={styles.climbMeta}>
+                    <div className={styles.climbName}>{row.name}</div>
+                    <div className={styles.climbStats}>
+                      <span>{formatRate(row.winRate)} WR</span>
+                      <span className={styles.climbPr}>{formatRate(row.pickRate)} PR</span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <p className={styles.emptyCopy}>
+            Ranked snapshot is still landing. Search a champion above.
+          </p>
+        )}
+
+        <h2 className={`${styles.sectionTitle} ${styles.laneTitle}`}>Most picked by lane</h2>
+        {laneLeaders.length > 0 ? (
+          <div className={styles.laneList}>
+            {laneLeaders.map((row) => {
+              const champ = bySlug.get(row.slug);
+              const art = portraitFor(
+                row.slug,
+                champ?.imageUrl ?? row.imageUrl,
+                champ?.thumbnailUrl ?? row.thumbnailUrl,
+              );
+              const note =
+                patchNoteLine(patchNoteFor(row.slug, patchNotes), patchVersion) ??
+                `${formatRate(row.pickRate)} pick rate in ${row.lane}`;
+              return (
+                <Link key={row.lane} href={`/counters/${row.slug}`} className={styles.laneRow}>
+                  <span className={styles.laneAvatar}>
+                    {art ? <Image src={art} alt="" width={46} height={46} /> : initials(row.name)}
+                  </span>
+                  <span className={styles.laneCopy}>
+                    <span className={styles.laneName}>
+                      {row.lane} · {row.name}
+                    </span>
+                    <span className={styles.laneNote}>{note}</span>
+                  </span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#4A4560"
+                    strokeWidth="2.4"
+                    aria-hidden
+                  >
+                    <path d="M9 6l6 6-6 6" />
+                  </svg>
+                </Link>
+              );
+            })}
+          </div>
+        ) : (
+          <p className={styles.emptyCopy}>Lane stats appear here after the next ranked snapshot.</p>
+        )}
       </section>
     </>
   );

@@ -203,6 +203,7 @@
 .climbBg {
   position: absolute;
   inset: 0;
+  background: linear-gradient(150deg, #3e3a54, #1a1828);
 }
 
 .climbArt {
@@ -296,7 +297,8 @@
   justify-content: center;
   font-weight: 900;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.45);
+  background: #2a2740;
   flex: none;
 }
 
@@ -322,6 +324,13 @@
   font-size: 13px;
   color: var(--text-dim);
   margin-top: 2px;
+}
+
+.emptyCopy {
+  margin: 0 20px 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-dim);
 }
 
 @media (max-width: 900px) {
