@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   padding: 0 48px;
-  gap: 36px;
+  gap: 40px;
   overflow: visible;
 }
 
@@ -34,6 +34,12 @@
   z-index: 1;
 }
 
+.header .drawer,
+.header .searchOverlay {
+  position: absolute;
+  z-index: 30;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -45,10 +51,86 @@
   width: auto;
 }
 
+.mark {
+  display: none;
+  height: 44px;
+  width: auto;
+}
+
 .nav {
   display: flex;
   gap: 30px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+.burger,
+.searchBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.burger {
+  border-radius: 12px;
+}
+
+.searchBtn {
+  border-radius: 50%;
+}
+
+.burger:hover,
+.searchBtn:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.drawer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 29;
+  padding: 8px 18px 18px;
+  background: rgba(13, 11, 22, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+}
+
+.drawerItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.drawerTick,
+.drawerTickOn {
+  width: 3px;
+  height: 18px;
+  border-radius: 2px;
+  flex: none;
+  background: transparent;
+}
+
+.drawerTickOn {
+  background: var(--accent);
+}
+
+.drawerLabel,
+.drawerLabelOn {
+  font-size: 17px;
+  color: var(--text-muted);
+}
+
+.drawerLabelOn {
+  font-weight: 700;
+  color: #fff;
 }
 
 .navLink,
@@ -73,11 +155,32 @@
 
 .spacer {
   flex: 1;
+  min-width: 16px;
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: none;
 }
 
 .search {
   flex: none;
   position: relative;
+}
+
+.searchOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 30;
+  padding: 14px 28px 18px;
+  background: rgba(13, 11, 22, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
 }
 
 .searchFallback {
@@ -162,28 +265,100 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
-@media (max-width: 1100px) {
-  .nav {
-    gap: 18px;
-  }
-
-  .navLink,
-  .navActive {
-    font-size: 14px;
-  }
-
-  .searchFallback {
-    width: 200px;
-  }
-}
-
 .main {
   min-height: 0;
 }
 
-@media (max-width: 900px) {
-  /* Mobile chrome: bottom tab bar from Wild Rift Forge Mobile.dc.html */
+@media (max-width: 1440px) {
   .header {
+    padding: 0 32px;
+    gap: 26px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .nav {
+    gap: 22px;
+  }
+
+  .navRight {
+    gap: 10px;
+  }
+
+  .searchFallback {
+    width: 210px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .logo {
+    display: none;
+  }
+
+  .mark {
+    display: block;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .searchBtn {
+    display: flex;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 0 28px;
+    gap: 26px;
+  }
+
+  .mark {
+    height: 40px;
+  }
+
+  .nav {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .patch {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    padding: 0 18px;
+    gap: 16px;
+  }
+
+  .mark {
+    height: 36px;
+  }
+
+  .searchOverlay {
+    padding: 14px 18px 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 62px;
+    gap: 12px;
+  }
+
+  .mark {
+    height: 32px;
+  }
+
+  .nav,
+  .burger,
+  .drawer {
     display: none;
   }
 

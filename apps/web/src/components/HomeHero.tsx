@@ -85,14 +85,6 @@ export function HomeHero({
 
       <section className={styles.mobile}>
         <div className={styles.mobileTop}>
-          <Image
-            src="/logo-wr-forge.png"
-            alt="Wild Rift Forge"
-            width={120}
-            height={30}
-            priority
-            className={styles.mobileLogo}
-          />
           <h1 className={styles.mobileTitle}>
             Who are you
             <br />

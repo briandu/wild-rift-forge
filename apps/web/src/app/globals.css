@@ -22,6 +22,12 @@
   --mobile-nav-height: 72px;
 }
 
+@media (max-width: 600px) {
+  :root {
+    --shell-height: 62px;
+  }
+}
+
 *,
 *::before,
 *::after {

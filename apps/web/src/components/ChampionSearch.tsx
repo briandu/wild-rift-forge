@@ -31,9 +31,11 @@ const FUSE_OPTIONS: IFuseOptions<ApiChampion> = {
 export function ChampionSearch({
   champions,
   variant = 'hero',
+  autoFocus = false,
 }: {
   champions: ApiChampion[];
-  variant?: 'hero' | 'compact' | 'mobile';
+  variant?: 'hero' | 'compact' | 'mobile' | 'overlay';
+  autoFocus?: boolean;
 }) {
   const router = useRouter();
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -130,18 +132,35 @@ export function ChampionSearch({
     ) : null;
 
   const wrapClass =
-    variant === 'compact' ? styles.compactWrap : variant === 'mobile' ? styles.mobileWrap : styles.heroWrap;
+    variant === 'compact'
+      ? styles.compactWrap
+      : variant === 'mobile'
+        ? styles.mobileWrap
+        : variant === 'overlay'
+          ? styles.overlayWrap
+          : styles.heroWrap;
   const barClass =
-    variant === 'compact' ? styles.compactBar : variant === 'mobile' ? styles.mobileBar : styles.heroBar;
+    variant === 'compact'
+      ? styles.compactBar
+      : variant === 'mobile'
+        ? styles.mobileBar
+        : variant === 'overlay'
+          ? styles.overlayBar
+          : styles.heroBar;
   const placeholder =
-    variant === 'mobile' ? 'Search a champion' : variant === 'hero' ? 'Search champion…' : 'Search champion';
+    variant === 'mobile' || variant === 'overlay'
+      ? 'Search a champion'
+      : variant === 'hero'
+        ? 'Search champion…'
+        : 'Search champion';
+  const iconSize = variant === 'compact' ? 15 : variant === 'overlay' ? 16 : 18;
 
   return (
     <div ref={wrapRef} className={wrapClass}>
       <div className={barClass}>
         <svg
-          width={variant === 'compact' ? 15 : 18}
-          height={variant === 'compact' ? 15 : 18}
+          width={iconSize}
+          height={iconSize}
           viewBox="0 0 24 24"
           fill="none"
           stroke="var(--accent-soft)"
@@ -160,6 +179,7 @@ export function ChampionSearch({
           placeholder={placeholder}
           aria-label="Search champion"
           className={styles.input}
+          autoFocus={autoFocus}
         />
         {variant === 'hero' ? (
           <button type="button" className={`${styles.cta} animate-cta`} onClick={onSubmit}>
