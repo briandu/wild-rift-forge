@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type ReactElement } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import styles from './AuthPanel.module.css';
@@ -102,7 +102,7 @@ type SsoProvider = 'riot' | 'google' | 'apple';
 const SSO: {
   name: string;
   provider: SsoProvider;
-  Icon: () => JSX.Element;
+  Icon: () => ReactElement;
   appleOnly?: boolean;
 }[] = [
   { name: 'Google', provider: 'google', Icon: GoogleMark },
