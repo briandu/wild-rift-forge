@@ -53,6 +53,11 @@
   margin-bottom: 7px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   background: transparent;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 .slotActive {
@@ -394,6 +399,8 @@
   font-size: 12px;
   color: rgba(0, 0, 0, 0.4);
   opacity: 0.45;
+  border: 0;
+  cursor: pointer;
 }
 
 @media (max-width: 980px) {
