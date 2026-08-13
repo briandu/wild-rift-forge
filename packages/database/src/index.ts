@@ -22,6 +22,8 @@ export {
   replaceTierPlacements,
   listLatestTierPlacements,
   listWinRatesByChampion,
+  listLatestLaneStats,
+  type LaneStatSnapshot,
   type StatSnapshotInput,
   type StoredStatSnapshot,
   type TierPlacementInput,

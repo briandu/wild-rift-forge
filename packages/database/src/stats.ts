@@ -238,6 +238,47 @@ export async function listLatestTierPlacements(
   };
 }
 
+export type LaneStatSnapshot = {
+  slug: string;
+  name: string;
+  lane: TierLane;
+  winRate: number;
+  pickRate: number;
+  banRate: number;
+  imageUrl: string | null;
+  thumbnailUrl: string | null;
+};
+
+export async function listLatestLaneStats(
+  rankBracket: RankBracket,
+): Promise<{ snapshotDate: string; rows: LaneStatSnapshot[] }> {
+  const snapshotDate = await getLatestSnapshotDate(rankBracket);
+  if (!snapshotDate) {
+    return { snapshotDate: '', rows: [] };
+  }
+  const result = await getPool().query(
+    `SELECT c.slug, c.name, c.image_url, c.thumbnail_url,
+            s.lane, s.win_rate, s.pick_rate, s.ban_rate
+     FROM champion_stat_snapshots s
+     JOIN champions c ON c.id = s.champion_id
+     WHERE s.snapshot_date = $1 AND s.rank_bracket = $2`,
+    [snapshotDate, rankBracket],
+  );
+  return {
+    snapshotDate,
+    rows: result.rows.map((row) => ({
+      slug: row.slug as string,
+      name: row.name as string,
+      lane: row.lane as TierLane,
+      winRate: num(row.win_rate),
+      pickRate: num(row.pick_rate),
+      banRate: num(row.ban_rate),
+      imageUrl: (row.image_url as string) ?? null,
+      thumbnailUrl: (row.thumbnail_url as string) ?? null,
+    })),
+  };
+}
+
 export async function listWinRatesByChampion(
   snapshotDate: string,
   rankBracket: RankBracket,
