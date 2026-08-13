@@ -154,6 +154,26 @@ export interface PatchAnalysisPayload {
   movers: PatchAnalysisMover[];
 }
 
+export {
+  buildLaneCounters,
+  counterScore,
+  formatWinRate,
+  matchupVerdict,
+  pickEnemyLane,
+  type AlsoPickResult,
+  type CounterPickResult,
+  type LaneStatRow,
+  type MatchupSide,
+} from './counters';
+export {
+  compNeeds,
+  draftFitScore,
+  rankDraftSuggestions,
+  type CompNeed,
+  type DraftPlacement,
+  type DraftSuggestion,
+} from './draft';
+
 /** One ability from a champion's kit (passive / 1 / 2 / 3 / ultimate). */
 export interface ChampionAbility {
   /** Kit slot key, e.g. "passive", "1", "ultimate". */
