@@ -3,7 +3,7 @@ name: import-claude-design
 description: >-
   Ingest a Claude Design .zip (or use the latest design/handoffs slug) and
   implement it into apps/web as Next.js + React + TypeScript, following the
-  Riftline Premium Gaming baseline and design/STACK.md. Use when the user says
+  Wild Rift Forge Premium Gaming baseline and design/STACK.md. Use when the user says
   import Claude Design, /import-claude-design, drops a design zip, or asks to
   build UI from a Claude Design handoff.
 ---

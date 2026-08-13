@@ -1,5 +1,5 @@
 ---
-description: Claude Design → apps/web handoff conventions (Riftline / Premium Gaming)
+description: Claude Design → apps/web handoff conventions (Wild Rift Forge / Premium Gaming)
 globs:
   - design/**/*
   - apps/web/**/*
@@ -10,7 +10,7 @@ alwaysApply: false
 
 ## Source of truth
 
-- Visual direction: **Premium Gaming** (RIFTLINE) — see `design/STACK.md` and the latest folder under `design/handoffs/` (or `design/claude-baseline/` if not yet re-ingested).
+- Visual direction: **Premium Gaming** (Wild Rift Forge) — see `design/STACK.md` and the latest folder under `design/handoffs/` (or `design/claude-baseline/` if not yet re-ingested).
 - Product data / types: `@wild-rift-forge/game-data`, Supabase schema via migrations, champion art via Storage `game-assets`.
 - Implementation target: **`apps/web`** (Next.js App Router + React + TypeScript). API in `apps/api`.
 
@@ -21,7 +21,7 @@ alwaysApply: false
 3. **Translate** into Next.js components/routes — do not copy `support.js`, `<x-dc>`, or `sc-*` runtime into production.
 4. Map mock data to real shapes from `packages/game-data`; never treat design mock WR/pick rates as production facts.
 5. Prefer CSS variables / shared tokens in `apps/web` over one-off inline style dumps.
-6. Preserve Premium Gaming language (dark base `#0B0A12`, purple accent, Archivo, art-led heroes). Do not reopen directions 1A/1C unless asked.
+6. Preserve Premium Gaming language (dark base `#0B0A12`, cyan accent `#16C0FF` / `#7FDCFF`, Archivo, art-led heroes). Do not reopen directions 1A/1C unless asked.
 
 ## Stack boundaries
 
