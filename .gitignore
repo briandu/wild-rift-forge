@@ -26,4 +26,7 @@ Thumbs.db
 design/handoffs/**/*.zip
 design/**/*.zip
 
+# Vercel
+.vercel
+
 *.tsbuildinfo

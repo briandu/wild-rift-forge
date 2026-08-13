@@ -1,0 +1,270 @@
+.hero {
+  position: relative;
+  padding: 44px 48px 26px;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(720px 380px at 84% 0%, rgba(22, 192, 255, 0.18), transparent 64%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-soft);
+}
+
+.title {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(42px, 7vw, 64px);
+  line-height: 0.94;
+  letter-spacing: -0.038em;
+}
+
+.copy {
+  margin: 16px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 520px;
+  text-wrap: pretty;
+}
+
+.stats {
+  display: flex;
+  gap: 34px;
+}
+
+.statValue {
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+}
+
+.statLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.body {
+  padding: 0 48px 90px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.roles {
+  display: flex;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px;
+  padding: 5px;
+}
+
+.role,
+.roleActive {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 15px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  color: #8b87a8;
+}
+
+.roleActive {
+  color: #fff;
+  background: var(--accent);
+}
+
+.count {
+  margin-left: auto;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.bands {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.band {
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid;
+}
+
+.badge {
+  width: 112px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 22px 0;
+  border-right: 1px solid;
+}
+
+.letter {
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.badgeLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  opacity: 0.72;
+}
+
+.badgeCount {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+
+.champs {
+  flex: 1;
+  min-width: 0;
+  padding: 18px 20px;
+}
+
+.empty {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #5c5878;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  gap: 14px;
+}
+
+.champ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 8px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+.champ:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.ring {
+  border-radius: 50%;
+  border: 2px solid;
+  line-height: 0;
+}
+
+.champName {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.champWr {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-extra-dim);
+}
+
+.patchLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--link-cool);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 7px 15px;
+  border-radius: 18px;
+}
+
+.patchLink:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .band {
+    flex-direction: column;
+  }
+
+  .badge {
+    width: 100%;
+    flex-direction: row;
+    gap: 12px;
+    padding: 14px 18px;
+    border-right: none;
+    border-bottom: 1px solid;
+    justify-content: flex-start;
+  }
+
+  .letter {
+    font-size: 28px;
+  }
+
+  .count {
+    margin-left: 0;
+    width: 100%;
+  }
+}

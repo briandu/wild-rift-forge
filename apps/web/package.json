@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
+    "dev": "next dev --port 3001",
     "build": "next build",
-    "start": "next start --port 3000",
+    "start": "next start --port 3001",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.112.3",
+    "@wild-rift-forge/api": "*",
+    "@wild-rift-forge/database": "*",
     "@wild-rift-forge/game-data": "*",
+    "server-only": "^0.0.1",
+    "fuse.js": "^7.5.0",
     "next": "^15.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

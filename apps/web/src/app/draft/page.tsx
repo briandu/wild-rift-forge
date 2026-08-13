@@ -1,21 +1,13 @@
-import Link from 'next/link';
+import { DraftBoard } from '@/components/DraftBoard';
 import { Shell } from '@/components/Shell';
-import styles from './page.module.css';
+import { fetchChampions } from '@/lib/api';
+import { portraitsFromRoster } from '@/lib/champions';
 
-export default function DraftStubPage() {
+export default async function DraftPage() {
+  const portraits = portraitsFromRoster(await fetchChampions());
   return (
     <Shell pathname="/draft">
-      <section className={styles.panel}>
-        <p className={styles.eyebrow}>DRAFT ASSISTANT</p>
-        <h1 className={styles.title}>Draft board coming next.</h1>
-        <p className={styles.copy}>
-          Ally and enemy slots, fit scores, and ban suggestions from the Premium Gaming handoff will
-          land here once the recommendation layer exists.
-        </p>
-        <Link href="/" className={styles.primary}>
-          Find a counter instead
-        </Link>
-      </section>
+      <DraftBoard portraits={portraits} />
     </Shell>
   );
 }

@@ -1,15 +1,26 @@
 .heroWrap,
-.compactWrap {
+.compactWrap,
+.mobileWrap {
   position: relative;
-  width: 100%;
 }
 
 .heroWrap {
+  width: 100%;
   max-width: 560px;
 }
 
+.compactWrap {
+  width: 280px;
+}
+
+.mobileWrap {
+  width: 100%;
+  margin-top: 18px;
+}
+
 .heroBar,
-.compactBar {
+.compactBar,
+.mobileBar {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -26,11 +37,74 @@
 
 .compactBar {
   height: 40px;
-  width: 280px;
+  width: 100%;
   border-radius: 22px;
   padding: 0 8px 0 16px;
   background: rgba(255, 255, 255, 0.06);
   border-color: var(--border);
+}
+
+.mobileBar {
+  height: 54px;
+  border-radius: 16px;
+  padding: 0 16px;
+  gap: 11px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.clear {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--text-body);
+  flex: none;
+}
+
+.portalPanel {
+  position: fixed;
+  z-index: 80;
+}
+
+.portalPanel .results,
+.portalPanel .empty {
+  position: static;
+  width: 100%;
+}
+
+.compactWrap .results,
+.compactWrap .empty {
+  left: auto;
+  right: 0;
+  width: 300px;
+  z-index: 40;
+  border-radius: 14px;
+  padding: 7px;
+}
+
+.compactWrap .avatar,
+.portalPanel .avatar {
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.compactWrap .name,
+.portalPanel .name {
+  font-size: 14px;
+}
+
+.compactWrap .result,
+.compactWrap .resultActive,
+.portalPanel .result,
+.portalPanel .resultActive {
+  gap: 11px;
+  padding: 8px 10px;
 }
 
 .input {
@@ -104,7 +178,7 @@
   height: 38px;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(140deg, var(--accent), #3c7bd6);
+  background: linear-gradient(140deg, var(--accent), var(--accent-deep));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,9 +200,92 @@
 }
 
 .meta {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-left: auto;
+}
+
+.emptyHint {
+  margin: 5px 0 12px;
   font-size: 13px;
   color: var(--text-dim);
-  margin-left: 4px;
+  line-height: 1.5;
+}
+
+.empty {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 10px);
+  padding: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.emptyText {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.nearest {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nearestChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 5px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.nearestChip:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.avatarSm {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(140deg, var(--accent), var(--accent-deep));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.avatarSm img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1100px) {
+  .compactWrap {
+    width: 200px;
+  }
+}
+
+@media (max-width: 900px) {
+  .compactWrap {
+    width: 100%;
+  }
 }
 
 @media (max-width: 720px) {

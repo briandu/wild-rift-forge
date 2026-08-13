@@ -14,10 +14,24 @@
   display: flex;
   align-items: center;
   padding: 0 48px;
-  gap: 40px;
+  gap: 36px;
+  overflow: visible;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   background: rgba(11, 10, 18, 0.78);
   backdrop-filter: blur(14px);
+}
+
+.header > * {
+  position: relative;
+  z-index: 1;
 }
 
 .brand {
@@ -27,13 +41,14 @@
 }
 
 .logo {
-  height: 48px;
+  height: 58px;
   width: auto;
 }
 
 .nav {
   display: flex;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .navLink,
@@ -43,6 +58,7 @@
   border-bottom: 2px solid transparent;
   color: #a9a5c4;
   transition: color 0.15s ease;
+  white-space: nowrap;
 }
 
 .navLink:hover {
@@ -59,31 +75,119 @@
   flex: 1;
 }
 
+.search {
+  flex: none;
+  position: relative;
+}
+
+.searchFallback {
+  height: 40px;
+  width: 280px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+}
+
 .patch {
   font-size: 13px;
   font-weight: 600;
-  color: #b7b2e0;
+  color: var(--link-cool);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.09);
   padding: 7px 13px;
   border-radius: 20px;
+  flex: none;
 }
 
-@media (max-width: 720px) {
-  .header {
-    padding: 0 20px;
-    gap: 16px;
-  }
+.patch:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
 
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.55);
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  flex: none;
+}
+
+.avatar:hover {
+  filter: brightness(1.08);
+}
+
+.account {
+  position: relative;
+  flex: none;
+}
+
+.accountMenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 220px;
+  padding: 10px;
+  border-radius: 14px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  z-index: 30;
+}
+
+.accountEmail {
+  font-size: 12px;
+  color: var(--text-dim);
+  padding: 6px 8px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountAction {
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+  padding: 10px 8px;
+  border-radius: 10px;
+}
+
+.accountAction:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1100px) {
   .nav {
-    gap: 16px;
+    gap: 18px;
   }
 
-  .logo {
-    height: 40px;
+  .navLink,
+  .navActive {
+    font-size: 14px;
   }
 
-  .patch {
+  .searchFallback {
+    width: 200px;
+  }
+}
+
+.main {
+  min-height: 0;
+}
+
+@media (max-width: 900px) {
+  /* Mobile chrome: bottom tab bar from Wild Rift Forge Mobile.dc.html */
+  .header {
     display: none;
+  }
+
+  .main {
+    padding-bottom: calc(var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px));
   }
 }

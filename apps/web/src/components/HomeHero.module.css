@@ -10,7 +10,7 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(900px 520px at 76% 6%, rgba(106, 92, 240, 0.28), transparent 62%),
+    radial-gradient(900px 520px at 76% 6%, var(--accent-glow), transparent 62%),
     radial-gradient(760px 500px at 6% 34%, rgba(52, 120, 220, 0.14), transparent 60%);
   pointer-events: none;
 }
@@ -95,6 +95,7 @@
   font-weight: 600;
   color: var(--text-soft);
   transition: background 0.15s ease;
+  flex: none;
 }
 
 .chip:hover {
@@ -106,7 +107,7 @@
   height: 28px;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(140deg, var(--accent), #3c7bd6);
+  background: linear-gradient(140deg, var(--accent), var(--accent-deep));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -121,14 +122,221 @@
   object-fit: cover;
 }
 
+/* Mobile home — Wild Rift Forge Mobile.dc.html */
+.mobile {
+  display: none;
+}
+
+.mobileTop {
+  padding: 20px 20px 0;
+}
+
+.mobileLogo {
+  height: 30px;
+  width: auto;
+  display: block;
+  margin-bottom: 22px;
+}
+
+.mobileTitle {
+  margin: 0;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.mobileChips {
+  display: flex;
+  gap: 9px;
+  overflow-x: auto;
+  padding: 18px 20px 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.mobileChips::-webkit-scrollbar {
+  display: none;
+}
+
+.mobileChips .chipAvatar {
+  width: 30px;
+  height: 30px;
+}
+
+.climbHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 26px 20px 12px;
+}
+
+.sectionTitle {
+  margin: 0;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.018em;
+}
+
+.tierLink {
+  font-size: 14px;
+  color: var(--accent-soft);
+  font-weight: 600;
+}
+
+.climbTrack {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 0 20px 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.climbTrack::-webkit-scrollbar {
+  display: none;
+}
+
+.climbCard {
+  width: 212px;
+  flex: none;
+  height: 268px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.climbBg {
+  position: absolute;
+  inset: 0;
+}
+
+.climbArt {
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.climbInitial {
+  position: absolute;
+  left: 10px;
+  bottom: -24px;
+  font-weight: 900;
+  font-size: 132px;
+  color: rgba(0, 0, 0, 0.22);
+  line-height: 0.8;
+}
+
+.climbFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(8, 7, 14, 0.95) 16%, rgba(8, 7, 14, 0.05) 64%);
+}
+
+.climbTag {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 9px;
+  border-radius: 12px;
+  background: rgba(8, 7, 14, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  z-index: 1;
+}
+
+.climbMeta {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1;
+}
+
+.climbName {
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: -0.016em;
+}
+
+.climbStats {
+  display: flex;
+  gap: 14px;
+  margin-top: 7px;
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.climbPr {
+  color: var(--text-dim);
+}
+
+.laneTitle {
+  padding: 28px 20px 10px;
+}
+
+.laneList {
+  padding: 0 12px 8px;
+}
+
+.laneRow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 10px;
+  border-radius: 14px;
+}
+
+.laneRow:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.laneAvatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.45);
+  flex: none;
+}
+
+.laneAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.laneCopy {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.laneName {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.laneNote {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
 @media (max-width: 900px) {
-  .artPlane {
-    width: 100%;
-    opacity: 0.55;
+  .desktop {
+    display: none;
   }
 
-  .copy {
-    padding: 48px 20px 72px;
-    width: 100%;
+  .mobile {
+    display: block;
   }
 }

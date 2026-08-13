@@ -1,0 +1,23 @@
+.face {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex: none;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.soft {
+  border-radius: 20%;
+}
+
+.face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

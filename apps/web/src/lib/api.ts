@@ -1,46 +1,26 @@
-import type { Champion } from '@wild-rift-forge/game-data';
+import type {
+  ApiChampion,
+  CountersResponse,
+  LatestPatchResponse,
+  TiersResponse,
+} from './api-types';
+
+export type {
+  AbilityDto,
+  AlsoPick,
+  ApiChampion,
+  CounterPick,
+  CountersResponse,
+  LatestPatchResponse,
+  PatchChampionChangeDto,
+  TierPlacementDto,
+  TiersResponse,
+} from './api-types';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:4000';
 
-export interface ApiChampion extends Champion {
-  id?: number;
-}
-
-export interface CounterPick {
-  slug: string;
-  name: string;
-  score: number;
-  winRate: string;
-  tag: 'STRONG COUNTER' | 'GOOD COUNTER';
-  why: string;
-  imageUrl?: string | null;
-}
-
-export interface AlsoPick {
-  slug: string;
-  name: string;
-  score: number;
-  winRate: string;
-}
-
-export interface CountersResponse {
-  stub: true;
-  enemySlug: string;
-  enemyName: string;
-  lane: string;
-  games: string;
-  blurb: string;
-  stats: Array<{ value: string; label: string }>;
-  notes: string[];
-  picks: CounterPick[];
-  also: AlsoPick[];
-  enemy: {
-    slug: string;
-    name: string;
-    title: string | null;
-    roles: string[];
-    imageUrl: string | null;
-  };
+function useDirectDb(): boolean {
+  return Boolean(process.env.SUPABASE_DB_URL);
 }
 
 async function apiFetch<T>(path: string): Promise<T> {
@@ -54,6 +34,10 @@ async function apiFetch<T>(path: string): Promise<T> {
 }
 
 export async function fetchChampions(): Promise<ApiChampion[]> {
+  if (useDirectDb()) {
+    const { loadChampions } = await import('./server/game');
+    return loadChampions();
+  }
   try {
     const data = await apiFetch<{ champions: ApiChampion[] }>('/champions');
     return data.champions;
@@ -63,6 +47,10 @@ export async function fetchChampions(): Promise<ApiChampion[]> {
 }
 
 export async function fetchChampion(slug: string): Promise<ApiChampion | null> {
+  if (useDirectDb()) {
+    const { loadChampion } = await import('./server/game');
+    return loadChampion(slug);
+  }
   try {
     const data = await apiFetch<{ champion: ApiChampion }>(`/champions/${slug}`);
     return data.champion;
@@ -72,6 +60,10 @@ export async function fetchChampion(slug: string): Promise<ApiChampion | null> {
 }
 
 export async function fetchCounters(slug: string): Promise<CountersResponse | null> {
+  if (useDirectDb()) {
+    const { loadCounters } = await import('./server/game');
+    return loadCounters(slug);
+  }
   try {
     return await apiFetch<CountersResponse>(`/counters/${slug}`);
   } catch {
@@ -79,6 +71,26 @@ export async function fetchCounters(slug: string): Promise<CountersResponse | nu
   }
 }
 
-export function getApiUrl(): string {
-  return API_URL;
+export async function fetchTiers(): Promise<TiersResponse | null> {
+  if (useDirectDb()) {
+    const { loadTiers } = await import('./server/game');
+    return loadTiers();
+  }
+  try {
+    return await apiFetch<TiersResponse>('/tiers?bracket=diamond_plus');
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchLatestPatch(): Promise<LatestPatchResponse | null> {
+  if (useDirectDb()) {
+    const { loadLatestPatch } = await import('./server/game');
+    return loadLatestPatch();
+  }
+  try {
+    return await apiFetch<LatestPatchResponse>('/patches/latest');
+  } catch {
+    return null;
+  }
 }

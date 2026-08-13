@@ -20,14 +20,22 @@
 }
 
 .copy {
-  margin: 20px 0 32px;
+  margin: 20px 0 0;
   font-size: 17px;
   line-height: 1.55;
   color: var(--text-muted);
   max-width: 520px;
 }
 
-.primary {
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.primary,
+.secondary {
   display: inline-flex;
   align-items: center;
   height: 46px;
@@ -35,7 +43,16 @@
   border-radius: 12px;
   font-size: 15px;
   font-weight: 700;
+}
+
+.primary {
   background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+}
+
+.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text-soft);
 }
 
 @media (max-width: 720px) {

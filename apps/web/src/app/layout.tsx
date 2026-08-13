@@ -10,9 +10,11 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: 'RIFTLINE',
+  title: 'Wild Rift Forge',
   description: 'Wild Rift counters, matchups, and draft companion.',
 };
+
+export const revalidate = 30;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

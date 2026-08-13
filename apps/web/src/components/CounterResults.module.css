@@ -1,12 +1,15 @@
 .hero {
   position: relative;
-  height: 440px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   overflow: hidden;
 }
 
 .heroArt {
   object-fit: cover;
-  object-position: 52% 28%;
+  object-position: 54% 0%;
 }
 
 .heroFade {
@@ -14,15 +17,13 @@
   inset: 0;
   background:
     linear-gradient(90deg, rgba(11, 10, 18, 0.95) 24%, rgba(11, 10, 18, 0.42) 66%, rgba(11, 10, 18, 0.86)),
-    linear-gradient(0deg, #0b0a12 2%, transparent 48%);
+    linear-gradient(0deg, #0b0a12 0%, rgba(11, 10, 18, 0.82) 28%, transparent 58%);
 }
 
 .heroContent {
-  position: absolute;
-  left: 48px;
-  top: 44px;
-  right: 48px;
+  position: relative;
   z-index: 1;
+  padding: 44px 48px 0;
 }
 
 .back {
@@ -31,7 +32,7 @@
   gap: 8px;
   font-size: 13px;
   font-weight: 600;
-  color: #b7b2e0;
+  color: var(--link-cool);
   background: rgba(255, 255, 255, 0.07);
   border: 1px solid var(--border);
   padding: 6px 14px 6px 10px;
@@ -83,7 +84,7 @@
 
 .blurb {
   font-size: 17px;
-  color: #bbb7d4;
+  color: var(--text-body);
   margin: 16px 0 0;
   max-width: 440px;
   line-height: 1.5;
@@ -91,7 +92,7 @@
 
 .stats {
   display: flex;
-  gap: 36px;
+  gap: 48px;
   margin-top: 30px;
 }
 
@@ -109,10 +110,17 @@
   margin-top: 3px;
 }
 
+.heroFooter {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px 48px 24px;
+}
+
 .lanes {
-  position: absolute;
-  right: 48px;
-  bottom: 96px;
   display: flex;
   gap: 6px;
   background: rgba(16, 14, 28, 0.7);
@@ -120,7 +128,8 @@
   border-radius: 12px;
   padding: 5px;
   backdrop-filter: blur(10px);
-  z-index: 1;
+  flex: none;
+  margin-top: 8px;
 }
 
 .lane,
@@ -142,9 +151,80 @@
 
 .body {
   position: relative;
-  padding: 0 48px 90px;
-  margin-top: -52px;
+  padding: 32px 48px 90px;
   z-index: 2;
+}
+
+.loading {
+  margin-bottom: 24px;
+}
+
+.skelGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.skelCard {
+  height: 280px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.loadingMeta {
+  margin: 18px 0 0;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.thin {
+  margin-bottom: 28px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  background: rgba(240, 168, 123, 0.08);
+  border: 1px solid rgba(240, 168, 123, 0.28);
+}
+
+.thinBadge {
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--warn);
+  background: rgba(240, 168, 123, 0.14);
+  border: 1px solid rgba(240, 168, 123, 0.32);
+  border-radius: 14px;
+  padding: 4px 11px;
+}
+
+.thinTitle {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.thinBody {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text-body);
+  max-width: 640px;
+}
+
+.thinBar {
+  margin-top: 14px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  max-width: 360px;
+}
+
+.thinFill {
+  height: 100%;
+  background: var(--warn);
 }
 
 .sectionHead {
@@ -190,22 +270,12 @@
 .pickArt {
   height: 196px;
   position: relative;
-  background: linear-gradient(140deg, rgba(106, 92, 240, 0.35), rgba(60, 123, 214, 0.25));
+  background: linear-gradient(140deg, rgba(22, 192, 255, 0.35), rgba(10, 114, 200, 0.25));
   overflow: hidden;
 }
 
 .pickCover {
   object-fit: cover;
-}
-
-.pickInitial {
-  position: absolute;
-  left: 12px;
-  bottom: -30px;
-  font-weight: 900;
-  font-size: 140px;
-  color: rgba(0, 0, 0, 0.22);
-  line-height: 0.8;
 }
 
 .pickArtFade {
@@ -296,17 +366,25 @@
   color: var(--text-soft);
 }
 
+.lower {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  margin-top: 36px;
+  align-items: start;
+}
+
 .alsoHead {
-  margin: 36px 0 14px;
-  font-size: 13px;
+  margin: 0 0 14px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: var(--text-dim);
 }
 
 .also {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
@@ -328,12 +406,19 @@
   width: 34px;
   height: 34px;
   border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  background: rgba(106, 92, 240, 0.25);
+  background: rgba(22, 192, 255, 0.22);
   flex: none;
+}
+
+.alsoAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .alsoName {
@@ -351,14 +436,18 @@
 }
 
 .notes {
-  margin-top: 40px;
-  max-width: 720px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
 }
 
 .notesTitle {
   margin: 0 0 12px;
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent-soft);
 }
 
 .notes ul {
@@ -370,7 +459,9 @@
 
 @media (max-width: 980px) {
   .picks,
-  .also {
+  .also,
+  .skelGrid,
+  .lower {
     grid-template-columns: 1fr;
   }
 
@@ -378,20 +469,21 @@
     display: none;
   }
 
-  .heroContent,
-  .body {
-    left: 20px;
-    right: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   .heroContent {
-    left: 20px;
-    right: 20px;
+    padding: 28px 20px 0;
+  }
+
+  .heroFooter {
+    padding: 28px 20px 20px;
   }
 
   .body {
-    padding: 0 20px 72px;
+    padding: 24px 20px 72px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    min-height: 420px;
   }
 }

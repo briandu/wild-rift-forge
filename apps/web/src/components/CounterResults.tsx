@@ -1,8 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import type { CountersResponse } from '@/lib/api';
+import { useEffect, useState } from 'react';
+import type { CountersResponse } from '@/lib/api-types';
+import { resolveAbilities } from '@/lib/abilities';
 import { bannerFocusFor } from '@/lib/banner-focus';
-import { artFor, HERO_FALLBACK, initials } from '@/lib/champions';
+import { artFor, HERO_FALLBACK, initials, portraitFor } from '@/lib/champions';
+import { AbilityStrip } from './AbilityStrip';
 import styles from './CounterResults.module.css';
 
 const LANES = ['Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
@@ -10,6 +15,14 @@ const LANES = ['Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
 export function CounterResults({ data }: { data: CountersResponse }) {
   const enemy = data.enemy;
   const art = enemy.imageUrl || HERO_FALLBACK;
+  const focus = bannerFocusFor(enemy.slug);
+  const abilities = resolveAbilities(enemy.slug, data.abilities);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = window.setTimeout(() => setLoading(false), 700);
+    return () => window.clearTimeout(t);
+  }, [enemy.slug]);
 
   return (
     <div>
@@ -19,7 +32,9 @@ export function CounterResults({ data }: { data: CountersResponse }) {
           alt=""
           fill
           priority
+          quality={90}
           className={`${styles.heroArt} animate-hero-art`}
+          style={{ objectPosition: `${focus.x}% ${focus.y}%` }}
           sizes="100vw"
         />
         <div className={styles.heroFade} aria-hidden />
@@ -51,94 +66,145 @@ export function CounterResults({ data }: { data: CountersResponse }) {
           </div>
         </div>
 
-        <div className={styles.lanes} aria-label="Lanes">
-          {LANES.map((lane) => {
-            const active = data.lane.toLowerCase().includes(lane.toLowerCase());
-            return (
-              <span key={lane} className={active ? styles.laneActive : styles.lane}>
-                {lane}
-              </span>
-            );
-          })}
+        <div className={styles.heroFooter}>
+          <AbilityStrip abilities={abilities} overlay />
+          <div className={styles.lanes} aria-label="Lanes">
+            {LANES.map((lane) => {
+              const active = data.lane.toLowerCase().includes(lane.toLowerCase());
+              return (
+                <span key={lane} className={active ? styles.laneActive : styles.lane}>
+                  {lane}
+                </span>
+              );
+            })}
+          </div>
         </div>
       </section>
 
       <section className={`${styles.body} animate-fade-up-delay`}>
-        <div className={styles.sectionHead}>
-          <h2 className={styles.sectionTitle}>Best picks against {enemy.name}</h2>
-          <p className={styles.sectionMeta}>
-            Stub matchup scores · {data.games} games
-          </p>
-        </div>
-
-        <div className={styles.picks}>
-          {data.picks.map((c) => {
-            const strong = c.tag === 'STRONG COUNTER';
-            const cover = artFor(c.slug, c.imageUrl);
-            const focus = bannerFocusFor(c.slug);
-            return (
-              <Link key={c.slug} href={`/champions/${c.slug}`} className={styles.pick}>
-                <div className={styles.pickArt}>
-                  <Image
-                    src={cover}
-                    alt=""
-                    fill
-                    className={styles.pickCover}
-                    style={{ objectPosition: `${focus.x}% ${focus.y}%` }}
-                    sizes="320px"
-                  />
-                  <div className={styles.pickArtFade} />
-                  <span
-                    className={styles.tag}
-                    style={{
-                      color: strong ? 'var(--success)' : '#edecf7',
-                      borderColor: strong ? 'rgba(123,224,168,.45)' : 'rgba(255,255,255,.28)',
-                    }}
-                  >
-                    {c.tag}
-                  </span>
-                  <div className={styles.scoreBlock}>
-                    <div className={styles.score}>{c.score}</div>
-                    <div className={styles.scoreLabel}>MATCHUP</div>
-                  </div>
-                </div>
-                <div className={styles.pickBody}>
-                  <h3 className={styles.pickName}>{c.name}</h3>
-                  <p className={styles.why}>{c.why}</p>
-                  <div className={styles.barRow}>
-                    <div className={styles.barTrack}>
-                      <div className={styles.barFill} style={{ width: `${c.score}%` }} />
-                    </div>
-                    <span className={styles.wr}>{c.winRate} WR</span>
-                  </div>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-
-        <div className={styles.alsoHead}>Also strong</div>
-        <div className={styles.also}>
-          {data.also.map((c) => (
-            <Link key={c.slug} href={`/champions/${c.slug}`} className={styles.alsoItem}>
-              <span className={styles.alsoAvatar}>{initials(c.name)}</span>
-              <span className={styles.alsoName}>{c.name}</span>
-              <span className={styles.alsoScore}>{c.score}</span>
-              <span className={styles.alsoWr}>{c.winRate}</span>
-            </Link>
-          ))}
-        </div>
-
-        {data.notes.length > 0 ? (
-          <div className={styles.notes}>
-            <h3 className={styles.notesTitle}>How to play the matchup</h3>
-            <ul>
-              {data.notes.map((n) => (
-                <li key={n}>{n}</li>
+        {loading ? (
+          <div className={styles.loading} aria-busy="true">
+            <div className={styles.skelGrid}>
+              {[0, 1, 2].map((i) => (
+                <div key={i} className={`${styles.skelCard} animate-shimmer`} />
               ))}
-            </ul>
+            </div>
+            <p className={styles.loadingMeta}>Reading {data.games} ranked games…</p>
           </div>
-        ) : null}
+        ) : (
+          <>
+            {data.thin ? (
+              <div className={styles.thin}>
+                <span className={styles.thinBadge}>LOW CONFIDENCE</span>
+                <div className={styles.thinTitle}>
+                  Only {data.sample ?? data.games} games with {enemy.name} this patch
+                </div>
+                <p className={styles.thinBody}>
+                  Scores unlock at about {data.target ?? 2000} games. Treat these picks as
+                  directional until the sample grows.
+                </p>
+                <div className={styles.thinBar}>
+                  <div
+                    className={styles.thinFill}
+                    style={{
+                      width: `${Math.min(100, Math.round(((data.sample ?? 214) / (data.target ?? 2000)) * 100))}%`,
+                    }}
+                  />
+                </div>
+              </div>
+            ) : null}
+
+            <div className={styles.sectionHead}>
+              <h2 className={styles.sectionTitle}>Best picks against {enemy.name}</h2>
+              <p className={styles.sectionMeta}>
+                Ranked by matchup score · {data.games} games
+              </p>
+            </div>
+
+            <div className={styles.picks}>
+              {data.picks.map((c) => {
+                const strong = c.tag === 'STRONG COUNTER';
+                const cover = artFor(c.slug, c.imageUrl);
+                const focus = bannerFocusFor(c.slug);
+                return (
+                  <Link key={c.slug} href={`/champions/${c.slug}`} className={styles.pick}>
+                    <div className={styles.pickArt}>
+                      <Image
+                        src={cover}
+                        alt=""
+                        fill
+                        quality={90}
+                        className={styles.pickCover}
+                        style={{ objectPosition: `${focus.x}% ${focus.y}%` }}
+                        sizes="320px"
+                      />
+                      <div className={styles.pickArtFade} />
+                      <span
+                        className={styles.tag}
+                        style={{
+                          color: strong ? 'var(--success)' : '#edecf7',
+                          borderColor: strong ? 'rgba(123,224,168,.45)' : 'rgba(255,255,255,.28)',
+                        }}
+                      >
+                        {c.tag}
+                      </span>
+                      <div className={styles.scoreBlock}>
+                        <div className={styles.score}>{c.score}</div>
+                        <div className={styles.scoreLabel}>MATCHUP</div>
+                      </div>
+                    </div>
+                    <div className={styles.pickBody}>
+                      <h3 className={styles.pickName}>{c.name}</h3>
+                      <p className={styles.why}>{c.why}</p>
+                      <div className={styles.barRow}>
+                        <div className={styles.barTrack}>
+                          <div className={styles.barFill} style={{ width: `${c.score}%` }} />
+                        </div>
+                        <span className={styles.wr}>{c.winRate} WR</span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+
+            <div className={styles.lower}>
+              <div className={styles.alsoCol}>
+                <div className={styles.alsoHead}>ALSO WORKS</div>
+                <div className={styles.also}>
+                  {data.also.map((c) => {
+                    const cover = portraitFor(c.slug, c.imageUrl, c.thumbnailUrl);
+                    return (
+                      <Link key={c.slug} href={`/champions/${c.slug}`} className={styles.alsoItem}>
+                        <span className={styles.alsoAvatar}>
+                          {cover ? (
+                            <Image src={cover} alt="" width={34} height={34} />
+                          ) : (
+                            initials(c.name)
+                          )}
+                        </span>
+                        <span className={styles.alsoName}>{c.name}</span>
+                        <span className={styles.alsoScore}>{c.score}</span>
+                        <span className={styles.alsoWr}>{c.winRate}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {data.notes.length > 0 ? (
+                <aside className={styles.notes}>
+                  <h3 className={styles.notesTitle}>HOW {enemy.name.toUpperCase()} LOSES</h3>
+                  <ul>
+                    {data.notes.map((n) => (
+                      <li key={n}>{n}</li>
+                    ))}
+                  </ul>
+                </aside>
+              ) : null}
+            </div>
+          </>
+        )}
       </section>
     </div>
   );
