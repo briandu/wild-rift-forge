@@ -42,7 +42,7 @@ const url = env.SUPABASE_URL ?? env.NEXT_PUBLIC_SUPABASE_URL;
 const service = env.SUPABASE_SERVICE_ROLE_KEY;
 const apiKey = env.RESEND_API_KEY;
 const from = env.SMTP_FROM ?? env.RESEND_FROM;
-const site = env.SITE_URL ?? 'https://wildriftforge.com';
+const site = env.SITE_URL ?? 'https://www.wildriftforge.com';
 const dryRun = process.argv.includes('--dry-run');
 
 if (!url || !service) {

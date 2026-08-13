@@ -8,11 +8,12 @@
  * Then: SUPABASE_ACCESS_TOKEN=sbp_... node scripts/push-auth-email-templates.mjs
  *
  * Google/Apple still need dashboard client IDs. Authorized origins:
- *   http://localhost:3001
+ *   http://localhost
+ *   https://www.wildriftforge.com
  *   https://wildriftforge.com
- * Redirect URIs:
- *   http://localhost:3001/auth/callback
- *   https://wildriftforge.com/auth/callback
+ * Authorized redirect URI (Supabase, not the app):
+ *   https://<project-ref>.supabase.co/auth/v1/callback
+ * App Site URL / allow-list: node scripts/configure-auth-urls.mjs
  */
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';

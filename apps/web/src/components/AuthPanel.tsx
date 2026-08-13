@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState, type ReactElement } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
+import { clientAuthCallbackUrl } from '@/lib/supabase/site-url';
 import styles from './AuthPanel.module.css';
 
 type Mode = 'signin' | 'signup' | 'forgot' | 'sent' | 'reset';
@@ -138,9 +139,7 @@ function passwordStrength(password: string): { level: number; label: string; col
 }
 
 function callbackUrl(next = '/') {
-  const url = new URL('/auth/callback', window.location.origin);
-  if (next !== '/') url.searchParams.set('next', next);
-  return url.toString();
+  return clientAuthCallbackUrl(next);
 }
 
 function friendlyAuthError(message: string): string {

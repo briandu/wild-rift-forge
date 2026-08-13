@@ -21,10 +21,12 @@ NEXT_PUBLIC_SUPABASE_URL=https://YOUR_PROJECT_REF.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
 ```
 
-Auth uses Supabase (email/password, Google, Apple). In the dashboard, set Site URL to
-`http://localhost:3001`, add `http://localhost:3001/auth/callback` under Redirect URLs,
-and enable Google / Apple under Authentication → Providers. Riot and Discord are hidden
-until those providers are ready.
+Auth uses Supabase (email/password, Google, Apple). On the hosted project, Site URL
+must be `https://www.wildriftforge.com`. Keep `http://localhost:*/**` in Redirect
+URLs so local OAuth returns to the port `next dev` is using
+(`node scripts/configure-auth-urls.mjs`). Enable Google / Apple
+under Authentication → Providers. Riot and Discord are hidden until those providers
+are ready.
 
 For a real roster and hosted art: start local Postgres (`node scripts/dev-db.mjs`), apply migrations, then `npm run scrape:champions` / `npm run scrape:champion-assets`. Without a DB, the UI uses a small local demo roster and stub counter scores.
 

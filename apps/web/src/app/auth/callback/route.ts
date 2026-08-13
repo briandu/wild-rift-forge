@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { createClient } from '@/lib/supabase/server';
+import { requestSiteOrigin } from '@/lib/supabase/site-url';
 
 function safeNextPath(next: string | null): string {
   if (!next || !next.startsWith('/') || next.startsWith('//')) return '/';
@@ -8,7 +9,8 @@ function safeNextPath(next: string | null): string {
 }
 
 export async function GET(request: Request) {
-  const { searchParams, origin } = new URL(request.url);
+  const { searchParams } = new URL(request.url);
+  const origin = requestSiteOrigin(request);
   const code = searchParams.get('code');
   const next = safeNextPath(searchParams.get('next'));
   const errorDescription = searchParams.get('error_description') ?? searchParams.get('error');
@@ -37,13 +39,5 @@ export async function GET(request: Request) {
     await supabase.rpc('ensure_default_avatar');
   }
 
-  const forwardedHost = request.headers.get('x-forwarded-host');
-  const isLocalEnv = process.env.NODE_ENV === 'development';
-  if (isLocalEnv) {
-    return NextResponse.redirect(`${origin}${next}`);
-  }
-  if (forwardedHost) {
-    return NextResponse.redirect(`https://${forwardedHost}${next}`);
-  }
   return NextResponse.redirect(`${origin}${next}`);
 }

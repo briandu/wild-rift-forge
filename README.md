@@ -58,12 +58,19 @@ npm run dev:web    # Next.js on http://localhost:3001
 `NEXT_PUBLIC_API_URL` defaults to `http://localhost:4000`. Counter scores are stubbed until a recommendation package exists. On Vercel, omit `NEXT_PUBLIC_API_URL` and set `SUPABASE_DB_URL` so the web app reads Postgres directly.
 
 Web auth (email/password, Google, Apple) needs `NEXT_PUBLIC_SUPABASE_URL` and
-`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` in `apps/web/.env.local`. Enable those
-providers in the Supabase dashboard and allow `http://localhost:3001/auth/callback`
-as a redirect URL.
+`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` in `apps/web/.env.local`. On the hosted
+Supabase project, Site URL must be `https://www.wildriftforge.com` (not
+localhost). Redirect URLs should include that origin and `http://localhost:*/**`
+so local OAuth returns to whatever port `next dev` is using:
 
-Google/Apple authorized JavaScript origins: `http://localhost:3001` and
-`https://wildriftforge.com`. Redirect URIs: `/auth/callback` on both hosts.
+```bash
+SUPABASE_ACCESS_TOKEN=sbp_... node scripts/configure-auth-urls.mjs
+```
+
+Google Cloud authorized JavaScript origins: `http://localhost`,
+`https://www.wildriftforge.com`, and `https://wildriftforge.com`. The Authorized
+redirect URI is the Supabase callback
+(`https://<project-ref>.supabase.co/auth/v1/callback`), not the app path.
 Identity linking (email then Google) is a dashboard toggle.
 
 Branded auth email HTML needs custom SMTP (Resend is the usual path):
