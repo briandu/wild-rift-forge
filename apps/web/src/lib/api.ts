@@ -3,6 +3,7 @@ import type {
   ApiChampion,
   CountersResponse,
   LatestPatchResponse,
+  MatchupResponse,
   TiersResponse,
 } from './api-types';
 
@@ -13,6 +14,7 @@ export type {
   CounterPick,
   CountersResponse,
   LatestPatchResponse,
+  MatchupResponse,
   PatchChampionChangeDto,
   TierPlacementDto,
   TiersResponse,
@@ -60,13 +62,35 @@ export async function fetchChampion(slug: string): Promise<ApiChampion | null> {
   }
 }
 
-export async function fetchCounters(slug: string): Promise<CountersResponse | null> {
+export async function fetchCounters(
+  slug: string,
+  lane?: string,
+): Promise<CountersResponse | null> {
   if (useDirectDb()) {
     const { loadCounters } = await import('./server/game');
-    return loadCounters(slug);
+    return loadCounters(slug, lane);
   }
   try {
-    return await apiFetch<CountersResponse>(`/counters/${slug}`);
+    const suffix = lane ? `?lane=${encodeURIComponent(lane)}` : '';
+    return await apiFetch<CountersResponse>(`/counters/${slug}${suffix}`);
+  } catch {
+    return null;
+  }
+}
+
+export async function fetchMatchup(
+  you: string,
+  them: string,
+  lane?: string,
+): Promise<MatchupResponse | null> {
+  if (useDirectDb()) {
+    const { loadMatchup } = await import('./server/game');
+    return loadMatchup(you, them, lane);
+  }
+  try {
+    const params = new URLSearchParams({ you, them });
+    if (lane) params.set('lane', lane);
+    return await apiFetch<MatchupResponse>(`/matchups?${params}`);
   } catch {
     return null;
   }

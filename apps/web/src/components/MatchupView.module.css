@@ -1108,3 +1108,42 @@
     padding-left: 62px;
   }
 }
+
+.pickerBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 48px 0;
+}
+
+.pickBtn,
+.saveBtn,
+.pickLane,
+.pickLaneOn {
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: inherit;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.pickLaneOn,
+.saveBtn {
+  border-color: var(--accent);
+  background: rgba(22, 192, 255, 0.12);
+}
+
+.pickVs {
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.pickLanes {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}

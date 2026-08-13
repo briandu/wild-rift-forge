@@ -34,7 +34,7 @@ export interface AlsoPick {
 }
 
 export interface CountersResponse {
-  stub: true;
+  stub: boolean;
   enemySlug: string;
   enemyName: string;
   lane: string;
@@ -44,6 +44,7 @@ export interface CountersResponse {
   notes: string[];
   picks: CounterPick[];
   also: AlsoPick[];
+  beats?: AlsoPick[];
   thin?: boolean;
   sample?: number;
   target?: number;
@@ -56,6 +57,32 @@ export interface CountersResponse {
     imageUrl: string | null;
     thumbnailUrl?: string | null;
   };
+}
+
+export interface MatchupSideDto {
+  slug: string;
+  name: string;
+  title: string | null;
+  roles: string[];
+  imageUrl: string | null;
+  thumbnailUrl?: string | null;
+  winRate: string | null;
+  pickRate: string | null;
+}
+
+export interface MatchupResponse {
+  you: MatchupSideDto;
+  them: MatchupSideDto;
+  lane: string;
+  side: 'you' | 'them' | 'even';
+  verdict: string;
+  difficulty: string;
+  score: number;
+  confidence: string;
+  sample: string;
+  freshness: string;
+  abilitiesYou: AbilityDto[];
+  abilitiesThem: AbilityDto[];
 }
 
 export interface TierPlacementDto {

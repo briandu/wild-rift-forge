@@ -2,7 +2,11 @@
 
 import Image from 'next/image';
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
-import type { ApiChampion } from '@/lib/api';
+import { useRouter } from 'next/navigation';
+import type { ApiChampion, MatchupResponse } from '@/lib/api';
+import { isSupabaseConfigured } from '@/lib/supabase/env';
+import { createClient } from '@/lib/supabase/client';
+import { ChampionPicker } from './ChampionPicker';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { initials, portraitsFromRoster, splashFor } from '@/lib/champions';
 import { coachBriefFor, MATCHUP_STUB, metaFor } from '@/lib/design-stubs';
@@ -21,17 +25,156 @@ function heroFocus(slug: string, side: 'you' | 'them') {
   };
 }
 
-export function MatchupView({ champions = [] }: { champions?: ApiChampion[] }) {
-  const mu = MATCHUP_STUB;
+const LANES = ['Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
+
+function genericMatchup(you: string, them: string, live: MatchupResponse | null): typeof MATCHUP_STUB {
+  const side = live?.side ?? 'even';
+  const lane = live?.lane ?? 'Top';
+  return {
+    ...MATCHUP_STUB,
+    you,
+    them,
+    lane: lane === 'Jungle' ? 'JUNGLE' : `${lane.toUpperCase()} LANE`,
+    verdict: (live?.verdict ?? 'Even matchup').toUpperCase(),
+    side,
+    difficulty: live?.difficulty ?? 'Medium',
+    score: live?.score ?? 5,
+    confidence: live?.confidence ?? MATCHUP_STUB.confidence,
+    sample: live?.sample ?? MATCHUP_STUB.sample,
+    freshness: live?.freshness ?? MATCHUP_STUB.freshness,
+    style: side === 'them' ? 'CAUTIOUS / SHORT TRADES' : side === 'you' ? 'PRESS / EXTEND' : 'EVEN / PUNISH',
+    stylePos: side === 'them' ? 26 : side === 'you' ? 68 : 50,
+    rule: live
+      ? `${live.verdict}. These are ${live.lane} win rates, not a head-to-head sample.`
+      : MATCHUP_STUB.rule,
+    quick: [
+      { k: 'VERDICT', v: live?.verdict ?? 'Even', c: side === 'them' ? '#E58B7B' : side === 'you' ? '#8FEDB8' : '#F0A87B' },
+      { k: 'YOU', v: live?.you.winRate ?? '—', c: '#9FCBE4' },
+      { k: 'THEM', v: live?.them.winRate ?? '—', c: '#E58B7B' },
+      { k: 'LANE', v: lane, c: '#9FCBE4' },
+    ],
+    phases: [
+      {
+        n: 'EARLY',
+        t: 'Levels 1–4',
+        c: '#E58B7B',
+        body: `Play around the ${lane} win-rate gap. ${you} is at ${live?.you.winRate ?? 'unknown'} this snapshot; ${them} is at ${live?.them.winRate ?? 'unknown'}.`,
+      },
+      {
+        n: 'MID',
+        t: 'Levels 5–10',
+        c: '#F0A87B',
+        body: 'Track ultimates and the first item spike. The numbers above are lane strength, not a scripted trade.',
+      },
+      {
+        n: 'LATE',
+        t: 'Levels 11+',
+        c: '#8FEDB8',
+        body: 'Stop treating this as a pure duel. Group around the win condition your draft actually has.',
+      },
+    ],
+    good: {
+      title: 'GOOD TRADE',
+      steps: [`Respect ${them}'s stronger cooldown`, 'Take a short window', 'Reset the wave', 'Do not chase'],
+      out: 'You keep the lane playable.',
+    },
+    bad: {
+      title: 'BAD TRADE',
+      steps: ['Stand in their threat range', 'Burn your defensive spell early', 'Let the fight extend', 'Die for a cannon'],
+      out: 'They take the lane for free.',
+    },
+    interactions: (live?.abilitiesThem ?? []).slice(0, 4).map((ability) => ({
+      own: false,
+      k: ability.key,
+      n: ability.name,
+      when: 'When it is up',
+      then: 'Respect the window',
+      win: 'Track the cooldown',
+      note: ability.description || 'Live kit text from the champion page.',
+    })),
+    team: [them],
+    tags: live?.them.roles.map((role) => role) ?? MATCHUP_STUB.tags,
+  };
+}
+
+export function MatchupView({
+  champions = [],
+  matchup,
+  youSlug,
+  themSlug,
+  lane,
+}: {
+  champions?: ApiChampion[];
+  matchup: MatchupResponse | null;
+  youSlug: string;
+  themSlug: string;
+  lane: string;
+}) {
+  const router = useRouter();
+  const youMeta = metaFor(matchup?.you.name ?? youSlug);
+  const themMeta = metaFor(matchup?.them.name ?? themSlug);
+  const authored = youMeta.slug === 'garen' && themMeta.slug === 'darius';
+  const mu = authored
+    ? {
+        ...MATCHUP_STUB,
+        ...(matchup
+          ? {
+              score: matchup.score,
+              sample: matchup.sample,
+              freshness: matchup.freshness,
+              confidence: matchup.confidence,
+              verdict: matchup.verdict.toUpperCase(),
+              side: matchup.side,
+              difficulty: matchup.difficulty,
+            }
+          : {}),
+      }
+    : genericMatchup(youMeta.name, themMeta.name, matchup);
   const you = metaFor(mu.you);
   const them = metaFor(mu.them);
   const portraits = portraitsFromRoster(champions);
   const [open, setOpen] = useState<string | null>(null);
   const [coach, setCoach] = useState<'idle' | 'loading' | 'done'>('idle');
+  const [picking, setPicking] = useState<'you' | 'them' | null>(null);
+  const [saved, setSaved] = useState(false);
   const coachTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const brief = coachBriefFor(mu);
 
   useEffect(() => () => clearTimeout(coachTimer.current), []);
+
+  function setPair(next: { you?: string; them?: string; lane?: string }) {
+    const params = new URLSearchParams();
+    params.set('you', next.you ?? youSlug);
+    params.set('them', next.them ?? themSlug);
+    params.set('lane', next.lane ?? lane);
+    router.replace(`/matchups?${params}`);
+    setSaved(false);
+    setCoach('idle');
+  }
+
+  async function savePair() {
+    if (!isSupabaseConfigured()) {
+      setSaved(true);
+      return;
+    }
+    const supabase = createClient();
+    const { data } = await supabase.auth.getUser();
+    if (!data.user) {
+      router.push('/login');
+      return;
+    }
+    await supabase.rpc('ensure_default_avatar');
+    const { error } = await supabase.from('user_saved_matchups').insert({
+      user_id: data.user.id,
+      you_slug: youSlug,
+      them_slug: themSlug,
+      lane,
+    });
+    if (error && !error.message.toLowerCase().includes('duplicate')) {
+      return;
+    }
+    setSaved(true);
+  }
 
   function runCoach() {
     clearTimeout(coachTimer.current);
@@ -54,6 +197,7 @@ export function MatchupView({ champions = [] }: { champions?: ApiChampion[] }) {
         : 'rgba(240,168,123,.38)';
 
   const chips = mu.quick.filter((q) => q.k === 'PLAYSTYLE' || q.k === 'PUNISH');
+  const shownChips = chips.length ? chips : mu.quick.slice(0, 2);
 
   function toggle(key: string) {
     setOpen((cur) => (cur === key ? null : key));
@@ -67,8 +211,44 @@ export function MatchupView({ champions = [] }: { champions?: ApiChampion[] }) {
 
   return (
     <div style={vars}>
-      <PosterHero you={you} them={them} champions={champions} mu={mu} chips={chips} />
-      <MobileHero you={you} them={them} portraits={portraits} mu={mu} chips={chips} />
+      <div className={styles.pickerBar}>
+        <button type="button" className={styles.pickBtn} onClick={() => setPicking('you')}>
+          You: {you.name}
+        </button>
+        <span className={styles.pickVs}>vs</span>
+        <button type="button" className={styles.pickBtn} onClick={() => setPicking('them')}>
+          Them: {them.name}
+        </button>
+        <div className={styles.pickLanes}>
+          {LANES.map((item) => (
+            <button
+              key={item}
+              type="button"
+              className={lane === item ? styles.pickLaneOn : styles.pickLane}
+              onClick={() => setPair({ lane: item })}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+        <button type="button" className={styles.saveBtn} onClick={() => void savePair()}>
+          {saved ? 'Saved' : 'Save matchup'}
+        </button>
+      </div>
+      <ChampionPicker
+        open={picking !== null}
+        title={picking === 'you' ? 'Your champion' : 'Enemy champion'}
+        champions={champions}
+        portraits={portraits}
+        exclude={picking === 'you' ? [themSlug] : [youSlug]}
+        onClose={() => setPicking(null)}
+        onPick={(champion) => {
+          if (picking === 'you') setPair({ you: champion.slug });
+          if (picking === 'them') setPair({ them: champion.slug });
+        }}
+      />
+      <PosterHero you={you} them={them} champions={champions} mu={mu} chips={shownChips} />
+      <MobileHero you={you} them={them} portraits={portraits} mu={mu} chips={shownChips} />
 
       <div className={styles.body}>
         <div className={styles.main}>

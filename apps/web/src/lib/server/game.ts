@@ -5,9 +5,16 @@ import {
   getChampionsPayload,
   getCountersPayload,
   getLatestPatchPayload,
+  getMatchupPayload,
   getTiersPayload,
 } from '@wild-rift-forge/api/payloads';
-import type { ApiChampion, CountersResponse, LatestPatchResponse, TiersResponse } from '../api-types';
+import type {
+  ApiChampion,
+  CountersResponse,
+  LatestPatchResponse,
+  MatchupResponse,
+  TiersResponse,
+} from '../api-types';
 
 export async function loadChampions(): Promise<ApiChampion[]> {
   const data = await getChampionsPayload();
@@ -19,8 +26,16 @@ export async function loadChampion(slug: string): Promise<ApiChampion | null> {
   return data?.champion ?? null;
 }
 
-export async function loadCounters(slug: string): Promise<CountersResponse> {
-  return (await getCountersPayload(slug)) as CountersResponse;
+export async function loadCounters(slug: string, lane?: string): Promise<CountersResponse> {
+  return (await getCountersPayload(slug, { lane })) as CountersResponse;
+}
+
+export async function loadMatchup(
+  you: string,
+  them: string,
+  lane?: string,
+): Promise<MatchupResponse | null> {
+  return (await getMatchupPayload({ you, them, lane })) as MatchupResponse | null;
 }
 
 export async function loadTiers(): Promise<TiersResponse> {
