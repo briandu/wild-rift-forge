@@ -62,6 +62,24 @@ Web auth (email/password, Google, Apple) needs `NEXT_PUBLIC_SUPABASE_URL` and
 providers in the Supabase dashboard and allow `http://localhost:3001/auth/callback`
 as a redirect URL.
 
+Google/Apple authorized JavaScript origins: `http://localhost:3001` and
+`https://wildriftforge.com`. Redirect URIs: `/auth/callback` on both hosts.
+Identity linking (email then Google) is a dashboard toggle.
+
+Branded auth email HTML needs custom SMTP (Resend is the usual path):
+
+```bash
+node scripts/configure-resend-smtp.mjs
+node scripts/push-auth-email-templates.mjs
+```
+
+Riot Sign-On is optional (`RIOT_CLIENT_ID` / `RIOT_CLIENT_SECRET`). Until that
+exists, users can save a `Summoner#TAG` on `/me`. Weekly digest:
+
+```bash
+node scripts/send-weekly-digest.mjs --dry-run
+```
+
 ## Deploy (Vercel)
 
 The Next.js app lives in `apps/web`. Vercel Root Directory must be `apps/web`
@@ -72,6 +90,7 @@ Required environment variables:
 - `SUPABASE_DB_URL` — Supabase **session pooler** URI (server-only)
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+- `SUPABASE_SERVICE_ROLE_KEY` — account deletion + digest (server-only)
 
 After the first production URL exists, add `https://<domain>/auth/callback` to
 Supabase Authentication → Redirect URLs and set Site URL to that domain.
