@@ -4,7 +4,7 @@
  * Usage (from repo root): node scripts/publish-site.mjs
  */
 import { spawnSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -47,6 +47,28 @@ function vercel(args) {
   run('npx', ['vercel', ...args]);
 }
 
+/**
+ * Direct db.*.supabase.co is IPv6-only. Vercel (and GitHub) need the IPv4 session pooler.
+ * This project lives in us-east-2.
+ */
+function toSessionPooler(dbUrl, region = 'us-east-2') {
+  if (!dbUrl.includes('supabase.co') || dbUrl.includes('pooler.supabase.com')) {
+    return dbUrl;
+  }
+  let parsed;
+  try {
+    parsed = new URL(dbUrl.replace(/^postgresql:/i, 'http:'));
+  } catch {
+    return dbUrl;
+  }
+  const match = parsed.hostname.match(/^db\.([a-z0-9]+)\.supabase\.co$/i);
+  if (!match) {
+    return dbUrl;
+  }
+  const user = parsed.username.includes('.') ? parsed.username : `${parsed.username}.${match[1]}`;
+  return `postgresql://${user}:${encodeURIComponent(parsed.password)}@aws-0-${region}.pooler.supabase.com:5432/postgres`;
+}
+
 const rootEnv = parseEnvFile(path.join(root, '.env'));
 const webEnv = parseEnvFile(path.join(root, 'apps/web/.env.local'));
 
@@ -56,7 +78,7 @@ const publishableKey =
   webEnv.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ||
   webEnv.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
   '';
-const dbUrl = rootEnv.SUPABASE_DB_URL || '';
+const dbUrl = toSessionPooler(rootEnv.SUPABASE_DB_URL || '');
 
 if (!supabaseUrl || !publishableKey || !dbUrl) {
   console.error(
@@ -69,10 +91,8 @@ if (dbUrl.includes('localhost') || dbUrl.includes('127.0.0.1')) {
   console.error('SUPABASE_DB_URL points at local Postgres. Use the Supabase session pooler URI for Vercel.');
   process.exit(1);
 }
-if (dbUrl.includes('db.') && dbUrl.includes('supabase.co')) {
-  console.warn(
-    'SUPABASE_DB_URL is the direct (IPv6) host. If the Vercel build cannot reach the DB, switch to the session pooler URI from Supabase → Settings → Database.',
-  );
+if (rootEnv.SUPABASE_DB_URL && rootEnv.SUPABASE_DB_URL !== dbUrl) {
+  console.log('Rewriting SUPABASE_DB_URL to the IPv4 session pooler for Vercel.');
 }
 
 console.log('Installing dependencies…');
@@ -98,23 +118,28 @@ const projectFile = path.join(root, '.vercel', 'project.json');
 if (existsSync(projectFile)) {
   const { projectId } = JSON.parse(readFileSync(projectFile, 'utf8'));
   console.log('Setting Vercel Root Directory to apps/web…');
+  const patchBody = path.join(root, '.vercel', 'project-patch.json');
+  writeFileSync(
+    patchBody,
+    JSON.stringify({
+      framework: 'nextjs',
+      rootDirectory: 'apps/web',
+      sourceFilesOutsideRootDirectory: true,
+    }),
+  );
   const patch = spawnSync(
     'npx',
-    [
-      'vercel',
-      'api',
-      `v9/projects/${projectId}`,
-      '-X',
-      'PATCH',
-      '--input',
-      JSON.stringify({ rootDirectory: 'apps/web' }),
-    ],
-    { cwd: root, encoding: 'utf8', shell: true },
+    ['vercel', 'api', `/v9/projects/${projectId}`, '-X', 'PATCH', '--input', patchBody],
+    { cwd: root, encoding: 'utf8', shell: true, env: { ...process.env, MSYS_NO_PATHCONV: '1' } },
   );
   if (patch.status !== 0) {
+    process.stderr.write(patch.stdout || '');
+    process.stderr.write(patch.stderr || '');
     console.warn(
       'Could not set rootDirectory via API. In the Vercel dashboard, set Root Directory to apps/web.',
     );
+  } else {
+    console.log('Root Directory set to apps/web.');
   }
 }
 
