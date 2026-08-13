@@ -1,6 +1,6 @@
 import { fetchBinary } from '../fetchers/fetch-binary';
 import { GAME_ASSETS_BUCKET, getSupabaseAdmin, publicObjectUrl } from '../storage/supabase';
-import { championImageStoragePath, extensionForImage } from './paths';
+import { championImageStoragePath, championThumbnailStoragePath, extensionForImage } from './paths';
 
 export type SyncRemoteImageResult =
   | { status: 'uploaded'; contentHash: string; storagePath: string; publicUrl: string }
@@ -76,5 +76,20 @@ export async function syncChampionPortrait(input: {
     existingContentHash: input.existingContentHash,
     existingStoragePath: input.existingStoragePath,
     pathForExtension: (extension) => championImageStoragePath(input.slug, extension),
+  });
+}
+
+/** Convenience wrapper for square face-crops under champions/{slug}-thumb.ext. */
+export async function syncChampionThumbnail(input: {
+  slug: string;
+  sourceUrl: string;
+  existingContentHash: string | null;
+  existingStoragePath: string | null;
+}): Promise<SyncRemoteImageResult> {
+  return syncRemoteImage({
+    sourceUrl: input.sourceUrl,
+    existingContentHash: input.existingContentHash,
+    existingStoragePath: input.existingStoragePath,
+    pathForExtension: (extension) => championThumbnailStoragePath(input.slug, extension),
   });
 }

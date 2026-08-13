@@ -4,6 +4,9 @@ import { checkLatestPatch } from './jobs/check-latest-patch';
 import { backfillPatches } from './jobs/backfill-patches';
 import { syncChampions } from './jobs/sync-champions';
 import { syncChampionAssets } from './jobs/sync-champion-assets';
+import { syncChampionThumbnails } from './jobs/sync-champion-thumbnails';
+import { syncChampionStats } from './jobs/sync-stats';
+import { analyzePatch } from './jobs/analyze-patch';
 
 function getFlag(name: string, fallback: number): number {
   const index = process.argv.indexOf(`--${name}`);
@@ -12,6 +15,14 @@ function getFlag(name: string, fallback: number): number {
   }
   const value = Number(process.argv[index + 1]);
   return Number.isFinite(value) && value > 0 ? value : fallback;
+}
+
+function getStringFlag(name: string): string | undefined {
+  const index = process.argv.indexOf(`--${name}`);
+  if (index === -1 || index + 1 >= process.argv.length) {
+    return undefined;
+  }
+  return process.argv[index + 1];
 }
 
 async function main(): Promise<void> {
@@ -31,6 +42,15 @@ async function main(): Promise<void> {
     case 'champion-assets':
       await syncChampionAssets(getFlag('limit', 20));
       break;
+    case 'champion-thumbnails':
+      await syncChampionThumbnails(getFlag('limit', 200));
+      break;
+    case 'stats':
+      await syncChampionStats();
+      break;
+    case 'analyze-patch':
+      await analyzePatch(getStringFlag('version'));
+      break;
     default:
       console.log('Usage: scraper <command>');
       console.log('  latest                      ingest the latest patch if new');
@@ -41,6 +61,11 @@ async function main(): Promise<void> {
       console.log(
         '  champion-assets --limit N   host N champion portraits in Storage (default 20; cheap hash skip)',
       );
+      console.log(
+        '  champion-thumbnails --limit N  scrape WildRiftFire face-crops and host N in Storage (default 200)',
+      );
+      console.log('  stats                       ingest Tencent CN stats and recompute tiers');
+      console.log('  analyze-patch [--version V]  ChatGPT commentary for a stored patch');
       process.exitCode = 1;
   }
 }

@@ -39,3 +39,8 @@ export function extensionForImage(contentType: string, sourceUrl?: string): stri
 export function championImageStoragePath(slug: string, extension: string): string {
   return `champions/${slug}.${extension}`;
 }
+
+/** Canonical Storage object path for a square face-crop thumbnail. */
+export function championThumbnailStoragePath(slug: string, extension: string): string {
+  return `champions/${slug}-thumb.${extension}`;
+}

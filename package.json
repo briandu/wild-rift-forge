@@ -7,6 +7,9 @@
     "apps/*",
     "packages/*"
   ],
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
     "dev:web": "npm run --workspace @wild-rift-forge/web dev",
     "dev:api": "npm run --workspace @wild-rift-forge/api dev",
@@ -15,6 +18,9 @@
     "scrape:backfill": "npm run --workspace @wild-rift-forge/scraper backfill --",
     "scrape:champions": "npm run --workspace @wild-rift-forge/scraper champions --",
     "scrape:champion-assets": "npm run --workspace @wild-rift-forge/scraper champion-assets --",
+    "scrape:champion-thumbnails": "npm run --workspace @wild-rift-forge/scraper champion-thumbnails --",
+    "scrape:stats": "npm run --workspace @wild-rift-forge/scraper stats",
+    "scrape:analyze-patch": "npm run --workspace @wild-rift-forge/scraper analyze-patch --",
     "design:ingest": "node scripts/ingest-claude-design.mjs",
     "design:preview": "node scripts/preview-claude-design.mjs",
     "test": "vitest run",

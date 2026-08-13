@@ -1,0 +1,29 @@
+{
+  "heroList": {
+    "10001": {
+      "heroId": "10001",
+      "name": "盖伦",
+      "alias": "gailun",
+      "poster": "https://game.gtimg.cn/images/lgamem/act/lrlib/img/Posters/Garen_0.jpg"
+    },
+    "10008": {
+      "heroId": "10008",
+      "name": "努努和威朗普",
+      "poster": "https://game.gtimg.cn/images/lgamem/act/lrlib/img/Posters/Nunu_0.jpg"
+    },
+    "10009": {
+      "heroId": "10009",
+      "name": "孙悟空",
+      "poster": "https://game.gtimg.cn/images/lgamem/act/lrlib/img/Posters/MonkeyKing_0.jpg"
+    },
+    "10038": {
+      "heroId": "10038",
+      "name": "阿狸",
+      "poster": "https://game.gtimg.cn/images/lgamem/act/lrlib/img/Posters/Ahri_0.jpg"
+    },
+    "10066": {
+      "heroId": "10066",
+      "poster": "https://game.gtimg.cn/images/lgamem/act/lrlib/img/Posters/MissFortune_0.jpg"
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { championImageStoragePath, extensionForImage } from '../src/assets/paths';
+import { championImageStoragePath, championThumbnailStoragePath, extensionForImage } from '../src/assets/paths';
+import { highQualitySanityUrl } from '../src/sources/riot/image-url';
 
 describe('extensionForImage', () => {
   it('maps common image content types', () => {
@@ -25,5 +26,22 @@ describe('extensionForImage', () => {
 describe('championImageStoragePath', () => {
   it('builds a stable champions/{slug}.ext path', () => {
     expect(championImageStoragePath('aatrox', 'webp')).toBe('champions/aatrox.webp');
+    expect(championThumbnailStoragePath('aatrox', 'png')).toBe('champions/aatrox-thumb.png');
+  });
+});
+
+describe('highQualitySanityUrl', () => {
+  it('pins Sanity CDN images to max JPEG quality', () => {
+    const url = highQualitySanityUrl(
+      'https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data/abc-1280x720.jpg?accountingTag=WR',
+    );
+    expect(url).toContain('q=100');
+    expect(url).toContain('fm=jpg');
+    expect(url).toContain('accountingTag=WR');
+  });
+
+  it('leaves non-Sanity URLs unchanged', () => {
+    const url = 'https://example.com/aatrox.png';
+    expect(highQualitySanityUrl(url)).toBe(url);
   });
 });

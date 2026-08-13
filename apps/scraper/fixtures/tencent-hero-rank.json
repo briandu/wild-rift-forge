@@ -1,0 +1,43 @@
+{
+  "result": 0,
+  "data": {
+    "1": {
+      "1": [
+        {
+          "hero_id": "10038",
+          "position": "1",
+          "win_rate_percent": "52.30",
+          "appear_rate_percent": "6.80",
+          "forbid_rate_percent": "0.22",
+          "strength": "8",
+          "strength_level": "2",
+          "dtstatdate": "20260811"
+        }
+      ],
+      "2": [
+        {
+          "hero_id": "10001",
+          "position": "2",
+          "win_rate_percent": "51.23",
+          "appear_rate_percent": "14.21",
+          "forbid_rate_percent": "4.14",
+          "strength": "12",
+          "strength_level": "2",
+          "dtstatdate": "20260811"
+        }
+      ],
+      "3": [
+        {
+          "hero_id": "10066",
+          "position": "3",
+          "win_rate_percent": "51.44",
+          "appear_rate_percent": "20.50",
+          "forbid_rate_percent": "3.97",
+          "strength": "5",
+          "strength_level": "1",
+          "dtstatdate": "20260811"
+        }
+      ]
+    }
+  }
+}

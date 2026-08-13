@@ -1,4 +1,5 @@
 import { extractNextData, getBlades } from '../extract-next-data';
+import { highQualitySanityUrl } from '../image-url';
 
 export interface ChampionListEntry {
   name: string;
@@ -40,7 +41,7 @@ export function parseChampionList(html: string): ChampionListEntry[] {
       name: item.title,
       slug,
       url: relativeUrl.startsWith('http') ? relativeUrl : `${BASE_URL}${relativeUrl}`,
-      imageUrl: item.media?.url ?? null,
+      imageUrl: highQualitySanityUrl(item.media?.url ?? null),
     });
   }
   return entries;

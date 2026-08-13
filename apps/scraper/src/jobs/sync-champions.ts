@@ -1,5 +1,9 @@
-import type { Champion } from '@wild-rift-forge/game-data';
-import { insertRawSource, upsertChampion } from '@wild-rift-forge/database';
+import type { Champion, ChampionAbility } from '@wild-rift-forge/game-data';
+import {
+  insertRawSource,
+  replaceChampionAbilities,
+  upsertChampion,
+} from '@wild-rift-forge/database';
 import { fetchHtml } from '../fetchers/fetch-html';
 import { parseChampionList } from '../sources/riot/champions/list.parser';
 import { parseChampionDetail } from '../sources/riot/champions/detail.parser';
@@ -9,10 +13,10 @@ const CHAMPIONS_URL = 'https://wildrift.leagueoflegends.com/en-us/champions/';
 
 /**
  * Sync the champion roster. The listing page provides name/slug for the whole
- * roster in one request. Detail pages supply title/roles/difficulty and the
- * default skin splash (Available Skins → first image). Detail is fetched for
- * up to `detailLimit` champions per run to stay polite; list-card art is kept
- * only as a temporary fallback until a detail page is scraped.
+ * roster in one request. Detail pages supply title/roles/difficulty, the
+ * default skin splash (Available Skins → first image), and the ability kit.
+ * Detail is fetched for up to `detailLimit` champions per run to stay polite;
+ * list-card art is kept only as a temporary fallback until a detail page is scraped.
  */
 export async function syncChampions(detailLimit: number): Promise<void> {
   console.log('Fetching champion roster...');
@@ -32,6 +36,7 @@ export async function syncChampions(detailLimit: number): Promise<void> {
   let upserted = 0;
   let detailed = 0;
   let skinImages = 0;
+  let abilityKits = 0;
   for (const entry of roster) {
     const champion: Champion = {
       slug: entry.slug,
@@ -45,6 +50,7 @@ export async function syncChampions(detailLimit: number): Promise<void> {
       imageSourceUrl: null,
     };
 
+    let abilities: ChampionAbility[] | null = null;
     if (detailed < detailLimit) {
       try {
         const detailPage = await fetchHtml(entry.url);
@@ -60,17 +66,22 @@ export async function syncChampions(detailLimit: number): Promise<void> {
           // Detail page had no skins carousel — keep the list card as source.
           champion.imageSourceUrl = entry.imageUrl;
         }
+        abilities = detail.abilities;
         detailed += 1;
       } catch (error) {
         console.warn(`Detail fetch failed for ${entry.slug}: ${String(error)}`);
       }
     }
 
-    await upsertChampion(champion);
+    const championId = await upsertChampion(champion);
+    if (abilities?.length) {
+      await replaceChampionAbilities(championId, abilities);
+      abilityKits += 1;
+    }
     upserted += 1;
   }
   console.log(
-    `Champion sync complete: ${upserted} upserted, ${detailed} with detail data, ${skinImages} default skin images.`,
+    `Champion sync complete: ${upserted} upserted, ${detailed} with detail data, ${skinImages} default skin images, ${abilityKits} ability kits.`,
   );
 }
 
