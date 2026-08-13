@@ -15,7 +15,7 @@ function isActive(pathname: string, match: string): boolean {
     return pathname === '/' || pathname.startsWith('/counters') || pathname.startsWith('/matchups');
   }
   if (match === 'me') {
-    return pathname === '/me' || pathname.startsWith('/auth');
+    return pathname === '/me' || pathname.startsWith('/login');
   }
   return pathname.startsWith(`/${match}`);
 }

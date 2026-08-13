@@ -329,8 +329,7 @@
   border-color: rgba(255, 255, 255, 0.24);
 }
 
-.ssoIcon,
-.ssoBadgeGoogle {
+.ssoIcon {
   width: 20px;
   height: 20px;
   display: flex;
@@ -339,9 +338,13 @@
   flex: none;
 }
 
-.ssoBadgeGoogle {
-  background: #fff;
-  border-radius: 4px;
+.ssoRiot {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
 }
 
 .swap,

@@ -2,9 +2,9 @@ import { Suspense } from 'react';
 import { AuthPanel } from '@/components/AuthPanel';
 import { Shell } from '@/components/Shell';
 
-export default function AuthPage() {
+export default function LoginPage() {
   return (
-    <Shell pathname="/auth" showChrome={false}>
+    <Shell pathname="/login" showChrome={false}>
       <Suspense>
         <AuthPanel />
       </Suspense>

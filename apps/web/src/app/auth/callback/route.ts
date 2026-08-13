@@ -15,21 +15,21 @@ export async function GET(request: Request) {
 
   if (errorDescription) {
     const params = new URLSearchParams({ error: errorDescription });
-    return NextResponse.redirect(`${origin}/auth?${params}`);
+    return NextResponse.redirect(`${origin}/login?${params}`);
   }
 
   if (!code) {
-    return NextResponse.redirect(`${origin}/auth?error=${encodeURIComponent('Missing auth code')}`);
+    return NextResponse.redirect(`${origin}/login?error=${encodeURIComponent('Missing auth code')}`);
   }
 
   if (!isSupabaseConfigured()) {
-    return NextResponse.redirect(`${origin}/auth?error=${encodeURIComponent('Auth is not configured')}`);
+    return NextResponse.redirect(`${origin}/login?error=${encodeURIComponent('Auth is not configured')}`);
   }
 
   const supabase = await createClient();
   const { error } = await supabase.auth.exchangeCodeForSession(code);
   if (error) {
-    return NextResponse.redirect(`${origin}/auth?error=${encodeURIComponent(error.message)}`);
+    return NextResponse.redirect(`${origin}/login?error=${encodeURIComponent(error.message)}`);
   }
 
   const forwardedHost = request.headers.get('x-forwarded-host');

@@ -11,6 +11,13 @@ import styles from './AuthPanel.module.css';
 type Mode = 'signin' | 'signup' | 'forgot' | 'sent' | 'reset';
 type Notice = { kind: 'ok' | 'err'; text: string };
 
+function modeFromSearch(value: string | null): Mode | null {
+  if (value === 'signin' || value === 'signup' || value === 'forgot' || value === 'reset') {
+    return value;
+  }
+  return null;
+}
+
 const COPY: Record<
   Mode,
   { title: string; sub: string; swap?: [string, string]; swapTo?: Mode }
@@ -49,7 +56,7 @@ const COPY: Record<
 
 function GoogleMark() {
   return (
-    <svg aria-hidden viewBox="0 0 48 48" width="18" height="18">
+    <svg aria-hidden viewBox="0 0 48 48" width="20" height="20">
       <path
         fill="#EA4335"
         d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
@@ -78,10 +85,38 @@ function AppleMark() {
   );
 }
 
-const SSO = [
-  { name: 'Google', provider: 'google' as const, Icon: GoogleMark },
-  { name: 'Apple', provider: 'apple' as const, Icon: AppleMark },
+function RiotMark() {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" width="24" height="24">
+      <rect width="24" height="24" rx="5.4" fill="#ED1B2C" />
+      <g fill="#fff" transform="translate(12 12) scale(0.068) translate(-955.335 -540.001)">
+        <path d="M966.033 458.247 867.265 503.985 891.874 597.641 910.604 595.341 905.453 536.457 911.608 533.717 922.222 593.914 954.235 589.984 948.549 524.986 954.634 522.276 966.311 588.501 998.695 584.525 992.462 513.277 998.622 510.534 1011.394 582.965 1043.406 579.035 1043.406 477.625Z" />
+        <path d="M968.355 600.294 969.981 609.514 1043.406 621.755 1043.406 591.079 968.39 600.29Z" />
+      </g>
+    </svg>
+  );
+}
+
+type SsoProvider = 'riot' | 'google' | 'apple';
+
+const SSO: {
+  name: string;
+  provider: SsoProvider;
+  Icon: () => JSX.Element;
+  appleOnly?: boolean;
+}[] = [
+  { name: 'Google', provider: 'google', Icon: GoogleMark },
+  { name: 'Riot Games', provider: 'riot', Icon: RiotMark },
+  { name: 'Apple', provider: 'apple', Icon: AppleMark, appleOnly: true },
 ];
+
+function isAppleDevice(): boolean {
+  if (typeof navigator === 'undefined') return false;
+  const ua = navigator.userAgent;
+  if (/iPhone|iPad|iPod/.test(ua)) return true;
+  if (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) return true;
+  return /Mac/.test(navigator.platform) || /Macintosh/.test(ua);
+}
 
 const REGIONS = ['NA', 'EUW', 'BR', 'KR', 'SEA'] as const;
 
@@ -127,9 +162,7 @@ function friendlyAuthError(message: string): string {
 export function AuthPanel() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [mode, setMode] = useState<Mode>(() =>
-    searchParams.get('mode') === 'reset' ? 'reset' : 'signin',
-  );
+  const [mode, setMode] = useState<Mode>(() => modeFromSearch(searchParams.get('mode')) ?? 'signin');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -138,16 +171,34 @@ export function AuthPanel() {
   const [region, setRegion] = useState<(typeof REGIONS)[number]>('NA');
   const [notice, setNotice] = useState<Notice | null>(null);
   const [busy, setBusy] = useState(false);
+  const [onApple, setOnApple] = useState(false);
 
   const copy = COPY[mode];
   const strength = useMemo(() => passwordStrength(password), [password]);
   const showSso = mode === 'signin' || mode === 'signup';
   const configured = isSupabaseConfigured();
+  const ssoProviders = useMemo(
+    () => SSO.filter((p) => !p.appleOnly || onApple),
+    [onApple],
+  );
+
+  function goMode(next: Mode) {
+    setNotice(null);
+    setMode(next);
+    if (next === 'signin' || next === 'signup' || next === 'forgot') {
+      router.replace(next === 'signin' ? '/login' : `/login?mode=${next}`, { scroll: false });
+    }
+  }
+
+  useEffect(() => {
+    setOnApple(isAppleDevice());
+  }, []);
 
   useEffect(() => {
     const error = searchParams.get('error');
     if (error) setNotice({ kind: 'err', text: friendlyAuthError(error) });
-    if (searchParams.get('mode') === 'reset') setMode('reset');
+    const next = modeFromSearch(searchParams.get('mode'));
+    if (next) setMode(next);
   }, [searchParams]);
 
   useEffect(() => {
@@ -191,7 +242,7 @@ export function AuthPanel() {
           return;
         }
         const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), {
-          redirectTo: callbackUrl('/auth?mode=reset'),
+          redirectTo: callbackUrl('/login?mode=reset'),
         });
         if (error) {
           setNotice({ kind: 'err', text: friendlyAuthError(error.message) });
@@ -275,7 +326,14 @@ export function AuthPanel() {
     }
   }
 
-  async function continueWith(provider: 'google' | 'apple') {
+  async function continueWith(provider: SsoProvider) {
+    if (provider === 'riot') {
+      setNotice({
+        kind: 'err',
+        text: 'Riot sign-in is not enabled yet. Use email or Google for now.',
+      });
+      return;
+    }
     if (!configured) {
       setNotice({ kind: 'err', text: 'Auth is not configured. Add Supabase keys to apps/web/.env.local.' });
       return;
@@ -343,7 +401,7 @@ export function AuthPanel() {
               <label className={styles.field}>
                 <span className={styles.fieldLabelRow}>
                   <span className={styles.fieldLabel}>PASSWORD</span>
-                  <button type="button" className={styles.link} onClick={() => setMode('forgot')}>
+                  <button type="button" className={styles.link} onClick={() => goMode('forgot')}>
                     Forgot password?
                   </button>
                 </span>
@@ -489,7 +547,7 @@ export function AuthPanel() {
               <button type="submit" className={styles.submit} disabled={busy}>
                 {busy ? 'Sending…' : 'Send reset link'}
               </button>
-              <button type="button" className={styles.secondary} onClick={() => setMode('signin')}>
+              <button type="button" className={styles.secondary} onClick={() => goMode('signin')}>
                 Back to sign in
               </button>
             </form>
@@ -509,7 +567,7 @@ export function AuthPanel() {
                   <div className={styles.hint}>The link expires in about an hour.</div>
                 </div>
               </div>
-              <button type="button" className={styles.secondary} onClick={() => setMode('signin')}>
+              <button type="button" className={styles.secondary} onClick={() => goMode('signin')}>
                 Back to sign in
               </button>
               <p className={styles.swapInline}>
@@ -517,10 +575,7 @@ export function AuthPanel() {
                 <button
                   type="button"
                   className={styles.link}
-                  onClick={() => {
-                    setMode('forgot');
-                    setNotice(null);
-                  }}
+                  onClick={() => goMode('forgot')}
                 >
                   Send it again
                 </button>
@@ -589,7 +644,7 @@ export function AuthPanel() {
                 <span />
               </div>
               <div className={styles.ssoGrid}>
-                {SSO.map((p) => {
+                {ssoProviders.map((p) => {
                   const Icon = p.Icon;
                   return (
                     <button
@@ -599,9 +654,7 @@ export function AuthPanel() {
                       disabled={busy}
                       onClick={() => void continueWith(p.provider)}
                     >
-                      <span
-                        className={p.provider === 'google' ? styles.ssoBadgeGoogle : styles.ssoIcon}
-                      >
+                      <span className={p.provider === 'riot' ? styles.ssoRiot : styles.ssoIcon}>
                         <Icon />
                       </span>
                       {p.name}
@@ -618,10 +671,7 @@ export function AuthPanel() {
               <button
                 type="button"
                 className={styles.link}
-                onClick={() => {
-                  setNotice(null);
-                  setMode(copy.swapTo!);
-                }}
+                onClick={() => goMode(copy.swapTo!)}
               >
                 {copy.swap[1]}
               </button>

@@ -36,4 +36,4 @@ For a real roster and hosted art: start local Postgres (`node scripts/dev-db.mjs
 | `/counters/[champion]` | Counter results (stub scores via API) |
 | `/champions/[slug]` | Profile stub |
 | `/draft` | Draft stub |
-| `/auth` | Sign in / sign up (Supabase) |
+| `/login` | Sign in / sign up (Supabase) |
