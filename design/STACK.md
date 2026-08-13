@@ -4,9 +4,9 @@ Paste this (or link the repo context) into Claude Design when starting a new scr
 
 ## Product
 
-- **Working name in UI:** RIFTLINE (Wild Rift companion — counters, matchups, draft, patch)
+- **Working name in UI:** Wild Rift Forge (Wild Rift companion — counters, matchups, draft, patch)
 - **Repo:** `wild-rift-forge` monorepo
-- **Chosen visual direction:** Premium Gaming (direction 1B) — dark Discord-adjacent base, Archivo display, purple accent, full-bleed champion art, search-first homepage, staged counter results
+- **Chosen visual direction:** Premium Gaming (direction 1B) — dark Discord-adjacent base, Archivo display, cyan accent, full-bleed champion art, search-first homepage, staged counter results
 
 ## Implementation stack (do not invent alternatives)
 
@@ -26,14 +26,14 @@ Paste this (or link the repo context) into Claude Design when starting a new scr
 3. **Art leads, numbers support** — one primary recommendation can dominate; dense tables are secondary.
 4. Use **CSS variables / named tokens** in notes when possible (`--bg`, `--accent`, `--text-muted`) so Cursor can map to `apps/web` globals.
 5. Do **not** assume auth, billing, or social feed unless asked.
-6. Copy and IA can say RIFTLINE; routes will live under `apps/web` (e.g. `/`, `/counters/[champion]`, `/champions/[slug]`, `/draft`).
+6. Copy and IA can say Wild Rift Forge; routes will live under `apps/web` (e.g. `/`, `/counters/[champion]`, `/champions/[slug]`, `/draft`).
 7. Avoid shipping production JS frameworks inside the design — Claude Design’s `.dc.html` + `support.js` runtime is expected; Cursor will rewrite to Next.js components.
 
 ## Baseline already locked
 
 - Homepage + counter results: Premium Gaming language
 - Next screens roughed: champion profile, draft assistant, empty/loading/sparse/patch-just-landed states
-- Accent: ~`#6A5CF0` / `#8E85F5` on `#0B0A12`
+- Accent: ~`#16C0FF` / `#7FDCFF` on `#0B0A12` (CTA end `#0A72C8`)
 - Type: Archivo (display + UI)
 
 When iterating, **extend this direction** — do not reopen 1A (dense analytics) or 1C (command palette) unless the product owner asks.

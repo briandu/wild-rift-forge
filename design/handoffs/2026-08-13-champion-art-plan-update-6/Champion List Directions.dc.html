@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#07060D;}
+input{font-family:Archivo,system-ui,sans-serif;}
+input::placeholder{color:#6E6A8C;}
+a{color:#A9A5C4;text-decoration:none;}
+a:hover{color:#DEDCEE;}
+</style>
+</helmet>
+
+<section style="padding:56px 56px 90px;font-family:Archivo,system-ui,sans-serif;color:#fff;border-bottom:1px solid rgba(255,255,255,.08);">
+  <div style="max-width:780px;margin-bottom:38px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.22em;color:#7FDCFF;">TURN 2 · TILE TREATMENTS</div>
+    <div style="font-weight:900;font-size:44px;line-height:1.02;letter-spacing:-0.035em;margin-top:14px;">Three ways to build the tile</div>
+    <div style="font-size:16px;color:#A9A5C4;line-height:1.6;margin-top:14px;text-wrap:pretty;">Same grid, three different objects in it. <a href="#2a">2a</a> puts everything on the art. <a href="#2b">2b</a> keeps the art clean and gives the data its own plate. <a href="#2c">2c</a> varies tile size so the grid has a hierarchy.</div>
+  </div>
+
+  <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;">
+
+    <div id="2a" style="width:560px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">2a</div>
+        <div style="font-size:19px;font-weight:700;letter-spacing:-0.014em;">Poster tile</div>
+        <div style="font-size:14px;color:#7B769B;">Tall crop, everything on the art</div>
+      </div>
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:22px;">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <sc-for list="{{ tiles }}" as="c" hint-placeholder-count="6">
+            <div style="position:relative;border-radius:18px;overflow:hidden;height:260px;background:{{ c.bg }};border:1px solid rgba(255,255,255,.09);">
+              <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="position:absolute;inset:0;background-position:{{ c.cardPos }};background-image:url({{ c.artSafe }});background-size:cover;"></div></sc-if>
+              <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:8px;bottom:-30px;font-weight:900;font-size:150px;line-height:.8;color:rgba(0,0,0,.24);">{{ c.ini }}</div></sc-if>
+              <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,7,14,.97) 8%,rgba(8,7,14,.45) 42%,transparent 72%);"></div>
+              <div style="position:absolute;left:0;top:14px;display:flex;align-items:center;gap:6px;background:{{ c.tierbg }};border:1px solid {{ c.tierbd }};border-left:none;border-radius:0 12px 12px 0;padding:5px 10px 5px 8px;">
+                <div style="font-size:12px;font-weight:900;color:{{ c.tierc }};">{{ c.tier }}</div>
+              </div>
+              <div style="position:absolute;left:14px;right:14px;bottom:14px;">
+                <div style="font-weight:900;font-size:20px;line-height:1.05;letter-spacing:-0.02em;">{{ c.name }}</div>
+                <div style="font-size:12px;color:#8B87A8;margin-top:4px;">{{ c.kind }} · {{ c.laneLabel }}</div>
+                <div style="display:flex;align-items:center;gap:9px;margin-top:11px;">
+                  <div style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.16);overflow:hidden;"><div style="width:{{ c.barw }};height:100%;background:{{ c.tierc }};"></div></div>
+                  <div style="font-size:13px;font-weight:800;color:{{ c.tierc }};">{{ c.wr }}</div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;text-wrap:pretty;">The tall crop gives the splash room to read as a portrait rather than a banner. A tier ribbon breaks the rectangle so the grid does not feel like a spreadsheet of pictures.</div>
+    </div>
+
+    <div id="2b" style="width:560px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">2b</div>
+        <div style="font-size:19px;font-weight:700;letter-spacing:-0.014em;">Plate tile</div>
+        <div style="font-size:14px;color:#7B769B;">Art untouched, data below it</div>
+      </div>
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:22px;">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+          <sc-for list="{{ tiles }}" as="c" hint-placeholder-count="6">
+            <div style="border-radius:18px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);">
+              <div style="position:relative;height:150px;background:{{ c.bg }};">
+                <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="position:absolute;inset:0;background-position:{{ c.cardPos }};background-image:url({{ c.artSafe }});background-size:cover;"></div></sc-if>
+                <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:8px;bottom:-24px;font-weight:900;font-size:120px;line-height:.8;color:rgba(0,0,0,.24);">{{ c.ini }}</div></sc-if>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(0deg,rgba(15,13,26,1),transparent);"></div>
+              </div>
+              <div style="padding:13px 14px 14px;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="font-weight:800;font-size:17px;letter-spacing:-0.016em;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</div>
+                  <div style="font-size:11px;font-weight:800;color:{{ c.tierc }};background:{{ c.tierbg }};border:1px solid {{ c.tierbd }};border-radius:6px;padding:2px 7px;flex:none;">{{ c.tier }}</div>
+                </div>
+                <div style="font-size:12px;color:#6E6A8C;margin-top:4px;">{{ c.kind }} · {{ c.laneLabel }}</div>
+                <div style="display:flex;gap:8px;margin-top:12px;padding-top:11px;border-top:1px solid rgba(255,255,255,.07);">
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:14px;font-weight:800;color:{{ c.tierc }};">{{ c.wr }}</div>
+                    <div style="font-size:9px;font-weight:700;letter-spacing:0.06em;color:#5C5878;margin-top:2px;">WIN</div>
+                  </div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:14px;font-weight:800;color:#BBB7D4;">{{ c.pr }}</div>
+                    <div style="font-size:9px;font-weight:700;letter-spacing:0.06em;color:#5C5878;margin-top:2px;">PICK</div>
+                  </div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:14px;font-weight:800;color:#BBB7D4;">{{ c.br }}</div>
+                    <div style="font-size:9px;font-weight:700;letter-spacing:0.06em;color:#5C5878;margin-top:2px;">BAN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;text-wrap:pretty;">Nothing sits on the splash, so the art stays legible and three numbers fit comfortably. Costs vertical space, but this is the only version where win, pick and ban are all readable at a glance.</div>
+    </div>
+
+    <div id="2c" style="width:560px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">2c</div>
+        <div style="font-size:19px;font-weight:700;letter-spacing:-0.014em;">Mosaic</div>
+        <div style="font-size:14px;color:#7B769B;">Featured tiles break the rhythm</div>
+      </div>
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:22px;">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:124px;gap:12px;">
+          <sc-for list="{{ mosaic }}" as="c" hint-placeholder-count="8">
+            <div style="grid-column:{{ c.span }};grid-row:{{ c.rowSpan }};position:relative;border-radius:16px;overflow:hidden;background:{{ c.bg }};border:1px solid rgba(255,255,255,.09);">
+              <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="position:absolute;inset:0;background-position:{{ c.cardPos }};background-image:url({{ c.artSafe }});background-size:cover;"></div></sc-if>
+              <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:6px;bottom:-22px;font-weight:900;font-size:{{ c.iniSize }};line-height:.8;color:rgba(0,0,0,.24);">{{ c.ini }}</div></sc-if>
+              <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,7,14,.94) 10%,transparent 62%);"></div>
+              <sc-if value="{{ c.big }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;left:14px;top:14px;font-size:10px;font-weight:700;letter-spacing:0.12em;color:{{ c.tierc }};background:rgba(8,7,14,.66);border:1px solid {{ c.tierbd }};border-radius:12px;padding:4px 10px;">{{ c.flag }}</div>
+              </sc-if>
+              <div style="position:absolute;left:13px;right:13px;bottom:12px;">
+                <div style="font-weight:800;font-size:{{ c.nameSize }};line-height:1.05;letter-spacing:-0.018em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</div>
+                <div style="display:flex;align-items:center;gap:8px;margin-top:5px;">
+                  <div style="font-size:12px;font-weight:700;color:{{ c.tierc }};">{{ c.wr }}</div>
+                  <sc-if value="{{ c.big }}" hint-placeholder-val="{{ false }}">
+                    <div style="display:flex;align-items:center;gap:8px;min-width:0;">
+                      <div style="width:3px;height:3px;border-radius:50%;background:#4A4560;flex:none;"></div>
+                      <div style="font-size:12px;color:#8B87A8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.laneLabel }}</div>
+                    </div>
+                  </sc-if>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;text-wrap:pretty;">Two featured tiles per screen carry an editorial flag, the rest stay small. The uneven grid reads as a curated page rather than a database dump, at the cost of a predictable scan order.</div>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding:56px 56px 90px;font-family:Archivo,system-ui,sans-serif;color:#fff;">
+  <div style="max-width:760px;margin-bottom:38px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.22em;color:#7FDCFF;">TURN 1 · CHAMPION LIST</div>
+    <div style="font-weight:900;font-size:44px;line-height:1.02;letter-spacing:-0.035em;margin-top:14px;">Three ways to browse the roster</div>
+    <div style="font-size:16px;color:#A9A5C4;line-height:1.6;margin-top:14px;text-wrap:pretty;">Each answers a different question. <a href="#1a">1a</a> is for players who already know who they want. <a href="#1b">1b</a> is for players deciding what to play. <a href="#1c">1c</a> is for finding a champion by sight, the way champion select works.</div>
+  </div>
+
+  <div style="display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start;">
+
+    <div id="1a" style="width:820px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">1a</div>
+        <div style="font-size:19px;font-weight:700;letter-spacing:-0.014em;">Ranked table</div>
+        <div style="font-size:14px;color:#7B769B;">Dense, sortable, no art</div>
+      </div>
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:22px;overflow:hidden;">
+        <div style="display:flex;align-items:center;gap:14px;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.07);">
+          <div style="display:flex;align-items:center;gap:10px;height:42px;flex:1;min-width:0;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:0 14px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+            <div style="font-size:14px;color:#6E6A8C;">Filter champions</div>
+          </div>
+          <div style="display:flex;gap:4px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:4px;flex:none;">
+            <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="6">
+              <div style="font-size:12px;font-weight:600;padding:0 12px;height:32px;display:flex;align-items:center;border-radius:8px;color:{{ l.fg }};background:{{ l.bg }};">{{ l.name }}</div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:12px 24px;font-size:11px;font-weight:700;letter-spacing:0.14em;color:#6E6A8C;background:rgba(255,255,255,.02);">
+          <div style="width:26px;flex:none;">#</div>
+          <div style="flex:1;">CHAMPION</div>
+          <div style="width:96px;flex:none;">LANES</div>
+          <div style="width:54px;text-align:right;flex:none;">TIER</div>
+          <div style="width:110px;text-align:right;flex:none;">WIN RATE</div>
+          <div style="width:70px;text-align:right;flex:none;">PICK</div>
+          <div style="width:70px;text-align:right;flex:none;">BAN</div>
+        </div>
+        <sc-for list="{{ rows }}" as="c" hint-placeholder-count="10">
+          <div style="display:flex;align-items:center;gap:16px;padding:11px 24px;border-top:1px solid rgba(255,255,255,.045);background:{{ c.zebra }};">
+            <div style="width:26px;font-size:13px;font-weight:700;color:{{ c.rankc }};flex:none;">{{ c.rank }}</div>
+            <div style="flex:1;min-width:0;display:flex;align-items:center;gap:12px;">
+              <div style="width:34px;height:34px;border-radius:50%;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:rgba(0,0,0,.45);flex:none;">
+                <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-position:{{ c.pos }};background-image:url({{ c.artSafe }});background-size:cover;"></div></sc-if>
+                <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+              </div>
+              <div style="min-width:0;">
+                <div style="font-size:15px;font-weight:600;">{{ c.name }}</div>
+                <div style="font-size:12px;color:#6E6A8C;margin-top:1px;">{{ c.kind }}</div>
+              </div>
+            </div>
+            <div style="width:96px;font-size:12px;color:#8B87A8;flex:none;">{{ c.laneLabel }}</div>
+            <div style="width:54px;text-align:right;flex:none;"><span style="font-size:11px;font-weight:800;color:{{ c.tierc }};background:{{ c.tierbg }};border:1px solid {{ c.tierbd }};border-radius:6px;padding:3px 8px;">{{ c.tier }}</span></div>
+            <div style="width:110px;flex:none;display:flex;align-items:center;gap:9px;justify-content:flex-end;">
+              <div style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;"><div style="width:{{ c.barw }};height:100%;background:{{ c.tierc }};"></div></div>
+              <div style="font-size:13px;font-weight:600;width:44px;text-align:right;">{{ c.wr }}</div>
+            </div>
+            <div style="width:70px;text-align:right;font-size:13px;color:#8B87A8;flex:none;">{{ c.pr }}</div>
+            <div style="width:70px;text-align:right;font-size:13px;color:#8B87A8;flex:none;">{{ c.br }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;max-width:760px;text-wrap:pretty;">Every champion in one scroll, with the numbers that decide a pick sitting in fixed columns. Sorting by any header turns it into a tier list without a separate screen. Trades art for information density.</div>
+    </div>
+
+    <div id="1b" style="width:820px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">1b</div>
+        <div style="font-size:19px;font-weight:700;letter-spacing:-0.014em;">Editorial shelves</div>
+        <div style="font-size:14px;color:#7B769B;">Grouped by why you would pick it</div>
+      </div>
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:22px;overflow:hidden;padding:24px;">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+          <div style="display:flex;align-items:center;gap:10px;height:42px;flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:0 14px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+            <div style="font-size:14px;color:#6E6A8C;">Search all 23 champions</div>
+          </div>
+        </div>
+        <sc-for list="{{ shelves }}" as="s" hint-placeholder-count="3">
+          <div style="margin-bottom:26px;">
+            <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:14px;">
+              <div style="font-weight:800;font-size:19px;letter-spacing:-0.016em;color:{{ s.c }};">{{ s.title }}</div>
+              <div style="font-size:13px;color:#7B769B;">{{ s.sub }}</div>
+            </div>
+            <div style="display:flex;gap:12px;">
+              <sc-for list="{{ s.champs }}" as="c" hint-placeholder-count="5">
+                <div style="flex:1;min-width:0;border-radius:16px;overflow:hidden;position:relative;height:190px;background:{{ c.bg }};border:1px solid rgba(255,255,255,.08);">
+                  <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="position:absolute;inset:0;background-position:{{ c.cardPos }};background-image:url({{ c.artSafe }});background-size:cover;"></div></sc-if>
+                  <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:10px;bottom:-24px;font-weight:900;font-size:120px;line-height:.8;color:rgba(0,0,0,.24);">{{ c.ini }}</div></sc-if>
+                  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,18,.95) 14%,rgba(11,10,18,.05) 66%);"></div>
+                  <div style="position:absolute;left:12px;right:12px;bottom:12px;">
+                    <div style="font-weight:800;font-size:16px;letter-spacing:-0.014em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</div>
+                    <div style="font-size:12px;color:{{ c.tierc }};margin-top:3px;">{{ c.wr }} · {{ c.tier }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;border-top:1px solid rgba(255,255,255,.07);padding-top:18px;">
+          <div style="font-size:14px;color:#7B769B;">Browsing by lane instead?</div>
+          <div style="display:flex;gap:8px;">
+            <sc-for list="{{ lanes }}" as="l" hint-placeholder-count="6">
+              <div style="font-size:12px;font-weight:600;padding:0 13px;height:32px;display:flex;align-items:center;border-radius:16px;color:#BBB7D4;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);">{{ l.name }}</div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;max-width:760px;text-wrap:pretty;">Shelves carry an argument rather than an alphabet: what is winning now, what got buffed, what is safe to first-pick. The art does the recognising, the shelf title does the recommending. Best when the player has not decided yet.</div>
+    </div>
+
+    <div id="1c" style="width:820px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">1c</div>
+        <div style="font-size:19px;font-weight:700;letter-spacing:-0.014em;">Portrait wall</div>
+        <div style="font-size:14px;color:#7B769B;">Champion select, with a detail panel</div>
+      </div>
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:22px;overflow:hidden;display:flex;">
+        <div style="flex:1;min-width:0;padding:22px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+            <div style="display:flex;align-items:center;gap:10px;height:40px;flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:0 13px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+              <div style="font-size:14px;color:#6E6A8C;">Type to filter</div>
+            </div>
+            <div style="display:flex;gap:4px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:4px;flex:none;">
+              <sc-for list="{{ lanesShort }}" as="l" hint-placeholder-count="5">
+                <div style="font-size:12px;font-weight:600;padding:0 10px;height:30px;display:flex;align-items:center;border-radius:7px;color:{{ l.fg }};background:{{ l.bg }};">{{ l.name }}</div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:12px;">
+            <sc-for list="{{ wall }}" as="c" hint-placeholder-count="21">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:7px;">
+                <div style="width:100%;aspect-ratio:1;border-radius:14px;overflow:hidden;background:{{ c.bg }};border:2px solid {{ c.ring }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:rgba(0,0,0,.45);position:relative;">
+                  <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="position:absolute;inset:0;background-position:{{ c.pos }};background-image:url({{ c.artSafe }});background-size:cover;"></div></sc-if>
+                  <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+                  <div style="position:absolute;right:4px;top:4px;font-size:9px;font-weight:800;color:{{ c.tierc }};background:rgba(8,7,14,.78);border-radius:5px;padding:2px 5px;">{{ c.tier }}</div>
+                </div>
+                <div style="font-size:11px;color:#8B87A8;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div style="width:270px;flex:none;border-left:1px solid rgba(255,255,255,.08);padding:22px;box-sizing:border-box;background:rgba(255,255,255,.02);">
+          <div style="height:150px;border-radius:16px;overflow:hidden;position:relative;background:{{ focus.bg }};">
+            <sc-if value="{{ focus.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ focus.name }}" style="position:absolute;inset:0;background-position:{{ focus.cardPos }};background-image:url({{ focus.artSafe }});background-size:cover;"></div></sc-if>
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,18,.9),transparent 60%);"></div>
+          </div>
+          <div style="font-weight:800;font-size:22px;letter-spacing:-0.022em;margin-top:14px;">{{ focus.name }}</div>
+          <div style="font-size:13px;color:#8B87A8;margin-top:4px;">{{ focus.kind }} · {{ focus.laneLabel }}</div>
+          <div style="display:flex;gap:16px;margin-top:16px;">
+            <div>
+              <div style="font-weight:800;font-size:20px;color:#8FEDB8;">{{ focus.wr }}</div>
+              <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;color:#7B769B;margin-top:3px;">WIN RATE</div>
+            </div>
+            <div>
+              <div style="font-weight:800;font-size:20px;">{{ focus.pr }}</div>
+              <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;color:#7B769B;margin-top:3px;">PICK</div>
+            </div>
+          </div>
+          <div style="height:42px;border-radius:11px;background:linear-gradient(135deg,#16C0FF,#0A72C8);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;margin-top:18px;">Open profile</div>
+          <div style="font-size:13px;color:#7B769B;line-height:1.55;margin-top:14px;">Hover any portrait to preview. The panel stays put so comparing two champions takes no clicks.</div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;max-width:760px;text-wrap:pretty;">The whole roster fits without scrolling, matching how players already recognise champions in select. The side panel replaces the trip into a profile for a quick check. Weakest when the player wants to compare numbers across many champions at once.</div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  data() {
+    const U = {
+      Ashe: "uploads/more_art-1786470895700-w5u0.avif",
+      Volibear: "uploads/more_art-1786470895704-yijl.avif",
+      Gwen: "uploads/more_art-1786470895708-zrx7.avif",
+      Sett: "uploads/more_art-1786470895713-hupj.avif",
+      Renekton: "uploads/more_art-1786470895717-2xza.avif"
+    };
+    const g = (a, b) => `linear-gradient(150deg,${a},${b})`;
+    return {
+      Caitlyn: { kind: "Marksman", wr: "56.4%", pr: "19.8%", br: "8.1%", lanes: ["Dragon"], bg: g("#E2C15F", "#94722A") },
+      Volibear: { kind: "Fighter", wr: "56.2%", pr: "14.1%", br: "11.4%", lanes: ["Top", "Jungle"], art: U.Volibear, pos: "56% 20%", cardPos: "58% 24%", bg: g("#5BC0F0", "#2A6FA8") },
+      Renekton: { kind: "Fighter", wr: "55.4%", pr: "16.2%", br: "12.8%", lanes: ["Top"], art: U.Renekton, pos: "60% 14%", cardPos: "60% 18%", bg: g("#E39A55", "#9A5220") },
+      Draven: { kind: "Marksman", wr: "55.1%", pr: "9.4%", br: "14.2%", lanes: ["Dragon"], bg: g("#D96A5C", "#8E2E2C") },
+      Gwen: { kind: "Fighter", wr: "54.0%", pr: "11.8%", br: "7.6%", lanes: ["Top", "Jungle"], art: U.Gwen, pos: "48% 14%", cardPos: "48% 18%", bg: g("#8FE0D0", "#2E8F84") },
+      Vayne: { kind: "Marksman", wr: "53.6%", pr: "8.2%", br: "6.4%", lanes: ["Dragon"], bg: g("#9C8CF0", "#4E3AA8") },
+      Garen: { kind: "Fighter", wr: "53.3%", pr: "13.6%", br: "3.2%", lanes: ["Top"], bg: g("#E5C067", "#9A7526") },
+      Malphite: { kind: "Tank", wr: "53.1%", pr: "10.4%", br: "5.8%", lanes: ["Top", "Support"], bg: g("#93A2B4", "#4A5666") },
+      Leona: { kind: "Tank", wr: "52.7%", pr: "12.2%", br: "4.6%", lanes: ["Support"], bg: g("#E8C070", "#9A6A28") },
+      Darius: { kind: "Fighter", wr: "52.6%", pr: "15.1%", br: "13.4%", lanes: ["Top", "Jungle"], bg: g("#D4604A", "#8A2A22") },
+      Camille: { kind: "Fighter", wr: "52.4%", pr: "9.8%", br: "8.8%", lanes: ["Top", "Jungle"], bg: g("#8E9BE6", "#3E4A9E") },
+      Ahri: { kind: "Mage", wr: "52.0%", pr: "17.4%", br: "6.2%", lanes: ["Mid"], bg: g("#F07AB5", "#A8317A") },
+      Jinx: { kind: "Marksman", wr: "51.9%", pr: "18.6%", br: "5.1%", lanes: ["Dragon"], bg: g("#9B84FF", "#4B34B8") },
+      Fiora: { kind: "Fighter", wr: "51.9%", pr: "7.4%", br: "9.6%", lanes: ["Top"], bg: g("#E894AE", "#9E3E62") },
+      Ashe: { kind: "Marksman", wr: "51.8%", pr: "22.4%", br: "6.1%", lanes: ["Dragon"], art: U.Ashe, pos: "60% 24%", cardPos: "60% 26%", bg: g("#6FA8DC", "#2E5F94") },
+      Sett: { kind: "Fighter", wr: "51.4%", pr: "18.9%", br: "9.2%", lanes: ["Top", "Jungle"], art: U.Sett, pos: "50% 12%", cardPos: "50% 16%", bg: g("#E8734A", "#B4341F") },
+      Jax: { kind: "Fighter", wr: "51.2%", pr: "8.8%", br: "4.4%", lanes: ["Top", "Jungle"], bg: g("#B9C46A", "#6B7530") },
+      Braum: { kind: "Tank", wr: "51.1%", pr: "6.8%", br: "2.1%", lanes: ["Support"], bg: g("#7FB8D8", "#3A6E94") },
+      Rammus: { kind: "Tank", wr: "50.8%", pr: "7.2%", br: "5.4%", lanes: ["Jungle"], bg: g("#C4A86A", "#7A5E28") },
+      Irelia: { kind: "Fighter", wr: "50.4%", pr: "9.1%", br: "7.2%", lanes: ["Top", "Mid"], bg: g("#A6C7E8", "#4B6E96") },
+      Yasuo: { kind: "Fighter", wr: "49.1%", pr: "16.8%", br: "10.2%", lanes: ["Mid", "Top"], bg: g("#66C6E8", "#2E6E9E") },
+      Teemo: { kind: "Marksman", wr: "45.6%", pr: "4.2%", br: "11.8%", lanes: ["Top"], bg: g("#8FD48F", "#3E8446") },
+      Nasus: { kind: "Fighter", wr: "44.1%", pr: "5.6%", br: "2.8%", lanes: ["Top", "Jungle"], bg: g("#E0B370", "#96682C") }
+    };
+  }
+
+  renderVals() {
+    const D = this.data();
+    const names = Object.keys(D);
+    const accent = "#16C0FF";
+    const tierOf = n => {
+      const wr = parseFloat(D[n].wr);
+      return wr >= 55 ? "S" : wr >= 52 ? "A" : wr >= 49 ? "B" : "C";
+    };
+    const ts = t => t === "S" ? ["#8FEDB8", "rgba(123,224,168,.14)", "rgba(123,224,168,.38)"]
+      : t === "A" ? ["#F0A87B", "rgba(240,168,123,.14)", "rgba(240,168,123,.36)"]
+      : t === "B" ? ["#9FCBE4", "rgba(255,255,255,.05)", "rgba(255,255,255,.16)"]
+      : ["#8B87A8", "rgba(255,255,255,.04)", "rgba(255,255,255,.12)"];
+
+    const dec = (n, extra = {}) => {
+      const d = D[n], t = tierOf(n), s = ts(t);
+      return {
+        name: n, ini: n.slice(0, 1), kind: d.kind, wr: d.wr, pr: d.pr, br: d.br,
+        bg: d.bg, artSafe: d.art || "", hasArt: !!d.art, noArt: !d.art,
+        pos: d.pos || "50% 15%", cardPos: d.cardPos || "50% 18%",
+        laneLabel: d.lanes.join(", "),
+        tier: t, tierc: s[0], tierbg: s[1], tierbd: s[2],
+        barw: `${Math.min(100, Math.max(6, (parseFloat(d.wr) - 42) * 7))}%`,
+        ...extra
+      };
+    };
+
+    const laneChip = (arr, active) => arr.map(l => ({
+      name: l,
+      fg: l === active ? "#FFFFFF" : "#8B87A8",
+      bg: l === active ? accent : "transparent"
+    }));
+
+    return {
+      lanes: laneChip(["All", "Top", "Jungle", "Mid", "Dragon", "Support"], "All"),
+      lanesShort: laneChip(["All", "Top", "Jgl", "Mid", "Drg", "Sup"], "All"),
+      rows: names.slice(0, 12).map((n, i) => dec(n, {
+        rank: i + 1,
+        rankc: i < 3 ? "#7FDCFF" : "#4A4560",
+        zebra: i % 2 ? "rgba(255,255,255,.018)" : "transparent"
+      })),
+      shelves: [
+        { title: "Winning right now", sub: "Highest win rate this patch", c: "#8FEDB8", champs: ["Caitlyn", "Volibear", "Renekton", "Draven", "Gwen"].map(n => dec(n)) },
+        { title: "Changed in 6.2b", sub: "Buffed or nerfed three days ago", c: "#7FDCFF", champs: ["Gwen", "Malphite", "Nasus", "Sett", "Camille"].map(n => dec(n)) },
+        { title: "Safe first picks", sub: "Rarely punished in draft", c: "#F0A87B", champs: ["Garen", "Ashe", "Leona", "Jinx", "Braum"].map(n => dec(n)) }
+      ],
+      wall: names.map(n => dec(n, { ring: n === "Volibear" ? accent : "rgba(255,255,255,.1)" })),
+      tiles: ["Volibear", "Renekton", "Gwen", "Sett", "Ashe", "Caitlyn"].map(n => dec(n)),
+      mosaic: [
+        { n: "Volibear", span: "span 2", rowSpan: "span 2", big: true, flag: "HIGHEST WIN RATE", nameSize: "21px", iniSize: "150px" },
+        { n: "Renekton", span: "span 1", rowSpan: "span 1", nameSize: "15px", iniSize: "90px" },
+        { n: "Gwen", span: "span 1", rowSpan: "span 1", nameSize: "15px", iniSize: "90px" },
+        { n: "Sett", span: "span 2", rowSpan: "span 1", big: true, flag: "MOST CONTESTED", nameSize: "17px", iniSize: "100px" },
+        { n: "Ashe", span: "span 1", rowSpan: "span 1", nameSize: "15px", iniSize: "90px" },
+        { n: "Caitlyn", span: "span 1", rowSpan: "span 1", nameSize: "15px", iniSize: "90px" },
+        { n: "Darius", span: "span 1", rowSpan: "span 1", nameSize: "15px", iniSize: "90px" },
+        { n: "Ahri", span: "span 1", rowSpan: "span 1", nameSize: "15px", iniSize: "90px" }
+      ].map(x => dec(x.n, {
+        span: x.span, rowSpan: x.rowSpan, big: !!x.big, flag: x.flag || "",
+        nameSize: x.nameSize, iniSize: x.iniSize
+      })),
+      focus: dec("Volibear")
+    };
+  }
+}
+</script>
+</body>
+</html>
