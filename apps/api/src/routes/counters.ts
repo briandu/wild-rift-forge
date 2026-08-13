@@ -10,7 +10,7 @@ countersRouter.get('/:slug', async (req, res, next) => {
       res.status(400).json({ error: 'slug is required' });
       return;
     }
-    res.json(await getCountersPayload(slug));
+    res.json(await getCountersPayload(slug, { lane: req.query.lane }));
   } catch (err) {
     next(err);
   }

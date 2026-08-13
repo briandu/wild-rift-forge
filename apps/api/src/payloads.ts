@@ -5,6 +5,7 @@ import {
   getPatchAnalysis,
   getPreviousSnapshotDate,
   listChampions,
+  listLatestLaneStats,
   listLatestTierPlacements,
   listPatchChanges,
   listWinRatesByChampion,
@@ -12,6 +13,9 @@ import {
 import {
   DEFAULT_RANK_BRACKET,
   TIER_LANES,
+  buildLaneCounters,
+  formatWinRate,
+  matchupVerdict,
   type ChangeType,
   type PatchAnalysisPayload,
   type RankBracket,
@@ -118,7 +122,12 @@ function withArt<T extends { slug: string }>(
   });
 }
 
-export async function getCountersPayload(slug: string) {
+function laneLabel(lane: TierLane): string {
+  if (lane === 'Jungle') return 'JUNGLE';
+  return `${lane.toUpperCase()} LANE`;
+}
+
+export async function getCountersPayload(slug: string, query: { lane?: unknown } = {}) {
   let champion: Awaited<ReturnType<typeof getChampionBySlug>> = null;
   try {
     champion = await getChampionBySlug(slug);
@@ -128,31 +137,165 @@ export async function getCountersPayload(slug: string) {
 
   const images = await championImageMap();
   const enemyName = champion?.name ?? slug.charAt(0).toUpperCase() + slug.slice(1);
-  const counters = getStubCounters(slug, enemyName);
   const abilities = champion ? await abilitiesForChampion(champion.id) : [];
+  const enemy = champion
+    ? {
+        slug: champion.slug,
+        name: champion.name,
+        title: champion.title,
+        roles: champion.roles,
+        imageUrl: champion.imageUrl,
+        thumbnailUrl: champion.thumbnailUrl,
+      }
+    : {
+        slug,
+        name: enemyName,
+        title: null,
+        roles: [] as string[],
+        imageUrl: null as string | null,
+        thumbnailUrl: null as string | null,
+      };
 
+  const preferredLane = parseLane(query.lane);
+  try {
+    const { snapshotDate, rows } = await listLatestLaneStats(DEFAULT_RANK_BRACKET);
+    if (rows.length > 0) {
+      const built = buildLaneCounters(slug, rows, preferredLane);
+      const enemyRow = built.enemy;
+      const wr = enemyRow?.winRate;
+      const pr = enemyRow?.pickRate;
+      const br = enemyRow?.banRate;
+      const notes = enemyRow
+        ? [
+            `${enemyName} sits at ${formatWinRate(enemyRow.winRate)} win rate in ${built.lane} on the latest CN Diamond+ snapshot.`,
+            enemyRow.pickRate >= 10
+              ? `Picked in ${formatWinRate(enemyRow.pickRate)} of games — expect to see it.`
+              : `Only ${formatWinRate(enemyRow.pickRate)} pick rate, so the sample is thinner than a staple.`,
+            `Scores are lane win-rate gaps this patch, not pairwise matchup data.`,
+          ]
+        : [
+            `${enemyName} has no row in this lane snapshot. Rankings below are the current ${built.lane} field.`,
+            'Scores are lane win-rate gaps this patch, not pairwise matchup data.',
+          ];
+      return {
+        stub: false,
+        enemySlug: slug,
+        enemyName,
+        lane: laneLabel(built.lane),
+        games: snapshotDate ? `Snapshot ${snapshotDate}` : 'Latest snapshot',
+        blurb: enemyRow
+          ? `${enemyName} is ${formatWinRate(enemyRow.winRate)} in ${built.lane}. Picks below are the lane mates winning more often this patch.`
+          : `No ${built.lane} snapshot for ${enemyName}. These are the strongest picks in that lane.`,
+        stats: [
+          { value: wr != null ? formatWinRate(wr) : '—', label: 'WIN RATE' },
+          { value: pr != null ? formatWinRate(pr) : '—', label: 'PICK RATE' },
+          { value: br != null ? formatWinRate(br) : '—', label: 'BAN RATE' },
+        ],
+        notes,
+        picks: built.picks,
+        also: built.also,
+        beats: built.beats,
+        thin: !enemyRow,
+        abilities,
+        enemy,
+      };
+    }
+  } catch (err) {
+    console.warn('listLatestLaneStats failed:', err instanceof Error ? err.message : err);
+  }
+
+  const counters = getStubCounters(slug, enemyName);
   return {
     ...counters,
     picks: withArt(counters.picks, images),
     also: withArt(counters.also, images),
+    beats: withArt(counters.also, images),
     abilities,
-    enemy: champion
-      ? {
-          slug: champion.slug,
-          name: champion.name,
-          title: champion.title,
-          roles: champion.roles,
-          imageUrl: champion.imageUrl,
-          thumbnailUrl: champion.thumbnailUrl,
-        }
-      : {
-          slug,
-          name: enemyName,
-          title: null,
-          roles: [] as string[],
-          imageUrl: null as string | null,
-          thumbnailUrl: null as string | null,
-        },
+    enemy,
+  };
+}
+
+export async function getMatchupPayload(query: { you?: unknown; them?: unknown; lane?: unknown }) {
+  const youSlug = typeof query.you === 'string' ? query.you : '';
+  const themSlug = typeof query.them === 'string' ? query.them : '';
+  if (!youSlug || !themSlug) {
+    return null;
+  }
+  const preferredLane = parseLane(query.lane);
+  const [youChamp, themChamp] = await Promise.all([
+    getChampionBySlug(youSlug).catch(() => null),
+    getChampionBySlug(themSlug).catch(() => null),
+  ]);
+  if (!youChamp || !themChamp) {
+    return null;
+  }
+
+  let snapshotDate: string | null = null;
+  let rows: Awaited<ReturnType<typeof listLatestLaneStats>>['rows'] = [];
+  try {
+    const latest = await listLatestLaneStats(DEFAULT_RANK_BRACKET);
+    snapshotDate = latest.snapshotDate || null;
+    rows = latest.rows;
+  } catch (err) {
+    console.warn('listLatestLaneStats failed:', err instanceof Error ? err.message : err);
+  }
+
+  const lane =
+    preferredLane ??
+    buildLaneCounters(themSlug, rows).lane ??
+    'Top';
+  const youRow = rows.find((row) => row.slug === youSlug && row.lane === lane);
+  const themRow = rows.find((row) => row.slug === themSlug && row.lane === lane);
+  const youWr = youRow?.winRate ?? 50;
+  const themWr = themRow?.winRate ?? 50;
+  const verdict = matchupVerdict(youWr, themWr);
+  const [youAbilities, themAbilities] = await Promise.all([
+    abilitiesForChampion(youChamp.id),
+    abilitiesForChampion(themChamp.id),
+  ]);
+
+  const sideLabel =
+    verdict.side === 'you'
+      ? `${youChamp.name} favoured`
+      : verdict.side === 'them'
+        ? `${themChamp.name} favoured`
+        : 'Even matchup';
+
+  return {
+    you: {
+      slug: youChamp.slug,
+      name: youChamp.name,
+      title: youChamp.title,
+      roles: youChamp.roles,
+      imageUrl: youChamp.imageUrl,
+      thumbnailUrl: youChamp.thumbnailUrl,
+      winRate: youRow ? formatWinRate(youRow.winRate) : null,
+      pickRate: youRow ? formatWinRate(youRow.pickRate) : null,
+    },
+    them: {
+      slug: themChamp.slug,
+      name: themChamp.name,
+      title: themChamp.title,
+      roles: themChamp.roles,
+      imageUrl: themChamp.imageUrl,
+      thumbnailUrl: themChamp.thumbnailUrl,
+      winRate: themRow ? formatWinRate(themRow.winRate) : null,
+      pickRate: themRow ? formatWinRate(themRow.pickRate) : null,
+    },
+    lane,
+    side: verdict.side,
+    verdict: sideLabel,
+    difficulty: verdict.difficulty,
+    score: verdict.score,
+    confidence: snapshotDate ? 'Lane win rates this snapshot' : 'No snapshot yet',
+    sample: snapshotDate
+      ? `CN Diamond+ snapshot ${snapshotDate}`
+      : 'Pairwise games are not in the dataset yet',
+    freshness: snapshotDate
+      ? `Lane rates from ${snapshotDate}. Not a head-to-head sample.`
+      : 'Waiting on the next stats ingest.',
+    abilitiesYou: youAbilities,
+    abilitiesThem: themAbilities,
   };
 }
 
