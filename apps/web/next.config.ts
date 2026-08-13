@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     '@wild-rift-forge/api',
     '@wild-rift-forge/database',
     '@wild-rift-forge/game-data',
+    '@wild-rift-forge/vision',
   ],
   serverExternalPackages: ['pg'],
   webpack: (config) => {

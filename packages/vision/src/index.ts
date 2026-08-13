@@ -1,0 +1,75 @@
+/**
+ * Champion-select recognition primitives.
+ *
+ * Pure and DOM-free on purpose: the browser turns a captured video frame into a
+ * {@link Bitmap} and everything from there is deterministic and unit-testable.
+ * No model inference happens in this package — matching is a 64-bit perceptual
+ * hash lookup, which is what keeps a capture under the champion-select timer.
+ */
+
+export {
+  centerCrop,
+  createBitmap,
+  cropBitmap,
+  findContentBounds,
+  meanColor,
+  resizeGray,
+  setPixel,
+  toGray,
+  toNormalizedRect,
+  toPixelRect,
+  type Bitmap,
+  type GrayImage,
+  type NormalizedRect,
+  type PixelData,
+  type Rect,
+} from './bitmap';
+
+export {
+  colorDistance,
+  colorSignature,
+  dhash,
+  hamming,
+  HASH_ALGO,
+  ICON_INSET,
+  isColorSignature,
+  isHash64,
+  type ColorSignature,
+  type Hash64,
+} from './hash';
+
+export {
+  DEFAULT_ACCEPT_CONFIDENCE,
+  matchTile,
+  type IconReference,
+  type IconVariant,
+  type MatchTileOptions,
+  type TileMatch,
+  type TileMatchResult,
+} from './match';
+
+export {
+  aspectKey,
+  BANS_PER_TEAM,
+  BAN_TRAY_MAX_Y,
+  calibrateLayout,
+  CENTER_BAND,
+  detectHighlightedRow,
+  parseSlotKey,
+  refineRegion,
+  SEED_PARAMS,
+  seedLayoutProfile,
+  slotKey,
+  TEAM_SLOTS,
+  type CalibrateOptions,
+  type HighlightRead,
+  type IconHit,
+  type LayoutProfile,
+  type LayoutRegion,
+  type RefineOptions,
+  type SeedLayoutParams,
+  type SlotKey,
+  type SlotRole,
+} from './layout';
+
+export { readDraft, type DraftPhase, type DraftRead, type ReadDraftOptions, type SlotRead } from './read';

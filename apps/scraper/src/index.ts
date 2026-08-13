@@ -6,6 +6,7 @@ import { syncChampions } from './jobs/sync-champions';
 import { syncChampionAssets } from './jobs/sync-champion-assets';
 import { syncChampionThumbnails } from './jobs/sync-champion-thumbnails';
 import { syncChampionStats } from './jobs/sync-stats';
+import { syncIconSignatures } from './jobs/sync-icon-signatures';
 import { analyzePatch } from './jobs/analyze-patch';
 
 function getFlag(name: string, fallback: number): number {
@@ -45,6 +46,9 @@ async function main(): Promise<void> {
     case 'champion-thumbnails':
       await syncChampionThumbnails(getFlag('limit', 200));
       break;
+    case 'icon-signatures':
+      await syncIconSignatures(getFlag('limit', 500));
+      break;
     case 'stats':
       await syncChampionStats();
       break;
@@ -63,6 +67,9 @@ async function main(): Promise<void> {
       );
       console.log(
         '  champion-thumbnails --limit N  scrape WildRiftFire face-crops and host N in Storage (default 200)',
+      );
+      console.log(
+        '  icon-signatures --limit N   hash champion art into the draft-capture manifest (default 500)',
       );
       console.log('  stats                       ingest Tencent CN stats and recompute tiers');
       console.log('  analyze-patch [--version V]  ChatGPT commentary for a stored patch');

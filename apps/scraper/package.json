@@ -9,6 +9,7 @@
     "champions": "tsx src/index.ts champions",
     "champion-assets": "tsx src/index.ts champion-assets",
     "champion-thumbnails": "tsx src/index.ts champion-thumbnails",
+    "icon-signatures": "tsx src/index.ts icon-signatures",
     "stats": "tsx src/index.ts stats",
     "analyze-patch": "tsx src/index.ts analyze-patch",
     "test": "vitest run"
@@ -17,7 +18,9 @@
     "@supabase/supabase-js": "^2.49.0",
     "@wild-rift-forge/database": "*",
     "@wild-rift-forge/game-data": "*",
+    "@wild-rift-forge/vision": "*",
     "cheerio": "^1.0.0",
+    "sharp": "^0.34.5",
     "zod": "^3.24.0"
   }
 }

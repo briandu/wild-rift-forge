@@ -5,6 +5,7 @@ import {
   getPatchAnalysis,
   getPreviousSnapshotDate,
   listChampions,
+  listIconSignatures,
   listLatestLaneStats,
   listLatestTierPlacements,
   listPatchChanges,
@@ -68,6 +69,30 @@ export async function getChampionsPayload() {
   } catch (err) {
     console.warn('listChampions failed:', err instanceof Error ? err.message : err);
     return { champions: [] };
+  }
+}
+
+/**
+ * Reference library for browser-side champion-select recognition.
+ *
+ * Flat and slug-keyed so the client can hand it straight to the matcher, and small
+ * enough (a hash and a colour signature per champion) to cache aggressively.
+ */
+export async function getIconSignaturesPayload() {
+  try {
+    const signatures = await listIconSignatures();
+    return {
+      hashAlgo: 'dhash8x8',
+      signatures: signatures.map((row) => ({
+        slug: row.slug,
+        variant: row.variant,
+        hash: row.hashBits,
+        color: row.colorBits,
+      })),
+    };
+  } catch (err) {
+    console.warn('listIconSignatures failed:', err instanceof Error ? err.message : err);
+    return { hashAlgo: 'dhash8x8', signatures: [] };
   }
 }
 

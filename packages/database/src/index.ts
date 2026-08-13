@@ -46,3 +46,11 @@ export {
   listChampionAbilities,
   type StoredChampionAbility,
 } from './champion-abilities';
+export {
+  listIconSignatures,
+  listChampionsNeedingSignature,
+  upsertIconSignature,
+  type IconSignatureInput,
+  type IconSignatureVariant,
+  type StoredIconSignature,
+} from './icon-signatures';
