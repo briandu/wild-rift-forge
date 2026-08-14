@@ -12,6 +12,21 @@ export interface MatchupGuideTrades {
   bad: { steps: string[]; out: string };
 }
 
+export interface MatchupGuideAbilityNote {
+  own: boolean;
+  k: string;
+  when: string;
+  then: string;
+  win: string;
+  note: string;
+}
+
+export interface MatchupGuideSpike {
+  at: string;
+  who: 'you' | 'them' | 'even';
+  label: string;
+}
+
 export interface MatchupGuideContent {
   oneThing: string;
   style: string;
@@ -20,6 +35,8 @@ export interface MatchupGuideContent {
   trades: MatchupGuideTrades;
   mistakes: string[];
   tags: string[];
+  abilityNotes: MatchupGuideAbilityNote[];
+  spikes: MatchupGuideSpike[];
 }
 
 export interface StoredMatchupGuide extends MatchupGuideContent {
@@ -81,6 +98,64 @@ function asTradeSide(value: unknown): { steps: string[]; out: string } {
   return { steps, out: typeof row.out === 'string' ? row.out : '' };
 }
 
+function asSpikes(value: unknown): MatchupGuideSpike[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  return value.flatMap((item) => {
+    if (!item || typeof item !== 'object') {
+      return [];
+    }
+    const row = item as { at?: unknown; who?: unknown; label?: unknown };
+    if (typeof row.at !== 'string' || typeof row.label !== 'string') {
+      return [];
+    }
+    if (row.who !== 'you' && row.who !== 'them' && row.who !== 'even') {
+      return [];
+    }
+    return [{ at: row.at, who: row.who, label: row.label }];
+  });
+}
+
+function asAbilityNotes(value: unknown): MatchupGuideAbilityNote[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  return value.flatMap((item) => {
+    if (!item || typeof item !== 'object') {
+      return [];
+    }
+    const row = item as {
+      own?: unknown;
+      k?: unknown;
+      when?: unknown;
+      then?: unknown;
+      win?: unknown;
+      note?: unknown;
+    };
+    if (
+      typeof row.own !== 'boolean' ||
+      typeof row.k !== 'string' ||
+      typeof row.when !== 'string' ||
+      typeof row.then !== 'string' ||
+      typeof row.win !== 'string' ||
+      typeof row.note !== 'string'
+    ) {
+      return [];
+    }
+    return [
+      {
+        own: row.own,
+        k: row.k,
+        when: row.when,
+        then: row.then,
+        win: row.win,
+        note: row.note,
+      },
+    ];
+  });
+}
+
 function mapGuideRow(row: Record<string, unknown>): StoredMatchupGuide {
   const trades = (row.trades ?? {}) as { good?: unknown; bad?: unknown };
   return {
@@ -106,6 +181,8 @@ function mapGuideRow(row: Record<string, unknown>): StoredMatchupGuide {
     tags: Array.isArray(row.tags)
       ? row.tags.filter((item): item is string => typeof item === 'string')
       : [],
+    abilityNotes: asAbilityNotes(row.ability_notes),
+    spikes: asSpikes(row.spikes),
     updatedAt: new Date(row.updated_at as string).toISOString(),
   };
 }
@@ -118,7 +195,7 @@ export async function getMatchupGuide(
   const result = await getPool().query(
     `SELECT you_champion_id, them_champion_id, lane, patch_version, kit_hash, context_hash,
             model, prompt_version, one_thing, style, style_pos, phases, trades, mistakes,
-            tags, updated_at
+            tags, ability_notes, spikes, updated_at
      FROM matchup_guides
      WHERE you_champion_id = $1 AND them_champion_id = $2 AND lane = $3`,
     [youChampionId, themChampionId, lane],
@@ -131,9 +208,10 @@ export async function upsertMatchupGuide(input: MatchupGuideInput): Promise<void
   await getPool().query(
     `INSERT INTO matchup_guides (
        you_champion_id, them_champion_id, lane, patch_version, kit_hash, context_hash,
-       model, prompt_version, one_thing, style, style_pos, phases, trades, mistakes, tags
+       model, prompt_version, one_thing, style, style_pos, phases, trades, mistakes, tags,
+       ability_notes, spikes
      )
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
      ON CONFLICT (you_champion_id, them_champion_id, lane)
      DO UPDATE SET
        patch_version = EXCLUDED.patch_version,
@@ -148,6 +226,8 @@ export async function upsertMatchupGuide(input: MatchupGuideInput): Promise<void
        trades = EXCLUDED.trades,
        mistakes = EXCLUDED.mistakes,
        tags = EXCLUDED.tags,
+       ability_notes = EXCLUDED.ability_notes,
+       spikes = EXCLUDED.spikes,
        updated_at = now()`,
     [
       input.youChampionId,
@@ -165,6 +245,8 @@ export async function upsertMatchupGuide(input: MatchupGuideInput): Promise<void
       JSON.stringify(input.trades),
       JSON.stringify(input.mistakes),
       JSON.stringify(input.tags),
+      JSON.stringify(input.abilityNotes),
+      JSON.stringify(input.spikes),
     ],
   );
 }

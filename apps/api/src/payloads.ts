@@ -320,6 +320,8 @@ function toMatchupGuideDto(guide: StoredMatchupGuide) {
     trades: guide.trades,
     mistakes: guide.mistakes,
     tags: guide.tags,
+    abilityNotes: guide.abilityNotes,
+    spikes: guide.spikes,
     patchVersion: guide.patchVersion,
   };
 }

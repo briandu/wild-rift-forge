@@ -14,7 +14,9 @@ import {
   releaseMatchupGuideClaim,
   tryReserveMatchupGenerationCall,
   upsertMatchupGuide,
+  type MatchupGuideAbilityNote,
   type MatchupGuideContent,
+  type MatchupGuideSpike,
   type StoredChampionAbility,
   type StoredMatchupGuide,
 } from '@wild-rift-forge/database';
@@ -46,7 +48,7 @@ export function matchPatchChampion(entityName: string, slugs: string[]): string 
 }
 
 const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
-export const MATCHUP_PROMPT_VERSION = 2;
+export const MATCHUP_PROMPT_VERSION = 5;
 
 /** Append a line here when editorial policy changes, then bump MATCHUP_PROMPT_VERSION. */
 export const MATCHUP_GUIDE_RULES = [
@@ -58,6 +60,9 @@ export const MATCHUP_GUIDE_RULES = [
   'Kit-based punish windows must follow how the abilities actually work.',
   'Do not invent items, runes, or pairwise win rates.',
   'Keep each field short. No filler.',
+  'ability_notes are what to do against a spell, not a kit dump. Cue (when), consequence (then), the play (win), and why (note). Most rows are their threats; include one of yours when holding it changes the lane.',
+  'Name the spell or mark the seat: "your Q", "his E", or Decimate. A bare Q/W/E/R is ambiguous and chips the wrong kit.',
+  'spikes are when you can fight: LVL 1, LVL 3, LVL 5, 1st ITEM, LVL 11. label is the play at that beat, not a verdict. who is who owns that window. Do not name items.',
 ] as const;
 
 const LANE_STYLES = ['CAUTIOUS / SHORT TRADES', 'EVEN / PUNISH', 'PRESS / EXTEND'] as const;
@@ -85,7 +90,18 @@ const MATCHUP_GUIDE_SCHEMA = {
   schema: {
     type: 'object',
     additionalProperties: false,
-    required: ['you_slug', 'one_thing', 'style', 'style_pos', 'phases', 'trades', 'mistakes', 'tags'],
+    required: [
+      'you_slug',
+      'one_thing',
+      'style',
+      'style_pos',
+      'phases',
+      'trades',
+      'mistakes',
+      'tags',
+      'ability_notes',
+      'spikes',
+    ],
     properties: {
       you_slug: { type: 'string' },
       one_thing: { type: 'string' },
@@ -115,6 +131,35 @@ const MATCHUP_GUIDE_SCHEMA = {
       },
       mistakes: { type: 'array', items: { type: 'string' } },
       tags: { type: 'array', items: { type: 'string' } },
+      ability_notes: {
+        type: 'array',
+        items: {
+          type: 'object',
+          additionalProperties: false,
+          required: ['own', 'k', 'when', 'then', 'win', 'note'],
+          properties: {
+            own: { type: 'boolean' },
+            k: { type: 'string', enum: ['P', 'Q', 'W', 'E', 'R'] },
+            when: { type: 'string' },
+            then: { type: 'string' },
+            win: { type: 'string' },
+            note: { type: 'string' },
+          },
+        },
+      },
+      spikes: {
+        type: 'array',
+        items: {
+          type: 'object',
+          additionalProperties: false,
+          required: ['at', 'who', 'label'],
+          properties: {
+            at: { type: 'string', enum: ['LVL 1', 'LVL 3', 'LVL 5', '1st ITEM', 'LVL 11'] },
+            who: { type: 'string', enum: ['you', 'them', 'even'] },
+            label: { type: 'string' },
+          },
+        },
+      },
     },
   },
 } as const;
@@ -227,7 +272,87 @@ function asStringArray(value: unknown, min: number, max: number): string[] | nul
   return items;
 }
 
-export function parseMatchupGuide(raw: unknown, youSlug?: string): MatchupGuideContent | null {
+const ABILITY_KEYS = new Set(['P', 'Q', 'W', 'E', 'R']);
+
+export function parseAbilityNotes(
+  raw: unknown,
+  kits?: { you: readonly string[]; them: readonly string[] },
+): MatchupGuideAbilityNote[] | null {
+  if (!Array.isArray(raw)) {
+    return null;
+  }
+  const seen = new Set<string>();
+  const notes: MatchupGuideAbilityNote[] = [];
+  for (const item of raw) {
+    if (!item || typeof item !== 'object') {
+      continue;
+    }
+    const row = item as Record<string, unknown>;
+    if (typeof row.own !== 'boolean') {
+      continue;
+    }
+    const k = typeof row.k === 'string' ? row.k.trim().toUpperCase() : '';
+    if (!ABILITY_KEYS.has(k)) {
+      continue;
+    }
+    if (kits && !(row.own ? kits.you : kits.them).includes(k)) {
+      continue;
+    }
+    const id = `${row.own ? 'you' : 'them'}:${k}`;
+    if (seen.has(id)) {
+      continue;
+    }
+    const when = typeof row.when === 'string' ? row.when.trim() : '';
+    const then = typeof row.then === 'string' ? row.then.trim() : '';
+    const win = typeof row.win === 'string' ? row.win.trim() : '';
+    const note = typeof row.note === 'string' ? row.note.trim() : '';
+    if (when.length < 8 || when.length > 90) {
+      continue;
+    }
+    if (then.length < 6 || then.length > 80) {
+      continue;
+    }
+    if (win.length < 6 || win.length > 48) {
+      continue;
+    }
+    if (note.length < 20 || note.length > 220) {
+      continue;
+    }
+    seen.add(id);
+    notes.push({ own: row.own, k, when, then, win, note });
+  }
+  if (notes.length < 3 || notes.length > 6 || notes.filter((row) => !row.own).length < 2) {
+    return null;
+  }
+  return notes;
+}
+
+const SPIKE_ATS = ['LVL 1', 'LVL 3', 'LVL 5', '1st ITEM', 'LVL 11'] as const;
+const SPIKE_WHOS = ['you', 'them', 'even'] as const;
+
+export function parseSpikes(raw: unknown): MatchupGuideSpike[] | null {
+  if (!Array.isArray(raw)) {
+    return null;
+  }
+  const spikes = SPIKE_ATS.flatMap((at) => {
+    const row = raw.find((item) => {
+      return item && typeof item === 'object' && (item as { at?: unknown }).at === at;
+    }) as { who?: unknown; label?: unknown } | undefined;
+    const who = SPIKE_WHOS.find((value) => value === row?.who);
+    const label = typeof row?.label === 'string' ? row.label.trim() : '';
+    if (!who || label.length < 8 || label.length > 72) {
+      return [];
+    }
+    return [{ at, who, label }];
+  });
+  return spikes.length === SPIKE_ATS.length ? spikes : null;
+}
+
+export function parseMatchupGuide(
+  raw: unknown,
+  youSlug?: string,
+  kits?: { you: readonly string[]; them: readonly string[] },
+): MatchupGuideContent | null {
   if (!raw || typeof raw !== 'object') {
     return null;
   }
@@ -275,7 +400,18 @@ export function parseMatchupGuide(raw: unknown, youSlug?: string): MatchupGuideC
       : '';
   const mistakes = asStringArray(body.mistakes, 2, 5);
   const tags = asStringArray(body.tags, 0, 6);
-  if (!goodSteps || !badSteps || !mistakes || !tags || goodOut.length < 8 || badOut.length < 8) {
+  const abilityNotes = parseAbilityNotes(body.ability_notes, kits);
+  const spikes = parseSpikes(body.spikes);
+  if (
+    !goodSteps ||
+    !badSteps ||
+    !mistakes ||
+    !tags ||
+    !abilityNotes ||
+    !spikes ||
+    goodOut.length < 8 ||
+    badOut.length < 8
+  ) {
     return null;
   }
   return {
@@ -289,6 +425,8 @@ export function parseMatchupGuide(raw: unknown, youSlug?: string): MatchupGuideC
     },
     mistakes,
     tags,
+    abilityNotes,
+    spikes,
   };
 }
 
@@ -495,7 +633,9 @@ export async function generateMatchupGuide(options: {
     facts.context.patchLines.length > 0
       ? `Patch lines for these two champions:\n${facts.context.patchLines.join('\n')}`
       : 'No patch lines for these two champions. Do not invent any.',
-    'Write the plan, trades, and mistakes from how the kits actually work. Do not write items or runes.',
+    'Write the plan, trades, mistakes, and ability_notes from how the kits actually work. Do not write items or runes.',
+    'ability_notes: 4–6 rows. Prefer their key threats plus one of your holds. when is the cue, then is what that means, win is the play, note is why. Do not restate kit descriptions or numbers.',
+    'spikes: one row each for LVL 1, LVL 3, LVL 5, 1st ITEM, LVL 11. label is what to do at that beat. Do not name items.',
     JSON.stringify(
       {
         you: facts.youKit,
@@ -505,7 +645,10 @@ export async function generateMatchupGuide(options: {
       2,
     ),
   ].join('\n');
-  const parsed = parseMatchupGuide(await completeMatchupGuide(prompt, apiKey, model), you);
+  const parsed = parseMatchupGuide(await completeMatchupGuide(prompt, apiKey, model), you, {
+    you: facts.youKit.abilities.map((ability) => ability.key),
+    them: facts.themKit.abilities.map((ability) => ability.key),
+  });
   if (!parsed) {
     throw new Error(`OpenAI returned an unusable guide for ${you} vs ${them} ${lane}`);
   }

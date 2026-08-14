@@ -9,7 +9,9 @@ import {
   MATCHUP_GUIDE_RULES,
   MATCHUP_PROMPT_VERSION,
   matchupGenerationEnabled,
+  parseAbilityNotes,
   parseMatchupGuide,
+  parseSpikes,
   parseMatchupLimit,
   type MatchupContextFact,
   type MatchupKitFact,
@@ -69,6 +71,47 @@ const validGuide = {
     'Contesting the first wave into a level-two all-in.',
   ],
   tags: ['Fighter', 'All-in'],
+  ability_notes: [
+    {
+      own: false,
+      k: 'Q',
+      when: 'If he misses the outer edge',
+      then: 'No heal, weak trade',
+      win: '~3s punish window',
+      note: 'The blade edge is where his healing comes from. Stand chest-to-chest.',
+    },
+    {
+      own: false,
+      k: 'E',
+      when: 'If the pull whiffs',
+      then: 'Long cooldown, no engage',
+      win: 'Free trade window',
+      note: 'Stay on the far side of the wave so he cannot start the fight.',
+    },
+    {
+      own: false,
+      k: 'R',
+      when: 'At five Hemorrhage stacks',
+      then: 'Execute threshold rises',
+      win: 'Leave before stack four',
+      note: 'Track your health against his stacks, not against his health bar.',
+    },
+    {
+      own: true,
+      k: 'W',
+      when: 'Hold it for his ultimate',
+      then: 'Not for his Q',
+      win: 'Survives the execute',
+      note: 'Spending it early is the most common way this matchup is lost.',
+    },
+  ],
+  spikes: [
+    { at: 'LVL 1', who: 'them', label: 'Give the first wave. Do not fight.' },
+    { at: 'LVL 3', who: 'even', label: 'Short trade only after he misses Decimate.' },
+    { at: 'LVL 5', who: 'you', label: 'All-in once your ultimate is up and he is chipped.' },
+    { at: '1st ITEM', who: 'even', label: 'Reset before the first item finishes. Do not linger.' },
+    { at: 'LVL 11', who: 'them', label: 'Stop side-lane duelling. Group instead.' },
+  ],
 };
 
 describe('compactAbility', () => {
@@ -143,6 +186,7 @@ describe('parseMatchupGuide', () => {
     expect(parsed?.oneThing).toContain('Darius');
     expect(parsed?.phases).toHaveLength(3);
     expect(parsed?.trades.good.steps).toHaveLength(4);
+    expect(parsed?.spikes).toHaveLength(5);
   });
 
   it('rejects a missing phase or invented style', () => {
@@ -160,6 +204,44 @@ describe('parseMatchupGuide', () => {
 
   it('rejects a guide written for the other seat', () => {
     expect(parseMatchupGuide({ ...validGuide, you_slug: 'darius' }, 'garen')).toBeNull();
+  });
+
+  it('rejects a kit dump with no play instructions', () => {
+    expect(parseMatchupGuide({ ...validGuide, ability_notes: [] }, 'garen')).toBeNull();
+  });
+
+  it('rejects a guide with no fight windows', () => {
+    expect(parseMatchupGuide({ ...validGuide, spikes: [] }, 'garen')).toBeNull();
+  });
+});
+
+describe('parseSpikes', () => {
+  it('keeps the five fight beats in order', () => {
+    expect(parseSpikes(validGuide.spikes)?.map((row) => row.at)).toEqual([
+      'LVL 1',
+      'LVL 3',
+      'LVL 5',
+      '1st ITEM',
+      'LVL 11',
+    ]);
+  });
+});
+
+describe('parseAbilityNotes', () => {
+  it('keeps cue, consequence, and the play', () => {
+    const notes = parseAbilityNotes(validGuide.ability_notes);
+    expect(notes).toHaveLength(4);
+    expect(notes?.[0]).toMatchObject({
+      own: false,
+      k: 'Q',
+      win: '~3s punish window',
+    });
+  });
+
+  it('drops notes for keys that are not on the supplied kits', () => {
+    expect(
+      parseAbilityNotes(validGuide.ability_notes, { you: ['Q'], them: ['Q'] }),
+    ).toBeNull();
   });
 });
 
