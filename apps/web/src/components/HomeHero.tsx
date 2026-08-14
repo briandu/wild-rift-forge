@@ -141,7 +141,8 @@ export function HomeHero({
                       fill
                       className={styles.climbArt}
                       style={{ objectPosition: `${focus.x}% ${focus.y}%` }}
-                      sizes="212px"
+                      sizes="(max-width: 900px) 140vw, 640px"
+                      quality={90}
                     />
                   ) : (
                     <span className={styles.climbInitial}>{initials(row.name)}</span>
