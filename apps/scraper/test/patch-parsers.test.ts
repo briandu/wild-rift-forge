@@ -61,6 +61,16 @@ describe('parsePatchArticle + normalizePatch', () => {
     expect(jayce!.oldValue).toBe(46);
     expect(jayce!.newValue).toBe(37);
     expect(jayce!.metadata?.summary).toContain('Jayce');
+
+    const prowl = parsed.characterChanges
+      .find((champion) => champion.name === 'NIDALEE')
+      ?.changes.find((change) => change.title === 'Prowl');
+    expect(prowl?.iconUrl).toMatch(/^https:\/\/cmsassets\.rgpub\.io\/sanity\/images\//);
+
+    const nidaleeProwl = changes.find(
+      (change) => change.entityName === 'Nidalee' && change.ability === 'Prowl',
+    );
+    expect(nidaleeProwl?.metadata?.iconUrl).toMatch(/^https:\/\//);
   });
 
   it('parses the 5.0-era layout (patchNotesRichText + accordion)', () => {

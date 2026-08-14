@@ -38,7 +38,7 @@ export function normalizePatch(
           oldValue: null,
           newValue: null,
           description: htmlToText(section.bodyHtml),
-          metadata: buildMetadata(summary, champion.roles, champion.sectionTitle),
+          metadata: buildMetadata(summary, champion.roles, champion.sectionTitle, section.iconUrl),
         });
         continue;
       }
@@ -53,7 +53,7 @@ export function normalizePatch(
           oldValue: parsedBullet.oldValue,
           newValue: parsedBullet.newValue,
           description: bullet,
-          metadata: buildMetadata(summary, champion.roles, champion.sectionTitle),
+          metadata: buildMetadata(summary, champion.roles, champion.sectionTitle, section.iconUrl),
         });
       }
     }
@@ -181,6 +181,7 @@ function buildMetadata(
   summary: string | null,
   roles: string[],
   sectionTitle: string | null,
+  iconUrl?: string | null,
 ): Record<string, unknown> {
   const metadata: Record<string, unknown> = {};
   if (summary) {
@@ -191,6 +192,9 @@ function buildMetadata(
   }
   if (sectionTitle) {
     metadata.sourceSection = sectionTitle;
+  }
+  if (iconUrl) {
+    metadata.iconUrl = iconUrl;
   }
   return metadata;
 }

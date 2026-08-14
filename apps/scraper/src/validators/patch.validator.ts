@@ -10,6 +10,7 @@ const characterChangeSchema = z.object({
     z.object({
       title: z.string().min(1),
       bodyHtml: z.string().min(1),
+      iconUrl: z.string().url().nullable(),
     }),
   ),
 });

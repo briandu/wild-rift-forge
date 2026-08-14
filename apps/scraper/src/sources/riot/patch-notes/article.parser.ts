@@ -1,4 +1,5 @@
 import { extractNextData, getBlades, type RiotBlade } from '../extract-next-data';
+import { highQualitySanityUrl } from '../image-url';
 
 /**
  * Riot-shaped intermediate representation of a patch notes article.
@@ -27,6 +28,8 @@ export interface ParsedCharacterChange {
     title: string;
     /** HTML with change bullets, e.g. "<ul><li>Base Armor: 46 → 37</li></ul>". */
     bodyHtml: string;
+    /** Ability icon from the characterChanges blade when Riot includes one. */
+    iconUrl: string | null;
   }>;
 }
 
@@ -44,7 +47,11 @@ interface CharacterChangesBlade extends RiotBlade {
   characters?: Array<{
     character?: { name?: string; role?: { roles?: Array<{ id?: string }> } };
     summary?: { body?: string };
-    changes?: Array<{ title?: string; description?: { body?: string } }>;
+    changes?: Array<{
+      title?: string;
+      description?: { body?: string };
+      icon?: { url?: string };
+    }>;
   }>;
 }
 
@@ -104,6 +111,7 @@ export function parsePatchArticle(html: string, sourceUrl: string): ParsedPatchA
             .map((change) => ({
               title: change.title ?? 'General',
               bodyHtml: change.description!.body!,
+              iconUrl: highQualitySanityUrl(change.icon?.url ?? null),
             })),
         });
       }
