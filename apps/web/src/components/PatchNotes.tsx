@@ -17,6 +17,21 @@ function kindStyle(kind: string): [string, string, string] {
   return ['#9FCBE4', 'rgba(255,255,255,.07)', 'rgba(255,255,255,.18)'];
 }
 
+function groupLinesByAbility<T extends { k: string }>(lines: T[]): Array<{ k: string; lines: T[] }> {
+  const groups: Array<{ k: string; lines: T[] }> = [];
+  const indexByKey = new Map<string, number>();
+  for (const line of lines) {
+    const existing = indexByKey.get(line.k);
+    if (existing !== undefined) {
+      groups[existing]!.lines.push(line);
+      continue;
+    }
+    indexByKey.set(line.k, groups.length);
+    groups.push({ k: line.k, lines: [line] });
+  }
+  return groups;
+}
+
 function formatEyebrow(iso: string | null): string {
   if (!iso) {
     return 'LATEST PATCH';
@@ -177,20 +192,35 @@ export function PatchNotes({
                         </span>
                       </div>
                       <div className={styles.lines}>
-                        {c.lines.map((line) => {
-                          const ability = c.abilities?.find((item) => item.key === line.k);
+                        {groupLinesByAbility(c.lines).map((group) => {
+                          const ability = c.abilities?.find((item) => item.key === group.k);
+                          const first = group.lines[0]!;
                           return (
-                            <div key={`${line.k}-${line.t}`} className={styles.line}>
+                            <div
+                              key={group.k}
+                              className={
+                                group.lines.length > 1
+                                  ? `${styles.line} ${styles.lineStack}`
+                                  : styles.line
+                              }
+                            >
                               <AbilityChip
-                                id={`patch-${c.name}-${line.k}-${line.t}`}
-                                slot={`${c.name.toUpperCase()} · ${abilitySlotLabel(line.k)}`}
-                                name={ability?.name ?? (line.k === 'P' ? 'Passive' : line.k)}
-                                text={ability?.description || line.t}
-                                letter={line.k}
-                                imageUrl={ability?.imageUrl ?? line.imageUrl}
+                                id={`patch-${c.name}-${group.k}`}
+                                slot={`${c.name.toUpperCase()} · ${abilitySlotLabel(group.k)}`}
+                                name={ability?.name ?? (group.k === 'P' ? 'Passive' : group.k)}
+                                text={
+                                  ability?.description ||
+                                  group.lines.map((line) => line.t).join(' ')
+                                }
+                                letter={group.k}
+                                imageUrl={ability?.imageUrl ?? first.imageUrl}
                                 size={26}
                               />
-                              <span>{line.t}</span>
+                              <div className={styles.lineTexts}>
+                                {group.lines.map((line) => (
+                                  <span key={`${line.k}-${line.t}`}>{line.t}</span>
+                                ))}
+                              </div>
                             </div>
                           );
                         })}

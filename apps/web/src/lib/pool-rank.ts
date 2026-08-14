@@ -39,13 +39,25 @@ export function mergeLaneOrder(
   return full.map((slug) => (inLane(slug) ? (queue.shift() ?? slug) : slug));
 }
 
+/** Drop `from` onto `to`: insert after when moving down, before when moving up. */
+export function reorderByDrop<T>(list: readonly T[], from: T, to: T): T[] {
+  if (from === to) return [...list];
+  const fromIndex = list.indexOf(from);
+  const toIndex = list.indexOf(to);
+  if (fromIndex < 0 || toIndex < 0) return [...list];
+  const next = list.filter((item) => item !== from);
+  const insertAt = next.indexOf(to);
+  next.splice(toIndex > fromIndex ? insertAt + 1 : insertAt, 0, from);
+  return next;
+}
+
 export function poolScopeLabel(lane: string): string {
   return lane === 'All' ? 'every lane' : `the ${lane.toLowerCase()} lane`;
 }
 
 export function poolSortHint(sort: PoolSort, scope: string, riotConnected: boolean): string {
   if (sort === 'Custom') {
-    return `Order is priority: the champion at #1 in a lane is the one Forge assumes you will play, so their matchups load first. Use the arrows on a card to move it, and switch to a ranking to sort ${scope} automatically.`;
+    return `Order is priority: the champion at #1 in a lane is the one Forge assumes you will play, so their matchups load first. Drag a row by its handle, or use the arrows, to move it, and switch to a ranking to sort ${scope} automatically.`;
   }
   if (sort === 'Win rate') {
     return `Ranked by this patch's win rate across ${scope}. Nothing has changed yet — save the order to keep it.`;

@@ -330,6 +330,19 @@
   margin-top: 2px;
 }
 
+.skelClimb {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+}
+
+.skelLaneAvatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  flex: none;
+}
+
 .emptyCopy {
   margin: 0 20px 8px;
   font-size: 14px;

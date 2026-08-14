@@ -13,9 +13,17 @@ import {
   type RefObject,
 } from 'react';
 import { createPortal } from 'react-dom';
+import { useDelayedReveal } from '@/hooks/useDelayedReveal';
 import type { ApiChampion } from '@/lib/api-types';
 import { initials, portraitFor, roleLabel } from '@/lib/champions';
+import { SEARCH_DEBOUNCE_MS, skeletonDelay } from '@/lib/loading';
 import styles from './ChampionSearch.module.css';
+
+const SKEL_WIDTHS = [
+  ['62%', '38%'],
+  ['48%', '30%'],
+  ['70%', '42%'],
+] as const;
 
 const FUSE_OPTIONS: IFuseOptions<ApiChampion> = {
   keys: [
@@ -40,6 +48,7 @@ export function ChampionSearch({
   const router = useRouter();
   const wrapRef = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState('');
+  const [debouncedQ, setDebouncedQ] = useState('');
 
   const fuse = useMemo(() => new Fuse(champions, FUSE_OPTIONS), [champions]);
   const nearestFuse = useMemo(
@@ -48,13 +57,23 @@ export function ChampionSearch({
   );
 
   const q = query.trim();
+  useEffect(() => {
+    const timer = window.setTimeout(() => setDebouncedQ(q), SEARCH_DEBOUNCE_MS);
+    return () => window.clearTimeout(timer);
+  }, [q]);
+
+  const searching = q.length > 0 && q !== debouncedQ;
+  const showSkel = useDelayedReveal(searching);
   const results = useMemo(
-    () => (q ? fuse.search(q, { limit: 5 }).map((hit) => hit.item) : []),
-    [fuse, q],
+    () => (debouncedQ ? fuse.search(debouncedQ, { limit: 5 }).map((hit) => hit.item) : []),
+    [fuse, debouncedQ],
   );
   const nearest = useMemo(
-    () => (q && results.length === 0 ? nearestFuse.search(q, { limit: 3 }).map((hit) => hit.item) : []),
-    [nearestFuse, q, results.length],
+    () =>
+      debouncedQ && results.length === 0
+        ? nearestFuse.search(debouncedQ, { limit: 3 }).map((hit) => hit.item)
+        : [],
+    [nearestFuse, debouncedQ, results.length],
   );
 
   function go(slug: string) {
@@ -77,8 +96,19 @@ export function ChampionSearch({
   }, [q]);
 
   const open = q.length > 0;
-  const panel =
-    results.length > 0 ? (
+  const panel = showSkel ? (
+    <ul className={styles.results} role="status" aria-label="Loading search results">
+      {SKEL_WIDTHS.map(([w1, w2], i) => (
+        <li key={w1} className={styles.skelRow} style={{ animationDelay: skeletonDelay(i) }}>
+          <span data-skel="1" className={styles.skelAvatar} style={{ animationDelay: skeletonDelay(i) }} />
+          <span className={styles.skelCopy}>
+            <span data-skel="2" className={styles.skelName} style={{ width: w1, animationDelay: skeletonDelay(i) }} />
+            <span data-skel="3" className={styles.skelMeta} style={{ width: w2, animationDelay: skeletonDelay(i) }} />
+          </span>
+        </li>
+      ))}
+    </ul>
+  ) : results.length > 0 ? (
       <ul className={styles.results} role="listbox">
         {results.map((c, i) => (
           <li key={c.slug}>
@@ -105,9 +135,9 @@ export function ChampionSearch({
           </li>
         ))}
       </ul>
-    ) : open ? (
+    ) : open && !searching && debouncedQ ? (
       <div className={styles.empty}>
-        <p className={styles.emptyText}>No champion called &ldquo;{q}&rdquo;</p>
+        <p className={styles.emptyText}>No champion matches &ldquo;{debouncedQ}&rdquo;</p>
         <p className={styles.emptyHint}>Check the spelling, or try one of these.</p>
         <div className={styles.nearest}>
           {(nearest.length > 0 ? nearest : champions.slice(0, 3)).map((c) => (

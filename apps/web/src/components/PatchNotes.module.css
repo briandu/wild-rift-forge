@@ -242,6 +242,17 @@
   line-height: 1.5;
 }
 
+.lineStack {
+  align-items: flex-start;
+}
+
+.lineTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+
 .lineIcon {
   width: 26px;
   height: 26px;

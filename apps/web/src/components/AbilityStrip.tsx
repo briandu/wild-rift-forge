@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import type { AbilityInfo } from '@/lib/abilities';
+import { AbilityMarkup, AbilityMeta } from './AbilityMarkup';
 import styles from './AbilityStrip.module.css';
 
 export function AbilityStrip({
@@ -62,8 +63,15 @@ export function AbilityStrip({
             <span className={styles.key}>{current.key}</span>
             <span className={styles.name}>{current.name}</span>
           </div>
-          <p className={styles.hint}>{current.cooldownLabel ?? 'Hover an ability for details'}</p>
-          <p className={styles.desc}>{current.description}</p>
+          <AbilityMeta
+            abilityKey={current.key}
+            description={current.description}
+            cooldownLabel={current.cooldownLabel}
+            className={styles.hint}
+          />
+          <p className={styles.desc}>
+            <AbilityMarkup text={current.description} />
+          </p>
         </div>
       ) : null}
     </div>

@@ -1,6 +1,12 @@
 import { matchupVerdict } from '@wild-rift-forge/game-data';
 import { composeAbilityText } from './abilities';
-import type { AbilityDto, ApiChampion, MatchupResponse, MatchupSideDto } from './api-types';
+import type {
+  AbilityDto,
+  ApiChampion,
+  MatchupGuideDto,
+  MatchupResponse,
+  MatchupSideDto,
+} from './api-types';
 import { FACE_FALLBACK_BG, roleLabel } from './champions';
 
 export type MatchupChip = { k: string; v: string; c: string };
@@ -13,6 +19,10 @@ export type MatchupAbilityRow = {
   n: string;
   note: string;
   imageUrl?: string;
+  when?: string;
+  then?: string;
+  win?: string;
+  authored?: boolean;
 };
 
 export type MatchupSideCard = {
@@ -48,6 +58,7 @@ export type MatchupCard = {
   quick: MatchupChip[];
   phases: MatchupPhase[];
   abilities: MatchupAbilityRow[];
+  spikes: Array<{ at: string; who: 'you' | 'them' | 'even'; label: string }>;
   mistakes: string[];
   tags: string[];
   trades: {
@@ -99,6 +110,30 @@ function abilityRows(own: boolean, abilities: AbilityDto[] | undefined): Matchup
       'Kit text is not uploaded for this ability yet.',
     imageUrl: ability.imageUrl,
   }));
+}
+
+function authoredAbilityRows(
+  notes: MatchupGuideDto['abilityNotes'] | undefined,
+  youAbilities: AbilityDto[] | undefined,
+  themAbilities: AbilityDto[] | undefined,
+): MatchupAbilityRow[] | null {
+  if (!notes?.length) {
+    return null;
+  }
+  return notes.map((note) => {
+    const kit = (note.own ? youAbilities : themAbilities)?.find((ability) => ability.key === note.k);
+    return {
+      own: note.own,
+      k: note.k,
+      n: kit?.name ?? note.k,
+      note: note.note,
+      when: note.when,
+      then: note.then,
+      win: note.win,
+      authored: true,
+      imageUrl: kit?.imageUrl,
+    };
+  });
 }
 
 export function buildMatchupCard(
@@ -196,10 +231,12 @@ export function buildMatchupCard(
             body: 'Stop treating this as a pure duel. Group around the win condition your draft actually has.',
           },
         ],
-    abilities: [
-      ...abilityRows(true, live?.abilitiesYou),
-      ...abilityRows(false, live?.abilitiesThem),
-    ],
+    abilities:
+      authoredAbilityRows(guide?.abilityNotes, live?.abilitiesYou, live?.abilitiesThem) ?? [
+        ...abilityRows(true, live?.abilitiesYou),
+        ...abilityRows(false, live?.abilitiesThem),
+      ],
+    spikes: guide?.spikes ?? [],
     mistakes: guide?.mistakes ?? [
       'Reading these lane win rates as a pairwise matchup sample.',
       side === 'them'

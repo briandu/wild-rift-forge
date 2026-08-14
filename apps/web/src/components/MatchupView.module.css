@@ -19,6 +19,17 @@
   left: 50%;
 }
 
+.skelPane {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.skelPane::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(22, 192, 255, 0.07), transparent 60%);
+}
+
 .splash {
   object-fit: cover;
 }
@@ -884,6 +895,7 @@
 }
 
 .teamArt {
+  position: relative;
   width: 100%;
   aspect-ratio: 1;
   border-radius: 11px;
@@ -1055,30 +1067,47 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
+.coachWait {
+  margin-top: 14px;
+}
+
+.coachWaitRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
 .coachSkel {
   display: flex;
   flex-direction: column;
   gap: 9px;
-  margin-top: 14px;
+  margin-top: 16px;
 }
 
 .coachBar {
-  height: 10px;
+  height: 11px;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.09);
-  animation: muShimmer 1.5s ease-in-out infinite;
 }
 
 .coachBar:nth-child(2) {
-  width: 84%;
-  background: rgba(255, 255, 255, 0.08);
-  animation-delay: 0.18s;
+  width: 88%;
 }
 
 .coachBar:nth-child(3) {
   width: 62%;
-  background: rgba(255, 255, 255, 0.07);
-  animation-delay: 0.34s;
+}
+
+.skelRuleK {
+  width: 70%;
+  height: 11px;
+}
+
+.skelRuleV {
+  width: 100%;
+  height: 18px;
+  margin-top: 10px;
 }
 
 .coachLine {
@@ -1102,18 +1131,6 @@
   line-height: 1.55;
   min-width: 0;
   text-wrap: pretty;
-}
-
-@keyframes muShimmer {
-  0% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 0.4;
-  }
 }
 
 @media (max-width: 1200px) {
@@ -1340,11 +1357,17 @@
 .saveBtn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 9px;
   flex: none;
+  min-width: 148px;
   border-color: var(--accent);
   background: rgba(22, 192, 255, 0.12);
   color: var(--accent-soft);
+}
+
+.saveBtn:disabled {
+  cursor: default;
 }
 
 .pickLaneOn {
@@ -1523,4 +1546,398 @@
   font-weight: 400;
   letter-spacing: 0;
   color: var(--text-extra-dim);
+}
+
+.clearBtn {
+  height: 38px;
+  padding: 0 15px;
+  border-radius: 11px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #8b87a8;
+  flex: none;
+}
+
+.clearBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pairEmptyYou,
+.pairEmptyThem {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 400;
+  flex: none;
+  box-sizing: border-box;
+}
+
+.pairEmptyYou {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(22, 192, 255, 0.5);
+  color: #7fdcff;
+}
+
+.pairEmptyThem {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(229, 139, 123, 0.5);
+  color: #e58b7b;
+}
+
+.emptyWrap,
+.oneWrap {
+  padding: 66px 40px 96px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.oneWrap {
+  padding-top: 52px;
+}
+
+.emptyInner {
+  max-width: 760px;
+}
+
+.oneInner {
+  max-width: 880px;
+}
+
+.emptyFaces {
+  display: flex;
+  align-items: center;
+}
+
+.emptyPlusYou,
+.emptyPlusThem {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex: none;
+  box-sizing: border-box;
+}
+
+.emptyPlusYou {
+  border: 1.5px dashed rgba(22, 192, 255, 0.5);
+  color: #7fdcff;
+}
+
+.emptyPlusThem {
+  border: 1.5px dashed rgba(229, 139, 123, 0.5);
+  color: #e58b7b;
+  margin-left: -14px;
+  background: #0b0a12;
+}
+
+.emptyTitle {
+  margin: 26px 0 0;
+  font-weight: 900;
+  font-size: 42px;
+  line-height: 1.04;
+  letter-spacing: -0.036em;
+}
+
+.emptyCopy,
+.oneCopy {
+  margin: 14px 0 0;
+  font-size: 16px;
+  color: #a9a5c4;
+  line-height: 1.6;
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+.emptyActions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.emptyPrimary,
+.emptyGhost {
+  display: inline-flex;
+  align-items: center;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 13px;
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.emptyPrimary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+  color: #fff;
+}
+
+.emptyPrimary:hover {
+  filter: brightness(1.12);
+}
+
+.emptyGhost {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  font-weight: 600;
+  color: var(--text-soft);
+  box-sizing: border-box;
+}
+
+.emptyGhost:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.emptyBlock {
+  margin-top: 44px;
+}
+
+.emptyK {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #5c5878;
+}
+
+.emptySaved {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 14px;
+  max-width: 480px;
+}
+
+.emptySavedRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 13px 16px;
+  background: none;
+  border: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.emptySavedRow:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.emptySavedFaces {
+  display: flex;
+  flex: none;
+}
+
+.emptySavedThem {
+  margin-left: -10px;
+}
+
+.emptySavedTitle {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.emptySavedTitle span {
+  color: #4a4560;
+  font-size: 13px;
+}
+
+.emptyPool {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.emptyPoolChip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 13px;
+  padding: 7px 14px 7px 7px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.emptyPoolChip:hover {
+  border-color: rgba(22, 192, 255, 0.5);
+  background: rgba(22, 192, 255, 0.08);
+}
+
+.onePair {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.oneSide {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.oneFace,
+.oneEmptyFace {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.oneFace {
+  border: 2px solid;
+}
+
+.oneEmptyFace {
+  border: 1.5px dashed;
+  font-size: 28px;
+  color: #5c5878;
+}
+
+.oneLabel,
+.oneEmptyLabel {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.oneEmptyLabel {
+  color: #5c5878;
+}
+
+.oneName {
+  font-weight: 900;
+  font-size: 30px;
+  letter-spacing: -0.03em;
+  margin-top: 6px;
+}
+
+.oneRole {
+  font-size: 13px;
+  color: #7b769b;
+  margin-top: 4px;
+}
+
+.oneVs {
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: #4a4560;
+  flex: none;
+}
+
+.oneEmptyName {
+  font-size: 19px;
+  font-weight: 700;
+  color: #5c5878;
+  letter-spacing: -0.014em;
+  margin-top: 6px;
+}
+
+.oneTitle {
+  margin: 38px 0 0;
+  font-weight: 900;
+  font-size: 34px;
+  line-height: 1.08;
+  letter-spacing: -0.032em;
+}
+
+.oneCopy {
+  margin-top: 12px;
+}
+
+.oneSuggest {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.oneSuggestYou,
+.oneSuggestThem {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 15px;
+  padding: 12px 14px;
+  color: inherit;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.oneSuggestThem:hover {
+  border-color: rgba(229, 139, 123, 0.5);
+  background: rgba(229, 139, 123, 0.07);
+}
+
+.oneSuggestYou:hover {
+  border-color: rgba(22, 192, 255, 0.5);
+  background: rgba(22, 192, 255, 0.08);
+}
+
+.oneSuggestCopy {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.oneSuggestName {
+  font-size: 15px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.oneSuggestRole {
+  font-size: 12px;
+  color: #7b769b;
+}
+
+.oneSuggestWr {
+  font-size: 13.5px;
+  font-weight: 700;
+  flex: none;
+}
+
+@media (max-width: 900px) {
+  .emptyWrap,
+  .oneWrap {
+    padding: 40px 18px 80px;
+  }
+
+  .emptyTitle {
+    font-size: 32px;
+  }
+
+  .oneTitle {
+    font-size: 28px;
+  }
+
+  .oneSuggest {
+    grid-template-columns: 1fr;
+  }
 }

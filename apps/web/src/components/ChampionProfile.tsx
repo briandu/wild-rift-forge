@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { TIER_LANES } from '@wild-rift-forge/game-data';
 import type {
@@ -15,10 +16,15 @@ import { bannerFocusFor } from '@/lib/banner-focus';
 import { ART_BY_SLUG, HERO_FALLBACK, initials, portraitFor, roleLabel } from '@/lib/champions';
 import { bestPlacement, formatRate, laneFromLabel, tierBadge } from '@/lib/placements';
 import { abilitySlotLabel } from '@/lib/ability-mentions';
+import { AbilityMarkup } from './AbilityMarkup';
 import { AbilityStrip } from './AbilityStrip';
+import { skeletonDelay } from '@/lib/loading';
 import { AbilityChip } from './AbilityTip';
+import { EmptyPanel, emptyCtaClass, FailedPanel } from './LoadState';
 import { LaneGlyph } from './LaneGlyph';
 import styles from './ChampionProfile.module.css';
+
+const TABLE_SKEL = ['112px', '96px', '124px', '88px', '104px', '90px', '118px'] as const;
 
 const TABS = ['Overview', 'Matchups', 'Builds', 'Skill order', 'Pro play'] as const;
 
@@ -52,6 +58,7 @@ export function ChampionProfile({
   patchNote?: PatchChampionChangeDto | null;
   placements: TierPlacementDto[];
 }) {
+  const router = useRouter();
   const [tab, setTab] = useState<(typeof TABS)[number]>('Matchups');
   const [dir, setDir] = useState<'beaten' | 'beats'>('beaten');
   const art = imageUrl || ART_BY_SLUG[slug] || HERO_FALLBACK;
@@ -220,7 +227,9 @@ export function ChampionProfile({
                     />
                     <span>
                       <strong>{ability.name}</strong>
-                      <span className={styles.kitDesc}>{ability.description}</span>
+                      <span className={styles.kitDesc}>
+                        <AbilityMarkup text={ability.description} />
+                      </span>
                     </span>
                   </li>
                 ))}
@@ -280,41 +289,59 @@ export function ChampionProfile({
                 </div>
               </div>
 
-              <div className={styles.table}>
-                <div className={styles.tableHead}>
-                  <span>#</span>
-                  <span>CHAMPION</span>
-                  <span>MATCHUP SCORE</span>
-                  <span>WIN RATE</span>
-                  <span>GAMES</span>
-                </div>
-                {rows.map((row, i) => {
-                  const cover = portraitFor(row.slug, row.imageUrl, row.thumbnailUrl);
-                  return (
-                    <Link key={row.slug} href={`/champions/${row.slug}`} className={styles.row}>
-                      <span className={i < 3 ? styles.rankTop : styles.rank}>{i + 1}</span>
-                      <span className={styles.champCell}>
-                        <span className={styles.rowAvatar}>
-                          {cover ? (
-                            <Image src={cover} alt="" width={32} height={32} />
-                          ) : (
-                            initials(row.name)
-                          )}
-                        </span>
-                        {row.name}
-                      </span>
-                      <span className={styles.scoreCell}>
-                        <span className={styles.scoreNum}>{row.score}</span>
-                        <span className={styles.scoreTrack}>
-                          <span className={styles.scoreFill} style={{ width: `${row.score}%` }} />
-                        </span>
-                      </span>
-                      <span>{row.winRate}</span>
-                      <span className={styles.games}>{counters?.games ?? '—'}</span>
+              {!counters ? (
+                <FailedPanel
+                  title="Counter data did not load"
+                  copy="Everything else on this page is current."
+                  onRetry={() => router.refresh()}
+                />
+              ) : rows.length === 0 ? (
+                <EmptyPanel
+                  title={`No matchup rows for ${name} in this lane`}
+                  copy="Check another lane, or browse the roster for a different pick."
+                  action={
+                    <Link href="/champions" className={emptyCtaClass()}>
+                      Browse champions
                     </Link>
-                  );
-                })}
-              </div>
+                  }
+                />
+              ) : (
+                <div className={styles.table}>
+                  <div className={styles.tableHead}>
+                    <span>#</span>
+                    <span>CHAMPION</span>
+                    <span>MATCHUP SCORE</span>
+                    <span>WIN RATE</span>
+                    <span>GAMES</span>
+                  </div>
+                  {rows.map((row, i) => {
+                    const cover = portraitFor(row.slug, row.imageUrl, row.thumbnailUrl);
+                    return (
+                      <Link key={row.slug} href={`/champions/${row.slug}`} className={styles.row}>
+                        <span className={i < 3 ? styles.rankTop : styles.rank}>{i + 1}</span>
+                        <span className={styles.champCell}>
+                          <span className={styles.rowAvatar}>
+                            {cover ? (
+                              <Image src={cover} alt="" width={32} height={32} />
+                            ) : (
+                              initials(row.name)
+                            )}
+                          </span>
+                          {row.name}
+                        </span>
+                        <span className={styles.scoreCell}>
+                          <span className={styles.scoreNum}>{row.score}</span>
+                          <span className={styles.scoreTrack}>
+                            <span className={styles.scoreFill} style={{ width: `${row.score}%` }} />
+                          </span>
+                        </span>
+                        <span>{row.winRate}</span>
+                        <span className={styles.games}>{counters.games ?? '—'}</span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
             </div>
 
             <aside className={styles.rail}>
@@ -338,6 +365,62 @@ export function ChampionProfile({
           </div>
         )}
       </section>
+    </div>
+  );
+}
+
+export function ChampionProfileSkeleton() {
+  return (
+    <div aria-busy="true" aria-live="polite">
+      <p className="sr-only">Loading champion</p>
+      <section className={styles.hero}>
+        <div className={styles.heroFade} aria-hidden />
+        <div className={styles.heroInner}>
+          <div className={styles.heroLead}>
+            <span data-skel="2" className={`skel-text ${styles.meta}`}>
+              FIGHTER · TOP
+            </span>
+            <span data-skel="1" className={`skel-text ${styles.name}`}>
+              VOLIBEAR
+            </span>
+            <span data-skel="3" className={`skel-text ${styles.meta}`}>
+              The Relentless Storm
+            </span>
+          </div>
+        </div>
+      </section>
+      <section className={styles.body}>
+        <MatchupTableSkeleton />
+      </section>
+    </div>
+  );
+}
+
+export function MatchupTableSkeleton({ rows = TABLE_SKEL }: { rows?: readonly string[] }) {
+  return (
+    <div className={styles.table}>
+      <div className={styles.tableHead}>
+        <span>#</span>
+        <span>CHAMPION</span>
+        <span>MATCHUP SCORE</span>
+        <span>WIN RATE</span>
+        <span>GAMES</span>
+      </div>
+      {rows.map((width, i) => (
+        <div key={width} className={styles.row} aria-hidden>
+          <span data-skel="2" className={styles.skelRank} style={{ animationDelay: skeletonDelay(i) }} />
+          <span className={styles.champCell}>
+            <span data-skel="1" className={styles.skelAvatar} style={{ animationDelay: skeletonDelay(i) }} />
+            <span data-skel="2" className={styles.skelName} style={{ width, animationDelay: skeletonDelay(i) }} />
+          </span>
+          <span className={styles.scoreCell}>
+            <span data-skel="2" className={styles.scoreTrack} style={{ animationDelay: skeletonDelay(i) }} />
+            <span data-skel="2" className={styles.skelWr} style={{ animationDelay: skeletonDelay(i) }} />
+          </span>
+          <span data-skel="3" className={styles.skelCell} />
+          <span data-skel="3" className={styles.skelCell} />
+        </div>
+      ))}
     </div>
   );
 }

@@ -1,9 +1,34 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ChampionProfile } from '@/components/ChampionProfile';
 import { Shell } from '@/components/Shell';
 import { fetchChampion, fetchCounters, fetchLatestPatch, fetchTiers } from '@/lib/api';
 import { FALLBACK_CHAMPIONS } from '@/lib/champions';
 import { parseTierLane, placementsForSlug } from '@/lib/placements';
+import {
+  championProfileDescription,
+  championProfileTitle,
+  pageMetadata,
+  titleFromSlug,
+} from '@/lib/seo';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const champion =
+    (await fetchChampion(slug)) ??
+    FALLBACK_CHAMPIONS.find((row) => row.slug === slug.toLowerCase()) ??
+    null;
+  const name = champion?.name ?? titleFromSlug(slug);
+  return pageMetadata({
+    title: championProfileTitle(name),
+    description: championProfileDescription(name, champion?.title),
+    path: `/champions/${champion?.slug ?? slug.toLowerCase()}`,
+  });
+}
 
 export default async function ChampionProfilePage({
   params,

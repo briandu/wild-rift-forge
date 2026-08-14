@@ -326,6 +326,33 @@
   gap: 10px;
 }
 
+.skelRank {
+  width: 22px;
+  height: 12px;
+}
+
+.skelAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.skelName {
+  height: 14px;
+}
+
+.skelWr {
+  width: 30px;
+  height: 12px;
+  flex: none;
+}
+
+.skelCell {
+  width: 62px;
+  height: 12px;
+}
+
 .scoreNum {
   font-weight: 800;
   width: 28px;

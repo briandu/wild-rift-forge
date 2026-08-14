@@ -56,6 +56,11 @@ describe('bestPlacement', () => {
     expect(bestPlacement(rows, 'Jungle')?.lane).toBe('Jungle');
     expect(bestPlacement(rows)?.lane).toBe('Top');
   });
+
+  it('walks a role order when a champion plays more than one lane', () => {
+    const rows = [row('gwen', 'Jungle', 8, 80), row('gwen', 'Top', 12, 40)];
+    expect(bestPlacement(rows, ['Mid', 'Top', 'Jungle'])?.lane).toBe('Top');
+  });
 });
 
 describe('uniqueBestPlacements', () => {

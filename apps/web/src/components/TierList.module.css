@@ -214,6 +214,22 @@
   color: var(--text-dim);
 }
 
+.skelFace {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+}
+
+.skelChampName {
+  width: 64px;
+  height: 13px;
+}
+
+.skelChampWr {
+  width: 36px;
+  height: 12px;
+}
+
 .footer {
   display: flex;
   align-items: center;

@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { formatSnapshotDate } from '@/lib/placements';
 import { clientAuthCallbackUrl } from '@/lib/supabase/site-url';
+import { Spinner } from './LoadState';
 import styles from './AuthPanel.module.css';
 
 type Mode = 'signin' | 'signup' | 'forgot' | 'sent' | 'reset';
@@ -460,7 +461,7 @@ export function AuthPanel({
                 Keep me signed in on this device
               </button>
               <button type="submit" className={styles.submit} disabled={busy}>
-                {busy ? 'Signing in…' : 'Sign in'}
+                {busy ? <><Spinner light /> Signing in</> : 'Sign in'}
               </button>
             </form>
           ) : null}
@@ -540,7 +541,7 @@ export function AuthPanel({
                 </div>
               </div>
               <button type="submit" className={styles.submit} disabled={busy}>
-                {busy ? 'Creating account…' : 'Create account'}
+                {busy ? <><Spinner light /> Creating</> : 'Create account'}
               </button>
               <p className={styles.legal}>
                 By creating an account you agree to the terms of service and privacy policy. Wild
@@ -570,7 +571,7 @@ export function AuthPanel({
                 />
               </label>
               <button type="submit" className={styles.submit} disabled={busy}>
-                {busy ? 'Sending…' : 'Send reset link'}
+                {busy ? <><Spinner light /> Sending</> : 'Send reset link'}
               </button>
               <button type="button" className={styles.secondary} onClick={() => goMode('signin')}>
                 Back to sign in
@@ -659,7 +660,7 @@ export function AuthPanel({
                 />
               </label>
               <button type="submit" className={styles.submit} disabled={busy}>
-                {busy ? 'Saving…' : 'Save and sign in'}
+                {busy ? <><Spinner light /> Saving</> : 'Save and sign in'}
               </button>
             </form>
           ) : null}

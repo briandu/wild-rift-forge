@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
+import type { TierLane } from '@wild-rift-forge/game-data';
 import { useChampionAvatar } from '@/hooks/useChampionAvatar';
+import { dropLine, useRankDrag } from '@/hooks/useRankDrag';
 import type { ApiChampion, TierPlacementDto } from '@/lib/api';
 import {
   ACCOUNT_CHANNELS,
@@ -32,15 +34,22 @@ import {
   movePoolItem,
   poolScopeLabel,
   poolSortHint,
+  reorderByDrop,
   sortPool,
   type PoolSort,
 } from '@/lib/pool-rank';
+import {
+  DEFAULT_ROLE_ORDER,
+  roleCountLabel,
+  roleRankTag,
+} from '@/lib/roles';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { accountHeadingName } from '@/lib/user-name';
 import { ChampFace } from './ChampFace';
 import { ChampionPicker } from './ChampionPicker';
 import { LaneGlyph } from './LaneGlyph';
+import { PendingLabel } from './LoadState';
 import styles from './AccountView.module.css';
 
 const TABS = [
@@ -153,7 +162,21 @@ const EMPTY_PROFILE: AccountProfile = {
   notifyDigest: true,
   channel: 'Email',
   proWaitlisted: false,
+  preferredRoles: [...DEFAULT_ROLE_ORDER],
 };
+
+function DragHandle() {
+  return (
+    <svg width="10" height="16" viewBox="0 0 10 16" fill="#5C5878" aria-hidden>
+      <circle cx="2" cy="3" r="1.4" />
+      <circle cx="8" cy="3" r="1.4" />
+      <circle cx="2" cy="8" r="1.4" />
+      <circle cx="8" cy="8" r="1.4" />
+      <circle cx="2" cy="13" r="1.4" />
+      <circle cx="8" cy="13" r="1.4" />
+    </svg>
+  );
+}
 
 export function AccountView({
   champions = [],
@@ -180,6 +203,7 @@ export function AccountView({
   const [deleteConfirm, setDeleteConfirm] = useState(false);
   const [notice, setNotice] = useState('');
   const [pickerOpen, setPickerOpen] = useState(false);
+  const [adding, setAdding] = useState<string | null>(null);
   const { url: avatarUrl, choose } = useChampionAvatar(user);
 
   useEffect(() => {
@@ -213,7 +237,7 @@ export function AccountView({
     [saved, champions, placements],
   );
 
-  const preferredLane = poolLane === 'All' ? undefined : poolLane;
+  const preferredLane = poolLane === 'All' ? profile.preferredRoles : poolLane;
   const inLane = (slug: string) => playsLane(placements, slug, poolLane);
   const placeOf = (slug: string) =>
     bestPlacement(placementsForSlug(placements, slug), preferredLane);
@@ -320,24 +344,29 @@ export function AccountView({
 
   async function addPool(name: string) {
     const slug = slugFor(name, champions);
-    if (!slug) return;
-    const next = pool.includes(slug) ? pool : [...pool, slug];
-    setPoolQ('');
-    setNotice(`${name} added to your pool.`);
-    if (user && isSupabaseConfigured()) {
-      const supabase = createClient();
-      await supabase.rpc('ensure_default_avatar');
-      const { error } = await supabase.from('user_champion_pool').insert({
-        user_id: user.id,
-        champion_slug: slug,
-        sort_order: next.length - 1,
-      });
-      if (error && !error.message.includes('duplicate')) {
-        setNotice(error.message);
-        return;
+    if (!slug || adding) return;
+    setAdding(slug);
+    try {
+      const next = pool.includes(slug) ? pool : [...pool, slug];
+      setPoolQ('');
+      setNotice(`${name} added to your pool.`);
+      if (user && isSupabaseConfigured()) {
+        const supabase = createClient();
+        await supabase.rpc('ensure_default_avatar');
+        const { error } = await supabase.from('user_champion_pool').insert({
+          user_id: user.id,
+          champion_slug: slug,
+          sort_order: next.length - 1,
+        });
+        if (error && !error.message.includes('duplicate')) {
+          setNotice(error.message);
+          return;
+        }
       }
+      void persistOrder(next);
+    } finally {
+      setAdding(null);
     }
-    void persistOrder(next);
   }
 
   function movePool(slug: string, dir: -1 | 1) {
@@ -345,6 +374,35 @@ export function AccountView({
     const next = mergeLaneOrder(pool, movePoolItem(customVisible, slug, dir), inLane);
     setPoolSort('Custom');
     void persistOrder(next);
+  }
+
+  function dropPool(from: string, to: string) {
+    const customVisible = pool.filter(inLane);
+    const next = mergeLaneOrder(pool, reorderByDrop(customVisible, from, to), inLane);
+    setPoolSort('Custom');
+    void persistOrder(next);
+  }
+
+  function moveRole(role: TierLane, dir: -1 | 1) {
+    const next = movePoolItem(profile.preferredRoles, role, dir) as TierLane[];
+    if (next[0] === profile.preferredRoles[0] && next.every((item, i) => item === profile.preferredRoles[i])) {
+      return;
+    }
+    void persistProfile(
+      { preferred_roles: next },
+      { ...profile, preferredRoles: next },
+      `${next[0]} is now your primary role.`,
+    );
+  }
+
+  function dropRole(from: TierLane, to: TierLane) {
+    const next = reorderByDrop(profile.preferredRoles, from, to);
+    if (next.every((item, i) => item === profile.preferredRoles[i])) return;
+    void persistProfile(
+      { preferred_roles: next },
+      { ...profile, preferredRoles: next },
+      `${next[0]} is now your primary role.`,
+    );
   }
 
   function commitPoolOrder() {
@@ -479,6 +537,9 @@ export function AccountView({
             riotId={riotId}
             riotDraft={riotDraft}
             pool={pool}
+            roleOrder={profile.preferredRoles}
+            onMoveRole={moveRole}
+            onDropRole={dropRole}
             onRiotDraft={setRiotDraft}
             onDisconnect={() =>
               void persistProfile(
@@ -534,9 +595,11 @@ export function AccountView({
             onClearQuery={() => setPoolQ('')}
             onCommit={commitPoolOrder}
             onMove={movePool}
+            onDrop={dropPool}
             onOpen={(slug) => router.push(`/champions/${slug}`)}
             onRemove={(slug) => void removePool(nameFor(slug, champions))}
             onAdd={(name) => void addPool(name)}
+            adding={adding}
           />
         ) : null}
 
@@ -672,6 +735,9 @@ function Overview({
   riotId,
   riotDraft,
   pool,
+  roleOrder,
+  onMoveRole,
+  onDropRole,
   onRiotDraft,
   onDisconnect,
   onConnect,
@@ -683,13 +749,16 @@ function Overview({
   riotId: string;
   riotDraft: string;
   pool: string[];
+  roleOrder: TierLane[];
+  onMoveRole: (role: TierLane, dir: -1 | 1) => void;
+  onDropRole: (from: TierLane, to: TierLane) => void;
   onRiotDraft: (value: string) => void;
   onDisconnect: () => void;
   onConnect: () => void;
 }) {
   const played = pool.slice(0, 3).map((slug) => {
     const name = nameFor(slug, champions);
-    const place = bestPlacement(placementsForSlug(placements, slug));
+    const place = bestPlacement(placementsForSlug(placements, slug), roleOrder);
     return {
       name,
       slug,
@@ -700,6 +769,7 @@ function Overview({
   });
 
   return (
+    <div>
     <div className={styles.split}>
       <section className={styles.card}>
         <div className={styles.cardK}>RIOT ID</div>
@@ -780,6 +850,113 @@ function Overview({
         </div>
       </section>
     </div>
+    <PreferredRoles
+      roles={roleOrder}
+      pool={pool}
+      placements={placements}
+      onMove={onMoveRole}
+      onDrop={onDropRole}
+    />
+    </div>
+  );
+}
+
+function PreferredRoles({
+  roles,
+  pool,
+  placements,
+  onMove,
+  onDrop,
+}: {
+  roles: TierLane[];
+  pool: string[];
+  placements: TierPlacementDto[];
+  onMove: (role: TierLane, dir: -1 | 1) => void;
+  onDrop: (from: TierLane, to: TierLane) => void;
+}) {
+  const { drag, over, rowProps } = useRankDrag<TierLane>(true, onDrop);
+  const primary = roles[0] ?? 'Top';
+  return (
+    <section className={`${styles.card} ${styles.rolesCard}`}>
+      <div className={styles.cardK}>PREFERRED ROLES</div>
+      <p className={styles.roleNote}>
+        Best to worst — drag a row to reorder. When a champion plays more than one lane, Forge
+        reads this order to decide which matchups to load first — {primary} wins ties.
+      </p>
+      <div className={styles.rankList}>
+        {roles.map((role, index) => {
+          const count = pool.filter((slug) => playsLane(placements, slug, role)).length;
+          const tag = roleRankTag(index);
+          const accent = index === 0;
+          return (
+            <div
+              key={role}
+              className={styles.rankRowItem}
+              style={{
+                background: accent ? 'rgba(22,192,255,.05)' : undefined,
+                opacity: drag === role ? 0.4 : 1,
+                boxShadow: dropLine(roles, drag, over, role),
+                borderBottom:
+                  index < roles.length - 1 ? '1px solid rgba(255,255,255,.06)' : 'none',
+              }}
+              {...rowProps(role)}
+            >
+              <div className={styles.rankHandle}>
+                <DragHandle />
+                <span className={styles.rankNum} style={{ color: accent ? '#7FDCFF' : '#7B769B' }}>
+                  {index + 1}
+                </span>
+              </div>
+              <span className={styles.roleGlyph} style={{ color: accent ? '#7FDCFF' : '#7B769B' }}>
+                <LaneGlyph lane={role} size={20} />
+              </span>
+              <div className={styles.rankCopy}>
+                <div className={styles.rankName}>{role}</div>
+                <div className={styles.rankMeta}>{roleCountLabel(count)}</div>
+              </div>
+              <div
+                className={styles.roleTag}
+                style={{
+                  color: accent ? '#7FDCFF' : index === 1 ? '#A9A5C4' : '#6E6A8C',
+                  background: accent ? 'rgba(22,192,255,.12)' : 'rgba(255,255,255,.05)',
+                  borderColor: accent ? 'rgba(22,192,255,.34)' : 'rgba(255,255,255,.09)',
+                }}
+              >
+                {tag}
+              </div>
+              <div className={styles.poolMove}>
+                  <button
+                    type="button"
+                    className={styles.moveBtn}
+                    onMouseDown={(event) => event.stopPropagation()}
+                    onClick={() => onMove(role, -1)}
+                    disabled={index === 0}
+                  aria-label={`Move ${role} up`}
+                  title="Move up"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                    <path d="M6 14l6-6 6 6" />
+                  </svg>
+                </button>
+                  <button
+                    type="button"
+                    className={styles.moveBtn}
+                    onMouseDown={(event) => event.stopPropagation()}
+                    onClick={() => onMove(role, 1)}
+                    disabled={index === roles.length - 1}
+                  aria-label={`Move ${role} down`}
+                  title="Move down"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                    <path d="M6 10l6 6 6-6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -802,9 +979,11 @@ function Pool({
   onClearQuery,
   onCommit,
   onMove,
+  onDrop,
   onOpen,
   onRemove,
   onAdd,
+  adding,
 }: {
   portraits: Record<string, string>;
   cards: Array<{
@@ -831,18 +1010,22 @@ function Pool({
   onClearQuery: () => void;
   onCommit: () => void;
   onMove: (slug: string, dir: -1 | 1) => void;
+  onDrop: (from: string, to: string) => void;
   onOpen: (slug: string) => void;
   onRemove: (slug: string) => void;
   onAdd: (name: string) => void;
+  adding: string | null;
 }) {
   const manual = sort === 'Custom';
+  const { drag, over, rowProps } = useRankDrag(manual, onDrop);
   return (
     <div>
       <div className={styles.poolHead}>
-        <div>
-          <h2 className={styles.h2}>Your champion pool</h2>
-          <p className={styles.sub}>{blurb}</p>
-        </div>
+        <h2 className={styles.h2}>Your champion pool</h2>
+        <p className={styles.sub}>{blurb}</p>
+      </div>
+
+      <div className={styles.poolTools}>
         <div className={`${styles.pills} xfade`} role="group" aria-label="Lane">
           {LANES.map((item) => (
             <button
@@ -856,27 +1039,26 @@ function Pool({
             </button>
           ))}
         </div>
-      </div>
-
-      <div className={styles.rankRow}>
-        <div className={styles.rankK}>RANK BY</div>
-        <div className={styles.pills} role="group" aria-label="Rank by">
-          {POOL_SORTS.map((item) => (
-            <button
-              key={item}
-              type="button"
-              className={sort === item ? styles.sortOn : styles.sort}
-              onClick={() => onSort(item)}
-            >
-              {item}
+        <div className={styles.rankRow}>
+          <div className={styles.rankK}>RANK BY</div>
+          <div className={styles.pills} role="group" aria-label="Rank by">
+            {POOL_SORTS.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={sort === item ? styles.sortOn : styles.sort}
+                onClick={() => onSort(item)}
+              >
+                {item}
+              </button>
+            ))}
+          </div>
+          {manual ? null : (
+            <button type="button" className={styles.commit} onClick={onCommit}>
+              {commitLabel}
             </button>
-          ))}
+          )}
         </div>
-        {manual ? null : (
-          <button type="button" className={styles.commit} onClick={onCommit}>
-            {commitLabel}
-          </button>
-        )}
       </div>
 
       <div className={styles.hint}>
@@ -903,55 +1085,102 @@ function Pool({
           </p>
         </div>
       ) : (
-        <div className={styles.poolGrid}>
+        <div className={styles.rankList}>
+          <div className={styles.rankHead}>
+            <div className={styles.rankHandle}>
+              <span className={styles.rankHeadK}>#</span>
+            </div>
+            <div className={styles.poolFaceSlot} />
+            <div className={styles.rankCopy}>
+              <span className={styles.rankHeadK}>CHAMPION</span>
+            </div>
+            <div className={styles.poolCell}>
+              <span className={styles.rankHeadK}>WIN RATE</span>
+            </div>
+            <div className={manual ? styles.poolActionsWide : styles.poolActionsSlim} />
+          </div>
           {cards.map((card, index) => (
-            <div key={card.slug} className={styles.poolCard}>
-              <div className={styles.poolRank}>#{index + 1}</div>
-              <button
-                type="button"
-                className={styles.poolX}
-                onClick={() => onRemove(card.slug)}
-                aria-label={`Remove ${card.name}`}
-              >
-                ×
-              </button>
+            <div
+              key={card.slug}
+              className={styles.rankRowItem}
+              style={{
+                background: index === 0 ? 'rgba(22,192,255,.05)' : undefined,
+                opacity: drag === card.slug ? 0.4 : 1,
+                boxShadow: dropLine(
+                  cards.map((item) => item.slug),
+                  drag,
+                  over,
+                  card.slug,
+                ),
+                borderBottom:
+                  index < cards.length - 1 ? '1px solid rgba(255,255,255,.06)' : 'none',
+                cursor: manual ? 'grab' : 'default',
+              }}
+              {...rowProps(card.slug)}
+            >
+              <div className={styles.rankHandle}>
+                <span className={manual ? undefined : styles.handleHidden}>
+                  <DragHandle />
+                </span>
+                <span
+                  className={styles.rankNum}
+                  style={{ color: index === 0 ? '#7FDCFF' : '#7B769B' }}
+                >
+                  {index + 1}
+                </span>
+              </div>
               <button type="button" className={styles.poolFace} onClick={() => onOpen(card.slug)}>
-                <ChampFace name={card.name} slug={card.slug} size={62} portraits={portraits} />
+                <ChampFace name={card.name} slug={card.slug} size={44} portraits={portraits} />
               </button>
-              <div className={styles.poolName}>{card.name}</div>
-              <div className={styles.poolRole}>{card.role}</div>
-              <div className={styles.poolStats}>
-                <span style={{ color: card.wrc }}>{card.wr}</span>
-                <span>{card.games}</span>
+              <button type="button" className={styles.rankCopy} onClick={() => onOpen(card.slug)}>
+                <span className={styles.rankName}>{card.name}</span>
+                <span className={styles.rankMeta}>{card.role}</span>
+              </button>
+              <div className={styles.poolCell}>
+                <div className={styles.poolWr} style={{ color: card.wrc }}>
+                  {card.wr}
+                </div>
+                <div className={styles.poolGames}>{card.games}</div>
               </div>
               {manual ? (
                 <div className={styles.poolMove}>
                   <button
                     type="button"
                     className={styles.moveBtn}
+                    onMouseDown={(event) => event.stopPropagation()}
                     onClick={() => onMove(card.slug, -1)}
                     disabled={index === 0}
                     aria-label={`Move ${card.name} up`}
                     title="Move up"
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                      <path d="M14 6l-6 6 6 6" />
+                      <path d="M6 14l6-6 6 6" />
                     </svg>
                   </button>
                   <button
                     type="button"
                     className={styles.moveBtn}
+                    onMouseDown={(event) => event.stopPropagation()}
                     onClick={() => onMove(card.slug, 1)}
                     disabled={index === cards.length - 1}
                     aria-label={`Move ${card.name} down`}
                     title="Move down"
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
-                      <path d="M10 6l6 6-6 6" />
+                      <path d="M6 10l6 6 6-6" />
                     </svg>
                   </button>
                 </div>
               ) : null}
+              <button
+                type="button"
+                className={styles.poolX}
+                onMouseDown={(event) => event.stopPropagation()}
+                onClick={() => onRemove(card.slug)}
+                aria-label={`Remove ${card.name}`}
+              >
+                ×
+              </button>
             </div>
           ))}
         </div>
@@ -990,6 +1219,7 @@ function Pool({
             type="button"
             className={styles.resultRow}
             onClick={() => onAdd(row.name)}
+            disabled={adding !== null}
           >
             <ChampFace name={row.name} slug={row.slug} size={38} portraits={portraits} />
             <span className={styles.resultCopy}>
@@ -999,7 +1229,9 @@ function Pool({
             <span className={styles.resultWr} style={{ color: row.wrc }}>
               {row.wr}
             </span>
-            <span className={styles.resultAdd}>Add</span>
+            <span className={styles.resultAdd}>
+              {adding === row.slug ? <PendingLabel>Adding</PendingLabel> : 'Add'}
+            </span>
           </button>
         ))}
         {results.length === 0 ? <p className={styles.noResults}>{noResultsText}</p> : null}

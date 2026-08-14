@@ -1,6 +1,11 @@
-export const metadata = {
+import { pageMetadata } from '@/lib/seo';
+
+export const metadata = pageMetadata({
   title: 'Email previews',
-};
+  description: 'Internal email template previews.',
+  path: '/emails',
+  index: false,
+});
 
 const PREVIEWS = [
   { href: '/email-previews/welcome.html', label: 'Welcome / verify' },

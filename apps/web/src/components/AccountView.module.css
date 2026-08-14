@@ -173,6 +173,147 @@
   align-items: start;
 }
 
+.rolesCard {
+  margin-top: 22px;
+}
+
+.roleNote {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--text-dim);
+  max-width: 72ch;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.rankList {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-top: 18px;
+}
+
+.rankHead,
+.rankRowItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+}
+
+.rankHead {
+  padding: 11px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.rankRowItem {
+  cursor: grab;
+  background: transparent;
+}
+
+.rankHandle {
+  width: 36px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rankNum {
+  width: 18px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.rankHeadK {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #5c5878;
+}
+
+.handleHidden {
+  visibility: hidden;
+}
+
+.roleGlyph {
+  flex: none;
+  display: flex;
+  opacity: 0.9;
+}
+
+.rankCopy {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rankName {
+  font-size: 15px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.rankMeta {
+  font-size: 12px;
+  color: #6e6a8c;
+}
+
+.roleTag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  border: 1px solid;
+  border-radius: 11px;
+  padding: 4px 10px;
+  flex: none;
+}
+
+.poolCell {
+  width: 104px;
+  flex: none;
+  text-align: right;
+}
+
+.poolWr {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.poolGames {
+  font-size: 11.5px;
+  color: #5c5878;
+  margin-top: 2px;
+}
+
+.poolFaceSlot {
+  width: 44px;
+  flex: none;
+}
+
+.poolActionsWide {
+  width: 112px;
+  flex: none;
+}
+
+.poolActionsSlim {
+  width: 28px;
+  flex: none;
+}
+
 .card {
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -400,10 +541,15 @@
 
 .poolHead {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
+  flex-direction: column;
+}
+
+.poolTools {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   flex-wrap: wrap;
+  margin-top: 24px;
 }
 
 .pills {
@@ -495,16 +641,14 @@
 }
 
 .poolX {
-  position: absolute;
-  right: 9px;
-  top: 9px;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  background: rgba(8, 7, 14, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  font-size: 14px;
+  background: rgba(8, 7, 14, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 15px;
   color: var(--text-body);
+  flex: none;
 }
 
 .poolX:hover {
@@ -568,7 +712,7 @@
 
 .moveBtn {
   width: 32px;
-  height: 28px;
+  height: 30px;
   border-radius: 9px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -592,7 +736,6 @@
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 24px;
 }
 
 .rankK {
@@ -720,9 +863,13 @@
   text-align: left;
 }
 
-.resultRow:hover {
+.resultRow:hover:not(:disabled) {
   border-color: rgba(22, 192, 255, 0.5);
   background: rgba(22, 192, 255, 0.08);
+}
+
+.resultRow:disabled {
+  cursor: default;
 }
 
 .resultCopy {
@@ -1237,6 +1384,11 @@
 }
 
 @media (max-width: 900px) {
+  .roleTag,
+  .poolCell {
+    display: none;
+  }
+
   .hero,
   .body {
     padding-left: 18px;

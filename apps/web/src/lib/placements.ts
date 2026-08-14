@@ -21,14 +21,19 @@ export function placementsForSlug(
   return placements.filter((row) => row.slug === key);
 }
 
-/** Best row for a champion: preferred lane, else highest score. */
+/** Best row for a champion: preferred lane or role order, else highest score. */
 export function bestPlacement(
   rows: TierPlacementDto[],
-  preferred?: TierLane,
+  preferred?: TierLane | readonly string[],
 ): TierPlacementDto | undefined {
-  if (preferred) {
+  if (typeof preferred === 'string') {
     const match = rows.find((row) => row.lane === preferred);
     if (match) return match;
+  } else if (preferred) {
+    for (const lane of preferred) {
+      const match = rows.find((row) => row.lane === lane);
+      if (match) return match;
+    }
   }
   return rows.reduce<TierPlacementDto | undefined>(
     (best, row) => (!best || row.score > best.score ? row : best),

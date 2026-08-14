@@ -85,6 +85,19 @@ export interface MatchupGuideDto {
   };
   mistakes: string[];
   tags: string[];
+  abilityNotes?: Array<{
+    own: boolean;
+    k: string;
+    when: string;
+    then: string;
+    win: string;
+    note: string;
+  }>;
+  spikes?: Array<{
+    at: string;
+    who: 'you' | 'them' | 'even';
+    label: string;
+  }>;
   patchVersion: string | null;
 }
 

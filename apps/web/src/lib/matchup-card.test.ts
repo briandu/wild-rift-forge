@@ -79,6 +79,31 @@ describe('buildMatchupCard with a stored guide', () => {
           },
           mistakes: ['Spending Courage on his Q.'],
           tags: ['Fighter'],
+          abilityNotes: [
+            {
+              own: false,
+              k: 'Q',
+              when: 'If he misses the outer edge',
+              then: 'No heal, weak trade',
+              win: '~3s punish window',
+              note: 'The blade edge is where his healing comes from.',
+            },
+            {
+              own: true,
+              k: 'Q',
+              when: 'Hold silence for the pull',
+              then: 'Not for a random auto',
+              win: 'Cancels his engage',
+              note: 'The silence is the only way you leave after he grabs you.',
+            },
+          ],
+          spikes: [
+            { at: 'LVL 1', who: 'them', label: 'Give the first wave. Do not fight.' },
+            { at: 'LVL 3', who: 'even', label: 'Short trade only after he misses Decimate.' },
+            { at: 'LVL 5', who: 'you', label: 'All-in once your ultimate is up and he is chipped.' },
+            { at: '1st ITEM', who: 'even', label: 'Reset before the first item finishes. Do not linger.' },
+            { at: 'LVL 11', who: 'them', label: 'Stop side-lane duelling. Group instead.' },
+          ],
           patchVersion: '7.2c',
         },
       },
@@ -92,7 +117,37 @@ describe('buildMatchupCard with a stored guide', () => {
     expect(card.verdict).toBe('GAREN FAVOURED');
     expect(card.freshness).toContain('7.2c');
     expect(card.quick.map((chip) => chip.k)).toContain('PLAYSTYLE');
+    expect(card.abilities).toEqual([
+      {
+        own: false,
+        k: 'Q',
+        n: 'Decimate',
+        when: 'If he misses the outer edge',
+        then: 'No heal, weak trade',
+        win: '~3s punish window',
+        note: 'The blade edge is where his healing comes from.',
+        authored: true,
+        imageUrl: undefined,
+      },
+      {
+        own: true,
+        k: 'Q',
+        n: 'Decisive Strike',
+        when: 'Hold silence for the pull',
+        then: 'Not for a random auto',
+        win: 'Cancels his engage',
+        note: 'The silence is the only way you leave after he grabs you.',
+        authored: true,
+        imageUrl: undefined,
+      },
+    ]);
+    expect(card.spikes[0]).toEqual({
+      at: 'LVL 1',
+      who: 'them',
+      label: 'Give the first wave. Do not fight.',
+    });
     expect(JSON.stringify(card)).not.toContain('Plated Steelcaps');
+    expect(JSON.stringify(card.abilities)).not.toContain('Silences on the next attack');
   });
 });
 

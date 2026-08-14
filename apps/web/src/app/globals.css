@@ -104,15 +104,27 @@ img {
   }
 }
 
-@keyframes shimmer {
+@keyframes sweep {
   0% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.9;
+    background-position: 190% 0;
   }
   100% {
-    opacity: 0.4;
+    background-position: -90% 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes creep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(340%);
   }
 }
 
@@ -132,8 +144,60 @@ img {
   animation: accent-pulse 2.4s ease-in-out infinite;
 }
 
-.animate-shimmer {
-  animation: shimmer 1.4s ease-in-out infinite;
+[data-skel] {
+  --skel-fill: rgba(255, 255, 255, 0.06);
+  background:
+    var(--skel-fill)
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 18%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0) 82%
+    );
+  background-size: 220% 100%;
+  animation: sweep 1.4s linear infinite;
+  border-radius: 6px;
+}
+
+[data-skel='1'] {
+  --skel-fill: rgba(255, 255, 255, 0.08);
+}
+
+[data-skel='2'] {
+  --skel-fill: rgba(255, 255, 255, 0.06);
+}
+
+[data-skel='3'] {
+  --skel-fill: rgba(255, 255, 255, 0.05);
+}
+
+.skel-text {
+  display: block;
+  width: fit-content;
+  color: transparent !important;
+  user-select: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-skel],
+  .animate-cta,
+  .animate-hero-art,
+  .animate-fade-up,
+  .animate-fade-up-delay {
+    animation: none !important;
+  }
 }
 
 .xfade {

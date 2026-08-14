@@ -7,8 +7,8 @@ import { AccountMenu } from './AccountMenu';
 import styles from './Shell.module.css';
 
 const NAV = [
-  { href: '/champions', label: 'Champions', match: '/champions' },
   { href: '/', label: 'Counters', match: '/counters', alsoHome: true },
+  { href: '/champions', label: 'Champions', match: '/champions' },
   { href: '/matchups', label: 'Matchups', match: '/matchups' },
   { href: '/tier', label: 'Tier List', match: '/tier' },
   { href: '/draft', label: 'Draft', match: '/draft' },
@@ -193,6 +193,12 @@ export function SiteHeader({
         <Link href="/patch" className={styles.patch}>
           {patchLabel}
         </Link>
+        <span className={styles.beta} tabIndex={0} aria-describedby="beta-tooltip">
+          Beta
+          <span id="beta-tooltip" role="tooltip" className={styles.betaTip}>
+            We are still a work in progress. Not everything is fully operational. Thank you, and check back again!
+          </span>
+        </span>
         <AccountMenu />
       </div>
       {showSearch && searchOpen ? (

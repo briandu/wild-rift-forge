@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { mergeLaneOrder, movePoolItem, poolSortHint, sortPool } from './pool-rank';
+import { mergeLaneOrder, movePoolItem, poolSortHint, reorderByDrop, sortPool } from './pool-rank';
 
 const wr: Record<string, number> = { garen: 53.3, gwen: 54, sett: 51.4, darius: 52.6 };
 const vol: Record<string, number> = { garen: 8.1, gwen: 11.8, sett: 18.9, darius: 9.4 };
@@ -38,6 +38,14 @@ describe('mergeLaneOrder', () => {
       'sett',
       'garen',
     ]);
+  });
+});
+
+describe('reorderByDrop', () => {
+  it('inserts after when dropping down and before when dropping up', () => {
+    expect(reorderByDrop(['a', 'b', 'c', 'd'], 'a', 'c')).toEqual(['b', 'c', 'a', 'd']);
+    expect(reorderByDrop(['a', 'b', 'c', 'd'], 'd', 'b')).toEqual(['a', 'd', 'b', 'c']);
+    expect(reorderByDrop(['a', 'b', 'c'], 'a', 'a')).toEqual(['a', 'b', 'c']);
   });
 });
 

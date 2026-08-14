@@ -170,6 +170,7 @@
 .submit {
   background: linear-gradient(135deg, var(--accent), var(--accent-deep));
   margin-top: 4px;
+  gap: 9px;
 }
 
 .submit:hover:not(:disabled) {

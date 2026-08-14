@@ -1,0 +1,141 @@
+.spin {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid rgba(22, 192, 255, 0.25);
+  border-top-color: var(--accent);
+  animation: spin 0.7s linear infinite;
+  flex: none;
+}
+
+.spinLight {
+  border-color: rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+}
+
+.pending {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  opacity: 0.5;
+}
+
+.refresh {
+  position: relative;
+}
+
+.refreshBar {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  z-index: 3;
+}
+
+.refreshFill {
+  width: 30%;
+  height: 100%;
+  background: var(--accent);
+  animation: creep 1.3s ease-in-out infinite;
+}
+
+.failed {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background: rgba(229, 139, 123, 0.07);
+  border: 1px solid rgba(229, 139, 123, 0.3);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.failedDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--danger);
+  flex: none;
+  margin-top: 7px;
+}
+
+.failedCopy {
+  flex: 1;
+  min-width: 0;
+}
+
+.failedTitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--danger);
+}
+
+.failedBody {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+.failedRetry {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--danger);
+  background: rgba(229, 139, 123, 0.12);
+  border: 1px solid rgba(229, 139, 123, 0.32);
+  border-radius: 18px;
+  padding: 7px 15px;
+  flex: none;
+}
+
+.failedRetry:hover {
+  background: rgba(229, 139, 123, 0.2);
+}
+
+.empty {
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+}
+
+.emptyTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.emptyCopy {
+  margin: 7px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+
+.emptyCta {
+  display: inline-flex;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-soft);
+  background: rgba(22, 192, 255, 0.1);
+  border: 1px solid rgba(22, 192, 255, 0.3);
+  border-radius: 18px;
+  padding: 8px 16px;
+  margin-top: 16px;
+}
+
+.emptyCta:hover {
+  background: rgba(22, 192, 255, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin,
+  .spinLight,
+  .refreshFill {
+    animation: none !important;
+  }
+}

@@ -196,8 +196,49 @@
   z-index: 2;
 }
 
-.loading {
-  margin-bottom: 24px;
+.skelHero {
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 44px 48px 24px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.skelEyebrow {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.skelTitle {
+  margin-top: 12px;
+  font-weight: 900;
+  font-size: clamp(48px, 9vw, 96px);
+  line-height: 0.88;
+  letter-spacing: -0.042em;
+}
+
+.skelBlurb {
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.skelStats {
+  display: flex;
+  gap: 48px;
+  margin-top: 30px;
+}
+
+.skelStat {
+  width: 88px;
+  height: 52px;
+  border-radius: 10px;
+}
+
+.skelPicks {
+  padding: 32px 48px 90px;
 }
 
 .skelGrid {
@@ -207,16 +248,51 @@
 }
 
 .skelCard {
-  height: 280px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
-.loadingMeta {
-  margin: 18px 0 0;
+.skelArt {
+  height: 196px;
+  border-radius: 0;
+}
+
+.skelBody {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.skelName {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.012em;
+}
+
+.skelWhy {
   font-size: 14px;
-  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.skelBarRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.skelBar {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+}
+
+.skelWr {
+  width: 48px;
+  height: 13px;
 }
 
 .thin {
@@ -506,6 +582,15 @@
     grid-template-columns: 1fr;
   }
 
+  .skelHero {
+    min-height: 420px;
+    padding: 28px 20px 20px;
+  }
+
+  .skelPicks {
+    padding: 24px 20px 72px;
+  }
+
   .heroContent {
     padding: 28px 20px 0;
   }
@@ -544,8 +629,13 @@
     letter-spacing: 0.08em;
   }
 
-  .pickArt {
+  .pickArt,
+  .skelArt {
     height: 124px;
+  }
+
+  .skelName {
+    font-size: 18px;
   }
 
   .tag {

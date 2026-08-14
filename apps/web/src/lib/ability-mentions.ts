@@ -30,6 +30,8 @@ export type AbilityTextSeg =
 const KEY_RE = /\b([QWERP])\b/g;
 const OWN = new Set(['your', 'you', 'my']);
 const THEIR = new Set(['his', 'her', 'their', 'its']);
+const YOUR_ACTION = new Set(['use', 'cast', 'hold', 'save', 'spend', 'land', 'start', 'pop', 'fire']);
+const FILLER = new Set(['a', 'an', 'the', 'brief', 'short', 'long', 'full', 'next', 'first']);
 
 type MentionHit = {
   start: number;
@@ -83,6 +85,12 @@ function champFromPrefix(
       return ctx.them;
     }
     if (OWN.has(lw)) {
+      return ctx.you;
+    }
+    if (FILLER.has(lw)) {
+      continue;
+    }
+    if (YOUR_ACTION.has(lw)) {
       return ctx.you;
     }
   }

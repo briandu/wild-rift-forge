@@ -8,9 +8,14 @@ import { resolveAbilities } from '@/lib/abilities';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { artFor, HERO_FALLBACK, initials, portraitFor } from '@/lib/champions';
 import { laneFromLabel } from '@/lib/placements';
+import { skeletonDelay } from '@/lib/loading';
 import { AbilityStrip } from './AbilityStrip';
+import { EmptyPanel, emptyCtaClass } from './LoadState';
 import { LaneGlyph } from './LaneGlyph';
 import styles from './CounterResults.module.css';
+
+const PICK_SKEL = 3;
+const NAME_SKEL = ['Volibear', 'Renekton', 'Gwen'] as const;
 
 export function CounterResults({ data }: { data: CountersResponse }) {
   const enemy = data.enemy;
@@ -145,6 +150,18 @@ export function CounterResults({ data }: { data: CountersResponse }) {
           <p className={styles.sectionMeta}>Ranked by matchup score · {data.games} games</p>
         </div>
 
+        {data.picks.length === 0 ? (
+          <EmptyPanel
+            title={`No counters for ${enemy.name} in ${data.lane}`}
+            copy="The request succeeded and returned nothing. Try another lane, or browse the roster."
+            action={
+              <Link href="/champions" className={emptyCtaClass()}>
+                Browse champions
+              </Link>
+            }
+          />
+        ) : null}
+
         <div className={styles.picks}>
           {data.picks.map((c) => {
             const strong = c.tag === 'STRONG COUNTER';
@@ -226,6 +243,68 @@ export function CounterResults({ data }: { data: CountersResponse }) {
               </ul>
             </aside>
           ) : null}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export function CounterResultsSkeleton() {
+  return (
+    <div aria-busy="true" aria-live="polite">
+      <p className="sr-only">Loading counters</p>
+      <section className={styles.skelHero}>
+        <div>
+          <span data-skel="2" className={`skel-text ${styles.skelEyebrow}`}>
+            ENEMY PICK · TOP
+          </span>
+          <span data-skel="1" className={`skel-text ${styles.skelTitle}`}>
+            VOLIBEAR
+          </span>
+          <span data-skel="3" className={`skel-text ${styles.skelBlurb}`}>
+            Out-sustains the trade and punishes short cooldowns.
+          </span>
+          <div className={styles.skelStats}>
+            <div data-skel="2" className={styles.skelStat} />
+            <div data-skel="2" className={styles.skelStat} />
+            <div data-skel="2" className={styles.skelStat} />
+          </div>
+        </div>
+      </section>
+      <section className={styles.skelPicks}>
+        <div className={styles.skelGrid}>
+          {NAME_SKEL.slice(0, PICK_SKEL).map((name, i) => (
+            <div key={name} className={styles.skelCard}>
+              <div data-skel="1" className={styles.skelArt} style={{ animationDelay: skeletonDelay(i) }} />
+              <div className={styles.skelBody}>
+                <span
+                  data-skel="1"
+                  className={`skel-text ${styles.skelName}`}
+                  style={{ animationDelay: skeletonDelay(i) }}
+                >
+                  {name}
+                </span>
+                <span
+                  data-skel="3"
+                  className={`skel-text ${styles.skelWhy}`}
+                  style={{ width: '100%', animationDelay: skeletonDelay(i) }}
+                >
+                  Out-sustains the trade and punishes short cooldowns.
+                </span>
+                <span
+                  data-skel="3"
+                  className={`skel-text ${styles.skelWhy}`}
+                  style={{ width: '68%', animationDelay: skeletonDelay(i) }}
+                >
+                  Short line
+                </span>
+                <div className={styles.skelBarRow}>
+                  <div data-skel="2" className={styles.skelBar} />
+                  <div data-skel="2" className={styles.skelWr} />
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>

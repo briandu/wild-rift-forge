@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import type { TierPlacementDto } from '@/lib/api-types';
+import { skeletonDelay } from '@/lib/loading';
 import { TIER_DEFS } from '@/lib/tier-bands';
 import { useAbilityTip } from './AbilityTip';
 import { ChampFace } from './ChampFace';
@@ -195,6 +196,73 @@ export function TierList({
           <Link href="/patch" className={styles.patchLink}>
             {patchVersion ? `See what changed in ${patchVersion}` : 'See patch notes'}
           </Link>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function TierListSkeleton() {
+  return (
+    <div aria-busy="true" aria-live="polite">
+      <p className="sr-only">Loading tier list</p>
+      <div className={styles.hero}>
+        <div className={styles.glow} aria-hidden />
+        <div className={styles.heroInner}>
+          <div>
+            <span data-skel="2" className={`skel-text ${styles.eyebrow}`}>
+              DIAMOND+
+            </span>
+            <span data-skel="1" className={`skel-text ${styles.title}`}>
+              Tier list
+            </span>
+            <span data-skel="3" className={`skel-text ${styles.copy}`}>
+              Every champion ranked from diamond plus ranked stats.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div className={styles.body}>
+        <div className={styles.bands}>
+          {TIER_DEFS.map((band) => (
+            <div
+              key={band.letter}
+              className={styles.band}
+              style={{ borderColor: band.bd, background: band.rowbg }}
+            >
+              <div className={styles.badge} style={{ background: band.badgebg, borderColor: band.bd }}>
+                <div className={styles.letter} style={{ color: band.c }}>
+                  {band.letter}
+                </div>
+                <div className={styles.badgeLabel} style={{ color: band.c }}>
+                  {band.label}
+                </div>
+              </div>
+              <div className={styles.champs}>
+                <div className={styles.grid}>
+                  {Array.from({ length: 6 }, (_, i) => (
+                    <div key={i} className={styles.champ}>
+                      <span
+                        data-skel="1"
+                        className={styles.skelFace}
+                        style={{ animationDelay: skeletonDelay(i) }}
+                      />
+                      <span
+                        data-skel="2"
+                        className={styles.skelChampName}
+                        style={{ animationDelay: skeletonDelay(i) }}
+                      />
+                      <span
+                        data-skel="3"
+                        className={styles.skelChampWr}
+                        style={{ animationDelay: skeletonDelay(i) }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

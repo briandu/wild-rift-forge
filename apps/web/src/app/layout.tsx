@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import { Archivo } from 'next/font/google';
 import { AbilityTipProvider } from '@/components/AbilityTip';
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, absoluteUrl } from '@/lib/seo';
+import { PRODUCTION_SITE_URL } from '@/lib/supabase/site-url';
 import './globals.css';
 
 const archivo = Archivo({
@@ -12,8 +14,43 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: 'Wild Rift Forge',
-  description: 'Wild Rift counters, matchups, and draft companion.',
+  metadataBase: new URL(PRODUCTION_SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: PRODUCTION_SITE_URL }],
+  alternates: { canonical: absoluteUrl('/') },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+      { url: '/icon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: PRODUCTION_SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [{ url: '/icon-512.png', width: 512, height: 512, alt: SITE_NAME }],
+  },
+  twitter: {
+    card: 'summary',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ['/icon-512.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
 };
 
 export const revalidate = 30;

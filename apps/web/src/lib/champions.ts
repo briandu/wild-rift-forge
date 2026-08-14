@@ -87,6 +87,16 @@ export function portraitFor(
   return thumbnailUrl || imageUrl || ART_BY_SLUG[slug.toLowerCase()] || undefined;
 }
 
+export function resolveChampionSlug(
+  value: string | undefined,
+  champions: ApiChampion[],
+): string {
+  if (!value) return '';
+  const key = value.toLowerCase();
+  return champions.find((champion) => champion.slug === key || champion.name.toLowerCase() === key)
+    ?.slug ?? '';
+}
+
 export function portraitsFromRoster(champions: ApiChampion[]): Record<string, string> {
   const map = { ...ART_BY_SLUG };
   for (const champion of champions) {

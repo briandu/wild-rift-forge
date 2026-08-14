@@ -1,4 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
+import type { TierLane } from '@wild-rift-forge/game-data';
+import { DEFAULT_ROLE_ORDER, normalizeRoleOrder } from './roles';
 
 export const ACCOUNT_REGIONS = ['NA', 'EUW', 'BR', 'KR', 'SEA'] as const;
 export const ACCOUNT_CHANNELS = ['Email', 'Push', 'Both'] as const;
@@ -15,6 +17,7 @@ export type AccountProfile = {
   notifyDigest: boolean;
   channel: AccountChannel;
   proWaitlisted: boolean;
+  preferredRoles: TierLane[];
 };
 
 export type SavedMatchupRow = {
@@ -32,6 +35,7 @@ type ProfileDb = {
   notify_digest: boolean;
   notify_channel: string;
   pro_waitlisted_at: string | null;
+  preferred_roles: string[] | null;
 };
 
 const DEFAULT_PROFILE: AccountProfile = {
@@ -43,6 +47,7 @@ const DEFAULT_PROFILE: AccountProfile = {
   notifyDigest: true,
   channel: 'Email',
   proWaitlisted: false,
+  preferredRoles: [...DEFAULT_ROLE_ORDER],
 };
 
 function asRegion(value: string | null | undefined): AccountRegion {
@@ -64,6 +69,7 @@ export function profileFromRow(row: ProfileDb | null): AccountProfile {
     notifyDigest: row.notify_digest,
     channel: asChannel(row.notify_channel),
     proWaitlisted: Boolean(row.pro_waitlisted_at),
+    preferredRoles: normalizeRoleOrder(row.preferred_roles),
   };
 }
 
@@ -73,7 +79,7 @@ export async function loadAccountState(supabase: SupabaseClient, userId: string)
     supabase
       .from('profiles')
       .select(
-        'riot_id, region, notify_pool, notify_tier, notify_counters, notify_digest, notify_channel, pro_waitlisted_at',
+        'riot_id, region, notify_pool, notify_tier, notify_counters, notify_digest, notify_channel, pro_waitlisted_at, preferred_roles',
       )
       .eq('id', userId)
       .maybeSingle(),
@@ -93,6 +99,15 @@ export async function loadAccountState(supabase: SupabaseClient, userId: string)
       (row) => ({ youSlug: row.you_slug, themSlug: row.them_slug, lane: row.lane }),
     ),
   };
+}
+
+export async function loadPreferredRoles(supabase: SupabaseClient, userId: string) {
+  const { data } = await supabase
+    .from('profiles')
+    .select('preferred_roles')
+    .eq('id', userId)
+    .maybeSingle();
+  return normalizeRoleOrder((data as { preferred_roles?: string[] } | null)?.preferred_roles);
 }
 
 export async function patchProfile(
