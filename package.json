@@ -34,6 +34,9 @@
     "emails:push": "node scripts/push-auth-email-templates.mjs",
     "emails:digest": "node scripts/send-weekly-digest.mjs",
     "emails:alerts": "node scripts/send-account-alerts.mjs",
+    "research:android:acquire": "tsx research/android/scripts/acquire.ts",
+    "research:android:unpack": "tsx research/android/scripts/unpack-apkm.ts",
+    "research:android:inspect": "tsx research/android/scripts/inspect.ts",
     "data:import": "tsx scripts/data/import-baseline.ts",
     "data:import-gameplay": "tsx scripts/data/import-gameplay.ts",
     "data:validate": "tsx scripts/data/validate-champion-data.ts",
@@ -45,10 +48,13 @@
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
+    "@types/yauzl": "^2.10.3",
+    "apkmirror-downloader": "^2.0.10",
     "embedded-postgres": "^18.4.0-beta.17",
     "prettier": "^3.3.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0",
-    "vitest": "^3.0.0"
+    "vitest": "^3.0.0",
+    "yauzl": "^3.2.0"
   }
 }

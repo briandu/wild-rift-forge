@@ -13,6 +13,8 @@ packages/
   database/   # pg client + query helpers
   game-data/  # canonical internal types (Champion, Patch, PatchChange, ...)
 design/       # Claude Design handoffs → apps/web (see design/README.md)
+research/
+  android/    # APK/APKM investigation (see research/android/README.md)
 data/         # versioned champion gameplay baseline (see data/README.md)
 docs/data/    # baseline schema notes
 supabase/

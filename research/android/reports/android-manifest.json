@@ -1,0 +1,3634 @@
+{
+  "packageName": "com.riotgames.league.wildrift",
+  "versionName": "7.2.0.2460",
+  "versionCode": "7246064",
+  "permissions": [
+    "android.permission.ACCESS_NETWORK_STATE",
+    "android.permission.ACCESS_WIFI_STATE",
+    "android.permission.INTERNET",
+    "android.permission.CHANGE_NETWORK_STATE",
+    "android.permission.MODIFY_AUDIO_SETTINGS",
+    "android.permission.RECORD_AUDIO",
+    "android.permission.INTERNET",
+    "android.permission.WRITE_EXTERNAL_STORAGE",
+    "android.permission.READ_EXTERNAL_STORAGE",
+    "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE",
+    "android.permission.READ_CALENDAR",
+    "android.permission.WRITE_CALENDAR",
+    "android.permission.CAMERA",
+    "com.android.vending.CHECK_LICENSE",
+    "com.google.android.gms.permission.AD_ID",
+    "android.permission.VIBRATE",
+    "android.permission.WAKE_LOCK",
+    "android.permission.ACCESS_ADSERVICES_ATTRIBUTION",
+    "android.permission.ACCESS_ADSERVICES_AD_ID",
+    "android.permission.POST_NOTIFICATIONS",
+    "com.google.android.c2dm.permission.RECEIVE",
+    "com.android.vending.BILLING",
+    "android.permission.FOREGROUND_SERVICE",
+    "android.permission.FOREGROUND_SERVICE_DATA_SYNC",
+    "com.riotgames.league.wildrift.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION",
+    "com.riotgames.licensing.CHECK_LICENSE"
+  ],
+  "activities": [
+    "com.google.games.bridge.NativeBridgeActivity",
+    "com.tencent.lolm.lgame",
+    "com.tencent.msdk.NameAuthActivity",
+    "com.riotgames.account.rso.android.BrowserActivityRedirect",
+    "com.tencent.facebook.GGPluginActivity",
+    "com.riotgames.primegaming.LoginActivity",
+    "com.amazon.identity.auth.device.workflow.WorkflowActivity",
+    "com.facebook.FacebookActivity",
+    "com.facebook.CustomTabMainActivity",
+    "com.facebook.CustomTabActivity",
+    "com.google.android.gms.auth.api.signin.internal.SignInHubActivity",
+    "com.google.games.bridge.GenericResolutionActivity",
+    "com.google.android.gms.games.internal.v2.resolution.GamesResolutionActivity",
+    "com.google.android.gms.games.internal.v2.appshortcuts.PlayGamesAppShortcutsActivity",
+    "com.android.billingclient.api.ProxyBillingActivity",
+    "com.android.billingclient.api.ProxyBillingActivityV2",
+    "com.google.android.gms.common.api.GoogleApiActivity",
+    "com.google.android.play.core.common.PlayCoreDialogWrapperActivity",
+    "com.vasd.pandora.srp.util.RecordControllerActivity",
+    "com.itop.gcloud.msdk.core.policy.MSDKPolicyActivity",
+    "com.riotgames.platformui.nativebrowser.BrowserActivity",
+    "com.riotgames.platformui.webview.WebViewActivity",
+    "com.riotgames.platformui.mobilefre.MobileFREWebViewActivity",
+    "com.riotgames.googleaccount.GoogleAccountActivity",
+    "com.riotgames.facebookaccount.FacebookAccountActivity",
+    "com.riotgames.account.rso.android.WebViewActivity",
+    "com.riotgames.account.rso.android.SocialLoginActivity",
+    "com.riotgames.account.rso.android.BrowserActivity",
+    "com.riotgames.voicechat.VoiceChatHelper",
+    "com.onevcat.uniwebview.UniWebViewFileChooserActivity",
+    "com.itop.gcloud.msdk.pixui.webview.WebViewActivity",
+    "com.itop.gcloud.msdk.pixui.webview.WebViewIPCActivity"
+  ],
+  "services": [
+    "com.tencent.tmdownloader.TMAssistantDownloadService",
+    "com.tencent.vmp.sdkproxy.VivoService",
+    "com.google.android.gms.measurement.AppMeasurementService",
+    "com.google.android.gms.measurement.AppMeasurementJobService",
+    "com.google.firebase.components.ComponentDiscoveryService",
+    "com.google.firebase.messaging.FirebaseMessagingService",
+    "com.google.android.gms.auth.api.signin.RevocationBoundService",
+    "com.google.android.gms.nearby.exposurenotification.WakeUpService",
+    "com.google.android.play.core.assetpacks.AssetPackExtractionService",
+    "com.google.android.play.core.assetpacks.ExtractionForegroundService",
+    "com.google.firebase.custom.LGameFirebaseSDK.LGameFirebaseMessageService",
+    "com.vasd.pandora.srp.media.record.ScreenRecordService",
+    "com.google.android.vending.custom.obbDownloaderService",
+    "com.ihoc.mgpa.gradish.GRService",
+    "com.google.android.datatransport.runtime.backends.TransportBackendDiscovery",
+    "com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+  ],
+  "providers": [
+    "com.gsdk.gcloud.ApolloProvider",
+    "com.facebook.FacebookContentProvider",
+    "androidx.core.content.FileProvider",
+    "com.adjust.sdk.SystemLifecycleContentProvider",
+    "com.facebook.internal.FacebookInitProvider",
+    "com.google.android.gms.games.provider.PlayGamesInitProvider",
+    "com.google.firebase.provider.FirebaseInitProvider",
+    "com.riotgames.mvg.Embedder"
+  ],
+  "receivers": [
+    "com.singular.sdk.SingularInstallReceiver",
+    "com.facebook.CurrentAccessTokenExpirationBroadcastReceiver",
+    "com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver",
+    "com.google.android.gms.measurement.AppMeasurementReceiver",
+    "com.google.firebase.iid.FirebaseInstanceIdReceiver",
+    "com.google.android.vending.custom.obbAlarmReceiver",
+    "com.tencent.lolm.ObbReciever",
+    "com.unity.androidnotifications.UnityNotificationManager",
+    "com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+  ],
+  "usesFeatures": [
+    "android.hardware.camera",
+    "android.hardware.camera.autofocus",
+    "android.hardware.camera.front",
+    "android.hardware.sensor.accelerometer",
+    "196608",
+    "android.hardware.vulkan.version",
+    "android.hardware.touchscreen",
+    "android.hardware.touchscreen.multitouch",
+    "android.hardware.touchscreen.multitouch.distinct"
+  ],
+  "metaData": [
+    {
+      "name": "android.support.FILE_PROVIDER_PATHS",
+      "value": "@0x7f130000"
+    },
+    {
+      "name": "com.google.android.gms.nearby.connection.SERVICE_ID",
+      "value": "com.riotgames.league.wildrift"
+    },
+    {
+      "name": "com.google.android.gms.games.APP_ID",
+      "value": "972597317697"
+    },
+    {
+      "name": "com.google.android.gms.games.unityVersion",
+      "value": "2.1.0"
+    },
+    {
+      "name": "android.max_aspect",
+      "value": "0x4019999a"
+    },
+    {
+      "name": "com.tencent.rdm.uuid",
+      "value": "2096e2ac-b50e-4a8c-b01a-59c22386e5c1"
+    },
+    {
+      "name": "android.notch_support",
+      "value": "true"
+    },
+    {
+      "name": "notch.config",
+      "value": "portrait|landscape"
+    },
+    {
+      "name": "android.vendor.full_screen",
+      "value": "true"
+    },
+    {
+      "name": "unityplayer.SkipPermissionsDialog",
+      "value": "true"
+    },
+    {
+      "name": "BASE64_PUBLIC_KEY",
+      "value": "[redacted-public-key]"
+    },
+    {
+      "name": "com.facebook.sdk.ApplicationId",
+      "value": "@0x7f100066"
+    },
+    {
+      "name": "com.facebook.sdk.ClientToken",
+      "value": "@0x7f100067"
+    },
+    {
+      "name": "unity.splash-mode",
+      "value": "2"
+    },
+    {
+      "name": "unity.splash-enable",
+      "value": "true"
+    },
+    {
+      "name": "unity.launch-fullscreen",
+      "value": "true"
+    },
+    {
+      "name": "unity.render-outside-safearea",
+      "value": "true"
+    },
+    {
+      "name": "notch.config",
+      "value": "portrait|landscape"
+    },
+    {
+      "name": "unity.auto-report-fully-drawn",
+      "value": "true"
+    },
+    {
+      "name": "unityplayer.ForwardNativeEventsToDalvik",
+      "value": "false"
+    },
+    {
+      "name": "notch_support",
+      "value": "true"
+    },
+    {
+      "name": "GCloud.GCloudCore.RemoteConfigUrl",
+      "value": "https://gcloudctrl.wr.pvp.net"
+    },
+    {
+      "name": "GCloud.TDM.TGEMIT_ROUTER_ADDRESS_FORMAL",
+      "value": "https://tdm.wr.pvp.net:8013/tdm/v1/route"
+    },
+    {
+      "name": "android.support.FILE_PROVIDER_PATHS",
+      "value": "@0x7f130002"
+    },
+    {
+      "name": "GCloud.GCloud.AddrCacheLevel",
+      "value": "0"
+    },
+    {
+      "name": "GVoice.ConfigAddr",
+      "value": "udp://na.gvoice.cros.wr.pvp.net:8700"
+    },
+    {
+      "name": "GVoice.ReportAddr",
+      "value": "udp://na.gvoice.cros.wr.pvp.net:8700"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.dynamiclinks.FirebaseDynamicLinksKtxRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar",
+      "value": "com.google.firebase.components.ComponentRegistrar"
+    },
+    {
+      "name": "com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED",
+      "value": "true"
+    },
+    {
+      "name": "instantapps.clients.allowed",
+      "value": "true"
+    },
+    {
+      "name": "com.google.android.gms.games.version",
+      "value": "@0x7f100097"
+    },
+    {
+      "name": "com.google.android.play.billingclient.version",
+      "value": "7.1.1"
+    },
+    {
+      "name": "com.google.android.play.core.assetpacks.versionCode",
+      "value": "20202"
+    },
+    {
+      "name": "com.google.android.gms.version",
+      "value": "@0x7f0a0004"
+    },
+    {
+      "name": "com.google.firebase.messaging.default_notification_icon",
+      "value": "@0x7f08008c"
+    },
+    {
+      "name": "com.google.firebase.messaging.default_notification_color",
+      "value": "@0x7f06005f"
+    },
+    {
+      "name": "GCloud.GCloud.GameId",
+      "value": "@0x7f10006e"
+    },
+    {
+      "name": "GCloud.GCloud.GameKey",
+      "value": "@0x7f10006f"
+    },
+    {
+      "name": "GCloud.GCloudCore.GTraceUrl",
+      "value": "@0x7f100071"
+    },
+    {
+      "name": "GCloud.TDM.Test",
+      "value": "false"
+    },
+    {
+      "name": "GCloud.TDM.Abroad",
+      "value": "true"
+    },
+    {
+      "name": "GCloud.TDM.LogLevel",
+      "value": "1"
+    },
+    {
+      "name": "MSDK_POLICY_VERSION",
+      "value": "1"
+    },
+    {
+      "name": "com.facebook.sdk.AutoInitEnabled",
+      "value": "false"
+    },
+    {
+      "name": "com.facebook.sdk.AutoLogAppEventsEnabled",
+      "value": "false"
+    },
+    {
+      "name": "com.unity.androidnotifications.exact_scheduling",
+      "value": "0"
+    },
+    {
+      "name": "backend:com.google.android.datatransport.cct.CctBackendFactory",
+      "value": "cct"
+    },
+    {
+      "name": "com.android.vending.splits.required",
+      "value": "true"
+    },
+    {
+      "name": "com.android.stamp.source",
+      "value": "https://play.google.com/store"
+    },
+    {
+      "name": "com.android.stamp.type",
+      "value": "STAMP_TYPE_DISTRIBUTION_APK"
+    },
+    {
+      "name": "com.android.vending.splits",
+      "value": "@0x7f130006"
+    },
+    {
+      "name": "com.android.vending.derived.apk.id",
+      "value": "3"
+    }
+  ],
+  "elements": [
+    {
+      "name": "manifest",
+      "attributes": [
+        {
+          "name": "versionCode",
+          "value": "7246064"
+        },
+        {
+          "name": "versionName",
+          "value": "7.2.0.2460"
+        },
+        {
+          "name": "installLocation",
+          "value": "2"
+        },
+        {
+          "name": "compileSdkVersion",
+          "value": "35"
+        },
+        {
+          "name": "compileSdkVersionCodename",
+          "value": "15"
+        },
+        {
+          "name": "requiredSplitTypes",
+          "value": "base__abi"
+        },
+        {
+          "name": "splitTypes",
+          "value": ""
+        },
+        {
+          "name": "package",
+          "value": "com.riotgames.league.wildrift"
+        },
+        {
+          "name": "platformBuildVersionCode",
+          "value": "35"
+        },
+        {
+          "name": "platformBuildVersionName",
+          "value": "15"
+        }
+      ]
+    },
+    {
+      "name": "uses-sdk",
+      "attributes": [
+        {
+          "name": "minSdkVersion",
+          "value": "26"
+        },
+        {
+          "name": "targetSdkVersion",
+          "value": "35"
+        }
+      ]
+    },
+    {
+      "name": "supports-screens",
+      "attributes": [
+        {
+          "name": "anyDensity",
+          "value": "true"
+        },
+        {
+          "name": "smallScreens",
+          "value": "true"
+        },
+        {
+          "name": "normalScreens",
+          "value": "true"
+        },
+        {
+          "name": "largeScreens",
+          "value": "true"
+        },
+        {
+          "name": "xlargeScreens",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.ACCESS_NETWORK_STATE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.ACCESS_WIFI_STATE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.INTERNET"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.CHANGE_NETWORK_STATE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.MODIFY_AUDIO_SETTINGS"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.RECORD_AUDIO"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.INTERNET"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.WRITE_EXTERNAL_STORAGE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.READ_EXTERNAL_STORAGE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.READ_CALENDAR"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.WRITE_CALENDAR"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.CAMERA"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.vending.CHECK_LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.permission.AD_ID"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.VIBRATE"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.hardware.camera"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.hardware.camera.autofocus"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.hardware.camera.front"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.hardware.sensor.accelerometer"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "glEsVersion",
+          "value": "196608"
+        }
+      ]
+    },
+    {
+      "name": "supports-gl-texture",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GL_KHR_texture_compression_astc_ldr"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.hardware.vulkan.version"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.hardware.touchscreen"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.hardware.touchscreen.multitouch"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "uses-feature",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.hardware.touchscreen.multitouch.distinct"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "queries",
+      "attributes": []
+    },
+    {
+      "name": "package",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "tv.twitch.android.app"
+        }
+      ]
+    },
+    {
+      "name": "intent",
+      "attributes": []
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "mimeType",
+          "value": "*/*"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.SEND"
+        }
+      ]
+    },
+    {
+      "name": "intent",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.support.customtabs.action.CustomTabsService"
+        }
+      ]
+    },
+    {
+      "name": "package",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.katana"
+        }
+      ]
+    },
+    {
+      "name": "package",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.instagram.android"
+        }
+      ]
+    },
+    {
+      "name": "package",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.lite"
+        }
+      ]
+    },
+    {
+      "name": "package",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms"
+        }
+      ]
+    },
+    {
+      "name": "package",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.vending"
+        }
+      ]
+    },
+    {
+      "name": "intent",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.vending.billing.InAppBillingService.BIND"
+        }
+      ]
+    },
+    {
+      "name": "intent",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.apps.play.billingtestcompanion.BillingOverrideService.BIND"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.WAKE_LOCK"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.ACCESS_ADSERVICES_ATTRIBUTION"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.ACCESS_ADSERVICES_AD_ID"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.POST_NOTIFICATIONS"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.c2dm.permission.RECEIVE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.vending.BILLING"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.FOREGROUND_SERVICE"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.permission.FOREGROUND_SERVICE_DATA_SYNC"
+        }
+      ]
+    },
+    {
+      "name": "permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.riotgames.league.wildrift.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        },
+        {
+          "name": "protectionLevel",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.riotgames.league.wildrift.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        }
+      ]
+    },
+    {
+      "name": "uses-permission",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.riotgames.licensing.CHECK_LICENSE"
+        }
+      ]
+    },
+    {
+      "name": "application",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x7f11013d"
+        },
+        {
+          "name": "label",
+          "value": "@0x7f10002e"
+        },
+        {
+          "name": "icon",
+          "value": "@0x7f0e0000"
+        },
+        {
+          "name": "name",
+          "value": "androidx.multidex.MultiDexApplication"
+        },
+        {
+          "name": "debuggable",
+          "value": "false"
+        },
+        {
+          "name": "allowBackup",
+          "value": "true"
+        },
+        {
+          "name": "hardwareAccelerated",
+          "value": "false"
+        },
+        {
+          "name": "supportsRtl",
+          "value": "true"
+        },
+        {
+          "name": "banner",
+          "value": "@0x7f080056"
+        },
+        {
+          "name": "isGame",
+          "value": "true"
+        },
+        {
+          "name": "extractNativeLibs",
+          "value": "true"
+        },
+        {
+          "name": "usesCleartextTraffic",
+          "value": "true"
+        },
+        {
+          "name": "resizeableActivity",
+          "value": "true"
+        },
+        {
+          "name": "networkSecurityConfig",
+          "value": "@0x7f130005"
+        },
+        {
+          "name": "appCategory",
+          "value": "0"
+        },
+        {
+          "name": "appComponentFactory",
+          "value": "androidx.core.app.CoreComponentFactory"
+        }
+      ]
+    },
+    {
+      "name": "provider",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.gsdk.gcloud.ApolloProvider"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "authorities",
+          "value": "com.riotgames.league.wildrift.ApolloFileprovider"
+        },
+        {
+          "name": "grantUriPermissions",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.support.FILE_PROVIDER_PATHS"
+        },
+        {
+          "name": "resource",
+          "value": "@0x7f130000"
+        }
+      ]
+    },
+    {
+      "name": "uses-library",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "org.apache.http.legacy"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.tencent.tmdownloader.TMAssistantDownloadService"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "process",
+          "value": ":TMAssistantDownloadSDKService"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.tencent.vmp.sdkproxy.VivoService"
+        },
+        {
+          "name": "enabled",
+          "value": "true"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.singular.sdk.SingularInstallReceiver"
+        },
+        {
+          "name": "permission",
+          "value": "android.permission.INSTALL_PACKAGES"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.vending.INSTALL_REFERRER"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.nearby.connection.SERVICE_ID"
+        },
+        {
+          "name": "value",
+          "value": "com.riotgames.league.wildrift"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.games.APP_ID"
+        },
+        {
+          "name": "value",
+          "value": "972597317697"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.games.unityVersion"
+        },
+        {
+          "name": "value",
+          "value": "2.1.0"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.max_aspect"
+        },
+        {
+          "name": "value",
+          "value": "0x4019999a"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.tencent.rdm.uuid"
+        },
+        {
+          "name": "value",
+          "value": "2096e2ac-b50e-4a8c-b01a-59c22386e5c1"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.notch_support"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "notch.config"
+        },
+        {
+          "name": "value",
+          "value": "portrait|landscape"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.vendor.full_screen"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "unityplayer.SkipPermissionsDialog"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "BASE64_PUBLIC_KEY"
+        },
+        {
+          "name": "value",
+          "value": "[redacted-public-key]"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.sdk.ApplicationId"
+        },
+        {
+          "name": "value",
+          "value": "@0x7f100066"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.sdk.ClientToken"
+        },
+        {
+          "name": "value",
+          "value": "@0x7f100067"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "unity.splash-mode"
+        },
+        {
+          "name": "value",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "unity.splash-enable"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "unity.launch-fullscreen"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "unity.render-outside-safearea"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "notch.config"
+        },
+        {
+          "name": "value",
+          "value": "portrait|landscape"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "unity.auto-report-fully-drawn"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030011"
+        },
+        {
+          "name": "name",
+          "value": "com.google.games.bridge.NativeBridgeActivity"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "label",
+          "value": "@0x7f10002e"
+        },
+        {
+          "name": "name",
+          "value": "com.tencent.lolm.lgame"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        },
+        {
+          "name": "launchMode",
+          "value": "2"
+        },
+        {
+          "name": "screenOrientation",
+          "value": "6"
+        },
+        {
+          "name": "configChanges",
+          "value": "1073745919"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.LAUNCHER"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.LEANBACK_LAUNCHER"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.MAIN"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.riotgames.wildrift.firebase.action"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "wildrift"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": [
+        {
+          "name": "autoVerify",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "https"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "host",
+          "value": "playwildrift.wr.pvp.net"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": [
+        {
+          "name": "autoVerify",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "https"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "host",
+          "value": "wildrift.go.link"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": [
+        {
+          "name": "autoVerify",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "https"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "host",
+          "value": "wildrift-vng.go.link"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": [
+        {
+          "name": "autoVerify",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "https"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "host",
+          "value": "wildrift-twm.go.link"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "unityplayer.ForwardNativeEventsToDalvik"
+        },
+        {
+          "name": "value",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "notch_support"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": [
+        {
+          "name": "autoVerify",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "https"
+        },
+        {
+          "name": "host",
+          "value": "playwildrift.page.link"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.tencent.msdk.NameAuthActivity"
+        },
+        {
+          "name": "screenOrientation",
+          "value": "4"
+        },
+        {
+          "name": "configChanges",
+          "value": "1184"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.riotgames.account.rso.android.BrowserActivityRedirect"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "com.riotgames.league.wildrift"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.GCloudCore.RemoteConfigUrl"
+        },
+        {
+          "name": "value",
+          "value": "https://gcloudctrl.wr.pvp.net"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.TDM.TGEMIT_ROUTER_ADDRESS_FORMAL"
+        },
+        {
+          "name": "value",
+          "value": "https://tdm.wr.pvp.net:8013/tdm/v1/route"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030011"
+        },
+        {
+          "name": "name",
+          "value": "com.tencent.facebook.GGPluginActivity"
+        },
+        {
+          "name": "configChanges",
+          "value": "1456"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030011"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.primegaming.LoginActivity"
+        },
+        {
+          "name": "configChanges",
+          "value": "1456"
+        }
+      ]
+    },
+    {
+      "name": "provider",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.FacebookContentProvider"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        },
+        {
+          "name": "authorities",
+          "value": "com.facebook.app.FacebookContentProvider308784200478744"
+        }
+      ]
+    },
+    {
+      "name": "provider",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "androidx.core.content.FileProvider"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "authorities",
+          "value": "com.riotgames.league.wildrift.nativeshare.fileprovider"
+        },
+        {
+          "name": "grantUriPermissions",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.support.FILE_PROVIDER_PATHS"
+        },
+        {
+          "name": "resource",
+          "value": "@0x7f130002"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030055"
+        },
+        {
+          "name": "name",
+          "value": "com.amazon.identity.auth.device.workflow.WorkflowActivity"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        },
+        {
+          "name": "launchMode",
+          "value": "2"
+        },
+        {
+          "name": "allowTaskReparenting",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "amzn"
+        },
+        {
+          "name": "host",
+          "value": "com.riotgames.league.wildrift"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.GCloud.AddrCacheLevel"
+        },
+        {
+          "name": "value",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GVoice.ConfigAddr"
+        },
+        {
+          "name": "value",
+          "value": "udp://na.gvoice.cros.wr.pvp.net:8700"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GVoice.ReportAddr"
+        },
+        {
+          "name": "value",
+          "value": "udp://na.gvoice.cros.wr.pvp.net:8700"
+        }
+      ]
+    },
+    {
+      "name": "provider",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.adjust.sdk.SystemLifecycleContentProvider"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "authorities",
+          "value": "com.riotgames.league.wildrift.adjust-lifecycle-provider"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x7f11018b"
+        },
+        {
+          "name": "name",
+          "value": "com.facebook.FacebookActivity"
+        },
+        {
+          "name": "configChanges",
+          "value": "1456"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.CustomTabMainActivity"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.CustomTabActivity"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.action.VIEW"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.DEFAULT"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.intent.category.BROWSABLE"
+        }
+      ]
+    },
+    {
+      "name": "data",
+      "attributes": [
+        {
+          "name": "scheme",
+          "value": "fbconnect"
+        },
+        {
+          "name": "host",
+          "value": "cct.com.riotgames.league.wildrift"
+        }
+      ]
+    },
+    {
+      "name": "provider",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.internal.FacebookInitProvider"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "authorities",
+          "value": "com.riotgames.league.wildrift.FacebookInitProvider"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.AuthenticationTokenManager$CurrentAuthenticationTokenChangedBroadcastReceiver"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.sdk.ACTION_CURRENT_AUTHENTICATION_TOKEN_CHANGED"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.measurement.AppMeasurementReceiver"
+        },
+        {
+          "name": "enabled",
+          "value": "true"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.measurement.AppMeasurementService"
+        },
+        {
+          "name": "enabled",
+          "value": "true"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.measurement.AppMeasurementJobService"
+        },
+        {
+          "name": "permission",
+          "value": "android.permission.BIND_JOB_SERVICE"
+        },
+        {
+          "name": "enabled",
+          "value": "true"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "property",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.adservices.AD_SERVICES_CONFIG"
+        },
+        {
+          "name": "resource",
+          "value": "@0x7f130003"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components.ComponentDiscoveryService"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "directBootAware",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingKtxRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.dynamiclinks.FirebaseDynamicLinksKtxRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+        },
+        {
+          "name": "value",
+          "value": "com.google.firebase.components.ComponentRegistrar"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.iid.FirebaseInstanceIdReceiver"
+        },
+        {
+          "name": "permission",
+          "value": "com.google.android.c2dm.permission.SEND"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.c2dm.intent.RECEIVE"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.cloudmessaging.FINISHED_AFTER_HANDLED"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.messaging.FirebaseMessagingService"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "directBootAware",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": [
+        {
+          "name": "priority",
+          "value": "4294966796"
+        }
+      ]
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.MESSAGING_EVENT"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "excludeFromRecents",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.auth.api.signin.RevocationBoundService"
+        },
+        {
+          "name": "permission",
+          "value": "com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        },
+        {
+          "name": "visibleToInstantApps",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030011"
+        },
+        {
+          "name": "label",
+          "value": "GenericResolutionActivity"
+        },
+        {
+          "name": "name",
+          "value": "com.google.games.bridge.GenericResolutionActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "instantapps.clients.allowed"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "provider",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.games.provider.PlayGamesInitProvider"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "authorities",
+          "value": "com.riotgames.league.wildrift.playgamesinitprovider"
+        },
+        {
+          "name": "initOrder",
+          "value": "99"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x7f110131"
+        },
+        {
+          "name": "name",
+          "value": "com.google.android.gms.games.internal.v2.resolution.GamesResolutionActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x7f110131"
+        },
+        {
+          "name": "name",
+          "value": "com.google.android.gms.games.internal.v2.appshortcuts.PlayGamesAppShortcutsActivity"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.games.version"
+        },
+        {
+          "name": "value",
+          "value": "@0x7f100097"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.play.billingclient.version"
+        },
+        {
+          "name": "value",
+          "value": "7.1.1"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.android.billingclient.api.ProxyBillingActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "configChanges",
+          "value": "1456"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.android.billingclient.api.ProxyBillingActivityV2"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "configChanges",
+          "value": "1456"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.nearby.exposurenotification.WakeUpService"
+        },
+        {
+          "name": "permission",
+          "value": "com.google.android.gms.nearby.exposurenotification.EXPOSURE_CALLBACK"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.google.android.gms.common.api.GoogleApiActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.play.core.assetpacks.AssetPackExtractionService"
+        },
+        {
+          "name": "enabled",
+          "value": "false"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.play.core.assetpacks.versionCode"
+        },
+        {
+          "name": "value",
+          "value": "20202"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.play.core.assetpacks.ExtractionForegroundService"
+        },
+        {
+          "name": "enabled",
+          "value": "false"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "foregroundServiceType",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "name": "provider",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.provider.FirebaseInitProvider"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "authorities",
+          "value": "com.riotgames.league.wildrift.firebaseinitprovider"
+        },
+        {
+          "name": "initOrder",
+          "value": "100"
+        },
+        {
+          "name": "directBootAware",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "uses-library",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "android.ext.adservices"
+        },
+        {
+          "name": "required",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.gms.version"
+        },
+        {
+          "name": "value",
+          "value": "@0x7f0a0004"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x7f110132"
+        },
+        {
+          "name": "name",
+          "value": "com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "stateNotNeeded",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.messaging.default_notification_icon"
+        },
+        {
+          "name": "resource",
+          "value": "@0x7f08008c"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.messaging.default_notification_color"
+        },
+        {
+          "name": "resource",
+          "value": "@0x7f06005f"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.custom.LGameFirebaseSDK.LGameFirebaseMessageService"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.firebase.MESSAGING_EVENT"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.GCloud.GameId"
+        },
+        {
+          "name": "value",
+          "value": "@0x7f10006e"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.GCloud.GameKey"
+        },
+        {
+          "name": "value",
+          "value": "@0x7f10006f"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.GCloudCore.GTraceUrl"
+        },
+        {
+          "name": "value",
+          "value": "@0x7f100071"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.TDM.Test"
+        },
+        {
+          "name": "value",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.TDM.Abroad"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030011"
+        },
+        {
+          "name": "name",
+          "value": "com.vasd.pandora.srp.util.RecordControllerActivity"
+        },
+        {
+          "name": "launchMode",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.vasd.pandora.srp.media.record.ScreenRecordService"
+        },
+        {
+          "name": "enabled",
+          "value": "true"
+        },
+        {
+          "name": "foregroundServiceType",
+          "value": "32"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.vending.custom.obbDownloaderService"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.vending.custom.obbAlarmReceiver"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.tencent.lolm.ObbReciever"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.tencent.lgameFeature.create"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "GCloud.TDM.LogLevel"
+        },
+        {
+          "name": "value",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.itop.gcloud.msdk.core.policy.MSDKPolicyActivity"
+        },
+        {
+          "name": "exported",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "MSDK_POLICY_VERSION"
+        },
+        {
+          "name": "value",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.platformui.nativebrowser.BrowserActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "launchMode",
+          "value": "2"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.platformui.webview.WebViewActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "excludeFromRecents",
+          "value": "true"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        },
+        {
+          "name": "hardwareAccelerated",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x7f1100bb"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.platformui.mobilefre.MobileFREWebViewActivity"
+        },
+        {
+          "name": "excludeFromRecents",
+          "value": "true"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        },
+        {
+          "name": "hardwareAccelerated",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.googleaccount.GoogleAccountActivity"
+        },
+        {
+          "name": "excludeFromRecents",
+          "value": "true"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.facebookaccount.FacebookAccountActivity"
+        },
+        {
+          "name": "excludeFromRecents",
+          "value": "true"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x7f1100ac"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.account.rso.android.WebViewActivity"
+        },
+        {
+          "name": "excludeFromRecents",
+          "value": "true"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.account.rso.android.SocialLoginActivity"
+        },
+        {
+          "name": "excludeFromRecents",
+          "value": "true"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.account.rso.android.BrowserActivity"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "launchMode",
+          "value": "2"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.sdk.AutoInitEnabled"
+        },
+        {
+          "name": "value",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.facebook.sdk.AutoLogAppEventsEnabled"
+        },
+        {
+          "name": "value",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x7f110133"
+        },
+        {
+          "name": "name",
+          "value": "com.riotgames.voicechat.VoiceChatHelper"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "configChanges",
+          "value": "1152"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.onevcat.uniwebview.UniWebViewFileChooserActivity"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030006"
+        },
+        {
+          "name": "name",
+          "value": "com.itop.gcloud.msdk.pixui.webview.WebViewActivity"
+        },
+        {
+          "name": "process",
+          "value": ":msdk_inner_webview"
+        },
+        {
+          "name": "launchMode",
+          "value": "2"
+        },
+        {
+          "name": "screenOrientation",
+          "value": "14"
+        },
+        {
+          "name": "configChanges",
+          "value": "1073743076"
+        },
+        {
+          "name": "windowSoftInputMode",
+          "value": "18"
+        },
+        {
+          "name": "hardwareAccelerated",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "activity",
+      "attributes": [
+        {
+          "name": "theme",
+          "value": "@0x1030010"
+        },
+        {
+          "name": "name",
+          "value": "com.itop.gcloud.msdk.pixui.webview.WebViewIPCActivity"
+        },
+        {
+          "name": "launchMode",
+          "value": "1"
+        },
+        {
+          "name": "configChanges",
+          "value": "1073743076"
+        }
+      ]
+    },
+    {
+      "name": "provider",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.riotgames.mvg.Embedder"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "authorities",
+          "value": "com.riotgames.league.wildrift.mvg.provider"
+        },
+        {
+          "name": "initOrder",
+          "value": "2147483647"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.ihoc.mgpa.gradish.GRService"
+        },
+        {
+          "name": "enabled",
+          "value": "true"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        },
+        {
+          "name": "process",
+          "value": "com.lvluo.message"
+        }
+      ]
+    },
+    {
+      "name": "intent-filter",
+      "attributes": []
+    },
+    {
+      "name": "action",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.ihoc.mgpa.gr.action.FALE_Natified"
+        }
+      ]
+    },
+    {
+      "name": "category",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.ihoc.mgpa.gr.category.HIDM_CATGORY"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.unity.androidnotifications.UnityNotificationManager"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.unity.androidnotifications.exact_scheduling"
+        },
+        {
+          "name": "value",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "backend:com.google.android.datatransport.cct.CctBackendFactory"
+        },
+        {
+          "name": "value",
+          "value": "cct"
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+        },
+        {
+          "name": "permission",
+          "value": "android.permission.BIND_JOB_SERVICE"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "receiver",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+        },
+        {
+          "name": "exported",
+          "value": "false"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.vending.splits.required"
+        },
+        {
+          "name": "value",
+          "value": "true"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.stamp.source"
+        },
+        {
+          "name": "value",
+          "value": "https://play.google.com/store"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.stamp.type"
+        },
+        {
+          "name": "value",
+          "value": "STAMP_TYPE_DISTRIBUTION_APK"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.vending.splits"
+        },
+        {
+          "name": "resource",
+          "value": "@0x7f130006"
+        }
+      ]
+    },
+    {
+      "name": "meta-data",
+      "attributes": [
+        {
+          "name": "name",
+          "value": "com.android.vending.derived.apk.id"
+        },
+        {
+          "name": "value",
+          "value": "3"
+        }
+      ]
+    }
+  ]
+}

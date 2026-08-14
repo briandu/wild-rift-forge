@@ -33,3 +33,10 @@ design/**/*.zip
 
 # Temporary scrape scratch (never commit live HTML dumps)
 .tmp-wrf/
+
+# Android research binaries (scripts and reports are kept)
+research/android/input/
+research/android/extracted/
+*.apk
+*.xapk
+*.apkm

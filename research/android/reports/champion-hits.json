@@ -1,0 +1,1519 @@
+{
+  "apk": "C:\\Users\\brian\\Work\\code\\wild-rift-forge\\research\\android\\input\\7.2.0.2460\\base.apk, C:\\Users\\brian\\Work\\code\\wild-rift-forge\\research\\android\\input\\7.2.0.2460\\split_pad1.apk",
+  "target": "merged",
+  "names": {
+    "garen": [
+      {
+        "file": "base:assets/MSDKConfig.ini",
+        "value": "[MSDK] MSDK_URL =https://msdk.wr.pvp.net MSDK_GAME_ID = 10137 MSDK_SDK_KEY=[redacted] MSDK_POP_URL = MSDK_PIX_FAAS_HOST = MSDK_PIX_FAAS_UPDATE = 0 MSDK_DEBUG = 0 MSDK_DEBUG_CHANNEL = Beacon,TDM,Adjust,AppsFlyer,XG,Tw…",
+        "encoding": "text"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": ",Riot.Client|IRsoAuthGarenaPartnerCredentials",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "+Riot.Client|RsoAuthGarenaPartnerCredentials",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/sharedassets14.assets.split0",
+        "value": "mr_h_garen_l",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/msdkpix/MSDKPIXCore",
+        "value": "garenerate createSequenceId",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/msdkpix/MSDKPIXCore",
+        "value": "garena&msdk_android_garena",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/msdkpix/MSDKPIXCore",
+        "value": "msdk_ios_garena",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/msdkpix/MSDKPIXCore",
+        "value": "msdk_ios_vng msdk_ios_discord&msdk_harmony_adjust$msdk_harmony_apple,msdk_harmony_appsflyer&msdk_harmony_beacon$msdk_harmony_bugly*msdk_harmony_facebook*msdk_harmony_firebase&msdk_harmony_garena&msdk_harmony_google msdk_harmony_lbs\"msdk_har…",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/platform-ui/zxcvbn.563e5fc.js",
+        "value": "(self.webpackChunk=self.webpackChunk||[]).push([[6923],{28780:function(e){var a;a={qwerty:{\"!\":[\"`~\",null,null,\"2@\",\"qQ\",null],'\"':[\";:\",\"[{\",\"]}\",null,null,\"/?\"],\"#\":[\"2@\",null,null,\"4$\",\"eE\",\"wW\"],$:[\"3#\",null,null,\"5%\",\"rR\",\"eE\"],\"%\":[\"4…",
+        "encoding": "text"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "_Garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "SGaren3",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Garena robi wrogom?V",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "SGaren",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Garena z?",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "d Garena8(",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Jako Garen b",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "ppy\\nBard\\nKayle\\nGaren\\nGwenh",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "E@Garen+",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "li Garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "PGaren",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/17cc8b8f7f0dd05a906df45ec89eee17.bytes",
+        "value": "_Garen@",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/181a2e69a5d1ca9df4626bb284ce35e4.bytes",
+        "value": "Garen_enter02_006",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/2e57c9fb97ba716df7e80d40d6592006.bytes",
+        "value": "VGarenD",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/2e57c9fb97ba716df7e80d40d6592006.bytes",
+        "value": "TGaren}",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "Garens ErneuerungR",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "herr GarenC",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "Ein Garen-",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "contoh, Garen ialah pN",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "_Garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "^Garen/",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "TGarenM",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "Ult GarenR",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "y, Garen`",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "rd\\nKayle\\nGaren\\nGw",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "`Garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "r Garen,j",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "^Garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "t)*ZGaren*k",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "Garen e Xin Zhaom",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "RGarenA",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "QGaren:",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": ": Garen C",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "to Garen7",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "ASGarenJ%",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "SGaren%P\"",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "Kayle\\nGaren\\nGwend",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "Garen e Xin Zha2A",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "Garen e Xin Zhao",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "aGaren",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "[Garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "TGarenS",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "Garenq",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "XGaren",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "oppy\\nBard\\nKayle\\nGaren\\nGweno",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "RGaren",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/614c8fa5509d1b3df4d65d67be02c73e.bytes",
+        "value": "s_garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "j_garen.",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": ";_garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "_garen",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "RgarenB",
+        "encoding": "ascii"
+      }
+    ],
+    "darius": [
+      {
+        "file": "base:assets/platform-ui/zxcvbn.563e5fc.js",
+        "value": "(self.webpackChunk=self.webpackChunk||[]).push([[6923],{28780:function(e){var a;a={qwerty:{\"!\":[\"`~\",null,null,\"2@\",\"qQ\",null],'\"':[\";:\",\"[{\",\"]}\",null,null,\"/?\"],\"#\":[\"2@\",null,null,\"4$\",\"eE\",\"wW\"],$:[\"3#\",null,null,\"5%\",\"rR\",\"eE\"],\"%\":[\"4…",
+        "encoding": "text"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "r Darius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "eDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "oDarius=",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "oDarius~",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "u Darius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "kcDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "v Dariuse",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Dariusa",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/2e57c9fb97ba716df7e80d40d6592006.bytes",
+        "value": "hDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "Darius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "eDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "oDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": ": Darius,f&",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "w Darius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "if Dariusd",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "pasif Darius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "fDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": ", Darius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "mDarius\\",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "eDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "Darius C",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "oDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": ": Darius,",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "$dDarius5",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "dDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "dDarius5",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/4635fa9013e42ce2d86ef7372cc26633.bytes",
+        "value": "eDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "oDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "Darius b",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "iDariusz",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "pDarius,%$?venr",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "*bDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": ";`kDariusR",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "odarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "8odarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "1]Ekdarius`E&Dg",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "ndarius4",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "bdariusN",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "ndarius*",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "Dodarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "1007105,Actors/h_darius/S#",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "#kdarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "&Skin02/InGame/Effects/Default/darius_skillb01_hit01_s4",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "odariusM",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "odariusq",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "\"Actors/h_darius/Skin01/InGame/Effects/Default/%",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "ddarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "odariusO",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "ndarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "ndarius{",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": ":SodariusK",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/634beb30c3cb547e606de36ab882aa1e.bytes",
+        "value": "r_Darius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "Darius o D",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "kDariusg",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "bDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "oDarius;",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "oDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "qDarius",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "Darius Maes+",
+        "encoding": "ascii"
+      }
+    ],
+    "ahri": [
+      {
+        "file": "base:assets/platform-ui/zxcvbn.563e5fc.js",
+        "value": "(self.webpackChunk=self.webpackChunk||[]).push([[6923],{28780:function(e){var a;a={qwerty:{\"!\":[\"`~\",null,null,\"2@\",\"qQ\",null],'\"':[\";:\",\"[{\",\"]}\",null,null,\"/?\"],\"#\":[\"2@\",null,null,\"4$\",\"eE\",\"wW\"],$:[\"3#\",null,null,\"5%\",\"rR\",\"eE\"],\"%\":[\"4…",
+        "encoding": "text"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "d Ahri,",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Ahri prowadzi",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "CAhri1",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "@FAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Czarodziejka Gwiazd Ahri5",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "@Ahribe",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "S_Ahri7",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Ahri, KassadinG",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "HOAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "_Ahri,",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Q_Ahriq",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "EAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "OAhri9",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Le Ahri,",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "DAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "LAhriQ",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "OAhrik",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Ahri w",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "^oOAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/17cc8b8f7f0dd05a906df45ec89eee17.bytes",
+        "value": "=OAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1aa355706e1767666124331a716c7890.bytes",
+        "value": "/Ahri_skin01 E",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1aa355706e1767666124331a716c7890.bytes",
+        "value": "BrPahri_",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1aa355706e1767666124331a716c7890.bytes",
+        "value": "Ahri_skin01e",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/2e57c9fb97ba716df7e80d40d6592006.bytes",
+        "value": "V_Ahri\\",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/2e57c9fb97ba716df7e80d40d6592006.bytes",
+        "value": "S_Ahri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "TAhri,",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "xAhri tu",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "chsfeuer-Ahri/",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "S_Ahri9",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "Ahri, Kassadi-",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "Popstar-AhriE",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "a_-Ahri9",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "[Ahri-",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "ter-Braum, Fuchsfeuer-Ahri, Panzerschiff-Malphiten",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "U_Ahri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "EEAhriN",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "OAhri6",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "Trotz Ahris",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "BAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "rAhri br",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "UHAhrif",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3836f844b9f9356af4a2938f6082cc32.bytes",
+        "value": "AAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3b7fb4496656496f9bfeb07fbea2124d.bytes",
+        "value": "KahriX4/`A|",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3b7fb4496656496f9bfeb07fbea2124d.bytes",
+        "value": "in_1334_ahrik",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3b7fb4496656496f9bfeb07fbea2124d.bytes",
+        "value": "Aahrih@",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "GAhriv(",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "@Ahri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "OAhri\"",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "trm Ahri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "W_Ahri4",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "seperti Ahri, Kassadin[",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "_ Ahri?",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "_ Ahri7",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "dNAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "X_Ahri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "u$HAhri",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "OAhri-",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "e|LAhri%",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "PAhri,",
+        "encoding": "ascii"
+      }
+    ],
+    "cho'gath": [
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "Cho'Gath",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "Cho'Gath*",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "Cho'GathRz",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/41e4fbe4276186090a5175906a61e8c1.bytes",
+        "value": "Cho'Gath aba8",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "Cho'Gath}#",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "Cho'Gath",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "Cho'GathPU",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/a9cb24f81dc8235e908cebfeeda4155b.bytes",
+        "value": "Cho'GathB",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/a9cb24f81dc8235e908cebfeeda4155b.bytes",
+        "value": "Cho'Gath",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/a9cb24f81dc8235e908cebfeeda4155b.bytes",
+        "value": "Cho'Gath c.",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/c2974fb564afa8a15be5aa6001fb97df.bytes",
+        "value": "Cho'GathG",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/c860be8454449986f5a5d38dbf4d6e41.bytes",
+        "value": "Cho'GathE",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/c860be8454449986f5a5d38dbf4d6e41.bytes",
+        "value": "Cho'GathJ",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/c860be8454449986f5a5d38dbf4d6e41.bytes",
+        "value": "eti, Cho'Gath",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/c860be8454449986f5a5d38dbf4d6e41.bytes",
+        "value": "Cho'Gath\"/",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/c860be8454449986f5a5d38dbf4d6e41.bytes",
+        "value": "Cho'Gath, Ziyafet iW",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/eca47929eae5efea4fcd055dae498f4a.bytes",
+        "value": "Cho'Gath",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/eca47929eae5efea4fcd055dae498f4a.bytes",
+        "value": "Cho'Gath Y",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/f29e0cc126237df174255747f94c916e.bytes",
+        "value": "Cho'Gath{o",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/fd41a9cae110470844499d4616a1527d.bytes",
+        "value": "Cho'Gath Juguet",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/fd41a9cae110470844499d4616a1527d.bytes",
+        "value": "Cho'Gath",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/fd41a9cae110470844499d4616a1527d.bytes",
+        "value": "Cho'Gath emeyw",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/fd41a9cae110470844499d4616a1527d.bytes",
+        "value": "Cho'Gath}+",
+        "encoding": "ascii"
+      }
+    ],
+    "chogath": [
+      {
+        "file": "pad1:assets/assetpack/Res/1d6632ab226c70aaacce18304b9133cd.bytes",
+        "value": "H_S_ChoGath",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1d6632ab226c70aaacce18304b9133cd.bytes",
+        "value": "7ssets/abpack/resources/hex/freeskill/50880501/headicon/h_s_chogath.png",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "Actors/h_chogath/Skin00/InGame",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/634beb30c3cb547e606de36ab882aa1e.bytes",
+        "value": "\"ChogathSimp4\": \"",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/dd5fd1da508fbb8f03fe2589d608ed11.bytes",
+        "value": "\"ChoGathSimp1\": \"",
+        "encoding": "ascii"
+      }
+    ],
+    "cho gath": [],
+    "vorpal spikes": [],
+    "vorpal": [
+      {
+        "file": "base:assets/platform-ui/zxcvbn.563e5fc.js",
+        "value": "(self.webpackChunk=self.webpackChunk||[]).push([[6923],{28780:function(e){var a;a={qwerty:{\"!\":[\"`~\",null,null,\"2@\",\"qQ\",null],'\"':[\";:\",\"[{\",\"]}\",null,null,\"/?\"],\"#\":[\"2@\",null,null,\"4$\",\"eE\",\"wW\"],$:[\"3#\",null,null,\"5%\",\"rR\",\"eE\"],\"%\":[\"4…",
+        "encoding": "text"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/eca47929eae5efea4fcd055dae498f4a.bytes",
+        "value": "`Vorpal\"",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/f29e0cc126237df174255747f94c916e.bytes",
+        "value": "`Vorpal",
+        "encoding": "ascii"
+      }
+    ],
+    "feast": [
+      {
+        "file": "base:assets/platform-ui/zxcvbn.563e5fc.js",
+        "value": "(self.webpackChunk=self.webpackChunk||[]).push([[6923],{28780:function(e){var a;a={qwerty:{\"!\":[\"`~\",null,null,\"2@\",\"qQ\",null],'\"':[\";:\",\"[{\",\"]}\",null,null,\"/?\"],\"#\":[\"2@\",null,null,\"4$\",\"eE\",\"wW\"],$:[\"3#\",null,null,\"5%\",\"rR\",\"eE\"],\"%\":[\"4…",
+        "encoding": "text"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "_Feast9",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/3eaed70f28b2e98c083551110835fa4c.bytes",
+        "value": "PFeast",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/eca47929eae5efea4fcd055dae498f4a.bytes",
+        "value": "Feast",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/eca47929eae5efea4fcd055dae498f4a.bytes",
+        "value": "Lunar FeastI",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/ee647999c21a3b6e09d86b6242b00c01.bytes",
+        "value": "FEAST O]",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/f29e0cc126237df174255747f94c916e.bytes",
+        "value": ".=rFeast. OG",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/f29e0cc126237df174255747f94c916e.bytes",
+        "value": "Lunar Feast9",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/f29e0cc126237df174255747f94c916e.bytes",
+        "value": "`Feast,Od",
+        "encoding": "ascii"
+      }
+    ],
+    "decisive strike": [
+      {
+        "file": "pad1:assets/assetpack/Res/ee647999c21a3b6e09d86b6242b00c01.bytes",
+        "value": "Decisive Strike",
+        "encoding": "ascii"
+      }
+    ],
+    "courage": [
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "Nui_out_loading_encourage_icon_Barrage01Nui_out_loading_encourage_icon_Barrage02",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "#FABE0ANui_common_chat_encourage_icon_encourageLui_common_chat_encourage_icon_ridicule",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "UIGuildMiniCard.UILoadingEncouragePanel\"UIGuildStarChoose$UIGuildStarSetting0UIAchievementWeeklyPanel*UIBattleRuinCountdown(UIShopPreviewItemBuy8UIBattleAcademyQuestionPanel$UICherryHexTechLab:UIShareAchievementWeeklyPanel*UIHeroLabelPopupP…",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "0ui_outCommon_circular_bg>ui_outCommon_buff_1334_icon_expDui_out_ChampSelect_encourage_btnBgNui_common_chat_encourage_icon_encourage",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "=\\Assets\\Scripts\\AG\\Logic\\Entries\\Encourage\\BarrageItemCtrl.cs",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": ":\\Assets\\Scripts\\AG\\Logic\\Entries\\Encourage\\EncourageSys.cs",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "C\\Assets\\Scripts\\AG\\Logic\\Entries\\Encourage\\UIChatBarrageBaseCtrl.cs",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "D\\Assets\\Scripts\\AG\\Logic\\Entries\\Encourage\\UIEncourageStateButton.cs",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "K\\Assets\\Scripts\\AG\\Logic\\Entries\\Encourage\\UILoadingEncourageBarrageCtrl.cs",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "O\\Assets\\Scripts\\AG\\Logic\\Entries\\Encourage\\UILoadingEncourageBarrageItemCtrl.cs",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "I\\Assets\\Scripts\\AG\\Logic\\Entries\\Encourage\\UILoadingEncouragePanelCtrl.cs",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "P\\Assets\\Scripts\\AG\\UI\\Entries\\CommonChat\\BubbleElement\\BubbleElementEncourage.cs",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "|EncourageSys",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "|UIEncourageStateButton",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "|UILoadingEncourageBarrageCtrl",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "\"|UILoadingEncourageBarrageItemCtrl",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "CUILoadingEncourageBarrageItemCtrl|UILoadingEncourageBarrageItemData",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "|UILoadingEncouragePanelCtrl",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "|BubbleElementEncourage",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "%|VisiMsg_EVENT_ENCOURAGE_SEND_BARRAGE",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "$|VisiMsg_EVENT_ENCOURAGE_SEND_INROOM",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "0|VisiMsg_EVENT_ENCOURAGE_REFRESH_ENCOURAGEEFFECT",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "+|VisiMsg_EVENT_ENCOURAGE_BARRAGEBTN_ONCLICK",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "*star_stat_report|EncourageLoadingEventStat",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": ",star_stat_report|EncourageHighModelEventStat",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "*star_stat_report|EncourageLoadingEventOver",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "%star_stat_report|EncourageHideBtnStat",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "VUse of this API is highly discouraged, it selects legacy-mode LM/NTLM authentication, which sends your password in very weak encryption over the wire even if the server supports the more secure NTLMv2 / NTLMv2 Session. You need to use the …",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/globalgamemanagers.assets.split0",
+        "value": "BubbleElementEncourage",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/globalgamemanagers.assets.split0",
+        "value": "UILoadingEncourageBarrageItemCtrl",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/globalgamemanagers.assets.split0",
+        "value": "EncourageSys",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/globalgamemanagers.assets.split1",
+        "value": "UILoadingEncourageBarrageCtrl",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/globalgamemanagers.assets.split1",
+        "value": "UIEncourageStateButton",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/globalgamemanagers.assets.split1",
+        "value": "UILoadingEncouragePanelCtrl",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/platform-ui/zxcvbn.563e5fc.js",
+        "value": "(self.webpackChunk=self.webpackChunk||[]).push([[6923],{28780:function(e){var a;a={qwerty:{\"!\":[\"`~\",null,null,\"2@\",\"qQ\",null],'\"':[\";:\",\"[{\",\"]}\",null,null,\"/?\"],\"#\":[\"2@\",null,null,\"4$\",\"eE\",\"wW\"],$:[\"3#\",null,null,\"5%\",\"rR\",\"eE\"],\"%\":[\"4…",
+        "encoding": "text"
+      },
+      {
+        "file": "base:classes.dex",
+        "value": "!Landroidx/annotation/Discouraged;",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:classes.dex",
+        "value": "RESIDENT_KEY_DISCOURAGED",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:classes.dex",
+        "value": "USER_VERIFICATION_DISCOURAGED",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:classes.dex",
+        "value": "discouraged",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "Encourageq",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/1770b9abbee11641ccc102e93aa80712.bytes",
+        "value": "EncourageuJ",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/2e57c9fb97ba716df7e80d40d6592006.bytes",
+        "value": "Encourage",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/4635fa9013e42ce2d86ef7372cc26633.bytes",
+        "value": "Encourageg",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5251411ee3d0367f67d1e9e8eb43c611.bytes",
+        "value": "LoadingEncourageBar",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/5c59990a64ee93d47c64512c56005bd7.bytes",
+        "value": "pcourage'",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "2_CourageColoszd",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "2_CourageColossus",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "CourageCo",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "2_CourageColos_N",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "CourageColoss",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "2_CourageColos",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "nes2_CourageColossu",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "nes2_CourageColossus",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/61771a27d47278355fd74934d42c6e2c.bytes",
+        "value": "CourageColos'",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/634beb30c3cb547e606de36ab882aa1e.bytes",
+        "value": "Encourage",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/7ba757a45e3ae4b000d00e1ae998cf16.bytes",
+        "value": "EncourageBar",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/7dfd5428a47a489e993caafcf7a8363e.bytes",
+        "value": "encourage8",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/7dfd5428a47a489e993caafcf7a8363e.bytes",
+        "value": "encourage_bar",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/7dfd5428a47a489e993caafcf7a8363e.bytes",
+        "value": "encourage`",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/8500677a9c3bc65c9111aaf36179e611.bytes",
+        "value": "Encourage$%",
+        "encoding": "ascii"
+      }
+    ],
+    "judgment": [
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "DraftStageReady&DraftStageSelecting&DraftStagePreSelect DraftStageVoting CoreFlow_Prepick.HeroIntroduction_Prefix8HeroShortIntroduction_Prefix:HeroCounterInformation_Prefix*DraftMyOwnForbidTurns2DraftMyTeamForbiddenTurns8DraftEnemyTeamForbi…",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "DraftMyLaneDesc&DraftMyLaneTypeDesc,DraftMyTeamSelectBlind2DraftEnemyTeamSelectBlind*DraftMyOwnSelectBlind8DraftJudgmentBlueSelectBlind6DraftJudgmentRedSelectBlind",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/platform-ui/zxcvbn.563e5fc.js",
+        "value": "(self.webpackChunk=self.webpackChunk||[]).push([[6923],{28780:function(e){var a;a={qwerty:{\"!\":[\"`~\",null,null,\"2@\",\"qQ\",null],'\"':[\";:\",\"[{\",\"]}\",null,null,\"/?\"],\"#\":[\"2@\",null,null,\"4$\",\"eE\",\"wW\"],$:[\"3#\",null,null,\"5%\",\"rR\",\"eE\"],\"%\":[\"4…",
+        "encoding": "text"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/eca47929eae5efea4fcd055dae498f4a.bytes",
+        "value": "Judgment",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/eca47929eae5efea4fcd055dae498f4a.bytes",
+        "value": "Judgment&",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/ee647999c21a3b6e09d86b6242b00c01.bytes",
+        "value": "Judgment1",
+        "encoding": "ascii"
+      },
+      {
+        "file": "pad1:assets/assetpack/Res/f29e0cc126237df174255747f94c916e.bytes",
+        "value": "Judgment Garen",
+        "encoding": "ascii"
+      }
+    ],
+    "judgement": [
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "+|VisiMsg_EVENT_CHAT_PLAYER_JUDGEMENT_CHANGE",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/bin/Data/Managed/Metadata/global-metadata.dat",
+        "value": "star_def|VideoJudgementInspector",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:assets/platform-ui/zxcvbn.563e5fc.js",
+        "value": "(self.webpackChunk=self.webpackChunk||[]).push([[6923],{28780:function(e){var a;a={qwerty:{\"!\":[\"`~\",null,null,\"2@\",\"qQ\",null],'\"':[\";:\",\"[{\",\"]}\",null,null,\"/?\"],\"#\":[\"2@\",null,null,\"4$\",\"eE\",\"wW\"],$:[\"3#\",null,null,\"5%\",\"rR\",\"eE\"],\"%\":[\"4…",
+        "encoding": "text"
+      },
+      {
+        "file": "base:classes3.dex",
+        "value": "JUDGEMENT_FILE_NAME",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:classes3.dex",
+        "value": "JudgementScreenRecord",
+        "encoding": "ascii"
+      },
+      {
+        "file": "base:classes3.dex",
+        "value": "TYPE_JUDGEMENT",
+        "encoding": "ascii"
+      }
+    ],
+    "demacian justice": [
+      {
+        "file": "pad1:assets/assetpack/Res/eca47929eae5efea4fcd055dae498f4a.bytes",
+        "value": "Demacian Justice",
+        "encoding": "ascii"
+      }
+    ]
+  },
+  "numbers": {
+    "vorpal_old": {
+      "label": "Vorpal Spikes old 15/35/55/75",
+      "hits": []
+    },
+    "vorpal_new": {
+      "label": "Vorpal Spikes new 20/45/70/95",
+      "hits": []
+    }
+  },
+  "outcome": "C",
+  "outcomeNote": "Neither Vorpal Spikes number sequence was found as readable text. Numbers may be binary, server-controlled, or not in this package."
+}
