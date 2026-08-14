@@ -83,6 +83,7 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 11px;
   padding: 5px;
+  overflow-x: auto;
 }
 
 .role,
@@ -95,6 +96,8 @@
   align-items: center;
   border-radius: 7px;
   color: #8b87a8;
+  flex: none;
+  white-space: nowrap;
 }
 
 .roleActive {

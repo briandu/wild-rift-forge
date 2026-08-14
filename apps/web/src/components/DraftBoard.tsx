@@ -86,7 +86,9 @@ export function DraftBoard({
       const { data: rows } = await supabase
         .from('user_champion_pool')
         .select('champion_slug')
-        .eq('user_id', data.user.id);
+        .eq('user_id', data.user.id)
+        .order('sort_order', { ascending: true })
+        .order('created_at', { ascending: true });
       setPool(((rows ?? []) as Array<{ champion_slug: string }>).map((row) => row.champion_slug));
     });
   }, []);

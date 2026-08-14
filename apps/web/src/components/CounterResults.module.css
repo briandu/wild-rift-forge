@@ -149,6 +149,39 @@
   background: var(--accent);
 }
 
+.muCta {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: rgba(22, 192, 255, 0.09);
+  border: 1px solid rgba(22, 192, 255, 0.3);
+  border-radius: 16px;
+  padding: 15px 16px;
+  margin-bottom: 22px;
+}
+
+.muCta:hover {
+  background: rgba(22, 192, 255, 0.14);
+}
+
+.muCta svg {
+  flex: none;
+}
+
+.muCtaTitle {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.muCtaSub {
+  display: block;
+  font-size: 13px;
+  color: #8b87a8;
+  line-height: 1.45;
+  margin-top: 3px;
+}
+
 .body {
   position: relative;
   padding: 32px 48px 90px;

@@ -6,21 +6,38 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { useChampionAvatar } from '@/hooks/useChampionAvatar';
-import type { ApiChampion } from '@/lib/api';
+import type { ApiChampion, TierPlacementDto } from '@/lib/api';
 import {
   ACCOUNT_CHANNELS,
   ACCOUNT_REGIONS,
   loadAccountState,
   patchProfile,
+  savePoolOrder,
   type AccountChannel,
   type AccountProfile,
   type AccountRegion,
   type SavedMatchupRow,
 } from '@/lib/account';
-import { portraitsFromRoster } from '@/lib/champions';
-import { CHAMP_META, metaFor } from '@/lib/design-stubs';
+import { portraitsFromRoster, roleLabel } from '@/lib/champions';
+import { savedLaneVerdict } from '@/lib/matchup-card';
+import {
+  bestPlacement,
+  formatRate,
+  parseTierLane,
+  placementsForSlug,
+} from '@/lib/placements';
+import {
+  POOL_SORTS,
+  mergeLaneOrder,
+  movePoolItem,
+  poolScopeLabel,
+  poolSortHint,
+  sortPool,
+  type PoolSort,
+} from '@/lib/pool-rank';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
+import { accountHeadingName } from '@/lib/user-name';
 import { ChampFace } from './ChampFace';
 import { ChampionPicker } from './ChampionPicker';
 import styles from './AccountView.module.css';
@@ -44,10 +61,26 @@ type SavedPair = SavedMatchupRow & {
 
 const LANES = ['All', 'Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
 const NOTIFS = [
-  { k: 'pool', name: 'Patch changes to my pool', note: 'When a champion you play, or a common opponent, is buffed or nerfed.' },
-  { k: 'tier', name: 'Tier shifts in my lanes', note: 'Only when something moves a full tier, not every decimal.' },
-  { k: 'counters', name: 'New counters worth learning', note: 'When a pick starts beating a champion you struggle against.' },
-  { k: 'digest', name: 'Weekly digest', note: 'One summary on Monday instead of alerts through the week.' },
+  {
+    k: 'pool',
+    name: 'Patch changes to my pool',
+    note: 'Email when a patch note names a champion in your pool.',
+  },
+  {
+    k: 'tier',
+    name: 'Tier shifts in my lanes',
+    note: 'Email when a pool champion moves a full S/A/B/C letter.',
+  },
+  {
+    k: 'counters',
+    name: 'New counters worth learning',
+    note: 'Not sent yet — pairwise counter history is not ingested.',
+  },
+  {
+    k: 'digest',
+    name: 'Weekly digest',
+    note: 'One summary on Monday instead of alerts through the week.',
+  },
 ] as const;
 const PLAN_INCLUDED = [
   'Every matchup, counter and tier list',
@@ -56,7 +89,7 @@ const PLAN_INCLUDED = [
   'Patch alerts for your champions',
 ];
 const PLAN_PRO = [
-  'Champion select overlay that reads the lobby',
+  'Desktop draft helper from a screen you share',
   'Your own match history as the data source',
   'Shared plans for a full team',
 ];
@@ -79,14 +112,34 @@ function nameFor(slug: string, champions: ApiChampion[]): string {
   return champions.find((champion) => champion.slug === slug)?.name ?? slug;
 }
 
-function toSavedPair(row: SavedMatchupRow, champions: ApiChampion[]): SavedPair {
+function slugFor(name: string, champions: ApiChampion[]): string | undefined {
+  return champions.find((champion) => champion.name === name)?.slug;
+}
+
+function champFor(name: string, champions: ApiChampion[]): ApiChampion | undefined {
+  return champions.find((champion) => champion.name === name);
+}
+
+function playsLane(placements: TierPlacementDto[], slug: string, lane: string): boolean {
+  if (lane === 'All') return true;
+  return placementsForSlug(placements, slug).some((row) => row.lane === lane);
+}
+
+function toSavedPair(
+  row: SavedMatchupRow,
+  champions: ApiChampion[],
+  placements: TierPlacementDto[],
+): SavedPair {
   const you = nameFor(row.youSlug, champions);
   const them = nameFor(row.themSlug, champions);
-  const youWr = parseFloat(metaFor(you).wr);
-  const themWr = parseFloat(metaFor(them).wr);
-  const side: SavedPair['side'] = youWr - themWr >= 1.5 ? 'you' : themWr - youWr >= 1.5 ? 'them' : 'even';
-  const verdict =
-    side === 'you' ? `${you.toUpperCase()} FAVOURED` : side === 'them' ? `${them.toUpperCase()} FAVOURED` : 'EVEN MATCHUP';
+  const lane = parseTierLane(row.lane);
+  const youRow = lane
+    ? placements.find((item) => item.slug === row.youSlug && item.lane === lane)
+    : undefined;
+  const themRow = lane
+    ? placements.find((item) => item.slug === row.themSlug && item.lane === lane)
+    : undefined;
+  const { side, verdict } = savedLaneVerdict(you, them, youRow?.winRate, themRow?.winRate);
   return { ...row, you, them, side, verdict };
 }
 
@@ -101,7 +154,13 @@ const EMPTY_PROFILE: AccountProfile = {
   proWaitlisted: false,
 };
 
-export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
+export function AccountView({
+  champions = [],
+  placements = [],
+}: {
+  champions?: ApiChampion[];
+  placements?: TierPlacementDto[];
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const tab = tabFrom(searchParams.get('tab'));
@@ -113,6 +172,8 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
   const [pool, setPool] = useState<string[]>([]);
   const [saved, setSaved] = useState<SavedMatchupRow[]>([]);
   const [poolLane, setPoolLane] = useState<(typeof LANES)[number]>('All');
+  const [poolSort, setPoolSort] = useState<PoolSort>('Custom');
+  const [poolQ, setPoolQ] = useState('');
   const [emailEdit, setEmailEdit] = useState(false);
   const [emailDraft, setEmailDraft] = useState('');
   const [deleteConfirm, setDeleteConfirm] = useState(false);
@@ -145,27 +206,67 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
   const email = user?.email ?? 'you@example.com';
   const riotConnected = Boolean(profile.riotId);
   const riotId = profile.riotId || 'No Riot ID';
-  const displayName = profile.riotId || user?.email || 'Account';
-  const savedPairs = useMemo(() => saved.map((row) => toSavedPair(row, champions)), [saved, champions]);
-  const poolNames = useMemo(() => pool.map((slug) => nameFor(slug, champions)), [pool, champions]);
-
-  const visiblePool = useMemo(
-    () =>
-      poolNames.filter((name) => poolLane === 'All' || metaFor(name).lanes.includes(poolLane)),
-    [pool, poolLane, poolNames],
+  const displayName = accountHeadingName(user);
+  const savedPairs = useMemo(
+    () => saved.map((row) => toSavedPair(row, champions, placements)),
+    [saved, champions, placements],
   );
 
-  const suggestions = useMemo(
-    () =>
-      champions
-        .map((champion) => champion.name)
-        .concat(Object.keys(CHAMP_META))
-        .filter((name, i, all) => all.indexOf(name) === i)
-        .filter((name) => !poolNames.includes(name))
-        .filter((name) => poolLane === 'All' || metaFor(name).lanes.includes(poolLane))
-        .slice(0, 8),
-    [champions, poolLane, poolNames],
+  const preferredLane = poolLane === 'All' ? undefined : poolLane;
+  const inLane = (slug: string) => playsLane(placements, slug, poolLane);
+  const placeOf = (slug: string) =>
+    bestPlacement(placementsForSlug(placements, slug), preferredLane);
+  const winRateOf = (slug: string) => placeOf(slug)?.winRate ?? 0;
+  const volumeOf = (slug: string) => placeOf(slug)?.pickRate ?? 0;
+
+  const visibleSlugs = useMemo(
+    () => sortPool(pool.filter(inLane), poolSort, winRateOf, volumeOf),
+    [pool, poolLane, poolSort, placements],
   );
+
+  const poolCards = useMemo(
+    () =>
+      visibleSlugs.map((slug) => {
+        const place = placeOf(slug);
+        return {
+          slug,
+          name: nameFor(slug, champions),
+          role: place?.lane ?? roleLabel(champFor(nameFor(slug, champions), champions)?.roles ?? []),
+          wr: place ? formatRate(place.winRate) : '—',
+          wrc: place ? (place.winRate >= 52 ? '#8FEDB8' : '#F0A87B') : '#8B87A8',
+          games: riotConnected
+            ? place
+              ? `${formatRate(place.pickRate)} pick`
+              : '—'
+            : 'Connect Riot ID',
+        };
+      }),
+    [champions, placements, poolLane, riotConnected, visibleSlugs],
+  );
+
+  const poolResults = useMemo(() => {
+    const q = poolQ.trim().toLowerCase();
+    const taken = new Set(pool);
+    return champions
+      .filter((champion) => !taken.has(champion.slug))
+      .filter((champion) =>
+        q
+          ? champion.name.toLowerCase().includes(q) || champion.slug.includes(q)
+          : inLane(champion.slug),
+      )
+      .sort((a, b) => winRateOf(b.slug) - winRateOf(a.slug) || a.name.localeCompare(b.name))
+      .slice(0, q ? 8 : 5)
+      .map((champion) => {
+        const place = placeOf(champion.slug);
+        return {
+          slug: champion.slug,
+          name: champion.name,
+          role: place?.lane ?? roleLabel(champion.roles),
+          wr: place ? formatRate(place.winRate) : '—',
+          wrc: place ? (place.winRate >= 52 ? '#8FEDB8' : '#F0A87B') : '#8B87A8',
+        };
+      });
+  }, [champions, placements, pool, poolLane, poolQ]);
 
   const stats = [
     { v: riotConnected ? profile.region : '—', k: 'REGION', c: '#8FEDB8' },
@@ -204,24 +305,57 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
     }
   }
 
-  async function addPool(name: string) {
-    const slug = champions.find((champion) => champion.name === name)?.slug ?? metaFor(name).slug;
-    setPool((cur) => (cur.includes(slug) ? cur : [...cur, slug]));
-    setNotice(`${name} added to your pool.`);
+  async function persistOrder(next: string[], ok?: string) {
+    setPool(next);
+    if (ok) setNotice(ok);
     if (user && isSupabaseConfigured()) {
-      const supabase = createClient();
-      await supabase.rpc('ensure_default_avatar');
-      const { error } = await supabase
-        .from('user_champion_pool')
-        .insert({ user_id: user.id, champion_slug: slug });
-      if (error && !error.message.includes('duplicate')) {
-        setNotice(error.message);
+      try {
+        await savePoolOrder(createClient(), user.id, next);
+      } catch (error) {
+        setNotice(error instanceof Error ? error.message : 'Could not save pool order.');
       }
     }
   }
 
+  async function addPool(name: string) {
+    const slug = slugFor(name, champions);
+    if (!slug) return;
+    const next = pool.includes(slug) ? pool : [...pool, slug];
+    setPoolQ('');
+    setNotice(`${name} added to your pool.`);
+    if (user && isSupabaseConfigured()) {
+      const supabase = createClient();
+      await supabase.rpc('ensure_default_avatar');
+      const { error } = await supabase.from('user_champion_pool').insert({
+        user_id: user.id,
+        champion_slug: slug,
+        sort_order: next.length - 1,
+      });
+      if (error && !error.message.includes('duplicate')) {
+        setNotice(error.message);
+        return;
+      }
+    }
+    void persistOrder(next);
+  }
+
+  function movePool(slug: string, dir: -1 | 1) {
+    const customVisible = pool.filter(inLane);
+    const next = mergeLaneOrder(pool, movePoolItem(customVisible, slug, dir), inLane);
+    setPoolSort('Custom');
+    void persistOrder(next);
+  }
+
+  function commitPoolOrder() {
+    const next = mergeLaneOrder(pool, visibleSlugs, inLane);
+    const label = poolSort.toLowerCase();
+    setPoolSort('Custom');
+    void persistOrder(next, `Pool reordered by ${label} for ${poolScopeLabel(poolLane)}.`);
+  }
+
   async function removePool(name: string) {
-    const slug = champions.find((champion) => champion.name === name)?.slug ?? metaFor(name).slug;
+    const slug = slugFor(name, champions);
+    if (!slug) return;
     setPool((cur) => cur.filter((item) => item !== slug));
     setNotice(`${name} removed from your pool.`);
     if (user && isSupabaseConfigured()) {
@@ -235,7 +369,14 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
 
   async function removeSaved(pair: SavedPair) {
     setSaved((cur) =>
-      cur.filter((row) => !(row.youSlug === pair.youSlug && row.themSlug === pair.themSlug && row.lane === pair.lane)),
+      cur.filter(
+        (row) =>
+          !(
+            row.youSlug === pair.youSlug &&
+            row.themSlug === pair.themSlug &&
+            row.lane === pair.lane
+          ),
+      ),
     );
     setNotice(`${pair.you} vs ${pair.them} removed.`);
     if (user && isSupabaseConfigured()) {
@@ -265,8 +406,13 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
             </button>
             <div className={styles.identityCopy}>
               <div className={styles.kicker}>ACCOUNT</div>
-              <h1 className={styles.name}>{displayName}</h1>
-              <p className={styles.meta}>
+              <h1 className={styles.name} title={displayName}>
+                {displayName}
+              </h1>
+              <p
+                className={styles.meta}
+                title={`${email} · ${riotConnected ? riotId : 'Not connected'}`}
+              >
                 {email} · {riotConnected ? riotId : 'Not connected'}
               </p>
             </div>
@@ -282,7 +428,7 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
             ))}
           </div>
         </div>
-        <nav className={styles.tabs} aria-label="Account">
+        <nav className={`${styles.tabs} xfade`} aria-label="Account">
           {TABS.map((item) => (
             <button
               key={item.id}
@@ -312,7 +458,12 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
           <div className={styles.notice} role="status">
             <span className={styles.noticeDot} />
             <span className={styles.noticeText}>{notice}</span>
-            <button type="button" className={styles.noticeClose} onClick={() => setNotice('')} aria-label="Dismiss">
+            <button
+              type="button"
+              className={styles.noticeClose}
+              onClick={() => setNotice('')}
+              aria-label="Dismiss"
+            >
               ×
             </button>
           </div>
@@ -321,13 +472,19 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
         {tab === 'overview' ? (
           <Overview
             portraits={portraits}
+            champions={champions}
+            placements={placements}
             riotConnected={riotConnected}
             riotId={riotId}
             riotDraft={riotDraft}
-            pool={poolNames}
+            pool={pool}
             onRiotDraft={setRiotDraft}
             onDisconnect={() =>
-              void persistProfile({ riot_id: null }, { ...profile, riotId: null }, 'Riot ID disconnected.')
+              void persistProfile(
+                { riot_id: null },
+                { ...profile, riotId: null },
+                'Riot ID disconnected.',
+              )
             }
             onConnect={() => {
               const next = riotDraft.trim();
@@ -335,7 +492,11 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
                 setNotice('Use Summoner#TAG.');
                 return;
               }
-              void persistProfile({ riot_id: next }, { ...profile, riotId: next }, 'Riot ID saved.');
+              void persistProfile(
+                { riot_id: next },
+                { ...profile, riotId: next },
+                'Riot ID saved.',
+              );
             }}
           />
         ) : null}
@@ -343,14 +504,37 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
         {tab === 'pool' ? (
           <Pool
             portraits={portraits}
-            pool={visiblePool}
+            cards={poolCards}
             lane={poolLane}
-            empty={visiblePool.length === 0}
+            sort={poolSort}
+            query={poolQ}
+            empty={poolCards.length === 0}
             blurb={`${pool.length} champions in your pool. Their matchups come first everywhere in the app.`}
-            suggestions={suggestions}
+            hint={poolSortHint(poolSort, poolScopeLabel(poolLane), riotConnected)}
+            results={poolResults}
+            resultsLabel={
+              poolQ.trim()
+                ? `Champions matching "${poolQ.trim()}"`
+                : poolLane === 'All'
+                  ? 'Highest win rate, not in your pool yet'
+                  : `Highest win rate in ${poolLane}, not in your pool yet`
+            }
+            noResultsText={
+              poolQ.trim()
+                ? `No champion outside your pool matches "${poolQ.trim()}".`
+                : 'Every champion in this lane is already in your pool.'
+            }
+            commitLabel={
+              poolLane === 'All' ? 'Save as my pool order' : `Save order for ${poolLane}`
+            }
             onLane={setPoolLane}
-            onOpen={(name) => router.push(`/champions/${metaFor(name).slug}`)}
-            onRemove={(name) => void removePool(name)}
+            onSort={setPoolSort}
+            onQuery={setPoolQ}
+            onClearQuery={() => setPoolQ('')}
+            onCommit={commitPoolOrder}
+            onMove={movePool}
+            onOpen={(slug) => router.push(`/champions/${slug}`)}
+            onRemove={(slug) => void removePool(nameFor(slug, champions))}
             onAdd={(name) => void addPool(name)}
           />
         ) : null}
@@ -359,7 +543,9 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
           <Saved
             portraits={portraits}
             saved={savedPairs}
-            onOpen={(pair) => router.push(`/matchups?you=${pair.youSlug}&them=${pair.themSlug}&lane=${pair.lane}`)}
+            onOpen={(pair) =>
+              router.push(`/matchups?you=${pair.youSlug}&them=${pair.themSlug}&lane=${pair.lane}`)
+            }
             onRemove={(pair) => void removeSaved(pair)}
           />
         ) : null}
@@ -390,10 +576,18 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
               const localKey = local[key as keyof typeof local];
               if (!field || !localKey) return;
               const nextValue = !profile[localKey];
-              void persistProfile({ [field]: nextValue }, { ...profile, [localKey]: nextValue }, 'Notification saved.');
+              void persistProfile(
+                { [field]: nextValue },
+                { ...profile, [localKey]: nextValue },
+                'Notification saved.',
+              );
             }}
             onChannel={(channel) =>
-              void persistProfile({ notify_channel: channel }, { ...profile, channel }, 'Delivery saved.')
+              void persistProfile(
+                { notify_channel: channel },
+                { ...profile, channel },
+                'Delivery saved.',
+              )
             }
           />
         ) : null}
@@ -444,7 +638,9 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
               })();
             }}
             onChangePass={() => router.push('/login?mode=forgot')}
-            onRegion={(region) => void persistProfile({ region }, { ...profile, region }, 'Region saved.')}
+            onRegion={(region) =>
+              void persistProfile({ region }, { ...profile, region }, 'Region saved.')
+            }
             onSignOut={() => void signOut()}
             onAskDelete={() => setDeleteConfirm(true)}
             onCancelDelete={() => setDeleteConfirm(false)}
@@ -469,6 +665,8 @@ export function AccountView({ champions = [] }: { champions?: ApiChampion[] }) {
 
 function Overview({
   portraits,
+  champions,
+  placements,
   riotConnected,
   riotId,
   riotDraft,
@@ -478,6 +676,8 @@ function Overview({
   onConnect,
 }: {
   portraits: Record<string, string>;
+  champions: ApiChampion[];
+  placements: TierPlacementDto[];
   riotConnected: boolean;
   riotId: string;
   riotDraft: string;
@@ -486,14 +686,15 @@ function Overview({
   onDisconnect: () => void;
   onConnect: () => void;
 }) {
-  const played = pool.slice(0, 3).map((name) => {
-    const meta = metaFor(name);
+  const played = pool.slice(0, 3).map((slug) => {
+    const name = nameFor(slug, champions);
+    const place = bestPlacement(placementsForSlug(placements, slug));
     return {
       name,
-      slug: meta.slug,
-      lane: meta.lanes[0] ?? 'Top',
-      wr: meta.wr,
-      wrc: parseFloat(meta.wr) >= 52 ? '#8FEDB8' : '#F0A87B',
+      slug,
+      lane: place?.lane ?? roleLabel(champFor(name, champions)?.roles ?? []),
+      wr: place ? formatRate(place.winRate) : '—',
+      wrc: place ? (place.winRate >= 52 ? '#8FEDB8' : '#F0A87B') : '#8B87A8',
     };
   });
 
@@ -505,13 +706,22 @@ function Overview({
           <>
             <div className={styles.riotRow}>
               <div className={styles.riotMark} aria-hidden>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" strokeWidth="2">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#7FDCFF"
+                  strokeWidth="2"
+                >
                   <path d="M4 6l3.5 12h9L20 6l-4.5 4L12 5 8.5 10z" />
                 </svg>
               </div>
               <div className={styles.riotCopy}>
                 <div className={styles.riotId}>{riotId}</div>
-                <div className={styles.muted}>Saved on your account. Match history comes later.</div>
+                <div className={styles.muted}>
+                  Saved on your account. Match history comes later.
+                </div>
               </div>
               <div className={styles.riotActions}>
                 <button type="button" className={styles.dangerGhost} onClick={onDisconnect}>
@@ -551,7 +761,7 @@ function Overview({
           {played.length ? (
             played.map((c) => (
               <Link key={c.name} href={`/champions/${c.slug}`} className={styles.playedRow}>
-                <ChampFace name={c.name} size={40} portraits={portraits} />
+                <ChampFace name={c.name} slug={c.slug} size={40} portraits={portraits} />
                 <div className={styles.playedCopy}>
                   <div className={styles.playedName}>{c.name}</div>
                   <div className={styles.playedMeta}>{c.lane}</div>
@@ -562,7 +772,9 @@ function Overview({
               </Link>
             ))
           ) : (
-            <p className={styles.connectCopy}>Add champions on the pool tab and they show up here.</p>
+            <p className={styles.connectCopy}>
+              Add champions on the pool tab and they show up here.
+            </p>
           )}
         </div>
       </section>
@@ -572,27 +784,57 @@ function Overview({
 
 function Pool({
   portraits,
-  pool,
+  cards,
   lane,
+  sort,
+  query,
   empty,
   blurb,
-  suggestions,
+  hint,
+  results,
+  resultsLabel,
+  noResultsText,
+  commitLabel,
   onLane,
+  onSort,
+  onQuery,
+  onClearQuery,
+  onCommit,
+  onMove,
   onOpen,
   onRemove,
   onAdd,
 }: {
   portraits: Record<string, string>;
-  pool: string[];
+  cards: Array<{
+    slug: string;
+    name: string;
+    role: string;
+    wr: string;
+    wrc: string;
+    games: string;
+  }>;
   lane: (typeof LANES)[number];
+  sort: PoolSort;
+  query: string;
   empty: boolean;
   blurb: string;
-  suggestions: string[];
+  hint: string;
+  results: Array<{ slug: string; name: string; role: string; wr: string; wrc: string }>;
+  resultsLabel: string;
+  noResultsText: string;
+  commitLabel: string;
   onLane: (lane: (typeof LANES)[number]) => void;
-  onOpen: (name: string) => void;
-  onRemove: (name: string) => void;
+  onSort: (sort: PoolSort) => void;
+  onQuery: (value: string) => void;
+  onClearQuery: () => void;
+  onCommit: () => void;
+  onMove: (slug: string, dir: -1 | 1) => void;
+  onOpen: (slug: string) => void;
+  onRemove: (slug: string) => void;
   onAdd: (name: string) => void;
 }) {
+  const manual = sort === 'Custom';
   return (
     <div>
       <div className={styles.poolHead}>
@@ -600,7 +842,7 @@ function Pool({
           <h2 className={styles.h2}>Your champion pool</h2>
           <p className={styles.sub}>{blurb}</p>
         </div>
-        <div className={styles.pills} role="group" aria-label="Lane">
+        <div className={`${styles.pills} xfade`} role="group" aria-label="Lane">
           {LANES.map((item) => (
             <button
               key={item}
@@ -614,37 +856,151 @@ function Pool({
         </div>
       </div>
 
+      <div className={styles.rankRow}>
+        <div className={styles.rankK}>RANK BY</div>
+        <div className={styles.pills} role="group" aria-label="Rank by">
+          {POOL_SORTS.map((item) => (
+            <button
+              key={item}
+              type="button"
+              className={sort === item ? styles.sortOn : styles.sort}
+              onClick={() => onSort(item)}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+        {manual ? null : (
+          <button type="button" className={styles.commit} onClick={onCommit}>
+            {commitLabel}
+          </button>
+        )}
+      </div>
+
+      <div className={styles.hint}>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#7FDCFF"
+          strokeWidth="2.2"
+          aria-hidden
+        >
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 11v5.4M12 7.9v.1" />
+        </svg>
+        <p>{hint}</p>
+      </div>
+
       {empty ? (
         <div className={styles.empty}>
           <div className={styles.emptyTitle}>Nothing in this lane yet</div>
-          <p className={styles.emptyCopy}>Add a champion below and their matchups move to the top of your feed.</p>
+          <p className={styles.emptyCopy}>
+            Add a champion below and their matchups move to the top of your feed.
+          </p>
         </div>
       ) : (
         <div className={styles.poolGrid}>
-          {pool.map((name) => (
-            <div key={name} className={styles.poolCard}>
-              <button type="button" className={styles.poolX} onClick={() => onRemove(name)} aria-label={`Remove ${name}`}>
+          {cards.map((card, index) => (
+            <div key={card.slug} className={styles.poolCard}>
+              <div className={styles.poolRank}>#{index + 1}</div>
+              <button
+                type="button"
+                className={styles.poolX}
+                onClick={() => onRemove(card.slug)}
+                aria-label={`Remove ${card.name}`}
+              >
                 ×
               </button>
-              <button type="button" className={styles.poolFace} onClick={() => onOpen(name)}>
-                <ChampFace name={name} size={62} portraits={portraits} />
+              <button type="button" className={styles.poolFace} onClick={() => onOpen(card.slug)}>
+                <ChampFace name={card.name} slug={card.slug} size={62} portraits={portraits} />
               </button>
-              <div className={styles.poolName}>{name}</div>
-              <div className={styles.poolRole}>{metaFor(name).role}</div>
+              <div className={styles.poolName}>{card.name}</div>
+              <div className={styles.poolRole}>{card.role}</div>
+              <div className={styles.poolStats}>
+                <span style={{ color: card.wrc }}>{card.wr}</span>
+                <span>{card.games}</span>
+              </div>
+              {manual ? (
+                <div className={styles.poolMove}>
+                  <button
+                    type="button"
+                    className={styles.moveBtn}
+                    onClick={() => onMove(card.slug, -1)}
+                    disabled={index === 0}
+                    aria-label={`Move ${card.name} up`}
+                    title="Move up"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                      <path d="M14 6l-6 6 6 6" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.moveBtn}
+                    onClick={() => onMove(card.slug, 1)}
+                    disabled={index === cards.length - 1}
+                    aria-label={`Move ${card.name} down`}
+                    title="Move down"
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
+                      <path d="M10 6l6 6-6 6" />
+                    </svg>
+                  </button>
+                </div>
+              ) : null}
             </div>
           ))}
         </div>
       )}
 
       <div className={styles.addK}>ADD TO YOUR POOL</div>
-      <div className={styles.suggest}>
-        {suggestions.map((name) => (
-          <button key={name} type="button" className={styles.suggestChip} onClick={() => onAdd(name)}>
-            <ChampFace name={name} size={30} portraits={portraits} />
-            <span>{name}</span>
-            <span className={styles.suggestPlus}>+</span>
+      <div className={styles.poolSearch}>
+        <svg
+          width="17"
+          height="17"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#7FDCFF"
+          strokeWidth="2"
+          aria-hidden
+        >
+          <circle cx="11" cy="11" r="7" />
+          <path d="M20 20l-3.5-3.5" />
+        </svg>
+        <input
+          value={query}
+          onChange={(e) => onQuery(e.target.value)}
+          placeholder="Search any champion"
+        />
+        {query ? (
+          <button type="button" className={styles.searchClear} onClick={onClearQuery} aria-label="Clear">
+            ×
+          </button>
+        ) : null}
+      </div>
+      <div className={styles.resultsLabel}>{resultsLabel}</div>
+      <div className={styles.results}>
+        {results.map((row) => (
+          <button
+            key={row.slug}
+            type="button"
+            className={styles.resultRow}
+            onClick={() => onAdd(row.name)}
+          >
+            <ChampFace name={row.name} slug={row.slug} size={38} portraits={portraits} />
+            <span className={styles.resultCopy}>
+              <span className={styles.resultName}>{row.name}</span>
+              <span className={styles.resultRole}>{row.role}</span>
+            </span>
+            <span className={styles.resultWr} style={{ color: row.wrc }}>
+              {row.wr}
+            </span>
+            <span className={styles.resultAdd}>Add</span>
           </button>
         ))}
+        {results.length === 0 ? <p className={styles.noResults}>{noResultsText}</p> : null}
       </div>
     </div>
   );
@@ -680,11 +1036,19 @@ function Saved({
           {saved.map((pair) => {
             const tone = sideTone(pair.side);
             return (
-              <div key={`${pair.youSlug}-${pair.themSlug}-${pair.lane}`} className={styles.savedRow}>
+              <div
+                key={`${pair.youSlug}-${pair.themSlug}-${pair.lane}`}
+                className={styles.savedRow}
+              >
                 <div className={styles.savedFaces}>
-                  <ChampFace name={pair.you} size={44} portraits={portraits} />
+                  <ChampFace name={pair.you} slug={pair.youSlug} size={44} portraits={portraits} />
                   <span className={styles.savedThem}>
-                    <ChampFace name={pair.them} size={44} portraits={portraits} />
+                    <ChampFace
+                      name={pair.them}
+                      slug={pair.themSlug}
+                      size={44}
+                      portraits={portraits}
+                    />
                   </span>
                 </div>
                 <div className={styles.savedCopy}>
@@ -693,7 +1057,10 @@ function Saved({
                   </div>
                   <div className={styles.savedMeta}>{pair.lane} lane</div>
                 </div>
-                <div className={styles.savedChip} style={{ color: tone.c, background: tone.bg, borderColor: tone.bd }}>
+                <div
+                  className={styles.savedChip}
+                  style={{ color: tone.c, background: tone.bg, borderColor: tone.bd }}
+                >
                   <span style={{ background: tone.c }} />
                   {pair.verdict}
                 </div>
@@ -738,7 +1105,13 @@ function Notifications({
         {NOTIFS.map((row) => {
           const on = !!notifs[row.k];
           return (
-            <button key={row.k} type="button" className={styles.toggleRow} onClick={() => onToggle(row.k)} aria-pressed={on}>
+            <button
+              key={row.k}
+              type="button"
+              className={styles.toggleRow}
+              onClick={() => onToggle(row.k)}
+              aria-pressed={on}
+            >
               <span>
                 <span className={styles.toggleName}>{row.name}</span>
                 <span className={styles.toggleNote}>{row.note}</span>
@@ -776,11 +1149,21 @@ function Plan({ waitlist, onWaitlist }: { waitlist: boolean; onWaitlist: () => v
           <span className={styles.active}>ACTIVE</span>
         </div>
         <div className={styles.planName}>Beta · Free</div>
-        <p className={styles.planCopy}>Everything is open while we are in beta. No card, no trial clock.</p>
+        <p className={styles.planCopy}>
+          Everything is open while we are in beta. No card, no trial clock.
+        </p>
         <ul className={styles.planList}>
           {PLAN_INCLUDED.map((item) => (
             <li key={item}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8FEDB8" strokeWidth="3" aria-hidden>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8FEDB8"
+                strokeWidth="3"
+                aria-hidden
+              >
                 <path d="M4 12.5l5.2 5.2L20 7" />
               </svg>
               {item}
@@ -792,17 +1175,24 @@ function Plan({ waitlist, onWaitlist }: { waitlist: boolean; onWaitlist: () => v
         <div className={styles.laterK}>LATER</div>
         <div className={styles.planName}>Forge Pro</div>
         <p className={styles.planMuted}>
-          Live champion select overlay, your own match history as the data source, and unlimited saved plans.
+          Live champion select overlay, your own match history as the data source, and unlimited
+          saved plans.
         </p>
         <ul className={styles.planLater}>
           {PLAN_PRO.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <button type="button" className={waitlist ? styles.waitOn : styles.wait} onClick={onWaitlist}>
+        <button
+          type="button"
+          className={waitlist ? styles.waitOn : styles.wait}
+          onClick={onWaitlist}
+        >
           {waitlist ? 'You are on the waitlist' : 'Join the Pro waitlist'}
         </button>
-        <p className={styles.waitNote}>Beta accounts keep free access for a season after Pro launches.</p>
+        <p className={styles.waitNote}>
+          Beta accounts keep free access for a season after Pro launches.
+        </p>
       </section>
     </div>
   );
@@ -845,7 +1235,11 @@ function Settings({
           <div className={styles.settingCopy}>
             <div className={styles.settingK}>EMAIL</div>
             {emailEdit ? (
-              <input className={styles.input} value={emailDraft} onChange={(e) => onEmailDraft(e.target.value)} />
+              <input
+                className={styles.input}
+                value={emailDraft}
+                onChange={(e) => onEmailDraft(e.target.value)}
+              />
             ) : (
               <div className={styles.settingV}>{email}</div>
             )}
@@ -894,7 +1288,8 @@ function Settings({
         <div className={styles.deleteBox}>
           <div className={styles.deleteTitle}>Delete this account?</div>
           <p className={styles.deleteCopy}>
-            Your champion pool, saved matchups and connected Riot ID go with it. This cannot be undone.
+            Your champion pool, saved matchups and connected Riot ID go with it. This cannot be
+            undone.
           </p>
           <div className={styles.deleteActions}>
             <button type="button" className={styles.deleteYes} onClick={onConfirmDelete}>

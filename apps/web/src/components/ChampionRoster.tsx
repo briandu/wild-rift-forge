@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { useMemo, useState, type CSSProperties } from 'react';
 import type { ApiChampion, TierPlacementDto } from '@/lib/api-types';
 import { cardFocusFor } from '@/lib/banner-focus';
-import { initials, roleLabel, splashFor } from '@/lib/champions';
-import { metaFor } from '@/lib/design-stubs';
+import { FACE_FALLBACK_BG, initials, roleLabel, splashFor } from '@/lib/champions';
 import styles from './ChampionRoster.module.css';
 
 const LANES = ['All', 'Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
@@ -86,8 +85,7 @@ export function ChampionRoster({
           : rows.find((row) => row.lane === lane);
       const lanes = uniqueLanes(rows);
       const kind = roleLabel(champ.roles);
-      const laneLabel =
-        lane !== 'All' ? lane : lanes.length > 0 ? lanes.join(', ') : '';
+      const laneLabel = lane !== 'All' ? lane : lanes.length > 0 ? lanes.join(', ') : '';
       return {
         champ,
         placement,
@@ -131,7 +129,15 @@ export function ChampionRoster({
           </div>
           <div className={styles.heroTools}>
             <label className={styles.search}>
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" strokeWidth="2" aria-hidden>
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#7FDCFF"
+                strokeWidth="2"
+                aria-hidden
+              >
                 <circle cx="11" cy="11" r="7" />
                 <path d="M20 20l-3.5-3.5" />
               </svg>
@@ -142,12 +148,17 @@ export function ChampionRoster({
                 aria-label="Filter champions"
               />
               {query ? (
-                <button type="button" className={styles.clear} onClick={() => setQuery('')} aria-label="Clear filter">
+                <button
+                  type="button"
+                  className={styles.clear}
+                  onClick={() => setQuery('')}
+                  aria-label="Clear filter"
+                >
                   ×
                 </button>
               ) : null}
             </label>
-            <div className={styles.pills} role="group" aria-label="Sort">
+            <div className={`${styles.pills} xfade`} role="group" aria-label="Sort">
               {SORTS.map((mode) => (
                 <button
                   key={mode}
@@ -164,7 +175,7 @@ export function ChampionRoster({
       </div>
 
       <div className={styles.toolbar}>
-        <div className={styles.pills} role="group" aria-label="Lane">
+        <div className={`${styles.pills} xfade`} role="group" aria-label="Lane">
           {LANES.map((item) => (
             <button
               key={item}
@@ -195,7 +206,7 @@ export function ChampionRoster({
                   className={styles.tile}
                   style={
                     {
-                      background: metaFor(champ.name).bg,
+                      background: FACE_FALLBACK_BG,
                       '--tier-c': tier?.c ?? '#8B87A8',
                       '--tier-bg': tier?.bg ?? 'rgba(8, 7, 14, 0.72)',
                       '--tier-bd': tier?.bd ?? 'rgba(255, 255, 255, 0.16)',

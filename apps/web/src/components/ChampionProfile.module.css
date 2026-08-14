@@ -172,6 +172,7 @@
 .tabs {
   display: flex;
   gap: 22px;
+  overflow-x: auto;
 }
 
 .tab,
@@ -181,6 +182,8 @@
   color: var(--text-dim);
   padding: 10px 0;
   border-bottom: 2px solid transparent;
+  flex: none;
+  white-space: nowrap;
 }
 
 .tabActive {

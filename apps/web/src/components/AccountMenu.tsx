@@ -6,16 +6,23 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { useChampionAvatar } from '@/hooks/useChampionAvatar';
-import { ACCOUNT_MENU } from '@/lib/design-stubs';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
+import { firstNameFromUser, fullNameFromUser } from '@/lib/user-name';
 import styles from './Shell.module.css';
 
+const ACCOUNT_MENU = [
+  { href: '/me', label: 'Account' },
+  { href: '/me?tab=pool', label: 'Champion pool' },
+  { href: '/me?tab=saved', label: 'Saved matchups' },
+  { href: '/me?tab=notifications', label: 'Notifications' },
+  { href: '/me?tab=plan', label: 'Plan', meta: 'Beta' },
+] as const;
+
 function initialsFor(user: User): string {
-  const meta = user.user_metadata as { full_name?: string; name?: string } | undefined;
-  const name = meta?.full_name || meta?.name;
+  const name = fullNameFromUser(user);
   if (name) {
-    const parts = name.trim().split(/\s+/);
+    const parts = name.split(/\s+/);
     if (parts.length >= 2) return (parts[0]![0]! + parts[1]![0]!).toUpperCase();
     return name.slice(0, 2).toUpperCase();
   }
@@ -30,8 +37,7 @@ function riotIdFor(user: User): string | null {
 
 function displayName(user: User, riotId: string | null): string {
   if (riotId) return riotId;
-  const meta = user.user_metadata as { full_name?: string; name?: string } | undefined;
-  return meta?.full_name || meta?.name || user.email || 'Account';
+  return fullNameFromUser(user) || firstNameFromUser(user) || user.email || 'Account';
 }
 
 function pathAfterSignOut(pathname: string): string {

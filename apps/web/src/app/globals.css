@@ -135,3 +135,20 @@ img {
 .animate-shimmer {
   animation: shimmer 1.4s ease-in-out infinite;
 }
+
+.xfade {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.xfade::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .xfade {
+    padding-right: 46px;
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 46px), transparent);
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 46px), transparent);
+  }
+}

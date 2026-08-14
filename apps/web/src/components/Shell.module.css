@@ -458,8 +458,13 @@
     gap: 12px;
   }
 
+  .logo {
+    display: block;
+    height: 48px;
+  }
+
   .mark {
-    height: 32px;
+    display: none;
   }
 
   .nav,

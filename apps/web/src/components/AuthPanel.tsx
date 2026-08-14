@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useMemo, useState, type ReactElement } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
+import { formatSnapshotDate } from '@/lib/placements';
 import { clientAuthCallbackUrl } from '@/lib/supabase/site-url';
 import styles from './AuthPanel.module.css';
 
@@ -19,10 +20,7 @@ function modeFromSearch(value: string | null): Mode | null {
   return null;
 }
 
-const COPY: Record<
-  Mode,
-  { title: string; sub: string; swap?: [string, string]; swapTo?: Mode }
-> = {
+const COPY: Record<Mode, { title: string; sub: string; swap?: [string, string]; swapTo?: Mode }> = {
   signin: {
     title: 'Welcome back',
     sub: 'Sign in to keep your champion pool, draft history and saved matchups.',
@@ -121,11 +119,17 @@ function isAppleDevice(): boolean {
 
 const REGIONS = ['NA', 'EUW', 'BR', 'KR', 'SEA'] as const;
 
-const STATS = [
-  { v: '1.4M', k: 'GAMES / WEEK' },
-  { v: '22', k: 'CHAMPIONS' },
-  { v: '6.2b', k: 'PATCH' },
-] as const;
+function liveStats(
+  patchVersion: string | null,
+  championCount: number,
+  snapshotDate: string | null,
+): Array<{ v: string; k: string }> {
+  return [
+    { v: patchVersion || '—', k: 'PATCH' },
+    { v: championCount > 0 ? String(championCount) : '—', k: 'CHAMPIONS' },
+    { v: formatSnapshotDate(snapshotDate) || '—', k: 'SNAPSHOT' },
+  ];
+}
 
 function passwordStrength(password: string): { level: number; label: string; color: string } {
   if (!password) return { level: 0, label: 'Too short', color: '#6e6a8c' };
@@ -158,10 +162,20 @@ function friendlyAuthError(message: string): string {
   return message;
 }
 
-export function AuthPanel() {
+export function AuthPanel({
+  patchVersion = null,
+  championCount = 0,
+  snapshotDate = null,
+}: {
+  patchVersion?: string | null;
+  championCount?: number;
+  snapshotDate?: string | null;
+}) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [mode, setMode] = useState<Mode>(() => modeFromSearch(searchParams.get('mode')) ?? 'signin');
+  const [mode, setMode] = useState<Mode>(
+    () => modeFromSearch(searchParams.get('mode')) ?? 'signin',
+  );
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -176,10 +190,7 @@ export function AuthPanel() {
   const strength = useMemo(() => passwordStrength(password), [password]);
   const showSso = mode === 'signin' || mode === 'signup';
   const configured = isSupabaseConfigured();
-  const ssoProviders = useMemo(
-    () => SSO.filter((p) => !p.appleOnly || onApple),
-    [onApple],
-  );
+  const ssoProviders = useMemo(() => SSO.filter((p) => !p.appleOnly || onApple), [onApple]);
 
   function goMode(next: Mode) {
     setNotice(null);
@@ -226,7 +237,10 @@ export function AuthPanel() {
 
   async function submit() {
     if (!configured) {
-      setNotice({ kind: 'err', text: 'Auth is not configured. Add Supabase keys to apps/web/.env.local.' });
+      setNotice({
+        kind: 'err',
+        text: 'Auth is not configured. Add Supabase keys to apps/web/.env.local.',
+      });
       return;
     }
 
@@ -334,7 +348,10 @@ export function AuthPanel() {
       return;
     }
     if (!configured) {
-      setNotice({ kind: 'err', text: 'Auth is not configured. Add Supabase keys to apps/web/.env.local.' });
+      setNotice({
+        kind: 'err',
+        text: 'Auth is not configured. Add Supabase keys to apps/web/.env.local.',
+      });
       return;
     }
     setBusy(true);
@@ -428,7 +445,14 @@ export function AuthPanel() {
                   aria-hidden
                 >
                   {remember ? (
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3.4">
+                    <svg
+                      width="11"
+                      height="11"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="#fff"
+                      strokeWidth="3.4"
+                    >
                       <path d="M4 12.5l5.2 5.2L20 7" />
                     </svg>
                   ) : null}
@@ -469,7 +493,9 @@ export function AuthPanel() {
                   onChange={(e) => setRiotId(e.target.value)}
                   placeholder="Summoner#NA1"
                 />
-                <span className={styles.hint}>Used to pull your match history. You can add it later.</span>
+                <span className={styles.hint}>
+                  Used to pull your match history. You can add it later.
+                </span>
               </label>
               <label className={styles.field}>
                 <span className={styles.fieldLabel}>PASSWORD</span>
@@ -556,7 +582,14 @@ export function AuthPanel() {
             <div className={styles.fields}>
               <div className={styles.emailCard}>
                 <div className={styles.emailIcon} aria-hidden>
-                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#9FCBE4" strokeWidth="1.9">
+                  <svg
+                    width="19"
+                    height="19"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#9FCBE4"
+                    strokeWidth="1.9"
+                  >
                     <rect x="3" y="5" width="18" height="14" rx="2" />
                     <path d="M3.5 6.5L12 13l8.5-6.5" />
                   </svg>
@@ -571,11 +604,7 @@ export function AuthPanel() {
               </button>
               <p className={styles.swapInline}>
                 Nothing arrived?{' '}
-                <button
-                  type="button"
-                  className={styles.link}
-                  onClick={() => goMode('forgot')}
-                >
+                <button type="button" className={styles.link} onClick={() => goMode('forgot')}>
                   Send it again
                 </button>
               </p>
@@ -667,11 +696,7 @@ export function AuthPanel() {
           {copy.swap && copy.swapTo ? (
             <p className={styles.swap}>
               <span>{copy.swap[0]}</span>
-              <button
-                type="button"
-                className={styles.link}
-                onClick={() => goMode(copy.swapTo!)}
-              >
+              <button type="button" className={styles.link} onClick={() => goMode(copy.swapTo!)}>
                 {copy.swap[1]}
               </button>
             </p>
@@ -699,10 +724,10 @@ export function AuthPanel() {
         <div className={styles.artFade} aria-hidden />
         <div className={styles.artCopy}>
           <p className={styles.quote}>
-            Fourteen thousand matchups, ranked every night on the games people actually played.
+            Lane win rates from the latest CN Diamond+ snapshot, not pairwise matchups.
           </p>
           <div className={styles.stats}>
-            {STATS.map((s) => (
+            {liveStats(patchVersion, championCount, snapshotDate).map((s) => (
               <div key={s.k}>
                 <div className={styles.statValue}>{s.v}</div>
                 <div className={styles.statLabel}>{s.k}</div>

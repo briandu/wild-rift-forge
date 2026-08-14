@@ -49,13 +49,23 @@
 
 .youFade {
   background:
-    linear-gradient(90deg, rgba(11, 10, 18, 0.42) 0%, rgba(11, 10, 18, 0.06) 44%, rgba(11, 10, 18, 0.99) 97%),
+    linear-gradient(
+      90deg,
+      rgba(11, 10, 18, 0.42) 0%,
+      rgba(11, 10, 18, 0.06) 44%,
+      rgba(11, 10, 18, 0.99) 97%
+    ),
     linear-gradient(0deg, rgba(11, 10, 18, 0.97) 5%, transparent 54%);
 }
 
 .themFade {
   background:
-    linear-gradient(270deg, rgba(11, 10, 18, 0.42) 0%, rgba(11, 10, 18, 0.06) 44%, rgba(11, 10, 18, 0.99) 97%),
+    linear-gradient(
+      270deg,
+      rgba(11, 10, 18, 0.42) 0%,
+      rgba(11, 10, 18, 0.06) 44%,
+      rgba(11, 10, 18, 0.99) 97%
+    ),
     linear-gradient(0deg, rgba(11, 10, 18, 0.97) 5%, transparent 54%);
 }
 
@@ -260,7 +270,12 @@
 .mobileGlow {
   position: absolute;
   inset: 0;
-  background: linear-gradient(140deg, rgba(22, 192, 255, 0.16), transparent 44%, rgba(229, 139, 123, 0.18));
+  background: linear-gradient(
+    140deg,
+    rgba(22, 192, 255, 0.16),
+    transparent 44%,
+    rgba(229, 139, 123, 0.18)
+  );
   pointer-events: none;
 }
 
@@ -410,6 +425,105 @@
   font-weight: 800;
   font-size: 26px;
   letter-spacing: -0.024em;
+}
+
+.modelledBanner {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: rgba(240, 168, 123, 0.08);
+  border: 1px solid rgba(240, 168, 123, 0.3);
+  border-radius: 14px;
+  padding: 13px 16px;
+  margin-bottom: 26px;
+}
+
+.modelledDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--warn);
+  flex: none;
+}
+
+.modelledBanner p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--warn);
+  line-height: 1.5;
+}
+
+.modelledGap {
+  margin: 12px 0 0;
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 640px;
+  text-wrap: pretty;
+}
+
+.modelledWhy {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-top: 18px;
+}
+
+.modelledTag {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--accent-soft);
+}
+
+.modelledWhy p {
+  margin: 9px 0 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--text-soft);
+  text-wrap: pretty;
+}
+
+.modelledReadHead {
+  margin-top: 34px;
+}
+
+.modelledNotes {
+  margin-top: 12px;
+}
+
+.modelledNote {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.modelledNote span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  flex: none;
+  margin-top: 8px;
+}
+
+.modelledNote p {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--text-body);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.modelledFoot {
+  margin: 26px 0 0;
+  font-size: 13px;
+  color: var(--text-extra-dim);
+  line-height: 1.6;
+  max-width: 560px;
 }
 
 .freshness {
@@ -897,6 +1011,13 @@
   line-height: 1.5;
 }
 
+.needSource {
+  margin: 0 0 14px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
 .coachBtn {
   height: 44px;
   border-radius: 11px;
@@ -1082,6 +1203,18 @@
     display: block;
   }
 
+  .body {
+    display: none;
+  }
+
+  .mobilePane {
+    display: block;
+  }
+
+  .pickerBar {
+    padding: 14px 18px;
+  }
+
   .main,
   .rail {
     padding: 26px 18px 60px;
@@ -1113,37 +1246,275 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  padding: 16px 48px 0;
+  gap: 12px;
+  padding: 16px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.pickBtn,
+.pairPick,
+.pairPickThem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 13px;
+  padding: 8px 14px 8px 8px;
+  min-width: 0;
+  color: inherit;
+}
+
+.pairPick:hover {
+  border-color: rgba(22, 192, 255, 0.5);
+  background: rgba(22, 192, 255, 0.08);
+}
+
+.pairPickThem:hover {
+  border-color: rgba(229, 139, 123, 0.5);
+  background: rgba(229, 139, 123, 0.08);
+}
+
+.pairCopy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+}
+
+.pairKYou,
+.pairKThem {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.pairKYou {
+  color: var(--accent-soft);
+}
+
+.pairKThem {
+  color: var(--danger);
+}
+
+.pairName {
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.swapBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.swapBtn:hover {
+  background: rgba(255, 255, 255, 0.11);
+}
+
 .saveBtn,
 .pickLane,
 .pickLaneOn {
-  height: 36px;
-  padding: 0 12px;
-  border-radius: 10px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 11px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
   color: inherit;
-  font-weight: 700;
-  font-size: 13px;
+  font-weight: 600;
+  font-size: 13.5px;
 }
 
-.pickLaneOn,
 .saveBtn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex: none;
   border-color: var(--accent);
   background: rgba(22, 192, 255, 0.12);
+  color: var(--accent-soft);
 }
 
-.pickVs {
-  font-weight: 800;
-  color: var(--text-muted);
+.pickLaneOn {
+  border-color: var(--accent);
+  background: rgba(22, 192, 255, 0.12);
 }
 
 .pickLanes {
   display: flex;
   gap: 6px;
   margin-left: auto;
+  overflow-x: auto;
+}
+
+.mobilePane {
+  display: none;
+}
+
+.mobileTabBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 4px;
+  margin: 0 20px;
+}
+
+.mobileTab,
+.mobileTabOn {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  color: #8b87a8;
+}
+
+.mobileTabOn {
+  color: #0b0a12;
+  background: #9fcbe4;
+}
+
+.mobileTabBody {
+  padding: 18px 20px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.styleCard {
+  background: rgba(22, 192, 255, 0.08);
+  border: 1px solid rgba(22, 192, 255, 0.3);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.styleK {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent-soft);
+}
+
+.mobileModelled,
+.mobileWhy,
+.deepEmpty {
+  background: rgba(240, 168, 123, 0.07);
+  border: 1px solid rgba(240, 168, 123, 0.3);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.mobileWhy {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.mobileModelledK,
+.deepK {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--warn);
+}
+
+.deepK {
+  font-size: 10px;
+}
+
+.mobileModelled p,
+.mobileWhy p,
+.deepEmpty p,
+.mobileNote p,
+.mobilePhase p {
+  margin: 9px 0 0;
+  font-size: 13.5px;
+  color: var(--text-body);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.mobileModelledGap {
+  color: var(--text-soft) !important;
+  font-size: 14px !important;
+  margin-top: 11px !important;
+}
+
+.mobileKnow {
+  margin-top: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--link-cool);
+}
+
+.mobileNote {
+  display: flex;
+  gap: 11px;
+  margin-top: 11px;
+}
+
+.mobileNote span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #6e6a8c;
+  margin-top: 8px;
+  flex: none;
+}
+
+.deepEmpty {
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.deepCta {
+  margin-top: 15px;
+  height: 46px;
+  width: 100%;
+  border-radius: 12px;
+  background: rgba(22, 192, 255, 0.14);
+  border: 1px solid rgba(22, 192, 255, 0.36);
+  color: var(--accent-soft);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mobilePhase {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-top: 3px solid var(--accent);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.mobilePhaseHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.mobilePhaseHead span:last-child {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--text-extra-dim);
 }

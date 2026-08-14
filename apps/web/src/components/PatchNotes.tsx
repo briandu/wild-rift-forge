@@ -1,10 +1,8 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import type { LatestPatchResponse } from '@/lib/api-types';
-import { abilitiesFor } from '@/lib/abilities';
 import { ChampFace } from './ChampFace';
 import styles from './PatchNotes.module.css';
 
@@ -58,9 +56,7 @@ export function PatchNotes({
   const nameOf = (slug: string) =>
     champions.find((row) => row.slug === slug)?.name ?? slug.replace(/-/g, ' ');
   const watchFaces = (data?.analysis?.watch ?? champions.slice(0, 4)).map((row) =>
-    'why' in row
-      ? { name: nameOf(row.slug), slug: row.slug }
-      : { name: row.name, slug: row.slug },
+    'why' in row ? { name: nameOf(row.slug), slug: row.slug } : { name: row.name, slug: row.slug },
   );
 
   return (
@@ -85,8 +81,8 @@ export function PatchNotes({
             <div className={styles.rebuildCopy}>
               <div className={styles.rebuildTitle}>Matchup data is rebuilding</div>
               <p>
-                Counter scores for the changed champions are recalculating. Tier bands use the latest
-                CN Diamond+ snapshot
+                Counter scores for the changed champions are recalculating. Tier bands use the
+                latest CN Diamond+ snapshot
                 {data?.statsAsOf ? ` (${data.statsAsOf})` : ''}.
               </p>
             </div>
@@ -126,7 +122,7 @@ export function PatchNotes({
       <div className={styles.body}>
         <div className={styles.main}>
           <div className={styles.toolbar}>
-            <div className={styles.filters}>
+            <div className={`${styles.filters} xfade`}>
               {FILTERS.map((f) => (
                 <button
                   key={f}
@@ -150,11 +146,15 @@ export function PatchNotes({
               list.map((c) => {
                 const [kindc, kindbg, kindbd] = kindStyle(c.kind);
                 const shift = c.wrShift;
-                const delta =
-                  shift === null ? '—' : `${shift > 0 ? '+' : ''}${shift.toFixed(1)}`;
+                const delta = shift === null ? '—' : `${shift > 0 ? '+' : ''}${shift.toFixed(1)}`;
                 const deltac =
-                  shift === null ? '#9FCBE4' : shift > 0 ? '#8FEDB8' : shift < 0 ? '#E58B7B' : '#9FCBE4';
-                const abilities = abilitiesFor(c.slug);
+                  shift === null
+                    ? '#9FCBE4'
+                    : shift > 0
+                      ? '#8FEDB8'
+                      : shift < 0
+                        ? '#E58B7B'
+                        : '#9FCBE4';
                 return (
                   <Link key={c.slug} href={`/champions/${c.slug}`} className={styles.card}>
                     <ChampFace
@@ -176,17 +176,14 @@ export function PatchNotes({
                       </div>
                       <div className={styles.lines}>
                         {c.lines.map((line) => {
-                          const ability = abilities.find((a) => a.key === line.k);
+                          const icon = c.abilities?.find((ability) => ability.key === line.k)
+                            ?.imageUrl;
                           return (
                             <div key={`${line.k}-${line.t}`} className={styles.line}>
-                              {ability?.imageUrl ? (
-                                <Image
-                                  src={ability.imageUrl}
-                                  alt=""
-                                  width={26}
-                                  height={26}
-                                  className={styles.lineIcon}
-                                />
+                              {icon ? (
+                                // Riot CDN icons — skip the Next optimizer so query-string URLs load.
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img className={styles.lineIcon} src={icon} alt="" />
                               ) : (
                                 <span className={styles.lineKey}>{line.k}</span>
                               )}
@@ -233,7 +230,12 @@ export function PatchNotes({
             ) : (
               movers.map((mover) => (
                 <Link key={mover.slug} href={`/champions/${mover.slug}`} className={styles.mover}>
-                  <ChampFace name={nameOf(mover.slug)} slug={mover.slug} size={34} portraits={portraits} />
+                  <ChampFace
+                    name={nameOf(mover.slug)}
+                    slug={mover.slug}
+                    size={34}
+                    portraits={portraits}
+                  />
                   <div className={styles.moverCopy}>
                     <div className={styles.moverName}>{nameOf(mover.slug)}</div>
                     <div className={styles.moverNote}>{mover.note}</div>

@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import type { TierPlacementDto } from '@/lib/api-types';
-import { TIER_DEFS } from '@/lib/design-stubs';
+import { TIER_DEFS } from '@/lib/tier-bands';
 import { ChampFace } from './ChampFace';
 import styles from './TierList.module.css';
 
@@ -101,7 +101,7 @@ export function TierList({
 
       <div className={styles.body}>
         <div className={styles.toolbar}>
-          <div className={styles.roles} role="tablist" aria-label="Lane filter">
+          <div className={`${styles.roles} xfade`} role="tablist" aria-label="Lane filter">
             {ROLES.map((r) => (
               <button
                 key={r}

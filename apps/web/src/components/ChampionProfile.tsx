@@ -54,7 +54,7 @@ export function ChampionProfile({
   const art = imageUrl || ART_BY_SLUG[slug] || HERO_FALLBACK;
   const focus = bannerFocusFor(slug);
   const avatar = portraitFor(slug, imageUrl, thumbnailUrl);
-  const abilities = resolveAbilities(slug, abilitiesProp ?? counters?.abilities);
+  const abilities = resolveAbilities(abilitiesProp ?? counters?.abilities);
   const activeLane = laneFromLabel(counters?.lane);
   const placement = bestPlacement(placements, activeLane);
   const rows = counters
@@ -138,7 +138,7 @@ export function ChampionProfile({
           <AbilityStrip abilities={abilities} size="lg" overlay />
         </div>
         <div className={styles.heroFooter}>
-          <div className={styles.tabs} role="tablist">
+          <div className={`${styles.tabs} xfade`} role="tablist">
             {TABS.map((t) => (
               <button
                 key={t}
@@ -202,17 +202,21 @@ export function ChampionProfile({
                 Open matchups
               </button>
             </div>
-            <ul className={styles.kit}>
-              {abilities.map((ability) => (
-                <li key={ability.key}>
-                  <span className={styles.kitKey}>{ability.key}</span>
-                  <span>
-                    <strong>{ability.name}</strong>
-                    <span className={styles.kitDesc}>{ability.description}</span>
-                  </span>
-                </li>
-              ))}
-            </ul>
+            {abilities.length > 0 ? (
+              <ul className={styles.kit}>
+                {abilities.map((ability) => (
+                  <li key={ability.key}>
+                    <span className={styles.kitKey}>{ability.key}</span>
+                    <span>
+                      <strong>{ability.name}</strong>
+                      <span className={styles.kitDesc}>{ability.description}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className={styles.stubCopy}>Kit fills in when abilities are scraped.</p>
+            )}
           </div>
         ) : tab === 'Builds' || tab === 'Skill order' || tab === 'Pro play' ? (
           <div className={styles.stubPanel}>

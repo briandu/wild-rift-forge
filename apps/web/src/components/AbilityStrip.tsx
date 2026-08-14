@@ -16,6 +16,9 @@ export function AbilityStrip({
 }) {
   const [active, setActive] = useState(0);
   const current = abilities[active] ?? abilities[0];
+  if (abilities.length === 0) {
+    return null;
+  }
 
   return (
     <div className={`${styles.root} ${overlay ? styles.overlay : ''}`}>

@@ -116,7 +116,9 @@ export function HomeHero({
             </Link>
           ))}
         </div>
+      </section>
 
+      <section className={styles.live}>
         <div className={styles.climbHead}>
           <h2 className={styles.sectionTitle}>Picked this patch</h2>
           <Link href="/tier" className={styles.tierLink}>

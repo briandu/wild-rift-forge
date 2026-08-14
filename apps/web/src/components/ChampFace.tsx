@@ -1,7 +1,13 @@
 import Image from 'next/image';
-import { ART_BY_SLUG, initials } from '@/lib/champions';
-import { metaFor } from '@/lib/design-stubs';
+import { ART_BY_SLUG, FACE_FALLBACK_BG, initials } from '@/lib/champions';
 import styles from './ChampFace.module.css';
+
+function slugify(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
 
 export function ChampFace({
   name,
@@ -18,8 +24,7 @@ export function ChampFace({
   portraits?: Record<string, string>;
   fill?: boolean;
 }) {
-  const meta = metaFor(name);
-  const key = slug ?? meta.slug;
+  const key = slug ?? slugify(name);
   const src = portraits?.[key] || ART_BY_SLUG[key];
   return (
     <span
@@ -27,7 +32,7 @@ export function ChampFace({
       style={{
         width: fill ? undefined : size,
         height: fill ? undefined : size,
-        background: meta.bg,
+        background: FACE_FALLBACK_BG,
         fontSize: Math.round(size * 0.38),
       }}
     >
