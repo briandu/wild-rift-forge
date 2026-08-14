@@ -1,0 +1,433 @@
+{
+  "id": "skarner",
+  "name": "Skarner",
+  "title": "The Crystal Vanguard",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/skarner.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Threads of Vibration",
+      "form": null,
+      "description": {
+        "normalized": "Skarner's attacks, Shattered Earth, Upheaval, and Impale apply Quaking to targets for 4 seconds (max 3 stacks) . At 3 stacks of Quaking, enemies take 5% - 10% of their max Health as magic damage over its duration. Deals up to 100 - 450 damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 100,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Skarner's attacks, Shattered Earth, Upheaval, and Impale apply Quaking to targets for 4 seconds (max 3 stacks) .\n\nAt 3 stacks of Quaking, enemies take 5% - 10% of their max Health as magic damage over its duration.\n\nDeals up to 100 - 450 damage against monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Shattered Earth",
+      "form": null,
+      "description": {
+        "normalized": "First Cast: Grabs a boulder, empowering his next 3 attacks to gain 25% / 30% / 35% / 40% Attack Speed and deal 15 / 30 / 45 / 60 (+100% bonus AD +4% bonus Health) physical damage to nearby enemies. The third attack deals an additional 11% of the target's max Health as physical damage and slows by 45% for 1 second. Recast (Upheaval) : Ends this ability and throws the boulder in a target direction. The boulder explodes on the first enemy hit, dealing 15 / 30 / 45 / 60 (+100% bonus AD +4% bonus Health) + 9% of the target's max Health as physical damage to them and nearby enemies and slowing them by 40% for 1 second. Percent Health damage to monsters from the first attack and Upheaval is capped at 200 / 250 / 300 / 350 (+100% bonus AD +4% bonus Health). The first two attacks deal 100% damage to structures. The third attack and Upheaval deal 200% damage to structures.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        5,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          45,
+          45,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            15,
+            30,
+            45,
+            60
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1
+            },
+            {
+              "stat": "bonus_health",
+              "ratio": 0.04
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": 11,
+          "duration": 1,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            15,
+            30,
+            45,
+            60
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1
+            },
+            {
+              "stat": "bonus_health",
+              "ratio": 0.04
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": [
+            200,
+            250,
+            300,
+            350
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1
+            },
+            {
+              "stat": "bonus_health",
+              "ratio": 0.04
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First Cast",
+          "rawParsedText": "Grabs a boulder, empowering his next 3 attacks to gain 25% / 30% / 35% / 40% Attack Speed and deal 15 / 30 / 45 / 60 (+100% bonus AD +4% bonus Health) physical damage to nearby enemies.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                15,
+                30,
+                45,
+                60
+              ],
+              "scalings": [
+                {
+                  "stat": "bonus_ad",
+                  "ratio": 1
+                },
+                {
+                  "stat": "bonus_health",
+                  "ratio": 0.04
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "recast",
+          "label": "Recast",
+          "rawParsedText": "(Upheaval) : Ends this ability and throws the boulder in a target direction. The boulder explodes on the first enemy hit, dealing 15 / 30 / 45 / 60 (+100% bonus AD +4% bonus Health) + 9% of the target's max Health as physical damage to them and nearby enemies and slowing them by 40% for 1 second.",
+          "effects": [
+            {
+              "type": "percent_health_damage",
+              "damageType": "physical",
+              "base": [
+                15,
+                30,
+                45,
+                60
+              ],
+              "duration": 1,
+              "scalings": [
+                {
+                  "stat": "bonus_ad",
+                  "ratio": 1
+                },
+                {
+                  "stat": "bonus_health",
+                  "ratio": 0.04
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "First Cast: Grabs a boulder, empowering his next 3 attacks to gain 25% / 30% / 35% / 40% Attack Speed and deal 15 / 30 / 45 / 60 (+100% bonus AD +4% bonus Health) physical damage to nearby enemies.\n\nThe third attack deals an additional 11% of the target's max Health as physical damage and slows by 45% for 1 second.\n\nRecast (Upheaval) : Ends this ability and throws the boulder in a target direction. The boulder explodes on the first enemy hit, dealing 15 / 30 / 45 / 60 (+100% bonus AD +4% bonus Health) + 9% of the target's max Health as physical damage to them and nearby enemies and slowing them by 40% for 1 second.\n\nPercent Health damage to monsters from the first attack and Upheaval is capped at 200 / 250 / 300 / 350 (+100% bonus AD +4% bonus Health). The first two attacks deal 100% damage to structures. The third attack and Upheaval deal 200% damage to structures.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Seismic Bastion",
+      "form": null,
+      "description": {
+        "normalized": "Immediately gains a shield that absorbs damage equal to 10% max Health for 2.5 seconds and triggers an earthquake that deals 50 / 70 / 90 / 110 (+80% AP) magic damage and slows nearby enemies by 25% for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            70,
+            90,
+            110
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            50,
+            70,
+            90,
+            110
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Immediately gains a shield that absorbs damage equal to 10% max Health for 2.5 seconds and triggers an earthquake that deals 50 / 70 / 90 / 110 (+80% AP) magic damage and slows nearby enemies by 25% for 1 second.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Ixtal's Impact",
+      "form": null,
+      "description": {
+        "normalized": "First cast: charges in a target direction, ignoring terrain; If he runs into an enemy champion or large monster, he drags them along for the rest of his charge; Colliding into a wall with an enemy in tow deals 60 / 90 / 120 / 150 (+120% bonus AD +6% max Health) physical damage to the enemy and stuns them for 1.5 seconds. Recast: Ends his charge early. Colliding into a wall with an enemy in tow reduces Ixtal's Impact's cooldown by 35%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "stun",
+          "duration": 1.5,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First cast",
+          "rawParsedText": "charges in a target direction, ignoring terrain; If he runs into an enemy champion or large monster, he drags them along for the rest of his charge; Colliding into a wall with an enemy in tow deals 60 / 90 / 120 / 150 (+120% bonus AD +6% max Health) physical damage to the enemy and stuns them for 1.5 seconds.",
+          "effects": [
+            {
+              "type": "percent_health_damage",
+              "damageType": "physical",
+              "base": [
+                60,
+                90,
+                120,
+                150
+              ],
+              "duration": 1.5,
+              "scalings": [
+                {
+                  "stat": "bonus_ad",
+                  "ratio": 1.2
+                }
+              ],
+              "confidence": "high"
+            },
+            {
+              "type": "stun",
+              "duration": 1.5,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "recast",
+          "label": "Recast",
+          "rawParsedText": "Ends his charge early.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "First cast: charges in a target direction, ignoring terrain; If he runs into an enemy champion or large monster, he drags them along for the rest of his charge; Colliding into a wall with an enemy in tow deals 60 / 90 / 120 / 150 (+120% bonus AD +6% max Health) physical damage to the enemy and stuns them for 1.5 seconds.\n\nRecast: Ends his charge early.\n\nColliding into a wall with an enemy in tow reduces Ixtal's Impact's cooldown by 35%.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Impale",
+      "form": null,
+      "description": {
+        "normalized": "Lashes his tails forward, dealing 150 / 250 / 350 (+100% AP) magic damage and suppressing the first 3 enemy champions he hits for 1.5 seconds. Champions hit are dragged along by Skarner for the duration of the suppression. If he hits at least one enemy champion: He gains 40% Movement Speed for 1.5 seconds; If Shattered Earth is active, he will cast Upheaval first.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 40,
+          "duration": 1.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lashes his tails forward, dealing 150 / 250 / 350 (+100% AP) magic damage and suppressing the first 3 enemy champions he hits for 1.5 seconds. Champions hit are dragged along by Skarner for the duration of the suppression.\n\nIf he hits at least one enemy champion: He gains 40% Movement Speed for 1.5 seconds; If Shattered Earth is active, he will cast Upheaval first.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/skarner",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Threads of Vibration: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ixtal's Impact: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

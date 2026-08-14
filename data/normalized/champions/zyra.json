@@ -1,0 +1,249 @@
+{
+  "id": "zyra",
+  "name": "Zyra",
+  "title": "The Rise of the Thorns",
+  "roles": [],
+  "positions": [
+    "support",
+    "mid"
+  ],
+  "imageUrl": "/images/champion/icon/zyra.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 120,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.96,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Garden of Thorns",
+      "form": null,
+      "description": {
+        "normalized": "A Thorn Spitter with 30 - 240 (+22% - 50% AP) Health sprouts when Grasping Roots first hits an enemy champion. If no enemy champion is hit, a Thorn Spitter will sprout when Grasping Roots ends. Thorn Spitters automatically attack targets within 6 seconds of sprouting, dealing 10 - 108 (+10% AP) magic damage. An additional Thorn Spitter sprouts with every enemy champion, large monster, or epic monster Deadly Spines or Stranglethorns hits. Thorn Spitters deal an additional 23 - 65 damage against monsters. Thorn Spitters spawned after the first deal 50% damage against the same target. Enemy champions' abilities deal 35% damage against Thorn Spitters. Non-epic monsters deal 35% damage against Thorn Spitters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 23,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "A Thorn Spitter with 30 - 240 (+22% - 50% AP) Health sprouts when Grasping Roots first hits an enemy champion. If no enemy champion is hit, a Thorn Spitter will sprout when Grasping Roots ends.\n\nThorn Spitters automatically attack targets within 6 seconds of sprouting, dealing 10 - 108 (+10% AP) magic damage. An additional Thorn Spitter sprouts with every enemy champion, large monster, or epic monster Deadly Spines or Stranglethorns hits.\n\nThorn Spitters deal an additional 23 - 65 damage against monsters. Thorn Spitters spawned after the first deal 50% damage against the same target. Enemy champions' abilities deal 35% damage against Thorn Spitters. Non-epic monsters deal 35% damage against Thorn Spitters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Deadly Spines",
+      "form": null,
+      "description": {
+        "normalized": "Vines spread and burst into spines, dealing 60 / 115 / 170 / 225 (+60% AP) magic damage and sprouting 1 Thorn Spitter.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          75,
+          75,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            115,
+            170,
+            225
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Vines spread and burst into spines, dealing 60 / 115 / 170 / 225 (+60% AP) magic damage and sprouting 1 Thorn Spitter.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Rampant Growth",
+      "form": null,
+      "description": {
+        "normalized": "Nearby Thorn Spitters become enraged, resetting their duration and gaining 35% / 40% / 45% / 60% Health and 50% Attack Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Nearby Thorn Spitters become enraged, resetting their duration and gaining 35% / 40% / 45% / 60% Health and 50% Attack Speed.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Grasping Roots",
+      "form": null,
+      "description": {
+        "normalized": "Zyra sends binding vines forward, rooting enemies hit for 1 / 1.25 / 1.5 / 1.75 seconds, and dealing 60 / 100 / 140 / 180 (+40% AP) magic damage. A Thorn Spitter spwans when the ability first hits an enemy champion or when it ends. (Large and epic monsters are also considered as champions.)",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            1,
+            1.25,
+            1.5,
+            1.75
+          ],
+          "duration": [
+            1,
+            1.25,
+            1.5,
+            1.75
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Zyra sends binding vines forward, rooting enemies hit for 1 / 1.25 / 1.5 / 1.75 seconds, and dealing 60 / 100 / 140 / 180 (+40% AP) magic damage.\n\nA Thorn Spitter spwans when the ability first hits an enemy champion or when it ends. (Large and epic monsters are also considered as champions.)",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Stranglethorns",
+      "form": null,
+      "description": {
+        "normalized": "Zyra summons the fury of nature, growing a twisted thicket that deals 150 / 225 / 300 (+50% AP) magic damage to enemies. After 2 seconds, the vines snap upwards, knocking up enemies for 1 second. The Thorn Spitters within the thicket become enraged, resetting their duration and gaining 50% bonus Health and 50% bonus Attack Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            225,
+            300
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Zyra summons the fury of nature, growing a twisted thicket that deals 150 / 225 / 300 (+50% AP) magic damage to enemies. After 2 seconds, the vines snap upwards, knocking up enemies for 1 second.\n\nThe Thorn Spitters within the thicket become enraged, resetting their duration and gaining 50% bonus Health and 50% bonus Attack Speed.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/zyra",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Garden of Thorns: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rampant Growth: Numeric prose was not fully structured; rawParsedText kept.",
+    "Stranglethorns: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

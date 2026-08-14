@@ -1,0 +1,234 @@
+{
+  "id": "bard",
+  "name": "Bard",
+  "title": "The Wandering Caretaker",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/bard.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 37,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Traveler's Call",
+      "form": null,
+      "description": {
+        "normalized": "Chimes: Gains bonuses from chimes he attracts and collects on the map. Automatically collets nearby chimes, gaining the following bonuses: - 24% out-of-combat Movement Speed for 20 seconds (max 10 stacks, up to 150%) - 400 XP - Restores 12% max Mana Chimes remain for 10 minutes. Starting form 5 minutes into the game, gains 20 XP every 1 minute. Meeps: Summons a meep that follows him around every 7 seconds ( max 1 meep). Meeps empower him and grant additional effects based on the number of chimes collected: - Consumes a meep to empower his attack, dealing 35 (+40% AP) plus 12 (for every 3 chimes he has) bonus magic damage. - When he has 3 chimes, he slows enemies by 25% for 1 second. - When he has 9 chimes, he strikes in an area around and behind the target. - When he has 27 chimes, he strikes in an even larger area. The spawn rate, slow effect, and max number of meeps following him scale with the number of chimes collected.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 35,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Chimes: Gains bonuses from chimes he attracts and collects on the map. Automatically collets nearby chimes, gaining the following bonuses:\n\n- 24% out-of-combat Movement Speed for 20 seconds (max 10 stacks, up to 150%)\n\n- 400 XP\n\n- Restores 12% max Mana\n\nChimes remain for 10 minutes. Starting form 5 minutes into the game, gains 20 XP every 1 minute.\n\nMeeps: Summons a meep that follows him around every 7 seconds ( max 1 meep). Meeps empower him and grant additional effects based on the number of chimes collected:\n\n- Consumes a meep to empower his attack, dealing 35 (+40% AP) plus 12 (for every 3 chimes he has) bonus magic damage.\n\n- When he has 3 chimes, he slows enemies by 25% for 1 second.\n\n- When he has 9 chimes, he strikes in an area around and behind the target.\n\n- When he has 27 chimes, he strikes in an even larger area.\n\nThe spawn rate, slow effect, and max number of meeps following him scale with the number of chimes collected.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Cosmic Binding",
+      "form": null,
+      "description": {
+        "normalized": "Fires an energy bolt, dealing 80 / 130 / 180 / 230 (+80% AP) magic damage to the first enemy hit and slowing by 60% for 1.1 / 1.3 / 1.5 / 1.7 seconds. The bolt then continues onward for a short distance, If it hits a second enemy or a wall, both enemies are stunned for 1.1 / 1.3 / 1.5 / 1.7 seconds; if a second enemy is struck, the bolt also deals the same damage to them.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            130,
+            180,
+            230
+          ],
+          "duration": [
+            1.1,
+            1.3,
+            1.5,
+            1.7
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": [
+            1.1,
+            1.3,
+            1.5,
+            1.7
+          ],
+          "duration": [
+            1.1,
+            1.3,
+            1.5,
+            1.7
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires an energy bolt, dealing 80 / 130 / 180 / 230 (+80% AP) magic damage to the first enemy hit and slowing by 60% for 1.1 / 1.3 / 1.5 / 1.7 seconds.\n\nThe bolt then continues onward for a short distance, If it hits a second enemy or a wall, both enemies are stunned for 1.1 / 1.3 / 1.5 / 1.7 seconds; if a second enemy is struck, the bolt also deals the same damage to them.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Caretaker's Shrine",
+      "form": null,
+      "description": {
+        "normalized": "Creates a Health shrine that grows and powers up to max efficiency after 5 seconds, granting 22.5% / 25% / 27.5% / 30% (+0.05% AP) for 1.5 second and restoring at least 50 / 80 / 110 / 140 (+30% AP) Health to the first allied champion to enter. The shrine restores 100 / 160 / 220 / 280 (+60% AP) Health after existing for 5 seconds. Charge: This ability has 2 charges. Bard can have up to 3 shrines active at once. If an enemy champion enters a shrine, it will be crushed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Creates a Health shrine that grows and powers up to max efficiency after 5 seconds, granting 22.5% / 25% / 27.5% / 30% (+0.05% AP) for 1.5 second and restoring at least 50 / 80 / 110 / 140 (+30% AP) Health to the first allied champion to enter. The shrine restores 100 / 160 / 220 / 280 (+60% AP) Health after existing for 5 seconds.\n\nCharge: This ability has 2 charges.\n\nBard can have up to 3 shrines active at once. If an enemy champion enters a shrine, it will be crushed.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Magical Journey",
+      "form": null,
+      "description": {
+        "normalized": "Opens a one-way corridor through nearby terrain for 10 seconds. Both allied and enemy champions nearby can use the corridor by tapping the turret button. Allies travel 50% faster than enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        19,
+        17,
+        16,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Opens a one-way corridor through nearby terrain for 10 seconds. Both allied and enemy champions nearby can use the corridor by tapping the turret button.\n\nAllies travel 50% faster than enemies.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Tempered Fate",
+      "form": null,
+      "description": {
+        "normalized": "Hurls magical protective energy to an area, placing all units and structures within into stasis for 2.5 seconds. While in stasis, they are invulnerable, untargetable, and unable to act.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Hurls magical protective energy to an area, placing all units and structures within into stasis for 2.5 seconds. While in stasis, they are invulnerable, untargetable, and unable to act.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/bard",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Caretaker's Shrine: Numeric prose was not fully structured; rawParsedText kept.",
+    "Caretaker's Shrine: Numeric prose was not fully structured; rawParsedText kept.",
+    "Caretaker's Shrine: Numeric prose was not fully structured; rawParsedText kept.",
+    "Magical Journey: Numeric prose was not fully structured; rawParsedText kept.",
+    "Magical Journey: Numeric prose was not fully structured; rawParsedText kept.",
+    "Tempered Fate: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

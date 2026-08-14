@@ -1,0 +1,41 @@
+{
+  "id": "camille",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/camille",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 128,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 25,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0143,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Adaptive Defenses",
+    "Precision Protocol",
+    "Tactical Sweep",
+    "Hookshot",
+    "Hextech Ultimatum"
+  ]
+}

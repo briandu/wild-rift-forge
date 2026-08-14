@@ -1,0 +1,41 @@
+{
+  "id": "mordekaiser",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/mordekaiser",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 3,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Darkness Rise",
+    "Obliterate",
+    "Indestructible",
+    "Death's Grasp",
+    "Realm of Death"
+  ]
+}

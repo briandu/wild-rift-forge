@@ -1,0 +1,41 @@
+{
+  "id": "renekton",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/renekton",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 66,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Reign of Anger",
+    "Cull the Meek",
+    "Ruthless Predator",
+    "Slice and Dice",
+    "Dominus"
+  ]
+}

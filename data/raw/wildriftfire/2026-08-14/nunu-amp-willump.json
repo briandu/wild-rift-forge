@@ -1,0 +1,41 @@
+{
+  "id": "nunu-amp-willump",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/nunu-amp-willump",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Call of the Freljord",
+    "Consume",
+    "Biggest Snowball Ever!",
+    "Snowball Barrage",
+    "Absolute Zero"
+  ]
+}

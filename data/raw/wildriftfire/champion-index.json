@@ -1,0 +1,707 @@
+[
+  {
+    "id": "aatrox",
+    "name": "Aatrox",
+    "url": "https://www.wildriftfire.com/guide/aatrox"
+  },
+  {
+    "id": "ahri",
+    "name": "Ahri",
+    "url": "https://www.wildriftfire.com/guide/ahri"
+  },
+  {
+    "id": "akali",
+    "name": "Akali",
+    "url": "https://www.wildriftfire.com/guide/akali"
+  },
+  {
+    "id": "akshan",
+    "name": "Akshan",
+    "url": "https://www.wildriftfire.com/guide/akshan"
+  },
+  {
+    "id": "alistar",
+    "name": "Alistar",
+    "url": "https://www.wildriftfire.com/guide/alistar"
+  },
+  {
+    "id": "ambessa",
+    "name": "Ambessa",
+    "url": "https://www.wildriftfire.com/guide/ambessa"
+  },
+  {
+    "id": "amumu",
+    "name": "Amumu",
+    "url": "https://www.wildriftfire.com/guide/amumu"
+  },
+  {
+    "id": "annie",
+    "name": "Annie",
+    "url": "https://www.wildriftfire.com/guide/annie"
+  },
+  {
+    "id": "ashe",
+    "name": "Ashe",
+    "url": "https://www.wildriftfire.com/guide/ashe"
+  },
+  {
+    "id": "aurelion-sol",
+    "name": "Aurelion Sol",
+    "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+  },
+  {
+    "id": "aurora",
+    "name": "Aurora",
+    "url": "https://www.wildriftfire.com/guide/aurora"
+  },
+  {
+    "id": "bard",
+    "name": "Bard",
+    "url": "https://www.wildriftfire.com/guide/bard"
+  },
+  {
+    "id": "blitzcrank",
+    "name": "Blitzcrank",
+    "url": "https://www.wildriftfire.com/guide/blitzcrank"
+  },
+  {
+    "id": "brand",
+    "name": "Brand",
+    "url": "https://www.wildriftfire.com/guide/brand"
+  },
+  {
+    "id": "braum",
+    "name": "Braum",
+    "url": "https://www.wildriftfire.com/guide/braum"
+  },
+  {
+    "id": "caitlyn",
+    "name": "Caitlyn",
+    "url": "https://www.wildriftfire.com/guide/caitlyn"
+  },
+  {
+    "id": "camille",
+    "name": "Camille",
+    "url": "https://www.wildriftfire.com/guide/camille"
+  },
+  {
+    "id": "chogath",
+    "name": "Cho'Gath",
+    "url": "https://www.wildriftfire.com/guide/chogath"
+  },
+  {
+    "id": "corki",
+    "name": "Corki",
+    "url": "https://www.wildriftfire.com/guide/corki"
+  },
+  {
+    "id": "darius",
+    "name": "Darius",
+    "url": "https://www.wildriftfire.com/guide/darius"
+  },
+  {
+    "id": "diana",
+    "name": "Diana",
+    "url": "https://www.wildriftfire.com/guide/diana"
+  },
+  {
+    "id": "dr-mundo",
+    "name": "Dr. Mundo",
+    "url": "https://www.wildriftfire.com/guide/dr-mundo"
+  },
+  {
+    "id": "draven",
+    "name": "Draven",
+    "url": "https://www.wildriftfire.com/guide/draven"
+  },
+  {
+    "id": "ekko",
+    "name": "Ekko",
+    "url": "https://www.wildriftfire.com/guide/ekko"
+  },
+  {
+    "id": "evelynn",
+    "name": "Evelynn",
+    "url": "https://www.wildriftfire.com/guide/evelynn"
+  },
+  {
+    "id": "ezreal",
+    "name": "Ezreal",
+    "url": "https://www.wildriftfire.com/guide/ezreal"
+  },
+  {
+    "id": "fiddlesticks",
+    "name": "Fiddlesticks",
+    "url": "https://www.wildriftfire.com/guide/fiddlesticks"
+  },
+  {
+    "id": "fiora",
+    "name": "Fiora",
+    "url": "https://www.wildriftfire.com/guide/fiora"
+  },
+  {
+    "id": "fizz",
+    "name": "Fizz",
+    "url": "https://www.wildriftfire.com/guide/fizz"
+  },
+  {
+    "id": "galio",
+    "name": "Galio",
+    "url": "https://www.wildriftfire.com/guide/galio"
+  },
+  {
+    "id": "garen",
+    "name": "Garen",
+    "url": "https://www.wildriftfire.com/guide/garen"
+  },
+  {
+    "id": "gnar",
+    "name": "Gnar",
+    "url": "https://www.wildriftfire.com/guide/gnar"
+  },
+  {
+    "id": "gragas",
+    "name": "Gragas",
+    "url": "https://www.wildriftfire.com/guide/gragas"
+  },
+  {
+    "id": "graves",
+    "name": "Graves",
+    "url": "https://www.wildriftfire.com/guide/graves"
+  },
+  {
+    "id": "gwen",
+    "name": "Gwen",
+    "url": "https://www.wildriftfire.com/guide/gwen"
+  },
+  {
+    "id": "hecarim",
+    "name": "Hecarim",
+    "url": "https://www.wildriftfire.com/guide/hecarim"
+  },
+  {
+    "id": "heimerdinger",
+    "name": "Heimerdinger",
+    "url": "https://www.wildriftfire.com/guide/heimerdinger"
+  },
+  {
+    "id": "irelia",
+    "name": "Irelia",
+    "url": "https://www.wildriftfire.com/guide/irelia"
+  },
+  {
+    "id": "janna",
+    "name": "Janna",
+    "url": "https://www.wildriftfire.com/guide/janna"
+  },
+  {
+    "id": "jarvan-iv",
+    "name": "Jarvan IV",
+    "url": "https://www.wildriftfire.com/guide/jarvan-iv"
+  },
+  {
+    "id": "jax",
+    "name": "Jax",
+    "url": "https://www.wildriftfire.com/guide/jax"
+  },
+  {
+    "id": "jayce",
+    "name": "Jayce",
+    "url": "https://www.wildriftfire.com/guide/jayce"
+  },
+  {
+    "id": "jhin",
+    "name": "Jhin",
+    "url": "https://www.wildriftfire.com/guide/jhin"
+  },
+  {
+    "id": "jinx",
+    "name": "Jinx",
+    "url": "https://www.wildriftfire.com/guide/jinx"
+  },
+  {
+    "id": "kaisa",
+    "name": "Kai'Sa",
+    "url": "https://www.wildriftfire.com/guide/kaisa"
+  },
+  {
+    "id": "kalista",
+    "name": "Kalista",
+    "url": "https://www.wildriftfire.com/guide/kalista"
+  },
+  {
+    "id": "karma",
+    "name": "Karma",
+    "url": "https://www.wildriftfire.com/guide/karma"
+  },
+  {
+    "id": "kassadin",
+    "name": "Kassadin",
+    "url": "https://www.wildriftfire.com/guide/kassadin"
+  },
+  {
+    "id": "katarina",
+    "name": "Katarina",
+    "url": "https://www.wildriftfire.com/guide/katarina"
+  },
+  {
+    "id": "kayle",
+    "name": "Kayle",
+    "url": "https://www.wildriftfire.com/guide/kayle"
+  },
+  {
+    "id": "kayn",
+    "name": "Kayn",
+    "url": "https://www.wildriftfire.com/guide/kayn"
+  },
+  {
+    "id": "kennen",
+    "name": "Kennen",
+    "url": "https://www.wildriftfire.com/guide/kennen"
+  },
+  {
+    "id": "khazix",
+    "name": "Kha'Zix",
+    "url": "https://www.wildriftfire.com/guide/khazix"
+  },
+  {
+    "id": "kindred",
+    "name": "Kindred",
+    "url": "https://www.wildriftfire.com/guide/kindred"
+  },
+  {
+    "id": "kogmaw",
+    "name": "Kog'Maw",
+    "url": "https://www.wildriftfire.com/guide/kogmaw"
+  },
+  {
+    "id": "ksante",
+    "name": "K'Sante",
+    "url": "https://www.wildriftfire.com/guide/ksante"
+  },
+  {
+    "id": "lee-sin",
+    "name": "Lee Sin",
+    "url": "https://www.wildriftfire.com/guide/lee-sin"
+  },
+  {
+    "id": "leona",
+    "name": "Leona",
+    "url": "https://www.wildriftfire.com/guide/leona"
+  },
+  {
+    "id": "lillia",
+    "name": "Lillia",
+    "url": "https://www.wildriftfire.com/guide/lillia"
+  },
+  {
+    "id": "lissandra",
+    "name": "Lissandra",
+    "url": "https://www.wildriftfire.com/guide/lissandra"
+  },
+  {
+    "id": "lucian",
+    "name": "Lucian",
+    "url": "https://www.wildriftfire.com/guide/lucian"
+  },
+  {
+    "id": "lulu",
+    "name": "Lulu",
+    "url": "https://www.wildriftfire.com/guide/lulu"
+  },
+  {
+    "id": "lux",
+    "name": "Lux",
+    "url": "https://www.wildriftfire.com/guide/lux"
+  },
+  {
+    "id": "malphite",
+    "name": "Malphite",
+    "url": "https://www.wildriftfire.com/guide/malphite"
+  },
+  {
+    "id": "maokai",
+    "name": "Maokai",
+    "url": "https://www.wildriftfire.com/guide/maokai"
+  },
+  {
+    "id": "master-yi",
+    "name": "Master Yi",
+    "url": "https://www.wildriftfire.com/guide/master-yi"
+  },
+  {
+    "id": "mel",
+    "name": "Mel",
+    "url": "https://www.wildriftfire.com/guide/mel"
+  },
+  {
+    "id": "milio",
+    "name": "Milio",
+    "url": "https://www.wildriftfire.com/guide/milio"
+  },
+  {
+    "id": "miss-fortune",
+    "name": "Miss Fortune",
+    "url": "https://www.wildriftfire.com/guide/miss-fortune"
+  },
+  {
+    "id": "mordekaiser",
+    "name": "Mordekaiser",
+    "url": "https://www.wildriftfire.com/guide/mordekaiser"
+  },
+  {
+    "id": "morgana",
+    "name": "Morgana",
+    "url": "https://www.wildriftfire.com/guide/morgana"
+  },
+  {
+    "id": "nami",
+    "name": "Nami",
+    "url": "https://www.wildriftfire.com/guide/nami"
+  },
+  {
+    "id": "nasus",
+    "name": "Nasus",
+    "url": "https://www.wildriftfire.com/guide/nasus"
+  },
+  {
+    "id": "nautilus",
+    "name": "Nautilus",
+    "url": "https://www.wildriftfire.com/guide/nautilus"
+  },
+  {
+    "id": "nidalee",
+    "name": "Nidalee",
+    "url": "https://www.wildriftfire.com/guide/nidalee"
+  },
+  {
+    "id": "nilah",
+    "name": "Nilah",
+    "url": "https://www.wildriftfire.com/guide/nilah"
+  },
+  {
+    "id": "nocturne",
+    "name": "Nocturne",
+    "url": "https://www.wildriftfire.com/guide/nocturne"
+  },
+  {
+    "id": "norra",
+    "name": "Norra",
+    "url": "https://www.wildriftfire.com/guide/norra"
+  },
+  {
+    "id": "nunu-amp-willump",
+    "name": "Nunu & Willump",
+    "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+  },
+  {
+    "id": "olaf",
+    "name": "Olaf",
+    "url": "https://www.wildriftfire.com/guide/olaf"
+  },
+  {
+    "id": "orianna",
+    "name": "Orianna",
+    "url": "https://www.wildriftfire.com/guide/orianna"
+  },
+  {
+    "id": "ornn",
+    "name": "Ornn",
+    "url": "https://www.wildriftfire.com/guide/ornn"
+  },
+  {
+    "id": "pantheon",
+    "name": "Pantheon",
+    "url": "https://www.wildriftfire.com/guide/pantheon"
+  },
+  {
+    "id": "poppy",
+    "name": "Poppy",
+    "url": "https://www.wildriftfire.com/guide/poppy"
+  },
+  {
+    "id": "pyke",
+    "name": "Pyke",
+    "url": "https://www.wildriftfire.com/guide/pyke"
+  },
+  {
+    "id": "rakan",
+    "name": "Rakan",
+    "url": "https://www.wildriftfire.com/guide/rakan"
+  },
+  {
+    "id": "rammus",
+    "name": "Rammus",
+    "url": "https://www.wildriftfire.com/guide/rammus"
+  },
+  {
+    "id": "rell",
+    "name": "Rell",
+    "url": "https://www.wildriftfire.com/guide/rell"
+  },
+  {
+    "id": "renekton",
+    "name": "Renekton",
+    "url": "https://www.wildriftfire.com/guide/renekton"
+  },
+  {
+    "id": "rengar",
+    "name": "Rengar",
+    "url": "https://www.wildriftfire.com/guide/rengar"
+  },
+  {
+    "id": "riven",
+    "name": "Riven",
+    "url": "https://www.wildriftfire.com/guide/riven"
+  },
+  {
+    "id": "rumble",
+    "name": "Rumble",
+    "url": "https://www.wildriftfire.com/guide/rumble"
+  },
+  {
+    "id": "ryze",
+    "name": "Ryze",
+    "url": "https://www.wildriftfire.com/guide/ryze"
+  },
+  {
+    "id": "samira",
+    "name": "Samira",
+    "url": "https://www.wildriftfire.com/guide/samira"
+  },
+  {
+    "id": "senna",
+    "name": "Senna",
+    "url": "https://www.wildriftfire.com/guide/senna"
+  },
+  {
+    "id": "seraphine",
+    "name": "Seraphine",
+    "url": "https://www.wildriftfire.com/guide/seraphine"
+  },
+  {
+    "id": "sett",
+    "name": "Sett",
+    "url": "https://www.wildriftfire.com/guide/sett"
+  },
+  {
+    "id": "shen",
+    "name": "Shen",
+    "url": "https://www.wildriftfire.com/guide/shen"
+  },
+  {
+    "id": "shyvana",
+    "name": "Shyvana",
+    "url": "https://www.wildriftfire.com/guide/shyvana"
+  },
+  {
+    "id": "singed",
+    "name": "Singed",
+    "url": "https://www.wildriftfire.com/guide/singed"
+  },
+  {
+    "id": "sion",
+    "name": "Sion",
+    "url": "https://www.wildriftfire.com/guide/sion"
+  },
+  {
+    "id": "sivir",
+    "name": "Sivir",
+    "url": "https://www.wildriftfire.com/guide/sivir"
+  },
+  {
+    "id": "skarner",
+    "name": "Skarner",
+    "url": "https://www.wildriftfire.com/guide/skarner"
+  },
+  {
+    "id": "smolder",
+    "name": "Smolder",
+    "url": "https://www.wildriftfire.com/guide/smolder"
+  },
+  {
+    "id": "sona",
+    "name": "Sona",
+    "url": "https://www.wildriftfire.com/guide/sona"
+  },
+  {
+    "id": "soraka",
+    "name": "Soraka",
+    "url": "https://www.wildriftfire.com/guide/soraka"
+  },
+  {
+    "id": "swain",
+    "name": "Swain",
+    "url": "https://www.wildriftfire.com/guide/swain"
+  },
+  {
+    "id": "syndra",
+    "name": "Syndra",
+    "url": "https://www.wildriftfire.com/guide/syndra"
+  },
+  {
+    "id": "taliyah",
+    "name": "Taliyah",
+    "url": "https://www.wildriftfire.com/guide/taliyah"
+  },
+  {
+    "id": "talon",
+    "name": "Talon",
+    "url": "https://www.wildriftfire.com/guide/talon"
+  },
+  {
+    "id": "teemo",
+    "name": "Teemo",
+    "url": "https://www.wildriftfire.com/guide/teemo"
+  },
+  {
+    "id": "thresh",
+    "name": "Thresh",
+    "url": "https://www.wildriftfire.com/guide/thresh"
+  },
+  {
+    "id": "tristana",
+    "name": "Tristana",
+    "url": "https://www.wildriftfire.com/guide/tristana"
+  },
+  {
+    "id": "tryndamere",
+    "name": "Tryndamere",
+    "url": "https://www.wildriftfire.com/guide/tryndamere"
+  },
+  {
+    "id": "twisted-fate",
+    "name": "Twisted Fate",
+    "url": "https://www.wildriftfire.com/guide/twisted-fate"
+  },
+  {
+    "id": "twitch",
+    "name": "Twitch",
+    "url": "https://www.wildriftfire.com/guide/twitch"
+  },
+  {
+    "id": "urgot",
+    "name": "Urgot",
+    "url": "https://www.wildriftfire.com/guide/urgot"
+  },
+  {
+    "id": "varus",
+    "name": "Varus",
+    "url": "https://www.wildriftfire.com/guide/varus"
+  },
+  {
+    "id": "vayne",
+    "name": "Vayne",
+    "url": "https://www.wildriftfire.com/guide/vayne"
+  },
+  {
+    "id": "veigar",
+    "name": "Veigar",
+    "url": "https://www.wildriftfire.com/guide/veigar"
+  },
+  {
+    "id": "velkoz",
+    "name": "Vel'Koz",
+    "url": "https://www.wildriftfire.com/guide/velkoz"
+  },
+  {
+    "id": "vex",
+    "name": "Vex",
+    "url": "https://www.wildriftfire.com/guide/vex"
+  },
+  {
+    "id": "vi",
+    "name": "Vi",
+    "url": "https://www.wildriftfire.com/guide/vi"
+  },
+  {
+    "id": "viego",
+    "name": "Viego",
+    "url": "https://www.wildriftfire.com/guide/viego"
+  },
+  {
+    "id": "viktor",
+    "name": "Viktor",
+    "url": "https://www.wildriftfire.com/guide/viktor"
+  },
+  {
+    "id": "vladimir",
+    "name": "Vladimir",
+    "url": "https://www.wildriftfire.com/guide/vladimir"
+  },
+  {
+    "id": "volibear",
+    "name": "Volibear",
+    "url": "https://www.wildriftfire.com/guide/volibear"
+  },
+  {
+    "id": "warwick",
+    "name": "Warwick",
+    "url": "https://www.wildriftfire.com/guide/warwick"
+  },
+  {
+    "id": "wukong",
+    "name": "Wukong",
+    "url": "https://www.wildriftfire.com/guide/wukong"
+  },
+  {
+    "id": "xayah",
+    "name": "Xayah",
+    "url": "https://www.wildriftfire.com/guide/xayah"
+  },
+  {
+    "id": "xin-zhao",
+    "name": "Xin Zhao",
+    "url": "https://www.wildriftfire.com/guide/xin-zhao"
+  },
+  {
+    "id": "yasuo",
+    "name": "Yasuo",
+    "url": "https://www.wildriftfire.com/guide/yasuo"
+  },
+  {
+    "id": "yone",
+    "name": "Yone",
+    "url": "https://www.wildriftfire.com/guide/yone"
+  },
+  {
+    "id": "yunara",
+    "name": "Yunara",
+    "url": "https://www.wildriftfire.com/guide/yunara"
+  },
+  {
+    "id": "yuumi",
+    "name": "Yuumi",
+    "url": "https://www.wildriftfire.com/guide/yuumi"
+  },
+  {
+    "id": "zed",
+    "name": "Zed",
+    "url": "https://www.wildriftfire.com/guide/zed"
+  },
+  {
+    "id": "zeri",
+    "name": "Zeri",
+    "url": "https://www.wildriftfire.com/guide/zeri"
+  },
+  {
+    "id": "ziggs",
+    "name": "Ziggs",
+    "url": "https://www.wildriftfire.com/guide/ziggs"
+  },
+  {
+    "id": "zilean",
+    "name": "Zilean",
+    "url": "https://www.wildriftfire.com/guide/zilean"
+  },
+  {
+    "id": "zoe",
+    "name": "Zoe",
+    "url": "https://www.wildriftfire.com/guide/zoe"
+  },
+  {
+    "id": "zyra",
+    "name": "Zyra",
+    "url": "https://www.wildriftfire.com/guide/zyra"
+  }
+]

@@ -1,0 +1,250 @@
+{
+  "id": "olaf",
+  "name": "Olaf",
+  "title": "The Berserker",
+  "roles": [],
+  "positions": [
+    "jungle",
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/olaf.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 112,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 10,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 25,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Berserker Rage",
+      "form": null,
+      "description": {
+        "normalized": "Gain up to 70% - 110% (based on level) attack speed and 15% - 30% (based on level) physical vamp based on missing health, maxing out at 70% missing health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gain up to 70% - 110% (based on level) attack speed and 15% - 30% (based on level) physical vamp based on missing health, maxing out at 70% missing health.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Undertow",
+      "form": null,
+      "description": {
+        "normalized": "Throws an axe, dealing 50 / 115 / 180 / 245 (+120% AD) physical damage and slowing by 20% / 27.55% / 35% / 42.5% for 2 seconds. Picking up the axe reduces Undertow's cooldown by 4.5 seconds. Inflict 20% armor reduction for 4 seconds on enemy champions. Deals 110% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          50,
+          55,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            115,
+            180,
+            245
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 110,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws an axe, dealing 50 / 115 / 180 / 245 (+120% AD) physical damage and slowing by 20% / 27.55% / 35% / 42.5% for 2 seconds.\n\nPicking up the axe reduces Undertow's cooldown by 4.5 seconds.\n\nInflict 20% armor reduction for 4 seconds on enemy champions.\n\nDeals 110% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Vicious Strikes",
+      "form": null,
+      "description": {
+        "normalized": "Olaf gains 35% / 50% / 65% / 80% Attack Speed for 4 seconds and grants himself a shield that absorbs 35 / 70 / 105 / 140 (+15% missing health) for 2.5 seconds with an amount that is capped at 70% of missing health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            35,
+            70,
+            105,
+            140
+          ],
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Olaf gains 35% / 50% / 65% / 80% Attack Speed for 4 seconds and grants himself a shield that absorbs 35 / 70 / 105 / 140 (+15% missing health) for 2.5 seconds with an amount that is capped at 70% of missing health.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Reckless Swing",
+      "form": null,
+      "description": {
+        "normalized": "Dash to an enemy and deal 45 / 95 / 145 / 195 (+55% AD) true damage. If the enemy does not die, Olaf takes 28 (+15% AD) true damage. Attacks lower the cooldown of Reckless Swing by 1 second. Deals 95% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": [
+            45,
+            95,
+            145,
+            195
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.55
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 95,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dash to an enemy and deal 45 / 95 / 145 / 195 (+55% AD) true damage. If the enemy does not die, Olaf takes 28 (+15% AD) true damage.\n\nAttacks lower the cooldown of Reckless Swing by 1 second.\n\nDeals 95% damage to monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Ragnarok",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gain 25 / 35 / 45 Armor and Magic Resist. Active: Becomes immune to crowd control and gains 5 / 15 / 25 (+20% AD) Attack Damage for 4 seconds. Also gains 20% Movement Speed when moving toward enemy champions for 1 second upon cast. Ragnarok's duration is increased by 2.5 seconds for each basic attack or cast of Reckless Swing against an enemy champion. Ragnarok can be cast while under the effects of crowd control.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        60,
+        55,
+        50
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 20,
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gain 25 / 35 / 45 Armor and Magic Resist.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Becomes immune to crowd control and gains 5 / 15 / 25 (+20% AD) Attack Damage for 4 seconds. Also gains 20% Movement Speed when moving toward enemy champions for 1 second upon cast.",
+          "effects": [
+            {
+              "type": "movement_speed",
+              "percent": 20,
+              "duration": 4,
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gain 25 / 35 / 45 Armor and Magic Resist.\n\nActive: Becomes immune to crowd control and gains 5 / 15 / 25 (+20% AD) Attack Damage for 4 seconds. Also gains 20% Movement Speed when moving toward enemy champions for 1 second upon cast.\n\nRagnarok's duration is increased by 2.5 seconds for each basic attack or cast of Reckless Swing against an enemy champion.\n\nRagnarok can be cast while under the effects of crowd control.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/olaf",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Berserker Rage: Numeric prose was not fully structured; rawParsedText kept.",
+    "Undertow: Numeric prose was not fully structured; rawParsedText kept.",
+    "Undertow: Numeric prose was not fully structured; rawParsedText kept.",
+    "Reckless Swing: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ragnarok: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ragnarok: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

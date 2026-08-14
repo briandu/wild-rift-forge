@@ -1,0 +1,41 @@
+{
+  "id": "ambessa",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ambessa",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 200,
+      "maximumPerLevel": 0,
+      "regen5": 50,
+      "regen5PerLevel": 0
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 43,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Drakehound’s Step",
+    "Cunning Sweep / Sundering Slam",
+    "Repudiation",
+    "Lacerate",
+    "Public Execution"
+  ]
+}

@@ -1,0 +1,459 @@
+{
+  "id": "kayn",
+  "name": "Shadow Assassin",
+  "title": "The Shadow Reaper",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "/images/champion/icon/shadow-assassin.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 70,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "The Darkin Scythe: Shadow Assassin",
+      "form": null,
+      "description": {
+        "normalized": "Kayn the Shadow Assassin fights Rhaast the Darkin Slayer for control. Damaging ranged champions charges the Shadow Assassin, and damaging melee champions charges the Darkin Slayer. At full charge, Kayn can permanently transform at his base. Shadow Assassin: Attacks and abilities deal an additional 52% - 66% magic damage for 3 seconds. This only occurs if Kayn has been out of combat for 6 seconds or used Umbral Trespass.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 52,
+          "duration": 3,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Kayn the Shadow Assassin fights Rhaast the Darkin Slayer for control.\n\nDamaging ranged champions charges the Shadow Assassin, and damaging melee champions charges the Darkin Slayer. At full charge, Kayn can permanently transform at his base.\n\nShadow Assassin: Attacks and abilities deal an additional 52% - 66% magic damage for 3 seconds. This only occurs if Kayn has been out of combat for 6 seconds or used Umbral Trespass.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Reaping Slash: Shadow Assassin",
+      "form": null,
+      "description": {
+        "normalized": "Dashes and deals 70 / 100 / 130 / 160 (+60% / 65% / 70% / 75% AD) physical damage, then spins his scythe to deal the same damage. Deals and additional 35 physical damage to minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        4,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 35,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes and deals 70 / 100 / 130 / 160 (+60% / 65% / 70% / 75% AD) physical damage, then spins his scythe to deal the same damage.\n\nDeals and additional 35 physical damage to minions and monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Blade's Reach: Shadow Assassin",
+      "form": null,
+      "description": {
+        "normalized": "Swipes the scythe upward, dealing 105 / 165 / 225 / 285 (+120% AD) physical damage and slowing enemies hit by 90% decaying over 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            105,
+            165,
+            225,
+            285
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Swipes the scythe upward, dealing 105 / 165 / 225 / 285 (+120% AD) physical damage and slowing enemies hit by 90% decaying over 1.5 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Shadow Step: Shadow Assassin",
+      "form": null,
+      "description": {
+        "normalized": "Gains 75% movement speed, slow immunity and the ability to move through terrain for 5 / 5.5 / 6 / 6.5 seconds. Kayn restores 100 / 120 / 140 / 160 health upon enetering terrain for the first time. Being immobilized or spending more than 1.2 consecutive seconds outisde of terrain or in combat with enemy champions ends this ability early.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 75,
+          "duration": [
+            5,
+            5.5,
+            6,
+            6.5
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 75% movement speed, slow immunity and the ability to move through terrain for 5 / 5.5 / 6 / 6.5 seconds. Kayn restores 100 / 120 / 140 / 160 health upon enetering terrain for the first time.\n\nBeing immobilized or spending more than 1.2 consecutive seconds outisde of terrain or in combat with enemy champions ends this ability early.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Umbral Trespass: Shadow Assassin",
+      "form": null,
+      "description": {
+        "normalized": "Infests an enemy champion for 2.5 seconds, becoming untargetable.When the infestation ends, the target is dealt 200 / 300 / 400 (+165% AD) physical damage and The Darkin Scythe's cooldown is refreshed. When Kayn is in his Darkin form, infesting a target with Umbral Trespass and the target dies, ending the infestation in advance, the ult will still trigger the health regeneration. Re-cast: Ends the infestation early.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        59,
+        52,
+        44
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            200,
+            300,
+            400
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.65
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Infests an enemy champion for 2.5 seconds, becoming untargetable.When the infestation ends, the target is dealt 200 / 300 / 400 (+165% AD) physical damage and The Darkin Scythe's cooldown is refreshed.\n\nWhen Kayn is in his Darkin form, infesting a target with Umbral Trespass and the target dies, ending the infestation in advance, the ult will still trigger the health regeneration.\n\nRe-cast: Ends the infestation early.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [
+    {
+      "slot": "passive",
+      "name": "The Darkin Scythe: Rhaast",
+      "form": null,
+      "description": {
+        "normalized": "Kayn the Shadow Assassin fights Rhaast the Darkin Slayer for control. Damaging ranged champions charge the Shadow Assassin, and damaging melee champions charge the Darkin Slayer. At full charge, Kayn can permanently transform at his base. Darkin Slayer: Kayn heals for 24% - 38% of physical damage dealt to champions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 24,
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 24,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Kayn the Shadow Assassin fights Rhaast the Darkin Slayer for control.\n\nDamaging ranged champions charge the Shadow Assassin, and damaging melee champions charge the Darkin Slayer. At full charge, Kayn can permanently transform at his base.\n\nDarkin Slayer: Kayn heals for 24% - 38% of physical damage dealt to champions.",
+      "confidence": "high"
+    },
+    {
+      "slot": "q",
+      "name": "Reaping Slash: Rhaast",
+      "form": null,
+      "description": {
+        "normalized": "Dashes and deals 70 / 100 / 130 / 130 / 160 (60% / 65% / 70% / 75% AD) plus 7% (+0.06% bonus AD) of the target's maximum health as physical damage (max 235 / 310 / 385 / 460 vs monsters), then spins his scythe to deal the same damage. Deals an additional 35 physical damage to minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        4,
+        3,
+        3,
+        3
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            100,
+            130,
+            130,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.0006
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 35,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes and deals 70 / 100 / 130 / 130 / 160 (60% / 65% / 70% / 75% AD) plus 7% (+0.06% bonus AD) of the target's maximum health as physical damage (max 235 / 310 / 385 / 460 vs monsters), then spins his scythe to deal the same damage.\n\nDeals an additional 35 physical damage to minions and monsters.",
+      "confidence": "high"
+    },
+    {
+      "slot": "w",
+      "name": "Blade's Reach: Rhaast",
+      "form": null,
+      "description": {
+        "normalized": "Swipes the scythe upward, dealing 105 / 165 / 225 / 285 (+120% AD) physical damage. Enemies hit are knocked up for 1 second and slowed by 90% decaying over 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            105,
+            165,
+            225,
+            285
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Swipes the scythe upward, dealing 105 / 165 / 225 / 285 (+120% AD) physical damage. Enemies hit are knocked up for 1 second and slowed by 90% decaying over 1.5 seconds.",
+      "confidence": "high"
+    },
+    {
+      "slot": "e",
+      "name": "Shadow Step: Rhaast",
+      "form": null,
+      "description": {
+        "normalized": "Gains 35% Movement speed and can move through terrain for5 / 5.5/ 6 / 6.5 seconds. Kayn restores 100 / 120 / 140 / 160 (+50% AD) health upon entering terrain for the first time. Being immobilized or spending more than 1.2 consecutive seconds outside of terrain or in combat with enemy champions ends this ability eary.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 35,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 35% Movement speed and can move through terrain for5 / 5.5/ 6 / 6.5 seconds. Kayn restores 100 / 120 / 140 / 160 (+50% AD) health upon entering terrain for the first time.\n\nBeing immobilized or spending more than 1.2 consecutive seconds outside of terrain or in combat with enemy champions ends this ability eary.",
+      "confidence": "high"
+    },
+    {
+      "slot": "r",
+      "name": "Umbral Trespass: Rhaast",
+      "form": null,
+      "description": {
+        "normalized": "Infest an enemy champion for 2.5 seconds, becoming untargetable.When the infestation ends, the target is dealt 36% (+0.13% AD) of the targets maximum health as physical damage and Kayn heals for 27% (+0.1% AD) of the target's maximum health. When Kayn is in his Darkin form, infesting a target with Umbral Trespass and the target dies, ending the infestation in advance, the ult will still trigger the health regeneration. Re-cast: Ends the infestation early.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        50,
+        44,
+        38
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": 2.5,
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.0013
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.001
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 2.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.0013
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.001
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Infest an enemy champion for 2.5 seconds, becoming untargetable.When the infestation ends, the target is dealt 36% (+0.13% AD) of the targets maximum health as physical damage and Kayn heals for 27% (+0.1% AD) of the target's maximum health.\n\nWhen Kayn is in his Darkin form, infesting a target with Umbral Trespass and the target dies, ending the infestation in advance, the ult will still trigger the health regeneration.\n\nRe-cast: Ends the infestation early.",
+      "confidence": "high"
+    }
+  ],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kayn",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Shadow Step: Shadow Assassin: Numeric prose was not fully structured; rawParsedText kept.",
+    "Shadow Step: Rhaast: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

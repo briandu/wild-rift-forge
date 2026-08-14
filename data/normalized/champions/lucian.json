@@ -1,0 +1,243 @@
+{
+  "id": "lucian",
+  "name": "Lucian",
+  "title": "the Purifier",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/lucian.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 37,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 5,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Lightslinger",
+      "form": null,
+      "description": {
+        "normalized": "After using an Ability, Lucian's next Attack within 3.5 seconds will fire two shots. The second shot deals 35% / 50% / 65% physical damage, increased to 100% against minions. The second shot is a separate Attack that applies on-hit effects and can critical strike. Vigilance: When healed or shielded by allied champions, or when a nearby enemy champion is immobilized, Lucian's next two attacks deal an additional 20 (+10% AD) magic damage (stores up to four empowered attacks).",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 35,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 20,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "After using an Ability, Lucian's next Attack within 3.5 seconds will fire two shots.\n\nThe second shot deals 35% / 50% / 65% physical damage, increased to 100% against minions. The second shot is a separate Attack that applies on-hit effects and can critical strike.\n\nVigilance: When healed or shielded by allied champions, or when a nearby enemy champion is immobilized, Lucian's next two attacks deal an additional 20 (+10% AD) magic damage (stores up to four empowered attacks).",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Piercing Light",
+      "form": null,
+      "description": {
+        "normalized": "Shoots a bolt of piercing light through an enemy unit, damaging enemies in a line for 80 / 125 / 170 / 215 (+65% / 85% / 105% / 125% AD) physical damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            125,
+            170,
+            215
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Shoots a bolt of piercing light through an enemy unit, damaging enemies in a line for 80 / 125 / 170 / 215 (+65% / 85% / 105% / 125% AD) physical damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Ardent Blaze",
+      "form": null,
+      "description": {
+        "normalized": "Fires a shot that explodes at the end of its range or on the first enemy hit, dealing 75 / 125 / 175 / 225 (+90% AP) magic damage, briefly revealing enemies and marking them for 6 seconds. When Lucian or an ally damages a marked enemy, Lucian gains 65 / 70 / 75 / 80 Movement Speed for 1 second. When allied champions trigger the mark, it grants Lucian Vigilance.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        11,
+        10,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            125,
+            175,
+            225
+          ],
+          "duration": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a shot that explodes at the end of its range or on the first enemy hit, dealing 75 / 125 / 175 / 225 (+90% AP) magic damage, briefly revealing enemies and marking them for 6 seconds.\n\nWhen Lucian or an ally damages a marked enemy, Lucian gains 65 / 70 / 75 / 80 Movement Speed for 1 second. When allied champions trigger the mark, it grants Lucian Vigilance.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Relentless Pursuit",
+      "form": null,
+      "description": {
+        "normalized": "Quickly dashes a short distance. Cooldown is reduced by 1 second whenever Lucian hits an enemy with Lightslinger ( 2 seconds for champions).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        21,
+        18,
+        16,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          30,
+          15
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Quickly dashes a short distance.\n\nCooldown is reduced by 1 second whenever Lucian hits an enemy with Lightslinger ( 2 seconds for champions).",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "The Culling",
+      "form": null,
+      "description": {
+        "normalized": "Fires rapidly in a direction for 3 seconds. Each shot deals 20 / 35 / 50 (+25% AD +10% AP) physical damage to the first enemy hit. Fires a total of 22 / 26 / 30 bullets. Lucian may use Relentless Pursuit during The Culling.Recast to cancel early. Minions take 200% damage from The Culling.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            20,
+            35,
+            50
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.25
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires rapidly in a direction for 3 seconds. Each shot deals 20 / 35 / 50 (+25% AD +10% AP) physical damage to the first enemy hit. Fires a total of 22 / 26 / 30 bullets.\n\nLucian may use Relentless Pursuit during The Culling.Recast to cancel early.\n\nMinions take 200% damage from The Culling.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/lucian",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Lightslinger: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ardent Blaze: Numeric prose was not fully structured; rawParsedText kept.",
+    "Relentless Pursuit: Numeric prose was not fully structured; rawParsedText kept.",
+    "The Culling: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

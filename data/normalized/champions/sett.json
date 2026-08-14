@@ -1,0 +1,291 @@
+{
+  "id": "sett",
+  "name": "Sett",
+  "title": "The Boss",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/sett.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 10,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Pit Grit",
+      "form": null,
+      "description": {
+        "normalized": "Sett's Attacks alternate between left and right punches. Right punches follow the left quickly and deal an additional 9 (x champion level +50% AD) physical damage. Sett gains 0.25 bonus Health Regeneration for each 5% missing Health. Sett will reset back to a left punch if he does not do a right punch within 2 seconds of doing a left punch. The Attack Speed of a right punch is 8 times that of a left punch.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 9,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Sett's Attacks alternate between left and right punches. Right punches follow the left quickly and deal an additional 9 (x champion level +50% AD) physical damage.\n\nSett gains 0.25 bonus Health Regeneration for each 5% missing Health.\n\nSett will reset back to a left punch if he does not do a right punch within 2 seconds of doing a left punch. The Attack Speed of a right punch is 8 times that of a left punch.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Knuckle Down",
+      "form": null,
+      "description": {
+        "normalized": "Sett itches for a fight, gaining 35% Movement Speed towards enemy champions for 1.5 seconds. Additionally empowers the next two attacks to deal an additional 5 /20 / 35 50 + 1% (+0.01% / 0.015% / 0.02% / 0.025% AD) max health physical damage. The additional damage is capped at 100 against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        8,
+        7,
+        5
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 35,
+          "duration": 1.5,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            5,
+            20,
+            35
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Sett itches for a fight, gaining 35% Movement Speed towards enemy champions for 1.5 seconds.\n\nAdditionally empowers the next two attacks to deal an additional 5 /20 / 35 50 + 1% (+0.01% / 0.015% / 0.02% / 0.025% AD) max health physical damage.\n\nThe additional damage is capped at 100 against monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Haymaker",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Stores 100% of damage taken as Grit, up to 305 (50% maximum HP). Grit decays quickly 4 seconds after the damage was taken. Active: Consumes all Grit, gaining a 100% Grit consumed shield decaying over 3 seconds. Sett then delivers a massive punch, dealing 80 / 105 / 130 / 155 + 25% (+0.275% AD) Grit consumed true damage to enemies in the center. Enemies not in the center instead take physical damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        15,
+        13,
+        12
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": [
+            80,
+            105,
+            130,
+            155
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.0027500000000000003
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            80,
+            105,
+            130,
+            155
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.0027500000000000003
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Stores 100% of damage taken as Grit, up to 305 (50% maximum HP). Grit decays quickly 4 seconds after the damage was taken.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Consumes all Grit, gaining a 100% Grit consumed shield decaying over 3 seconds. Sett then delivers a massive punch, dealing 80 / 105 / 130 / 155 + 25% (+0.275% AD) Grit consumed true damage to enemies in the center. Enemies not in the center instead take physical damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "true",
+              "base": [
+                80,
+                105,
+                130,
+                155
+              ],
+              "scalings": [
+                {
+                  "stat": "total_ad",
+                  "ratio": 0.0027500000000000003
+                }
+              ],
+              "confidence": "high"
+            },
+            {
+              "type": "shield",
+              "base": [
+                80,
+                105,
+                130,
+                155
+              ],
+              "scalings": [
+                {
+                  "stat": "total_ad",
+                  "ratio": 0.0027500000000000003
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Stores 100% of damage taken as Grit, up to 305 (50% maximum HP). Grit decays quickly 4 seconds after the damage was taken.\n\nActive: Consumes all Grit, gaining a 100% Grit consumed shield decaying over 3 seconds. Sett then delivers a massive punch, dealing 80 / 105 / 130 / 155 + 25% (+0.275% AD) Grit consumed true damage to enemies in the center. Enemies not in the center instead take physical damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Facebreaker",
+      "form": null,
+      "description": {
+        "normalized": "Smashes enemies on either side into each other, dealing 50 / 75 / 100 / 125 (+60% AD) physical damage and slowing them by 50% for 0.5 seconds. If Sett grabbed at least one enemy on each side, all enemies are stunned for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        10,
+        9
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            75,
+            100,
+            125
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Smashes enemies on either side into each other, dealing 50 / 75 / 100 / 125 (+60% AD) physical damage and slowing them by 50% for 0.5 seconds.\n\nIf Sett grabbed at least one enemy on each side, all enemies are stunned for 1 second.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "The Show Stopper",
+      "form": null,
+      "description": {
+        "normalized": "Grabs an enemy champion and suppresses them as he carries them forward, then slams them into the ground, dealing 200 / 300 / 400 (+100% AD) + 35% / 45% / 55% bonus Health physical damage to surrounding enemies and Slowing them by 99% for 1 second. Enemies take less damage the further they are from where Sett lands.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            200,
+            300,
+            400
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Grabs an enemy champion and suppresses them as he carries them forward, then slams them into the ground, dealing 200 / 300 / 400 (+100% AD) + 35% / 45% / 55% bonus Health physical damage to surrounding enemies and Slowing them by 99% for 1 second. Enemies take less damage the further they are from where Sett lands.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/sett",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Pit Grit: Numeric prose was not fully structured; rawParsedText kept.",
+    "Pit Grit: Numeric prose was not fully structured; rawParsedText kept.",
+    "Knuckle Down: Numeric prose was not fully structured; rawParsedText kept.",
+    "Haymaker: Numeric prose was not fully structured; rawParsedText kept.",
+    "Facebreaker: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

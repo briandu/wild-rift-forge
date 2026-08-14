@@ -1,0 +1,41 @@
+{
+  "id": "ornn",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ornn",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 720,
+    "healthPerLevel": 120,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 45,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Living Forge",
+    "Volcanic Rupture",
+    "Bellows Breath",
+    "Searing Charge",
+    "Call of the Forge God"
+  ]
+}

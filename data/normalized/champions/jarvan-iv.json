@@ -1,0 +1,279 @@
+{
+  "id": "jarvan-iv",
+  "name": "Jarvan IV",
+  "title": "The Exemplar of Demacia",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/jarvan-iv.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Martial Cadence",
+      "form": null,
+      "description": {
+        "normalized": "The first attack against an enemy deals 8% physical damage of their curren Health (5 second cooldown per unique enemy).",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 8,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "The first attack against an enemy deals 8% physical damage of their curren Health (5 second cooldown per unique enemy).",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Dragon Strike",
+      "form": null,
+      "description": {
+        "normalized": "Extens Jarvan IV's lance, dealing 80 / 140 / 200 / 260 (+130% bonus AD) physical damage and reducing the Armor of enemies hit by 10% for 3 seconds. If the lance contacts a Demacian Standard it will pull Jarvan IV to the Demacian Standard's location, knocking up enemies in his path for 0.75 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            140,
+            200,
+            260
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Extens Jarvan IV's lance, dealing 80 / 140 / 200 / 260 (+130% bonus AD) physical damage and reducing the Armor of enemies hit by 10% for 3 seconds.\n\nIf the lance contacts a Demacian Standard it will pull Jarvan IV to the Demacian Standard's location, knocking up enemies in his path for 0.75 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Golden Aegis",
+      "form": null,
+      "description": {
+        "normalized": "Unleashes a regal aura that slows nearby enemies by 30% / 35% / 40% / 45% for 2 seconds, and grants him a shield that absorbs damage equal to 100 / 140 / 180 / 220 plus 5% of his max Health for 5 seconds. Absorbs 10 (1.6% / 1.9% / 2.2% / 2.5% of max HP ) more damage for each nearby enemy champion.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            100,
+            140,
+            180,
+            220
+          ],
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Unleashes a regal aura that slows nearby enemies by 30% / 35% / 40% / 45% for 2 seconds, and grants him a shield that absorbs damage equal to 100 / 140 / 180 / 220 plus 5% of his max Health for 5 seconds.\n\nAbsorbs 10 (1.6% / 1.9% / 2.2% / 2.5% of max HP ) more damage for each nearby enemy champion.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Demacian Standard",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 25% / 30% / 33% / 40% Attack Speed. Active: Throws a Demacian Standard that deals 85 / 140 / 195 / 250 (+80% AP) magic damage and remains in place for 8 seconds, granting nearby ally champions 30% / 35% / 40% / 45% Attack Speed. Tapping this ability while near a Demacian Standard will cast Dragon Strike towards it.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          55,
+          55,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            85,
+            140,
+            195,
+            250
+          ],
+          "duration": 8,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 25% / 30% / 33% / 40% Attack Speed.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Throws a Demacian Standard that deals 85 / 140 / 195 / 250 (+80% AP) magic damage and remains in place for 8 seconds, granting nearby ally champions 30% / 35% / 40% / 45% Attack Speed.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                85,
+                140,
+                195,
+                250
+              ],
+              "duration": 8,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.8
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gains 25% / 30% / 33% / 40% Attack Speed.\n\nActive: Throws a Demacian Standard that deals 85 / 140 / 195 / 250 (+80% AP) magic damage and remains in place for 8 seconds, granting nearby ally champions 30% / 35% / 40% / 45% Attack Speed.\n\nTapping this ability while near a Demacian Standard will cast Dragon Strike towards it.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Cataclysm",
+      "form": null,
+      "description": {
+        "normalized": "Heroically leaps to an enemy champion, dealing 200 / 350 / 500 (+170% bonus AD) physical damage to nearby enemies and creating an arena of impassable terrain around them for 3.5 seconds. Damage dealt by enemies within the arena is reduced by 12% / 16% / 20%. The effect ends once they leave the terrain or when it collapses. Cast again to collapse the terrain.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            200,
+            350,
+            500
+          ],
+          "duration": 3.5,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Heroically leaps to an enemy champion, dealing 200 / 350 / 500 (+170% bonus AD) physical damage to nearby enemies and creating an arena of impassable terrain around them for 3.5 seconds.\n\nDamage dealt by enemies within the arena is reduced by 12% / 16% / 20%. The effect ends once they leave the terrain or when it collapses.\n\nCast again to collapse the terrain.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/jarvan-iv",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Dragon Strike: Numeric prose was not fully structured; rawParsedText kept.",
+    "Golden Aegis: Numeric prose was not fully structured; rawParsedText kept.",
+    "Demacian Standard: Numeric prose was not fully structured; rawParsedText kept.",
+    "Cataclysm: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

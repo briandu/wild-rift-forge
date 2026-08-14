@@ -1,0 +1,264 @@
+{
+  "id": "taliyah",
+  "name": "Taliyah",
+  "title": "The Stoneweaver",
+  "roles": [],
+  "positions": [
+    "mid",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/taliyah.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 460,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Rock Surfing",
+      "form": null,
+      "description": {
+        "normalized": "Gains 5% / 10% / 20% / 35% Movement Speed while out of combat and near a wall.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 35,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 5% / 10% / 20% / 35% Movement Speed while out of combat and near a wall.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Threaded Volley",
+      "form": null,
+      "description": {
+        "normalized": "Hurls 5 rocks in a target direction, each dealing 40 / 60 / 80 / 100 (+50% AP) magic damage in an area around the first enemy hit. This creates Worked Ground below Taliyah. Subsequent hits against the same target deal 60% less damage. Threaded Volley casts on Worked Ground: Costs 10 Mana and consume the Worked Ground; Have 30% less cooldown; Hurl a boulders that deals 100 / 140 / 180 / 220 (+80% AP) magic damage to the primary target and shows enemies hit by 25% / 30% / 35% / 40% for 1.5 seconds; Monsters hit by the boulders are stunned for 3 seconds. Each rock deals 20 bonus magic damage against monsters, and each boulders deals 36 bonus magic damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            60,
+            80,
+            100
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            140,
+            180,
+            220
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 20,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hurls 5 rocks in a target direction, each dealing 40 / 60 / 80 / 100 (+50% AP) magic damage in an area around the first enemy hit. This creates Worked Ground below Taliyah. Subsequent hits against the same target deal 60% less damage.\n\nThreaded Volley casts on Worked Ground: Costs 10 Mana and consume the Worked Ground; Have 30% less cooldown; Hurl a boulders that deals 100 / 140 / 180 / 220 (+80% AP) magic damage to the primary target and shows enemies hit by 25% / 30% / 35% / 40% for 1.5 seconds; Monsters hit by the boulders are stunned for 3 seconds.\n\nEach rock deals 20 bonus magic damage against monsters, and each boulders deals 36 bonus magic damage against monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Seismic Shove",
+      "form": null,
+      "description": {
+        "normalized": "Causes an area of ground to erupt, knocking enemies in the area in the chosen direction after a brief delay.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        11,
+        9,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Causes an area of ground to erupt, knocking enemies in the area in the chosen direction after a brief delay.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Unraveled Earth",
+      "form": null,
+      "description": {
+        "normalized": "Scatters loose stones, dealing 65 / 120 / 175 / 230 (+55% AP) magic damage to enemies hit and slowing them by 20% for 0.5 seconds. The stones detonate when enemies dash or are knocked through them, dealing 20 / 35 / 50 / 65 (+30% AP) magic damage and stuns for the remaining movement duration + 0.75 seconds. Monsters are always stunned for the maximum duration. Deals 190% damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          90,
+          90,
+          90,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            65,
+            120,
+            175,
+            230
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            35,
+            50,
+            65
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "stun",
+          "duration": 0.75,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 190,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Scatters loose stones, dealing 65 / 120 / 175 / 230 (+55% AP) magic damage to enemies hit and slowing them by 20% for 0.5 seconds.\n\nThe stones detonate when enemies dash or are knocked through them, dealing 20 / 35 / 50 / 65 (+30% AP) magic damage and stuns for the remaining movement duration + 0.75 seconds.\n\nMonsters are always stunned for the maximum duration. Deals 190% damage against monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Weaver's Wall",
+      "form": null,
+      "description": {
+        "normalized": "Creates a massive earthen wall for 4 seconds: The wall knocks back nearby enemies when it forms; Once the wall is fully formed, Taliyah can recast to destroy it early. If recast immediately: Taliyah rides along the wall as it unravels. Moving or being immobilized ends the ride. This ability cannon be cast if Taliyah has taken damage from champions or structures within the last 3 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        94,
+        85,
+        75
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Creates a massive earthen wall for 4 seconds: The wall knocks back nearby enemies when it forms; Once the wall is fully formed, Taliyah can recast to destroy it early.\n\nIf recast immediately: Taliyah rides along the wall as it unravels. Moving or being immobilized ends the ride.\n\nThis ability cannon be cast if Taliyah has taken damage from champions or structures within the last 3 seconds.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/taliyah",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Weaver's Wall: Numeric prose was not fully structured; rawParsedText kept.",
+    "Weaver's Wall: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

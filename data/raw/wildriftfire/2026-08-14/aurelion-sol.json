@@ -1,0 +1,41 @@
+{
+  "id": "aurelion-sol",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/aurelion-sol",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 43,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Cosmic Creator",
+    "Breath of Light",
+    "Astral Flight",
+    "Singularity",
+    "Falling Star/ The Skies Descend"
+  ]
+}

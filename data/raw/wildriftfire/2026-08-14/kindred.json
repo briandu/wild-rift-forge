@@ -1,0 +1,41 @@
+{
+  "id": "kindred",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kindred",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 14,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 30,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 5,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Mark of the Kindred",
+    "Dance of Arrows",
+    "Wolf's Frenzy",
+    "Mounting Dread",
+    "Lamb's Respite"
+  ]
+}

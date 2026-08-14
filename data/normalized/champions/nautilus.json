@@ -1,0 +1,299 @@
+{
+  "id": "nautilus",
+  "name": "Nautilus",
+  "title": "The Titan of the Depths",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/nautilus.png",
+  "stats": {
+    "health": 720,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Staggering Blow",
+      "form": null,
+      "description": {
+        "normalized": "Attacks deal an additional 13 physical damage and root the target for 1 second. 6 seconds cooldown on the same target.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 13,
+          "duration": 1,
+          "confidence": "high"
+        },
+        {
+          "type": "root",
+          "duration": 1,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attacks deal an additional 13 physical damage and root the target for 1 second.\n\n6 seconds cooldown on the same target.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Dredge Line",
+      "form": null,
+      "description": {
+        "normalized": "Hurls his anchor forward, dealing 90 / 150 / 210 / 270 (+75% AP) magic damage to the first target hit and pulling them and Nautilus together. If the anchor hits terrain, Nautilus pulls himself to the terrain and 50% of Dredge Line's cooldown and mana cost are refunded.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            150,
+            210,
+            270
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hurls his anchor forward, dealing 90 / 150 / 210 / 270 (+75% AP) magic damage to the first target hit and pulling them and Nautilus together.\n\nIf the anchor hits terrain, Nautilus pulls himself to the terrain and 50% of Dredge Line's cooldown and mana cost are refunded.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Titan's Wrath",
+      "form": null,
+      "description": {
+        "normalized": "Gains a shield that absorbs 65 / 75 / 85 / 95 (+9% / 10% / 11% / 12% max HP) damage for 6 seconds. While the shield holds, Nautilus' attacks are empowered to deal an additional 50 / 60 / 70 / 80 (+40% AP) magic damage around the target. Deals 125% damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            65,
+            75,
+            85,
+            95
+          ],
+          "duration": 6,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            50,
+            60,
+            70,
+            80
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 125,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains a shield that absorbs 65 / 75 / 85 / 95 (+9% / 10% / 11% / 12% max HP) damage for 6 seconds.\n\nWhile the shield holds, Nautilus' attacks are empowered to deal an additional 50 / 60 / 70 / 80 (+40% AP) magic damage around the target.\n\nDeals 125% damage against monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Riptide",
+      "form": null,
+      "description": {
+        "normalized": "Sends waves emanating outward that deal 70 / 110 / 150 / 190 (+50% AP) magic damage and slow by 35% / 40% / 45% / 50% decaying over 1.5 seconds. Enemies hit by subsequent waves take 50% damage.Deals 125% damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            110,
+            150,
+            190
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Sends waves emanating outward that deal 70 / 110 / 150 / 190 (+50% AP) magic damage and slow by 35% / 40% / 45% / 50% decaying over 1.5 seconds.\n\nEnemies hit by subsequent waves take 50% damage.Deals 125% damage against monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Depth Charge",
+      "form": null,
+      "description": {
+        "normalized": "Nautilus fires a depth charge towards an enemy champion, dealing 150 / 275 / 400 (+70% AP) magic damage, Knocking them Up and Stunning them for 1 / 1.5 / 2 seconds. Other enemies hit by the depth charge are also Knocked Up and Stunned and take 125 / 175 / 225 (+40% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        60,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            275,
+            400
+          ],
+          "duration": [
+            1,
+            1.5,
+            2
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Nautilus fires a depth charge towards an enemy champion, dealing 150 / 275 / 400 (+70% AP) magic damage, Knocking them Up and Stunning them for 1 / 1.5 / 2 seconds. Other enemies hit by the depth charge are also Knocked Up and Stunned and take 125 / 175 / 225 (+40% AP) magic damage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/nautilus",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Staggering Blow: Numeric prose was not fully structured; rawParsedText kept.",
+    "Dredge Line: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "id": "garen",
+  "name": "Garen",
+  "title": "The Might of Demacia",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/garen.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 52,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Perseverance",
+      "form": null,
+      "description": {
+        "normalized": "If Garen has not recently been struck by damage or enemy abilities within the last 5 seconds, he regenerates 1.2% - 4.5% (1% + champion level x 0.3) missing Health per second. Damage from minions and non-epic monsters does hot affect this effect.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "If Garen has not recently been struck by damage or enemy abilities within the last 5 seconds, he regenerates 1.2% - 4.5% (1% + champion level x 0.3) missing Health per second.\n\nDamage from minions and non-epic monsters does hot affect this effect.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Decisive Strike",
+      "form": null,
+      "description": {
+        "normalized": "Breaks free from all slows, becoming immune to them for 0.5 seconds and gaining 35% Movement Speed for 2 / 2.5 / 3 / 3.5 seconds. The next attack within 3 seconds is empowered to deal an additional 40 / 80 / 120 / 160 (+40% AD) physical damage and silence the target for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        8,
+        7
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 35,
+          "duration": [
+            2,
+            2.5,
+            3,
+            3.5
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            40,
+            80,
+            120,
+            160
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "silence",
+          "duration": 1.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Breaks free from all slows, becoming immune to them for 0.5 seconds and gaining 35% Movement Speed for 2 / 2.5 / 3 / 3.5 seconds.\n\nThe next attack within 3 seconds is empowered to deal an additional 40 / 80 / 120 / 160 (+40% AD) physical damage and silence the target for 1.5 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Courage",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 10% bonus Magic Resist and Armor. Active: Reduces incoming damage by 30% for 4 seconds. On cast, Garen gains 60% Tenacity for 1 second and a shield that absorbs 65 / 95 / 125 / 155 (+20% bonus Health) damage for 2.5 seconds. The shield starts decaying after 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            65,
+            95,
+            125,
+            155
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "bonus_health",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 10% bonus Magic Resist and Armor.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Reduces incoming damage by 30% for 4 seconds. On cast, Garen gains 60% Tenacity for 1 second and a shield that absorbs 65 / 95 / 125 / 155 (+20% bonus Health) damage for 2.5 seconds. The shield starts decaying after 1 second.",
+          "effects": [
+            {
+              "type": "shield",
+              "base": [
+                65,
+                95,
+                125,
+                155
+              ],
+              "duration": 4,
+              "scalings": [
+                {
+                  "stat": "bonus_health",
+                  "ratio": 0.2
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gains 10% bonus Magic Resist and Armor.\n\nActive: Reduces incoming damage by 30% for 4 seconds. On cast, Garen gains 60% Tenacity for 1 second and a shield that absorbs 65 / 95 / 125 / 155 (+20% bonus Health) damage for 2.5 seconds. The shield starts decaying after 1 second.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Judgment",
+      "form": null,
+      "description": {
+        "normalized": "First Cast: Rapidly spins his sword for 3 seconds, dealing 13 / 17 / 21 / 25 (+25% / 30% / 35% / 40% AD) physical damage 8 times over the duration. Every 4 levels, the number of spins increases by 1, up to 11 strikes. Recast: Ends Judgment early and reduces its cooldown by the duration remaining. Armor Shred; When a champion is hit by 6 strikes, their Armor is shredded by 10% for 4.5 seconds. Every hit refreshes the effect duration. The target nearest to Garen takes 20% increased damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            13,
+            17,
+            21,
+            25
+          ],
+          "duration": 3,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First Cast",
+          "rawParsedText": "Rapidly spins his sword for 3 seconds, dealing 13 / 17 / 21 / 25 (+25% / 30% / 35% / 40% AD) physical damage 8 times over the duration. Every 4 levels, the number of spins increases by 1, up to 11 strikes.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                13,
+                17,
+                21,
+                25
+              ],
+              "duration": 3,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "recast",
+          "label": "Recast",
+          "rawParsedText": "Ends Judgment early and reduces its cooldown by the duration remaining.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "First Cast: Rapidly spins his sword for 3 seconds, dealing 13 / 17 / 21 / 25 (+25% / 30% / 35% / 40% AD) physical damage 8 times over the duration. Every 4 levels, the number of spins increases by 1, up to 11 strikes.\n\nRecast: Ends Judgment early and reduces its cooldown by the duration remaining.\n\nArmor Shred; When a champion is hit by 6 strikes, their Armor is shredded by 10% for 4.5 seconds. Every hit refreshes the effect duration.\n\nThe target nearest to Garen takes 20% increased damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Demacian Justice",
+      "form": null,
+      "description": {
+        "normalized": "Calls forth the might of Demacia to execute an enemy champion, dealing 150 / 250 / 350 +15% (+0.12% AD) true damage of the target's missing health. Nearby enemies take 75 +7.5% (+0.06% AD) true damage of their missing health. When casting Demacian Justice and the target dies, moves out of range, becomes untargetable, or activates Zhonya's Hourglass or Guardian Angel, the mana cost will be refunded and go on a 5 second cooldown. Deals a max of 600 damage to epic monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "true",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.0012
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.0006
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "damage",
+          "base": 600,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Calls forth the might of Demacia to execute an enemy champion, dealing 150 / 250 / 350 +15% (+0.12% AD) true damage of the target's missing health. Nearby enemies take 75 +7.5% (+0.06% AD) true damage of their missing health.\n\nWhen casting Demacian Justice and the target dies, moves out of range, becomes untargetable, or activates Zhonya's Hourglass or Guardian Angel, the mana cost will be refunded and go on a 5 second cooldown.\n\nDeals a max of 600 damage to epic monsters.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/garen",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Perseverance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Courage: Numeric prose was not fully structured; rawParsedText kept.",
+    "Judgment: Numeric prose was not fully structured; rawParsedText kept.",
+    "Judgment: Numeric prose was not fully structured; rawParsedText kept.",
+    "Demacian Justice: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

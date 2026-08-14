@@ -1,0 +1,261 @@
+{
+  "id": "brand",
+  "name": "Brand",
+  "title": "The Burning Vengeance",
+  "roles": [],
+  "positions": [
+    "mid",
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/brand.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Blaze",
+      "form": null,
+      "description": {
+        "normalized": "Brand's abilities set enemies Ablaze, dealing 3% of their max Health as magic damage over 4 seconds. Stacking Ablaze 3 times on champions and large monsters causes them to detonate after 2 seconds, dealing 10% (+0.02% AP) of each nearby enemy's max Health as magic damage Enemies that detonate cannot stack Ablaze again within 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.0002
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Brand's abilities set enemies Ablaze, dealing 3% of their max Health as magic damage over 4 seconds.\n\nStacking Ablaze 3 times on champions and large monsters causes them to detonate after 2 seconds, dealing 10% (+0.02% AP) of each nearby enemy's max Health as magic damage\n\nEnemies that detonate cannot stack Ablaze again within 4 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Sear",
+      "form": null,
+      "description": {
+        "normalized": "Brand launches a ball of fire forward that deals 80 / 120 / 160 / 200 (+55% AP) magic damage to the first enemy it hits. If the target is ablaze, the target will be stunned for 1.75 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            120,
+            160,
+            200
+          ],
+          "duration": 1.75,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Brand launches a ball of fire forward that deals 80 / 120 / 160 / 200 (+55% AP) magic damage to the first enemy it hits. If the target is ablaze, the target will be stunned for 1.75 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Pillar of Flame",
+      "form": null,
+      "description": {
+        "normalized": "After a short delay, Brand creates a pillar of flame at a target area, dealing 70 / 120 / 170 / 220 (+55% AP) magic damage to enemy units within the area. Units that are ablaze take 30% additional damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          75,
+          85,
+          95
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "After a short delay, Brand creates a pillar of flame at a target area, dealing 70 / 120 / 170 / 220 (+55% AP) magic damage to enemy units within the area. Units that are ablaze take 30% additional damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Conflagration",
+      "form": null,
+      "description": {
+        "normalized": "Brand sets the target enemy aflame which also spreads to all enemies near them, dealing 60 / 90 / 120 / 150 (+45% AP) magic damage. When a target is ablaze, Conflagration's spread radius is doubled.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          70,
+          75,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Brand sets the target enemy aflame which also spreads to all enemies near them, dealing 60 / 90 / 120 / 150 (+45% AP) magic damage. When a target is ablaze, Conflagration's spread radius is doubled.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Pyroclasm",
+      "form": null,
+      "description": {
+        "normalized": "Releases a torrent of flame that bounces up to 5 times between enemies or himself, each bounce dealing 100 / 200 / 300 (+30% AP) magic damage. Blaze: Pyroclasm briefly slows by 30% / 40% / 50% if the target is ablaze. Bounces attempt to max stack Blaze on champions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            200,
+            300
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Releases a torrent of flame that bounces up to 5 times between enemies or himself, each bounce dealing 100 / 200 / 300 (+30% AP) magic damage.\n\nBlaze: Pyroclasm briefly slows by 30% / 40% / 50% if the target is ablaze. Bounces attempt to max stack Blaze on champions.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/brand",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Blaze: Numeric prose was not fully structured; rawParsedText kept.",
+    "Pyroclasm: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

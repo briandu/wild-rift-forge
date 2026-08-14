@@ -1,0 +1,41 @@
+{
+  "id": "heimerdinger",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/heimerdinger",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 45,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 5,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Hextech Affinity",
+    "H-28G Evolution Turret",
+    "Hextech Micro-Rockets",
+    "CH-2 Electron Storm Grenade",
+    "UPGRADE!!!"
+  ]
+}

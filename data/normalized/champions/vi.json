@@ -1,0 +1,321 @@
+{
+  "id": "vi",
+  "name": "Vi",
+  "title": "the Piltover Enforcer",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/vi.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 112,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 37,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Denting Blows",
+      "form": null,
+      "description": {
+        "normalized": "Every 3rd attack on the same enemy deals 4.8% - 9% (+0.03% AD) bonus physical damage of their max Health, reduces their Armor by 20%, and grants Vi 27% Attack Speed for 4 seconds. Deals 300 max damage vs. monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": 4.8,
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.0003
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 300,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Every 3rd attack on the same enemy deals 4.8% - 9% (+0.03% AD) bonus physical damage of their max Health, reduces their Armor by 20%, and grants Vi 27% Attack Speed for 4 seconds.\n\nDeals 300 max damage vs. monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Vault Breaker",
+      "form": null,
+      "description": {
+        "normalized": "Hold: Charges up a powerful punch, slowing Movement Speed by 15% while increasing the punch's damage and dash distance. Cast: Dashes forward dealing 60 / 95 / 130 / 165 (+80% AD) to 120 / 190 / 260 / 330 (+160% AD) physical damage and applying Denting Blows to all enemies hit. Colliding with an enemy champion stops the punch and knocks them back. Deals 75% damage to minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            95,
+            130,
+            165
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.8
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 75,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hold: Charges up a powerful punch, slowing Movement Speed by 15% while increasing the punch's damage and dash distance.\n\nCast: Dashes forward dealing 60 / 95 / 130 / 165 (+80% AD) to 120 / 190 / 260 / 330 (+160% AD) physical damage and applying Denting Blows to all enemies hit. Colliding with an enemy champion stops the punch and knocks them back.\n\nDeals 75% damage to minions and monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Blast Shield",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Hitting an enemy with an attack or ability grants a stack of Blast Shield, up to 5 stacks. Active: Generates a shield that aborbs 60 / 85 / 110 / 135 damage for 3 seconds. Each stack consumed adds 10 (1.5% / 2% / 2.5% / 3% max HP) to the shield. At max stacks also grants a burst of 47% Movement Speed. Blast Shield stacks fall off one at a time and a max of 1 stack is added per attack or ability.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          20,
+          10
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": 5,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            60,
+            85,
+            110,
+            135
+          ],
+          "duration": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 47,
+          "duration": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 1,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Hitting an enemy with an attack or ability grants a stack of Blast Shield, up to 5 stacks.",
+          "effects": [
+            {
+              "type": "shield",
+              "base": 5,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Generates a shield that aborbs 60 / 85 / 110 / 135 damage for 3 seconds. Each stack consumed adds 10 (1.5% / 2% / 2.5% / 3% max HP) to the shield. At max stacks also grants a burst of 47% Movement Speed.",
+          "effects": [
+            {
+              "type": "shield",
+              "base": [
+                60,
+                85,
+                110,
+                135
+              ],
+              "duration": 3,
+              "confidence": "high"
+            },
+            {
+              "type": "movement_speed",
+              "percent": 47,
+              "duration": 3,
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Hitting an enemy with an attack or ability grants a stack of Blast Shield, up to 5 stacks.\n\nActive: Generates a shield that aborbs 60 / 85 / 110 / 135 damage for 3 seconds. Each stack consumed adds 10 (1.5% / 2% / 2.5% / 3% max HP) to the shield. At max stacks also grants a burst of 47% Movement Speed.\n\nBlast Shield stacks fall off one at a time and a max of 1 stack is added per attack or ability.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Excessive Force",
+      "form": null,
+      "description": {
+        "normalized": "Empowers Vi's next attack to deal 20 / 45 / 70 / 95 (+15% AD +70% AP) bonus physical damage to the target and enemies behind it. Vi stores a new charge every 11 / 10 / 9 / 8 seconds and can hold 2 charges at once.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          30,
+          40,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            20,
+            45,
+            70,
+            95
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.15
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers Vi's next attack to deal 20 / 45 / 70 / 95 (+15% AD +70% AP) bonus physical damage to the target and enemies behind it.\n\nVi stores a new charge every 11 / 10 / 9 / 8 seconds and can hold 2 charges at once.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Assault and Battery",
+      "form": null,
+      "description": {
+        "normalized": "Chases down an enemy champion, knocking them up for 1.25 second and dealing 150 / 300 / 450 (+140% AD) physical damage. Vi Reveals her target and cannot be stopped while chasing it down.Enemies in the way are knocked aside and take 75% of the damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        60,
+        55,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            150,
+            300,
+            450
+          ],
+          "duration": 1.25,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Chases down an enemy champion, knocking them up for 1.25 second and dealing 150 / 300 / 450 (+140% AD) physical damage.\n\nVi Reveals her target and cannot be stopped while chasing it down.Enemies in the way are knocked aside and take 75% of the damage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/vi",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Vault Breaker: Numeric prose was not fully structured; rawParsedText kept.",
+    "Excessive Force: Numeric prose was not fully structured; rawParsedText kept.",
+    "Assault and Battery: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

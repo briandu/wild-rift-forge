@@ -1,0 +1,258 @@
+{
+  "id": "chogath",
+  "name": "Cho'Gath",
+  "title": "The Terror of the Void",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/chogath.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 90,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Carnivore",
+      "form": null,
+      "description": {
+        "normalized": "Killing an enemy restores 16 (+ 2 x level) Health and 4 (+0.35 x level) Mana. The values restored are doubled if the unit is a champion, turret, or epic monster.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Killing an enemy restores 16 (+ 2 x level) Health and 4 (+0.35 x level) Mana.\n\nThe values restored are doubled if the unit is a champion, turret, or epic monster.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Rupture",
+      "form": null,
+      "description": {
+        "normalized": "Ruptures the ground, knocking up enemies for 1 second, dealing 80 / 135 / 190 / 245 (+100% AP) magic damage and slowing them by 60% for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            135,
+            190,
+            245
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ruptures the ground, knocking up enemies for 1 second, dealing 80 / 135 / 190 / 245 (+100% AP) magic damage and slowing them by 60% for 1.5 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Feral Scream",
+      "form": null,
+      "description": {
+        "normalized": "Roars, silencing enemies in an area for 1.4 / 1.6 / 1.8 / 2 seconds and dealing 80 / 130 / 180 / 230 (+70% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            1.4,
+            1.6,
+            1.8,
+            2
+          ],
+          "duration": [
+            1.4,
+            1.6,
+            1.8,
+            2
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Roars, silencing enemies in an area for 1.4 / 1.6 / 1.8 / 2 seconds and dealing 80 / 130 / 180 / 230 (+70% AP) magic damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Vorpal Spikes",
+      "form": null,
+      "description": {
+        "normalized": "Cho'Gath's next 3 attacks launch spikes that: Deal 20 / 45 / 70 / 95 (+30% AP) magic damage plus magic damage equal to 2.3% / 2.7% / 3.1% / 3.5% (+0.6% x Feast stacks) x the target's max Health and slows by 30% / 35% / 40% / 45% decaying over 1.5 seconds. Vorpal Spikes width increases with Cho'Gath's size. Base damage against minions and monsters is capped at 100 (30% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            45,
+            70,
+            95
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 100,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Cho'Gath's next 3 attacks launch spikes that: Deal 20 / 45 / 70 / 95 (+30% AP) magic damage plus magic damage equal to 2.3% / 2.7% / 3.1% / 3.5% (+0.6% x Feast stacks) x the target's max Health and slows by 30% / 35% / 40% / 45% decaying over 1.5 seconds. Vorpal Spikes width increases with Cho'Gath's size.\n\nBase damage against minions and monsters is capped at 100 (30% AP) magic damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Feast",
+      "form": null,
+      "description": {
+        "normalized": "Devours an enemy, dealing: 300 / 450 / 600 (+50% AP +8% of Cho'Gath's bonus Health) true damage to champions; Deals 1200 (+50% AP + 10% of Cho'Gath's bonus Health) true damage to minions and monsters. If this kills the target, Cho'Gath gains 1 stack of Feast. Stacks gained from minions and non-epic monsters are capped at 6. Feast (per stack): Grants 80 / 120 / 160 max Health; Increases size by 6%, up to an increase of 135%; Increases Attack Range by 4.7 / 6.2 / 7.7, up to an increase of 75; Increases this ability's cast range by 2.5, up to an increase of 25.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        60,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": [
+            300,
+            450,
+            600
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Devours an enemy, dealing: 300 / 450 / 600 (+50% AP +8% of Cho'Gath's bonus Health) true damage to champions; Deals 1200 (+50% AP + 10% of Cho'Gath's bonus Health) true damage to minions and monsters.\n\nIf this kills the target, Cho'Gath gains 1 stack of Feast. Stacks gained from minions and non-epic monsters are capped at 6.\n\nFeast (per stack): Grants 80 / 120 / 160 max Health; Increases size by 6%, up to an increase of 135%; Increases Attack Range by 4.7 / 6.2 / 7.7, up to an increase of 75; Increases this ability's cast range by 2.5, up to an increase of 25.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/chogath",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Carnivore: Numeric prose was not fully structured; rawParsedText kept.",
+    "Feast: Numeric prose was not fully structured; rawParsedText kept.",
+    "Feast: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

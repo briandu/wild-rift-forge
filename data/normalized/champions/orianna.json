@@ -1,0 +1,342 @@
+{
+  "id": "orianna",
+  "name": "Orianna",
+  "title": "The Lady of Clockwork",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/orianna.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 46,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 28,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Clockwork Windup",
+      "form": null,
+      "description": {
+        "normalized": "Orianna's Ball acts as a focal point for her abilities. It automatically returns to her if she is too far away from it. Attacks deal 10 + 3 per level (+15% AP) bonus magic damage. Subsequent attacks against the same target within 4 seconds deal an additional 3 (+3% AP) magic damage. Stacks up to 2 times.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 10,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.03
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Orianna's Ball acts as a focal point for her abilities. It automatically returns to her if she is too far away from it.\n\nAttacks deal 10 + 3 per level (+15% AP) bonus magic damage. Subsequent attacks against the same target within 4 seconds deal an additional 3 (+3% AP) magic damage. Stacks up to 2 times.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Command: Attack",
+      "form": null,
+      "description": {
+        "normalized": "Commands the Ball to fire toward a target location, dealing 60 / 105 / 150 / 195 (+45% AP) magic damage to targets along the way. The damage decreases by 10% for each unit it hits ( Minimum 50%). The Ball remains at the target location afterward.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          35,
+          40,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            105,
+            150,
+            195
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Commands the Ball to fire toward a target location, dealing 60 / 105 / 150 / 195 (+45% AP) magic damage to targets along the way.\n\nThe damage decreases by 10% for each unit it hits ( Minimum 50%).\n\nThe Ball remains at the target location afterward.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Command: Dissonance",
+      "form": null,
+      "description": {
+        "normalized": "Commands the Ball to release an electric pulse, dealing60 / 100 / 140 / 180 (+70% AP) magic damage to nearby enemies. The pulse leaves behind an energy field for 3 seconds, slowing enemies by 20% / 25% / 30% / 35% and speeding allies up by 20% / 25% / 30% / 35% for 2 seconds. The effect diminishes over time.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Commands the Ball to release an electric pulse, dealing60 / 100 / 140 / 180 (+70% AP) magic damage to nearby enemies.\n\nThe pulse leaves behind an energy field for 3 seconds, slowing enemies by 20% / 25% / 30% / 35% and speeding allies up by 20% / 25% / 30% / 35% for 2 seconds. The effect diminishes over time.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Command: Protect",
+      "form": null,
+      "description": {
+        "normalized": "Passive: The Ball grants 10 / 15 / 20 / 25 Armor and Magic Resist to the champion it is attached to. Active: Commands the Ball to attach to an allied champion, granting a shield that absorbs 60 / 110 / 160 / 210 (+40% AP) damage for 4 seconds, dealing 50 / 90 / 130 / 170 (+30% AP) magic damage to enemies it passes through.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "The Ball grants 10 / 15 / 20 / 25 Armor and Magic Resist to the champion it is attached to.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Commands the Ball to attach to an allied champion, granting a shield that absorbs 60 / 110 / 160 / 210 (+40% AP) damage for 4 seconds, dealing 50 / 90 / 130 / 170 (+30% AP) magic damage to enemies it passes through.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                60,
+                110,
+                160,
+                210
+              ],
+              "duration": 4,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.4
+                },
+                {
+                  "stat": "ap",
+                  "ratio": 0.3
+                }
+              ],
+              "confidence": "high"
+            },
+            {
+              "type": "shield",
+              "base": [
+                60,
+                110,
+                160,
+                210
+              ],
+              "duration": 4,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.4
+                },
+                {
+                  "stat": "ap",
+                  "ratio": 0.3
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: The Ball grants 10 / 15 / 20 / 25 Armor and Magic Resist to the champion it is attached to.\n\nActive: Commands the Ball to attach to an allied champion, granting a shield that absorbs 60 / 110 / 160 / 210 (+40% AP) damage for 4 seconds, dealing 50 / 90 / 130 / 170 (+30% AP) magic damage to enemies it passes through.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Command: Shockwave",
+      "form": null,
+      "description": {
+        "normalized": "Commands the Ball to unleash a shockwave, dealing 250 / 350 / 450 (+85% AP) magic damage and launching nearby enemies toward the Ball after a brief delay.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            250,
+            350,
+            450
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.85
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Commands the Ball to unleash a shockwave, dealing 250 / 350 / 450 (+85% AP) magic damage and launching nearby enemies toward the Ball after a brief delay.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/orianna",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Command: Attack: Numeric prose was not fully structured; rawParsedText kept.",
+    "Command: Dissonance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Command: Protect: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

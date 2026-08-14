@@ -1,0 +1,416 @@
+{
+  "id": "gwen",
+  "name": "Gwen",
+  "title": "The Hallowed Seamstress",
+  "roles": [],
+  "positions": [
+    "solo",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/gwen.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0143,
+    "attackRange": null,
+    "armor": 52,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Thousand Cuts",
+      "form": null,
+      "description": {
+        "normalized": "Attacks deal bonus 1% (+0.005% AP) magic damage of the target's max Health. Heals for 70% of the damage this ability deals to champions up to 12 (+7% AP). Deals a max of 2 (+3% AP) magic damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.00005
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.07
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.00005
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.07
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.03
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attacks deal bonus 1% (+0.005% AP) magic damage of the target's max Health. Heals for 70% of the damage this ability deals to champions up to 12 (+7% AP).\n\nDeals a max of 2 (+3% AP) magic damage against monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Snip Snip!",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 1 stack per attack hit (max 4, lasts 6 seconds. Active: Snips her scissors twice, snipping an extra time for each stack consumed. Each snip deals 14 / 18 / 22 / 26 (+7% AP) magic damage with the final snip dealing 70 / 90 / 110 / 130 (+35% AP) magic damage instead. The center of each strike deals true damage instead and applies Thousand Cuts. Damage to monsters: 105%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          35,
+          35,
+          35
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            14,
+            18,
+            22,
+            26
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.07
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "true",
+          "confidence": "low"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 1 stack per attack hit (max 4, lasts 6 seconds.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Snips her scissors twice, snipping an extra time for each stack consumed. Each snip deals 14 / 18 / 22 / 26 (+7% AP) magic damage with the final snip dealing 70 / 90 / 110 / 130 (+35% AP) magic damage instead.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                14,
+                18,
+                22,
+                26
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.07
+                },
+                {
+                  "stat": "ap",
+                  "ratio": 0.35
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gains 1 stack per attack hit (max 4, lasts 6 seconds.\n\nActive: Snips her scissors twice, snipping an extra time for each stack consumed. Each snip deals 14 / 18 / 22 / 26 (+7% AP) magic damage with the final snip dealing 70 / 90 / 110 / 130 (+35% AP) magic damage instead.\n\nThe center of each strike deals true damage instead and applies Thousand Cuts.\n\nDamage to monsters: 105%.",
+      "confidence": "low"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Hallowed Mist",
+      "form": null,
+      "description": {
+        "normalized": "Summons the Hallowed Mist for 4 seconds, making Gwen untargetable to enemies outside the zone while inside. Gwen gains 18 / 20 / 22 / 24 (+5% AP) Armor and Magic Resist inside the Mist. The Mist will move to Gwen the first time she attempts to leave.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Summons the Hallowed Mist for 4 seconds, making Gwen untargetable to enemies outside the zone while inside.\n\nGwen gains 18 / 20 / 22 / 24 (+5% AP) Armor and Magic Resist inside the Mist.\n\nThe Mist will move to Gwen the first time she attempts to leave.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Skip 'n Slash",
+      "form": null,
+      "description": {
+        "normalized": "Dashes and enhances her attacks for 4 seconds. Enhanced attacks gain 20% / 40% / 60% / 80% Attack Speed, 10 (+18% AP) magic damage on-hit and 100 Range. The first enhanced attack to hit a champion or minion refunds 50% of this ability's coodown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          35,
+          35,
+          35
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 4,
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.18
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes and enhances her attacks for 4 seconds. Enhanced attacks gain 20% / 40% / 60% / 80% Attack Speed, 10 (+18% AP) magic damage on-hit and 100 Range.\n\nThe first enhanced attack to hit a champion or minion refunds 50% of this ability's coodown.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Needlework",
+      "form": null,
+      "description": {
+        "normalized": "First Cast: Hurl a needle that deals 35 / 50 / 65 (+10% AP) magic damage, slows by 35% / 40% / 45% for 1.5 seconds, and applies Thousand Cuts to all enemies hit. Needlework can be re-cast 2 additional times. Second Cast: Fires 3 needles, dealing a total of 90 / 135 / 180 (+24% AP) magic damage. Third Cast: Fires 5 needles, dealing a total of 150 / 225 / 300 (+40% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            50,
+            65
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            135,
+            180
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.24
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            225,
+            300
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First Cast",
+          "rawParsedText": "Hurl a needle that deals 35 / 50 / 65 (+10% AP) magic damage, slows by 35% / 40% / 45% for 1.5 seconds, and applies Thousand Cuts to all enemies hit. Needlework can be re-cast 2 additional times.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                35,
+                50,
+                65
+              ],
+              "duration": 1.5,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.1
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "second_cast",
+          "label": "Second Cast",
+          "rawParsedText": "Fires 3 needles, dealing a total of 90 / 135 / 180 (+24% AP) magic damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                90,
+                135,
+                180
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.24
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "third_cast",
+          "label": "Third Cast",
+          "rawParsedText": "Fires 5 needles, dealing a total of 150 / 225 / 300 (+40% AP) magic damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                150,
+                225,
+                300
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.4
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "First Cast: Hurl a needle that deals 35 / 50 / 65 (+10% AP) magic damage, slows by 35% / 40% / 45% for 1.5 seconds, and applies Thousand Cuts to all enemies hit. Needlework can be re-cast 2 additional times.\n\nSecond Cast: Fires 3 needles, dealing a total of 90 / 135 / 180 (+24% AP) magic damage.\n\nThird Cast: Fires 5 needles, dealing a total of 150 / 225 / 300 (+40% AP) magic damage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/gwen",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Snip Snip!: Numeric prose was not fully structured; rawParsedText kept.",
+    "Snip Snip!: Numeric prose was not fully structured; rawParsedText kept.",
+    "Hallowed Mist: Numeric prose was not fully structured; rawParsedText kept.",
+    "Hallowed Mist: Numeric prose was not fully structured; rawParsedText kept.",
+    "Skip 'n Slash: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

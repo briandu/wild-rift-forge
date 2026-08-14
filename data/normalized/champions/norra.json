@@ -1,0 +1,312 @@
+{
+  "id": "norra",
+  "name": "Norra",
+  "title": "Norra",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "/images/champion/icon/norra.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 89,
+    "healthRegen5": 10,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 460,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Beloved Trinkets",
+      "form": null,
+      "description": {
+        "normalized": "Trinket: Every 21 seconds, her next ability cast leaves a Trinket on the battlefield for 4 seconds. When touched by an enemy champion, the Trinket activates and fires magical energy at the target, dealing 20 (+20% AP) magic damage. Hitting champions with basic abilities reduces this ability's cooldown by 20% of the maximum cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 20,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Trinket: Every 21 seconds, her next ability cast leaves a Trinket on the battlefield for 4 seconds.\n\nWhen touched by an enemy champion, the Trinket activates and fires magical energy at the target, dealing 20 (+20% AP) magic damage. Hitting champions with basic abilities reduces this ability's cooldown by 20% of the maximum cooldown.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Memory Surge",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Deals 1% - 2.5% of the target's max Health as bonus magic damage to enemies enlarged by Threads. Hold (Active): Gathers memories, slowing herself by 20%. If she continues charging after reaching full charge, the slow increases to 30% and she teleports backward for a short distance after firing. Release (Active): Unleashes the memories she gathered, charging and firing a magic bolt in the target direction. The magic bolt stops when it hits an enemy champion, dealing 55 / 110 / 165 / 220 (+60% AP) magic damage to them and enemies nearby. While Charging: Norra can choose a direction to fire the bolt in; The bolt's range increases with charge duration; The bolt's damage increases with charge duration, up to 140% bonus (deals max 84 damage); When fully charged, Norra activates all nearby Trinkets to fire at the first champion hit by the bolt.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 1,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            110,
+            165,
+            220
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 140,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Passive: Deals 1% - 2.5% of the target's max Health as bonus magic damage to enemies enlarged by Threads.\n\nHold (Active): Gathers memories, slowing herself by 20%. If she continues charging after reaching full charge, the slow increases to 30% and she teleports backward for a short distance after firing.\n\nRelease (Active): Unleashes the memories she gathered, charging and firing a magic bolt in the target direction. The magic bolt stops when it hits an enemy champion, dealing 55 / 110 / 165 / 220 (+60% AP) magic damage to them and enemies nearby.\n\nWhile Charging: Norra can choose a direction to fire the bolt in; The bolt's range increases with charge duration; The bolt's damage increases with charge duration, up to 140% bonus (deals max 84 damage); When fully charged, Norra activates all nearby Trinkets to fire at the first champion hit by the bolt.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Journey to Nowhere",
+      "form": null,
+      "description": {
+        "normalized": "Creates a circular magic portal in a target location, dealing 65 / 105 / 145 / 185 (+40% AP) magic damage to all enemies within and sending them to another dimension for 1.5 seconds. Enemies in the other dimension: Cannot attack or use abilities, but can move and are slowed by 80% for 0.75 seconds. Enemies are returned to their original location after 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        23,
+        22,
+        21,
+        20
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          80,
+          85,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            65,
+            105,
+            145,
+            185
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Creates a circular magic portal in a target location, dealing 65 / 105 / 145 / 185 (+40% AP) magic damage to all enemies within and sending them to another dimension for 1.5 seconds.\n\nEnemies in the other dimension: Cannot attack or use abilities, but can move and are slowed by 80% for 0.75 seconds.\n\nEnemies are returned to their original location after 1.5 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Threads of Homecoming",
+      "form": null,
+      "description": {
+        "normalized": "Passive: When a Trinket damages its target, it applies a Thread. Active: Conjures a portal on each end of a horizontal target area. After a delay, the portals fire interweaving Threads, dealing 70 / 120 / 170 / 220 (+60% AP) magic damage and applying Threads to all enemies caught in between. Targets marked with Threads: Have their hitbox size increased by 4 seconds and are slowed by 20% for 2 seconds. Deals 115% damage to monsters and minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        10,
+        9,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 115,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "When a Trinket damages its target, it applies a Thread.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Conjures a portal on each end of a horizontal target area. After a delay, the portals fire interweaving Threads, dealing 70 / 120 / 170 / 220 (+60% AP) magic damage and applying Threads to all enemies caught in between.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                70,
+                120,
+                170,
+                220
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.6
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: When a Trinket damages its target, it applies a Thread.\n\nActive: Conjures a portal on each end of a horizontal target area. After a delay, the portals fire interweaving Threads, dealing 70 / 120 / 170 / 220 (+60% AP) magic damage and applying Threads to all enemies caught in between.\n\nTargets marked with Threads: Have their hitbox size increased by 4 seconds and are slowed by 20% for 2 seconds.\n\nDeals 115% damage to monsters and minions.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Portalpalooza!",
+      "form": null,
+      "description": {
+        "normalized": "Creates a large teleportation magic circle, encircling all units caught within. Swiping from one edge of the circle to another. Conjures a portal at both ends, firing a magic bolt from end to end. Norra can do this up to 4 times. The magic bolt slows the first enemy champion by 80% for 0.5 seconds and deals 100 / 140 / 180 (+55% AP) magic damage to all enemies along its path. The fourth magic bolt deals 40% bonus magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        105,
+        95,
+        95
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            140,
+            180
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 40,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Creates a large teleportation magic circle, encircling all units caught within. Swiping from one edge of the circle to another.\n\nConjures a portal at both ends, firing a magic bolt from end to end. Norra can do this up to 4 times. The magic bolt slows the first enemy champion by 80% for 0.5 seconds and deals 100 / 140 / 180 (+55% AP) magic damage to all enemies along its path.\n\nThe fourth magic bolt deals 40% bonus magic damage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/norra",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Beloved Trinkets: Numeric prose was not fully structured; rawParsedText kept.",
+    "Memory Surge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Journey to Nowhere: Numeric prose was not fully structured; rawParsedText kept.",
+    "Journey to Nowhere: Numeric prose was not fully structured; rawParsedText kept.",
+    "Threads of Homecoming: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

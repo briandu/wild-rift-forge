@@ -1,0 +1,260 @@
+{
+  "id": "teemo",
+  "name": "Teemo",
+  "title": "The Swift Scout",
+  "roles": [],
+  "positions": [
+    "solo",
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/teemo.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 18,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Toxic Shot",
+      "form": null,
+      "description": {
+        "normalized": "Attacks deal 8 - 36 (+20% AP) bonus magic damage on impact and an additional 8 - 50 (+9% AP) magic damage each second for 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 8,
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.09
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attacks deal 8 - 36 (+20% AP) bonus magic damage on impact and an additional 8 - 50 (+9% AP) magic damage each second for 4 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Blinding Dart",
+      "form": null,
+      "description": {
+        "normalized": "Deals 50 / 95 / 140 / 185 (+50% AP) magic damage and blinds the target for 1.25 / 1.5 / 1.75 / 2 seconds. Attacks from blinded enemies will miss their target, dealing no damage and failing to apply on-hit effects.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          80,
+          85,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            95,
+            140,
+            185
+          ],
+          "duration": [
+            1.25,
+            1.5,
+            1.75,
+            2
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 50 / 95 / 140 / 185 (+50% AP) magic damage and blinds the target for 1.25 / 1.5 / 1.75 / 2 seconds.\n\nAttacks from blinded enemies will miss their target, dealing no damage and failing to apply on-hit effects.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Move Quick",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Grants 15% / 20% / 25% / 30% Movement Speed if an enemy champion or structure has not damaged Teemo within the last 5 seconds. Active: Rolls a short distance forward and sprints for 3 seconds. During this time, Move Quick's bonus is doubled and cannot be removed by damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 30,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Grants 15% / 20% / 25% / 30% Movement Speed if an enemy champion or structure has not damaged Teemo within the last 5 seconds.",
+          "effects": [
+            {
+              "type": "movement_speed",
+              "percent": 30,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Rolls a short distance forward and sprints for 3 seconds. During this time, Move Quick's bonus is doubled and cannot be removed by damage.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Grants 15% / 20% / 25% / 30% Movement Speed if an enemy champion or structure has not damaged Teemo within the last 5 seconds.\n\nActive: Rolls a short distance forward and sprints for 3 seconds. During this time, Move Quick's bonus is doubled and cannot be removed by damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Guerilla Warfare",
+      "form": null,
+      "description": {
+        "normalized": "After a delay, become Camouflaged. Moving outside of brush for more than 3 / 3.5 / 4 / 4.5 seconds ends this effect. After exiting Camouflage, gain 30% / 40% / 50% / 60% Attack Speed for 3 / 4 / 5 / 6 seconds. Camouflage: Hide from champions by keeping them out of Teemo's detection radius. Enemy turrets reveal camouflaged units near them. Attacks and offensive abilities end Camouflage early.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        25,
+        23,
+        21,
+        19
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "After a delay, become Camouflaged. Moving outside of brush for more than 3 / 3.5 / 4 / 4.5 seconds ends this effect.\n\nAfter exiting Camouflage, gain 30% / 40% / 50% / 60% Attack Speed for 3 / 4 / 5 / 6 seconds.\n\nCamouflage: Hide from champions by keeping them out of Teemo's detection radius. Enemy turrets reveal camouflaged units near them. Attacks and offensive abilities end Camouflage early.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Noxious Trap",
+      "form": null,
+      "description": {
+        "normalized": "Places a mushroom trap that detonates when an enemy steps on it, dealing 225 / 350 / 475 (+50% AP) magic damage over 3 seconds and slowing by 30% / 40% / 50% for 3 seconds. Traps last for 2 minutes.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          75,
+          75,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            225,
+            350,
+            475
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Places a mushroom trap that detonates when an enemy steps on it, dealing 225 / 350 / 475 (+50% AP) magic damage over 3 seconds and slowing by 30% / 40% / 50% for 3 seconds.\n\nTraps last for 2 minutes.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/teemo",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Move Quick: Numeric prose was not fully structured; rawParsedText kept.",
+    "Guerilla Warfare: Numeric prose was not fully structured; rawParsedText kept.",
+    "Guerilla Warfare: Numeric prose was not fully structured; rawParsedText kept.",
+    "Noxious Trap: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

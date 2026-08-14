@@ -1,0 +1,272 @@
+{
+  "id": "rakan",
+  "name": "Rakan",
+  "title": "The Charmer",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/rakan.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 112,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 43,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 49,
+    "armorPerLevel": 4,
+    "magicResistance": 34,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Fey Feathers",
+      "form": null,
+      "description": {
+        "normalized": "Every 35 - 14 seconds, gain a 31 (+80% AP) health shield. Attacks and abilities on enemy champions reduce this cooldown by 1 second. Lover's Leap: Xayah and Rakan can join each other's recall. Both will reach Summoming Platform at the time of wich the initiator's recall ends.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "shield",
+          "base": 35,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Every 35 - 14 seconds, gain a 31 (+80% AP) health shield. Attacks and abilities on enemy champions reduce this cooldown by 1 second.\n\nLover's Leap: Xayah and Rakan can join each other's recall. Both will reach Summoming Platform at the time of wich the initiator's recall ends.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Gleaming Quill",
+      "form": null,
+      "description": {
+        "normalized": "Fling a magical feather that deals 90 / 150 / 210 / 270 (+60% AP) magic damage to the first enemy hit. If the feather hits a champion or epic monster, Rakan restores 56 - 140 (+70% AP) health to himself and nearby allies after 3 seconds or when he touches an ally.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            150,
+            210,
+            270
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fling a magical feather that deals 90 / 150 / 210 / 270 (+60% AP) magic damage to the first enemy hit.\n\nIf the feather hits a champion or epic monster, Rakan restores 56 - 140 (+70% AP) health to himself and nearby allies after 3 seconds or when he touches an ally.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Grand Entrance",
+      "form": null,
+      "description": {
+        "normalized": "Dashes to a location. Upon arrival Rakan leaps into the air, dealing 70 / 135 / 200 / 265 (+45% AP) magic damage and knocking up enemies for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            135,
+            200,
+            265
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes to a location. Upon arrival Rakan leaps into the air, dealing 70 / 135 / 200 / 265 (+45% AP) magic damage and knocking up enemies for 1 second.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Battle Dance",
+      "form": null,
+      "description": {
+        "normalized": "Flies to an allied champion, granting them a shield that absorbs 50 / 80 / 110 / 140 (+65% AP) damage for 3 seconds. Can be re-cast for free within 5 seconds. When cast on Xayah, the shield amount is increased by 25% and the cooldown is reduced.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            50,
+            80,
+            110,
+            140
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.65
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 25,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Flies to an allied champion, granting them a shield that absorbs 50 / 80 / 110 / 140 (+65% AP) damage for 3 seconds. Can be re-cast for free within 5 seconds.\n\nWhen cast on Xayah, the shield amount is increased by 25% and the cooldown is reduced.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "The Quickness",
+      "form": null,
+      "description": {
+        "normalized": "Gains 60% Movement Speed for 4 seconds. Touching enemies deals 100 / 200 / 300 (+50% AP) magic damage and charms them for 1 / 1.25 / 1.5 seconds. This may only occur once per unit. The first champion charmed grants Rakan 75% decaying Movement Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            200,
+            300
+          ],
+          "duration": [
+            1,
+            1.25,
+            1.5
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 60,
+          "duration": [
+            1,
+            1.25,
+            1.5
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 60% Movement Speed for 4 seconds. Touching enemies deals 100 / 200 / 300 (+50% AP) magic damage and charms them for 1 / 1.25 / 1.5 seconds. This may only occur once per unit. The first champion charmed grants Rakan 75% decaying Movement Speed.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/rakan",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Gleaming Quill: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

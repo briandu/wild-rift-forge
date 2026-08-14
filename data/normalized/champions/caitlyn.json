@@ -1,0 +1,227 @@
+{
+  "id": "caitlyn",
+  "name": "Caitlyn",
+  "title": "The Sheriff of Piltover",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/caitlyn.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Headshot",
+      "form": null,
+      "description": {
+        "normalized": "Every 6 attacks fires a Headshot, dealing 27 (50% AD + 125 Critical chance) bonus physical damage. Trapped or netted enemies trigger a Headshot that has double range. Attacking from brush builds Headshot twice as fast.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 6,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Every 6 attacks fires a Headshot, dealing 27 (50% AD + 125 Critical chance) bonus physical damage. Trapped or netted enemies trigger a Headshot that has double range.\n\nAttacking from brush builds Headshot twice as fast.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Piltover Peacemaker",
+      "form": null,
+      "description": {
+        "normalized": "Fires a narrow piercing bullet that deals 60 / 110 / 160 / 210 (+ 125% / 140% / 155% / 170% AD) physical damage. Hitting an enemy expands the bullet, but reduces subsequent damage by 40%. Always deals full damage to trapped or netted enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a narrow piercing bullet that deals 60 / 110 / 160 / 210 (+ 125% / 140% / 155% / 170% AD) physical damage. Hitting an enemy expands the bullet, but reduces subsequent damage by 40%. Always deals full damage to trapped or netted enemies.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Yordle Snap Trap",
+      "form": null,
+      "description": {
+        "normalized": "Sets a trap that enemy champions can spring, immobilizing them for 1.5 seconds and Revealing them for a short duration. Traps last for 30 seconds and 2 / 3 / 4 / 5 can be active at once. Trap charging time: 27 / 22 / 17 / 12 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Sets a trap that enemy champions can spring, immobilizing them for 1.5 seconds and Revealing them for a short duration. Traps last for 30 seconds and 2 / 3 / 4 / 5 can be active at once.\n\nTrap charging time: 27 / 22 / 17 / 12 seconds.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "90 Caliber Net",
+      "form": null,
+      "description": {
+        "normalized": "Launchest a net, knocking Caitly backwards. The net deals 70 / 120 / 170 / 220 (+80% AP) magic damage and slows by 50% for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          75,
+          75,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launchest a net, knocking Caitly backwards. The net deals 70 / 120 / 170 / 220 (+80% AP) magic damage and slows by 50% for 1.5 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Ace in the Hole",
+      "form": null,
+      "description": {
+        "normalized": "Lines up the perfect shot, Revealing an enemy champion for 1.5 seconds before dealing 200 / 375 / 550 (+200% bonus AD) physical damage plus 20% of their missing Health. Enemy champions can intercept the bullet before it hits their ally.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        65,
+        55,
+        45
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": [
+            200,
+            375,
+            550
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 2
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Lines up the perfect shot, Revealing an enemy champion for 1.5 seconds before dealing 200 / 375 / 550 (+200% bonus AD) physical damage plus 20% of their missing Health.\n\nEnemy champions can intercept the bullet before it hits their ally.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/caitlyn",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Yordle Snap Trap: Numeric prose was not fully structured; rawParsedText kept.",
+    "Yordle Snap Trap: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

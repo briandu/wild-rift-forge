@@ -1,0 +1,260 @@
+{
+  "id": "leona",
+  "name": "Leona",
+  "title": "The Radiant Dawn",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "/images/champion/icon/leona.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 50,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Sunlight",
+      "form": null,
+      "description": {
+        "normalized": "Abilities apply Sunlight for 1.5 seconds. Other allied champions consume Sunlight when damaging enemies, dealing 34 bonus magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 1.5,
+          "duration": 1.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Abilities apply Sunlight for 1.5 seconds. Other allied champions consume Sunlight when damaging enemies, dealing 34 bonus magic damage.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Shield of Daybreak",
+      "form": null,
+      "description": {
+        "normalized": "Empowers the next attack to stun for 1 second and deal15 / 50 / 85 /120 (+30% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          50,
+          55,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            15,
+            50,
+            85,
+            120
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "stun",
+          "duration": 1,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers the next attack to stun for 1 second and deal15 / 50 / 85 /120 (+30% AP) magic damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Eclipse",
+      "form": null,
+      "description": {
+        "normalized": "For 3 seconds gain 30 / 50 / 70 / 90 (+20% bonus Armor) Armor and 30 / 50 / 70 / 90 (+20% bonus MR) Magic Resist. After the effect ends nearby enemies take 80 / 115 / 150 / 185 (+40% AP) magic damage. If an enemy is hit, Leona retains her defensive bonuses for 3 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            115,
+            150,
+            185
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "For 3 seconds gain 30 / 50 / 70 / 90 (+20% bonus Armor) Armor and 30 / 50 / 70 / 90 (+20% bonus MR) Magic Resist.\n\nAfter the effect ends nearby enemies take 80 / 115 / 150 / 185 (+40% AP) magic damage. If an enemy is hit, Leona retains her defensive bonuses for 3 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Zenith Blade",
+      "form": null,
+      "description": {
+        "normalized": "Deals 60 / 115 / 170 / 225 (+40% AP) magic damage to enemies in a line. Leona roots the last champion hit for 0.5 seconds and dashes to them.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            115,
+            170,
+            225
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "root",
+          "duration": 0.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 60 / 115 / 170 / 225 (+40% AP) magic damage to enemies in a line.\n\nLeona roots the last champion hit for 0.5 seconds and dashes to them.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Solar Flare",
+      "form": null,
+      "description": {
+        "normalized": "Calls down a beam of light, dealing 150 / 225 / 300 (+80% AP) magic damage and slowing by 80% for 1.75 seconds. Enemies in the center are stunned instead of slowed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        55,
+        45,
+        35
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            225,
+            300
+          ],
+          "duration": 1.75,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Calls down a beam of light, dealing 150 / 225 / 300 (+80% AP) magic damage and slowing by 80% for 1.75 seconds. Enemies in the center are stunned instead of slowed.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/leona",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Eclipse: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

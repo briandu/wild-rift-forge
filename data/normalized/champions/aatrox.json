@@ -1,0 +1,212 @@
+{
+  "id": "aatrox",
+  "name": "Aatrox",
+  "title": "the Darkin Blade",
+  "roles": [],
+  "positions": [
+    "solo",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/aatrox.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 136,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Deathbringer Stance",
+      "form": null,
+      "description": {
+        "normalized": "Enhances his next attack every 24 seconds to deal bonus 4% - 13% physical damage of the target's maximum Health and heals himself for the same amount. Deathbringer Stance's cooldown is reduced by 3 seconds when Aatrox hits a Champion or large monster with an attack or ability. Max 50 damage against monsters. Healing reduced to 60% against minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": 24,
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 24,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Enhances his next attack every 24 seconds to deal bonus 4% - 13% physical damage of the target's maximum Health and heals himself for the same amount.\n\nDeathbringer Stance's cooldown is reduced by 3 seconds when Aatrox hits a Champion or large monster with an attack or ability.\n\nMax 50 damage against monsters.\n\nHealing reduced to 60% against minions.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "The Darkin Blade",
+      "form": null,
+      "description": {
+        "normalized": "Swings his giant blade, dealing 10 / 40 / 70 / 100 (+75% / 80% / 85% / 90% AD) physical damage. This ability can be cast 2 more times, with each cast dealing 25% more damage. Enemies hit on the sweetspot will be knocked airborne for 0.25 seconds and dealt 60% bonus damage. Deals 65% damage to minions.Deals 70% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            10,
+            40,
+            70,
+            100
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 65,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Swings his giant blade, dealing 10 / 40 / 70 / 100 (+75% / 80% / 85% / 90% AD) physical damage. This ability can be cast 2 more times, with each cast dealing 25% more damage.\n\nEnemies hit on the sweetspot will be knocked airborne for 0.25 seconds and dealt 60% bonus damage.\n\nDeals 65% damage to minions.Deals 70% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Infernal Chains",
+      "form": null,
+      "description": {
+        "normalized": "Sends a chain dealing 25 / 40 / 55 / 70 (+40% AD) physical damage to the first enemy hit and slowing them by 25% for 1.5 seconds. If a champion or large monster remains within the imapct area after 1.5 seconds, they will be dragged back to the center and take the same damage again. Deals double damage to minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            25,
+            40,
+            55,
+            70
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "confidence": "low"
+        }
+      ],
+      "rawParsedText": "Sends a chain dealing 25 / 40 / 55 / 70 (+40% AD) physical damage to the first enemy hit and slowing them by 25% for 1.5 seconds.\n\nIf a champion or large monster remains within the imapct area after 1.5 seconds, they will be dragged back to the center and take the same damage again.\n\nDeals double damage to minions.",
+      "confidence": "low"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Umbral Dash",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Aatrox gains 19% / 21% / 23% / 25% physical vamp against enemy champions. Active: Dashes forward. This resets Aatrox's normal attack. Usable whie casting other abilities.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": null,
+      "effects": [],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Aatrox gains 19% / 21% / 23% / 25% physical vamp against enemy champions.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Dashes forward. This resets Aatrox's normal attack. Usable whie casting other abilities.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Aatrox gains 19% / 21% / 23% / 25% physical vamp against enemy champions.\n\nActive: Dashes forward. This resets Aatrox's normal attack. Usable whie casting other abilities.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "World Ender",
+      "form": null,
+      "description": {
+        "normalized": "Unleashes his demonic form for 10 seconds, gaining 30% / 40% / 50% Attack Damage, 25% / 35% / 45% increased healing and 60% / 75% / 90% decaying Movement Speed. During this time, Umbral Dash's Physical Vamp is increased by 50%. World Ender's duration is extended by 5 seconds with a takedown, up to 10 extra seconds. Nearby minions and monsters are feared for 3 seconds on activation.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Unleashes his demonic form for 10 seconds, gaining 30% / 40% / 50% Attack Damage, 25% / 35% / 45% increased healing and 60% / 75% / 90% decaying Movement Speed. During this time, Umbral Dash's Physical Vamp is increased by 50%.\n\nWorld Ender's duration is extended by 5 seconds with a takedown, up to 10 extra seconds.\n\nNearby minions and monsters are feared for 3 seconds on activation.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/aatrox",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Deathbringer Stance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Deathbringer Stance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Deathbringer Stance: Numeric prose was not fully structured; rawParsedText kept.",
+    "The Darkin Blade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Infernal Chains: Numeric prose was not fully structured; rawParsedText kept.",
+    "Umbral Dash: Numeric prose was not fully structured; rawParsedText kept.",
+    "World Ender: Numeric prose was not fully structured; rawParsedText kept.",
+    "World Ender: Numeric prose was not fully structured; rawParsedText kept.",
+    "World Ender: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

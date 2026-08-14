@@ -1,0 +1,254 @@
+{
+  "id": "evelynn",
+  "name": "Evelynn",
+  "title": "Agony's Embrace",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/evelynn.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 37,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 45,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Demon Shade",
+      "form": null,
+      "description": {
+        "normalized": "Enters Demon Shade after not attacking or casting for 4 seconds. Taking damage from enemy champions or turrets puts Demon Shade on a 1.5 seconds cooldown. In Demon Shade, Evelynn regenerates 17 Health (+7.5% AP) every second when she is below 320 Health. After lever 5, Demons Shade grants her Camouflage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Enters Demon Shade after not attacking or casting for 4 seconds. Taking damage from enemy champions or turrets puts Demon Shade on a 1.5 seconds cooldown.\n\nIn Demon Shade, Evelynn regenerates 17 Health (+7.5% AP) every second when she is below 320 Health.\n\nAfter lever 5, Demons Shade grants her Camouflage.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Hate Spike",
+      "form": null,
+      "description": {
+        "normalized": "Unleashes two lines of spikes, dealing 40 / 47.5 / 55 / 62.5 (+50% AP) magic damage, each to all enemies struck. Can re-cast within 4 seconds. Deals 40% / 50% / 60% / 70% damage to minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          35,
+          40,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            47.5,
+            55,
+            62.5
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 40,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Unleashes two lines of spikes, dealing 40 / 47.5 / 55 / 62.5 (+50% AP) magic damage, each to all enemies struck. Can re-cast within 4 seconds.\n\nDeals 40% / 50% / 60% / 70% damage to minions.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Allure",
+      "form": null,
+      "description": {
+        "normalized": "Curses target champion or monster for 5 seconds. Evelynn's next attack or ability will expunge the Curse adn slow them by 65% for 1 / 1.25 / 1.5 / 1.75 seconds. If the Curse lasts at least 2.5 seconds, expungint it charms the target for 1 / 1.25 / 1.5 / 1.75 seconds, If the target is a champion, shreds their Magic Resist by 20% / 24% / 28% / 32% for 4 seconds. If the target is a monster, deal additional 300 / 350 / 400 / 450 (+60% AP) magic damge. Casting Allure does not remove Evelynn from Demon Shade.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Curses target champion or monster for 5 seconds. Evelynn's next attack or ability will expunge the Curse adn slow them by 65% for 1 / 1.25 / 1.5 / 1.75 seconds.\n\nIf the Curse lasts at least 2.5 seconds, expungint it charms the target for 1 / 1.25 / 1.5 / 1.75 seconds, If the target is a champion, shreds their Magic Resist by 20% / 24% / 28% / 32% for 4 seconds. If the target is a monster, deal additional 300 / 350 / 400 / 450 (+60% AP) magic damge.\n\nCasting Allure does not remove Evelynn from Demon Shade.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Whiplash",
+      "form": null,
+      "description": {
+        "normalized": "Whips a target with Lashers, applying on-hit effects and dealing 55 / 75 / 95 / 115 + 2% (+1% AP) magic damage of their max Health. Then gain 30% Movement Speed for 2 seconds. Entering Demon Shade enhances the next cast to pull Evelynn to her target, dealing 80 / 110 / 140 / 170 + 4% (+1.5% AP) increased magic damage of their max Health to all enemies in the way.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          50,
+          55,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            75,
+            95,
+            115
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.01
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 30,
+          "duration": 2,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            110,
+            140,
+            170
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.015
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Whips a target with Lashers, applying on-hit effects and dealing 55 / 75 / 95 / 115 + 2% (+1% AP) magic damage of their max Health. Then gain 30% Movement Speed for 2 seconds.\n\nEntering Demon Shade enhances the next cast to pull Evelynn to her target, dealing 80 / 110 / 140 / 170 + 4% (+1.5% AP) increased magic damage of their max Health to all enemies in the way.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Last Caress",
+      "form": null,
+      "description": {
+        "normalized": "Evelynn briefly goes untargetable and decimates the area in front of her before warping backwards a long distance. Deals 150 / 260 / 370 (+75% AP) magic damage, increased to 230% to enemy champions below 35% Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        75,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            260,
+            370
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Evelynn briefly goes untargetable and decimates the area in front of her before warping backwards a long distance. Deals 150 / 260 / 370 (+75% AP) magic damage, increased to 230% to enemy champions below 35% Health.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/evelynn",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Demon Shade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Demon Shade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Demon Shade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Allure: Numeric prose was not fully structured; rawParsedText kept.",
+    "Allure: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

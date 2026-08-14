@@ -1,0 +1,271 @@
+{
+  "id": "kogmaw",
+  "name": "Kog'Maw",
+  "title": "The Mouth of the Abyss",
+  "roles": [],
+  "positions": [
+    "duo",
+    "mid",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/kogmaw.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0107,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Icathian Surprise",
+      "form": null,
+      "description": {
+        "normalized": "Icathian Gift: Can continue to move and gain 10% Movement Speed for 4 seconds after dying. The Movement Speed bonus increases to 50% over the duration. Explodes when the effect ends, dealing 105 (+35) true damage to nearby enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": 10,
+          "duration": 4,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 10,
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Icathian Gift: Can continue to move and gain 10% Movement Speed for 4 seconds after dying. The Movement Speed bonus increases to 50% over the duration. Explodes when the effect ends, dealing 105 (+35) true damage to nearby enemies.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Caustic Spittle",
+      "form": null,
+      "description": {
+        "normalized": "Vomits a corrosive projective that deals 90 / 150 / 210 / 270 (+65% AP) magic damage and shreds 20% / 24% / 28% / 32% Armor and Magic Resist for 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            150,
+            210,
+            270
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.65
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Vomits a corrosive projective that deals 90 / 150 / 210 / 270 (+65% AP) magic damage and shreds 20% / 24% / 28% / 32% Armor and Magic Resist for 4 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Bio-Arcane Barrage",
+      "form": null,
+      "description": {
+        "normalized": "Attacks gain 90 / 120 / 150 / 180 range and deal an additional 1.5% / 2.5% / 3.5% / 4.5% (+0.01% AP) max Health as magic damage for 8 seconds. Deals up to 100 damage against minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            120,
+            150,
+            180
+          ],
+          "duration": 8,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.0001
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 100,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attacks gain 90 / 120 / 150 / 180 range and deal an additional 1.5% / 2.5% / 3.5% / 4.5% (+0.01% AP) max Health as magic damage for 8 seconds.\n\nDeals up to 100 damage against minions and monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Void Ooze",
+      "form": null,
+      "description": {
+        "normalized": "Spits bile, dealing 80 / 130 / 180 / 230 (+55% AP) magic damage and leaving a trail of ooze for 3.5 seconds. Enemies in the ooze are slowed by 45% / 50% / 55% / 60% .",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          50,
+          60,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            130,
+            180,
+            230
+          ],
+          "duration": 3.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Spits bile, dealing 80 / 130 / 180 / 230 (+55% AP) magic damage and leaving a trail of ooze for 3.5 seconds. Enemies in the ooze are slowed by 45% / 50% / 55% / 60% .",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Living Artillery",
+      "form": null,
+      "description": {
+        "normalized": "Corrosion Specialist (Passive): Gains 10% / 20% / 30% Attack Speed. Acid Shot (Active): Shoots acid at an area, revealing the area for 2 seconds. Then deals 80 / 120 / 160 (+25% AP +75% bonus AD ) magic damage to enemies within and reveals them for seconds. This ability's damage scales with the target's missing Health, increasing by 0% - 50% based on 0% - 60% missing Health. Enemies below 40% Health take 200 / 280 / 360 (+50% AP +150% bonus AD) magic damage instead. Subsequent shots within 8 seconds cost an additional 50 Mana (max 500 Mana). This ability's range increases by 200 units with each rank gained.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        2,
+        1,
+        1
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            120,
+            160
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.75
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.5
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Corrosion Specialist (Passive): Gains 10% / 20% / 30% Attack Speed.\n\nAcid Shot (Active): Shoots acid at an area, revealing the area for 2 seconds. Then deals 80 / 120 / 160 (+25% AP +75% bonus AD ) magic damage to enemies within and reveals them for seconds. This ability's damage scales with the target's missing Health, increasing by 0% - 50% based on 0% - 60% missing Health. Enemies below 40% Health take 200 / 280 / 360 (+50% AP +150% bonus AD) magic damage instead.\n\nSubsequent shots within 8 seconds cost an additional 50 Mana (max 500 Mana). This ability's range increases by 200 units with each rank gained.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kogmaw",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Living Artillery: Numeric prose was not fully structured; rawParsedText kept.",
+    "Living Artillery: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

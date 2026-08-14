@@ -1,0 +1,41 @@
+{
+  "id": "kalista",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kalista",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 37,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Martial Poise",
+    "Pierce",
+    "Sentinel",
+    "Rend",
+    "Fate's Call"
+  ]
+}

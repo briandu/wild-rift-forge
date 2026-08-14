@@ -1,0 +1,235 @@
+{
+  "id": "alistar",
+  "name": "Alistar",
+  "title": "The Minotaur",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/alistar.png",
+  "stats": {
+    "health": 720,
+    "healthPerLevel": 144,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 52,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Triumphant Roar",
+      "form": null,
+      "description": {
+        "normalized": "When Alistar takes damage, he heals himself for 27 and nearby allied champions for 54. Knocking up or stunning champions with Alistar's abilities reduces the cooldown by 10 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 27,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "When Alistar takes damage, he heals himself for 27 and nearby allied champions for 54. Knocking up or stunning champions with Alistar's abilities reduces the cooldown by 10 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Pulverize",
+      "form": null,
+      "description": {
+        "normalized": "Alistar smashes the ground, dealing 60 / 110 / 160 / 210 (+50% AP) magic damage to nearby enemies and tossing them into the air for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        12,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          70,
+          75,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Alistar smashes the ground, dealing 60 / 110 / 160 / 210 (+50% AP) magic damage to nearby enemies and tossing them into the air for 1 second.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Headbutt",
+      "form": null,
+      "description": {
+        "normalized": "Alistar rams a target with his head, dealing 50 / 120 / 190 / 260 (+60% AP) magic damage and knocking the target back. May also target turrets to deal 75% damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        12,
+        11,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          70,
+          75,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            120,
+            190,
+            260
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Alistar rams a target with his head, dealing 50 / 120 / 190 / 260 (+60% AP) magic damage and knocking the target back. May also target turrets to deal 75% damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Trample",
+      "form": null,
+      "description": {
+        "normalized": "Deals 100 / 150 / 200 / 250 (+40% AP) magic damage to nearby enemies over 5 seconds. If Trample damages an enemy champion 5 times, Alistar's next attack within 5 seconds, againts an enemy champion, is empowered to deal an aditional 40 magic damage and stuns for 1 second. Only one stack can be gained per tick.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            150,
+            200,
+            250
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "stun",
+          "duration": 1,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 100 / 150 / 200 / 250 (+40% AP) magic damage to nearby enemies over 5 seconds. If Trample damages an enemy champion 5 times, Alistar's next attack within 5 seconds, againts an enemy champion, is empowered to deal an aditional 40 magic damage and stuns for 1 second. Only one stack can be gained per tick.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Unbreakable Will",
+      "form": null,
+      "description": {
+        "normalized": "Alistar lets out a wild roar, removing all crowd control effects and gain 55% / 65% / 75% damage reduction for 7 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Alistar lets out a wild roar, removing all crowd control effects and gain 55% / 65% / 75% damage reduction for 7 seconds.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/alistar",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Unbreakable Will: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

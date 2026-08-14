@@ -1,0 +1,307 @@
+{
+  "id": "ksante",
+  "name": "K'Sante",
+  "title": "The Pride of Nazumah",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/ksante.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 95,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Dauntless Instinct",
+      "form": null,
+      "description": {
+        "normalized": "K'Sante's damaging abilities mark enemies with Dauntless Instinct. Attacking a marked target deals physical damage equal to 12% + 1% - 2% of their max Health and consumes the mark. All Out: K'Sante's attacks, active abilities, and passive deal an additional 1% (+0.01% bonus Armor + 0.01% bonus MR) of the target's max Health as physical damage. Health percent damage against minions has a minimum cap of 15 - 85. Health percent damage against monsters has a minimum cap of 25 - 95.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": 12,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": 1,
+          "scalings": [
+            {
+              "stat": "armor",
+              "ratio": 0.0001
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "K'Sante's damaging abilities mark enemies with Dauntless Instinct. Attacking a marked target deals physical damage equal to 12% + 1% - 2% of their max Health and consumes the mark.\n\nAll Out: K'Sante's attacks, active abilities, and passive deal an additional 1% (+0.01% bonus Armor + 0.01% bonus MR) of the target's max Health as physical damage.\n\nHealth percent damage against minions has a minimum cap of 15 - 85. Health percent damage against monsters has a minimum cap of 25 - 95.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Ntofo Strikes",
+      "form": null,
+      "description": {
+        "normalized": "Slams his weapon, dealing 80 / 120 / 160 / 200 (+35% bonus Armor +35% bonus MR) physical damage and slowing enemies by 80% for 0.5 seconds. Ntofo Strikes: If he hits the target, he gains a stack of Ntofo Strikes for 6 seconds. At 2 stacks, he instead fires a shockwave that pulls in and stuns the target for 0.75 seconds. All Out: This ability's cooldown is reduced by 30%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            120,
+            160,
+            200
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "armor",
+              "ratio": 0.35
+            },
+            {
+              "stat": "magic_resistance",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "stun",
+          "duration": 0.75,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Slams his weapon, dealing 80 / 120 / 160 / 200 (+35% bonus Armor +35% bonus MR) physical damage and slowing enemies by 80% for 0.5 seconds.\n\nNtofo Strikes: If he hits the target, he gains a stack of Ntofo Strikes for 6 seconds. At 2 stacks, he instead fires a shockwave that pulls in and stuns the target for 0.75 seconds.\n\nAll Out: This ability's cooldown is reduced by 30%.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Path Maker",
+      "form": null,
+      "description": {
+        "normalized": "Raises his weapons, charging up for 0.3 - 0.75 seconds. During this time, he is unstoppable and reduces incoming damage by 30%. After charging up, he dashes forward, which deals 50 / 80 / 110 / 140 + 8% (+0.02% bonus Armor +0.02% bonus MR) of the target's max Health as physical damage, knocks back the target and stuns for 0.5 - 1.65 seconds (based on charge time). All Out: Refreshes this ability's cooldown; Deals an additional 10% - 80% true damage (based on charge time); Damage reduction is increased by 75% and dash speed is increased; No longer knocks back or stuns. Deals a maximum of 180 / 280 / 380 / 480 damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          45,
+          50,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            80,
+            110,
+            140
+          ],
+          "scalings": [
+            {
+              "stat": "armor",
+              "ratio": 0.0002
+            },
+            {
+              "stat": "magic_resistance",
+              "ratio": 0.0002
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": 10,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": [
+            180,
+            280,
+            380,
+            480
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Raises his weapons, charging up for 0.3 - 0.75 seconds. During this time, he is unstoppable and reduces incoming damage by 30%.\n\nAfter charging up, he dashes forward, which deals 50 / 80 / 110 / 140 + 8% (+0.02% bonus Armor +0.02% bonus MR) of the target's max Health as physical damage, knocks back the target and stuns for 0.5 - 1.65 seconds (based on charge time).\n\nAll Out: Refreshes this ability's cooldown; Deals an additional 10% - 80% true damage (based on charge time); Damage reduction is increased by 75% and dash speed is increased; No longer knocks back or stuns.\n\nDeals a maximum of 180 / 280 / 380 / 480 damage against monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Footwork",
+      "form": null,
+      "description": {
+        "normalized": "Dashes, gaining a shield that absorbs 75 / 120 / 165 / 210 (+15% bonus Health) damage for 2 seconds. If dashing to an allied champion: the distance of the dash is significantly increased and the ally gains the same shield. All Out: This ability's cooldown is reduced by 50% and dash speed is increased.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          45,
+          50,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            75,
+            120,
+            165,
+            210
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "bonus_health",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes, gaining a shield that absorbs 75 / 120 / 165 / 210 (+15% bonus Health) damage for 2 seconds.\n\nIf dashing to an allied champion: the distance of the dash is significantly increased and the ally gains the same shield.\n\nAll Out: This ability's cooldown is reduced by 50% and dash speed is increased.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "All Out",
+      "form": null,
+      "description": {
+        "normalized": "Shatters his ntofos to knock back an enemy champion, dealing 80 / 115 / 150 physical damage , then dashes behind them and goes All Out for 15 seconds. Demolishing Strike: If the enemy would hit a wall, they are knocked back through the wall and K'Sante strikes them again for 80 / 115 / 150 (+5% bonus Health) physical damage. All Out: His basic abilities are upgraded; gains 40% / 60% / 80% Attack Speed; gains 50% bonus Armor Pen; gains 20% Omnivamp; loses 30% max Health; loses 80% bonus armor; loses 80% bonus Magic Resist. K'Sante is unstoppable and roots his target while casting this ability.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            115,
+            150
+          ],
+          "duration": 15,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            115,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_health",
+              "ratio": 0.05
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Shatters his ntofos to knock back an enemy champion, dealing 80 / 115 / 150 physical damage , then dashes behind them and goes All Out for 15 seconds.\n\nDemolishing Strike: If the enemy would hit a wall, they are knocked back through the wall and K'Sante strikes them again for 80 / 115 / 150 (+5% bonus Health) physical damage.\n\nAll Out: His basic abilities are upgraded; gains 40% / 60% / 80% Attack Speed; gains 50% bonus Armor Pen; gains 20% Omnivamp; loses 30% max Health; loses 80% bonus armor; loses 80% bonus Magic Resist.\n\nK'Sante is unstoppable and roots his target while casting this ability.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ksante",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Dauntless Instinct: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ntofo Strikes: Numeric prose was not fully structured; rawParsedText kept.",
+    "Path Maker: Numeric prose was not fully structured; rawParsedText kept.",
+    "Footwork: Numeric prose was not fully structured; rawParsedText kept.",
+    "All Out: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

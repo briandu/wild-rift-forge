@@ -1,0 +1,292 @@
+{
+  "id": "fiora",
+  "name": "Fiora",
+  "title": "The Grand Duelist",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/fiora.png",
+  "stats": {
+    "health": 650,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 300,
+      "maximumPerLevel": 37,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 70,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Duelist's Dance",
+      "form": null,
+      "description": {
+        "normalized": "After 2 seconds (scales with Grand Challenge's level), reveals Vitals on a nearby enemy champion. Striking a Vital deals 3.5% (+0.05% bonus AD) of the target's max Health as true damage, heals Fiora for 45 Health and grants her 30% Movement Speed (scales with Grand Challenge's level) decaying over 1.75 seconds. Reveals a new Vital after striking one or after 16.75 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "true",
+          "base": 2,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.0005
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 2,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.0005
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 30,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "After 2 seconds (scales with Grand Challenge's level), reveals Vitals on a nearby enemy champion. Striking a Vital deals 3.5% (+0.05% bonus AD) of the target's max Health as true damage, heals Fiora for 45 Health and grants her 30% Movement Speed (scales with Grand Challenge's level) decaying over 1.75 seconds.\n\nReveals a new Vital after striking one or after 16.75 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Lunge",
+      "form": null,
+      "description": {
+        "normalized": "Lunges in a direction and stabs a nearby enemy, dealing 75 / 85 / 95 / 105 (+110% / 115% / 120% / 125% bonus AD) physical damage. Hitting the target refunds 50% of Lunge's cooldown. Lunge prioritizes Vitals and enemies it will kill and applies on-hit effects to the main target. Lunge deals 50% damage to monsters and can deal damage to turrets.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          25,
+          30,
+          35
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            75,
+            85,
+            95,
+            105
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lunges in a direction and stabs a nearby enemy, dealing 75 / 85 / 95 / 105 (+110% / 115% / 120% / 125% bonus AD) physical damage. Hitting the target refunds 50% of Lunge's cooldown.\n\nLunge prioritizes Vitals and enemies it will kill and applies on-hit effects to the main target.\n\nLunge deals 50% damage to monsters and can deal damage to turrets.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Riposte",
+      "form": null,
+      "description": {
+        "normalized": "Parries all incoming damage and debuffs for the next 0.75 econds. Then stabs in the target direction, dealing 120 / 170 / 220 / 270 (+100% AP) magic damage to the first enemy champion, slowing their Movement Speed and Attack Speed by 50% for 1.5 seconds. Riposte stuns instead of slows if it parries an immobilizing effect.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            120,
+            170,
+            220,
+            270
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Parries all incoming damage and debuffs for the next 0.75 econds. Then stabs in the target direction, dealing 120 / 170 / 220 / 270 (+100% AP) magic damage to the first enemy champion, slowing their Movement Speed and Attack Speed by 50% for 1.5 seconds.\n\nRiposte stuns instead of slows if it parries an immobilizing effect.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Bladework",
+      "form": null,
+      "description": {
+        "normalized": "Empowers the next 2 attacks with 60% Attack Speed. The first attack applies a 30% slow for 1 second, but cannot critically strike. The second attack will aways critically strike for 170% / 180% / 190% / 200% physical damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        9,
+        7,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          35,
+          40,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 2,
+          "duration": 1,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers the next 2 attacks with 60% Attack Speed. The first attack applies a 30% slow for 1 second, but cannot critically strike. The second attack will aways critically strike for 170% / 180% / 190% / 200% physical damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Grand Challenge",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Reduces the time needed to reveal Vitals by 0.25 / 0.5 / 0.75 seconds. Active: Revels all 4 Vitals on an enemy champion for 8 seconds and gains Duelist's Dance's Movement Speed bonus while near them. If Fiora strikes all 4 Vitals within 8 seconds, or if the target dies after she has hit at least one, restores 80 / 110 / 140 (+60% bonus AD) Health per second to herself and nearby allied champions for 2-5 seconds, scaling with the number of Vitals hit. Striking all 4 Vitals of a champion deals 16% of their max Health as true damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        60,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "true",
+          "base": [
+            80,
+            110,
+            140
+          ],
+          "duration": 8,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Reduces the time needed to reveal Vitals by 0.25 / 0.5 / 0.75 seconds.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Revels all 4 Vitals on an enemy champion for 8 seconds and gains Duelist's Dance's Movement Speed bonus while near them. If Fiora strikes all 4 Vitals within 8 seconds, or if the target dies after she has hit at least one, restores 80 / 110 / 140 (+60% bonus AD) Health per second to herself and nearby allied champions for 2-5 seconds, scaling with the number of Vitals hit. Striking all 4 Vitals of a champion deals 16% of their max Health as true damage.",
+          "effects": [
+            {
+              "type": "percent_health_damage",
+              "damageType": "true",
+              "base": [
+                80,
+                110,
+                140
+              ],
+              "duration": 8,
+              "scalings": [
+                {
+                  "stat": "bonus_ad",
+                  "ratio": 0.6
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Reduces the time needed to reveal Vitals by 0.25 / 0.5 / 0.75 seconds.\n\nActive: Revels all 4 Vitals on an enemy champion for 8 seconds and gains Duelist's Dance's Movement Speed bonus while near them. If Fiora strikes all 4 Vitals within 8 seconds, or if the target dies after she has hit at least one, restores 80 / 110 / 140 (+60% bonus AD) Health per second to herself and nearby allied champions for 2-5 seconds, scaling with the number of Vitals hit. Striking all 4 Vitals of a champion deals 16% of their max Health as true damage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/fiora",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Duelist's Dance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Grand Challenge: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

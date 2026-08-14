@@ -1,0 +1,41 @@
+{
+  "id": "singed",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/singed",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:39:28.915Z"
+  },
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 112,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Noxious Slipstream",
+    "Poison Trail",
+    "Mega Adhesive",
+    "Fling",
+    "Insanity Potion"
+  ]
+}

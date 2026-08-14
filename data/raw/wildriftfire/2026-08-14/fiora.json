@@ -1,0 +1,41 @@
+{
+  "id": "fiora",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/fiora",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 650,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 300,
+      "maximumPerLevel": 37,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 70,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Duelist's Dance",
+    "Lunge",
+    "Riposte",
+    "Bladework",
+    "Grand Challenge"
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "id": "aurora",
+  "name": "Aurora",
+  "title": "The Witch Between Worlds",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/aurora.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Spirit Abjuration",
+      "form": null,
+      "description": {
+        "normalized": "Damaging an enemy 3 times with abilities or attacks exorcises them, dealing 2.5% (+2%AP) of the target's max Health as magic damage. If the enemy is a champion, it also frees a spirit that follows Aurora for 4 seconds, restoring her Health by 1 - 18 (+2% AP) every second ( max 4 spirits) .",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.02
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Damaging an enemy 3 times with abilities or attacks exorcises them, dealing 2.5% (+2%AP) of the target's max Health as magic damage.\n\nIf the enemy is a champion, it also frees a spirit that follows Aurora for 4 seconds, restoring her Health by 1 - 18 (+2% AP) every second ( max 4 spirits) .",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Twofold Hex",
+      "form": null,
+      "description": {
+        "normalized": "First Cast: Fires cursed energy ion a direction, dealing 40 / 70 / 100 / 130 (+33% AP) magic damage to enemies and cursing them for 3.5 seconds. Recast: Detonates the curse, dealing up to 40 / 70 / 100 / 130 (+33% AP) magic damage to enemies passed through. Enemies take up to 50% bonus damage based on missing Health. Damage beyond the first hit is reduced by 20%. Deals 40% damage against minions and monsters instead. If the curse's duration runs out, Aurora will automatically recast the ability.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            70,
+            100,
+            130
+          ],
+          "duration": 3.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.33
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            70,
+            100,
+            130
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.33
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "damage",
+          "base": 20,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First Cast",
+          "rawParsedText": "Fires cursed energy ion a direction, dealing 40 / 70 / 100 / 130 (+33% AP) magic damage to enemies and cursing them for 3.5 seconds.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                40,
+                70,
+                100,
+                130
+              ],
+              "duration": 3.5,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.33
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "recast",
+          "label": "Recast",
+          "rawParsedText": "Detonates the curse, dealing up to 40 / 70 / 100 / 130 (+33% AP) magic damage to enemies passed through. Enemies take up to 50% bonus damage based on missing Health.",
+          "effects": [
+            {
+              "type": "missing_health_damage",
+              "damageType": "magic",
+              "base": [
+                40,
+                70,
+                100,
+                130
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.33
+                }
+              ],
+              "note": "Formula kept in rawParsedText; structured fields are partial.",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "First Cast: Fires cursed energy ion a direction, dealing 40 / 70 / 100 / 130 (+33% AP) magic damage to enemies and cursing them for 3.5 seconds.\n\nRecast: Detonates the curse, dealing up to 40 / 70 / 100 / 130 (+33% AP) magic damage to enemies passed through. Enemies take up to 50% bonus damage based on missing Health.\n\nDamage beyond the first hit is reduced by 20%. Deals 40% damage against minions and monsters instead.\n\nIf the curse's duration runs out, Aurora will automatically recast the ability.",
+      "confidence": "medium"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Across the Veil",
+      "form": null,
+      "description": {
+        "normalized": "Hops in a direction. Upon landing, enters the spirit realm, becoming invisible for 1 / 1.2 / 1.4 / 1.6 seconds and entering Realm Hopper. Real Hopper: Gains 25% / 30% / 35% / 40% Movement Speed for 4 seconds. Scoring a takedown on an enemy champion resets this ability's cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 40,
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hops in a direction. Upon landing, enters the spirit realm, becoming invisible for 1 / 1.2 / 1.4 / 1.6 seconds and entering Realm Hopper.\n\nReal Hopper: Gains 25% / 30% / 35% / 40% Movement Speed for 4 seconds.\n\nScoring a takedown on an enemy champion resets this ability's cooldown.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "The Weirding",
+      "form": null,
+      "description": {
+        "normalized": "Converges the realms, sending out a blast of spirit magic that deals 80 / 130 / 180 / 230 (+65% AP) magic damage to enemies in the area and slows them by 80%, decaying over 1 second. Aurora hops backward a short distance after casting.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            130,
+            180,
+            230
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.65
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Converges the realms, sending out a blast of spirit magic that deals 80 / 130 / 180 / 230 (+65% AP) magic damage to enemies in the area and slows them by 80%, decaying over 1 second.\n\nAurora hops backward a short distance after casting.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Between Worlds",
+      "form": null,
+      "description": {
+        "normalized": "First Cast: Leaps in a direction. Upon landing, converges the realms, sending out a pulse of spirit energy that deals 150 / 250 / 350 (+50% AP) magic damage and slows enemies hit by 30% for 2 seconds. The area of convergence stays active for 2.5 / 3.25 / 4 seconds, granting Aurora Realm Hopper and allowing her to jump from one edge of the area to another. Enemies attempting to enter or leave the area are slowed by 50% for 1.5 / 1.75 / 2 seconds. Recast: Ends the area of convergence effect early.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "duration": [
+            2.5,
+            3.25,
+            4
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First Cast",
+          "rawParsedText": "Leaps in a direction. Upon landing, converges the realms, sending out a pulse of spirit energy that deals 150 / 250 / 350 (+50% AP) magic damage and slows enemies hit by 30% for 2 seconds. The area of convergence stays active for 2.5 / 3.25 / 4 seconds, granting Aurora Realm Hopper and allowing her to jump from one edge of the area to another. Enemies attempting to enter or leave the area are slowed by 50% for 1.5 / 1.75 / 2 seconds.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                150,
+                250,
+                350
+              ],
+              "duration": [
+                2.5,
+                3.25,
+                4
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.5
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "recast",
+          "label": "Recast",
+          "rawParsedText": "Ends the area of convergence effect early.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "First Cast: Leaps in a direction. Upon landing, converges the realms, sending out a pulse of spirit energy that deals 150 / 250 / 350 (+50% AP) magic damage and slows enemies hit by 30% for 2 seconds. The area of convergence stays active for 2.5 / 3.25 / 4 seconds, granting Aurora Realm Hopper and allowing her to jump from one edge of the area to another. Enemies attempting to enter or leave the area are slowed by 50% for 1.5 / 1.75 / 2 seconds.\n\nRecast: Ends the area of convergence effect early.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/aurora",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Spirit Abjuration: Numeric prose was not fully structured; rawParsedText kept.",
+    "Across the Veil: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

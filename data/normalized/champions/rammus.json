@@ -1,0 +1,241 @@
+{
+  "id": "rammus",
+  "name": "Rammus",
+  "title": "The Armordillo",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/rammus.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 112,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 49,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Rolling Armordillo",
+      "form": null,
+      "description": {
+        "normalized": "While out of combat gain, 32 Movement Speed, increased to 60 + Level x 1 during Powerball. Exit combat after not taking damage or using abilities for 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "While out of combat gain, 32 Movement Speed, increased to 60 + Level x 1 during Powerball.\n\nExit combat after not taking damage or using abilities for 5 seconds.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Powerball",
+      "form": null,
+      "description": {
+        "normalized": "Accelerates up to 115% + level x 5% bonus Movement Speed over 6 seconds. Colliding with an enemy deals 80 / 110 / 140 / 170 (+100% AP) magic damage in an area, knocking back and slowing enemies by 40% / 50% / 60% / 70% for 1 second. Activating cancels Defensive Ball Curl and puts it on cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            110,
+            140,
+            170
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Accelerates up to 115% + level x 5% bonus Movement Speed over 6 seconds. Colliding with an enemy deals 80 / 110 / 140 / 170 (+100% AP) magic damage in an area, knocking back and slowing enemies by 40% / 50% / 60% / 70% for 1 second.\n\nActivating cancels Defensive Ball Curl and puts it on cooldown.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Defensive Ball Curl",
+      "form": null,
+      "description": {
+        "normalized": "Spiked Shell: Attacks deal 12 / 14 / 16 / 18 (+10% Armor) bonus magic damage. Active: Brace for up to 6 seconds, gaining 30 (+45% / 50% / 55% / 60% Armor) Armor and 10 (+35% / 40% / 45% / 50% MR) Magic Resist. While curled Spiked Shell deals 40% more damage and also applies to enemies that attack Rammus. Deals 175% damage to monsters. Activating cancels Powerball and puts it on cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            12,
+            14,
+            16,
+            18
+          ],
+          "scalings": [
+            {
+              "stat": "armor",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 6,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 175,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Spiked Shell: Attacks deal 12 / 14 / 16 / 18 (+10% Armor) bonus magic damage.\n\nActive: Brace for up to 6 seconds, gaining 30 (+45% / 50% / 55% / 60% Armor) Armor and 10 (+35% / 40% / 45% / 50% MR) Magic Resist. While curled Spiked Shell deals 40% more damage and also applies to enemies that attack Rammus.\n\nDeals 175% damage to monsters.\n\nActivating cancels Powerball and puts it on cooldown.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Frenzying Taunt",
+      "form": null,
+      "description": {
+        "normalized": "Taunts an enemy champion or monster for 1.25 / 1.5 / 1.75 / 2 seconds and gain 35% / 45% / 55% / 65% Attack Speed decaying over 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Taunts an enemy champion or monster for 1.25 / 1.5 / 1.75 / 2 seconds and gain 35% / 45% / 55% / 65% Attack Speed decaying over 5 seconds.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Soaring Slam",
+      "form": null,
+      "description": {
+        "normalized": "Hop into the air and slam down, dealing 75 / 150 / 225 (+50% / 60% / 70% AP) magic damage and creating aftershocks for 4 seconds. Aftershocks deal 30 (+20% AP) magic damage every second and slow enemies incrementally by 10%, stacking up to 50%. If used during Powerball, Powerball's effects are applied at the center of the landing zone. Soaring Slam's range increases with Movement Speed. Soaring Slam damages structures.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        60,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            150,
+            225
+          ],
+          "duration": 4,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 30,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hop into the air and slam down, dealing 75 / 150 / 225 (+50% / 60% / 70% AP) magic damage and creating aftershocks for 4 seconds.\n\nAftershocks deal 30 (+20% AP) magic damage every second and slow enemies incrementally by 10%, stacking up to 50%.\n\nIf used during Powerball, Powerball's effects are applied at the center of the landing zone.\n\nSoaring Slam's range increases with Movement Speed.\n\nSoaring Slam damages structures.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/rammus",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Rolling Armordillo: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rolling Armordillo: Numeric prose was not fully structured; rawParsedText kept.",
+    "Frenzying Taunt: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

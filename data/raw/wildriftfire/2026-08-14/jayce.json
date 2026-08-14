@@ -1,0 +1,41 @@
+{
+  "id": "jayce",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/jayce",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 650,
+    "healthPerLevel": 128,
+    "healthRegen5": 10,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.91,
+    "attackSpeedPerLevel": 0.0207,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 5,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Hextech Capacitor",
+    "To The Skies! / Shock Blast",
+    "Lightning Field / Hyper Charge",
+    "Thundering Blow / Acceleration Gate",
+    "Mercury Cannon / Mercury Hammer"
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "id": "wukong",
+  "name": "Wukong",
+  "title": "The Monkey King",
+  "roles": [],
+  "positions": [
+    "jungle",
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/wukong.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Stone Skin",
+      "form": null,
+      "description": {
+        "normalized": "Gains a stack of Stone Skin whenever Wukong damage enemy champions, stacking up to 3 times. Each stack grants 11 Armor and heals for 1.75% of his max Health per 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 11,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains a stack of Stone Skin whenever Wukong damage enemy champions, stacking up to 3 times.\n\nEach stack grants 11 Armor and heals for 1.75% of his max Health per 5 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Golden Staff",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Golden Staff adds an empowering effect on Wukong's base attacks every 12 seconds. Takedowns will reduce Golden Staff's passive Cooldown by 2 seconds. The Cooldown of the passive will be reduced by 2 seconds per level, and killing enemy champions will refresh the Cooldown. Active: Empowers his next attack to deal 60 / 90 / 120 / 150 (+35% / 40% / 45% / 50% AD) physical damage. Wukong and his clones attacks reduce Golden Staff's cooldown by 0.5 seconds. After casting this ability, Wukong's next attack gains bonus range.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        9,
+        8,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Golden Staff adds an empowering effect on Wukong's base attacks every 12 seconds. Takedowns will reduce Golden Staff's passive Cooldown by 2 seconds. The Cooldown of the passive will be reduced by 2 seconds per level, and killing enemy champions will refresh the Cooldown.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Empowers his next attack to deal 60 / 90 / 120 / 150 (+35% / 40% / 45% / 50% AD) physical damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                60,
+                90,
+                120,
+                150
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Golden Staff adds an empowering effect on Wukong's base attacks every 12 seconds. Takedowns will reduce Golden Staff's passive Cooldown by 2 seconds. The Cooldown of the passive will be reduced by 2 seconds per level, and killing enemy champions will refresh the Cooldown.\n\nActive: Empowers his next attack to deal 60 / 90 / 120 / 150 (+35% / 40% / 45% / 50% AD) physical damage.\n\nWukong and his clones attacks reduce Golden Staff's cooldown by 0.5 seconds. After casting this ability, Wukong's next attack gains bonus range.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Warrior Trickster",
+      "form": null,
+      "description": {
+        "normalized": "Becomes invisible for 1 second and dashes forward, leaving behind a clone for 3 / 3.5 / 4 / 4.5 seconds that attacks nearby enemies for20% / 30% / 40% / 50% damage. The clone will mimic Wukong's Golden Staff, Nimbus Strike and Cyclone. The clone can move with the joystick control.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Becomes invisible for 1 second and dashes forward, leaving behind a clone for 3 / 3.5 / 4 / 4.5 seconds that attacks nearby enemies for20% / 30% / 40% / 50% damage.\n\nThe clone will mimic Wukong's Golden Staff, Nimbus Strike and Cyclone. The clone can move with the joystick control.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Nimbus Strike",
+      "form": null,
+      "description": {
+        "normalized": "Moves toward a target while sending clones to 2 additional enemies nearby, dealing 70 / 110 / 150 / 190 (+80% bonus AD) physical damage to each enemy. After hitting the targeted enemy, Wukong gains 25% / 35% / 45% / 55% Attack Speed for 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            110,
+            150,
+            190
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Moves toward a target while sending clones to 2 additional enemies nearby, dealing 70 / 110 / 150 / 190 (+80% bonus AD) physical damage to each enemy.\n\nAfter hitting the targeted enemy, Wukong gains 25% / 35% / 45% / 55% Attack Speed for 4 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Cyclone",
+      "form": null,
+      "description": {
+        "normalized": "Extends his staff and spins to gain 20% Movement Speed, dealing 149 (220% AD) physical damage + 10% / 14% / 118% of enemies' max health over 2 seconds. Enemies that are hit for the first time are knocked up. Cyclone can be recast once within 8 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": 20,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 20,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Extends his staff and spins to gain 20% Movement Speed, dealing 149 (220% AD) physical damage + 10% / 14% / 118% of enemies' max health over 2 seconds. Enemies that are hit for the first time are knocked up.\n\nCyclone can be recast once within 8 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/wukong",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Stone Skin: Numeric prose was not fully structured; rawParsedText kept.",
+    "Golden Staff: Numeric prose was not fully structured; rawParsedText kept.",
+    "Golden Staff: Numeric prose was not fully structured; rawParsedText kept.",
+    "Warrior Trickster: Numeric prose was not fully structured; rawParsedText kept.",
+    "Nimbus Strike: Numeric prose was not fully structured; rawParsedText kept.",
+    "Cyclone: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

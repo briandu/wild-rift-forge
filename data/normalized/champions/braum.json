@@ -1,0 +1,230 @@
+{
+  "id": "braum",
+  "name": "Braum",
+  "title": "the Heart of the Freljord",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/braum.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 52,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Concussive Blows",
+      "form": null,
+      "description": {
+        "normalized": "Braum's basic attacks apply Concussive Blows. Once the first stack is applied, ally basic attacks also stack Concussive Blows. Upon reaching 4 stacks, the target is stunned for 1.25 - 1.75 seconds and takes 45 magic damage. For the next 8 seconds they cannot receive new stacks, but take bonus 9 magic damage from Braum's attacks.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Braum's basic attacks apply Concussive Blows. Once the first stack is applied, ally basic attacks also stack Concussive Blows. Upon reaching 4 stacks, the target is stunned for 1.25 - 1.75 seconds and takes 45 magic damage. For the next 8 seconds they cannot receive new stacks, but take bonus 9 magic damage from Braum's attacks.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Winter's Bite",
+      "form": null,
+      "description": {
+        "normalized": "Lauches ice that deals 60 / 120 / 180 / 240 (+3% HP) magic damage and slows the enemy hit by 70% for 2 seconds. Applies a stack of Concussive Blows.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          45,
+          50,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            120,
+            180,
+            240
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "maximum_health",
+              "ratio": 0.03
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lauches ice that deals 60 / 120 / 180 / 240 (+3% HP) magic damage and slows the enemy hit by 70% for 2 seconds. Applies a stack of Concussive Blows.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Stand Behind Me",
+      "form": null,
+      "description": {
+        "normalized": "Leaps to an ally. Braum and the ally gain 10 / 15 / 20 / 25 (+10% / 12% / 14% / 16% Armor) Armor and 10 / 15 / 20 / 25 (+10% / 12% / 14% / 16% MR) Magic Resist for 3 seconds on arrival.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Leaps to an ally. Braum and the ally gain 10 / 15 / 20 / 25 (+10% / 12% / 14% / 16% Armor) Armor and 10 / 15 / 20 / 25 (+10% / 12% / 14% / 16% MR) Magic Resist for 3 seconds on arrival.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Unbreakable",
+      "form": null,
+      "description": {
+        "normalized": "Raises his shield, intercepting projectiles for 4 seconds. Braum negates the first instance of damage wichever direction he faces and takes 35% / 40% / 45% / 50% reduced damage afterwards. Braum gains 15% Movement Speed while his shield is raised.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          40,
+          45,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": 4,
+          "duration": 4,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 15,
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Raises his shield, intercepting projectiles for 4 seconds. Braum negates the first instance of damage wichever direction he faces and takes 35% / 40% / 45% / 50% reduced damage afterwards. Braum gains 15% Movement Speed while his shield is raised.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Glacial Fissure",
+      "form": null,
+      "description": {
+        "normalized": "Slams the ground and opens a fissure, dealing 150 / 250 / 350 (+60% AP) magic damage and knocking up enemies for 1 second. The fissure slows enemies by 40% / 50% / 60% and lasts for 4 seconds. After the first enemy champion hit, subsequent enemies are knock up for 0.25 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        70,
+        65
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "knockup",
+          "duration": 0.25,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Slams the ground and opens a fissure, dealing 150 / 250 / 350 (+60% AP) magic damage and knocking up enemies for 1 second. The fissure slows enemies by 40% / 50% / 60% and lasts for 4 seconds. After the first enemy champion hit, subsequent enemies are knock up for 0.25 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/braum",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Stand Behind Me: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

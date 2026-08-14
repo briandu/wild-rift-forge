@@ -1,0 +1,41 @@
+{
+  "id": "warwick",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/warwick",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 112,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 37,
+      "regen5": 16,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0143,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Eternal Hunger",
+    "Jaws of the Beast",
+    "Blood Hunt",
+    "Primal Howl",
+    "Infinite Duress"
+  ]
+}

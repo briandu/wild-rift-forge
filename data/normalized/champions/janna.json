@@ -1,0 +1,234 @@
+{
+  "id": "janna",
+  "name": "Janna",
+  "title": "The Storm's Fury",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/janna.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 104,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 43,
+      "regen5": 21,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 45,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Tailwind",
+      "form": null,
+      "description": {
+        "normalized": "Passively gain 5% Movement Speed. Nearby allied champions also gain this bonus.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Passively gain 5% Movement Speed. Nearby allied champions also gain this bonus.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Howling Gale",
+      "form": null,
+      "description": {
+        "normalized": "Charges up for 0.75 seconds and summons a powerful whirlwind that deals 50 / 90 / 130 / 170 (+50% AP) magic damage and knocks up enemies in its path. The whirlwind always reaches its destination in 0.5 seconds. This ability's charges are stored once every 14 seconds, up to a maximum of 2 charges.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            90,
+            130,
+            170
+          ],
+          "duration": 0.75,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Charges up for 0.75 seconds and summons a powerful whirlwind that deals 50 / 90 / 130 / 170 (+50% AP) magic damage and knocks up enemies in its path. The whirlwind always reaches its destination in 0.5 seconds. This ability's charges are stored once every 14 seconds, up to a maximum of 2 charges.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Zephyr",
+      "form": null,
+      "description": {
+        "normalized": "Gains 10% / 15% / 20% / 25% Movement Speed for 2 seconds. The wind spirit automatically searches for the nearest 3 campions within range, granting Movement Speed bonuses to allies and dealing 50 / 90 / 130 / 170 (50% AP + 20% bonus MS) magic damage to enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            90,
+            130,
+            170
+          ],
+          "duration": 2,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 25,
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 10% / 15% / 20% / 25% Movement Speed for 2 seconds. The wind spirit automatically searches for the nearest 3 campions within range, granting Movement Speed bonuses to allies and dealing 50 / 90 / 130 / 170 (50% AP + 20% bonus MS) magic damage to enemies.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Eye Of The Storm",
+      "form": null,
+      "description": {
+        "normalized": "Blesses herself and the allied champion with the lowers Hp with a shield that absorbs 65 / 90 / 115 / 140 (+45% AP) damage and grants 10 / 20 / 30 / 40 (+10% AP) Attack Damage while it holds. Lasts for 3 seconds. If there is a turret within range, applies a shield to the turret as well.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            65,
+            90,
+            115,
+            140
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Blesses herself and the allied champion with the lowers Hp with a shield that absorbs 65 / 90 / 115 / 140 (+45% AP) damage and grants 10 / 20 / 30 / 40 (+10% AP) Attack Damage while it holds. Lasts for 3 seconds. If there is a turret within range, applies a shield to the turret as well.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Monsoon",
+      "form": null,
+      "description": {
+        "normalized": "Calls forth mighty winds of salvation to knock back surrounding enemies and restore 50 / 100 / 150 (+30% AP) Health to nearby allies each second for 3 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        75,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Calls forth mighty winds of salvation to knock back surrounding enemies and restore 50 / 100 / 150 (+30% AP) Health to nearby allies each second for 3 seconds.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/janna",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Monsoon: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

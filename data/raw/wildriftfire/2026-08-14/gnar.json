@@ -1,0 +1,41 @@
+{
+  "id": "gnar",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/gnar",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 66,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 7,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.022,
+    "attackRange": null,
+    "armor": 43,
+    "armorPerLevel": 3,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 3,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Rage Gene",
+    "Boomerang Throw / Boulder Toss",
+    "Hyper / Wallop",
+    "Hop / Crunch",
+    "GNAR!"
+  ]
+}

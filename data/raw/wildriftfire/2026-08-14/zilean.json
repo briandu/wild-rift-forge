@@ -1,0 +1,41 @@
+{
+  "id": "zilean",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/zilean",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 89,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 460,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 45,
+    "armorPerLevel": 4,
+    "magicResistance": 28,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Time in a Bottle",
+    "Time Bomb",
+    "Twisted Timeflow",
+    "Temporal Mirage",
+    "Chronoshift"
+  ]
+}

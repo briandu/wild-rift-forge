@@ -1,0 +1,315 @@
+{
+  "id": "karma",
+  "name": "Karma",
+  "title": "The Enlightened One",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/karma.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 43,
+      "regen5": 21,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Mantra",
+      "form": null,
+      "description": {
+        "normalized": "Every ability cast grants Karma a stack of Mantra. At 3 stacks, she enters a Mantra State, enchancing her next basic ability.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Every ability cast grants Karma a stack of Mantra. At 3 stacks, she enters a Mantra State, enchancing her next basic ability.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Inner Flame",
+      "form": null,
+      "description": {
+        "normalized": "Fires a blast of energy, dealing 60 / 100 / 140 / 180 (+40% AP) magic damage to the first target hit and surrounding enemies, and slowing them by 35% for 1.5 seconds. Mantra: Increases the destructive power of the blast, dealing 65 / 140 / 215 / 290 (+50% AP) magic damage to the first target hit and surrounding enemies. The blast leaves a field for 1.5 seconds, slowing targets by 42.5% / 45% / 47.5% / 50%, after which it explodes and deals 40 / 80 / 120 / 160 (+50% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            65,
+            140,
+            215,
+            290
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a blast of energy, dealing 60 / 100 / 140 / 180 (+40% AP) magic damage to the first target hit and surrounding enemies, and slowing them by 35% for 1.5 seconds.\n\nMantra: Increases the destructive power of the blast, dealing 65 / 140 / 215 / 290 (+50% AP) magic damage to the first target hit and surrounding enemies. The blast leaves a field for 1.5 seconds, slowing targets by 42.5% / 45% / 47.5% / 50%, after which it explodes and deals 40 / 80 / 120 / 160 (+50% AP) magic damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Focused Resolve",
+      "form": null,
+      "description": {
+        "normalized": "Tethers up to two nearby enemy champions, dealing 35 / 60 / 85 / 110 (+40% AP) magic damage and revealing them for 1.75 seconds. If targets fail to break the tether, they take 40 / 70 / 100 / 130 (+45% AP) magic damage and are rooted for 1 / 1.25 / 1.5 / 1.75 seconds. Mantra: A new tether will be fromed between tethered targets. If there is only one tethered target, the new tether will spread toward an additional nearby enemy champion. If targets fail to break all the tethers, they take 40 / 70 / 100 /130 (+45% AP) magic damage and are rooted for an improved 1.5 / 1.75 / 2 / 2.25 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            60,
+            85,
+            110
+          ],
+          "duration": [
+            1,
+            1.25,
+            1.5,
+            1.75
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            70,
+            100,
+            130
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Tethers up to two nearby enemy champions, dealing 35 / 60 / 85 / 110 (+40% AP) magic damage and revealing them for 1.75 seconds. If targets fail to break the tether, they take 40 / 70 / 100 / 130 (+45% AP) magic damage and are rooted for 1 / 1.25 / 1.5 / 1.75 seconds.\n\nMantra: A new tether will be fromed between tethered targets. If there is only one tethered target, the new tether will spread toward an additional nearby enemy champion. If targets fail to break all the tethers, they take 40 / 70 / 100 /130 (+45% AP) magic damage and are rooted for an improved 1.5 / 1.75 / 2 / 2.25 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Inspire",
+      "form": null,
+      "description": {
+        "normalized": "Grants an allied champion 60 / 90 / 120 / 150 (+ 65% AP) shield for 3 seconds and 30% movement speed for 1.5 seconds. Mantra: Karma focuses her power, granting a 120 / 180 / 240 / 300 (+65% AP) shield that decays over 4 seconds and 60% movement speed that decays to 20% over the same duration. An additional ring is generated around the shielded target, and the first ally champion who enters the ring will be granted the same shield and movement speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "duration": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 30,
+          "duration": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            120,
+            180,
+            240,
+            300
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.65
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 60,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Grants an allied champion 60 / 90 / 120 / 150 (+ 65% AP) shield for 3 seconds and 30% movement speed for 1.5 seconds.\n\nMantra: Karma focuses her power, granting a 120 / 180 / 240 / 300 (+65% AP) shield that decays over 4 seconds and 60% movement speed that decays to 20% over the same duration.\n\nAn additional ring is generated around the shielded target, and the first ally champion who enters the ring will be granted the same shield and movement speed.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Transcendent Embrace",
+      "form": null,
+      "description": {
+        "normalized": "Immediately enters Mantra state. Forms a ring of spirit energy at the taget location. After 1 second, it detonates, dealing 170 / 280 / 390 (+80% AP) magic damage to all enemies inside the circle and slowing them by 35% for 1 second. If enemies are hit by the outer ring, they will be knocked back toward the center.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            170,
+            280,
+            390
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Immediately enters Mantra state.\n\nForms a ring of spirit energy at the taget location. After 1 second, it detonates, dealing 170 / 280 / 390 (+80% AP) magic damage to all enemies inside the circle and slowing them by 35% for 1 second. If enemies are hit by the outer ring, they will be knocked back toward the center.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/karma",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Mantra: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

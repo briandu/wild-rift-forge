@@ -1,0 +1,304 @@
+{
+  "id": "volibear",
+  "name": "Volibear",
+  "title": "The Relentless Storm",
+  "roles": [],
+  "positions": [
+    "jungle",
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/volibear.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 49,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.0114,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "The Relentless Storm",
+      "form": null,
+      "description": {
+        "normalized": "Volibear gains 5% (+4% AP) Attack Speed for 6 seconds whenever he deals damage with an Ability or Attack, stacking up to 5 times. At 5 stacks, Volibear's claws ignite with lightning, causing his Attacks to deal an additional 11 - 80 (+40% AP) magic damage to the target and 4 closest enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "base": 5,
+          "duration": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.04
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Volibear gains 5% (+4% AP) Attack Speed for 6 seconds whenever he deals damage with an Ability or Attack, stacking up to 5 times.\n\nAt 5 stacks, Volibear's claws ignite with lightning, causing his Attacks to deal an additional 11 - 80 (+40% AP) magic damage to the target and 4 closest enemies.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Thundering Smash",
+      "form": null,
+      "description": {
+        "normalized": "Volibear gains 10% / 15% / 20% / 25% Move Speed, increased to 20% / 30% / 40% / 50% towards enemy champions for the next 4 seconds. While active, Volibear's next Attack deals 15 / 40 / 65 / 90 (+100% bonus AD) physical damage and Stuns the target for 1 second. If Volibear becomes Immobilized before he Stuns a target, Thundering Smash's duration is paused.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            15,
+            40,
+            65,
+            90
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "stun",
+          "duration": 1,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Volibear gains 10% / 15% / 20% / 25% Move Speed, increased to 20% / 30% / 40% / 50% towards enemy champions for the next 4 seconds. While active, Volibear's next Attack deals 15 / 40 / 65 / 90 (+100% bonus AD) physical damage and Stuns the target for 1 second.\n\nIf Volibear becomes Immobilized before he Stuns a target, Thundering Smash's duration is paused.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Frenzied Maul",
+      "form": null,
+      "description": {
+        "normalized": "Volibear mauls an enemy, dealing 5 / 30 / 55 / 80 (+100% AD + 6.5% bonus HP) physical damage. If Volibear maul's a champion or Large Monster he goes into a Frenzy for 8 seconds. If this Ability is used when in a Frenzy, its damage is increased to 8 / 48 / 88 / 128 (+160% AD + 10.4% bonus HP) physical damage and Volibear restores 10 + 10% (7%) missing Health. This Ability applies on-hit effects. Base Health Regeneration: 20 / 30 / 40 / 50 (+5% / 6% / 7% / 8% lost Health). Damage ratio to monsters: 80% .",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          40,
+          45,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            5,
+            30,
+            55,
+            80
+          ],
+          "duration": 8,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": [
+            8,
+            48,
+            88,
+            128
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.6
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Volibear mauls an enemy, dealing 5 / 30 / 55 / 80 (+100% AD + 6.5% bonus HP) physical damage. If Volibear maul's a champion or Large Monster he goes into a Frenzy for 8 seconds.\n\nIf this Ability is used when in a Frenzy, its damage is increased to 8 / 48 / 88 / 128 (+160% AD + 10.4% bonus HP) physical damage and Volibear restores 10 + 10% (7%) missing Health.\n\nThis Ability applies on-hit effects. Base Health Regeneration: 20 / 30 / 40 / 50 (+5% / 6% / 7% / 8% lost Health). Damage ratio to monsters: 80% .",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Sky Splitter",
+      "form": null,
+      "description": {
+        "normalized": "Volibear summons a thundercloud that fire a lightning bolt, dealing 80 / 110 / 140 / 170 (+50% AP) + 11% max Health magic damage and Slowing by 40% for 2 seconds. If Volibear is inside the blast zone, he gains a 131 (75% AP) + 14% max Health Shield for 2.5 seconds. Damage against non-champions is capped at 150 / 250 / 350 / 450.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            110,
+            140,
+            170
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 131,
+          "duration": 2.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Volibear summons a thundercloud that fire a lightning bolt, dealing 80 / 110 / 140 / 170 (+50% AP) + 11% max Health magic damage and Slowing by 40% for 2 seconds.\n\nIf Volibear is inside the blast zone, he gains a 131 (75% AP) + 14% max Health Shield for 2.5 seconds.\n\nDamage against non-champions is capped at 150 / 250 / 350 / 450.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Stormbringer",
+      "form": null,
+      "description": {
+        "normalized": "Volibear transforms and leaps, gaining 175 / 350 / 525 Health and 50 Attack Range for the next 12 seconds. Upon landing, Volibear cracks the earth, Disabling nearby towers for 3 seconds and dealing 300 / 500 / 700 (+100% AP +210% bonus AD) physical damage to them. Nearby enemies are Slowed by 50%, decaying over 1 second. Enemies directly underneath Volibear suffering",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        80,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            300,
+            500,
+            700
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 2.1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Volibear transforms and leaps, gaining 175 / 350 / 525 Health and 50 Attack Range for the next 12 seconds.\n\nUpon landing, Volibear cracks the earth, Disabling nearby towers for 3 seconds and dealing 300 / 500 / 700 (+100% AP +210% bonus AD) physical damage to them. Nearby enemies are Slowed by 50%, decaying over 1 second. Enemies directly underneath Volibear suffering",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/volibear",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Frenzied Maul: Numeric prose was not fully structured; rawParsedText kept.",
+    "Sky Splitter: Numeric prose was not fully structured; rawParsedText kept.",
+    "Stormbringer: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

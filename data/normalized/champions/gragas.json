@@ -1,0 +1,249 @@
+{
+  "id": "gragas",
+  "name": "Gragas",
+  "title": "The Rabble Rouser",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/gragas.png",
+  "stats": {
+    "health": 720,
+    "healthPerLevel": 120,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 43,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 70,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Happy Hour",
+      "form": null,
+      "description": {
+        "normalized": "Casting an ability restores 46 (8.5% max HP) Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Casting an ability restores 46 (8.5% max HP) Health.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Barrel Roll",
+      "form": null,
+      "description": {
+        "normalized": "Rolls a cask to target location that explodes upon re-casting or after 3 seconds. Enemies hit take 65 / 120 / 175 / 230 (+70% AP) magic damage and are slowed by 30% / 35% / 40% / 45% for 2 seconds. The damage and slow amount increase over the first 1.5 seconds, by up to 150%. The cask reveals the area and deals 80% damage to minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          70,
+          75,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            65,
+            120,
+            175,
+            230
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 80,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Rolls a cask to target location that explodes upon re-casting or after 3 seconds. Enemies hit take 65 / 120 / 175 / 230 (+70% AP) magic damage and are slowed by 30% / 35% / 40% / 45% for 2 seconds.\n\nThe damage and slow amount increase over the first 1.5 seconds, by up to 150%.\n\nThe cask reveals the area and deals 80% damage to minions.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Drunken Rage",
+      "form": null,
+      "description": {
+        "normalized": "Reduces damage taken by 11% / 13% / 15% / 17% (+0.04% AP) for 2.5 seconds. The next attack within 5 seconds after drinking is empowered to splash enemies for bonus 35 / 70 / 105 /140 (+70% AP) +8% magic damage of their max Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            70,
+            105,
+            140
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Reduces damage taken by 11% / 13% / 15% / 17% (+0.04% AP) for 2.5 seconds.\n\nThe next attack within 5 seconds after drinking is empowered to splash enemies for bonus 35 / 70 / 105 /140 (+70% AP) +8% magic damage of their max Health.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Body Slam",
+      "form": null,
+      "description": {
+        "normalized": "Charges forward, colliding with the first enemy hit to deal 70 / 135 / 200 / 265 (+70% AP) magic damage to nearby enemies. Enemies hit are also bumped backwards, stunning them for 1 second. Body Slam's cooldown is reduced by 3 seconds if it succesfully collides with an enemy.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            135,
+            200,
+            265
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Charges forward, colliding with the first enemy hit to deal 70 / 135 / 200 / 265 (+70% AP) magic damage to nearby enemies. Enemies hit are also bumped backwards, stunning them for 1 second.\n\nBody Slam's cooldown is reduced by 3 seconds if it succesfully collides with an enemy.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Explosive Cask",
+      "form": null,
+      "description": {
+        "normalized": "Hurls a potent cask that explodes when it lands, dealing 200 / 300 / 400 (+70% AP) magic damage and knocking enemies away from the explosion's center. The cask has a fixed travel time.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        70,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            200,
+            300,
+            400
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hurls a potent cask that explodes when it lands, dealing 200 / 300 / 400 (+70% AP) magic damage and knocking enemies away from the explosion's center. The cask has a fixed travel time.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/gragas",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Happy Hour: Numeric prose was not fully structured; rawParsedText kept.",
+    "Barrel Roll: Numeric prose was not fully structured; rawParsedText kept.",
+    "Drunken Rage: Numeric prose was not fully structured; rawParsedText kept.",
+    "Body Slam: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

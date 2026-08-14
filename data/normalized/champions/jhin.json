@@ -1,0 +1,263 @@
+{
+  "id": "jhin",
+  "name": "Jhin",
+  "title": "The Virtuoso",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/jhin.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 43,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.66,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Whisper",
+      "form": null,
+      "description": {
+        "normalized": "Jhin's hand cannon, Whisper, carries 4 shots before needing to be reloaded and fires at a fixed rate. (Attack speed will be converted into Attack Damage). The final bullet will critically strike and deal additional 11% missing Health physical damage. Whenever Whisper crits, Jhin gains a burst of 15% (+0.55% per 1% bonus AS) movement speed for 2 seconds. Attack Damage scales with Critical Rate and bonus Attack Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": 4,
+          "duration": 2,
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Jhin's hand cannon, Whisper, carries 4 shots before needing to be reloaded and fires at a fixed rate. (Attack speed will be converted into Attack Damage). The final bullet will critically strike and deal additional 11% missing Health physical damage. Whenever Whisper crits, Jhin gains a burst of 15% (+0.55% per 1% bonus AS) movement speed for 2 seconds.\n\nAttack Damage scales with Critical Rate and bonus Attack Speed.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Dancing Grenade",
+      "form": null,
+      "description": {
+        "normalized": "Launches a magical cartridge at an enemy, dealing 45 / 80 / 115 / 150 (+35% / 45% / 55% / 65% AD +60% AP) physical damage before bouncing to a nearby target that has not yet been hit. It can hit up to 4 targets and gains 44% damage each time it kills.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          50,
+          55,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            45,
+            80,
+            115,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launches a magical cartridge at an enemy, dealing 45 / 80 / 115 / 150 (+35% / 45% / 55% / 65% AD +60% AP) physical damage before bouncing to a nearby target that has not yet been hit. It can hit up to 4 targets and gains 44% damage each time it kills.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Deadly Flourish",
+      "form": null,
+      "description": {
+        "normalized": "Fires a long range shot that stops on the first champion hit, dealing 60 / 100 / 140 / 180 (+40% AD) physical damage to it, and 75% of that damage to minions and monsters hit along the way. If the target champion was struck by Jhin, Jhin's allies, or Lotus Traps within the last 4 seconds, they are rooted for 1.25 / 1.5 / 1.75 / 2 seconds and Jhin gaines Movement Speed as though he had crit them.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "duration": [
+            1.25,
+            1.5,
+            1.75,
+            2
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a long range shot that stops on the first champion hit, dealing 60 / 100 / 140 / 180 (+40% AD) physical damage to it, and 75% of that damage to minions and monsters hit along the way. If the target champion was struck by Jhin, Jhin's allies, or Lotus Traps within the last 4 seconds, they are rooted for 1.25 / 1.5 / 1.75 / 2 seconds and Jhin gaines Movement Speed as though he had crit them.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Captive Audience",
+      "form": null,
+      "description": {
+        "normalized": "Places an invisible Lotus Trap that reveals nearby enemies when walked over. It slows enemies by 30% before dealing 20 / 100 / 180 / 260 (+120% AD +100% AP) magic damage. When Jhin kills an enemy champion, a Lotus Trap will spawn and detonate where they were killed.Deals 65% damage to non-champions and champions recelty hit by another trap.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          40,
+          45,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            100,
+            180,
+            260
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            },
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 65,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Places an invisible Lotus Trap that reveals nearby enemies when walked over. It slows enemies by 30% before dealing 20 / 100 / 180 / 260 (+120% AD +100% AP) magic damage.\n\nWhen Jhin kills an enemy champion, a Lotus Trap will spawn and detonate where they were killed.Deals 65% damage to non-champions and champions recelty hit by another trap.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Curtain Call",
+      "form": null,
+      "description": {
+        "normalized": "Channels to fire 4 super shots at extreme range in a cone. The shots stop on the first champion hit, slowing it by 80% for 0.75 seconds and dealing 75 / 150 / 225 (+25% AD) physical damage, increased by 3% for each 1% health the target is missing. The 4th shot crits for 200% damage. Tap the cancel button to cancel the channel.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            75,
+            150,
+            225
+          ],
+          "duration": 0.75,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Channels to fire 4 super shots at extreme range in a cone. The shots stop on the first champion hit, slowing it by 80% for 0.75 seconds and dealing 75 / 150 / 225 (+25% AD) physical damage, increased by 3% for each 1% health the target is missing. The 4th shot crits for 200% damage.\n\nTap the cancel button to cancel the channel.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/jhin",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": []
+}

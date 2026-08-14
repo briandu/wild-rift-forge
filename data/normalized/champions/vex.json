@@ -1,0 +1,297 @@
+{
+  "id": "vex",
+  "name": "Vex",
+  "title": "The Gloomist",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/vex.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Doom 'n Gloom",
+      "form": null,
+      "description": {
+        "normalized": "Every 22 seconds Vex become afflicted with Doom, causing her next basic Ability to interrupt dashes and Fear enemies for 0.75 seconds. Whenever a nearby enemy dashes or blinks, Vex marks them with Gloom for 6 seconds, Vex's next Attack against a Gloomed enemy deals an additional 26 (+25% AP) magic damage and reduces this Ability's Cooldown by 25%. Non-champion targets take 40% damage and refund 10% of this Ability's Cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "fear",
+          "duration": 0.75,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 6,
+          "duration": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Every 22 seconds Vex become afflicted with Doom, causing her next basic Ability to interrupt dashes and Fear enemies for 0.75 seconds.\n\nWhenever a nearby enemy dashes or blinks, Vex marks them with Gloom for 6 seconds, Vex's next Attack against a Gloomed enemy deals an additional 26 (+25% AP) magic damage and reduces this Ability's Cooldown by 25%.\n\nNon-champion targets take 40% damage and refund 10% of this Ability's Cooldown.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Mistral Bolt",
+      "form": null,
+      "description": {
+        "normalized": "Vex Launches a wave of mist that deals 60 / 120 / 180 / 240 (+65% AP)magic damage. After a delay, the wave becomes smaller and faster. Consumes Gloom on enemies hit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            120,
+            180,
+            240
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.65
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Vex Launches a wave of mist that deals 60 / 120 / 180 / 240 (+65% AP)magic damage. After a delay, the wave becomes smaller and faster.\n\nConsumes Gloom on enemies hit.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Personal Space",
+      "form": null,
+      "description": {
+        "normalized": "Vex gains a 50 / 85 / 120 / 155 (+70% AP) shield for 2.5 seconds and emits a shockwave that deals 65 / 120 / 175 / 230 (+30% AP) magic damage. Consumes Gloom on enemies hit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          75,
+          75,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            85,
+            120,
+            155
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            50,
+            85,
+            120,
+            155
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Vex gains a 50 / 85 / 120 / 155 (+70% AP) shield for 2.5 seconds and emits a shockwave that deals 65 / 120 / 175 / 230 (+30% AP) magic damage.\n\nConsumes Gloom on enemies hit.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Looming Darkness",
+      "form": null,
+      "description": {
+        "normalized": "Vex commands Shadow to fly to a location. Upon arriving, it deals 50 / 80 / 110 / 140 (+40% / 45% / 50% / 55% AP) magic damage and Slows by 30% / 35% / 40% / 45% for 2 seconds. Applies Gloom to enemies hit. Enemies Feared by this Ability move away from the center rather than from Vex. The size of the affected area increases the further Vex casts this from herself.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          90,
+          100,
+          110
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            80,
+            110,
+            140
+          ],
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Vex commands Shadow to fly to a location. Upon arriving, it deals 50 / 80 / 110 / 140 (+40% / 45% / 50% / 55% AP) magic damage and Slows by 30% / 35% / 40% / 45% for 2 seconds.\n\nApplies Gloom to enemies hit.\n\nEnemies Feared by this Ability move away from the center rather than from Vex. The size of the affected area increases the further Vex casts this from herself.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Shadow Surge",
+      "form": null,
+      "description": {
+        "normalized": "Shadow excitedly surges forward, dealing 75 / 125 / 175 (+20% AP) magic damage and marking the first enemy champion hit for 4 seconds. Recast: Dash to the marked champion, dealing 150 / 250 / 350 (+50% AP) magic damage on arrival. If the marked champion dies within 6 seconds of taking damage from this Ability, its cooldown is temporarily reset.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            125,
+            175
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Shadow excitedly surges forward, dealing 75 / 125 / 175 (+20% AP) magic damage and marking the first enemy champion hit for 4 seconds.\n\nRecast: Dash to the marked champion, dealing 150 / 250 / 350 (+50% AP) magic damage on arrival.\n\nIf the marked champion dies within 6 seconds of taking damage from this Ability, its cooldown is temporarily reset.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/vex",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Doom 'n Gloom: Numeric prose was not fully structured; rawParsedText kept.",
+    "Shadow Surge: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

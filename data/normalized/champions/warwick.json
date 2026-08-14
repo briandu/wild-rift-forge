@@ -1,0 +1,243 @@
+{
+  "id": "warwick",
+  "name": "Warwick",
+  "title": "The Uncaged Wrath of Zaun",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/warwick.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 112,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 37,
+      "regen5": 16,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0143,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Eternal Hunger",
+      "form": null,
+      "description": {
+        "normalized": "Attacks deal an additional 12 - 46 (+15% bonus AD +10% AP) magic damage on hit. While below 50% health, heal for 100% of the damage dealt.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 12,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.15
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attacks deal an additional 12 - 46 (+15% bonus AD +10% AP) magic damage on hit.\n\nWhile below 50% health, heal for 100% of the damage dealt.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Jaws of the Beast",
+      "form": null,
+      "description": {
+        "normalized": "Lunges forward and bites the target enemy, dealing 70 (120% AD + 85% AP) magic damage + 6% / 7% / 8% / 9% of the target's max health and healing for 42.5% / 55% / 67.5% / 80% of damage dealt. Drag: Warwick leaps behind targets and follows their movement. The bonus damage is capped at 100 / 125 / 150 / 175 against monsters. Deal 50% extra damage to minions and restores 50% of cooldown when killing minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 70,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lunges forward and bites the target enemy, dealing 70 (120% AD + 85% AP) magic damage + 6% / 7% / 8% / 9% of the target's max health and healing for 42.5% / 55% / 67.5% / 80% of damage dealt.\n\nDrag: Warwick leaps behind targets and follows their movement.\n\nThe bonus damage is capped at 100 / 125 / 150 / 175 against monsters.\n\nDeal 50% extra damage to minions and restores 50% of cooldown when killing minions.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Blood Hunt",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Marks enemy champions below 50% health, gaining 40% / 45% / 50% / 55% Movement Speed towards them and gaining 60% / 70% / 80% / 90% Attack Speed against any enemy below 50% health. These bonuses are enhanced to 150% of their value against targets below 35% health. Active: Briefly senses all enemies and marks the closest champion for 8 seconds. Can not be used while in combat with champions. Casting increases Warwick's vision range, which ignores terrain (up to 1300). Warwick can only passively sense enemies who were brought below 50% Health by allies. Increase sease range of active casting.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        60,
+        50,
+        40
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 55,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Marks enemy champions below 50% health, gaining 40% / 45% / 50% / 55% Movement Speed towards them and gaining 60% / 70% / 80% / 90% Attack Speed against any enemy below 50% health. These bonuses are enhanced to 150% of their value against targets below 35% health.",
+          "effects": [
+            {
+              "type": "movement_speed",
+              "percent": 55,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Briefly senses all enemies and marks the closest champion for 8 seconds. Can not be used while in combat with champions. Casting increases Warwick's vision range, which ignores terrain (up to 1300).",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Marks enemy champions below 50% health, gaining 40% / 45% / 50% / 55% Movement Speed towards them and gaining 60% / 70% / 80% / 90% Attack Speed against any enemy below 50% health. These bonuses are enhanced to 150% of their value against targets below 35% health.\n\nActive: Briefly senses all enemies and marks the closest champion for 8 seconds. Can not be used while in combat with champions. Casting increases Warwick's vision range, which ignores terrain (up to 1300).\n\nWarwick can only passively sense enemies who were brought below 50% Health by allies.\n\nIncrease sease range of active casting.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Primal Howl",
+      "form": null,
+      "description": {
+        "normalized": "Warwick gains 35% / 40% / 45% / 50% damage reduction for 2.5 seconds. After it ends, Warwick howls, fearing nearby enemies and causing them to flee from him for 1 second, during which they are slowed by 90%. Recast: End the ability early. Recasting Primal Howl within 1s does not trigger fear effect, and 45% cooldown is returned; if fear is triggered, then no cooldown reduction.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Warwick gains 35% / 40% / 45% / 50% damage reduction for 2.5 seconds. After it ends, Warwick howls, fearing nearby enemies and causing them to flee from him for 1 second, during which they are slowed by 90%.\n\nRecast: End the ability early.\n\nRecasting Primal Howl within 1s does not trigger fear effect, and 45% cooldown is returned; if fear is triggered, then no cooldown reduction.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Infinite Duress",
+      "form": null,
+      "description": {
+        "normalized": "Warwick leaps a huge distance that scales with his Move Speed, 2.5 seconds within landing his next basic attack will be empowered. If the empowered basic attack hit target successfully, he leaps to the target, dealing damage while suppressing the target. He attacks that champion 4 times over the duration, applying On-Hit effects and dealing 100 / 275 / 450 (+ 167% bonus AD) magic damage. Warwick restores 100% of all damage dealt during the channel as Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            275,
+            450
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Warwick leaps a huge distance that scales with his Move Speed, 2.5 seconds within landing his next basic attack will be empowered. If the empowered basic attack hit target successfully, he leaps to the target, dealing damage while suppressing the target. He attacks that champion 4 times over the duration, applying On-Hit effects and dealing 100 / 275 / 450 (+ 167% bonus AD) magic damage. Warwick restores 100% of all damage dealt during the channel as Health.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/warwick",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Jaws of the Beast: Numeric prose was not fully structured; rawParsedText kept.",
+    "Blood Hunt: Numeric prose was not fully structured; rawParsedText kept.",
+    "Blood Hunt: Numeric prose was not fully structured; rawParsedText kept.",
+    "Primal Howl: Numeric prose was not fully structured; rawParsedText kept.",
+    "Primal Howl: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

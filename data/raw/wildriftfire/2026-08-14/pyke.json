@@ -1,0 +1,41 @@
+{
+  "id": "pyke",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/pyke",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 136,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.0114,
+    "attackRange": null,
+    "armor": 50,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 3,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Gift of the Drowned Ones",
+    "Bone Skewer",
+    "Ghostwater Dive",
+    "Phantom Undertow",
+    "Death from Below"
+  ]
+}

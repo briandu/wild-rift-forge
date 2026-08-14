@@ -1,0 +1,240 @@
+{
+  "id": "graves",
+  "name": "Graves",
+  "title": "The Outlaw",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/graves.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 128,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 66,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 1.03,
+    "attackSpeedPerLevel": 0.0221,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "New Destiny",
+      "form": null,
+      "description": {
+        "normalized": "Graves' shotgun has some unique properties:Double Barrel: Graves must reload when he runs out of ammo. Attack Speed reduces reload time slightly, but reduces time between attacks dramatically. 12 Gauge: Attacks fire 4 bullets. Units hit take 72% AD physical damage +24% for additional bullets. Critical strikes fire 6 bullets, 130% damage each and increase each bullet's damage by 30%. Structures only take 75% damage. Buckshot: Bullets cannot pass through enemy units. Non-champions struck by multiple bullets are knock back slightly.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 12,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Graves' shotgun has some unique properties:Double Barrel: Graves must reload when he runs out of ammo. Attack Speed reduces reload time slightly, but reduces time between attacks dramatically.\n\n12 Gauge: Attacks fire 4 bullets. Units hit take 72% AD physical damage +24% for additional bullets. Critical strikes fire 6 bullets, 130% damage each and increase each bullet's damage by 30%. Structures only take 75% damage.\n\nBuckshot: Bullets cannot pass through enemy units. Non-champions struck by multiple bullets are knock back slightly.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "End of the Line",
+      "form": null,
+      "description": {
+        "normalized": "Fires a powder round that deals 70 / 90 / 110 / 130 (+80% AD) physical damage and then detonates after 1 second to deal an additional 80 / 130 / 180 / 230 (+110% / 130% / 150% / 170% AD) physical damage. Detonates in 0.25 seconds if the round hits terrain. Deals 110% damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          70,
+          75,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            90,
+            110,
+            130
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 0.25,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a powder round that deals 70 / 90 / 110 / 130 (+80% AD) physical damage and then detonates after 1 second to deal an additional 80 / 130 / 180 / 230 (+110% / 130% / 150% / 170% AD) physical damage.\n\nDetonates in 0.25 seconds if the round hits terrain. Deals 110% damage against monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Smoke Screen",
+      "form": null,
+      "description": {
+        "normalized": "Throws a canister that creates a cloud of smoke for 4 seconds. Enemies within the smoke cannot see outside of it. Enemies caught in the initial impact take 60 / 125 / 190 / 255 (+60% AP) magic damage and are slowed by 50% for 0.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        20,
+        18,
+        16,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          80,
+          85,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            125,
+            190,
+            255
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws a canister that creates a cloud of smoke for 4 seconds. Enemies within the smoke cannot see outside of it.\n\nEnemies caught in the initial impact take 60 / 125 / 190 / 255 (+60% AP) magic damage and are slowed by 50% for 0.5 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Quickdraw",
+      "form": null,
+      "description": {
+        "normalized": "Dashes in a direction, reloading one shell and granting True Grit for 4 seconds. True Grit grants 13 / 18 / 23 / 28 Armor ( stacks 6 times) and refreshes when damaging non-minions. Dashing towards an enemy champion grants 2 stacks of True Grit. Each bullet hit reduces Quickdraw's cooldown by 0.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Dashes in a direction, reloading one shell and granting True Grit for 4 seconds. True Grit grants 13 / 18 / 23 / 28 Armor ( stacks 6 times) and refreshes when damaging non-minions.\n\nDashing towards an enemy champion grants 2 stacks of True Grit. Each bullet hit reduces Quickdraw's cooldown by 0.5 seconds.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Collateral Damage",
+      "form": null,
+      "description": {
+        "normalized": "Fires an explosive shell that deals 300 / 450 / 600 (+150% AD) physical damage and knocks Graves back from recoil. The shell explodes upon hitting an enemy champion or reaching the end of its range, dealing 200 / 320 / 440 (+120% AD) physical damage in a cone. Enemies damaged by the shell's initial impact do not take damage from the explosive cone.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        60,
+        45
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            300,
+            450,
+            600
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.5
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires an explosive shell that deals 300 / 450 / 600 (+150% AD) physical damage and knocks Graves back from recoil. The shell explodes upon hitting an enemy champion or reaching the end of its range, dealing 200 / 320 / 440 (+120% AD) physical damage in a cone.\n\nEnemies damaged by the shell's initial impact do not take damage from the explosive cone.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/graves",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Smoke Screen: Numeric prose was not fully structured; rawParsedText kept.",
+    "Quickdraw: Numeric prose was not fully structured; rawParsedText kept.",
+    "Quickdraw: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

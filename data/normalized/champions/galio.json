@@ -1,0 +1,324 @@
+{
+  "id": "galio",
+  "name": "Galio",
+  "title": "The Colossus",
+  "roles": [],
+  "positions": [
+    "mid",
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/galio.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 144,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 25,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 44,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Colossal Smash",
+      "form": null,
+      "description": {
+        "normalized": "Enhances his next attack to deal 15 (+100% AD +10 x (Champion level -1) +45% AP +60% MR) magic damage to nearby enemies. Gain 40% Attack Speed when passive is active. When an ability hits an enemy champion or epic jungle monster, it reduces Colossus Smash's cooldown by 3 seconds ( each ability can only trigger this once) .",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 15,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            },
+            {
+              "stat": "magic_resistance",
+              "ratio": 0.6
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Enhances his next attack to deal 15 (+100% AD +10 x (Champion level -1) +45% AP +60% MR) magic damage to nearby enemies. Gain 40% Attack Speed when passive is active.\n\nWhen an ability hits an enemy champion or epic jungle monster, it reduces Colossus Smash's cooldown by 3 seconds ( each ability can only trigger this once) .",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Winds of War",
+      "form": null,
+      "description": {
+        "normalized": "Fires two windblasts that deal 70 / 115 / 160 / 205 (+75% AP) magic damage and converge into a tornado. The tornado deals 8% (+2% AP) magic damage of target's maximum Health over 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          75,
+          75,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            115,
+            160,
+            205
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 8,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.02
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires two windblasts that deal 70 / 115 / 160 / 205 (+75% AP) magic damage and converge into a tornado.\n\nThe tornado deals 8% (+2% AP) magic damage of target's maximum Health over 1.5 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Shield of Durand",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Every 12 seconds, upon taking damage, Galio gains a shield that absorbs 46 (8% / 12% / 16% / 20% HP) magic damage for 3.5 seconds. Hold: Enters a defensive stance, slowing himself by 15% for up to 2 seconds. Takes 25% / 30% / 35% / 40% (+4% AP + 8% bonus MR +1% bonus Health) reduced magic damage and 12.5% / 15% / 17.5% / 20% (+2% AP + 4% bonus MR +0.5% bonus Health) reduced physical damage. Release: Deals 40 / 80 / 120 / 160 (+55% AP) magic damage to nearby enemies and taunts them for 0.5 - 1.5 seconds, increased with hold time.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        17,
+        16,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 12,
+          "duration": 3.5,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 12,
+          "duration": 3.5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 15,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.04
+            },
+            {
+              "stat": "bonus_health",
+              "ratio": 0.01
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.02
+            },
+            {
+              "stat": "bonus_health",
+              "ratio": 0.005
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            80,
+            120,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Passive: Every 12 seconds, upon taking damage, Galio gains a shield that absorbs 46 (8% / 12% / 16% / 20% HP) magic damage for 3.5 seconds.\n\nHold: Enters a defensive stance, slowing himself by 15% for up to 2 seconds. Takes 25% / 30% / 35% / 40% (+4% AP + 8% bonus MR +1% bonus Health) reduced magic damage and 12.5% / 15% / 17.5% / 20% (+2% AP + 4% bonus MR +0.5% bonus Health) reduced physical damage.\n\nRelease: Deals 40 / 80 / 120 / 160 (+55% AP) magic damage to nearby enemies and taunts them for 0.5 - 1.5 seconds, increased with hold time.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Justice Punch",
+      "form": null,
+      "description": {
+        "normalized": "Dashes forward until he hits an enemy champion or terrain, dealing 90 / 140 / 190 / 240 (+80% AP) magic damage to enemies and knocking them up for 0.75 seconds. Deals 85% damage to minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            140,
+            190,
+            240
+          ],
+          "duration": 0.75,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 85,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes forward until he hits an enemy champion or terrain, dealing 90 / 140 / 190 / 240 (+80% AP) magic damage to enemies and knocking them up for 0.75 seconds.\n\nDeals 85% damage to minions and monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Hero's Entrance",
+      "form": null,
+      "description": {
+        "normalized": "Grants Shield of Durand's passive shield for 5 seconds to all allied champions near the target and designates the position as his landing spot. After 2.5 seconds Galio arrives at the location, dealing 150 / 250 / 350 (+70% AP) magic damage to nearby enemies and knocking them up for 0.75 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        80,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": 5,
+          "duration": 5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "duration": 0.75,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Grants Shield of Durand's passive shield for 5 seconds to all allied champions near the target and designates the position as his landing spot.\n\nAfter 2.5 seconds Galio arrives at the location, dealing 150 / 250 / 350 (+70% AP) magic damage to nearby enemies and knocking them up for 0.75 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/galio",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Colossal Smash: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

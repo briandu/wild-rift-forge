@@ -1,0 +1,279 @@
+{
+  "id": "akali",
+  "name": "Akali",
+  "title": "The Rogue Assassin",
+  "roles": [],
+  "positions": [
+    "mid",
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/akali.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 140,
+    "healthRegen5": 10,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 200,
+      "maximumPerLevel": 0,
+      "regen5": 50,
+      "regen5PerLevel": 0
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 6,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Assassin's Mark",
+      "form": null,
+      "description": {
+        "normalized": "Dealing active ability damage to a champion reveals a ring for 4 seconds. Crossing the ring empowers Akali's next attack to gain 100 range, deal 25 + 12 per level (+60% bonus AD +65% AP) bonus magic damage. Gains 30% Movement Speed while moving toward the ring. Upon crossing the ring, she gains 30% Movement Speed while moving toward enemy champions for 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 100,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.6
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.65
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 30,
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dealing active ability damage to a champion reveals a ring for 4 seconds.\n\nCrossing the ring empowers Akali's next attack to gain 100 range, deal 25 + 12 per level (+60% bonus AD +65% AP) bonus magic damage.\n\nGains 30% Movement Speed while moving toward the ring. Upon crossing the ring, she gains 30% Movement Speed while moving toward enemy champions for 2 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Five Point Strike",
+      "form": null,
+      "description": {
+        "normalized": "Akali throws out five kunai, dealing 35 / 70 / 105 / 140(+65% AD +60% AP) magic damage and slowing by 50% at maximum range for 0.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          105,
+          90,
+          75,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            70,
+            105,
+            140
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.65
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Akali throws out five kunai, dealing 35 / 70 / 105 / 140(+65% AD +60% AP) magic damage and slowing by 50% at maximum range for 0.5 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Twilight Shroud",
+      "form": null,
+      "description": {
+        "normalized": "Akali drops a cover of smoke and briefly gains 35% / 40% / 45% / 50% Movement Speed and grants 100 Energy. While inside the shroud, Akali becomes invisible. Attacking or using abilities will briefly reveal her.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        17,
+        16,
+        15
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Akali drops a cover of smoke and briefly gains 35% / 40% / 45% / 50% Movement Speed and grants 100 Energy. While inside the shroud, Akali becomes invisible. Attacking or using abilities will briefly reveal her.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Shuriken Flip",
+      "form": null,
+      "description": {
+        "normalized": "Akali flips backward and fires a shuriken forward, dealing 30 / 60 / 90 / 120 (+25% AD +30% AP) magic damage. The first enemy or smoke cloud hit is marked. Re-casting dashes to the marked target, dealing 70 / 120 / 170 / 220 (+50% AD +80% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            30,
+            60,
+            90,
+            120
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.25
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Akali flips backward and fires a shuriken forward, dealing 30 / 60 / 90 / 120 (+25% AD +30% AP) magic damage. The first enemy or smoke cloud hit is marked. Re-casting dashes to the marked target, dealing 70 / 120 / 170 / 220 (+50% AD +80% AP) magic damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Perfect Execution",
+      "form": null,
+      "description": {
+        "normalized": "Akali dashes through an enemy champion, dealing 80 / 200 / 320 (+50% bonus AD +30% AP) magic damage. Can be cast again after 2.5 seconds. Recast: Dashes in target direction, dealing 70 to 210 (+30% AP to +90% AP) magic damage based upon enemies' missing Health. Deals max damage to enemies below 35% health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        65,
+        45
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            200,
+            320
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": 70,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.9
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "damage",
+          "base": 35,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Akali dashes through an enemy champion, dealing 80 / 200 / 320 (+50% bonus AD +30% AP) magic damage. Can be cast again after 2.5 seconds.\n\nRecast: Dashes in target direction, dealing 70 to 210 (+30% AP to +90% AP) magic damage based upon enemies' missing Health.\n\nDeals max damage to enemies below 35% health.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/akali",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Assassin's Mark: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

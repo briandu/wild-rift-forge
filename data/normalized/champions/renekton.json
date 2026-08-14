@@ -1,0 +1,274 @@
+{
+  "id": "renekton",
+  "name": "Renekton",
+  "title": "The Butcher of the Sands",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/renekton.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 66,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Reign of Anger",
+      "form": null,
+      "description": {
+        "normalized": "Casting abilities with 50 Fury or more consumes that Fury for enhanced effects. Enhanced abilities do not generate any Fury. Attacks generate 5 Fury. Fury gains are increased by 50% when under 50% Health. Out of combat, 4 Fury dissipates every second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Casting abilities with 50 Fury or more consumes that Fury for enhanced effects. Enhanced abilities do not generate any Fury.\n\nAttacks generate 5 Fury. Fury gains are increased by 50% when under 50% Health. Out of combat, 4 Fury dissipates every second.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Cull the Meek",
+      "form": null,
+      "description": {
+        "normalized": "Deal 80 / 130 / 180 / 230 (+90% AD) physical damage to nearby enemies, generating 5 Fury or 10 Fury if the enemy hit is a champion and healing 4 / 6 / 8 / 10 (+5% bonus AD) per enemy hit, if the enemy hit is a champion, restore 16 / 24 / 32 / 40 (+20% bonus AD) Health. Reign of Anger: Damage increases to 120 / 195 / 270 / 345 (+135% AD) physical damage and healing is increased by 200%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            130,
+            180,
+            230
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.9
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.05
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            120,
+            195,
+            270,
+            345
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.35
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deal 80 / 130 / 180 / 230 (+90% AD) physical damage to nearby enemies, generating 5 Fury or 10 Fury if the enemy hit is a champion and healing 4 / 6 / 8 / 10 (+5% bonus AD) per enemy hit, if the enemy hit is a champion, restore 16 / 24 / 32 / 40 (+20% bonus AD) Health.\n\nReign of Anger: Damage increases to 120 / 195 / 270 / 345 (+135% AD) physical damage and healing is increased by 200%.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Ruthless Predator",
+      "form": null,
+      "description": {
+        "normalized": "Empowers the next attack to strike twice, stunning for 0.75 seconds and dealing 24 / 48 / 72 / 96 (+150% AD) physical damage. Reign of Anger: Strikes three times, stunning for 1.5 seconds and dealing 36 / 72 / 108 / 144 (+225% AD) physical damage. Under the effect of Red Fury, clear all shields on the target. Gain an additional 10 Fury when an enemy champion is hit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        12,
+        10,
+        8
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            24,
+            48,
+            72,
+            96
+          ],
+          "duration": 0.75,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            36,
+            72,
+            108,
+            144
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 2.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers the next attack to strike twice, stunning for 0.75 seconds and dealing 24 / 48 / 72 / 96 (+150% AD) physical damage.\n\nReign of Anger: Strikes three times, stunning for 1.5 seconds and dealing 36 / 72 / 108 / 144 (+225% AD) physical damage.\n\nUnder the effect of Red Fury, clear all shields on the target.\n\nGain an additional 10 Fury when an enemy champion is hit.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Slice and Dice",
+      "form": null,
+      "description": {
+        "normalized": "Dash in a direction, dealing 40 / 80 / 120 / 160 (+90% AD) physical damage and generating 5 Fury for each enemy passed through or 10 Fury if the enemy hit is a champion. Hitting an enemy grants a second dash to cast within 4 seconds. Reign of Anger: The second dash now deals 70 / 130 / 190 / 250 (+135% AD) physical damage and shreds armor by 25% / 30% / 35% / 40% for 4 seconds. When an enemy champion is hit, restore 20 Fury in 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        11,
+        10
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            40,
+            80,
+            120,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            130,
+            190,
+            250
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.35
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dash in a direction, dealing 40 / 80 / 120 / 160 (+90% AD) physical damage and generating 5 Fury for each enemy passed through or 10 Fury if the enemy hit is a champion.\n\nHitting an enemy grants a second dash to cast within 4 seconds.\n\nReign of Anger: The second dash now deals 70 / 130 / 190 / 250 (+135% AD) physical damage and shreds armor by 25% / 30% / 35% / 40% for 4 seconds. When an enemy champion is hit, restore 20 Fury in 2 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Dominus",
+      "form": null,
+      "description": {
+        "normalized": "Gain 20 Fury and 300 / 575 / 750 Heath for 12 seconds. Every second after casting, gain 5 fury and deal 70 / 120 / 170 (+20% AP) magic damage to nearby enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        70,
+        65
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            300,
+            575,
+            750
+          ],
+          "duration": 12,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gain 20 Fury and 300 / 575 / 750 Heath for 12 seconds. Every second after casting, gain 5 fury and deal 70 / 120 / 170 (+20% AP) magic damage to nearby enemies.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/renekton",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Reign of Anger: Numeric prose was not fully structured; rawParsedText kept.",
+    "Reign of Anger: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ruthless Predator: Numeric prose was not fully structured; rawParsedText kept.",
+    "Slice and Dice: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "id": "zed",
+  "name": "Zed",
+  "title": "the Master of Shadows",
+  "roles": [],
+  "positions": [
+    "mid",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/zed.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 200,
+      "maximumPerLevel": 0,
+      "regen5": 50,
+      "regen5PerLevel": 0
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 5,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Contempt for the Weak",
+      "form": null,
+      "description": {
+        "normalized": "Zed's attacks against enemies below 50% Health deal bonus 7% magic damage of their maximum Health.(10 second cooldown per unique enemy).",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Zed's attacks against enemies below 50% Health deal bonus 7% magic damage of their maximum Health.(10 second cooldown per unique enemy).",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Razor Shuriken",
+      "form": null,
+      "description": {
+        "normalized": "Zed and his shadows throw their shurikens, each dealing70 / 120 / 170 / 220 (+110% bonus AD) physical damage to the first enemy they hit and 49 / 84 / 119 / 154 (+77% bonus AD) physical damage to other enemies in their path. Deals 80% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          55,
+          50,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.1
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.77
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 80,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Zed and his shadows throw their shurikens, each dealing70 / 120 / 170 / 220 (+110% bonus AD) physical damage to the first enemy they hit and 49 / 84 / 119 / 154 (+77% bonus AD) physical damage to other enemies in their path.\n\nDeals 80% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Living Shadow",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Zed gains 40 / 45 / 50 / 55 Energy whenever an ability strikes the same enemy twice. Energy can only be gained once per cast ability. Active: Zed's shadow dashes forward, remaining in place for 4.5 seconds. Reactivating Living Shadow will cause Zed to swap positions with his shadow.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          30,
+          25,
+          20
+        ]
+      },
+      "effects": [],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Zed gains 40 / 45 / 50 / 55 Energy whenever an ability strikes the same enemy twice. Energy can only be gained once per cast ability.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Zed's shadow dashes forward, remaining in place for 4.5 seconds. Reactivating Living Shadow will cause Zed to swap positions with his shadow.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Zed gains 40 / 45 / 50 / 55 Energy whenever an ability strikes the same enemy twice. Energy can only be gained once per cast ability.\n\nActive: Zed's shadow dashes forward, remaining in place for 4.5 seconds. Reactivating Living Shadow will cause Zed to swap positions with his shadow.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Shadow Slash",
+      "form": null,
+      "description": {
+        "normalized": "Zed and his shadows slash, each dealing 65 / 95 / 125 / 155 (+70 bonus AD) physical damage to nearby enemies and slowing them by 25% / 30% / 35% / 40% for 1.5 seconds. Slashes beyond the first striking the same enemy deal 50% damage and increase the slow by 50%. Each enemy champion hit by Zed's slash reduces Living Shadow's cooldown by 2 seconds. Deals 60% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        4,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            65,
+            95,
+            125,
+            155
+          ],
+          "duration": 1.5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 60,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Zed and his shadows slash, each dealing 65 / 95 / 125 / 155 (+70 bonus AD) physical damage to nearby enemies and slowing them by 25% / 30% / 35% / 40% for 1.5 seconds. Slashes beyond the first striking the same enemy deal 50% damage and increase the slow by 50%.\n\nEach enemy champion hit by Zed's slash reduces Living Shadow's cooldown by 2 seconds.\n\nDeals 60% damage to monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Death Mark",
+      "form": null,
+      "description": {
+        "normalized": "Zed becomes untargetable and dashes to target enemy champion, marking them. After 2.8 seconds, the mark triggers, dealing 60 (100% AD) physical damage + 30% / 42.5% / 55% of all damage dealt to the target by Zed while the mark was active. The dash leaves a shadow behind for 6 seconds. Zed can reactivate Death Mark to switch positions with this shadow.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        70,
+        55
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 2.8,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Zed becomes untargetable and dashes to target enemy champion, marking them. After 2.8 seconds, the mark triggers, dealing 60 (100% AD) physical damage + 30% / 42.5% / 55% of all damage dealt to the target by Zed while the mark was active.\n\nThe dash leaves a shadow behind for 6 seconds. Zed can reactivate Death Mark to switch positions with this shadow.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/zed",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Living Shadow: Numeric prose was not fully structured; rawParsedText kept.",
+    "Living Shadow: Numeric prose was not fully structured; rawParsedText kept.",
+    "Shadow Slash: Numeric prose was not fully structured; rawParsedText kept.",
+    "Death Mark: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

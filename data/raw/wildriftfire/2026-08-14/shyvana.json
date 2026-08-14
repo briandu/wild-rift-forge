@@ -1,0 +1,41 @@
+{
+  "id": "shyvana",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/shyvana",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:39:17.878Z"
+  },
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0143,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Draconic Bloodline",
+    "Twin Bite",
+    "Burnout",
+    "Flame Breath",
+    "Dragon's Descent"
+  ]
+}

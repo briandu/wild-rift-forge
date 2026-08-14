@@ -1,0 +1,272 @@
+{
+  "id": "yunara",
+  "name": "Yunara",
+  "title": "The Unbroken Faith",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/yunara.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 95,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 25,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.77,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Vow of the First Lands",
+      "form": null,
+      "description": {
+        "normalized": "Critical Strikes deal an additional 10% (per 100 AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 10,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Critical Strikes deal an additional 10% (per 100 AP) magic damage.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Cultivation of Spirit",
+      "form": null,
+      "description": {
+        "normalized": "Spirit Charge (Passive): Attacks deal an additional 10 / 15 / 20 / 25 (+20% AP) magic damage; When not active, launching an attack grants 1 Unleash. Attacking again refreshes Unleash's duration. Max Unleash is 6. If the duration is not refreshed, Yunara loses 1 Unleash every 0.5 seconds. Spirit Unbound (Active): On cast, consumes Unleash, gaining 22% / 35% / 47% / 60% Attack Speed for 5 seconds. Attacks are empowered during this time to: Deal an additional 10 / 15 / 20 / 25 (+20% AP) magic damage on-hit; Spread to enemies nearby the target, dealing them 18 (30% AD) physical damage. Transcendent State: This ability automatically activates until Yunara exits the state. If the attack Critically Strikes, its spread damage will also Critically Strike. Damage from spread attacks is increased to 250% against minions below 30% Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        0,
+        0,
+        0
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            10,
+            15,
+            20,
+            25
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            10,
+            15,
+            20,
+            25
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Spirit Charge (Passive): Attacks deal an additional 10 / 15 / 20 / 25 (+20% AP) magic damage; When not active, launching an attack grants 1 Unleash. Attacking again refreshes Unleash's duration. Max Unleash is 6. If the duration is not refreshed, Yunara loses 1 Unleash every 0.5 seconds.\n\nSpirit Unbound (Active): On cast, consumes Unleash, gaining 22% / 35% / 47% / 60% Attack Speed for 5 seconds. Attacks are empowered during this time to: Deal an additional 10 / 15 / 20 / 25 (+20% AP) magic damage on-hit; Spread to enemies nearby the target, dealing them 18 (30% AD) physical damage.\n\nTranscendent State: This ability automatically activates until Yunara exits the state.\n\nIf the attack Critically Strikes, its spread damage will also Critically Strike. Damage from spread attacks is increased to 250% against minions below 30% Health.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Arc of Judgment / Arc of Ruin",
+      "form": null,
+      "description": {
+        "normalized": "Arc of Judgment: Lets rip a spinning prayer bead in the target location, briefly granting vision of the area it travels through. The prayer bead slows enemies hit by 99%, lingering as it travels and resetting its remaining duration. When it reaches its endpoint, it lingers and expands for 1 second, regardless of whether it has hit an enemy. The initial hit deals 60 / 110 / 160 / 210 (+85% bonus AD +50% AP) magic damage and slows by 99%, decaying over 1.5 seconds; When lingering, the bead deals an additional 8 / 14 / 20 / 26 (+12% bonus AD +7.5% AP) magic damage to nearby enemies every 0.25 seconds. While Yunara is in a Transcendent State, this ability is upgraded to Arc of Ruin. Arc of Ruin: Fires a laser in the target direction that deals 160 (+120% bonus AD +75% AP) magic damage and slows by 99%, decaying over 1.5 seconds. Arc of Judgment deals 50% - 100% damage to minions and executes low-Health minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.85
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.12
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.075
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 160,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.2
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Arc of Judgment: Lets rip a spinning prayer bead in the target location, briefly granting vision of the area it travels through. The prayer bead slows enemies hit by 99%, lingering as it travels and resetting its remaining duration. When it reaches its endpoint, it lingers and expands for 1 second, regardless of whether it has hit an enemy. The initial hit deals 60 / 110 / 160 / 210 (+85% bonus AD +50% AP) magic damage and slows by 99%, decaying over 1.5 seconds; When lingering, the bead deals an additional 8 / 14 / 20 / 26 (+12% bonus AD +7.5% AP) magic damage to nearby enemies every 0.25 seconds.\n\nWhile Yunara is in a Transcendent State, this ability is upgraded to Arc of Ruin.\n\nArc of Ruin: Fires a laser in the target direction that deals 160 (+120% bonus AD +75% AP) magic damage and slows by 99%, decaying over 1.5 seconds.\n\nArc of Judgment deals 50% - 100% damage to minions and executes low-Health minions.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Kanmei's Steps / Untouchable Shadow",
+      "form": null,
+      "description": {
+        "normalized": "Kanmei's Steps: Gains 30% / 35% / 40% / 45% Movement Speed for 1.5 seconds, increased to 45% / 52.5% / 60% / 67.5% when moving toward a visible enemy champion nearby. While Yunara is in a Transcendent State, this ability is upgraded to Untouchable Shadow. Untouchable Shadow: Dashes in the target direction.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 45,
+          "duration": 1.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Kanmei's Steps: Gains 30% / 35% / 40% / 45% Movement Speed for 1.5 seconds, increased to 45% / 52.5% / 60% / 67.5% when moving toward a visible enemy champion nearby.\n\nWhile Yunara is in a Transcendent State, this ability is upgraded to Untouchable Shadow.\n\nUntouchable Shadow: Dashes in the target direction.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Transcend One's Self",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Arc of Ruin's base damage and Untouchable Shadow's dash speed scale with this ability's level. Transcendent State (Active): Enters a Transcendent State for 15 seconds. During this time, Yunara's basic abilities are empowered and cost no Mana. Cultivation of Spirit: Activates automatically for the duration. Arc of Judgment: Upgrades to Arc of Ruin. Its remaining cooldown reduces by 80% when Yunara enters or exits a Transcendent State. Kanmei's Steps: Upgrades to Untouchable Shadow. Its cooldown refreshes when Yunara enters or exits a Transcendent State.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        60,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Passive: Arc of Ruin's base damage and Untouchable Shadow's dash speed scale with this ability's level.\n\nTranscendent State (Active): Enters a Transcendent State for 15 seconds. During this time, Yunara's basic abilities are empowered and cost no Mana.\n\nCultivation of Spirit: Activates automatically for the duration.\n\nArc of Judgment: Upgrades to Arc of Ruin. Its remaining cooldown reduces by 80% when Yunara enters or exits a Transcendent State.\n\nKanmei's Steps: Upgrades to Untouchable Shadow. Its cooldown refreshes when Yunara enters or exits a Transcendent State.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/yunara",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Cultivation of Spirit: Numeric prose was not fully structured; rawParsedText kept.",
+    "Transcend One's Self: Numeric prose was not fully structured; rawParsedText kept.",
+    "Transcend One's Self: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "id": "mel",
+  "name": "Mel",
+  "title": "The Soul's Reflection",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/mel.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 37,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 30,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Searing Brilliance",
+      "form": null,
+      "description": {
+        "normalized": "Mel's attacks and abilities apply and refresh stacks of Overwhelm for 5 seconds each time they deal damage. Overwhelm - Stores 50 (+8% AP) + 2 (+0.5 AP) damage per stack of magic damage. When applied, if the stored amount exceeds the target's combined shields and current Health, they are executed. Projectile Burst - Fires 3 extra projectiles on her next attack after using an ability. Each projectile deals 3 - 33 (+3%AP) magic damage. This effect can stack up to 9 extra projectiles. Overwhelm deals only 60% damage with the first stack when used against minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "base": 5,
+          "duration": 5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 50,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.08
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.03
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 60,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Mel's attacks and abilities apply and refresh stacks of Overwhelm for 5 seconds each time they deal damage.\n\nOverwhelm - Stores 50 (+8% AP) + 2 (+0.5 AP) damage per stack of magic damage. When applied, if the stored amount exceeds the target's combined shields and current Health, they are executed.\n\nProjectile Burst - Fires 3 extra projectiles on her next attack after using an ability. Each projectile deals 3 - 33 (+3%AP) magic damage. This effect can stack up to 9 extra projectiles.\n\nOverwhelm deals only 60% damage with the first stack when used against minions.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Radiant Volley",
+      "form": null,
+      "description": {
+        "normalized": "Unleashes a barrage of 7 / 8 / 9 / 10 projectiles that explode in the area around a target location. Each explosion deals 11 / 14 / 17 / 20 (+6% AP) magic damage, adding up to a maximum of 91 / 128 / 171 / 220 (+49% AP) magic damage in total. Deals 90% damage when used against minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            11,
+            14,
+            17,
+            20
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.06
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.49
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 90,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Unleashes a barrage of 7 / 8 / 9 / 10 projectiles that explode in the area around a target location.\n\nEach explosion deals 11 / 14 / 17 / 20 (+6% AP) magic damage, adding up to a maximum of 91 / 128 / 171 / 220 (+49% AP) magic damage in total.\n\nDeals 90% damage when used against minions.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Rebuttal",
+      "form": null,
+      "description": {
+        "normalized": "Forms a barrier around herself that reflects projectiles from enemy champions, makes her invulnerable for 1 second, and gives her 30% decaying Movement Speed for 1 second. Reflected projectiles deal 40% / 45% / 50% / 55% of the original damage as magic damage. Structure damage is not prevented.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        38,
+        36,
+        34,
+        32
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          40,
+          20
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 40,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Forms a barrier around herself that reflects projectiles from enemy champions, makes her invulnerable for 1 second, and gives her 30% decaying Movement Speed for 1 second.\n\nReflected projectiles deal 40% / 45% / 50% / 55% of the original damage as magic damage.\n\nStructure damage is not prevented.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Solar Snare",
+      "form": null,
+      "description": {
+        "normalized": "Fires a radiating orb, rooting enemies at its center for 1.2 / 1.3 / 1.4 / 1.5 seconds and dealing 55 / 110 / 165 / 220 (+50% AP) magic damage. The orb builds up a hostile area around it that slows enemies by 30% and deals 20 / 40 / 60 / 80 (+6% AP) magic damage per 1 second. The slow and damage-over-time effects linger on enemies for 0.75 seconds after they've left the area created by the orb. Deals 75% damage when used against minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            1.2,
+            1.3,
+            1.4,
+            1.5
+          ],
+          "duration": [
+            1.2,
+            1.3,
+            1.4,
+            1.5
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            40,
+            60,
+            80
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.06
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 75,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a radiating orb, rooting enemies at its center for 1.2 / 1.3 / 1.4 / 1.5 seconds and dealing 55 / 110 / 165 / 220 (+50% AP) magic damage.\n\nThe orb builds up a hostile area around it that slows enemies by 30% and deals 20 / 40 / 60 / 80 (+6% AP) magic damage per 1 second.\n\nThe slow and damage-over-time effects linger on enemies for 0.75 seconds after they've left the area created by the orb.\n\nDeals 75% damage when used against minions.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Golden Eclipse",
+      "form": null,
+      "description": {
+        "normalized": "Passive - Overwhelm damage is increased. Base damage - 50 (+8% AP) magic damage; Additional damage - 2 (+0.6 AP) magic damage per stack. Active - Unleashes her power on all enemies affected by Overwhelm, dealing 100 / 150 / 200 (+25% AP) base magic damage and 4 / 7 / 10 (+2.5% AP) additional magic damage per stack. Can only be cast when an enemy champion is affected by Overwhelm.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        95,
+        80,
+        65
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 50,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.08
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            150,
+            200
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.025
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "- Overwhelm damage is increased. Base damage - 50 (+8% AP) magic damage; Additional damage - 2 (+0.6 AP) magic damage per stack.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": 50,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.08
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "- Unleashes her power on all enemies affected by Overwhelm, dealing 100 / 150 / 200 (+25% AP) base magic damage and 4 / 7 / 10 (+2.5% AP) additional magic damage per stack.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                100,
+                150,
+                200
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.25
+                },
+                {
+                  "stat": "ap",
+                  "ratio": 0.025
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive - Overwhelm damage is increased. Base damage - 50 (+8% AP) magic damage; Additional damage - 2 (+0.6 AP) magic damage per stack.\n\nActive - Unleashes her power on all enemies affected by Overwhelm, dealing 100 / 150 / 200 (+25% AP) base magic damage and 4 / 7 / 10 (+2.5% AP) additional magic damage per stack.\n\nCan only be cast when an enemy champion is affected by Overwhelm.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/mel",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Radiant Volley: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rebuttal: Numeric prose was not fully structured; rawParsedText kept.",
+    "Solar Snare: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

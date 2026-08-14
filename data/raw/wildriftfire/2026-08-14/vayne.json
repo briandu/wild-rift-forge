@@ -1,0 +1,41 @@
+{
+  "id": "vayne",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/vayne",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 570,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 300,
+      "maximumPerLevel": 31,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 31,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Night Hunter",
+    "Tumble",
+    "Silver Bolts",
+    "Condemn",
+    "Final Hour"
+  ]
+}

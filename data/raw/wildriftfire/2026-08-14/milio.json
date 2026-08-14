@@ -1,0 +1,41 @@
+{
+  "id": "milio",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/milio",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 105,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 45,
+      "regen5": 20,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 50,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 3,
+    "magicResistance": 28,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Fired Up!",
+    "Ultra Mega Fire Kick",
+    "Cozy Campfire",
+    "Warm Hugs",
+    "Breath of Life"
+  ]
+}

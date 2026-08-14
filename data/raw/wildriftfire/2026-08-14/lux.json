@@ -1,0 +1,41 @@
+{
+  "id": "lux",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/lux",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 37,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Illumination",
+    "Light Binding",
+    "Prismatic Barrier",
+    "Lucent Singularity",
+    "Final Spark"
+  ]
+}

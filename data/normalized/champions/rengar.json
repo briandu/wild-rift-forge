@@ -1,0 +1,268 @@
+{
+  "id": "rengar",
+  "name": "Rengar",
+  "title": "The Pridestalker",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/rengar.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0143,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Unseen Predator",
+      "form": null,
+      "description": {
+        "normalized": "If in brush of camouflaged, leaps to the target with his next attack. If Rengar's Ferocity is lower than 4 and he doesn't have any Ferocity gained from attacks during the attack, he gains 1 Ferocity. Bonetooth Necklace: Gain 4% - 20% Attack Damage for each unique champion takedown. Each enemy champion only provides this bonus once. - Gains 1 Ferocity upon casting a basic ability ( if casting Savagery, Rengar must hit a target with an empowered attack to gain this bonus). - Reaching 4 Ferocity empowers his next basic ability. Casting the empowered ability does not refresh the basic ability's cooldown. - Gains 30% - 50% Movement Speed (increases at level 1 / 6 / 11) for 1.5 seconds upon casting an empowered ability. All Ferocity is lost 8 seconds after leaving combat.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 50,
+          "duration": 1.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "If in brush of camouflaged, leaps to the target with his next attack.\n\nIf Rengar's Ferocity is lower than 4 and he doesn't have any Ferocity gained from attacks during the attack, he gains 1 Ferocity.\n\nBonetooth Necklace: Gain 4% - 20% Attack Damage for each unique champion takedown. Each enemy champion only provides this bonus once.\n\n- Gains 1 Ferocity upon casting a basic ability ( if casting Savagery, Rengar must hit a target with an empowered attack to gain this bonus).\n\n- Reaching 4 Ferocity empowers his next basic ability. Casting the empowered ability does not refresh the basic ability's cooldown.\n\n- Gains 30% - 50% Movement Speed (increases at level 1 / 6 / 11) for 1.5 seconds upon casting an empowered ability.\n\nAll Ferocity is lost 8 seconds after leaving combat.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Savagery",
+      "form": null,
+      "description": {
+        "normalized": "The next 2 attacks within 3 seconds gain 40% Attack Speed. The first attack is empowered to deal an additional 40 / 80 / 120 / 160 (+5% / 10% / 15% / 20% AD) physical damage and will Critically Strike. Rengar's Critical Rate also increases the damage of the first attack by 0% - 55%, reaching maximum bonus damage gaines this way at 100% Critical Rate. Ferocity: Gains 45% Attack Speed for 3 seconds instead. The first attack deals an additional 40 / 80 / 120 / 160 (+40% AD) physical damage instead. Deals 60% damage to turrets.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        5,
+        4,
+        4
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            40,
+            80,
+            120,
+            160
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            40,
+            80,
+            120,
+            160
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 60,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "The next 2 attacks within 3 seconds gain 40% Attack Speed. The first attack is empowered to deal an additional 40 / 80 / 120 / 160 (+5% / 10% / 15% / 20% AD) physical damage and will Critically Strike.\n\nRengar's Critical Rate also increases the damage of the first attack by 0% - 55%, reaching maximum bonus damage gaines this way at 100% Critical Rate.\n\nFerocity: Gains 45% Attack Speed for 3 seconds instead. The first attack deals an additional 40 / 80 / 120 / 160 (+40% AD) physical damage instead.\n\nDeals 60% damage to turrets.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Battle Roar",
+      "form": null,
+      "description": {
+        "normalized": "Roars, dealing 60 / 100 / 140 / 180 (+80% AP) magic damage, and healing for 60% of damage taken in the last 2 seconds. Ferocity: Deals 80 / 120 / 160 / 200 (+80% AP) magic damage instead. Also restores Health by 60% of damage taken in the last 2 seconds and removes all crowd control effects from himself. Damage from a monster restores Health by 100% of the damage taken instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            120,
+            160,
+            200
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Roars, dealing 60 / 100 / 140 / 180 (+80% AP) magic damage, and healing for 60% of damage taken in the last 2 seconds.\n\nFerocity: Deals 80 / 120 / 160 / 200 (+80% AP) magic damage instead. Also restores Health by 60% of damage taken in the last 2 seconds and removes all crowd control effects from himself.\n\nDamage from a monster restores Health by 100% of the damage taken instead.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Bola Strike",
+      "form": null,
+      "description": {
+        "normalized": "Throws a bola, dealing 70 / 130 / 190 / 250 (+70% bonus AD) physical damage and slowing the target struck by 30% / 50% / 70% / 90% for 1.75 seconds. The bola also reveals the surrounding area for 2 seconds. Ferocity: Deals 75 (+70% bonus AD) physical damage and roots the target for 1.75 seconds. Also reveals the target and surrounding area for 2 seconds. Bola Strike can be cast while Rengar is leaping.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            130,
+            190,
+            250
+          ],
+          "duration": 1.75,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 75,
+          "duration": 1.75,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "root",
+          "duration": 1.75,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws a bola, dealing 70 / 130 / 190 / 250 (+70% bonus AD) physical damage and slowing the target struck by 30% / 50% / 70% / 90% for 1.75 seconds. The bola also reveals the surrounding area for 2 seconds.\n\nFerocity: Deals 75 (+70% bonus AD) physical damage and roots the target for 1.75 seconds. Also reveals the target and surrounding area for 2 seconds.\n\nBola Strike can be cast while Rengar is leaping.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Thrill of the Hunt",
+      "form": null,
+      "description": {
+        "normalized": "Gains 40% / 50% / 60% Movement Speed and reveals the nearest enemy champion for 12 / 14 / 16 seconds. Rengar becomes camouflaged after 1 second and can leap without being in brush. Leaping to an enemy champion shreds the target's armor by 16 / 24 / 32 for 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        75,
+        65
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 60,
+          "duration": [
+            12,
+            14,
+            16
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 40% / 50% / 60% Movement Speed and reveals the nearest enemy champion for 12 / 14 / 16 seconds. Rengar becomes camouflaged after 1 second and can leap without being in brush. Leaping to an enemy champion shreds the target's armor by 16 / 24 / 32 for 4 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/rengar",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+    "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+    "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+    "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+    "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+    "Savagery: Numeric prose was not fully structured; rawParsedText kept.",
+    "Battle Roar: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

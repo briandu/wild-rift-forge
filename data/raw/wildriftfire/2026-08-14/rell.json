@@ -1,0 +1,41 @@
+{
+  "id": "rell",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/rell",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 30,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Break the Mold",
+    "Shattering Strike",
+    "Ferromancy - Crash Down / Mount Up",
+    "Full Tilt",
+    "Magnet Storm"
+  ]
+}

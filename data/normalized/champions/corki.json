@@ -1,0 +1,276 @@
+{
+  "id": "corki",
+  "name": "Corki",
+  "title": "The Daring Bombardier",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/corki.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 50,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.032,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 5,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Hextech Munitions",
+      "form": null,
+      "description": {
+        "normalized": "Hextech Shrapnel: Attacks and Spellblade deal 16% bonus true damage. The Package: After hitting enemy champions 6 times with Missile Barrage, The Package is delivered to Corki. He can pick it up to gain 4 Big Ones. The Package despawns after 15 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": 16,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hextech Shrapnel: Attacks and Spellblade deal 16% bonus true damage.\n\nThe Package: After hitting enemy champions 6 times with Missile Barrage, The Package is delivered to Corki. He can pick it up to gain 4 Big Ones. The Package despawns after 15 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Phosphorus Bomb",
+      "form": null,
+      "description": {
+        "normalized": "Fires a bomb, dealing 65 / 125 / 185 / 245 (+125% bonus AD +80% AP) magic damage and granting vision over the area.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            65,
+            125,
+            185,
+            245
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.25
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a bomb, dealing 65 / 125 / 185 / 245 (+125% bonus AD +80% AP) magic damage and granting vision over the area.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Valkyrie",
+      "form": null,
+      "description": {
+        "normalized": "Flies a short distance, leaving a burning trail for 2.5 seconds. The trail burns enemies in it for 60 (+60% bonus AD +60% AP) magic damage per second, dealing up to 150 / 250 / 350 / 450 magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          85,
+          90,
+          95
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350,
+            450
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.6
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Flies a short distance, leaving a burning trail for 2.5 seconds. The trail burns enemies in it for 60 (+60% bonus AD +60% AP) magic damage per second, dealing up to 150 / 250 / 350 / 450 magic damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Gatling Gun",
+      "form": null,
+      "description": {
+        "normalized": "Fires a gatling gun, dealing 20 / 35 / 50 / 65 (+55% bonus AD) physical damage per second, up to a total of 100 / 160 / 220 / 280 physical damage over 4 seconds. Shreds up to 10 / 14 / 18 / 22 Armor and Magic Resist for 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            20,
+            35,
+            50,
+            65
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a gatling gun, dealing 20 / 35 / 50 / 65 (+55% bonus AD) physical damage per second, up to a total of 100 / 160 / 220 / 280 physical damage over 4 seconds. Shreds up to 10 / 14 / 18 / 22 Armor and Magic Resist for 2 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Missile Barrage",
+      "form": null,
+      "description": {
+        "normalized": "Fires a missile that explodes on the first target hit, dealing 70 / 140 / 210 (+70% bonus AD) physical damage to nearby enemies. Big One: Every third missile is a Big One that deals 140 / 210 / 280 (+140% bonus AD) physical damage and has a bigger area of effect and increased blast radius. Charge: Gains a charge every 16 seconds, storing up to 4 charges. Attacks against champions reduce the time between charges by 2 (+300% Crit Rate) seconds on hit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            140,
+            210
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            140,
+            210,
+            280
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a missile that explodes on the first target hit, dealing 70 / 140 / 210 (+70% bonus AD) physical damage to nearby enemies.\n\nBig One: Every third missile is a Big One that deals 140 / 210 / 280 (+140% bonus AD) physical damage and has a bigger area of effect and increased blast radius.\n\nCharge: Gains a charge every 16 seconds, storing up to 4 charges. Attacks against champions reduce the time between charges by 2 (+300% Crit Rate) seconds on hit.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/corki",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Hextech Munitions: Numeric prose was not fully structured; rawParsedText kept.",
+    "Missile Barrage: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

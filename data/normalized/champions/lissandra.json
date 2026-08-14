@@ -1,0 +1,293 @@
+{
+  "id": "lissandra",
+  "name": "Lissandra",
+  "title": "the Ice Witch",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/lissandra.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 460,
+      "maximumPerLevel": 37,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Iceborn Subjugation",
+      "form": null,
+      "description": {
+        "normalized": "When an enemy champion dies near Lissandra, they become a Frozen Thrall that seeks out living enemies. Frozen Thralls slow nearby enemies by 25% and shatter after 4 seconds, dealing 110 (+40% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 25,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "When an enemy champion dies near Lissandra, they become a Frozen Thrall that seeks out living enemies.\n\nFrozen Thralls slow nearby enemies by 25% and shatter after 4 seconds, dealing 110 (+40% AP) magic damage.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Ice Shard",
+      "form": null,
+      "description": {
+        "normalized": "Throws a spear of ice that shatters when it hits an enemy, dealing 70 / 110 / 150 / 190 (+70% AP) magic damage and slowing the target by 20% / 25% / 30% / 35% for 1.5 seconds. Enemies behind the target take the same damage and are also slowed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          55,
+          55,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            110,
+            150,
+            190
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws a spear of ice that shatters when it hits an enemy, dealing 70 / 110 / 150 / 190 (+70% AP) magic damage and slowing the target by 20% / 25% / 30% / 35% for 1.5 seconds. Enemies behind the target take the same damage and are also slowed.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Ring of Frost",
+      "form": null,
+      "description": {
+        "normalized": "Creates an ice field, rooting enemies within for 1.25 / 1.35 / 1.45 / 1.55 seconds and dealing 55 / 100 / 145 / 190 (+55% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            1.25,
+            1.35,
+            1.45,
+            1.55
+          ],
+          "duration": [
+            1.25,
+            1.35,
+            1.45,
+            1.55
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Creates an ice field, rooting enemies within for 1.25 / 1.35 / 1.45 / 1.55 seconds and dealing 55 / 100 / 145 / 190 (+55% AP) magic damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Glacial Path",
+      "form": null,
+      "description": {
+        "normalized": "First Cast: Casts forth an ice claw that deals 50 / 95 / 140 / 185 (+40% AP) magic damage when it hits enemies in its path. Can be recast while the ice claw is moving. Recast: Lissandra teleports to the ice claw, which then disappears.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        19,
+        16,
+        13,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          85,
+          85,
+          85,
+          85
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            95,
+            140,
+            185
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First Cast",
+          "rawParsedText": "Casts forth an ice claw that deals 50 / 95 / 140 / 185 (+40% AP) magic damage when it hits enemies in its path. Can be recast while the ice claw is moving.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                50,
+                95,
+                140,
+                185
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.4
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "recast",
+          "label": "Recast",
+          "rawParsedText": "Lissandra teleports to the ice claw, which then disappears.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "First Cast: Casts forth an ice claw that deals 50 / 95 / 140 / 185 (+40% AP) magic damage when it hits enemies in its path. Can be recast while the ice claw is moving.\n\nRecast: Lissandra teleports to the ice claw, which then disappears.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Frozen Tomb",
+      "form": null,
+      "description": {
+        "normalized": "Summons dark ice on an enemy champion or herself. Dark ice emanates from the target for 3 seconds, dealing 150 / 250 / 350 (+75% AP) magic damage and slowing enemies it touches by 30% / 45% / 60%. Cast on enemies: Encases an enemy champion in dark ice, stunning them for 1.5 seconds. Self-Cast: Encases herself in dark ice, entering stasis for 2.5 seconds and restoring 100 / 150 / 200 (+40% AP) Health, increased by 0% - 100% based on her missing Health. Maximum healing is granted when her Health drops to 30% or lower. When auto-aiming, self-casts Frozen Tomb automatically.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        66,
+        57
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Summons dark ice on an enemy champion or herself. Dark ice emanates from the target for 3 seconds, dealing 150 / 250 / 350 (+75% AP) magic damage and slowing enemies it touches by 30% / 45% / 60%.\n\nCast on enemies: Encases an enemy champion in dark ice, stunning them for 1.5 seconds.\n\nSelf-Cast: Encases herself in dark ice, entering stasis for 2.5 seconds and restoring 100 / 150 / 200 (+40% AP) Health, increased by 0% - 100% based on her missing Health. Maximum healing is granted when her Health drops to 30% or lower.\n\nWhen auto-aiming, self-casts Frozen Tomb automatically.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/lissandra",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Frozen Tomb: Numeric prose was not fully structured; rawParsedText kept.",
+    "Frozen Tomb: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

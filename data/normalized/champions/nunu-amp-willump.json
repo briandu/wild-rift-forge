@@ -1,0 +1,295 @@
+{
+  "id": "nunu-amp-willump",
+  "name": "Nunu & Willump",
+  "title": "The Boy and His Yeti",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/nunu-amp-willump.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Call of the Freljord",
+      "form": null,
+      "description": {
+        "normalized": "Gains 40% Attack Speed and 15% Movement Speed for 4 seconds upon damaging an enemy champion, large monster or structure. A nearby allied champion with the fastest Attack Speed gains half this bonus.Cannot trigger on the same target for 8 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 15,
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 40% Attack Speed and 15% Movement Speed for 4 seconds upon damaging an enemy champion, large monster or structure.\n\nA nearby allied champion with the fastest Attack Speed gains half this bonus.Cannot trigger on the same target for 8 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Consume",
+      "form": null,
+      "description": {
+        "normalized": "Takes a bite out of the enemy, dealing 55 / 110 / 165 / 220 (+65% AP +5% HP) magic damage and healing for 80 / 115 / 150 / 185 (+70% AP +10% bonus HP). The healing is increased by 50% when Nunu and Willump are below 50% Maximum Health. Deals 350 / 500 / 650 / 800 true damage agains minions and monsters instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            110,
+            165,
+            220
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.65
+            },
+            {
+              "stat": "maximum_health",
+              "ratio": 0.05
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            },
+            {
+              "stat": "bonus_health",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": [
+            350,
+            500,
+            650,
+            800
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Takes a bite out of the enemy, dealing 55 / 110 / 165 / 220 (+65% AP +5% HP) magic damage and healing for 80 / 115 / 150 / 185 (+70% AP +10% bonus HP). The healing is increased by 50% when Nunu and Willump are below 50% Maximum Health.\n\nDeals 350 / 500 / 650 / 800 true damage agains minions and monsters instead.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Biggest Snowball Ever!",
+      "form": null,
+      "description": {
+        "normalized": "Willump begins rolling a snowball that increases in size and speed over 12 seconds. The snowball explodes upon colliding with enemy champions, large monsters or terrain dealing 35 / 48 / 61 / 74 - 175 / 240 / 305 / 370 (30% AP - 150% AP) magic damage to enemies and knocking them airborne for 0.5 - 1.25 seconds, increasing with the size of the snowball. Re-cast: Releases the snowball, causing it to explode on the first enemy hit. Removes slows on cast and is immune to slows during rolling. Deals 33.33% damage to minions and small monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            48,
+            61,
+            74
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 33.33,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Willump begins rolling a snowball that increases in size and speed over 12 seconds. The snowball explodes upon colliding with enemy champions, large monsters or terrain dealing 35 / 48 / 61 / 74 - 175 / 240 / 305 / 370 (30% AP - 150% AP) magic damage to enemies and knocking them airborne for 0.5 - 1.25 seconds, increasing with the size of the snowball.\n\nRe-cast: Releases the snowball, causing it to explode on the first enemy hit.\n\nRemoves slows on cast and is immune to slows during rolling.\n\nDeals 33.33% damage to minions and small monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Snowball Barrage",
+      "form": null,
+      "description": {
+        "normalized": "Channels for up to 2.5 seconds, throwing snowballs that deal 8 / 12 / 16 / 20 (+5% AP) magic damage and slow by 20% for 0.5 seconds. When the channel ends, Willump deals magic damage equal to 3% - 15% (+0.8 - 4% AP) of the enemies' max Health and roots them for 0.5 - 1.5 seconds. Damage and root duration scale with number of snowball hits on the target. Final explosion deals up to 150 / 200 / 250 / 300 damage vs. monsters. Deals 150% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            8,
+            12,
+            16,
+            20
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.05
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": [
+            150,
+            200,
+            250,
+            300
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 150,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Channels for up to 2.5 seconds, throwing snowballs that deal 8 / 12 / 16 / 20 (+5% AP) magic damage and slow by 20% for 0.5 seconds.\n\nWhen the channel ends, Willump deals magic damage equal to 3% - 15% (+0.8 - 4% AP) of the enemies' max Health and roots them for 0.5 - 1.5 seconds. Damage and root duration scale with number of snowball hits on the target.\n\nFinal explosion deals up to 150 / 200 / 250 / 300 damage vs. monsters.\n\nDeals 150% damage to monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Absolute Zero",
+      "form": null,
+      "description": {
+        "normalized": "Gains a shield that absorbs 65 / 75 / 85 (+180% AP +35% / 45% / 55% HP) damage and begins channeling for up to 3 seconds. Nearby enemies are slowed by 50%, increasing to 95% over the duration. When the channel ends, nearby enemies take 180 - 915 (+50% - 275% AP) magic damage, increased with channel duration.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            65,
+            75,
+            85
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 180,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains a shield that absorbs 65 / 75 / 85 (+180% AP +35% / 45% / 55% HP) damage and begins channeling for up to 3 seconds. Nearby enemies are slowed by 50%, increasing to 95% over the duration.\n\nWhen the channel ends, nearby enemies take 180 - 915 (+50% - 275% AP) magic damage, increased with channel duration.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/nunu-amp-willump",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Call of the Freljord: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "id": "varus",
+  "name": "Varus",
+  "title": "The Arrow of Retribution",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/varus.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 25,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Living Vengeance",
+      "form": null,
+      "description": {
+        "normalized": "On champion takedowns, gains: - 55% Attack Speed that can exceed the Attack Speed cap - Attack Damage = 20 x bonus AS. - Ability Power = 20 x bonus AS. On non-champion takedowns, gains: - 20% / 25% / 30% Attack Speed - Attack Damage = 10 x bonus AS. - Ability Power = 10 x bonus AS. These bonuses last 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "On champion takedowns, gains:\n\n- 55% Attack Speed that can exceed the Attack Speed cap\n\n- Attack Damage = 20 x bonus AS.\n\n- Ability Power = 20 x bonus AS.\n\nOn non-champion takedowns, gains:\n\n- 20% / 25% / 30% Attack Speed\n\n- Attack Damage = 10 x bonus AS.\n\n- Ability Power = 10 x bonus AS.\n\nThese bonuses last 5 seconds.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Piercing Arrow",
+      "form": null,
+      "description": {
+        "normalized": "Hold: Draws the bow, gradually increasing the range and damage for the next shot. Movement Speed is slowed by 20% while preparing to shoot. Release: Fires an arrow, dealing 80 / 140 / 200 / 260 (+110% / 120% / 130% / 140% AD) to 105 / 195 / 285 / 375 (+150% AD) physical damage, reduced by 15% per enemy hit ( minimum 33%).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          80,
+          85,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            140,
+            200,
+            260
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hold: Draws the bow, gradually increasing the range and damage for the next shot. Movement Speed is slowed by 20% while preparing to shoot.\n\nRelease: Fires an arrow, dealing 80 / 140 / 200 / 260 (+110% / 120% / 130% / 140% AD) to 105 / 195 / 285 / 375 (+150% AD) physical damage, reduced by 15% per enemy hit ( minimum 33%).",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Blighted Quiver",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Attacks deal 15 / 35 / 35 / 45 (+35% AP) magic damage and apply Blight for 6 seconds ( stacks 3 times). Varus' other abilities detonate Blight, dealing 3% / 3.5% / 4% / 4.5% (+0.012% AP) magic damage of the target's max Health per stack. Detonating Blight on enemy champions or epic monsters reduces his basic ability cooldowns by 13% per stack. Active: Varus's next Piercing Arrow deals 6% - 9% of the target's missing Health as bonus magic damage, increased by 0% to 50% based on charge time. Detonating Blight on monsters deals up to 120 damage per stack.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        25,
+        25,
+        25,
+        25
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            15,
+            35,
+            35,
+            45
+          ],
+          "duration": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.00012
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": 6,
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "damage",
+          "base": 120,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Attacks deal 15 / 35 / 35 / 45 (+35% AP) magic damage and apply Blight for 6 seconds ( stacks 3 times). Varus' other abilities detonate Blight, dealing 3% / 3.5% / 4% / 4.5% (+0.012% AP) magic damage of the target's max Health per stack. Detonating Blight on enemy champions or epic monsters reduces his basic ability cooldowns by 13% per stack.",
+          "effects": [
+            {
+              "type": "percent_health_damage",
+              "damageType": "magic",
+              "base": [
+                15,
+                35,
+                35,
+                45
+              ],
+              "duration": 6,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.35
+                },
+                {
+                  "stat": "ap",
+                  "ratio": 0.00012
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Varus's next Piercing Arrow deals 6% - 9% of the target's missing Health as bonus magic damage, increased by 0% to 50% based on charge time.",
+          "effects": [
+            {
+              "type": "missing_health_damage",
+              "damageType": "magic",
+              "base": 6,
+              "note": "Formula kept in rawParsedText; structured fields are partial.",
+              "confidence": "medium"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Attacks deal 15 / 35 / 35 / 45 (+35% AP) magic damage and apply Blight for 6 seconds ( stacks 3 times). Varus' other abilities detonate Blight, dealing 3% / 3.5% / 4% / 4.5% (+0.012% AP) magic damage of the target's max Health per stack. Detonating Blight on enemy champions or epic monsters reduces his basic ability cooldowns by 13% per stack.\n\nActive: Varus's next Piercing Arrow deals 6% - 9% of the target's missing Health as bonus magic damage, increased by 0% to 50% based on charge time.\n\nDetonating Blight on monsters deals up to 120 damage per stack.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Hail of Arrows",
+      "form": null,
+      "description": {
+        "normalized": "Fires a hail of arrows that deal 70 / 115 / 160 / 205 (+90% AD) physical damage and desecrates the ground for 4 seconds. Desecrated ground slows enemies by 25% and applies 40% Grievous Wounds. Grievous Wounds reduces the effectiveness of Healing and Regeneration effects.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            115,
+            160,
+            205
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a hail of arrows that deal 70 / 115 / 160 / 205 (+90% AD) physical damage and desecrates the ground for 4 seconds. Desecrated ground slows enemies by 25% and applies 40% Grievous Wounds.\n\nGrievous Wounds reduces the effectiveness of Healing and Regeneration effects.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Chain of Corruption",
+      "form": null,
+      "description": {
+        "normalized": "Flings out a tendril of corruption that deals 150 / 250 / 350 (+85% AP) magic damage and roots the first enemy champion hit for 2 seconds. The corruption then spreads toward nearby enemy champions, also immobilizing them on contact. Immobilized units gain 3 Blight stacks over the next 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.85
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "root",
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Flings out a tendril of corruption that deals 150 / 250 / 350 (+85% AP) magic damage and roots the first enemy champion hit for 2 seconds.\n\nThe corruption then spreads toward nearby enemy champions, also immobilizing them on contact. Immobilized units gain 3 Blight stacks over the next 1.5 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/varus",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+    "Piercing Arrow: Numeric prose was not fully structured; rawParsedText kept.",
+    "Chain of Corruption: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

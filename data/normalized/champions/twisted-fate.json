@@ -1,0 +1,338 @@
+{
+  "id": "twisted-fate",
+  "name": "Twisted Fate",
+  "title": "The Card Master",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/twisted-fate.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.77,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Loaded Dice",
+      "form": null,
+      "description": {
+        "normalized": "Gain 1 to 9 bonus gold upon killing a unit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gain 1 to 9 bonus gold upon killing a unit.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Wild Cards",
+      "form": null,
+      "description": {
+        "normalized": "Throws three cards, dealing 60 / 120 / 180 / 240 (+70% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            120,
+            180,
+            240
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws three cards, dealing 60 / 120 / 180 / 240 (+70% AP) magic damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Pick A Card",
+      "form": null,
+      "description": {
+        "normalized": "First Cast: Start Shuffling Twisted Fate's Deck. Second Cast: Pick a card to empower his next attack. Red Cards deal 30 / 50 / 70 / 90 (+60% AP +100% AD) magic damage in an area and slow by 35% / 40% / 45% / 50% for 3 seconds. Blue Cards deal 40 / 65 / 90 / 115 (+75% AP +100% AD) magic damage and restore 60 / 90 / 120 / 150 Mana. Gold Cards deal 15 / 25 / 35 / 45 (+50% AP +100% AD) magic damage and stun for 1.25 / 1.5 / 1.75 / 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          60,
+          80,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            30,
+            50,
+            70,
+            90
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            65,
+            90,
+            115
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            15,
+            25,
+            35,
+            45
+          ],
+          "duration": [
+            1.25,
+            1.5,
+            1.75,
+            2
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First Cast",
+          "rawParsedText": "Start Shuffling Twisted Fate's Deck.",
+          "effects": []
+        },
+        {
+          "id": "second_cast",
+          "label": "Second Cast",
+          "rawParsedText": "Pick a card to empower his next attack.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "First Cast: Start Shuffling Twisted Fate's Deck.\n\nSecond Cast: Pick a card to empower his next attack.\n\nRed Cards deal 30 / 50 / 70 / 90 (+60% AP +100% AD) magic damage in an area and slow by 35% / 40% / 45% / 50% for 3 seconds.\n\nBlue Cards deal 40 / 65 / 90 / 115 (+75% AP +100% AD) magic damage and restore 60 / 90 / 120 / 150 Mana.\n\nGold Cards deal 15 / 25 / 35 / 45 (+50% AP +100% AD) magic damage and stun for 1.25 / 1.5 / 1.75 / 2 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Stacked Deck",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 15% / 20% / 25% / 30% Attack Speed. Every 4th attack deals 50 / 80 / 110 / 140 (+45% AP) magic damage. Active: Gain 20% / 25% / 30% / 35% Attack Speed for 3 seconds. During this time, attacking enemy champions rolls Loaded Dice.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            80,
+            110,
+            140
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 15% / 20% / 25% / 30% Attack Speed. Every 4th attack deals 50 / 80 / 110 / 140 (+45% AP) magic damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                50,
+                80,
+                110,
+                140
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.45
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Gain 20% / 25% / 30% / 35% Attack Speed for 3 seconds. During this time, attacking enemy champions rolls Loaded Dice.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Gains 15% / 20% / 25% / 30% Attack Speed. Every 4th attack deals 50 / 80 / 110 / 140 (+45% AP) magic damage.\n\nActive: Gain 20% / 25% / 30% / 35% Attack Speed for 3 seconds. During this time, attacking enemy champions rolls Loaded Dice.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Destiny",
+      "form": null,
+      "description": {
+        "normalized": "First cast: Reveals all enemy champions for 6 / 7 / 8 seconds. Second Cast: Channel for 1.5 seconds to teleport to target location.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "states": [
+        {
+          "id": "first_cast",
+          "label": "First cast",
+          "rawParsedText": "Reveals all enemy champions for 6 / 7 / 8 seconds.",
+          "effects": []
+        },
+        {
+          "id": "second_cast",
+          "label": "Second Cast",
+          "rawParsedText": "Channel for 1.5 seconds to teleport to target location.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "First cast: Reveals all enemy champions for 6 / 7 / 8 seconds.\n\nSecond Cast: Channel for 1.5 seconds to teleport to target location.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/twisted-fate",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Loaded Dice: Numeric prose was not fully structured; rawParsedText kept.",
+    "Stacked Deck: Numeric prose was not fully structured; rawParsedText kept.",
+    "Destiny: Numeric prose was not fully structured; rawParsedText kept.",
+    "Destiny: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

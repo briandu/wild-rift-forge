@@ -1,0 +1,295 @@
+{
+  "id": "blitzcrank",
+  "name": "Blitzcrank",
+  "title": "The Great Steam Golem",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/blitzcrank.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 300,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 49,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Mana Barrier",
+      "form": null,
+      "description": {
+        "normalized": "Blitzcrank gains a shield that absorbs 90 ( 30% Mana) damage for 10 seconds upon falling below 35% Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "shield",
+          "base": 90,
+          "duration": 10,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Blitzcrank gains a shield that absorbs 90 ( 30% Mana) damage for 10 seconds upon falling below 35% Health.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Rocket Grab",
+      "form": null,
+      "description": {
+        "normalized": "Blitzcrank fires his right hand to deal 110 / 175 / 240 / 305 (+100% AP) magic damage and pull the target back to Blitzcrank.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        17,
+        16,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            110,
+            175,
+            240,
+            305
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Blitzcrank fires his right hand to deal 110 / 175 / 240 / 305 (+100% AP) magic damage and pull the target back to Blitzcrank.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Overdrive",
+      "form": null,
+      "description": {
+        "normalized": "Gains 35% / 40% / 45% / 50% to 10% decaying Movement Speed for 2.5 seconds. Blitzcrank may reactivate Overdrive to gain 140% / 150% / 160% / 170% decaying Movement Speed for 1.5 seconds. When Overdrive ends, Blitzcrank is slowed by 33% for 1 second. This is increased to 99% for 1 seconds if Overdrive was recast.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          75,
+          75,
+          75
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Gains 35% / 40% / 45% / 50% to 10% decaying Movement Speed for 2.5 seconds.\n\nBlitzcrank may reactivate Overdrive to gain 140% / 150% / 160% / 170% decaying Movement Speed for 1.5 seconds.\n\nWhen Overdrive ends, Blitzcrank is slowed by 33% for 1 second. This is increased to 99% for 1 seconds if Overdrive was recast.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Power Fist",
+      "form": null,
+      "description": {
+        "normalized": "Empowers his next attack to crtically strike for 105 (180% / 200% / 220% / 240% AD) physical damage and knock up the target.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          25,
+          25,
+          25,
+          25
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 105,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers his next attack to crtically strike for 105 (180% / 200% / 220% / 240% AD) physical damage and knock up the target.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Static Field",
+      "form": null,
+      "description": {
+        "normalized": "Passive: While Static Field is off cooldown, attacks mark enemies to deal 40 / 80 / 120 (+15% AP) magic damage after 1 second. Active: Deals 275 / 400 / 525 (+80% AP) magic damage to nearby enemies and silences them for 0.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        55,
+        35,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            80,
+            120
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            275,
+            400,
+            525
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "silence",
+          "duration": 0.5,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "While Static Field is off cooldown, attacks mark enemies to deal 40 / 80 / 120 (+15% AP) magic damage after 1 second.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                40,
+                80,
+                120
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.15
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Deals 275 / 400 / 525 (+80% AP) magic damage to nearby enemies and silences them for 0.5 seconds.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                275,
+                400,
+                525
+              ],
+              "duration": 0.5,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.8
+                }
+              ],
+              "confidence": "high"
+            },
+            {
+              "type": "silence",
+              "duration": 0.5,
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: While Static Field is off cooldown, attacks mark enemies to deal 40 / 80 / 120 (+15% AP) magic damage after 1 second.\n\nActive: Deals 275 / 400 / 525 (+80% AP) magic damage to nearby enemies and silences them for 0.5 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/blitzcrank",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Overdrive: Numeric prose was not fully structured; rawParsedText kept.",
+    "Overdrive: Numeric prose was not fully structured; rawParsedText kept.",
+    "Overdrive: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "id": "yasuo",
+  "name": "Yasuo",
+  "title": "the Unforgiven",
+  "roles": [],
+  "positions": [
+    "mid",
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/yasuo.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 100,
+      "maximumPerLevel": 0,
+      "regen5": 0,
+      "regen5PerLevel": 0
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.89,
+    "attackSpeedPerLevel": 0.0207,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Way of the Wanderer",
+      "form": null,
+      "description": {
+        "normalized": "Resolve: Moving builds Flow, which is tracked on Yasuo's resource bar. At max Flow, damage from a champion or monster grants a shield that absorbs 125 - 680 (+100% Critical Strike Rate) damage and lasts 1 second. Intent: Yasuo's Critical Rate is doubled. Yasuo converts Critical Rate above 100% into Attack Damage at a rate of 0.6 Attack Damage per 1% Critical Rate.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "shield",
+          "base": 125,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Resolve: Moving builds Flow, which is tracked on Yasuo's resource bar. At max Flow, damage from a champion or monster grants a shield that absorbs 125 - 680 (+100% Critical Strike Rate) damage and lasts 1 second.\n\nIntent: Yasuo's Critical Rate is doubled.\n\nYasuo converts Critical Rate above 100% into Attack Damage at a rate of 0.6 Attack Damage per 1% Critical Rate.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Steel Tempest",
+      "form": null,
+      "description": {
+        "normalized": "Thrusts forward, dealing 20 / 50 / 80 / 110 (+105% AD) physical damage. Grants a stack of Gathering Storm if the thrust damages an enemy. At 2 stacks, Steel Tempest launches a whirlwind that knocks enemies Airborne. If tapped during Sweeping Blade's dash, Steel Tempest will strike as a circle. Steel Tempest is treated as an attack: it can Critically Strike for 75% bonus damage and applies on-hit efects to all units hit. Cooldown and cast time are reduced by Attack Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            20,
+            50,
+            80,
+            110
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.05
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Thrusts forward, dealing 20 / 50 / 80 / 110 (+105% AD) physical damage. Grants a stack of Gathering Storm if the thrust damages an enemy. At 2 stacks, Steel Tempest launches a whirlwind that knocks enemies Airborne.\n\nIf tapped during Sweeping Blade's dash, Steel Tempest will strike as a circle.\n\nSteel Tempest is treated as an attack: it can Critically Strike for 75% bonus damage and applies on-hit efects to all units hit. Cooldown and cast time are reduced by Attack Speed.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Wind Wall",
+      "form": null,
+      "description": {
+        "normalized": "Creates a 300 / 400 / 500 / 600 unit wall that blocks all enemy projectiles for 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        22,
+        20,
+        18,
+        16
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Creates a 300 / 400 / 500 / 600 unit wall that blocks all enemy projectiles for 4 seconds.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Sweeping Blade",
+      "form": null,
+      "description": {
+        "normalized": "Dashes through target enemy, dealing 70 / 80 / 90 / 100 (+20% bonus AD + 60% AP) magic damage. Each cast increased the next dash's base damage by 25%, up to +75%. Cannot be re-cast on the same enemy for 7 / 6 / 5 / 4 seconds. If Steel Tempest is tapped during this dash, it will strike as a circle.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            80,
+            90,
+            100
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes through target enemy, dealing 70 / 80 / 90 / 100 (+20% bonus AD + 60% AP) magic damage. Each cast increased the next dash's base damage by 25%, up to +75%.\n\nCannot be re-cast on the same enemy for 7 / 6 / 5 / 4 seconds.\n\nIf Steel Tempest is tapped during this dash, it will strike as a circle.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Last Breath",
+      "form": null,
+      "description": {
+        "normalized": "Blinks to an Airborne enemy champion, dealing 250 / 400 / 550 (+160% bonus AD) physical damage and holding all Airborne enemies in the area in the air for an additional 1.3 seconds. Grants maximum Flow but resets all stacks of Gathering Storm. For the next 15 seconds, Critical Strikes gain 55% Armor Penetration.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        50,
+        40,
+        30
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            250,
+            400,
+            550
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Blinks to an Airborne enemy champion, dealing 250 / 400 / 550 (+160% bonus AD) physical damage and holding all Airborne enemies in the area in the air for an additional 1.3 seconds. Grants maximum Flow but resets all stacks of Gathering Storm.\n\nFor the next 15 seconds, Critical Strikes gain 55% Armor Penetration.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/yasuo",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Way of the Wanderer: Numeric prose was not fully structured; rawParsedText kept.",
+    "Steel Tempest: Numeric prose was not fully structured; rawParsedText kept.",
+    "Wind Wall: Numeric prose was not fully structured; rawParsedText kept.",
+    "Sweeping Blade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Last Breath: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

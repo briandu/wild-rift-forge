@@ -1,0 +1,1617 @@
+[
+  {
+    "champion": "aatrox",
+    "sourceUrl": "https://www.wildriftfire.com/guide/aatrox",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Deathbringer Stance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Deathbringer Stance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Deathbringer Stance: Numeric prose was not fully structured; rawParsedText kept.",
+      "The Darkin Blade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Infernal Chains: Numeric prose was not fully structured; rawParsedText kept.",
+      "Umbral Dash: Numeric prose was not fully structured; rawParsedText kept.",
+      "World Ender: Numeric prose was not fully structured; rawParsedText kept.",
+      "World Ender: Numeric prose was not fully structured; rawParsedText kept.",
+      "World Ender: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "ahri",
+    "sourceUrl": "https://www.wildriftfire.com/guide/ahri",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Spirit Rush: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "akali",
+    "sourceUrl": "https://www.wildriftfire.com/guide/akali",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Assassin's Mark: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "akshan",
+    "sourceUrl": "https://www.wildriftfire.com/guide/akshan",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Heroic Swing: Numeric prose was not fully structured; rawParsedText kept.",
+      "Comeuppance: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "alistar",
+    "sourceUrl": "https://www.wildriftfire.com/guide/alistar",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Unbreakable Will: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "ambessa",
+    "sourceUrl": "https://www.wildriftfire.com/guide/ambessa",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Cunning Sweep / Sundering Slam: Numeric prose was not fully structured; rawParsedText kept.",
+      "Public Execution: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "amumu",
+    "sourceUrl": "https://www.wildriftfire.com/guide/amumu",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Bandage Toss: Numeric prose was not fully structured; rawParsedText kept.",
+      "Tantrum: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "annie",
+    "sourceUrl": "https://www.wildriftfire.com/guide/annie",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Summon: Tibbers: Numeric prose was not fully structured; rawParsedText kept.",
+      "Summon: Tibbers: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "ashe",
+    "sourceUrl": "https://www.wildriftfire.com/guide/ashe",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Frost Shot: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ranger's Focus: Numeric prose was not fully structured; rawParsedText kept.",
+      "Hawkshot: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "aurelion-sol",
+    "sourceUrl": "https://www.wildriftfire.com/guide/aurelion-sol",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Cosmic Creator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Cosmic Creator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Cosmic Creator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Breath of Light: Numeric prose was not fully structured; rawParsedText kept.",
+      "Breath of Light: Numeric prose was not fully structured; rawParsedText kept.",
+      "Breath of Light: Numeric prose was not fully structured; rawParsedText kept.",
+      "Breath of Light: Numeric prose was not fully structured; rawParsedText kept.",
+      "Astral Flight: Numeric prose was not fully structured; rawParsedText kept.",
+      "Astral Flight: Numeric prose was not fully structured; rawParsedText kept.",
+      "Singularity: Numeric prose was not fully structured; rawParsedText kept.",
+      "Falling Star/ The Skies Descend: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "aurora",
+    "sourceUrl": "https://www.wildriftfire.com/guide/aurora",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Spirit Abjuration: Numeric prose was not fully structured; rawParsedText kept.",
+      "Across the Veil: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "bard",
+    "sourceUrl": "https://www.wildriftfire.com/guide/bard",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Traveler's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Caretaker's Shrine: Numeric prose was not fully structured; rawParsedText kept.",
+      "Caretaker's Shrine: Numeric prose was not fully structured; rawParsedText kept.",
+      "Caretaker's Shrine: Numeric prose was not fully structured; rawParsedText kept.",
+      "Magical Journey: Numeric prose was not fully structured; rawParsedText kept.",
+      "Magical Journey: Numeric prose was not fully structured; rawParsedText kept.",
+      "Tempered Fate: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "blitzcrank",
+    "sourceUrl": "https://www.wildriftfire.com/guide/blitzcrank",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Overdrive: Numeric prose was not fully structured; rawParsedText kept.",
+      "Overdrive: Numeric prose was not fully structured; rawParsedText kept.",
+      "Overdrive: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "brand",
+    "sourceUrl": "https://www.wildriftfire.com/guide/brand",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Blaze: Numeric prose was not fully structured; rawParsedText kept.",
+      "Pyroclasm: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "braum",
+    "sourceUrl": "https://www.wildriftfire.com/guide/braum",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Stand Behind Me: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "caitlyn",
+    "sourceUrl": "https://www.wildriftfire.com/guide/caitlyn",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Yordle Snap Trap: Numeric prose was not fully structured; rawParsedText kept.",
+      "Yordle Snap Trap: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "camille",
+    "sourceUrl": "https://www.wildriftfire.com/guide/camille",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Tactical Sweep: Numeric prose was not fully structured; rawParsedText kept.",
+      "Hookshot: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "chogath",
+    "sourceUrl": "https://www.wildriftfire.com/guide/chogath",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Carnivore: Numeric prose was not fully structured; rawParsedText kept.",
+      "Feast: Numeric prose was not fully structured; rawParsedText kept.",
+      "Feast: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "corki",
+    "sourceUrl": "https://www.wildriftfire.com/guide/corki",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Hextech Munitions: Numeric prose was not fully structured; rawParsedText kept.",
+      "Missile Barrage: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "darius",
+    "sourceUrl": "https://www.wildriftfire.com/guide/darius",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Crippling Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Crippling Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Apprehend: Numeric prose was not fully structured; rawParsedText kept.",
+      "Apprehend: Numeric prose was not fully structured; rawParsedText kept.",
+      "Noxian Guillotine: Numeric prose was not fully structured; rawParsedText kept.",
+      "Noxian Guillotine: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "diana",
+    "sourceUrl": "https://www.wildriftfire.com/guide/diana",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Moonsilver Blade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Lunar Rush: Numeric prose was not fully structured; rawParsedText kept.",
+      "Moonfall: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "dr-mundo",
+    "sourceUrl": "https://www.wildriftfire.com/guide/dr-mundo",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Blunt Force Trauma: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "draven",
+    "sourceUrl": "https://www.wildriftfire.com/guide/draven",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "League of Draven: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "evelynn",
+    "sourceUrl": "https://www.wildriftfire.com/guide/evelynn",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Demon Shade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Demon Shade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Demon Shade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Allure: Numeric prose was not fully structured; rawParsedText kept.",
+      "Allure: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "ezreal",
+    "sourceUrl": "https://www.wildriftfire.com/guide/ezreal",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Rising Spell Force: Numeric prose was not fully structured; rawParsedText kept.",
+      "Essence Flux: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "fiddlesticks",
+    "sourceUrl": "https://www.wildriftfire.com/guide/fiddlesticks",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "A Harmless Scarecrow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Terrify: Numeric prose was not fully structured; rawParsedText kept.",
+      "Terrify: Numeric prose was not fully structured; rawParsedText kept.",
+      "Bountiful Harvest: Numeric prose was not fully structured; rawParsedText kept.",
+      "Bountiful Harvest: Numeric prose was not fully structured; rawParsedText kept.",
+      "Bountiful Harvest: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "fiora",
+    "sourceUrl": "https://www.wildriftfire.com/guide/fiora",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Duelist's Dance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Grand Challenge: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "fizz",
+    "sourceUrl": "https://www.wildriftfire.com/guide/fizz",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Rending Wave: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "galio",
+    "sourceUrl": "https://www.wildriftfire.com/guide/galio",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Colossal Smash: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "garen",
+    "sourceUrl": "https://www.wildriftfire.com/guide/garen",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Perseverance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Courage: Numeric prose was not fully structured; rawParsedText kept.",
+      "Judgment: Numeric prose was not fully structured; rawParsedText kept.",
+      "Judgment: Numeric prose was not fully structured; rawParsedText kept.",
+      "Demacian Justice: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "gnar",
+    "sourceUrl": "https://www.wildriftfire.com/guide/gnar",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+      "Boomerang Throw / Boulder Toss: Numeric prose was not fully structured; rawParsedText kept.",
+      "Hyper / Wallop: Numeric prose was not fully structured; rawParsedText kept.",
+      "GNAR!: Numeric prose was not fully structured; rawParsedText kept.",
+      "GNAR!: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "gragas",
+    "sourceUrl": "https://www.wildriftfire.com/guide/gragas",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Happy Hour: Numeric prose was not fully structured; rawParsedText kept.",
+      "Barrel Roll: Numeric prose was not fully structured; rawParsedText kept.",
+      "Drunken Rage: Numeric prose was not fully structured; rawParsedText kept.",
+      "Body Slam: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "graves",
+    "sourceUrl": "https://www.wildriftfire.com/guide/graves",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Smoke Screen: Numeric prose was not fully structured; rawParsedText kept.",
+      "Quickdraw: Numeric prose was not fully structured; rawParsedText kept.",
+      "Quickdraw: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "gwen",
+    "sourceUrl": "https://www.wildriftfire.com/guide/gwen",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Snip Snip!: Numeric prose was not fully structured; rawParsedText kept.",
+      "Snip Snip!: Numeric prose was not fully structured; rawParsedText kept.",
+      "Hallowed Mist: Numeric prose was not fully structured; rawParsedText kept.",
+      "Hallowed Mist: Numeric prose was not fully structured; rawParsedText kept.",
+      "Skip 'n Slash: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "hecarim",
+    "sourceUrl": "https://www.wildriftfire.com/guide/hecarim",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Warpath: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spirit of Dread: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spirit of Dread: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "heimerdinger",
+    "sourceUrl": "https://www.wildriftfire.com/guide/heimerdinger",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+      "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+      "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+      "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+      "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+      "CH-2 Electron Storm Grenade: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "irelia",
+    "sourceUrl": "https://www.wildriftfire.com/guide/irelia",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Ionian Fervor: Numeric prose was not fully structured; rawParsedText kept.",
+      "Defiant Dance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Flawless Duet: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "janna",
+    "sourceUrl": "https://www.wildriftfire.com/guide/janna",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Monsoon: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "jarvan-iv",
+    "sourceUrl": "https://www.wildriftfire.com/guide/jarvan-iv",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Dragon Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Golden Aegis: Numeric prose was not fully structured; rawParsedText kept.",
+      "Demacian Standard: Numeric prose was not fully structured; rawParsedText kept.",
+      "Cataclysm: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "jax",
+    "sourceUrl": "https://www.wildriftfire.com/guide/jax",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Relentless Assault: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "jayce",
+    "sourceUrl": "https://www.wildriftfire.com/guide/jayce",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Hextech Capacitor: Numeric prose was not fully structured; rawParsedText kept.",
+      "Lightning Field / Hyper Charge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Lightning Field / Hyper Charge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Thundering Blow / Acceleration Gate: Numeric prose was not fully structured; rawParsedText kept.",
+      "Thundering Blow / Acceleration Gate: Numeric prose was not fully structured; rawParsedText kept.",
+      "Mercury Cannon / Mercury Hammer: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "jinx",
+    "sourceUrl": "https://www.wildriftfire.com/guide/jinx",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Get Excited!: Numeric prose was not fully structured; rawParsedText kept.",
+      "Get Excited!: Numeric prose was not fully structured; rawParsedText kept.",
+      "Switcheroo!: Numeric prose was not fully structured; rawParsedText kept.",
+      "Flame Chompers!: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "kaisa",
+    "sourceUrl": "https://www.wildriftfire.com/guide/kaisa",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Icathian Rain: Numeric prose was not fully structured; rawParsedText kept.",
+      "Icathian Rain: Numeric prose was not fully structured; rawParsedText kept.",
+      "Void Seeker: Numeric prose was not fully structured; rawParsedText kept.",
+      "Supercharge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Supercharge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Supercharge: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "kalista",
+    "sourceUrl": "https://www.wildriftfire.com/guide/kalista",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Sentinel: Numeric prose was not fully structured; rawParsedText kept.",
+      "Sentinel: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rend: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rend: Numeric prose was not fully structured; rawParsedText kept.",
+      "Fate's Call: Numeric prose was not fully structured; rawParsedText kept.",
+      "Fate's Call: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "karma",
+    "sourceUrl": "https://www.wildriftfire.com/guide/karma",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Mantra: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "kassadin",
+    "sourceUrl": "https://www.wildriftfire.com/guide/kassadin",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Nether Blade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Force Pulse: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "katarina",
+    "sourceUrl": "https://www.wildriftfire.com/guide/katarina",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Voracity: Numeric prose was not fully structured; rawParsedText kept.",
+      "Preparation: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "kayle",
+    "sourceUrl": "https://www.wildriftfire.com/guide/kayle",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Divine Ascent: Numeric prose was not fully structured; rawParsedText kept.",
+      "Divine Ascent: Numeric prose was not fully structured; rawParsedText kept.",
+      "Divine Ascent: Numeric prose was not fully structured; rawParsedText kept.",
+      "Starfire Spellblade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Divine Judgment: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "kayn",
+    "sourceUrl": "https://www.wildriftfire.com/guide/kayn",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Shadow Step: Shadow Assassin: Numeric prose was not fully structured; rawParsedText kept.",
+      "Shadow Step: Rhaast: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "kennen",
+    "sourceUrl": "https://www.wildriftfire.com/guide/kennen",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Lightning Rush: Numeric prose was not fully structured; rawParsedText kept.",
+      "Slicing Maelstrom: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "khazix",
+    "sourceUrl": "https://www.wildriftfire.com/guide/khazix",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Taste Their Fear: Numeric prose was not fully structured; rawParsedText kept.",
+      "Void Spike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Leap: Numeric prose was not fully structured; rawParsedText kept.",
+      "Void Assault: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "kindred",
+    "sourceUrl": "https://www.wildriftfire.com/guide/kindred",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Mark of the Kindred: Numeric prose was not fully structured; rawParsedText kept.",
+      "Mark of the Kindred: Numeric prose was not fully structured; rawParsedText kept.",
+      "Mark of the Kindred: Numeric prose was not fully structured; rawParsedText kept.",
+      "Mark of the Kindred: Numeric prose was not fully structured; rawParsedText kept.",
+      "Dance of Arrows: Numeric prose was not fully structured; rawParsedText kept.",
+      "Wolf's Frenzy: Numeric prose was not fully structured; rawParsedText kept.",
+      "Wolf's Frenzy: Numeric prose was not fully structured; rawParsedText kept.",
+      "Mounting Dread: Numeric prose was not fully structured; rawParsedText kept.",
+      "Lamb's Respite: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "kogmaw",
+    "sourceUrl": "https://www.wildriftfire.com/guide/kogmaw",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Living Artillery: Numeric prose was not fully structured; rawParsedText kept.",
+      "Living Artillery: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "ksante",
+    "sourceUrl": "https://www.wildriftfire.com/guide/ksante",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Dauntless Instinct: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ntofo Strikes: Numeric prose was not fully structured; rawParsedText kept.",
+      "Path Maker: Numeric prose was not fully structured; rawParsedText kept.",
+      "Footwork: Numeric prose was not fully structured; rawParsedText kept.",
+      "All Out: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "lee-sin",
+    "sourceUrl": "https://www.wildriftfire.com/guide/lee-sin",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Flurry: Numeric prose was not fully structured; rawParsedText kept.",
+      "Safeguard / Iron Will: Numeric prose was not fully structured; rawParsedText kept.",
+      "Tempest / Cripple: Numeric prose was not fully structured; rawParsedText kept.",
+      "Dragon's Rage: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "leona",
+    "sourceUrl": "https://www.wildriftfire.com/guide/leona",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Eclipse: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "lillia",
+    "sourceUrl": "https://www.wildriftfire.com/guide/lillia",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Dream-Laden Bough: Numeric prose was not fully structured; rawParsedText kept.",
+      "Blooming Blows: Numeric prose was not fully structured; rawParsedText kept.",
+      "Lilting Lullaby: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "lissandra",
+    "sourceUrl": "https://www.wildriftfire.com/guide/lissandra",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Frozen Tomb: Numeric prose was not fully structured; rawParsedText kept.",
+      "Frozen Tomb: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "lucian",
+    "sourceUrl": "https://www.wildriftfire.com/guide/lucian",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Lightslinger: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ardent Blaze: Numeric prose was not fully structured; rawParsedText kept.",
+      "Relentless Pursuit: Numeric prose was not fully structured; rawParsedText kept.",
+      "The Culling: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "lulu",
+    "sourceUrl": "https://www.wildriftfire.com/guide/lulu",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Whimsy: Numeric prose was not fully structured; rawParsedText kept.",
+      "Whimsy: Numeric prose was not fully structured; rawParsedText kept.",
+      "Whimsy: Numeric prose was not fully structured; rawParsedText kept.",
+      "Help, Pix!: Numeric prose was not fully structured; rawParsedText kept.",
+      "Wild Growth: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "lux",
+    "sourceUrl": "https://www.wildriftfire.com/guide/lux",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Illumination: Numeric prose was not fully structured; rawParsedText kept.",
+      "Light Binding: Numeric prose was not fully structured; rawParsedText kept.",
+      "Prismatic Barrier: Numeric prose was not fully structured; rawParsedText kept.",
+      "Prismatic Barrier: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "malphite",
+    "sourceUrl": "https://www.wildriftfire.com/guide/malphite",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Thunderclap: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "maokai",
+    "sourceUrl": "https://www.wildriftfire.com/guide/maokai",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Sap Magic: Numeric prose was not fully structured; rawParsedText kept.",
+      "Sap Magic: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "master-yi",
+    "sourceUrl": "https://www.wildriftfire.com/guide/master-yi",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Alpha Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Alpha Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Meditate: Numeric prose was not fully structured; rawParsedText kept.",
+      "Wuju Style: Numeric prose was not fully structured; rawParsedText kept.",
+      "Highlander: Numeric prose was not fully structured; rawParsedText kept.",
+      "Highlander: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "mel",
+    "sourceUrl": "https://www.wildriftfire.com/guide/mel",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Radiant Volley: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rebuttal: Numeric prose was not fully structured; rawParsedText kept.",
+      "Solar Snare: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "milio",
+    "sourceUrl": "https://www.wildriftfire.com/guide/milio",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Cozy Campfire: Numeric prose was not fully structured; rawParsedText kept.",
+      "Cozy Campfire: Numeric prose was not fully structured; rawParsedText kept.",
+      "Cozy Campfire: Numeric prose was not fully structured; rawParsedText kept.",
+      "Warm Hugs: Numeric prose was not fully structured; rawParsedText kept.",
+      "Breath of Life: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "miss-fortune",
+    "sourceUrl": "https://www.wildriftfire.com/guide/miss-fortune",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Strut: Numeric prose was not fully structured; rawParsedText kept.",
+      "Strut: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "mordekaiser",
+    "sourceUrl": "https://www.wildriftfire.com/guide/mordekaiser",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Darkness Rise: Numeric prose was not fully structured; rawParsedText kept.",
+      "Realm of Death: Numeric prose was not fully structured; rawParsedText kept.",
+      "Realm of Death: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "morgana",
+    "sourceUrl": "https://www.wildriftfire.com/guide/morgana",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Tormented Shadow: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "nami",
+    "sourceUrl": "https://www.wildriftfire.com/guide/nami",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Surging Tides: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ebb and Flow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Tidal Wave: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "nasus",
+    "sourceUrl": "https://www.wildriftfire.com/guide/nasus",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Soul Eater: Numeric prose was not fully structured; rawParsedText kept.",
+      "Siphoning Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Siphoning Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Wither: Numeric prose was not fully structured; rawParsedText kept.",
+      "Wither: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "nautilus",
+    "sourceUrl": "https://www.wildriftfire.com/guide/nautilus",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Staggering Blow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Dredge Line: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "nidalee",
+    "sourceUrl": "https://www.wildriftfire.com/guide/nidalee",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Prowl: Numeric prose was not fully structured; rawParsedText kept.",
+      "Primal Surge / Swipe: Numeric prose was not fully structured; rawParsedText kept.",
+      "Aspect Of The Cougar: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "nilah",
+    "sourceUrl": "https://www.wildriftfire.com/guide/nilah",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Formless Blade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Formless Blade: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "nocturne",
+    "sourceUrl": "https://www.wildriftfire.com/guide/nocturne",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Shroud of Darkness: Numeric prose was not fully structured; rawParsedText kept.",
+      "Shroud of Darkness: Numeric prose was not fully structured; rawParsedText kept.",
+      "Paranoia: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "norra",
+    "sourceUrl": "https://www.wildriftfire.com/guide/norra",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Beloved Trinkets: Numeric prose was not fully structured; rawParsedText kept.",
+      "Memory Surge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Journey to Nowhere: Numeric prose was not fully structured; rawParsedText kept.",
+      "Journey to Nowhere: Numeric prose was not fully structured; rawParsedText kept.",
+      "Threads of Homecoming: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "nunu-amp-willump",
+    "sourceUrl": "https://www.wildriftfire.com/guide/nunu-amp-willump",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Call of the Freljord: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "olaf",
+    "sourceUrl": "https://www.wildriftfire.com/guide/olaf",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Berserker Rage: Numeric prose was not fully structured; rawParsedText kept.",
+      "Undertow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Undertow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Reckless Swing: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ragnarok: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ragnarok: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "orianna",
+    "sourceUrl": "https://www.wildriftfire.com/guide/orianna",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Command: Attack: Numeric prose was not fully structured; rawParsedText kept.",
+      "Command: Dissonance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Command: Protect: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "ornn",
+    "sourceUrl": "https://www.wildriftfire.com/guide/ornn",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Living Forge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Searing Charge: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "pantheon",
+    "sourceUrl": "https://www.wildriftfire.com/guide/pantheon",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Mortal Will: Numeric prose was not fully structured; rawParsedText kept.",
+      "Comet Spear: Numeric prose was not fully structured; rawParsedText kept.",
+      "Comet Spear: Numeric prose was not fully structured; rawParsedText kept.",
+      "Aegis Assault: Numeric prose was not fully structured; rawParsedText kept.",
+      "Aegis Assault: Numeric prose was not fully structured; rawParsedText kept.",
+      "Grand Starfall: Numeric prose was not fully structured; rawParsedText kept.",
+      "Grand Starfall: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "poppy",
+    "sourceUrl": "https://www.wildriftfire.com/guide/poppy",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Hammer Shock: Numeric prose was not fully structured; rawParsedText kept.",
+      "Steadfast Presence: Numeric prose was not fully structured; rawParsedText kept.",
+      "Keeper's Verdict: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "pyke",
+    "sourceUrl": "https://www.wildriftfire.com/guide/pyke",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Gift of the Drowned Ones: Numeric prose was not fully structured; rawParsedText kept.",
+      "Gift of the Drowned Ones: Numeric prose was not fully structured; rawParsedText kept.",
+      "Bone Skewer: Numeric prose was not fully structured; rawParsedText kept.",
+      "Bone Skewer: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ghostwater Dive: Numeric prose was not fully structured; rawParsedText kept.",
+      "Death from Below: Numeric prose was not fully structured; rawParsedText kept.",
+      "Death from Below: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "rakan",
+    "sourceUrl": "https://www.wildriftfire.com/guide/rakan",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Gleaming Quill: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "rammus",
+    "sourceUrl": "https://www.wildriftfire.com/guide/rammus",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Rolling Armordillo: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rolling Armordillo: Numeric prose was not fully structured; rawParsedText kept.",
+      "Frenzying Taunt: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "rell",
+    "sourceUrl": "https://www.wildriftfire.com/guide/rell",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Break the Mold: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ferromancy - Crash Down / Mount Up: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ferromancy - Crash Down / Mount Up: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "renekton",
+    "sourceUrl": "https://www.wildriftfire.com/guide/renekton",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Reign of Anger: Numeric prose was not fully structured; rawParsedText kept.",
+      "Reign of Anger: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ruthless Predator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Slice and Dice: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "rengar",
+    "sourceUrl": "https://www.wildriftfire.com/guide/rengar",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Unseen Predator: Numeric prose was not fully structured; rawParsedText kept.",
+      "Savagery: Numeric prose was not fully structured; rawParsedText kept.",
+      "Battle Roar: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "riven",
+    "sourceUrl": "https://www.wildriftfire.com/guide/riven",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Runic Blade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Runic Blade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Blade of the Exile: Numeric prose was not fully structured; rawParsedText kept.",
+      "Blade of the Exile: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "rumble",
+    "sourceUrl": "https://www.wildriftfire.com/guide/rumble",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Junkyard Titan: Numeric prose was not fully structured; rawParsedText kept.",
+      "Junkyard Titan: Numeric prose was not fully structured; rawParsedText kept.",
+      "Flamespitter: Numeric prose was not fully structured; rawParsedText kept.",
+      "Electro-Harpoon: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "ryze",
+    "sourceUrl": "https://www.wildriftfire.com/guide/ryze",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Overload: Numeric prose was not fully structured; rawParsedText kept.",
+      "Overload: Numeric prose was not fully structured; rawParsedText kept.",
+      "Realm Warp: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "samira",
+    "sourceUrl": "https://www.wildriftfire.com/guide/samira",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Flair: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "senna",
+    "sourceUrl": "https://www.wildriftfire.com/guide/senna",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Absolution: Numeric prose was not fully structured; rawParsedText kept.",
+      "Piercing Darkness: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "seraphine",
+    "sourceUrl": "https://www.wildriftfire.com/guide/seraphine",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "High Note: Numeric prose was not fully structured; rawParsedText kept.",
+      "Surround Sound: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "sett",
+    "sourceUrl": "https://www.wildriftfire.com/guide/sett",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Pit Grit: Numeric prose was not fully structured; rawParsedText kept.",
+      "Pit Grit: Numeric prose was not fully structured; rawParsedText kept.",
+      "Knuckle Down: Numeric prose was not fully structured; rawParsedText kept.",
+      "Haymaker: Numeric prose was not fully structured; rawParsedText kept.",
+      "Facebreaker: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "shen",
+    "sourceUrl": "https://www.wildriftfire.com/guide/shen",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Ki Barrier: Numeric prose was not fully structured; rawParsedText kept.",
+      "Twilight Assault: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spirit's Refuge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Stand United: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "shyvana",
+    "sourceUrl": "https://www.wildriftfire.com/guide/shyvana",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Draconic Bloodline: Numeric prose was not fully structured; rawParsedText kept.",
+      "Draconic Bloodline: Numeric prose was not fully structured; rawParsedText kept.",
+      "Draconic Bloodline: Numeric prose was not fully structured; rawParsedText kept.",
+      "Draconic Bloodline: Numeric prose was not fully structured; rawParsedText kept.",
+      "Twin Bite: Numeric prose was not fully structured; rawParsedText kept.",
+      "Burnout: Numeric prose was not fully structured; rawParsedText kept.",
+      "Dragon's Descent: Numeric prose was not fully structured; rawParsedText kept.",
+      "Dragon's Descent: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "singed",
+    "sourceUrl": "https://www.wildriftfire.com/guide/singed",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Noxious Slipstream: Numeric prose was not fully structured; rawParsedText kept.",
+      "Noxious Slipstream: Numeric prose was not fully structured; rawParsedText kept.",
+      "Fling: Numeric prose was not fully structured; rawParsedText kept.",
+      "Insanity Potion: Numeric prose was not fully structured; rawParsedText kept.",
+      "Insanity Potion: Numeric prose was not fully structured; rawParsedText kept.",
+      "Insanity Potion: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "sion",
+    "sourceUrl": "https://www.wildriftfire.com/guide/sion",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Glory in Death: Numeric prose was not fully structured; rawParsedText kept.",
+      "Decimating Smash: Numeric prose was not fully structured; rawParsedText kept.",
+      "Decimating Smash: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "sivir",
+    "sourceUrl": "https://www.wildriftfire.com/guide/sivir",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Fleet of Foot: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spell Shield: Numeric prose was not fully structured; rawParsedText kept.",
+      "On The Hunt: Numeric prose was not fully structured; rawParsedText kept.",
+      "On The Hunt: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "skarner",
+    "sourceUrl": "https://www.wildriftfire.com/guide/skarner",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Threads of Vibration: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ixtal's Impact: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "smolder",
+    "sourceUrl": "https://www.wildriftfire.com/guide/smolder",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Super Scorcher Breath: Numeric prose was not fully structured; rawParsedText kept.",
+      "Super Scorcher Breath: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "sona",
+    "sourceUrl": "https://www.wildriftfire.com/guide/sona",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Power Chord: Numeric prose was not fully structured; rawParsedText kept.",
+      "Power Chord: Numeric prose was not fully structured; rawParsedText kept.",
+      "Power Chord: Numeric prose was not fully structured; rawParsedText kept.",
+      "Song of Celerity: Numeric prose was not fully structured; rawParsedText kept.",
+      "Song of Celerity: Numeric prose was not fully structured; rawParsedText kept.",
+      "Song of Celerity: Numeric prose was not fully structured; rawParsedText kept.",
+      "Crescendo: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "swain",
+    "sourceUrl": "https://www.wildriftfire.com/guide/swain",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Vision of Empire: Numeric prose was not fully structured; rawParsedText kept.",
+      "Nevermove: Numeric prose was not fully structured; rawParsedText kept.",
+      "Demonic Ascension: Numeric prose was not fully structured; rawParsedText kept.",
+      "Demonic Ascension: Numeric prose was not fully structured; rawParsedText kept.",
+      "Demonic Ascension: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "syndra",
+    "sourceUrl": "https://www.wildriftfire.com/guide/syndra",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Transcendent: Numeric prose was not fully structured; rawParsedText kept.",
+      "Transcendent: Numeric prose was not fully structured; rawParsedText kept.",
+      "Transcendent: Numeric prose was not fully structured; rawParsedText kept.",
+      "Dark Sphere: Numeric prose was not fully structured; rawParsedText kept.",
+      "Force of Will: Numeric prose was not fully structured; rawParsedText kept.",
+      "Scatter the Weak: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "taliyah",
+    "sourceUrl": "https://www.wildriftfire.com/guide/taliyah",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Weaver's Wall: Numeric prose was not fully structured; rawParsedText kept.",
+      "Weaver's Wall: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "talon",
+    "sourceUrl": "https://www.wildriftfire.com/guide/talon",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Blade's End: Numeric prose was not fully structured; rawParsedText kept.",
+      "Blade's End: Numeric prose was not fully structured; rawParsedText kept.",
+      "Noxian Diplomacy: Numeric prose was not fully structured; rawParsedText kept.",
+      "Assassin's Path: Numeric prose was not fully structured; rawParsedText kept.",
+      "Assassin's Path: Numeric prose was not fully structured; rawParsedText kept.",
+      "Shadow Assault: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "teemo",
+    "sourceUrl": "https://www.wildriftfire.com/guide/teemo",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Move Quick: Numeric prose was not fully structured; rawParsedText kept.",
+      "Guerilla Warfare: Numeric prose was not fully structured; rawParsedText kept.",
+      "Guerilla Warfare: Numeric prose was not fully structured; rawParsedText kept.",
+      "Noxious Trap: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "thresh",
+    "sourceUrl": "https://www.wildriftfire.com/guide/thresh",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Damnation: Numeric prose was not fully structured; rawParsedText kept.",
+      "Death Sentence: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "tristana",
+    "sourceUrl": "https://www.wildriftfire.com/guide/tristana",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Draw a Bead: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rapid Fire: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "tryndamere",
+    "sourceUrl": "https://www.wildriftfire.com/guide/tryndamere",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Battle Fury: Numeric prose was not fully structured; rawParsedText kept.",
+      "Battle Fury: Numeric prose was not fully structured; rawParsedText kept.",
+      "Battle Fury: Numeric prose was not fully structured; rawParsedText kept.",
+      "Battle Fury: Numeric prose was not fully structured; rawParsedText kept.",
+      "Bloodlust: Numeric prose was not fully structured; rawParsedText kept.",
+      "Mocking Shout: Numeric prose was not fully structured; rawParsedText kept.",
+      "Mocking Shout: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spinning Slash: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spinning Slash: Numeric prose was not fully structured; rawParsedText kept.",
+      "Undying Rage: Numeric prose was not fully structured; rawParsedText kept.",
+      "Undying Rage: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "twisted-fate",
+    "sourceUrl": "https://www.wildriftfire.com/guide/twisted-fate",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Loaded Dice: Numeric prose was not fully structured; rawParsedText kept.",
+      "Stacked Deck: Numeric prose was not fully structured; rawParsedText kept.",
+      "Destiny: Numeric prose was not fully structured; rawParsedText kept.",
+      "Destiny: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "twitch",
+    "sourceUrl": "https://www.wildriftfire.com/guide/twitch",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Deadly Venom: Numeric prose was not fully structured; rawParsedText kept.",
+      "Deadly Venom: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ambush: Numeric prose was not fully structured; rawParsedText kept.",
+      "Ambush: Numeric prose was not fully structured; rawParsedText kept.",
+      "Venom Cask: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spray and Pray: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spray and Pray: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "urgot",
+    "sourceUrl": "https://www.wildriftfire.com/guide/urgot",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Purge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Fear Beyond Death: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "varus",
+    "sourceUrl": "https://www.wildriftfire.com/guide/varus",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Living Vengeance: Numeric prose was not fully structured; rawParsedText kept.",
+      "Piercing Arrow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Chain of Corruption: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "vayne",
+    "sourceUrl": "https://www.wildriftfire.com/guide/vayne",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Night Hunter: Numeric prose was not fully structured; rawParsedText kept.",
+      "Night Hunter: Numeric prose was not fully structured; rawParsedText kept.",
+      "Tumble: Numeric prose was not fully structured; rawParsedText kept.",
+      "Silver Bolts: Numeric prose was not fully structured; rawParsedText kept.",
+      "Final Hour: Numeric prose was not fully structured; rawParsedText kept.",
+      "Final Hour: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "veigar",
+    "sourceUrl": "https://www.wildriftfire.com/guide/veigar",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Phenomenal Evil Power: Numeric prose was not fully structured; rawParsedText kept.",
+      "Dark Matter: Numeric prose was not fully structured; rawParsedText kept.",
+      "Event Horizon: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "velkoz",
+    "sourceUrl": "https://www.wildriftfire.com/guide/velkoz",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Plasma Fission: Numeric prose was not fully structured; rawParsedText kept.",
+      "Plasma Fission: Numeric prose was not fully structured; rawParsedText kept.",
+      "Void Rift: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "vex",
+    "sourceUrl": "https://www.wildriftfire.com/guide/vex",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Doom 'n Gloom: Numeric prose was not fully structured; rawParsedText kept.",
+      "Shadow Surge: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "vi",
+    "sourceUrl": "https://www.wildriftfire.com/guide/vi",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Vault Breaker: Numeric prose was not fully structured; rawParsedText kept.",
+      "Excessive Force: Numeric prose was not fully structured; rawParsedText kept.",
+      "Assault and Battery: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "viego",
+    "sourceUrl": "https://www.wildriftfire.com/guide/viego",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Sovereign's Domination: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spectral Maw: Numeric prose was not fully structured; rawParsedText kept.",
+      "Heartbreaker: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "viktor",
+    "sourceUrl": "https://www.wildriftfire.com/guide/viktor",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Glorious Evolution: Numeric prose was not fully structured; rawParsedText kept.",
+      "Glorious Evolution: Numeric prose was not fully structured; rawParsedText kept.",
+      "Glorious Evolution: Numeric prose was not fully structured; rawParsedText kept.",
+      "Glorious Evolution: Numeric prose was not fully structured; rawParsedText kept.",
+      "Gravity Field: Numeric prose was not fully structured; rawParsedText kept.",
+      "Gravity Field: Numeric prose was not fully structured; rawParsedText kept.",
+      "Chaos Storm: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "vladimir",
+    "sourceUrl": "https://www.wildriftfire.com/guide/vladimir",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Crimson Pact: Numeric prose was not fully structured; rawParsedText kept.",
+      "Transfusion: Numeric prose was not fully structured; rawParsedText kept.",
+      "Tides of Blood: Numeric prose was not fully structured; rawParsedText kept.",
+      "Hemoplague: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "volibear",
+    "sourceUrl": "https://www.wildriftfire.com/guide/volibear",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Frenzied Maul: Numeric prose was not fully structured; rawParsedText kept.",
+      "Sky Splitter: Numeric prose was not fully structured; rawParsedText kept.",
+      "Stormbringer: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "warwick",
+    "sourceUrl": "https://www.wildriftfire.com/guide/warwick",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Jaws of the Beast: Numeric prose was not fully structured; rawParsedText kept.",
+      "Blood Hunt: Numeric prose was not fully structured; rawParsedText kept.",
+      "Blood Hunt: Numeric prose was not fully structured; rawParsedText kept.",
+      "Primal Howl: Numeric prose was not fully structured; rawParsedText kept.",
+      "Primal Howl: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "wukong",
+    "sourceUrl": "https://www.wildriftfire.com/guide/wukong",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Stone Skin: Numeric prose was not fully structured; rawParsedText kept.",
+      "Golden Staff: Numeric prose was not fully structured; rawParsedText kept.",
+      "Golden Staff: Numeric prose was not fully structured; rawParsedText kept.",
+      "Warrior Trickster: Numeric prose was not fully structured; rawParsedText kept.",
+      "Nimbus Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Cyclone: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "xayah",
+    "sourceUrl": "https://www.wildriftfire.com/guide/xayah",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Clean Cuts: Numeric prose was not fully structured; rawParsedText kept.",
+      "Bladecaller: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "xin-zhao",
+    "sourceUrl": "https://www.wildriftfire.com/guide/xin-zhao",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Three Talon Strike: Numeric prose was not fully structured; rawParsedText kept.",
+      "Wind Becomes Lightning: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "yasuo",
+    "sourceUrl": "https://www.wildriftfire.com/guide/yasuo",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Way of the Wanderer: Numeric prose was not fully structured; rawParsedText kept.",
+      "Steel Tempest: Numeric prose was not fully structured; rawParsedText kept.",
+      "Wind Wall: Numeric prose was not fully structured; rawParsedText kept.",
+      "Sweeping Blade: Numeric prose was not fully structured; rawParsedText kept.",
+      "Last Breath: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "yone",
+    "sourceUrl": "https://www.wildriftfire.com/guide/yone",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Way of the Hunter: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "yunara",
+    "sourceUrl": "https://www.wildriftfire.com/guide/yunara",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Cultivation of Spirit: Numeric prose was not fully structured; rawParsedText kept.",
+      "Transcend One's Self: Numeric prose was not fully structured; rawParsedText kept.",
+      "Transcend One's Self: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "yuumi",
+    "sourceUrl": "https://www.wildriftfire.com/guide/yuumi",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "You and Me!: Numeric prose was not fully structured; rawParsedText kept.",
+      "Final Chapter: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "zed",
+    "sourceUrl": "https://www.wildriftfire.com/guide/zed",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Living Shadow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Living Shadow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Shadow Slash: Numeric prose was not fully structured; rawParsedText kept.",
+      "Death Mark: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "zeri",
+    "sourceUrl": "https://www.wildriftfire.com/guide/zeri",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Living Battery: Numeric prose was not fully structured; rawParsedText kept.",
+      "Electrocute!: Numeric prose was not fully structured; rawParsedText kept.",
+      "Spark Surge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Lightning Crash: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "ziggs",
+    "sourceUrl": "https://www.wildriftfire.com/guide/ziggs",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Short Fuse: Numeric prose was not fully structured; rawParsedText kept.",
+      "Satchel Charge: Numeric prose was not fully structured; rawParsedText kept.",
+      "Hexplosive Minefield: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "zilean",
+    "sourceUrl": "https://www.wildriftfire.com/guide/zilean",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Time in a Bottle: Numeric prose was not fully structured; rawParsedText kept.",
+      "Time Bomb: Numeric prose was not fully structured; rawParsedText kept.",
+      "Time Bomb: Numeric prose was not fully structured; rawParsedText kept.",
+      "Time Bomb: Numeric prose was not fully structured; rawParsedText kept.",
+      "Twisted Timeflow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Twisted Timeflow: Numeric prose was not fully structured; rawParsedText kept.",
+      "Temporal Mirage: Numeric prose was not fully structured; rawParsedText kept.",
+      "Chronoshift: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "zoe",
+    "sourceUrl": "https://www.wildriftfire.com/guide/zoe",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Spell Thief: Numeric prose was not fully structured; rawParsedText kept.",
+      "Sleepy Trouble Bubble: Numeric prose was not fully structured; rawParsedText kept.",
+      "Portal Jump: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  },
+  {
+    "champion": "zyra",
+    "sourceUrl": "https://www.wildriftfire.com/guide/zyra",
+    "observedPatch": "7.2c",
+    "missing": [],
+    "parseWarnings": [
+      "Garden of Thorns: Numeric prose was not fully structured; rawParsedText kept.",
+      "Rampant Growth: Numeric prose was not fully structured; rawParsedText kept.",
+      "Stranglethorns: Numeric prose was not fully structured; rawParsedText kept."
+    ]
+  }
+]

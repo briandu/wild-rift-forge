@@ -1,0 +1,240 @@
+{
+  "id": "tryndamere",
+  "name": "Tryndamere",
+  "title": "The Barbarian King",
+  "roles": [],
+  "positions": [
+    "jungle",
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/tryndamere.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0143,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 3,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Battle Fury",
+      "form": null,
+      "description": {
+        "normalized": "Gains 0.32% Critical Rate for each point of Fury. Attacking a champion grants 30% Attack Speed for 5 seconds. (6 second cooldown) Gains 5 Fury with every attack, 10 from critical strikes and 15 from kills.Loses 5 Fury per second after Tryndamere has been out of combat for 8 seconds.Battle Fury's Attack Speed bonus increases with Undying Rage's ability rank. Tryndamere converts Critical Rate above 100% into Attack Damage at a rate of 1 Attack Damage per 1% Critical Rate.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gains 0.32% Critical Rate for each point of Fury.\n\nAttacking a champion grants 30% Attack Speed for 5 seconds. (6 second cooldown)\n\nGains 5 Fury with every attack, 10 from critical strikes and 15 from kills.Loses 5 Fury per second after Tryndamere has been out of combat for 8 seconds.Battle Fury's Attack Speed bonus increases with Undying Rage's ability rank.\n\nTryndamere converts Critical Rate above 100% into Attack Damage at a rate of 1 Attack Damage per 1% Critical Rate.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Bloodlust",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 7 / 12 / 17 / 22 Attack Damage plus an additional 0.35 / 0.4 / 0.45 / 0.5 Attack Damage per 1% of missing Health. Active: Consumes all Fury to heal for 55 / 65 / 75 / 85 (+30% AP) plus 1.5 / 2.1 / 2.7 / 3.3 (+1.2% AP) per point of Fury consumed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.012
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 7 / 12 / 17 / 22 Attack Damage plus an additional 0.35 / 0.4 / 0.45 / 0.5 Attack Damage per 1% of missing Health.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Consumes all Fury to heal for 55 / 65 / 75 / 85 (+30% AP) plus 1.5 / 2.1 / 2.7 / 3.3 (+1.2% AP) per point of Fury consumed.",
+          "effects": [
+            {
+              "type": "heal",
+              "base": [
+                55,
+                65,
+                75,
+                85
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.3
+                },
+                {
+                  "stat": "ap",
+                  "ratio": 0.012
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gains 7 / 12 / 17 / 22 Attack Damage plus an additional 0.35 / 0.4 / 0.45 / 0.5 Attack Damage per 1% of missing Health.\n\nActive: Consumes all Fury to heal for 55 / 65 / 75 / 85 (+30% AP) plus 1.5 / 2.1 / 2.7 / 3.3 (+1.2% AP) per point of Fury consumed.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Mocking Shout",
+      "form": null,
+      "description": {
+        "normalized": "Reduces nearby enemy champions' Attack Damage by 40% for 3 seconds. If target is moving away from Tryndamere, they will be slowed by 25% / 30% / 35% / 40%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Reduces nearby enemy champions' Attack Damage by 40% for 3 seconds.\n\nIf target is moving away from Tryndamere, they will be slowed by 25% / 30% / 35% / 40%.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Spinning Slash",
+      "form": null,
+      "description": {
+        "normalized": "Dashes, dealing 80 / 120 / 160 / 200 (+135% AD +100% AP) physical damage. Critical Strikes against minions reduce the cooldown of Spinning Slash by 1 second, doubled against champions. Gains 2 Fury for each enemy hit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            120,
+            160,
+            200
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.35
+            },
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes, dealing 80 / 120 / 160 / 200 (+135% AD +100% AP) physical damage.\n\nCritical Strikes against minions reduce the cooldown of Spinning Slash by 1 second, doubled against champions.\n\nGains 2 Fury for each enemy hit.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Undying Rage",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Increases Battle Fury's bonus Attack Speed to45% / 60% / 75%. Active: Becomes unkillable for 5 seconds and gains 50 / 75 /100 Fury. Can be cast while crowd controlled.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        80,
+        70
+      ],
+      "cost": null,
+      "effects": [],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Increases Battle Fury's bonus Attack Speed to45% / 60% / 75%.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Becomes unkillable for 5 seconds and gains 50 / 75 /100 Fury.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Increases Battle Fury's bonus Attack Speed to45% / 60% / 75%.\n\nActive: Becomes unkillable for 5 seconds and gains 50 / 75 /100 Fury.\n\nCan be cast while crowd controlled.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/tryndamere",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Battle Fury: Numeric prose was not fully structured; rawParsedText kept.",
+    "Battle Fury: Numeric prose was not fully structured; rawParsedText kept.",
+    "Battle Fury: Numeric prose was not fully structured; rawParsedText kept.",
+    "Battle Fury: Numeric prose was not fully structured; rawParsedText kept.",
+    "Bloodlust: Numeric prose was not fully structured; rawParsedText kept.",
+    "Mocking Shout: Numeric prose was not fully structured; rawParsedText kept.",
+    "Mocking Shout: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spinning Slash: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spinning Slash: Numeric prose was not fully structured; rawParsedText kept.",
+    "Undying Rage: Numeric prose was not fully structured; rawParsedText kept.",
+    "Undying Rage: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "id": "viego",
+  "name": "Viego",
+  "title": "The Ruined King",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/viego.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Sovereign's Domination",
+      "form": null,
+      "description": {
+        "normalized": "The souls of enemy champions that die within 3 seconds of being damaged by Viego become wraiths that remain in place for 8 seconds.Viego can channel for 1 second to Possess them for 10 seconds. During Possession: - Becomes untargetable - Gains a free cast of Heartbreaker - Gains 10% Movement Speed when moving toward enemy champions - Gains access to the Possessed champion's basic abilities, attacks and items - Heals for 7% (2 + 4% bonus AD + 2% AP +5 bonus AS) of the target's max Health Viego cannot use the Possessed champion's enchantment item actives.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 10,
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 7,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "The souls of enemy champions that die within 3 seconds of being damaged by Viego become wraiths that remain in place for 8 seconds.Viego can channel for 1 second to Possess them for 10 seconds. During Possession:\n\n- Becomes untargetable\n\n- Gains a free cast of Heartbreaker\n\n- Gains 10% Movement Speed when moving toward enemy champions\n\n- Gains access to the Possessed champion's basic abilities, attacks and items\n\n- Heals for 7% (2 + 4% bonus AD + 2% AP +5 bonus AS) of the target's max Health\n\nViego cannot use the Possessed champion's enchantment item actives.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Blade of the Ruined King",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Attacks deal bonus physical damage equal to 2% / 3% / 4% / 5% of the target's current Health. After damaging an enemy with an ability, Viego's first attack against them within 5 seconds strikes twice, dealing physical damage equal to 15% of AD (+15% AP) and healing himself for 135% of the damage dealt. Passive bonuses are kept during Possession. Active: Stabs forward, dealing 20 / 40 / 60 / 80 ((+ 80% AD) * (1 + 0.5% bonus Critical rate)) physical damage. This ability's cast time reduces with Attack Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        4,
+        4,
+        3
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            20,
+            40,
+            60,
+            80
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Attacks deal bonus physical damage equal to 2% / 3% / 4% / 5% of the target's current Health. After damaging an enemy with an ability, Viego's first attack against them within 5 seconds strikes twice, dealing physical damage equal to 15% of AD (+15% AP) and healing himself for 135% of the damage dealt. Passive bonuses are kept during Possession.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": 2,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.15
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Stabs forward, dealing 20 / 40 / 60 / 80 ((+ 80% AD) * (1 + 0.5% bonus Critical rate)) physical damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                20,
+                40,
+                60,
+                80
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Attacks deal bonus physical damage equal to 2% / 3% / 4% / 5% of the target's current Health. After damaging an enemy with an ability, Viego's first attack against them within 5 seconds strikes twice, dealing physical damage equal to 15% of AD (+15% AP) and healing himself for 135% of the damage dealt. Passive bonuses are kept during Possession.\n\nActive: Stabs forward, dealing 20 / 40 / 60 / 80 ((+ 80% AD) * (1 + 0.5% bonus Critical rate)) physical damage.\n\nThis ability's cast time reduces with Attack Speed.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Spectral Maw",
+      "form": null,
+      "description": {
+        "normalized": "Charge: Gathers Black Mist and charges up for 3 seconds, slowing himself by 10% during this period. Cast: Dashes forward and hurls the ball of gathered Black Mist, dealing 80 / 150 / 220 / 290 (+90% AP) magic damage to the first enemy hit and stunning them for 0.4 - 1.25 seconds ( based on charge time).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            150,
+            220,
+            290
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Charge: Gathers Black Mist and charges up for 3 seconds, slowing himself by 10% during this period.\n\nCast: Dashes forward and hurls the ball of gathered Black Mist, dealing 80 / 150 / 220 / 290 (+90% AP) magic damage to the first enemy hit and stunning them for 0.4 - 1.25 seconds ( based on charge time).",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Harrowed Path",
+      "form": null,
+      "description": {
+        "normalized": "Sends forth a specter to haunt the first terrain hit with Black Mist for 6 seconds. While inside the Black Mist, Viego becomes camouflaged and gains 25% / 30% / 35% / 40% Movement Speed (+0.04% AP) and 45% / 50% / 55% / 60% Attack Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 40,
+          "duration": 6,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Sends forth a specter to haunt the first terrain hit with Black Mist for 6 seconds. While inside the Black Mist, Viego becomes camouflaged and gains 25% / 30% / 35% / 40% Movement Speed (+0.04% AP) and 45% / 50% / 55% / 60% Attack Speed.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Heartbreaker",
+      "form": null,
+      "description": {
+        "normalized": "Teleports to a target location nearby, dealing physical damage equal to 110% - 210% AD * (1 + 0.5 Crit rate) to all the champions in the area. Deal 14% / 17% / 20% (+6% bonus AD) of the target's missing Health to the enemy champion with the lowest percentage of Health, slowing them by 99% for 0.25 seconds and knocking back enemies nearby them.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        75,
+        60
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 110,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Teleports to a target location nearby, dealing physical damage equal to 110% - 210% AD * (1 + 0.5 Crit rate) to all the champions in the area.\n\nDeal 14% / 17% / 20% (+6% bonus AD) of the target's missing Health to the enemy champion with the lowest percentage of Health, slowing them by 99% for 0.25 seconds and knocking back enemies nearby them.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/viego",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Sovereign's Domination: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spectral Maw: Numeric prose was not fully structured; rawParsedText kept.",
+    "Heartbreaker: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

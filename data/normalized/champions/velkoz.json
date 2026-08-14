@@ -1,0 +1,297 @@
+{
+  "id": "velkoz",
+  "name": "Vel'Koz",
+  "title": "Eye of the Void",
+  "roles": [],
+  "positions": [
+    "mid",
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/velkoz.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 30,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Organic Deconstruction",
+      "form": null,
+      "description": {
+        "normalized": "Hitting an enemy with an ability applies a stack of Deconstruction for 7 seconds. Enemies with 3 stacks take 28 (+45% AP) true damage. Attacks refresh the duration of Deconstruction.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": 7,
+          "duration": 7,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hitting an enemy with an ability applies a stack of Deconstruction for 7 seconds. Enemies with 3 stacks take 28 (+45% AP) true damage.\n\nAttacks refresh the duration of Deconstruction.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Plasma Fission",
+      "form": null,
+      "description": {
+        "normalized": "Shoots a plasma bolt that deals 80 / 135 / 190 / 245 (+75% AP) magic damage and slows by 70% decaying over 1 / 1.5 / 2 / 2.5 seconds. At the end of its range or on hitting a target, the bolt splits and fires two new bolts at a 90 degree angle. Recasting this ability splits the bolt immediately. Killing an enemy with this ability restores 20 / 23 / 26 / 29 Mana.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          45,
+          50,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            135,
+            190,
+            245
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Shoots a plasma bolt that deals 80 / 135 / 190 / 245 (+75% AP) magic damage and slows by 70% decaying over 1 / 1.5 / 2 / 2.5 seconds.\n\nAt the end of its range or on hitting a target, the bolt splits and fires two new bolts at a 90 degree angle. Recasting this ability splits the bolt immediately.\n\nKilling an enemy with this ability restores 20 / 23 / 26 / 29 Mana.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Void Rift",
+      "form": null,
+      "description": {
+        "normalized": "Opens a rift to the void, dealing 30 / 60 / 90 / 120 (+20% AP) magic damage to enemies on it. The rift then erupts after a brief delay, dealing 45 / 85 / 125 / 165 (+25% AP) magic damage. Charge: Gains a charge every 16 / 15 / 14 / 13 seconds, storing up to 2 charges.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            30,
+            60,
+            90,
+            120
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Opens a rift to the void, dealing 30 / 60 / 90 / 120 (+20% AP) magic damage to enemies on it. The rift then erupts after a brief delay, dealing 45 / 85 / 125 / 165 (+25% AP) magic damage.\n\nCharge: Gains a charge every 16 / 15 / 14 / 13 seconds, storing up to 2 charges.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Tectonic Disruption",
+      "form": null,
+      "description": {
+        "normalized": "Disrupts a target area, causing it to explode, dealing 70 / 110 / 150 / 190 (+30% AP) magic damage to enemies within and knocking them up for 0.75 seconds. Casting this ability near Vel'Koz creates an anomaly that knocks back enemies nearby. The closer the cast is to Vel'Koz, the further the enemies are knocked back.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            110,
+            150,
+            190
+          ],
+          "duration": 0.75,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Disrupts a target area, causing it to explode, dealing 70 / 110 / 150 / 190 (+30% AP) magic damage to enemies within and knocking them up for 0.75 seconds.\n\nCasting this ability near Vel'Koz creates an anomaly that knocks back enemies nearby. The closer the cast is to Vel'Koz, the further the enemies are knocked back.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Life Form Disintegration Ray",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Enemies with max stacks of Deconstruction are marked as Researched. Active: Channels a ray of energy in the direction of the joystick, dealing a total of 450 / 625 / 800 (+125% AP) magic damage over 2.5 seconds and slowing by 20%. Enemies hit by the ray gain one stack of Deconstruction every 0.7 seconds. Researched enemies take an equal amount of true damage instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            450,
+            625,
+            800
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1.25
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "true",
+          "confidence": "low"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Enemies with max stacks of Deconstruction are marked as Researched.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Channels a ray of energy in the direction of the joystick, dealing a total of 450 / 625 / 800 (+125% AP) magic damage over 2.5 seconds and slowing by 20%. Enemies hit by the ray gain one stack of Deconstruction every 0.7 seconds.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                450,
+                625,
+                800
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 1.25
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Enemies with max stacks of Deconstruction are marked as Researched.\n\nActive: Channels a ray of energy in the direction of the joystick, dealing a total of 450 / 625 / 800 (+125% AP) magic damage over 2.5 seconds and slowing by 20%. Enemies hit by the ray gain one stack of Deconstruction every 0.7 seconds.\n\nResearched enemies take an equal amount of true damage instead.",
+      "confidence": "low"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/velkoz",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Plasma Fission: Numeric prose was not fully structured; rawParsedText kept.",
+    "Plasma Fission: Numeric prose was not fully structured; rawParsedText kept.",
+    "Void Rift: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "id": "draven",
+  "name": "Draven",
+  "title": "The Glorious Executioner",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/draven.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 9,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 49,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 66,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 5,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "League of Draven",
+      "form": null,
+      "description": {
+        "normalized": "Killing a unit or catching a Spinning Axe grants a stack of Adoration. Killing champions consume all Adoration stacks and grant 80 bonus gold + 4 per stack of Adoration. When Draven dies, half of Adoration stacks are lost.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Killing a unit or catching a Spinning Axe grants a stack of Adoration.\n\nKilling champions consume all Adoration stacks and grant 80 bonus gold + 4 per stack of Adoration.\n\nWhen Draven dies, half of Adoration stacks are lost.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Spinning Axe",
+      "form": null,
+      "description": {
+        "normalized": "Gains a Spinning Axe, causing his next attack within 6 seconds to deal an additional 45 / 50 / 55 / 60 (+100% / 110% / 120% / 130% bonus AD ) physical damage. The Spinning Axe bounces off the target, allowing Draven to catch and regain it. Draven can hold two Spinning Axes at once.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          45,
+          45,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            45,
+            50,
+            55,
+            60
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains a Spinning Axe, causing his next attack within 6 seconds to deal an additional 45 / 50 / 55 / 60 (+100% / 110% / 120% / 130% bonus AD ) physical damage.\n\nThe Spinning Axe bounces off the target, allowing Draven to catch and regain it.\n\nDraven can hold two Spinning Axes at once.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Blood Rush",
+      "form": null,
+      "description": {
+        "normalized": "Gains 20% / 25% / 30% / 35% Attack Speed for 3 seconds and 50% / 55% / 60% / 65% Movement Speed for 1.5 seconds. Catching a Spinning Axe refreshes Blood Rush's cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          35,
+          30,
+          25
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 65,
+          "duration": 3,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 20% / 25% / 30% / 35% Attack Speed for 3 seconds and 50% / 55% / 60% / 65% Movement Speed for 1.5 seconds.\n\nCatching a Spinning Axe refreshes Blood Rush's cooldown.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Stand Aside",
+      "form": null,
+      "description": {
+        "normalized": "Throws his axes, dealing 75 / 120 / 165 / 210 (+50% AD) physical damage and knocking enemies aside, slowing them by 25% / 30% / 35% / 40% for 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            75,
+            120,
+            165,
+            210
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws his axes, dealing 75 / 120 / 165 / 210 (+50% AD) physical damage and knocking enemies aside, slowing them by 25% / 30% / 35% / 40% for 2 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Whirling Death",
+      "form": null,
+      "description": {
+        "normalized": "Hurls two massive axes, dealing 200 / 300 / 400 (+130% AD) physical damage. The axe return to Draven when they reach the edge of the map, hit a champion or upon reactivation. Deals 8% less damage as it damages targets, minimum 60%. Upon reversal, the reduction is reset do deal full damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            200,
+            300,
+            400
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 8,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hurls two massive axes, dealing 200 / 300 / 400 (+130% AD) physical damage. The axe return to Draven when they reach the edge of the map, hit a champion or upon reactivation.\n\nDeals 8% less damage as it damages targets, minimum 60%. Upon reversal, the reduction is reset do deal full damage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/draven",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "League of Draven: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "id": "rell",
+  "name": "Rell",
+  "title": "The Iron Maiden",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/rell.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 30,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Break the Mold",
+      "form": null,
+      "description": {
+        "normalized": "Rell's attacks and abilities steal 2.5% Armor and 2.5% Magic Resist from enemies hit for 5 seconds, up to an increase of 12.5%. Max stacks: 5 per target. Her attacks additional deal 4 (5% Armor + 5% Magic Resist) magic damage on hit. Rell steals at least 1.5 - 3 Armor and Magic Resist. Does not steal from minions or epic monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 2.5,
+          "duration": 5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Rell's attacks and abilities steal 2.5% Armor and 2.5% Magic Resist from enemies hit for 5 seconds, up to an increase of 12.5%. Max stacks: 5 per target. Her attacks additional deal 4 (5% Armor + 5% Magic Resist) magic damage on hit.\n\nRell steals at least 1.5 - 3 Armor and Magic Resist. Does not steal from minions or epic monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Shattering Strike",
+      "form": null,
+      "description": {
+        "normalized": "Thrusts her lance, dealing 70 / 130 / 190 / 250 (+50% AP) magic damage, stunning for 0.65 seconds, and destroying all shields. Does not break shields on monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            130,
+            190,
+            250
+          ],
+          "duration": 0.65,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Thrusts her lance, dealing 70 / 130 / 190 / 250 (+50% AP) magic damage, stunning for 0.65 seconds, and destroying all shields.\n\nDoes not break shields on monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Ferromancy - Crash Down / Mount Up",
+      "form": null,
+      "description": {
+        "normalized": "Mounted Alacrity (Passive): Gains 15 Movement Speed while mounted. Ferromancy: Crash Down (Active): Leaps off her mount, dealing 70 / 100 / 130 / 160 (+50% AP) magic damage. Enemies are also knocked up. Gains a shield that absorbs 30 / 60 / 90 / 120 (+13% max Health) damage, which lasts until she remounts. Rell then enters Armored Form, which lets her cast Ferromancy: Mount up. Armored Form Dismounted Resilience (Passive): Gains 12% Armor and 12% Magic Resist. Gains 20% Attack Speed. Gains 75 Attack Range. Ferromancy Mount Up (Active): Mounts up and gains 30% decaying Movement Speed for 2 seconds. Her next attack within 3.5 seconds knocks up enemies and throws them behind her, dealing an additional 15 / 30 / 45 / 60 (+35% AP) magic damage. She then enters Mounted Form, which lets her cast Ferromancy: Crash Down.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            15,
+            30,
+            45,
+            60
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Mounted Alacrity (Passive):\n\nGains 15 Movement Speed while mounted.\n\nFerromancy: Crash Down (Active):\n\nLeaps off her mount, dealing 70 / 100 / 130 / 160 (+50% AP) magic damage. Enemies are also knocked up. Gains a shield that absorbs 30 / 60 / 90 / 120 (+13% max Health) damage, which lasts until she remounts.\n\nRell then enters Armored Form, which lets her cast Ferromancy: Mount up.\n\nArmored Form\n\nDismounted Resilience (Passive):\n\nGains 12% Armor and 12% Magic Resist. Gains 20% Attack Speed. Gains 75 Attack Range.\n\nFerromancy Mount Up (Active):\n\nMounts up and gains 30% decaying Movement Speed for 2 seconds. Her next attack within 3.5 seconds knocks up enemies and throws them behind her, dealing an additional 15 / 30 / 45 / 60 (+35% AP) magic damage.\n\nShe then enters Mounted Form, which lets her cast Ferromancy: Crash Down.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Full Tilt",
+      "form": null,
+      "description": {
+        "normalized": "Charges, granting herself and a target allied champion nearby 10% Movement Speed. If no target is selected, the nearest allied champion will receive the bonus. This bonus increases to 25% for 3 seconds when facing enemy champions or each other. Rell's next attack or Shattering Strike explodes in an area, dealing 5.5% / 6% / 6.5% / 7% (+0.03 AP) of the target's max Health as magic damage. Deals up to 150 damage against monsters and structures.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 10,
+          "duration": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 5.5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 150,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Charges, granting herself and a target allied champion nearby 10% Movement Speed. If no target is selected, the nearest allied champion will receive the bonus. This bonus increases to 25% for 3 seconds when facing enemy champions or each other.\n\nRell's next attack or Shattering Strike explodes in an area, dealing 5.5% / 6% / 6.5% / 7% (+0.03 AP) of the target's max Health as magic damage.\n\nDeals up to 150 damage against monsters and structures.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Magnet Storm",
+      "form": null,
+      "description": {
+        "normalized": "Explodes in fury, pulling nearby enemy champions toward herself. Continuous Pull: While Magnet Storm is active, constantly pulls nearby enemies toward herself and deals 120 / 200 / 280 (+100% AP) magic damage over 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        70,
+        65
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            120,
+            200,
+            280
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Explodes in fury, pulling nearby enemy champions toward herself.\n\nContinuous Pull: While Magnet Storm is active, constantly pulls nearby enemies toward herself and deals 120 / 200 / 280 (+100% AP) magic damage over 2 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/rell",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Break the Mold: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ferromancy - Crash Down / Mount Up: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ferromancy - Crash Down / Mount Up: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

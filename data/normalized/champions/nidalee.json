@@ -1,0 +1,277 @@
+{
+  "id": "nidalee",
+  "name": "Nidalee",
+  "title": "The Bestial Huntress",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "/images/champion/icon/nidalee.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 95,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Prowl",
+      "form": null,
+      "description": {
+        "normalized": "Starts with a rank in Aspect of the Cougar. Queen of the Jungle: Gains 10% Movement Speed in brush, increased to 30% while moving toward enemy champions. This bonus persists for 2 seconds after leaving brush. Hunter's Mark: Hitting champions or monsters with Javelin Toss or Bushwhack marks them as Hunted for 4 seconds. While an enemy is Hunted, they are revealed and Nidalee gains 10% Movement Speed, increased to 30% while moving toward the Hunted enemy. The two Movement Speed bonuses stack, with a total cap of 30.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 10,
+          "duration": 2,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 10,
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Starts with a rank in Aspect of the Cougar.\n\nQueen of the Jungle: Gains 10% Movement Speed in brush, increased to 30% while moving toward enemy champions. This bonus persists for 2 seconds after leaving brush.\n\nHunter's Mark: Hitting champions or monsters with Javelin Toss or Bushwhack marks them as Hunted for 4 seconds. While an enemy is Hunted, they are revealed and Nidalee gains 10% Movement Speed, increased to 30% while moving toward the Hunted enemy.\n\nThe two Movement Speed bonuses stack, with a total cap of 30.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Javelin Toss / Takedown",
+      "form": null,
+      "description": {
+        "normalized": "Javelin Toss: Throws her javelin, dealing 90 / 120 / 150 / 180 (+50% AP) magic damage, increased to 225 / 300 / 375 / 450 (+125% AP) magic damage based on distance flown. Takedown: Nidalee's next attack deals 10 / 45 / 80 / 115 (+75% AD +40% AP) magic damage, increased by 1.25% per 1% of the target's missing Health. If the enemy is Hunted, deals 30% increased damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            120,
+            150,
+            180
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 1.25
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": [
+            10,
+            45,
+            80,
+            115
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.75
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Javelin Toss: Throws her javelin, dealing 90 / 120 / 150 / 180 (+50% AP) magic damage, increased to 225 / 300 / 375 / 450 (+125% AP) magic damage based on distance flown.\n\nTakedown: Nidalee's next attack deals 10 / 45 / 80 / 115 (+75% AD +40% AP) magic damage, increased by 1.25% per 1% of the target's missing Health. If the enemy is Hunted, deals 30% increased damage.",
+      "confidence": "medium"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Bushwhack / Pounce",
+      "form": null,
+      "description": {
+        "normalized": "Bushwhack: Places an invisible trap for 10 seconds, When an enemy walks over it, they are revealed and dealt 10 / 20 / 30 / 40 (+4% AP) magic damage per second for 4 seconds. 4 traps may be active at once. Pounce: Pounces toward a target location, dealing 55 / 90 / 125 / 160 (+40% bonus AD +25% AP) magic damage to enemies in the area she lands. Killing an enemy in Cougar Form or using this ability on a Hunted target reduces its cooldown to 2.75 / 2.25 / 1.75 / 1.25 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          35,
+          40,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "duration": 10,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.04
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            90,
+            125,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Bushwhack: Places an invisible trap for 10 seconds, When an enemy walks over it, they are revealed and dealt 10 / 20 / 30 / 40 (+4% AP) magic damage per second for 4 seconds. 4 traps may be active at once.\n\nPounce: Pounces toward a target location, dealing 55 / 90 / 125 / 160 (+40% bonus AD +25% AP) magic damage to enemies in the area she lands. Killing an enemy in Cougar Form or using this ability on a Hunted target reduces its cooldown to 2.75 / 2.25 / 1.75 / 1.25 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Primal Surge / Swipe",
+      "form": null,
+      "description": {
+        "normalized": "Primal Surge: Restores 40 / 70 / 100 / 130 (+30% AP) Health to a target, increased up to 80 / 140 / 200 / 260 (+60% AP) Health based on their missing Health, and grants them 30% / 40% / 50% / 60% Attack Speed for 7 seconds. Swipe: Claws at enemies in front of her, dealing 140 (+70% bonus AD +40% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 140,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.7
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Primal Surge: Restores 40 / 70 / 100 / 130 (+30% AP) Health to a target, increased up to 80 / 140 / 200 / 260 (+60% AP) Health based on their missing Health, and grants them 30% / 40% / 50% / 60% Attack Speed for 7 seconds.\n\nSwipe: Claws at enemies in front of her, dealing 140 (+70% bonus AD +40% AP) magic damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Aspect Of The Cougar",
+      "form": null,
+      "description": {
+        "normalized": "Passive: - While in Human Form, applying Hunted refreshes this ability's cooldown. - While in Cougar Form, Nidalee's basic ability damage scales with this ability's rank, and she gains 2 (+2.5% AP) bonus Armor and Magic Resist. Human Form (Active): Transforms into Cougar Form, gaining melee attacks and replacing her active abilities. Cougar Form (Active): Transforms into Human Form, gaining ranged attacks and replacing her active abilities.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        3,
+        3,
+        3
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Passive:\n\n- While in Human Form, applying Hunted refreshes this ability's cooldown.\n\n- While in Cougar Form, Nidalee's basic ability damage scales with this ability's rank, and she gains 2 (+2.5% AP) bonus Armor and Magic Resist.\n\nHuman Form (Active): Transforms into Cougar Form, gaining melee attacks and replacing her active abilities.\n\nCougar Form (Active): Transforms into Human Form, gaining ranged attacks and replacing her active abilities.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/nidalee",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Prowl: Numeric prose was not fully structured; rawParsedText kept.",
+    "Primal Surge / Swipe: Numeric prose was not fully structured; rawParsedText kept.",
+    "Aspect Of The Cougar: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

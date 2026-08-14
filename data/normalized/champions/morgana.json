@@ -1,0 +1,288 @@
+{
+  "id": "morgana",
+  "name": "Morgana",
+  "title": "The Fallen",
+  "roles": [],
+  "positions": [
+    "support",
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/morgana.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 37,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Soul Siphon",
+      "form": null,
+      "description": {
+        "normalized": "Morgana heals for 20% of the damage dealt with abilities agains champions, large minions and large monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 20,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Morgana heals for 20% of the damage dealt with abilities agains champions, large minions and large monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Dark Binding",
+      "form": null,
+      "description": {
+        "normalized": "Fires a bolt of dark energy, rooting the first enemy hit for 2 / 2.25 / 2.5 / 2.75 seconds and dealing 80 / 160 / 240 / 320 (+90% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            2,
+            2.25,
+            2.5,
+            2.75
+          ],
+          "duration": [
+            2,
+            2.25,
+            2.5,
+            2.75
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a bolt of dark energy, rooting the first enemy hit for 2 / 2.25 / 2.5 / 2.75 seconds and dealing 80 / 160 / 240 / 320 (+90% AP) magic damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Tormented Shadow",
+      "form": null,
+      "description": {
+        "normalized": "Curses an area for 5 seconds, dealing 7 / 12 / 17 / 22 (+7% AP) magic damage every 0.5 seconds to enemies within, increased by up to 170% based on their missing health. Tormented Soil deals 195% damage against monsters. Tormented Shadow's current Cooldowns is reduced by 3.5% of its maximum whenever Soul Siphon triggers.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          90,
+          110,
+          130
+        ]
+      },
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": [
+            7,
+            12,
+            17,
+            22
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.07
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Curses an area for 5 seconds, dealing 7 / 12 / 17 / 22 (+7% AP) magic damage every 0.5 seconds to enemies within, increased by up to 170% based on their missing health. Tormented Soil deals 195% damage against monsters.\n\nTormented Shadow's current Cooldowns is reduced by 3.5% of its maximum whenever Soul Siphon triggers.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Black Shield",
+      "form": null,
+      "description": {
+        "normalized": "Places a barrier around an allied champion for 5 seconds, absorbing 70 / 150 / 230 / 310 (+50% AP) magic damage and blocking disables while the shield holds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            150,
+            230,
+            310
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            70,
+            150,
+            230,
+            310
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Places a barrier around an allied champion for 5 seconds, absorbing 70 / 150 / 230 / 310 (+50% AP) magic damage and blocking disables while the shield holds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Soul Shackles",
+      "form": null,
+      "description": {
+        "normalized": "Chains nearby enemy champions, dealing 150 / 225 / 300 (+70% AP) magic damage of their maximum health. The chains persist for 3 seconds, revealing and slowing by 15% Movement Speed. When the duration ends, chained targets are stunned for 1.5 seconds and dealt 150 / 225 / 300 (+70% AP) magic damage of their maximum health. Morgana gains 10% / 25% / 40% Movement speed as long as the chains last.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            225,
+            300
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 15,
+          "duration": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 40,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Chains nearby enemy champions, dealing 150 / 225 / 300 (+70% AP) magic damage of their maximum health. The chains persist for 3 seconds, revealing and slowing by 15% Movement Speed. When the duration ends, chained targets are stunned for 1.5 seconds and dealt 150 / 225 / 300 (+70% AP) magic damage of their maximum health.\n\nMorgana gains 10% / 25% / 40% Movement speed as long as the chains last.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/morgana",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Tormented Shadow: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

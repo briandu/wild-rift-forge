@@ -1,0 +1,277 @@
+{
+  "id": "gnar",
+  "name": "Gnar",
+  "title": "The Missing Link",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/gnar.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 66,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 7,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.022,
+    "attackRange": null,
+    "armor": 43,
+    "armorPerLevel": 3,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 3,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Rage Gene",
+      "form": null,
+      "description": {
+        "normalized": "Dealing or taking damage generates Rage. At max Rage, Gnar's abilities will change, and his next ability transforms him into Mega Gnar for 15 seconds. Mini Gnar: Gains Movement Speed ( max 20), Attack Range (max 150), and Attack Speed (max 90%) . Mega Gnar: Gains 100 Health (max 900), 5 Armor (max 60), 5 Magic Resist (max 70), and 8 Attack Damage (max 50). When dealing or taking damage as Mini Gnar, gains 3 Rage for the next 2 seconds. Attacking enemy champions generates 2 Rage, and attacking non-champions generates 1 Rage. At max Rage, Gnar automatically transforms after 4 seconds if he does not use an ability. Rage decays after 13 seconds if Gnar has not dealt or taken damage during this time. Gnar cannot generate Rage for 15 seconds after he transforms back from Mini Gnar to Mega Gnar. Mini Gnar and Mega Gnar share all ability cooldowns except Hyper's.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Dealing or taking damage generates Rage. At max Rage, Gnar's abilities will change, and his next ability transforms him into Mega Gnar for 15 seconds.\n\nMini Gnar: Gains Movement Speed ( max 20), Attack Range (max 150), and Attack Speed (max 90%) .\n\nMega Gnar: Gains 100 Health (max 900), 5 Armor (max 60), 5 Magic Resist (max 70), and 8 Attack Damage (max 50).\n\nWhen dealing or taking damage as Mini Gnar, gains 3 Rage for the next 2 seconds. Attacking enemy champions generates 2 Rage, and attacking non-champions generates 1 Rage. At max Rage, Gnar automatically transforms after 4 seconds if he does not use an ability.\n\nRage decays after 13 seconds if Gnar has not dealt or taken damage during this time. Gnar cannot generate Rage for 15 seconds after he transforms back from Mini Gnar to Mega Gnar.\n\nMini Gnar and Mega Gnar share all ability cooldowns except Hyper's.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Boomerang Throw / Boulder Toss",
+      "form": null,
+      "description": {
+        "normalized": "Mini Gnar: Throws a boomerang that deals 5 / 55 / 105 / 155 (+125% AD) physical damage and slows enemies by 20% / 25% / 30% / 35% for 2 seconds. The boomerang returns to Gnar after hitting the target, dealing 50% damage to subsequent enemies. Each enemy can only be hit once. Catching the boomerang reduces its cooldown by 40%. Mega Gnar: Throws a boulder, dealing 40 / 95 / 150 / 205 (+140% AD) physical damage and slowing the target hit and nearby enemies by 35% / 40% / 45% / 50% for 2 seconds. Picking up the boulder within 5 seconds reduces its cooldown by 70%. The boomerang generates 1 Rage when it hits a champion and 1 Rage when it hits a non-champion. Only the first hit on each target generates Rage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            5,
+            55,
+            105,
+            155
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.25
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            40,
+            95,
+            150,
+            205
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Mini Gnar: Throws a boomerang that deals 5 / 55 / 105 / 155 (+125% AD) physical damage and slows enemies by 20% / 25% / 30% / 35% for 2 seconds. The boomerang returns to Gnar after hitting the target, dealing 50% damage to subsequent enemies. Each enemy can only be hit once. Catching the boomerang reduces its cooldown by 40%.\n\nMega Gnar: Throws a boulder, dealing 40 / 95 / 150 / 205 (+140% AD) physical damage and slowing the target hit and nearby enemies by 35% / 40% / 45% / 50% for 2 seconds. Picking up the boulder within 5 seconds reduces its cooldown by 70%.\n\nThe boomerang generates 1 Rage when it hits a champion and 1 Rage when it hits a non-champion. Only the first hit on each target generates Rage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Hyper / Wallop",
+      "form": null,
+      "description": {
+        "normalized": "Mini Gnar (Passive): Every third attack or ability on the same enemy deals an additional 10 / 20 / 30 / 40 (+100% AP) plus 7% / 9% / 11% / 13% of the target's max Health as magic damage and grants 20% Movement Speed that decays over 3 seconds. Mini Gnar (Active): Gains 35% / 40% / 45% / 50% Attack Speed for 6 seconds. Mega Gnar: Smashes down on the area in front of him, dealing 45 / 85 / 125 / 165 (+100% AD) physical damage in an area and stunning for 1.25 seconds. Gain Hyper's passive Movement Speed bonus upon leaving Mega Gnar form. Mini Gnar (Passive) deals up to 300 damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        20,
+        19,
+        18,
+        17
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 20,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            45,
+            85,
+            125,
+            165
+          ],
+          "duration": 1.25,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 300,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Mini Gnar (Passive): Every third attack or ability on the same enemy deals an additional 10 / 20 / 30 / 40 (+100% AP) plus 7% / 9% / 11% / 13% of the target's max Health as magic damage and grants 20% Movement Speed that decays over 3 seconds.\n\nMini Gnar (Active): Gains 35% / 40% / 45% / 50% Attack Speed for 6 seconds.\n\nMega Gnar: Smashes down on the area in front of him, dealing 45 / 85 / 125 / 165 (+100% AD) physical damage in an area and stunning for 1.25 seconds. Gain Hyper's passive Movement Speed bonus upon leaving Mega Gnar form.\n\nMini Gnar (Passive) deals up to 300 damage to monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Hop / Crunch",
+      "form": null,
+      "description": {
+        "normalized": "Mini Gnar: Leaps to a location. If Gnar lands on a unit, he will bounce off it, traveling further in the same direction. Deals 50 / 95 / 140 / 185 (+6% of his max Health) physical damage and briefly slows the unit landed on by 80% if they are an enemy. Mega Gnar: Leaps to a location, dealing 80 / 125 / 170 / 215 (+6% of his max Health) physical damage to nearby enemies on landing. Enemies Gnar lands directly on top of are slowed briefly by 80%. If casting Hop transforms Gnar into Mega Gnar, Mega Gnar will also bounce off the unit he lands on and travel further.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        21,
+        18,
+        15,
+        12
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            95,
+            140,
+            185
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            125,
+            170,
+            215
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Mini Gnar: Leaps to a location. If Gnar lands on a unit, he will bounce off it, traveling further in the same direction. Deals 50 / 95 / 140 / 185 (+6% of his max Health) physical damage and briefly slows the unit landed on by 80% if they are an enemy.\n\nMega Gnar: Leaps to a location, dealing 80 / 125 / 170 / 215 (+6% of his max Health) physical damage to nearby enemies on landing. Enemies Gnar lands directly on top of are slowed briefly by 80%.\n\nIf casting Hop transforms Gnar into Mega Gnar, Mega Gnar will also bounce off the unit he lands on and travel further.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "GNAR!",
+      "form": null,
+      "description": {
+        "normalized": "Mini Gnar (Passive): Hyper's Movement Speed bonus is increased to 35% / 50% / 65%. Mega Gnar: Knocks back enemies around him, dealing 200 / 300 / 400 (+50% bonus AD +100% AP) physical damage and slowing them by 45% for 1.25 / 1.5 / 1.75 seconds. GNAR!'s damage to enemies knocked back into a wall increases by 50% and stuns them instead of slowing.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        60,
+        45,
+        30
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            200,
+            300,
+            400
+          ],
+          "duration": [
+            1.25,
+            1.5,
+            1.75
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Mini Gnar (Passive): Hyper's Movement Speed bonus is increased to 35% / 50% / 65%.\n\nMega Gnar: Knocks back enemies around him, dealing 200 / 300 / 400 (+50% bonus AD +100% AP) physical damage and slowing them by 45% for 1.25 / 1.5 / 1.75 seconds.\n\nGNAR!'s damage to enemies knocked back into a wall increases by 50% and stuns them instead of slowing.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/gnar",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rage Gene: Numeric prose was not fully structured; rawParsedText kept.",
+    "Boomerang Throw / Boulder Toss: Numeric prose was not fully structured; rawParsedText kept.",
+    "Hyper / Wallop: Numeric prose was not fully structured; rawParsedText kept.",
+    "GNAR!: Numeric prose was not fully structured; rawParsedText kept.",
+    "GNAR!: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

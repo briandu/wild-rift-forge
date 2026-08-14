@@ -1,0 +1,287 @@
+{
+  "id": "diana",
+  "name": "Diana",
+  "title": "The Scorn of the Moon",
+  "roles": [],
+  "positions": [
+    "mid",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/diana.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 140,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Moonsilver Blade",
+      "form": null,
+      "description": {
+        "normalized": "Casting an ability will gain bonus basic attack speed in 4 seconds. Every third attack deals 35 (+50% AP) magic damage in an area. Deals 50% damage to structures, and 100% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 35,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Casting an ability will gain bonus basic attack speed in 4 seconds.\n\nEvery third attack deals 35 (+50% AP) magic damage in an area.\n\nDeals 50% damage to structures, and 100% damage to monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Crescent Strike",
+      "form": null,
+      "description": {
+        "normalized": "Unleashes an arcing bolt of energy that deals 60 / 105 / 150 / 195 (+70% AP) magic damage and applies Moonlight for 3 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            105,
+            150,
+            195
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Unleashes an arcing bolt of energy that deals 60 / 105 / 150 / 195 (+70% AP) magic damage and applies Moonlight for 3 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Pale Cascade",
+      "form": null,
+      "description": {
+        "normalized": "Creates 3 spheres that orbit Diana for 5 seconds. Upon contact with enemies the spheres detonate, dealing 20 / 35 / 50 / 65 (+20% AP) magic damage. Also grants a shield that absorbs 50 / 70 / 90 / 110 (+40% AP) damage. If the third sphere detonates, the shield is increased by 50 / 70 / 90 / 110 (+40% AP).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            35,
+            50,
+            65
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            50,
+            70,
+            90,
+            110
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Creates 3 spheres that orbit Diana for 5 seconds. Upon contact with enemies the spheres detonate, dealing 20 / 35 / 50 / 65 (+20% AP) magic damage.\n\nAlso grants a shield that absorbs 50 / 70 / 90 / 110 (+40% AP) damage. If the third sphere detonates, the shield is increased by 50 / 70 / 90 / 110 (+40% AP).",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Lunar Rush",
+      "form": null,
+      "description": {
+        "normalized": "Dashes to a point near an enemy, dealing 40 / 80 / 120 / 160 (+30% AP) magic damage and removing Moonlight in an area. Lunar Rush's Cooldown is reduced to 0.5 seconds if it removes Moonlight from an enemy.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            80,
+            120,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes to a point near an enemy, dealing 40 / 80 / 120 / 160 (+30% AP) magic damage and removing Moonlight in an area.\n\nLunar Rush's Cooldown is reduced to 0.5 seconds if it removes Moonlight from an enemy.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Moonfall",
+      "form": null,
+      "description": {
+        "normalized": "Summons the moon for up to 1 second, triggering Moonfall Glow when the charge is complete. Diana can move and cast abilities and spells while charging up. Click again to stop charging and trigger Moonfall Glow. Moonfall Glow: Deal 100 / 160 / 220 (+40% AP) to 200 / 320 / 440 (+80% AP) magic damage based on charge time and slowing targets by 20% for 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            160,
+            220
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Summons the moon for up to 1 second, triggering Moonfall Glow when the charge is complete. Diana can move and cast abilities and spells while charging up. Click again to stop charging and trigger Moonfall Glow.\n\nMoonfall Glow: Deal 100 / 160 / 220 (+40% AP) to 200 / 320 / 440 (+80% AP) magic damage based on charge time and slowing targets by 20% for 2 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/diana",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Moonsilver Blade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Lunar Rush: Numeric prose was not fully structured; rawParsedText kept.",
+    "Moonfall: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

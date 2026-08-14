@@ -1,0 +1,216 @@
+{
+  "id": "katarina",
+  "name": "Katarina",
+  "title": "The Sinister Blade",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/katarina.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 136,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Voracity",
+      "form": null,
+      "description": {
+        "normalized": "Whenever an enemy champion dies that Katarina has damaged in the last 3 seconds, her remaining ability cooldowns are reduced by 15 seconds. Katarina slashes at all nearby enemies whenever she picks up a Dagger, dealing 55 (+100% bonus AD +34.5% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 55,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.345
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Whenever an enemy champion dies that Katarina has damaged in the last 3 seconds, her remaining ability cooldowns are reduced by 15 seconds.\n\nKatarina slashes at all nearby enemies whenever she picks up a Dagger, dealing 55 (+100% bonus AD +34.5% AP) magic damage.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Bouncing Blades",
+      "form": null,
+      "description": {
+        "normalized": "Throws a Dagger, dealing 75 / 115 / 155 / 195 (+30% AP) magic damage to the target and 2 nearby enemies. The Dagger then riccochets to the ground behind the initial strike point. The Dagger's time in the air is the same regardless of how many times it bounces.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            115,
+            155,
+            195
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws a Dagger, dealing 75 / 115 / 155 / 195 (+30% AP) magic damage to the target and 2 nearby enemies. The Dagger then riccochets to the ground behind the initial strike point.\n\nThe Dagger's time in the air is the same regardless of how many times it bounces.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Preparation",
+      "form": null,
+      "description": {
+        "normalized": "Tosses a Dagger in the air and hastes Katarina by 50% / 60% / 70% / 80%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Tosses a Dagger in the air and hastes Katarina by 50% / 60% / 70% / 80%.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Shunpo",
+      "form": null,
+      "description": {
+        "normalized": "Blink to a location near a Dagger or unit, dealing 20 / 50 / 80 / 110 (+50% AD +30% AP) magic damage to the nearest enemy. Picking up a Dagger greatly reduces the Cooldown of Shunpo.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            50,
+            80,
+            110
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Blink to a location near a Dagger or unit, dealing 20 / 50 / 80 / 110 (+50% AD +30% AP) magic damage to the nearest enemy.\n\nPicking up a Dagger greatly reduces the Cooldown of Shunpo.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Death Lotus",
+      "form": null,
+      "description": {
+        "normalized": "Rapidly throws blades at the 3 nearest enemy champions, dealing 400 / 600 / 800 (+260% AD +290% AP) magic damage and applying 60% Grievous Wounds. Katarina can move and throw blades for up to 2.6 seconds. Grievous Wounds reduces the effectiveness of Healing and Regeneration effects.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        60,
+        50,
+        40
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            400,
+            600,
+            800
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 2.6
+            },
+            {
+              "stat": "ap",
+              "ratio": 2.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Rapidly throws blades at the 3 nearest enemy champions, dealing 400 / 600 / 800 (+260% AD +290% AP) magic damage and applying 60% Grievous Wounds. Katarina can move and throw blades for up to 2.6 seconds.\n\nGrievous Wounds reduces the effectiveness of Healing and Regeneration effects.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/katarina",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Voracity: Numeric prose was not fully structured; rawParsedText kept.",
+    "Preparation: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

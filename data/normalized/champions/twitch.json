@@ -1,0 +1,221 @@
+{
+  "id": "twitch",
+  "name": "Twitch",
+  "title": "The Plague Rat",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/twitch.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Deadly Venom",
+      "form": null,
+      "description": {
+        "normalized": "Attacks infect enemies with venom, dealing 1 (+2.5% AP) true damage over 5 seconds and stacking up to 5 times. When an enemy champion has full stacks of Deadly Venom, Twitch gains 30% / 35% / 40% / 45% / 50% attack speed for 5 seconds. Monsters take 130% increased damage from Deadly Venom.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.025
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attacks infect enemies with venom, dealing 1 (+2.5% AP) true damage over 5 seconds and stacking up to 5 times.\n\nWhen an enemy champion has full stacks of Deadly Venom, Twitch gains 30% / 35% / 40% / 45% / 50% attack speed for 5 seconds.\n\nMonsters take 130% increased damage from Deadly Venom.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Ambush",
+      "form": null,
+      "description": {
+        "normalized": "Become Camouflaged and hasted by 10% for 8 / 9 / 10 / 11 seconds, increasing to 20% when nearby enemy champions cannot see Twitch. After exiting Camouflage, Twitch's attacks will apply an additional stack of Deadly Venom for 3 seconds. Ambush resets when a champion dies while infected by Deadly Venom. Camouflage: Hide from champions by keeping them outside Twitch's detection radius. Attacks and offensive abilities end Camouflage early.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Become Camouflaged and hasted by 10% for 8 / 9 / 10 / 11 seconds, increasing to 20% when nearby enemy champions cannot see Twitch.\n\nAfter exiting Camouflage, Twitch's attacks will apply an additional stack of Deadly Venom for 3 seconds. Ambush resets when a champion dies while infected by Deadly Venom.\n\nCamouflage: Hide from champions by keeping them outside Twitch's detection radius. Attacks and offensive abilities end Camouflage early.",
+      "confidence": "medium"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Venom Cask",
+      "form": null,
+      "description": {
+        "normalized": "Hurls a cask that applies stacks of Deadly Venom to enemies and slows them for 30% / 35% / 40% / 45% (+6% bonus) for 3 seconds. Cast time decreases with Twitch's attack speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Hurls a cask that applies stacks of Deadly Venom to enemies and slows them for 30% / 35% / 40% / 45% (+6% bonus) for 3 seconds.\n\nCast time decreases with Twitch's attack speed.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Contaminate",
+      "form": null,
+      "description": {
+        "normalized": "Deals 25 / 35 / 45 / 55 physical damage to all enemies affected by Deadly Venom, each stack deals 20 / 25 / 30 / 35 (+42% bonus AD +18% AP) damage to enemies. Enemies with maximum stacks will spread the damage to nearby targets and apply maximum stacks of Deadly Venom to them. Deals 130 physical damage at max stacks. Deals 80% increased damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        15,
+        14,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          45,
+          55,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.42
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.18
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 130,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 80,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 25 / 35 / 45 / 55 physical damage to all enemies affected by Deadly Venom, each stack deals 20 / 25 / 30 / 35 (+42% bonus AD +18% AP) damage to enemies.\n\nEnemies with maximum stacks will spread the damage to nearby targets and apply maximum stacks of Deadly Venom to them.\n\nDeals 130 physical damage at max stacks.\n\nDeals 80% increased damage to monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Spray and Pray",
+      "form": null,
+      "description": {
+        "normalized": "For 6 seconds gain 225 Attack Range and 30 / 45 / 60 bonus Attack Damage and transform attacks into piercing bolts that hit every enemy in a line. Subsequent targets take 15% less damage, down to a minimum of 40%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "For 6 seconds gain 225 Attack Range and 30 / 45 / 60 bonus Attack Damage and transform attacks into piercing bolts that hit every enemy in a line.\n\nSubsequent targets take 15% less damage, down to a minimum of 40%.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/twitch",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Deadly Venom: Numeric prose was not fully structured; rawParsedText kept.",
+    "Deadly Venom: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ambush: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ambush: Numeric prose was not fully structured; rawParsedText kept.",
+    "Venom Cask: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spray and Pray: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spray and Pray: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

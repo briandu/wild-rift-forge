@@ -1,0 +1,258 @@
+{
+  "id": "ezreal",
+  "name": "Ezreal",
+  "title": "The Prodigal Explorer",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/ezreal.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 120,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 37,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 5,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Rising Spell Force",
+      "form": null,
+      "description": {
+        "normalized": "Gains 13% Attack Speed for 8 seconds when hitting abilities, stacking up to 4 times.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gains 13% Attack Speed for 8 seconds when hitting abilities, stacking up to 4 times.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Mystic Shot",
+      "form": null,
+      "description": {
+        "normalized": "Fires a bolt, dealing 50 / 85 / 120 / 155 (+135% AD +30% AP) physical damage. Hitting a target reduces Ezreal's other ability cooldowns by 1.5 seconds. Applies on-hit effects.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        4,
+        4,
+        3,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          35,
+          40,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            85,
+            120,
+            155
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.35
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a bolt, dealing 50 / 85 / 120 / 155 (+135% AD +30% AP) physical damage. Hitting a target reduces Ezreal's other ability cooldowns by 1.5 seconds. Applies on-hit effects.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Essence Flux",
+      "form": null,
+      "description": {
+        "normalized": "Fires an orb that sticks to a champion, epic monster or structure for 4 seconds. Hitting the target with an attack or ability detonates the orb, dealing 80 / 155 / 230 / 305 (+60% AD +75% / 80% / 85% / 90% AP) magic damage and refunding 60 / 70 / 80 / 90 Mana.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            155,
+            230,
+            305
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires an orb that sticks to a champion, epic monster or structure for 4 seconds.\n\nHitting the target with an attack or ability detonates the orb, dealing 80 / 155 / 230 / 305 (+60% AD +75% / 80% / 85% / 90% AP) magic damage and refunding 60 / 70 / 80 / 90 Mana.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Arcane Shift",
+      "form": null,
+      "description": {
+        "normalized": "Blinks to taget location and fires a bolt, dealing 80 / 145 / 210 / 275 (+50% AD +75% AP) magic damage. Prioritizes enemies hit by Essence Flux, then the nearest enemy.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        24,
+        21,
+        17,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            145,
+            210,
+            275
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Blinks to taget location and fires a bolt, dealing 80 / 145 / 210 / 275 (+50% AD +75% AP) magic damage. Prioritizes enemies hit by Essence Flux, then the nearest enemy.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Trueshot Barrage",
+      "form": null,
+      "description": {
+        "normalized": "Fires an energy wave, dealing 350 / 500 / 650 (+100% AD +90% AP) magic damage. Deals 50% reduced damage to minions and non-epic monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            350,
+            500,
+            650
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires an energy wave, dealing 350 / 500 / 650 (+100% AD +90% AP) magic damage.\n\nDeals 50% reduced damage to minions and non-epic monsters.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ezreal",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Rising Spell Force: Numeric prose was not fully structured; rawParsedText kept.",
+    "Essence Flux: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

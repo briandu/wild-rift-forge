@@ -1,0 +1,239 @@
+{
+  "id": "darius",
+  "name": "Darius",
+  "title": "The Hand of Noxus",
+  "roles": [],
+  "positions": [
+    "solo",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/darius.png",
+  "stats": {
+    "health": 650,
+    "healthPerLevel": 144,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 70,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 52,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Hemorrhage",
+      "form": null,
+      "description": {
+        "normalized": "Attacks cause enemies to bleed, dealing 16 + 2 x (based on level) (+40% bonus AD) physical damage over 5 seconds. Can stack up to 5 times. Upon reaching full stacks, Darius gains Noxian Might for 5 seconds, gaining 32 Attack Damage and applying full stacks of Hemorrhage instead of 1. Deals 180% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 16,
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 180,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attacks cause enemies to bleed, dealing 16 + 2 x (based on level) (+40% bonus AD) physical damage over 5 seconds. Can stack up to 5 times. Upon reaching full stacks, Darius gains Noxian Might for 5 seconds, gaining 32 Attack Damage and applying full stacks of Hemorrhage instead of 1.\n\nDeals 180% damage to monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Decimate",
+      "form": null,
+      "description": {
+        "normalized": "Swings his axe after a delay, dealing 18 / 32 / 46 / 60 (+35% / 40% / 45% / 50% AD) physical damage. Hitting enemies with the blade of the axe deals 50 / 90 / 130 / 170 (+100% / 115% / 130% / 145% AD), heals himself for 15% of his missing Health for each champion or large monster hit (max 45%) and applies Hemorrhage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          35,
+          35,
+          35
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            18,
+            32,
+            46,
+            60
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": [
+            50,
+            90,
+            130,
+            170
+          ],
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Swings his axe after a delay, dealing 18 / 32 / 46 / 60 (+35% / 40% / 45% / 50% AD) physical damage.\n\nHitting enemies with the blade of the axe deals 50 / 90 / 130 / 170 (+100% / 115% / 130% / 145% AD), heals himself for 15% of his missing Health for each champion or large monster hit (max 45%) and applies Hemorrhage.",
+      "confidence": "medium"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Crippling Strike",
+      "form": null,
+      "description": {
+        "normalized": "Empowers his next attack for 8 seconds to deal an additional 30% / 40% / 50% / 60% AD and slows by 90% for 1 second. Killing the target refunds 50% of the cooldown and 100% of the mana cost.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Empowers his next attack for 8 seconds to deal an additional 30% / 40% / 50% / 60% AD and slows by 90% for 1 second.\n\nKilling the target refunds 50% of the cooldown and 100% of the mana cost.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Apprehend",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 15% / 22% / 29% / 36% Armor Penetration. Active: Pulls in enemies in front of him, slowing them by 40% for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          45,
+          45,
+          45
+        ]
+      },
+      "effects": [],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 15% / 22% / 29% / 36% Armor Penetration.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Pulls in enemies in front of him, slowing them by 40% for 1.5 seconds.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Gains 15% / 22% / 29% / 36% Armor Penetration.\n\nActive: Pulls in enemies in front of him, slowing them by 40% for 1.5 seconds.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Noxian Guillotine",
+      "form": null,
+      "description": {
+        "normalized": "Leaps to execute a champion. Deals 125 / 250 / 375 (+75% AD) true damage, increased by 20% per Hemorrhage stack, and applies Hemorrhage. Killing the target with Noxian Guillotine refreshes its cooldown, mana cost, and grants Noxian Might for 5 seconds and causes nearby minions and monsters to flee for 1.5 seconds. When casting Noxian Guillotine and the target dies, moves out of range, becomes untargetable, or activates Zhonya's Hurglass or Guardian Angel, the mana cost will be refunded and go on a 5 second cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": [
+            125,
+            250,
+            375
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Leaps to execute a champion. Deals 125 / 250 / 375 (+75% AD) true damage, increased by 20% per Hemorrhage stack, and applies Hemorrhage.\n\nKilling the target with Noxian Guillotine refreshes its cooldown, mana cost, and grants Noxian Might for 5 seconds and causes nearby minions and monsters to flee for 1.5 seconds.\n\nWhen casting Noxian Guillotine and the target dies, moves out of range, becomes untargetable, or activates Zhonya's Hurglass or Guardian Angel, the mana cost will be refunded and go on a 5 second cooldown.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/darius",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Crippling Strike: Numeric prose was not fully structured; rawParsedText kept.",
+    "Crippling Strike: Numeric prose was not fully structured; rawParsedText kept.",
+    "Apprehend: Numeric prose was not fully structured; rawParsedText kept.",
+    "Apprehend: Numeric prose was not fully structured; rawParsedText kept.",
+    "Noxian Guillotine: Numeric prose was not fully structured; rawParsedText kept.",
+    "Noxian Guillotine: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

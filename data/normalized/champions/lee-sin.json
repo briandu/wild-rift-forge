@@ -1,0 +1,276 @@
+{
+  "id": "lee-sin",
+  "name": "Lee Sin",
+  "title": "The Blind Monk",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/lee-sin.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 200,
+      "maximumPerLevel": 0,
+      "regen5": 50,
+      "regen5PerLevel": 0
+    },
+    "attackDamage": 66,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Flurry",
+      "form": null,
+      "description": {
+        "normalized": "Lee Sin's Abilities grant him 40% Attack Speed for 2 attacks within 3 seconds. The first attack restores 20 energy and the second restores half of that amount.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Lee Sin's Abilities grant him 40% Attack Speed for 2 attacks within 3 seconds. The first attack restores 20 energy and the second restores half of that amount.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Sonic Wave / Resonating Strike",
+      "form": null,
+      "description": {
+        "normalized": "Sonic Wave: Fires an energy wave that deals 60 / 100 / 140 / 180 (+90% AD) physical damage to enemies and reveals them. Hitting an enemy allows Resonating Strike to be cast within 3 seconds. Resonating Strike: Dash to enemy marked by Sonic Wave, dealing 60 / 100 / 140 / 160 to 110 / 180 / 250 / 360 (+90% to +200% AD) physical damage based on its missing Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            100,
+            140,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 2
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Sonic Wave: Fires an energy wave that deals 60 / 100 / 140 / 180 (+90% AD) physical damage to enemies and reveals them. Hitting an enemy allows Resonating Strike to be cast within 3 seconds.\n\nResonating Strike: Dash to enemy marked by Sonic Wave, dealing 60 / 100 / 140 / 160 to 110 / 180 / 250 / 360 (+90% to +200% AD) physical damage based on its missing Health.",
+      "confidence": "medium"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Safeguard / Iron Will",
+      "form": null,
+      "description": {
+        "normalized": "Safeguard: Dashes to target location. If an enemy is nearby on arrival, Lee Sin shield himself for 100 / 160 / 220 / 280 (+100% AP) for 2 seconds. Allows Iron Will to be cast within 3 seconds. Safeguard's cooldown is reduced by 0.5 seconds with each attack. Iron Will: Empowers next two attacks to deal an additional 26 / 39 / 52 / 65 (+40% AP) magic damage and gain 20% / 30% / 40% / 50% Omnivamp.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        14,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            100,
+            160,
+            220,
+            280
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            26,
+            39,
+            52,
+            65
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Safeguard: Dashes to target location. If an enemy is nearby on arrival, Lee Sin shield himself for 100 / 160 / 220 / 280 (+100% AP) for 2 seconds. Allows Iron Will to be cast within 3 seconds.\n\nSafeguard's cooldown is reduced by 0.5 seconds with each attack.\n\nIron Will: Empowers next two attacks to deal an additional 26 / 39 / 52 / 65 (+40% AP) magic damage and gain 20% / 30% / 40% / 50% Omnivamp.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Tempest / Cripple",
+      "form": null,
+      "description": {
+        "normalized": "Tempest: Deals 35 / 70 / 105 / 140 (+90% AD) magic damage, to nearby enemies and reveals them for 3 seconds. Hitting an enemy allows Cripple to be cast within 3 seconds. Cripple: Slows enemies hit by Tempest by 30% / 40% / 50% / 60%, decaying over the course of 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            70,
+            105,
+            140
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Tempest: Deals 35 / 70 / 105 / 140 (+90% AD) magic damage, to nearby enemies and reveals them for 3 seconds. Hitting an enemy allows Cripple to be cast within 3 seconds.\n\nCripple: Slows enemies hit by Tempest by 30% / 40% / 50% / 60%, decaying over the course of 4 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Dragon's Rage",
+      "form": null,
+      "description": {
+        "normalized": "Launches a powerful roundhouse kick at an enemy champion, dealing 125 / 350 / 575 (+190% bonus AD + 12% / 15% / 18% of the target's maximum health) physical damage and knocking them back. Enemies the target collides with along the way are knocked Airborne for 1 second and take 100 / 300 / 500 (+200% bonus AD + 10% / 13% / 16% of the target's maximum Health). Damage dealt to monsters is caped at 800.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        60,
+        50
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            125,
+            350,
+            575
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.9
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launches a powerful roundhouse kick at an enemy champion, dealing 125 / 350 / 575 (+190% bonus AD + 12% / 15% / 18% of the target's maximum health) physical damage and knocking them back. Enemies the target collides with along the way are knocked Airborne for 1 second and take 100 / 300 / 500 (+200% bonus AD + 10% / 13% / 16% of the target's maximum Health).\n\nDamage dealt to monsters is caped at 800.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/lee-sin",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Flurry: Numeric prose was not fully structured; rawParsedText kept.",
+    "Safeguard / Iron Will: Numeric prose was not fully structured; rawParsedText kept.",
+    "Tempest / Cripple: Numeric prose was not fully structured; rawParsedText kept.",
+    "Dragon's Rage: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

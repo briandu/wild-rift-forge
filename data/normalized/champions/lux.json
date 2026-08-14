@@ -1,0 +1,244 @@
+{
+  "id": "lux",
+  "name": "Lux",
+  "title": "The Lady of Luminosity",
+  "roles": [],
+  "positions": [
+    "support",
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/lux.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 37,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Illumination",
+      "form": null,
+      "description": {
+        "normalized": "Damaging abilities afflict enemies with Illumination for 5 seconds. Illumination empowers Lux's next attack against that target, dealing 18 + Level x 7.5 (+25% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 18,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Damaging abilities afflict enemies with Illumination for 5 seconds.\n\nIllumination empowers Lux's next attack against that target, dealing 18 + Level x 7.5 (+25% AP) magic damage.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Light Binding",
+      "form": null,
+      "description": {
+        "normalized": "Casts out a ball of light that roots enemy champions and large monsters for 2 seconds and deals 60 / 120 / 180 / 240 (+70% AP) magic damage to them. Roots up to 2 enemies. Minions and small monsters hit by the ball of light will be dealt 90% damage, but they will not be marked by Illumination or become rooted.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          50,
+          55,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            120,
+            180,
+            240
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "root",
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Casts out a ball of light that roots enemy champions and large monsters for 2 seconds and deals 60 / 120 / 180 / 240 (+70% AP) magic damage to them. Roots up to 2 enemies.\n\nMinions and small monsters hit by the ball of light will be dealt 90% damage, but they will not be marked by Illumination or become rooted.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Prismatic Barrier",
+      "form": null,
+      "description": {
+        "normalized": "Throws Lux's wand in a direction, shielding allied champions it passes through from 25 / 50 / 75 / 100 (+18% AP) damage for 3 seconds. After reaching its apex it returns to Lux, shielding allied champions for an additional 40 / 70 / 100 / 130 (+28% AP) damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Throws Lux's wand in a direction, shielding allied champions it passes through from 25 / 50 / 75 / 100 (+18% AP) damage for 3 seconds.\n\nAfter reaching its apex it returns to Lux, shielding allied champions for an additional 40 / 70 / 100 / 130 (+28% AP) damage.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Lucent Singularity",
+      "form": null,
+      "description": {
+        "normalized": "Creates a zone of light that slows nearby enemies by 30% / 35% / 40% / 45%. After 5 seconds the zone detonates, dealing 65 / 130 / 195 / 260 (+55% AP) magic damage. Re-cast: Detonate the zone.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            65,
+            130,
+            195,
+            260
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Creates a zone of light that slows nearby enemies by 30% / 35% / 40% / 45%. After 5 seconds the zone detonates, dealing 65 / 130 / 195 / 260 (+55% AP) magic damage.\n\nRe-cast: Detonate the zone.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Final Spark",
+      "form": null,
+      "description": {
+        "normalized": "Fires a beam of light dealing 300 / 400 / 500 (+75% AP) magic damage to all enemies in a line. Final Spark ignites and refreshes Illumination.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        55,
+        45,
+        40
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            300,
+            400,
+            500
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a beam of light dealing 300 / 400 / 500 (+75% AP) magic damage to all enemies in a line.\n\nFinal Spark ignites and refreshes Illumination.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/lux",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Illumination: Numeric prose was not fully structured; rawParsedText kept.",
+    "Light Binding: Numeric prose was not fully structured; rawParsedText kept.",
+    "Prismatic Barrier: Numeric prose was not fully structured; rawParsedText kept.",
+    "Prismatic Barrier: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

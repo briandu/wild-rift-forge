@@ -1,0 +1,243 @@
+{
+  "id": "pyke",
+  "name": "Pyke",
+  "title": "The Bloodharbor Ripper",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/pyke.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 136,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.0114,
+    "attackRange": null,
+    "armor": 50,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 3,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Gift of the Drowned Ones",
+      "form": null,
+      "description": {
+        "normalized": "Stores 10% (+0.35 lethality) of damage taken from champions, increased to 50% (+0.65%lethality) if there are two or more visible enemy champions nearby. Damage stored cannot exceed 160 (lower value between 65% HP and 160 + 800% bonus AD). When Pyke is not visible to enemies, he heals for the amount of damage stored. Pyke cannot increase his max Health and converts 14 bonus Health to 1 Attack Damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Stores 10% (+0.35 lethality) of damage taken from champions, increased to 50% (+0.65%lethality) if there are two or more visible enemy champions nearby. Damage stored cannot exceed 160 (lower value between 65% HP and 160 + 800% bonus AD).\n\nWhen Pyke is not visible to enemies, he heals for the amount of damage stored.\n\nPyke cannot increase his max Health and converts 14 bonus Health to 1 Attack Damage.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Bone Skewer",
+      "form": null,
+      "description": {
+        "normalized": "Charge: Slows himself by 15% for up to 3 seconds, increasing cast rage over the first 0.8 seconds. Release: Hurls his spear, dealing 130 / 195 / 260 / 325 (+60% AD) physical damage, slowing the target by 90% for 1 second and pulling it in. Releasing the ability immediately will cause Pyke to thrust his spear instead, dealing the same damage. Deals 50% damage to minions and monsters. If Bone Skewer is overcharged it refunds a portion of its cooldown and 50% of its mana cost.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          40,
+          45,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            130,
+            195,
+            260,
+            325
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Charge: Slows himself by 15% for up to 3 seconds, increasing cast rage over the first 0.8 seconds.\n\nRelease: Hurls his spear, dealing 130 / 195 / 260 / 325 (+60% AD) physical damage, slowing the target by 90% for 1 second and pulling it in. Releasing the ability immediately will cause Pyke to thrust his spear instead, dealing the same damage.\n\nDeals 50% damage to minions and monsters.\n\nIf Bone Skewer is overcharged it refunds a portion of its cooldown and 50% of its mana cost.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Ghostwater Dive",
+      "form": null,
+      "description": {
+        "normalized": "Becomes camouflaged for 5 seconds and gains 40% (+200% lethality) Movement Speed that decays over the duration.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Becomes camouflaged for 5 seconds and gains 40% (+200% lethality) Movement Speed that decays over the duration.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Phantom Undertow",
+      "form": null,
+      "description": {
+        "normalized": "Dashes forward, leaving behind a phantom. After 1 second, the phantom returns to Pyke, dealing 120 / 175 / 230 / 285 (+100% AD) physical damage and stunning for 1.5 (+1% lethality) seconds. Deals 50% damage to minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        11,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            120,
+            175,
+            230,
+            285
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes forward, leaving behind a phantom. After 1 second, the phantom returns to Pyke, dealing 120 / 175 / 230 / 285 (+100% AD) physical damage and stunning for 1.5 (+1% lethality) seconds.\n\nDeals 50% damage to minions and monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Death from Below",
+      "form": null,
+      "description": {
+        "normalized": "Marks target area with an X, executing enemy champions below 250 / 400 / 550 (+80% AD +250% lethality) health. Non-champions and champions above the threshold take 50% of this amount as physical damage. If an enemy champion is struck, Pyke blinks to the location. If they were executed Pyke can recast Death from Below within 15 seconds. Pyke earns 100% additional gold every time he executes an enemy. If here is an assist from a teammate, the last assisting teammate will get 120% of the additional gold, and Pyke will get 160% of the additional gold (maximum 600), every time an enemy Champion is defeated by a teammate in the area with a X, Pyke can get 160% of the additional gold (capped at 600).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            250,
+            400,
+            550
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Marks target area with an X, executing enemy champions below 250 / 400 / 550 (+80% AD +250% lethality) health. Non-champions and champions above the threshold take 50% of this amount as physical damage.\n\nIf an enemy champion is struck, Pyke blinks to the location. If they were executed Pyke can recast Death from Below within 15 seconds.\n\nPyke earns 100% additional gold every time he executes an enemy. If here is an assist from a teammate, the last assisting teammate will get 120% of the additional gold, and Pyke will get 160% of the additional gold (maximum 600), every time an enemy Champion is defeated by a teammate in the area with a X, Pyke can get 160% of the additional gold (capped at 600).",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/pyke",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Gift of the Drowned Ones: Numeric prose was not fully structured; rawParsedText kept.",
+    "Gift of the Drowned Ones: Numeric prose was not fully structured; rawParsedText kept.",
+    "Bone Skewer: Numeric prose was not fully structured; rawParsedText kept.",
+    "Bone Skewer: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ghostwater Dive: Numeric prose was not fully structured; rawParsedText kept.",
+    "Death from Below: Numeric prose was not fully structured; rawParsedText kept.",
+    "Death from Below: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

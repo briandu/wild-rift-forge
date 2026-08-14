@@ -1,0 +1,233 @@
+{
+  "id": "yone",
+  "name": "Yone",
+  "title": "The Unforgotten",
+  "roles": [],
+  "positions": [
+    "mid",
+    "jungle",
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/yone.png",
+  "stats": {
+    "health": 650,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0214,
+    "attackRange": null,
+    "armor": 43,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Way of the Hunter",
+      "form": null,
+      "description": {
+        "normalized": "Steel and Spirit: Every other attack deals 50% of the attack's damage as magic damage instead. Intent: Yone's Critical Rate is doubled. Yone converts Critical Rate above 100% into Attack Damage at a rate of 0.6 Attack Damage per 1% Critical Rate.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Steel and Spirit: Every other attack deals 50% of the attack's damage as magic damage instead.\n\nIntent: Yone's Critical Rate is doubled.\n\nYone converts Critical Rate above 100% into Attack Damage at a rate of 0.6 Attack Damage per 1% Critical Rate.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Mortal Steel",
+      "form": null,
+      "description": {
+        "normalized": "Thrusts forward, dealing 30 / 50 / 70 / 90 (+175% AD) physical damage. Grants a stack of Gathering Storm if the thrust damages an enemy. At 2 stacks, Mortal Steel dashes Yone forward and launches a whirlwind that knocks enemies Airborne. Mortal Steel is treated as an attack: it can Critically Strike for bonus damage and applies on-hit effects to all units hit. Cooldown and cast time are reduced by Attack Speed. Deal 65% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            30,
+            50,
+            70,
+            90
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.75
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 65,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Thrusts forward, dealing 30 / 50 / 70 / 90 (+175% AD) physical damage. Grants a stack of Gathering Storm if the thrust damages an enemy. At 2 stacks, Mortal Steel dashes Yone forward and launches a whirlwind that knocks enemies Airborne.\n\nMortal Steel is treated as an attack: it can Critically Strike for bonus damage and applies on-hit effects to all units hit. Cooldown and cast time are reduced by Attack Speed.\n\nDeal 65% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Spirit Cleave",
+      "form": null,
+      "description": {
+        "normalized": "Cleaves in a cone, dealing 25 / 35 / 45 / 55 plus 11% / 12% / 13% / 14% of the target's maximum Health as physical and magic damage. Gains a shield that absorbs 45 (+80% bonus AD) damage for 1.5 seconds if Spirit Cleave hits an enemy, increased by 100% on hitting a champion and 40% on subsequent champion hits. Deals 60 minimum damage against minions. Deals 30 maximum damage against monsters. Cooldown aand cast time are reduced by Attack Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            25,
+            35,
+            45,
+            55
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 45,
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 60,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 30,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Cleaves in a cone, dealing 25 / 35 / 45 / 55 plus 11% / 12% / 13% / 14% of the target's maximum Health as physical and magic damage.\n\nGains a shield that absorbs 45 (+80% bonus AD) damage for 1.5 seconds if Spirit Cleave hits an enemy, increased by 100% on hitting a champion and 40% on subsequent champion hits.\n\nDeals 60 minimum damage against minions.\n\nDeals 30 maximum damage against monsters.\n\nCooldown aand cast time are reduced by Attack Speed.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Soul Unbound",
+      "form": null,
+      "description": {
+        "normalized": "Dashes forward, entering Spirit Form and leaving his body behind for 5 seconds. During Spirit Form, Yone gains 10% Movement Speed that increases over the duration and marks champions damaged with his attacks or abilities. When Soul Unbound ends, Yone returns to his body and marked enemies take 24% / 28% / 32% / 36% of the damage Yone dealt to them as true damage. Re-cast: End Soul Unbound early.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        20,
+        17,
+        14,
+        11
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 10,
+          "duration": 5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": 24,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes forward, entering Spirit Form and leaving his body behind for 5 seconds. During Spirit Form, Yone gains 10% Movement Speed that increases over the duration and marks champions damaged with his attacks or abilities.\n\nWhen Soul Unbound ends, Yone returns to his body and marked enemies take 24% / 28% / 32% / 36% of the damage Yone dealt to them as true damage.\n\nRe-cast: End Soul Unbound early.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Fate Sealed",
+      "form": null,
+      "description": {
+        "normalized": "Strikes all enemies along a path for 200 / 350 / 500 (+80% AD) physical and magic damage, teleport behind the last champion hit and knocking them towards Yone.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            200,
+            350,
+            500
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Strikes all enemies along a path for 200 / 350 / 500 (+80% AD) physical and magic damage, teleport behind the last champion hit and knocking them towards Yone.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/yone",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Way of the Hunter: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

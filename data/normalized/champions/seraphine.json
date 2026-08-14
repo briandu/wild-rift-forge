@@ -1,0 +1,251 @@
+{
+  "id": "seraphine",
+  "name": "Seraphine",
+  "title": "The Starry-Eyed Songstress",
+  "roles": [],
+  "positions": [
+    "support",
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/seraphine.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 112,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 37,
+      "regen5": 16,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Stage Presence",
+      "form": null,
+      "description": {
+        "normalized": "Echo: Every third basic ability cast will echo, casting it again. Harmony: Casting an ability grants a Note to nearby allies for 5 seconds. For each Note, Seraphine's next attack gains 30Attack Range and deals an additional 4 (+40% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 5,
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Echo: Every third basic ability cast will echo, casting it again.\n\nHarmony: Casting an ability grants a Note to nearby allies for 5 seconds. For each Note, Seraphine's next attack gains 30Attack Range and deals an additional 4 (+40% AP) magic damage.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "High Note",
+      "form": null,
+      "description": {
+        "normalized": "Deals 60 / 75 / 90 / 105 (+45% AP) magic damage in target area, increased by 0% - 50% based on the enemies' missing Health. Reaches maximum damage when the target is below 25% Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        9,
+        7,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            75,
+            90,
+            105
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Deals 60 / 75 / 90 / 105 (+45% AP) magic damage in target area, increased by 0% - 50% based on the enemies' missing Health.\n\nReaches maximum damage when the target is below 25% Health.",
+      "confidence": "medium"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Surround Sound",
+      "form": null,
+      "description": {
+        "normalized": "Shields all nearby ally champions for 50 / 75 / 100 / 125 (+30% AP) damage for 2.5 seconds and grants them 20% / 22.5% / 25% / 27.5% Movement Speed for 2.5 seconds. If Seraphine is already shielded, nearby allies are healed for 6% of their missing Health (+0.01% AP), increased by 50% for each ally.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        23,
+        22,
+        21,
+        20
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          60,
+          80,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 27.5,
+          "duration": 2.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Shields all nearby ally champions for 50 / 75 / 100 / 125 (+30% AP) damage for 2.5 seconds and grants them 20% / 22.5% / 25% / 27.5% Movement Speed for 2.5 seconds.\n\nIf Seraphine is already shielded, nearby allies are healed for 6% of their missing Health (+0.01% AP), increased by 50% for each ally.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Beat Drop",
+      "form": null,
+      "description": {
+        "normalized": "Deals 60 / 95 / 130 / 165 (+40% AP) magic damage to enemies and slows them by 99% for 1 second. If the enemy is already slowed, they are rooted instead. If they are rooted, they are stunned.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            95,
+            130,
+            165
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 60 / 95 / 130 / 165 (+40% AP) magic damage to enemies and slows them by 99% for 1 second.\n\nIf the enemy is already slowed, they are rooted instead. If they are rooted, they are stunned.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Encore",
+      "form": null,
+      "description": {
+        "normalized": "Deals 150 / 250 / 350 (+70% AP) magic damage to enemies and charms and slows them by 40% for 1.25 / 1.5 / 1.75 seconds. Ability extends when it touches an ally or enemy champion.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        105,
+        90,
+        75
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "duration": [
+            1.25,
+            1.5,
+            1.75
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 150 / 250 / 350 (+70% AP) magic damage to enemies and charms and slows them by 40% for 1.25 / 1.5 / 1.75 seconds.\n\nAbility extends when it touches an ally or enemy champion.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/seraphine",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "High Note: Numeric prose was not fully structured; rawParsedText kept.",
+    "Surround Sound: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

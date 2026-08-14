@@ -1,0 +1,226 @@
+{
+  "id": "milio",
+  "name": "Milio",
+  "title": "The Gentle Flame",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/milio.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 105,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 45,
+      "regen5": 20,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 50,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 3,
+    "magicResistance": 28,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Fired Up!",
+      "form": null,
+      "description": {
+        "normalized": "When Milio's abilities touch allied champions, their next attack deals additional magic damage equal to 10% of their Attack Damage, plus 13 + 2 (+20% AP) magic damage over 1.5 seconds. Burn damage does not stack with repeated hits.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 10,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "When Milio's abilities touch allied champions, their next attack deals additional magic damage equal to 10% of their Attack Damage, plus 13 + 2 (+20% AP) magic damage over 1.5 seconds.\n\nBurn damage does not stack with repeated hits.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Ultra Mega Fire Kick",
+      "form": null,
+      "description": {
+        "normalized": "Kicks a fireball, knocking back the first enemy hit. The fireball then bounces past the target and explodes, dealing 80 / 160 / 240 / 320 (+80% AP) magic damage to nearby enemies and slowing them by 40% / 45% / 50% / 55% (+5% AP) for 1.5 seconds. The fireball knocks minions and monsters farther back. Explosions caused by minions and monsters also detonate in a larger area.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            160,
+            240,
+            320
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.05
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Kicks a fireball, knocking back the first enemy hit. The fireball then bounces past the target and explodes, dealing 80 / 160 / 240 / 320 (+80% AP) magic damage to nearby enemies and slowing them by 40% / 45% / 50% / 55% (+5% AP) for 1.5 seconds.\n\nThe fireball knocks minions and monsters farther back. Explosions caused by minions and monsters also detonate in a larger area.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Cozy Campfire",
+      "form": null,
+      "description": {
+        "normalized": "Ignites a buffing Soothing Fire for himself or an allied champion for 6 seconds. While Soothing Fire is burning, Milio casts Fired Up! every 3 seconds. Self-cast: Grants 9% / 11% / 13% / 15% attack range and restores 80 / 100 / 120 / 140 (+15% AP) Health over time to himself and nearby allied champions. Cast on allied champions: Forms a tether between himself and the target, granting 9.5% / 13% / 16.5% / 20% attack range and restoring 80 / 100 / 120 / 140 (+15% AP) Health over time to both champions. When Warm Hugs or Breath of Life is cast, Milio shares all ability effects with the target. Recast: Selects a new ally (inherits the remaining duration of the first cast). The tether between Milio and the allied champion has no range limit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        22,
+        20,
+        19,
+        17
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          90,
+          90,
+          90,
+          90
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Ignites a buffing Soothing Fire for himself or an allied champion for 6 seconds. While Soothing Fire is burning, Milio casts Fired Up! every 3 seconds.\n\nSelf-cast: Grants 9% / 11% / 13% / 15% attack range and restores 80 / 100 / 120 / 140 (+15% AP) Health over time to himself and nearby allied champions.\n\nCast on allied champions: Forms a tether between himself and the target, granting 9.5% / 13% / 16.5% / 20% attack range and restoring 80 / 100 / 120 / 140 (+15% AP) Health over time to both champions. When Warm Hugs or Breath of Life is cast, Milio shares all ability effects with the target.\n\nRecast: Selects a new ally (inherits the remaining duration of the first cast). The tether between Milio and the allied champion has no range limit.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Warm Hugs",
+      "form": null,
+      "description": {
+        "normalized": "Wraps himself or an allied champion in protective flames, absorbing 60 / 100 / 140 / 180 (+30% AP) damage and granting 10% / 13% / 16% / 19% bonus Movement Speed for 2.5 seconds. The shield and bonus Movement Speed are stackable. Gains a charge every 16 / 15 / 14 / 13 seconds, storing up to 2 charges.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Wraps himself or an allied champion in protective flames, absorbing 60 / 100 / 140 / 180 (+30% AP) damage and granting 10% / 13% / 16% / 19% bonus Movement Speed for 2.5 seconds. The shield and bonus Movement Speed are stackable.\n\nGains a charge every 16 / 15 / 14 / 13 seconds, storing up to 2 charges.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Breath of Life",
+      "form": null,
+      "description": {
+        "normalized": "Unleashes a wave of Soothing Fire around himself, removing disables and immobilizing effects from allied champions nearby, healing them for 150 / 250 / 350 (+50% AP) Health, and granting them 65% Tenacity for 3 seconds. Breath of Life does not remove knockback, knockup, and Airborne effects. Disables on Milio will also be removed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        100,
+        90,
+        80
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Unleashes a wave of Soothing Fire around himself, removing disables and immobilizing effects from allied champions nearby, healing them for 150 / 250 / 350 (+50% AP) Health, and granting them 65% Tenacity for 3 seconds.\n\nBreath of Life does not remove knockback, knockup, and Airborne effects. Disables on Milio will also be removed.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/milio",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Cozy Campfire: Numeric prose was not fully structured; rawParsedText kept.",
+    "Cozy Campfire: Numeric prose was not fully structured; rawParsedText kept.",
+    "Cozy Campfire: Numeric prose was not fully structured; rawParsedText kept.",
+    "Warm Hugs: Numeric prose was not fully structured; rawParsedText kept.",
+    "Breath of Life: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

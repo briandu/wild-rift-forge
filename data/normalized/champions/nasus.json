@@ -1,0 +1,226 @@
+{
+  "id": "nasus",
+  "name": "Nasus",
+  "title": "The Curator of the Sands",
+  "roles": [],
+  "positions": [
+    "solo",
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/nasus.png",
+  "stats": {
+    "health": 650,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Soul Eater",
+      "form": null,
+      "description": {
+        "normalized": "Gains 6% / 12% / 18% / 24% Physical Vamp.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gains 6% / 12% / 18% / 24% Physical Vamp.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Siphoning Strike",
+      "form": null,
+      "description": {
+        "normalized": "Empowers next attack within 10 seconds to deal an additional 20 / 50 / 80 / 110 physical damage. If Siphoning Strike kills the target, its damage is permanently increased by 5. Killing champions, large minions and large monsters increases Siphoning Strike's damage by 14 instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            20,
+            50,
+            80,
+            110
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers next attack within 10 seconds to deal an additional 20 / 50 / 80 / 110 physical damage.\n\nIf Siphoning Strike kills the target, its damage is permanently increased by 5.\n\nKilling champions, large minions and large monsters increases Siphoning Strike's damage by 14 instead.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Wither",
+      "form": null,
+      "description": {
+        "normalized": "Slows enemy Movement Speed by 35% and Attack Speed by 22.49% / 29.98% / 37.48% / 44.96% for 5 seconds. The Movement Speed slow increases to 45% / 60% / 75% / 90% over the duration.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Slows enemy Movement Speed by 35% and Attack Speed by 22.49% / 29.98% / 37.48% / 44.96% for 5 seconds.\n\nThe Movement Speed slow increases to 45% / 60% / 75% / 90% over the duration.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Spirit Fire",
+      "form": null,
+      "description": {
+        "normalized": "Creates a flaming zone, dealing 55 / 110 / 165 / 220 (+40% AP) magic damage. The zone persists for 5 seconds, dealing 11 / 22 / 33 / 44 (+12% AP) magic damage over time and reducing Armor by 20% / 25% / 30% / 35%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          110,
+          120,
+          130,
+          140
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            110,
+            165,
+            220
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.12
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Creates a flaming zone, dealing 55 / 110 / 165 / 220 (+40% AP) magic damage. The zone persists for 5 seconds, dealing 11 / 22 / 33 / 44 (+12% AP) magic damage over time and reducing Armor by 20% / 25% / 30% / 35%.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Fury of the Sands",
+      "form": null,
+      "description": {
+        "normalized": "Enhances himself to gain 300 / 450 / 600 Health, 40 / 50 / 60 Armor and Magic Resist for 12 seconds. Deals 3% / 4% / 5% (+0.01% AP) magic damage",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        80,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            300,
+            450,
+            600
+          ],
+          "duration": 12,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.0001
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Enhances himself to gain 300 / 450 / 600 Health, 40 / 50 / 60 Armor and Magic Resist for 12 seconds. Deals 3% / 4% / 5% (+0.01% AP) magic damage",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/nasus",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Soul Eater: Numeric prose was not fully structured; rawParsedText kept.",
+    "Siphoning Strike: Numeric prose was not fully structured; rawParsedText kept.",
+    "Siphoning Strike: Numeric prose was not fully structured; rawParsedText kept.",
+    "Wither: Numeric prose was not fully structured; rawParsedText kept.",
+    "Wither: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

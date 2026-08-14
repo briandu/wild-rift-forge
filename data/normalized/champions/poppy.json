@@ -1,0 +1,357 @@
+{
+  "id": "poppy",
+  "name": "Poppy",
+  "title": "Keeper of the Hammer",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/poppy.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 95,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 30,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Iron Ambassador",
+      "form": null,
+      "description": {
+        "normalized": "Ever 12 seconds, Poppy's next attack throws her buckler, gaining 350 Attack Range and dealing 20 bonus magic damage. The buckler ricochets off the target, landing nearby for 4 seconds. Poppy can pick it up to gain a shield that absorbs 86 damage (13% of max Health) for 3 seconds. If the buckler kills the target or if the target dies before being hit, it automatically returns to Poppy.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 12,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 4,
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ever 12 seconds, Poppy's next attack throws her buckler, gaining 350 Attack Range and dealing 20 bonus magic damage.\n\nThe buckler ricochets off the target, landing nearby for 4 seconds. Poppy can pick it up to gain a shield that absorbs 86 damage (13% of max Health) for 3 seconds.\n\nIf the buckler kills the target or if the target dies before being hit, it automatically returns to Poppy.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Hammer Shock",
+      "form": null,
+      "description": {
+        "normalized": "Poppy smashes the ground, dealing 50 / 70 / 90 / 110 (+90% bonus AD) + 9% of the target's max Heath as physical damage and making the ground unstable. The unstable area slows enemies by 25% / 30% / 35% / 40% and monsters and erupts after 1 second, dealing 50 / 70 / 90 / 110 (+90% bonus AD) + 9% of the target's max Health as physical damage again. Poppy's percent health damage is capped against monsters at 40 / 100 / 160 / 220 damage per hit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            70,
+            90,
+            110
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            70,
+            90,
+            110
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Poppy smashes the ground, dealing 50 / 70 / 90 / 110 (+90% bonus AD) + 9% of the target's max Heath as physical damage and making the ground unstable.\n\nThe unstable area slows enemies by 25% / 30% / 35% / 40% and monsters and erupts after 1 second, dealing 50 / 70 / 90 / 110 (+90% bonus AD) + 9% of the target's max Health as physical damage again.\n\nPoppy's percent health damage is capped against monsters at 40 / 100 / 160 / 220 damage per hit.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Steadfast Presence",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 12% Armor and 12% Magic Resist. This bonus doubles when Poppy is below 40% Health. Active: Gains 40% Movement Speed and projects a field around her for 2 seconds that stops enemy dashes. Enemies who are stopped by the field take 95 / 140 / 185 / 230 (+70% AP) magic damage and are grounded and slowed by 25% for 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        19,
+        16,
+        14,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            95,
+            140,
+            185,
+            230
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 40,
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 12% Armor and 12% Magic Resist. This bonus doubles when Poppy is below 40% Health.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Gains 40% Movement Speed and projects a field around her for 2 seconds that stops enemy dashes. Enemies who are stopped by the field take 95 / 140 / 185 / 230 (+70% AP) magic damage and are grounded and slowed by 25% for 2 seconds.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                95,
+                140,
+                185,
+                230
+              ],
+              "duration": 2,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.7
+                }
+              ],
+              "confidence": "high"
+            },
+            {
+              "type": "movement_speed",
+              "percent": 40,
+              "duration": 2,
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gains 12% Armor and 12% Magic Resist. This bonus doubles when Poppy is below 40% Health.\n\nActive: Gains 40% Movement Speed and projects a field around her for 2 seconds that stops enemy dashes. Enemies who are stopped by the field take 95 / 140 / 185 / 230 (+70% AP) magic damage and are grounded and slowed by 25% for 2 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Heroic Charge",
+      "form": null,
+      "description": {
+        "normalized": "Tackles an enemy, dealing 75 / 100 / 125 / 150 (+50% bonus AD) physical damage and carrying them forward. If Poppy tackles them into terrain, the target is stunned for 1.7 / 1.8 / 1.9 / 2 seconds and takes and additional 75 / 100 / 125 / 150 (+50% bonus AD) physical damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            75,
+            100,
+            125,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            1.7,
+            1.8,
+            1.9,
+            2
+          ],
+          "duration": [
+            1.7,
+            1.8,
+            1.9,
+            2
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Tackles an enemy, dealing 75 / 100 / 125 / 150 (+50% bonus AD) physical damage and carrying them forward.\n\nIf Poppy tackles them into terrain, the target is stunned for 1.7 / 1.8 / 1.9 / 2 seconds and takes and additional 75 / 100 / 125 / 150 (+50% bonus AD) physical damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Keeper's Verdict",
+      "form": null,
+      "description": {
+        "normalized": "Hold: Charges her hammer for up to 4 seconds, slowing herself by 15%. Release: Smashes the ground, creating a shockwave that deals 200 / 300 / 400 (+90% bonus AD) physical damage to the first enemy champion hit and nearby enemies, knocks them back toward their Nexus, and makes them untargetable while they fly. The range and knock back distance increase with charge duration. An uncharged smash deals 100 / 150 / 200 (+45% bonus AD) physical damage and knocks enemies airborne for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        80,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            200,
+            300,
+            400
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            100,
+            150,
+            200
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hold: Charges her hammer for up to 4 seconds, slowing herself by 15%.\n\nRelease: Smashes the ground, creating a shockwave that deals 200 / 300 / 400 (+90% bonus AD) physical damage to the first enemy champion hit and nearby enemies, knocks them back toward their Nexus, and makes them untargetable while they fly. The range and knock back distance increase with charge duration.\n\nAn uncharged smash deals 100 / 150 / 200 (+45% bonus AD) physical damage and knocks enemies airborne for 1 second.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/poppy",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Hammer Shock: Numeric prose was not fully structured; rawParsedText kept.",
+    "Steadfast Presence: Numeric prose was not fully structured; rawParsedText kept.",
+    "Keeper's Verdict: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

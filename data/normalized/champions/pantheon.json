@@ -1,0 +1,326 @@
+{
+  "id": "pantheon",
+  "name": "Pantheon",
+  "title": "The Unbreakable Spear",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/pantheon.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 25,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 52,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Mortal Will",
+      "form": null,
+      "description": {
+        "normalized": "After 5 attacks or abilities Pantheon's next basic ability is enhanced.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "After 5 attacks or abilities Pantheon's next basic ability is enhanced.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Comet Spear",
+      "form": null,
+      "description": {
+        "normalized": "Tap Cast: Stabs forward, dealing 80 / 120 / 160 / 200 (+120% AD) physical damage. Refunds 60% of Comet Spear's Cooldown. Charge Cast: Hurls the spear, dealing the same damage to the first enemy hit and 50% less to subsequent targets. Enemies below 35% Health are critically hit for 120 / 210 / 300 / 390 (+180% AD) physical damage instead. Mortal Will: Deals an additional 30 (+120%AD) physical damage. Damage to minions is reduced by 20%. Deals 110% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            120,
+            160,
+            200
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            120,
+            210,
+            300,
+            390
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 30,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 110,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Tap Cast: Stabs forward, dealing 80 / 120 / 160 / 200 (+120% AD) physical damage. Refunds 60% of Comet Spear's Cooldown.\n\nCharge Cast: Hurls the spear, dealing the same damage to the first enemy hit and 50% less to subsequent targets.\n\nEnemies below 35% Health are critically hit for 120 / 210 / 300 / 390 (+180% AD) physical damage instead.\n\nMortal Will: Deals an additional 30 (+120%AD) physical damage.\n\nDamage to minions is reduced by 20%.\n\nDeals 110% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Shield Vault",
+      "form": null,
+      "description": {
+        "normalized": "Dash to an enemy, stunning for 1 second and dealing70 / 120 / 170 / 220 (+100% AP) physical damage. Mortal Will: Follows up with an Empowered attack that strikes 3 times, dealing a total of 87 (135% AD) physical damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          55,
+          55,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 3,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dash to an enemy, stunning for 1 second and dealing70 / 120 / 170 / 220 (+100% AP) physical damage.\n\nMortal Will: Follows up with an Empowered attack that strikes 3 times, dealing a total of 87 (135% AD) physical damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Aegis Assault",
+      "form": null,
+      "description": {
+        "normalized": "Block all non-tower damage from a direction for 1.5 seconds and deal 64 (100% AD) physical damage to nearby enemies. At the end slam forward and deal 60 / 120 / 180 / 240 (+150% AD) physical damage. Mortal Will: When Pantheon slams his shield he gains 60% Move Speed for 2.5 seconds. Pantheon is slowed by up to 50% when moving away from the blocking direction. Recast to end early. Damage to minions is reduced by 50%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            120,
+            180,
+            240
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 60,
+          "duration": 2.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Block all non-tower damage from a direction for 1.5 seconds and deal 64 (100% AD) physical damage to nearby enemies. At the end slam forward and deal 60 / 120 / 180 / 240 (+150% AD) physical damage.\n\nMortal Will: When Pantheon slams his shield he gains 60% Move Speed for 2.5 seconds.\n\nPantheon is slowed by up to 50% when moving away from the blocking direction.\n\nRecast to end early.\n\nDamage to minions is reduced by 50%.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Grand Starfall",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 10% / 20% / 30% Armor Penetration. Active: Leaps into the air and throws a spear that deals 30 (Comet Spear damage) physical damage and slows by 50% for 2 seconds. Then crashes down, dealing up to 300 / 500 / 700 (+100% AP) magic damage. Grand Starfall instantly readies Mortal Will. Damage is decreased by up to 50% at the edges of the landing area.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        80,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            300,
+            500,
+            700
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 10% / 20% / 30% Armor Penetration.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Leaps into the air and throws a spear that deals 30 (Comet Spear damage) physical damage and slows by 50% for 2 seconds. Then crashes down, dealing up to 300 / 500 / 700 (+100% AP) magic damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                300,
+                500,
+                700
+              ],
+              "duration": 2,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 1
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gains 10% / 20% / 30% Armor Penetration.\n\nActive: Leaps into the air and throws a spear that deals 30 (Comet Spear damage) physical damage and slows by 50% for 2 seconds. Then crashes down, dealing up to 300 / 500 / 700 (+100% AP) magic damage.\n\nGrand Starfall instantly readies Mortal Will. Damage is decreased by up to 50% at the edges of the landing area.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/pantheon",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Mortal Will: Numeric prose was not fully structured; rawParsedText kept.",
+    "Comet Spear: Numeric prose was not fully structured; rawParsedText kept.",
+    "Comet Spear: Numeric prose was not fully structured; rawParsedText kept.",
+    "Aegis Assault: Numeric prose was not fully structured; rawParsedText kept.",
+    "Aegis Assault: Numeric prose was not fully structured; rawParsedText kept.",
+    "Grand Starfall: Numeric prose was not fully structured; rawParsedText kept.",
+    "Grand Starfall: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

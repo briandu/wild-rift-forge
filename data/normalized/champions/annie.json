@@ -1,0 +1,239 @@
+{
+  "id": "annie",
+  "name": "Annie",
+  "title": "The Dark Child",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/annie.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Pyromania",
+      "form": null,
+      "description": {
+        "normalized": "After casting 4 abilities, the next offensive ability stuns enemies hit for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "stun",
+          "duration": 1,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "After casting 4 abilities, the next offensive ability stuns enemies hit for 1 second.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Disintegrate",
+      "form": null,
+      "description": {
+        "normalized": "Annie hurls a Mana infused fireball, dealing 80 / 130 / 180 / 230 (+85% AP) magic damage in a small area and refunding the Mana cost and half its cooldown if it destroys the target.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            130,
+            180,
+            230
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.85
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Annie hurls a Mana infused fireball, dealing 80 / 130 / 180 / 230\n(+85% AP) magic damage in a small area and refunding the Mana cost and half its cooldown if it destroys the target.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Incinerate",
+      "form": null,
+      "description": {
+        "normalized": "Annie casts a blazing cone of fire, dealing 70 / 130 / 190 / 250 (+70% AP) magic damage to all enemies in the area.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            130,
+            190,
+            250
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Annie casts a blazing cone of fire, dealing 70 / 130 / 190 / 250 (+70% AP) magic damage to all enemies in the area.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Molten Shield",
+      "form": null,
+      "description": {
+        "normalized": "Annie shields herself and Tibbers , absorbing 50 / 100 / 150 / 200 (+40% AP) damage and gaining 25% / 30% / 33% / 40% movement speed. Speed bonus decays after 3 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 40,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Annie shields herself and Tibbers , absorbing 50 / 100 / 150 / 200 (+40% AP) damage and gaining 25% / 30% / 33% / 40% movement speed. Speed bonus decays after 3 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Summon: Tibbers",
+      "form": null,
+      "description": {
+        "normalized": "Summons Tibbers, dealing 130 / 230 / 330 (+60% AP) magic damage, to nearby enemies. 2 seconds after casting Tibbers, Annie can activate this ability again, ordering Tibbers to pounce on a target, dealing 110 / 150 / 190 (+30% AP) magic damage, and also making the target airborne for 1 second. Tibbers Enrages (hasting him by 100% and granting 210% Attack Speed) when summoned, pounces on enemies or Annie dies. Re-activate: Order Tibbers around. Tibbers lasts for 20 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            130,
+            230,
+            330
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Summons Tibbers, dealing 130 / 230 / 330 (+60% AP) magic damage, to nearby enemies. 2 seconds after casting Tibbers, Annie can activate this ability again, ordering Tibbers to pounce on a target, dealing 110 / 150 / 190 (+30% AP) magic damage, and also making the target airborne for 1 second.\n\nTibbers Enrages (hasting him by 100% and granting 210% Attack Speed) when summoned, pounces on enemies or Annie dies.\n\nRe-activate: Order Tibbers around. Tibbers lasts for 20 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/annie",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Summon: Tibbers: Numeric prose was not fully structured; rawParsedText kept.",
+    "Summon: Tibbers: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

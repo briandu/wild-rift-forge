@@ -1,0 +1,267 @@
+{
+  "id": "akshan",
+  "name": "Akshan",
+  "title": "The Rogue Sentinel",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/akshan.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 37,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.7,
+    "attackSpeedPerLevel": 0.0036,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 5,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Dirty Fighting",
+      "form": null,
+      "description": {
+        "normalized": "Every three hits from attacks and abilities deal bonus 25 magic damage. Against champions, also gain a shield that absorbs 40 (+40% AD) damage for a few seconds. After launching an attack, Akshan will fire a second shot that deals 26 (50% AD) physical damage. The shot can be cancelled to gain bonus decaying movement speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 25,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 25,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Every three hits from attacks and abilities deal bonus 25 magic damage. Against champions, also gain a shield that absorbs 40 (+40% AD) damage for a few seconds. After launching an attack, Akshan will fire a second shot that deals 26 (50% AD) physical damage. The shot can be cancelled to gain bonus decaying movement speed.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Avengerang",
+      "form": null,
+      "description": {
+        "normalized": "Akshan hurls a boomerang in the target direction, dealing 10 / 40 / 70 / 100 (+85% AD) physical damage to enemies it passes through and revealing them, granting sight of the area along its path, as well as extending its range every time it hits an enemy. If the boomerang hits an enemy champion, Akshan gains bonus movement speed decaying over time. Upon reaching maximum range, the boomerang returns to Akshan, applying the same effects to enemies hit along the way. Avengerang deals 55% / 70% / 85% / 100% damage to minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            10,
+            40,
+            70,
+            100
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.85
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 55,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Akshan hurls a boomerang in the target direction, dealing 10 / 40 / 70 / 100 (+85% AD) physical damage to enemies it passes through and revealing them, granting sight of the area along its path, as well as extending its range every time it hits an enemy. If the boomerang hits an enemy champion, Akshan gains bonus movement speed decaying over time. Upon reaching maximum range, the boomerang returns to Akshan, applying the same effects to enemies hit along the way.\n\nAvengerang deals 55% / 70% / 85% / 100% damage to minions.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Going Rogue",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Enemies that kill allied champions become Scoundrels for a duration. When Akshan takes down a Scoundrel, he gains bonus gold and revives the allies slain. Active: Become camouflaged for a few seconds and gain bonus 80% / 90% / 100% / 110% movement speed towards Scoundrels. Always camouflaged when Akshan is near terrain or in brushes. Gain 2% missing mana regen per second when chasing Scoundrels.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        10,
+        6,
+        2
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 110,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Passive: Enemies that kill allied champions become Scoundrels for a duration. When Akshan takes down a Scoundrel, he gains bonus gold and revives the allies slain. Active: Become camouflaged for a few seconds and gain bonus 80% / 90% / 100% / 110% movement speed towards Scoundrels. Always camouflaged when Akshan is near terrain or in brushes. Gain 2% missing mana regen per second when chasing Scoundrels.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Heroic Swing",
+      "form": null,
+      "description": {
+        "normalized": "Fires a hook to attach and swing around terrain, attacking the nearest enemy dealing 30 / 70 / 110 / 150 (+15% AD) physical damage. If Akshan collides with an enemy champion or terrain, he will jump off the rope. Re-cast: Jumps off the rope. Champion takedowns refresh this ability's cooldown. Prioritizing champions recently damaged by Akshan. On-hit effects deal 25% damage. Each shot can Critically Strike for 150% damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            30,
+            70,
+            110,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 25,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a hook to attach and swing around terrain, attacking the nearest enemy dealing 30 / 70 / 110 / 150 (+15% AD) physical damage. If Akshan collides with an enemy champion or terrain, he will jump off the rope.\n\nRe-cast: Jumps off the rope.\n\nChampion takedowns refresh this ability's cooldown.\n\nPrioritizing champions recently damaged by Akshan.\n\nOn-hit effects deal 25% damage.\n\nEach shot can Critically Strike for 150% damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Comeuppance",
+      "form": null,
+      "description": {
+        "normalized": "Locks onto an enemy champion, charging multiple shots over a few seconds. Re-cast: Fires the shots, dealing 20 / 30 / 40 (+10% AD) physical damage to the first enemy or structure hit, increased up to 80 / 120 / 160 (+40% AD) physical damage based on target's missing Health. Each shot's damage is further increased by a percentage equal to 50% of Critical Rate. Shots also execute minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        65,
+        60,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": [
+            20,
+            30,
+            40
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.1
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.4
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Locks onto an enemy champion, charging multiple shots over a few seconds. Re-cast: Fires the shots, dealing 20 / 30 / 40 (+10% AD) physical damage to the first enemy or structure hit, increased up to 80 / 120 / 160 (+40% AD) physical damage based on target's missing Health.\n\nEach shot's damage is further increased by a percentage equal to 50% of Critical Rate. Shots also execute minions.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/akshan",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Heroic Swing: Numeric prose was not fully structured; rawParsedText kept.",
+    "Comeuppance: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

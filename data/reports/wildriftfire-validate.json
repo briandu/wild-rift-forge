@@ -1,0 +1,12 @@
+{
+  "champions": 141,
+  "index": 141,
+  "missingFromIndex": [],
+  "errors": [],
+  "patches": [
+    "7.2c"
+  ],
+  "extraAbilityChampions": [
+    "kayn"
+  ]
+}

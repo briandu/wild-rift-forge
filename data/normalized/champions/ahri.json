@@ -1,0 +1,271 @@
+{
+  "id": "ahri",
+  "name": "Ahri",
+  "title": "The Nine-Tailed Fox",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/ahri.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 37,
+      "regen5": 18,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Essence Theft",
+      "form": null,
+      "description": {
+        "normalized": "Grants a stack of Essence Theft if her ability hits a target. At 3 stacks, Ahri's next ability that hits an enemy heals her for 40 (+20% AP). If an enemy champion that Ahri has damaged within 3 seconds dies, she will consume their essence to heal herself for 80 (+35% AP).",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Grants a stack of Essence Theft if her ability hits a target. At 3 stacks, Ahri's next ability that hits an enemy heals her for 40 (+20% AP).\n\nIf an enemy champion that Ahri has damaged within 3 seconds dies, she will consume their essence to heal herself for 80 (+35% AP).",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Orb of Deception",
+      "form": null,
+      "description": {
+        "normalized": "Ahri sends out and pulls back her orb, dealing 40 / 75 / 110 / 145 (+45% AP) magic damage on the way out and 40 / 75 / 110 / 145 (+45% AP) true damage on the way back.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          70,
+          75,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            75,
+            110,
+            145
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ahri sends out and pulls back her orb, dealing 40 / 75 / 110 / 145 (+45% AP) magic damage on the way out and 40 / 75 / 110 / 145 (+45% AP) true damage on the way back.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Fox-Fire",
+      "form": null,
+      "description": {
+        "normalized": "Ahri gains 45% movement speed and releases three fox-fires, that lock onto and attack nearby enemies for 45 / 80 / 115 / 150 (+35% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            45,
+            80,
+            115,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 45,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ahri gains 45% movement speed and releases three fox-fires, that lock onto and attack nearby enemies for 45 / 80 / 115 / 150 (+35% AP) magic damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Charm",
+      "form": null,
+      "description": {
+        "normalized": "Ahri blows a kiss that does 60 / 100 / 140 / 180 (+50% AP) magic damage and charms an enemy it encounters, instantly stopping movement abilities and causing them to walk harmlessly towards her.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          85,
+          85,
+          85,
+          85
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ahri blows a kiss that does 60 / 100 / 140 / 180 (+50% AP) magic damage and charms an enemy it encounters, instantly stopping movement abilities and causing them to walk harmlessly towards her.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Spirit Rush",
+      "form": null,
+      "description": {
+        "normalized": "Ahri dashes forward and fires essence bolts, damaging nearby enemies for 60 / 90 / 120 (+35% AP) magic damage. Spirit Rush can be cast up to three times before going on cooldown. During Spirit Rush, if Ahri devours a champion's essence with Essence Theft, Ahri will extend Spirit Rush's recast duration up to 10 seconds, and she gains an extra charge of Spirit Rush (Can store up to 3 charges). Dash range increases while leveling up. Essence bolts attack champions first.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            90,
+            120
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ahri dashes forward and fires essence bolts, damaging nearby enemies for 60 / 90 / 120 (+35% AP) magic damage. Spirit Rush can be cast up to three times before going on cooldown.\n\nDuring Spirit Rush, if Ahri devours a champion's essence with Essence Theft, Ahri will extend Spirit Rush's recast duration up to 10 seconds, and she gains an extra charge of Spirit Rush (Can store up to 3 charges).\n\nDash range increases while leveling up. Essence bolts attack champions first.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ahri",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Spirit Rush: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

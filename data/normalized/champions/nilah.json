@@ -1,0 +1,286 @@
+{
+  "id": "nilah",
+  "name": "Nilah",
+  "title": "The Joy Unbound",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "/images/champion/icon/nilah.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 10,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 37,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.89,
+    "attackSpeedPerLevel": 0.0207,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 5,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Joy Unending",
+      "form": null,
+      "description": {
+        "normalized": "After an attack crits, Nilah heals herself for 20% of the damage dealt. Excess healing is converted into an equivalent amount of shield that lasts 6 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 20,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 20,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "After an attack crits, Nilah heals herself for 20% of the damage dealt. Excess healing is converted into an equivalent amount of shield that lasts 6 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Formless Blade",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 28% of current Critical Strike Chance as Armor Pen Rate. Nilah cracks her whip-blade in a straight line, dealing10 / 15 / 20 / 25 (+90% / 100% / 110% / 120% AD) physical damage to enemies hit along the way. Every 1% Critical Rate increases damage by 1%.After Formless Blade hits an enemy, Nilah gains 14% Attack Speed and 125 bonus Attack Range. Her attacks also deal 100% physical damage to enemies in a cone for 4 seconds. Damage against non-champion units is reduced by 80%.When Formless Blade is cast during Slipstream, Nilah leaves behind a wave that is sent towards her, dealing an equivalent amount of damage to all enemies hit. Damage ratio of Formless Blade to monsters: 25% .",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            10,
+            15,
+            20,
+            25
+          ],
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Passive: Gains 28% of current Critical Strike Chance as Armor Pen Rate.\n\nNilah cracks her whip-blade in a straight line, dealing10 / 15 / 20 / 25 (+90% / 100% / 110% / 120% AD) physical damage to enemies hit along the way. Every 1% Critical Rate increases damage by 1%.After Formless Blade hits an enemy, Nilah gains 14% Attack Speed and 125 bonus Attack Range. Her attacks also deal 100% physical damage to enemies in a cone for 4 seconds. Damage against non-champion units is reduced by 80%.When Formless Blade is cast during Slipstream, Nilah leaves behind a wave that is sent towards her, dealing an equivalent amount of damage to all enemies hit.\n\nDamage ratio of Formless Blade to monsters: 25% .",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Jubilant Veil",
+      "form": null,
+      "description": {
+        "normalized": "Nilah evelops herself in mist for 1.75 seconds, during wich she gains 15% / 20% / 25% / 30% Movement Speed, reduces incoming magic damage taken by 25% and becomes immune to non-tower attacks. If there are allied champions nearby, the nearest allied champion gains the same effects, and the duration of the effects Nilah gained is extended by 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          45,
+          45,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 1.75,
+          "duration": 1.75,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 30,
+          "duration": 1.75,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Nilah evelops herself in mist for 1.75 seconds, during wich she gains 15% / 20% / 25% / 30% Movement Speed, reduces incoming magic damage taken by 25% and becomes immune to non-tower attacks. If there are allied champions nearby, the nearest allied champion gains the same effects, and the duration of the effects Nilah gained is extended by 1 second.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Slipstream",
+      "form": null,
+      "description": {
+        "normalized": "Nilah dashes forward for a fixed distance, dealing70 / 100 / 130 / 160 (+20% AD) physical damage to any enemies that she passes through. Empowered attacks reduce the cooldown of this ability by 1 second. Cooldown is further reduced by 1 second after hitting a champion. Hitty any unit will also refresh this ability's cooldown.Cooldown cannot be refreshed again within 10 seconds.If no unit was hit, immediately enters cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Nilah dashes forward for a fixed distance, dealing70 / 100 / 130 / 160 (+20% AD) physical damage to any enemies that she passes through. Empowered attacks reduce the cooldown of this ability by 1 second. Cooldown is further reduced by 1 second after hitting a champion. Hitty any unit will also refresh this ability's cooldown.Cooldown cannot be refreshed again within 10 seconds.If no unit was hit, immediately enters cooldown.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Apotheosis",
+      "form": null,
+      "description": {
+        "normalized": "Nilah whirls her whip-blade, dealing 60 / 110 / 160 (+50% AD) physical damage continuously over 1 second and reducing the enemy's Movement Speed by 10% for 3 seconds.When keeping her whip-blade, Nilah also deals125 / 225 / 325 (+120% AD) physical damage and pulls nearby enemies toward her. Nilah also heals herself and nearby allied champions by 20% (+30% Crit ) of the damage that she dealt to enemy champions.Excess healing is converted into a shield that lasts 6 seconds.Non-champion units are healed by 10% instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            110,
+            160
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": [
+            60,
+            110,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            60,
+            110,
+            160
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Nilah whirls her whip-blade, dealing 60 / 110 / 160 (+50% AD) physical damage continuously over 1 second and reducing the enemy's Movement Speed by 10% for 3 seconds.When keeping her whip-blade, Nilah also deals125 / 225 / 325 (+120% AD) physical damage and pulls nearby enemies toward her. Nilah also heals herself and nearby allied champions by 20% (+30% Crit ) of the damage that she dealt to enemy champions.Excess healing is converted into a shield that lasts 6 seconds.Non-champion units are healed by 10% instead.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/nilah",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Formless Blade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Formless Blade: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

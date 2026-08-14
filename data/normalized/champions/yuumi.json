@@ -1,0 +1,345 @@
+{
+  "id": "yuumi",
+  "name": "Yuumi",
+  "title": "The Magical Cat",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/yuumi.png",
+  "stats": {
+    "health": 570,
+    "healthPerLevel": 104,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 37,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 50,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.0043,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Feline Friendship",
+      "form": null,
+      "description": {
+        "normalized": "Passive: When Yuumi's attacks and abilities strike champions, she heals herself for 67 (+25% AP) Health. If Yuumi Attaches to an allied champion within 4 seconds, they are healed for the same amount as well. (18 second cooldown) Bonds of Friendship: While Attached, Yuumi gains Friendship with her ally whenever they kill a champion or minion. The ally with the most Friendship becomes her Best Fried. Best Friend Bonus: Yuumi's abilities gain bonus effects while she is Attached to her Best Friend.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 67,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Passive: When Yuumi's attacks and abilities strike champions, she heals herself for 67 (+25% AP) Health. If Yuumi Attaches to an allied champion within 4 seconds, they are healed for the same amount as well. (18 second cooldown)\n\nBonds of Friendship: While Attached, Yuumi gains Friendship with her ally whenever they kill a champion or minion. The ally with the most Friendship becomes her Best Fried.\n\nBest Friend Bonus: Yuumi's abilities gain bonus effects while she is Attached to her Best Friend.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Prowling Projectile",
+      "form": null,
+      "description": {
+        "normalized": "Missile Summon: Hold and drag the ability button to steer the missile. Base Effect: Deals 60 / 100 / 140 / 180 / 220 (+20% AP) magic damage. Attached Bonus: If the missile takes at least 1 second to get to its target, its damage increases to 100 / 160 / 220 / 280 / 340 (+35% AP) magic damage. It also slows by 45% / 50% / 55% / 60% / 65% and reveals the target for 1 second. Best Friend Bonus: The missile always slows the target hit. Hitting a champion with the missile grants the ally Yuumi is Attached to 18 / 19 / 20 / 21 / 22 (+5% AP) magic damage on-hit for 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            100,
+            140,
+            180,
+            220
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            160,
+            220,
+            280,
+            340
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            18,
+            19,
+            20,
+            21,
+            22
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.05
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Missile Summon: Hold and drag the ability button to steer the missile.\n\nBase Effect: Deals 60 / 100 / 140 / 180 / 220 (+20% AP) magic damage.\n\nAttached Bonus: If the missile takes at least 1 second to get to its target, its damage increases to 100 / 160 / 220 / 280 / 340 (+35% AP) magic damage. It also slows by 45% / 50% / 55% / 60% / 65% and reveals the target for 1 second.\n\nBest Friend Bonus: The missile always slows the target hit. Hitting a champion with the missile grants the ally Yuumi is Attached to 18 / 19 / 20 / 21 / 22 (+5% AP) magic damage on-hit for 5 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "You and Me!",
+      "form": null,
+      "description": {
+        "normalized": "Best Friend Bonus (Passive): While on her Best Friend, Yuumi gains an additional 6% / 7% / 8% / 9% (+0.02% AP) Heal and Shield Power. Attach (Active): Dashes to an allied champion and Attaches to them. While Attached, she follows her partner's movement and is untargetable except by turrets. Immobilizing effects on Yuumi place this ability on a 5 seconds cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.0002
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.0002
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Best Friend Bonus (Passive): While on her Best Friend, Yuumi gains an additional 6% / 7% / 8% / 9% (+0.02% AP) Heal and Shield Power.\n\nAttach (Active): Dashes to an allied champion and Attaches to them. While Attached, she follows her partner's movement and is untargetable except by turrets.\n\nImmobilizing effects on Yuumi place this ability on a 5 seconds cooldown.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Zoomies",
+      "form": null,
+      "description": {
+        "normalized": "Gains a shield that absorbs 85 / 110 / 135 / 160 (+30% AP) damage and 24% / 28% / 32% / 36% (+8% AP) Attack Speed for 3 seconds. While the shield persists, she also gains 20% Movement Speed. If Yuumi is Attached, this ability affects her ally instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          75,
+          85,
+          95
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            85,
+            110,
+            135,
+            160
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.08
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 20,
+          "duration": 3,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains a shield that absorbs 85 / 110 / 135 / 160 (+30% AP) damage and 24% / 28% / 32% / 36% (+8% AP) Attack Speed for 3 seconds. While the shield persists, she also gains 20% Movement Speed.\n\nIf Yuumi is Attached, this ability affects her ally instead.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Final Chapter",
+      "form": null,
+      "description": {
+        "normalized": "Channels for 3.5 seconds, launching 7 magical waves: While Attached, hold and drag the ability button to steer the waves. Against enemies (per wave): Deals 80 / 100 / 120 (+15% AP) magic damage. Slows by 10% for 1.25 seconds, increased by 10% per wave hit. On allied champions (per wave): Restores 20 / 35 / 50 (+5% AP) Health. Excess healing is converted into a shield instead. Best Friend Bonus: For her Best Friend, the heal is increased to 26 / 39 / 52 (+8% AP) Health. Wave Damage Stacks: Waves after the first deal 20 / 30 / 40 (+5% AP) magic damage. Yuumi can move and cast You and Me! and Zoomies while channeling.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        75,
+        65
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            100,
+            120
+          ],
+          "duration": 1.25,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            20,
+            35,
+            50
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.05
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": [
+            26,
+            39,
+            52
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.08
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            30,
+            40
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.05
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Channels for 3.5 seconds, launching 7 magical waves: While Attached, hold and drag the ability button to steer the waves.\n\nAgainst enemies (per wave): Deals 80 / 100 / 120 (+15% AP) magic damage. Slows by 10% for 1.25 seconds, increased by 10% per wave hit.\n\nOn allied champions (per wave): Restores 20 / 35 / 50 (+5% AP) Health. Excess healing is converted into a shield instead.\n\nBest Friend Bonus: For her Best Friend, the heal is increased to 26 / 39 / 52 (+8% AP) Health.\n\nWave Damage Stacks: Waves after the first deal 20 / 30 / 40 (+5% AP) magic damage.\n\nYuumi can move and cast You and Me! and Zoomies while channeling.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/yuumi",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "You and Me!: Numeric prose was not fully structured; rawParsedText kept.",
+    "Final Chapter: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

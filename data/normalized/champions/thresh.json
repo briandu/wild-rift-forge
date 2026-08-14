@@ -1,0 +1,283 @@
+{
+  "id": "thresh",
+  "name": "Thresh",
+  "title": "The Chain Warden",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "/images/champion/icon/thresh.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 11,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 0,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Damnation",
+      "form": null,
+      "description": {
+        "normalized": "Thresh can harvest the Souls of enemies that die near him, each soul permanently granting him 2 Armor and 2 Ability Power. Thresh does not gain Armor on level up.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Thresh can harvest the Souls of enemies that die near him, each soul permanently granting him 2 Armor and 2 Ability Power.\n\nThresh does not gain Armor on level up.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Death Sentence",
+      "form": null,
+      "description": {
+        "normalized": "Throws out a scythe, stunning the first unit hit and pulling them in for 1.5 seconds. The scythe does 100 / 160 / 220 / 280 (+80% AP) magic damage and grants True Sight for the duration. Recast: Dashes to the bound enemy. Cooldown is reduced by 3 seconds if it hits an enemy.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        15,
+        12,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            160,
+            220,
+            280
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws out a scythe, stunning the first unit hit and pulling them in for 1.5 seconds. The scythe does 100 / 160 / 220 / 280 (+80% AP) magic damage and grants True Sight for the duration.\n\nRecast: Dashes to the bound enemy.\n\nCooldown is reduced by 3 seconds if it hits an enemy.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Dark Passage",
+      "form": null,
+      "description": {
+        "normalized": "Throws a Lantern to a target location, allowing an ally to tap the Minion Button to dash to Thresh. The Lantern also grants a shield to Thresh and the first ally that comes near it, absorbing up to 50 / 90 / 130 / 170 (+2 per Soul) damage for 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        21,
+        19,
+        17,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            50,
+            90,
+            130,
+            170
+          ],
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws a Lantern to a target location, allowing an ally to tap the Minion Button to dash to Thresh.\n\nThe Lantern also grants a shield to Thresh and the first ally that comes near it, absorbing up to 50 / 90 / 130 / 170 (+2 per Soul) damage for 4 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Flay",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Basic attacks deal additional 0 to 58 (2 per Soul to 2 per Soul + 80% / 120% / 160% / 200% AD) magic damage based on how long since he last attacked. Active: Thresh whips his chains, pulling or pushing enemies in the direction of the swing. Enemies hit are also slowed by 20% / 25% / 30% / 35% for 1 second and take 75 / 115 / 155 / 195 (+60% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 0,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            115,
+            155,
+            195
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Basic attacks deal additional 0 to 58 (2 per Soul to 2 per Soul + 80% / 120% / 160% / 200% AD) magic damage based on how long since he last attacked.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": 0,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Thresh whips his chains, pulling or pushing enemies in the direction of the swing. Enemies hit are also slowed by 20% / 25% / 30% / 35% for 1 second and take 75 / 115 / 155 / 195 (+60% AP) magic damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                75,
+                115,
+                155,
+                195
+              ],
+              "duration": 1,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.6
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Basic attacks deal additional 0 to 58 (2 per Soul to 2 per Soul + 80% / 120% / 160% / 200% AD) magic damage based on how long since he last attacked.\n\nActive: Thresh whips his chains, pulling or pushing enemies in the direction of the swing. Enemies hit are also slowed by 20% / 25% / 30% / 35% for 1 second and take 75 / 115 / 155 / 195 (+60% AP) magic damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "The Box",
+      "form": null,
+      "description": {
+        "normalized": "Creates a prison of spectral walls, slowing champions by 99% for 2 seconds and dealing 250 / 400 / 500 (+100% AP) magic damage. Walls break after one collision, and after one is broken, the rest deal no damage and slow for half duration. An enemy cannot be afftected by multiple walls simultaneously.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        80,
+        75
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            250,
+            400,
+            500
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Creates a prison of spectral walls, slowing champions by 99% for 2 seconds and dealing 250 / 400 / 500 (+100% AP) magic damage. Walls break after one collision, and after one is broken, the rest deal no damage and slow for half duration.\n\nAn enemy cannot be afftected by multiple walls simultaneously.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/thresh",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Damnation: Numeric prose was not fully structured; rawParsedText kept.",
+    "Death Sentence: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

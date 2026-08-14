@@ -1,0 +1,277 @@
+{
+  "id": "kassadin",
+  "name": "Kassadin",
+  "title": "The Void Walker",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/kassadin.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 49,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 30,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Void Stone",
+      "form": null,
+      "description": {
+        "normalized": "Gains a shield that aborbs 50 (+30% AP) magic damage for 1.5 seconds when casting an ability near a visible enemy champion.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 50,
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 50,
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains a shield that aborbs 50 (+30% AP) magic damage for 1.5 seconds when casting an ability near a visible enemy champion.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Null Sphere",
+      "form": null,
+      "description": {
+        "normalized": "Fires an orb that deals 80 / 145 / 210 / 275 (+80% AP) magic damage and silences the first enemy hit for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          75,
+          80,
+          85
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            145,
+            210,
+            275
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "silence",
+          "duration": 1,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires an orb that deals 80 / 145 / 210 / 275 (+80% AP) magic damage and silences the first enemy hit for 1 second.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Nether Blade",
+      "form": null,
+      "description": {
+        "normalized": "Enhances his next attack within 4 seconds to gain 250 range, deal an additional 50 / 80 / 110 / 140 (+50% AP) magic damage and restore 5% (15% vs. champions) of missing mana. If the attack killed the target Nether Blade's remaining cooldown is reduced by 50%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            80,
+            110,
+            140
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Enhances his next attack within 4 seconds to gain 250 range, deal an additional 50 / 80 / 110 / 140 (+50% AP) magic damage and restore 5% (15% vs. champions) of missing mana.\n\nIf the attack killed the target Nether Blade's remaining cooldown is reduced by 50%.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Force Pulse",
+      "form": null,
+      "description": {
+        "normalized": "Deals 60 / 100 / 140 / 180 (+50% AP) magic damage to enemies and slows them by 30% for 1 second. Force Pulse is enhanced after 6 other abilities are cast nearby, dealing 40% increased damage and slowing for 90% instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          75,
+          80,
+          85
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 60 / 100 / 140 / 180 (+50% AP) magic damage to enemies and slows them by 30% for 1 second.\n\nForce Pulse is enhanced after 6 other abilities are cast nearby, dealing 40% increased damage and slowing for 90% instead.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Riftwalk",
+      "form": null,
+      "description": {
+        "normalized": "Blinks to target location and deals 80 / 100 / 120 (+30% AP +1.5% Mana) magic damage to nearby enemies.The next Riftwalk cast within 12 seconds deals 50% increased damage and costs 200% additional mana (Stacks 3 times).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        4,
+        2
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            100,
+            120
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            },
+            {
+              "stat": "mana",
+              "ratio": 0.015
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Blinks to target location and deals 80 / 100 / 120 (+30% AP +1.5% Mana) magic damage to nearby enemies.The next Riftwalk cast within 12 seconds deals 50% increased damage and costs 200% additional mana (Stacks 3 times).",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kassadin",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Nether Blade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Force Pulse: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

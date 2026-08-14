@@ -1,0 +1,347 @@
+{
+  "id": "ekko",
+  "name": "Ekko",
+  "title": "The Boy Who Shattered Time",
+  "roles": [],
+  "positions": [
+    "mid",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/ekko.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Z-Drive Resonance",
+      "form": null,
+      "description": {
+        "normalized": "Every third attack or damaging ability agains the same target deals an additional 30 (+80% AP) magic damage. If the target was a champion, Ekko gains 40% Movement Speed for 2.5 seconds. Deals 120% damage to monsters. Cannot affect the same target for 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 30,
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 40,
+          "duration": 2.5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 120,
+          "duration": 5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Every third attack or damaging ability agains the same target deals an additional 30 (+80% AP) magic damage. If the target was a champion, Ekko gains 40% Movement Speed for 2.5 seconds.\n\nDeals 120% damage to monsters. Cannot affect the same target for 5 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Timewinder",
+      "form": null,
+      "description": {
+        "normalized": "Throw a temporal device, dealing 90 / 110 / 130 / 150 (+30% AP) magic damage. On hitting a champion or the distance limit, it expands into a field that slows by 30% / 40% / 50% / 60%. The device then returns to Ekko, dealing 70 / 105 / 140 / 175 (+60% AP) magic damage. Deals 115% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            110,
+            130,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 115,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throw a temporal device, dealing 90 / 110 / 130 / 150 (+30% AP) magic damage. On hitting a champion or the distance limit, it expands into a field that slows by 30% / 40% / 50% / 60%. The device then returns to Ekko, dealing 70 / 105 / 140 / 175 (+60% AP) magic damage.\n\nDeals 115% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Parallel Convergence",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Attacks gains Low Health targets deal an additional 3% (+0.025% AP) missing Health magic damage. Active: Lanches a chronosphere that lasts 1.5 seconds, slowing by 40%. If Ekko enters the sphere it detonates, stunning for 2.5 seconds and granting Ekko a shield that absorbs 70 / 100 / 130 / 160 (+150% AP) damage for 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        20,
+        18,
+        16,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          40,
+          45,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.00025
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "shield",
+          "base": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Attacks gains Low Health targets deal an additional 3% (+0.025% AP) missing Health magic damage.",
+          "effects": [
+            {
+              "type": "missing_health_damage",
+              "damageType": "magic",
+              "base": 3,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.00025
+                }
+              ],
+              "note": "Formula kept in rawParsedText; structured fields are partial.",
+              "confidence": "medium"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Lanches a chronosphere that lasts 1.5 seconds, slowing by 40%. If Ekko enters the sphere it detonates, stunning for 2.5 seconds and granting Ekko a shield that absorbs 70 / 100 / 130 / 160 (+150% AP) damage for 2 seconds.",
+          "effects": [
+            {
+              "type": "shield",
+              "base": [
+                70,
+                100,
+                130,
+                160
+              ],
+              "duration": 2.5,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 1.5
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Attacks gains Low Health targets deal an additional 3% (+0.025% AP) missing Health magic damage.\n\nActive: Lanches a chronosphere that lasts 1.5 seconds, slowing by 40%. If Ekko enters the sphere it detonates, stunning for 2.5 seconds and granting Ekko a shield that absorbs 70 / 100 / 130 / 160 (+150% AP) damage for 2 seconds.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Phase Dive",
+      "form": null,
+      "description": {
+        "normalized": "Dashes in a taget direction. Ekko's next attack within 3 seconds gains 250 range and causes Ekko to blink to his target and deal an additional 60 / 90 / 120 / 150 (+40% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          50,
+          55,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes in a taget direction. Ekko's next attack within 3 seconds gains 250 range and causes Ekko to blink to his target and deal an additional 60 / 90 / 120 / 150 (+40% AP) magic damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Chronobreak",
+      "form": null,
+      "description": {
+        "normalized": "Becomes untargetable and returns to his position 3.5 seconds ago and heals for 150 / 200 / 250 (+50% AP) increased by 3% per 1% of health lost within 3.5 seconds. Upon arrival, Ekko deals 200 / 350 / 500 (+150% AP) magic damage to nearby enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        60,
+        40
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "heal",
+          "base": [
+            150,
+            200,
+            250
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            200,
+            350,
+            500
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Becomes untargetable and returns to his position 3.5 seconds ago and heals for 150 / 200 / 250 (+50% AP) increased by 3% per 1% of health lost within 3.5 seconds.\n\nUpon arrival, Ekko deals 200 / 350 / 500 (+150% AP) magic damage to nearby enemies.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ekko",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": []
+}

@@ -1,0 +1,41 @@
+{
+  "id": "lillia",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/lillia",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 112,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Dream-Laden Bough",
+    "Blooming Blows",
+    "Watch Out! Eep!",
+    "Swirlseed",
+    "Lilting Lullaby"
+  ]
+}

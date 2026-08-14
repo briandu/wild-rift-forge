@@ -1,0 +1,285 @@
+{
+  "id": "soraka",
+  "name": "Soraka",
+  "title": "The Starchild",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "/images/champion/icon/soraka.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 112,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 49,
+      "regen5": 18,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Salvation",
+      "form": null,
+      "description": {
+        "normalized": "Soraka gains 100% Movement Speed when moving toward allied champions below 35% Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 100,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Soraka gains 100% Movement Speed when moving toward allied champions below 35% Health.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Starcall",
+      "form": null,
+      "description": {
+        "normalized": "Calls a star, dealing 60 / 110 / 160 / 210 (+40% AP) magic damage and slowing by 30% for 2 seconds. If an enemy champion is hit, Soraka gains Rejuvenation, healing for 60 /90 / 120 / 150 (+45% AP) over 2.5 seconds. After healing any ally champion 3 times, Starcall is empowered to deal 140% damage in a larger area.Cooldown is reduced when hitting enemy champions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          50,
+          55,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 3,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Calls a star, dealing 60 / 110 / 160 / 210 (+40% AP) magic damage and slowing by 30% for 2 seconds. If an enemy champion is hit, Soraka gains Rejuvenation, healing for 60 /90 / 120 / 150 (+45% AP) over 2.5 seconds.\n\nAfter healing any ally champion 3 times, Starcall is empowered to deal 140% damage in a larger area.Cooldown is reduced when hitting enemy champions.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Astral Infusion",
+      "form": null,
+      "description": {
+        "normalized": "Heals another allied champion for 50 / 85 / 120 / 155 (+55% AP) Health. Excess healing is converted into a shield with a maximum shield value of 70 / 110 / 150 / 190 (+70%AP).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "heal",
+          "base": [
+            50,
+            85,
+            120,
+            155
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            50,
+            85,
+            120,
+            155
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Heals another allied champion for 50 / 85 / 120 / 155 (+55% AP) Health. Excess healing is converted into a shield with a maximum shield value of 70 / 110 / 150 / 190 (+70%AP).",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Equinox",
+      "form": null,
+      "description": {
+        "normalized": "Create a zone that deals 70 / 120 / 170 / 220 (+40% AP) magic damage and silences enemies. The zone expires after 1.5 seconds, dealing 70 / 120 / 170 / 220 (+40% AP) magic damage and rooting for 1.25 / 1.5 / 1.75 / 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        20,
+        18,
+        16,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "duration": [
+            1.25,
+            1.5,
+            1.75,
+            2
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Create a zone that deals 70 / 120 / 170 / 220 (+40% AP) magic damage and silences enemies. The zone expires after 1.5 seconds, dealing 70 / 120 / 170 / 220 (+40% AP) magic damage and rooting for 1.25 / 1.5 / 1.75 / 2 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Wish",
+      "form": null,
+      "description": {
+        "normalized": "Heals all allied champions for 150 / 225 / 300 (+45% AP), increased by 50% if the ally is below 35% Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        80,
+        75
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "heal",
+          "base": [
+            150,
+            225,
+            300
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Heals all allied champions for 150 / 225 / 300 (+45% AP), increased by 50% if the ally is below 35% Health.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/soraka",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": []
+}

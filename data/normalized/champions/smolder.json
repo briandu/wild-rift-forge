@@ -1,0 +1,359 @@
+{
+  "id": "smolder",
+  "name": "Smolder",
+  "title": "The Fiery Fledgling",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/smolder.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 89,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Dragon Practice",
+      "form": null,
+      "description": {
+        "normalized": "Dragon Practice: Hitting enemy champions with abilities and killing enemies with Super Scorcher Breath grant a stack of Dragon Practice, which improves Smolder's basic abilities. Dragon Practice Empowering Effects: - Super Scorcher Breath: Deals an additional 30% magic damage and gains new effects at 25, 100 and 175 stacks. - Achooo!: Explosions deal an additional 55% magic damage. - Flap, Flap, Flap: Each hit deals an additional 12% magic damage and gains an extra bolt ever 65 stacks.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 30,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 55,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 12,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dragon Practice: Hitting enemy champions with abilities and killing enemies with Super Scorcher Breath grant a stack of Dragon Practice, which improves Smolder's basic abilities.\n\nDragon Practice Empowering Effects:\n\n- Super Scorcher Breath: Deals an additional 30% magic damage and gains new effects at 25, 100 and 175 stacks.\n\n- Achooo!: Explosions deal an additional 55% magic damage.\n\n- Flap, Flap, Flap: Each hit deals an additional 12% magic damage and gains an extra bolt ever 65 stacks.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Super Scorcher Breath",
+      "form": null,
+      "description": {
+        "normalized": "Belches flame, dealing 45 / 80 / 115 / 150 (+110% bonus AD) physical damage and 40% magical damage. If the target dies, 15 Mana is refunded, once per cast. Dragon Practice Empowering Effects: -25 stacks: Damages all enemies nearby the target. -100 stacks: Sends 2 explosions beyond the target that deal 50% of this ability's damage. -175 stacks: Burns the target, dealing 0% (+0.025% bonus AD) of their max Health as true damage over 3 seconds. Enemy champions that drop below 6.5% of their max HP while burning are killed instantly. This ability's damage scales with Critical Rate, increased by 7.5% damage per 10% Crit Rate (max 75%).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            45,
+            80,
+            115,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 100,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "true",
+          "base": 175,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.00025
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Belches flame, dealing 45 / 80 / 115 / 150 (+110% bonus AD) physical damage and 40% magical damage. If the target dies, 15 Mana is refunded, once per cast.\n\nDragon Practice Empowering Effects:\n\n-25 stacks: Damages all enemies nearby the target.\n\n-100 stacks: Sends 2 explosions beyond the target that deal 50% of this ability's damage.\n\n-175 stacks: Burns the target, dealing 0% (+0.025% bonus AD) of their max Health as true damage over 3 seconds. Enemy champions that drop below 6.5% of their max HP while burning are killed instantly.\n\nThis ability's damage scales with Critical Rate, increased by 7.5% damage per 10% Crit Rate (max 75%).",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Achooo!",
+      "form": null,
+      "description": {
+        "normalized": "Lets out a flaming sneeze, dealing 65 / 85 / 105 / 125 (+60% bonus AD) physical damage and slowing by 35% for 1.5 seconds. Sneeze Blast: Hitting champions causes an explosion, dealing 10 / 35 / 60 / 85 (+55% bonus AD +80% AP) physical damage and 55% magic damage in an area. Each consecutive explosion does 75% damage. Smolder gains 1 Dragon Practice stack per champion hit. Deals 130% damage against minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            65,
+            85,
+            105,
+            125
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            10,
+            35,
+            60,
+            85
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.55
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 130,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lets out a flaming sneeze, dealing 65 / 85 / 105 / 125 (+60% bonus AD) physical damage and slowing by 35% for 1.5 seconds.\n\nSneeze Blast: Hitting champions causes an explosion, dealing 10 / 35 / 60 / 85 (+55% bonus AD +80% AP) physical damage and 55% magic damage in an area. Each consecutive explosion does 75% damage. Smolder gains 1 Dragon Practice stack per champion hit.\n\nDeals 130% damage against minions and monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Flap, Flap, Flap",
+      "form": null,
+      "description": {
+        "normalized": "Gains 75% Movement Speed and ignores terrain for 1.25 seconds. Boom!: While flying, automatically locks on to the lowest Health enemy in range and bombards them 5 times. Each hit deals 15 / 20 / 25 / 30 (+30% AD) physical damage and 12% magic damage. Dragon Vision: Gains expanded vision while flying. Prioritizes champions for bombarding.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 75,
+          "duration": 1.25,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            15,
+            20,
+            25,
+            30
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 75% Movement Speed and ignores terrain for 1.25 seconds.\n\nBoom!: While flying, automatically locks on to the lowest Health enemy in range and bombards them 5 times. Each hit deals 15 / 20 / 25 / 30 (+30% AD) physical damage and 12% magic damage.\n\nDragon Vision: Gains expanded vision while flying. Prioritizes champions for bombarding.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "MMOOOMMMM!",
+      "form": null,
+      "description": {
+        "normalized": "Smolder's mom breathes fire from above, dealing 200 / 300 / 400 (+110% bonus AD +100% AP) physical damage to enemies in range. Enemies in the center take 300 / 450 / 600 (+165% bonus AD +150% AP) physical damage and are slowed by 40% for 2 seconds. Smolder heals for 100 / 135 / 170 (+50% bonus AD +75% AP) Health if he is hit. Deals 50% damage against minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            200,
+            300,
+            400
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.1
+            },
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            300,
+            450,
+            600
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.65
+            },
+            {
+              "stat": "ap",
+              "ratio": 1.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": [
+            100,
+            135,
+            170
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Smolder's mom breathes fire from above, dealing 200 / 300 / 400 (+110% bonus AD +100% AP) physical damage to enemies in range.\n\nEnemies in the center take 300 / 450 / 600 (+165% bonus AD +150% AP) physical damage and are slowed by 40% for 2 seconds.\n\nSmolder heals for 100 / 135 / 170 (+50% bonus AD +75% AP) Health if he is hit.\n\nDeals 50% damage against minions and monsters.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/smolder",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Super Scorcher Breath: Numeric prose was not fully structured; rawParsedText kept.",
+    "Super Scorcher Breath: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

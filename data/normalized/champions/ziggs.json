@@ -1,0 +1,260 @@
+{
+  "id": "ziggs",
+  "name": "Ziggs",
+  "title": "The Hexplosives Expert",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/ziggs.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 460,
+      "maximumPerLevel": 31,
+      "regen5": 16,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Short Fuse",
+      "form": null,
+      "description": {
+        "normalized": "Passive: all of Ziggs' abilities can deal 24% damage to turrets. Empower Bouncing Bomb to deal 17 + 3 per level (+15% AP) additional magic damage and 32% damage to turrets. Short Fuse's cooldown is reduced by 4 seconds when Ziggs casts an ability.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "base": 24,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 17,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Passive: all of Ziggs' abilities can deal 24% damage to turrets.\n\nEmpower Bouncing Bomb to deal 17 + 3 per level (+15% AP) additional magic damage and 32% damage to turrets.\n\nShort Fuse's cooldown is reduced by 4 seconds when Ziggs casts an ability.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Bouncing Bomb",
+      "form": null,
+      "description": {
+        "normalized": "Throws a bouncing bomb that deals 70 / 135 / 200 / 265 (+65% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            135,
+            200,
+            265
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.65
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws a bouncing bomb that deals 70 / 135 / 200 / 265 (+65% AP) magic damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Satchel Charge",
+      "form": null,
+      "description": {
+        "normalized": "Flings an explosive charge that can be detonated within 4 seconds to deal 70 / 115 / 160 / 205 (+50% AP) magic damage to enemies and knock them away. Ziggs is also knocked away without taking damage. Damages turrets and demolishes them if they are below20% / 22.5% / 25% / 27.5% Health. The charge can be detonated while in the air.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            115,
+            160,
+            205
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Flings an explosive charge that can be detonated within 4 seconds to deal 70 / 115 / 160 / 205 (+50% AP) magic damage to enemies and knock them away. Ziggs is also knocked away without taking damage.\n\nDamages turrets and demolishes them if they are below20% / 22.5% / 25% / 27.5% Health.\n\nThe charge can be detonated while in the air.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Hexplosive Minefield",
+      "form": null,
+      "description": {
+        "normalized": "Scatters proximity mines that deal 50 / 105 / 160 / 215 (+35% AP) magic damage on contact and slow by 35% / 40% / 45% / 50% for 2 seconds. Enemies detonating multiple mines take 40% damage from subsequent mines. Mines last 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            105,
+            160,
+            215
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Scatters proximity mines that deal 50 / 105 / 160 / 215 (+35% AP) magic damage on contact and slow by 35% / 40% / 45% / 50% for 2 seconds.\n\nEnemies detonating multiple mines take 40% damage from subsequent mines. Mines last 5 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Mega Inferno Bomb",
+      "form": null,
+      "description": {
+        "normalized": "Deploys the Mega Inferno Bomb to deal 270 / 375 / 480 (+85% AP) magic damage to enemies in the blast zone.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        75,
+        65
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            270,
+            375,
+            480
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.85
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deploys the Mega Inferno Bomb to deal 270 / 375 / 480 (+85% AP) magic damage to enemies in the blast zone.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ziggs",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Short Fuse: Numeric prose was not fully structured; rawParsedText kept.",
+    "Satchel Charge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Hexplosive Minefield: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

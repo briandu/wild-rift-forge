@@ -1,0 +1,326 @@
+{
+  "id": "lillia",
+  "name": "Lillia",
+  "title": "The Bashful Bloom",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/lillia.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 112,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 37,
+      "regen5": 14,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Dream-Laden Bough",
+      "form": null,
+      "description": {
+        "normalized": "Lillia's abilities apply Dream Dust, dealing 6% (+0.012% AP) max Health magic damage over 3 seconds. Lillia restores 24 (+6% AP) Health over the duration against large jungle monsters, and restores 17 (+15% AP) Health against champions. Dream Dust's damage is capped at 66 damage over the duration against jungle monsters. Dream Dust heal is 33% effective for each source beyond the first. Dream Dust can only heal from one monster at a time.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.00012
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.06
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 33,
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lillia's abilities apply Dream Dust, dealing 6% (+0.012% AP) max Health magic damage over 3 seconds. Lillia restores 24 (+6% AP) Health over the duration against large jungle monsters, and restores 17 (+15% AP) Health against champions.\n\nDream Dust's damage is capped at 66 damage over the duration against jungle monsters.\n\nDream Dust heal is 33% effective for each source beyond the first.\n\nDream Dust can only heal from one monster at a time.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Blooming Blows",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Lillia's Ability hits grant 4.5% / 5.5% / 6.5% / 7.5% (+0.02% AP) Move Speed for 6 seconds, stacking up to 4 times. Active: Lillia whirls her censer, dealing 35 / 55 / 75 / 95 (+40% AP) magic damage, plus an additional 55 / 55 / 75 / 95 (+40% AP) true damage at the outer edge. Blooming Blows deals 110% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        5,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            55,
+            75,
+            95
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 110,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Lillia's Ability hits grant 4.5% / 5.5% / 6.5% / 7.5% (+0.02% AP) Move Speed for 6 seconds, stacking up to 4 times.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Lillia whirls her censer, dealing 35 / 55 / 75 / 95 (+40% AP) magic damage, plus an additional 55 / 55 / 75 / 95 (+40% AP) true damage at the outer edge.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                35,
+                55,
+                75,
+                95
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.4
+                },
+                {
+                  "stat": "ap",
+                  "ratio": 0.4
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Lillia's Ability hits grant 4.5% / 5.5% / 6.5% / 7.5% (+0.02% AP) Move Speed for 6 seconds, stacking up to 4 times.\n\nActive: Lillia whirls her censer, dealing 35 / 55 / 75 / 95 (+40% AP) magic damage, plus an additional 55 / 55 / 75 / 95 (+40% AP) true damage at the outer edge.\n\nBlooming Blows deals 110% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Watch Out! Eep!",
+      "form": null,
+      "description": {
+        "normalized": "Lillia winds up a huge strike, dealing 70 / 110 / 150 / 190 (+35% AP) magic damage. Enemies in the center take 140 / 220 / 300 / 380(+70% AP) magic damage instead. Deals 50% damage to minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            110,
+            150,
+            190
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lillia winds up a huge strike, dealing 70 / 110 / 150 / 190 (+35% AP) magic damage. Enemies in the center take 140 / 220 / 300 / 380(+70% AP) magic damage instead.\n\nDeals 50% damage to minions.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Swirlseed",
+      "form": null,
+      "description": {
+        "normalized": "Lillia lobs a swirlseed overhead, dealing 70 / 105 / 140 / 175 (+45% AP) magic damage where it lands and revealing Slowing them by 40% for 3 seconds. If no enemies are hit the seed rolls until it hits an enemy or collides with terrain.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            105,
+            140,
+            175
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lillia lobs a swirlseed overhead, dealing 70 / 105 / 140 / 175 (+45% AP) magic damage where it lands and revealing Slowing them by 40% for 3 seconds. If no enemies are hit the seed rolls until it hits an enemy or collides with terrain.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Lilting Lullaby",
+      "form": null,
+      "description": {
+        "normalized": "Lillia causes all enemy champions with Dream Dust to become Drowsy for 1.5 seconds. Afterward they fall Asleep for 2 / 2.3 / 2.5 seconds. When awakened by damage, they take an additional 100 / 150 / 200(+40% AP) magic damage. Drowsy units are slowed over the duration, and fall Asleep afterwards. Asleep units can't move or act until damage by an enemy with non-periodic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            150,
+            200
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lillia causes all enemy champions with Dream Dust to become Drowsy for 1.5 seconds. Afterward they fall Asleep for 2 / 2.3 / 2.5 seconds.\n\nWhen awakened by damage, they take an additional 100 / 150 / 200(+40% AP) magic damage.\n\nDrowsy units are slowed over the duration, and fall Asleep afterwards. Asleep units can't move or act until damage by an enemy with non-periodic damage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/lillia",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Dream-Laden Bough: Numeric prose was not fully structured; rawParsedText kept.",
+    "Blooming Blows: Numeric prose was not fully structured; rawParsedText kept.",
+    "Lilting Lullaby: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

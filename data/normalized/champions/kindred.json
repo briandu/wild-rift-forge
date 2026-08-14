@@ -1,0 +1,307 @@
+{
+  "id": "kindred",
+  "name": "Kindred",
+  "title": "The Eternal Hunters",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/kindred.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 14,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 30,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 5,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Mark of the Kindred",
+      "form": null,
+      "description": {
+        "normalized": "Marks targets with Mark of the Kindred for hunting. Deals additional 30% damage to small monsters, Red Bramblebacks, and Blue Sentinels that are marked. There are different ways to mark a target: 1. Auto-refresh: Every 25 seconds, the Mark on a monster expires and a new one is automatically applied. Marks on monsters are highlighted on the minimap. 2. Active: Tap the Mark button above your spells to mark an enemy champion. 40 second cooldown (120 second cooldown for marking same champion) . Scoring a takedown against a hunted target grants a Mark of the Kindred stack that empowers Kindred. The first 3 stacks gained grant 75 attack range, and every 3 stacks gained subsequently grant 25 attack range. Mark of the Kindred also empowers abilities and grants them the following effects: Dance of Arrows: Gain 0% bonus Attack Speed (5% of Mark of the Kindred stack count). Wolf's Frenzy: Deal bonus damage equal to 0% of current Health (1% of Mark of the Kindred stack count). Mounting Dread: Deal bonus damage equal to 0% of missing Health (1% of Mark of the Kindred stack count).",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "base": 30,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 0,
+          "confidence": "high"
+        },
+        {
+          "type": "missing_health_damage",
+          "base": 0,
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Marks targets with Mark of the Kindred for hunting. Deals additional 30% damage to small monsters, Red Bramblebacks, and Blue Sentinels that are marked. There are different ways to mark a target:\n\n1. Auto-refresh: Every 25 seconds, the Mark on a monster expires and a new one is automatically applied. Marks on monsters are highlighted on the minimap.\n\n2. Active: Tap the Mark button above your spells to mark an enemy champion. 40 second cooldown (120 second cooldown for marking same champion) .\n\nScoring a takedown against a hunted target grants a Mark of the Kindred stack that empowers Kindred. The first 3 stacks gained grant 75 attack range, and every 3 stacks gained subsequently grant 25 attack range.\n\nMark of the Kindred also empowers abilities and grants them the following effects:\n\nDance of Arrows: Gain 0% bonus Attack Speed (5% of Mark of the Kindred stack count).\n\nWolf's Frenzy: Deal bonus damage equal to 0% of current Health (1% of Mark of the Kindred stack count).\n\nMounting Dread: Deal bonus damage equal to 0% of missing Health (1% of Mark of the Kindred stack count).",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Dance of Arrows",
+      "form": null,
+      "description": {
+        "normalized": "Rolls in a target direction and fires an arrow up to 3 enemies, dealing 50 / 75 / 100 / 125 (+70% bonus AD) physical damage and gaining 25% (+5% of Mark of the Kindred stack count) Attack Speed for 4 seconds. While in Wolf's Frenzy, this ability's cooldown is reduced to 4 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        9,
+        9,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          35,
+          35,
+          35
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            75,
+            100,
+            125
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Rolls in a target direction and fires an arrow up to 3 enemies, dealing 50 / 75 / 100 / 125 (+70% bonus AD) physical damage and gaining 25% (+5% of Mark of the Kindred stack count) Attack Speed for 4 seconds.\n\nWhile in Wolf's Frenzy, this ability's cooldown is reduced to 4 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Wolf's Frenzy",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains Hunter's Vigor stacks when moving or attacking. After gaining 100 stacks, Kindred's next attack restores Health (Health restored is based on missing Health and level). Active: Claims an area as territory and directs Wolf to maul the last target that Lamb attacked. Wolf's mauling deals 25 / 30 / 35 / 40 (+20% of bonus AD +20% AP) magic damage plus 1.5% (+1% of Mark of the Kindred stack count) of the target's current Health. Wolf deals 100% damage to marked monsters and other surrounding monsters, slowing them by 50% for 2 seconds. Health restored is the greatest when below 30% Health. Deals up to 300 damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            25,
+            30,
+            35,
+            40
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 100,
+          "duration": 2,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 300,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains Hunter's Vigor stacks when moving or attacking. After gaining 100 stacks, Kindred's next attack restores Health (Health restored is based on missing Health and level).",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Claims an area as territory and directs Wolf to maul the last target that Lamb attacked.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Gains Hunter's Vigor stacks when moving or attacking. After gaining 100 stacks, Kindred's next attack restores Health (Health restored is based on missing Health and level).\n\nActive: Claims an area as territory and directs Wolf to maul the last target that Lamb attacked.\n\nWolf's mauling deals 25 / 30 / 35 / 40 (+20% of bonus AD +20% AP) magic damage plus 1.5% (+1% of Mark of the Kindred stack count) of the target's current Health.\n\nWolf deals 100% damage to marked monsters and other surrounding monsters, slowing them by 50% for 2 seconds.\n\nHealth restored is the greatest when below 30% Health.\n\nDeals up to 300 damage to monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Mounting Dread",
+      "form": null,
+      "description": {
+        "normalized": "Slows and enemy by 50% (+5% AP) for 1 second. Kindred's third attack within 4 seconds of attacking an enemy directs Wolf to pounce on the target, dealing 90 / 115 / 140 / 165 (+80% bonus AD) physical damage plus 8% (+0.5% of Mark of the Kindred stack count) of the target's missing Health. Wolf's attack deals 90 / 115 / 140 / 165 (+80% bonus AD) bonus physical damage plus 12% (+0.75% of Mark of the Kindred stack count) of the target's missing Health to enemies below 25% (+40% Crit Damage) Health. Deals up to 300 damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": [
+            90,
+            115,
+            140,
+            165
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.8
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": [
+            90,
+            115,
+            140,
+            165
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.8
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "damage",
+          "base": 300,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Slows and enemy by 50% (+5% AP) for 1 second.\n\nKindred's third attack within 4 seconds of attacking an enemy directs Wolf to pounce on the target, dealing 90 / 115 / 140 / 165 (+80% bonus AD) physical damage plus 8% (+0.5% of Mark of the Kindred stack count) of the target's missing Health.\n\nWolf's attack deals 90 / 115 / 140 / 165 (+80% bonus AD) bonus physical damage plus 12% (+0.75% of Mark of the Kindred stack count) of the target's missing Health to enemies below 25% (+40% Crit Damage) Health.\n\nDeals up to 300 damage against monsters.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Lamb's Respite",
+      "form": null,
+      "description": {
+        "normalized": "Lamb blesses the ground under herself for 3 seconds, creating a zone where all units within cannot be killed. When units inside the zone fall to 10% Health or below, they become invulnerable to damage for as long as they stay inside the zone, during which they cannot be healed. When the blessing ends, restores 150 / 200 / 250 Health to units within the zone and heals for 50 Health. This ability does not take effect against structures.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        105,
+        90,
+        75
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "heal",
+          "base": [
+            150,
+            200,
+            250
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lamb blesses the ground under herself for 3 seconds, creating a zone where all units within cannot be killed. When units inside the zone fall to 10% Health or below, they become invulnerable to damage for as long as they stay inside the zone, during which they cannot be healed.\n\nWhen the blessing ends, restores 150 / 200 / 250 Health to units within the zone and heals for 50 Health.\n\nThis ability does not take effect against structures.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kindred",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Mark of the Kindred: Numeric prose was not fully structured; rawParsedText kept.",
+    "Mark of the Kindred: Numeric prose was not fully structured; rawParsedText kept.",
+    "Mark of the Kindred: Numeric prose was not fully structured; rawParsedText kept.",
+    "Mark of the Kindred: Numeric prose was not fully structured; rawParsedText kept.",
+    "Dance of Arrows: Numeric prose was not fully structured; rawParsedText kept.",
+    "Wolf's Frenzy: Numeric prose was not fully structured; rawParsedText kept.",
+    "Wolf's Frenzy: Numeric prose was not fully structured; rawParsedText kept.",
+    "Mounting Dread: Numeric prose was not fully structured; rawParsedText kept.",
+    "Lamb's Respite: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

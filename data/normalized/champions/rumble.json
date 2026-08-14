@@ -1,0 +1,286 @@
+{
+  "id": "rumble",
+  "name": "Rumble",
+  "title": "The Mechanized Menace",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/rumble.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Junkyard Titan",
+      "form": null,
+      "description": {
+        "normalized": "Every ability Rumble casts generates Heat. While above 50 Heat, Rumble enters the Danger Zone, causing his basic abilities to gain bonus effects. When he reaches 150 Heat, he becomes Overheated for 4 seconds. Overheated: Silences himself, but gains 55% bonus Attack Speed and empowers his attacks to deal additional 5 (+20% AP) magic damage plus 5% of the marget's max Health. Percent damage is limited to 65 - 150 on monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 55,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Every ability Rumble casts generates Heat. While above 50 Heat, Rumble enters the Danger Zone, causing his basic abilities to gain bonus effects. When he reaches 150 Heat, he becomes Overheated for 4 seconds.\n\nOverheated: Silences himself, but gains 55% bonus Attack Speed and empowers his attacks to deal additional 5 (+20% AP) magic damage plus 5% of the marget's max Health.\n\nPercent damage is limited to 65 - 150 on monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Flamespitter",
+      "form": null,
+      "description": {
+        "normalized": "Ignites his flamethrower, dealing 100 / 140 / 180 / 220 (+125% AP) plus 7% / 8% / 9% / 10% of the target's max Health as magic damage over 3 seconds. The flamethrower deals 105% of this damage against minions. Danger Zone: Deals 150 / 210 / 270 / 330 (+187.5% AP) plus 10.5% / 12% / 13.5% / 15% of the target's max Health as magic damage instead. Percent damage is limited to 65 - 150 damage on monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            140,
+            180,
+            220
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1.25
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            210,
+            270,
+            330
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1.875
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ignites his flamethrower, dealing 100 / 140 / 180 / 220 (+125% AP) plus 7% / 8% / 9% / 10% of the target's max Health as magic damage over 3 seconds. The flamethrower deals 105% of this damage against minions.\n\nDanger Zone: Deals 150 / 210 / 270 / 330 (+187.5% AP) plus 10.5% / 12% / 13.5% / 15% of the target's max Health as magic damage instead.\n\nPercent damage is limited to 65 - 150 damage on monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Scrap Shield",
+      "form": null,
+      "description": {
+        "normalized": "Tosses up a barrier, gaining a shield that absorbs 40 / 80 / 120 / 160 (+4% of max Health +35% AP) damage for 1.5 seconds and 20% / 25% / 30% / 35% Movement Speed for 1 second. Danger Zone: Gains 30% / 35% / 40% / 45% Movement Speed and a shield that absorbs 60 / 120 / 180 / 240 (+6% of max Health +45% AP) damage instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            40,
+            80,
+            120,
+            160
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 35,
+          "duration": 1.5,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            60,
+            120,
+            180,
+            240
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 45,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Tosses up a barrier, gaining a shield that absorbs 40 / 80 / 120 / 160 (+4% of max Health +35% AP) damage for 1.5 seconds and 20% / 25% / 30% / 35% Movement Speed for 1 second.\n\nDanger Zone: Gains 30% / 35% / 40% / 45% Movement Speed and a shield that absorbs 60 / 120 / 180 / 240 (+6% of max Health +45% AP) damage instead.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Electro-Harpoon",
+      "form": null,
+      "description": {
+        "normalized": "Launches an electrified harpoon, dealing 60 / 90 / 120 / 150 (+50% AP) magic damage, slowing by 30% / 35% / 40% / 45% for 1.5 seconds, and reducing the enemy's Magic Resist by 8% / 12% / 16% / 20% for 4 seconds. Hitting an enemy who is already slowed by Electro Harpoon increases the slow to 45% / 52.5% / 60% / 67.5% and Magic Resist reduction to 12% / 18% / 24% / 30%. Danger Zone: The harpoon deals 90 / 135 / 180 / 225 (+75% AP) magic damage instead, and the slow and Magic Resist reduction are increased by 50%. Charge: Gains a charge every 6 seconds, storing up to 2 charges.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            135,
+            180,
+            225
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launches an electrified harpoon, dealing 60 / 90 / 120 / 150 (+50% AP) magic damage, slowing by 30% / 35% / 40% / 45% for 1.5 seconds, and reducing the enemy's Magic Resist by 8% / 12% / 16% / 20% for 4 seconds. Hitting an enemy who is already slowed by Electro Harpoon increases the slow to 45% / 52.5% / 60% / 67.5% and Magic Resist reduction to 12% / 18% / 24% / 30%.\n\nDanger Zone: The harpoon deals 90 / 135 / 180 / 225 (+75% AP) magic damage instead, and the slow and Magic Resist reduction are increased by 50%.\n\nCharge: Gains a charge every 6 seconds, storing up to 2 charges.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "The Equalizer",
+      "form": null,
+      "description": {
+        "normalized": "Launches a line of rockets that creates a burning trail on the ground on impact, dealing 700 / 1050 / 1400 (+200% AP) magic damage and slowing enemies in the trail by 45% over 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            700,
+            1050,
+            1400
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launches a line of rockets that creates a burning trail on the ground on impact, dealing 700 / 1050 / 1400 (+200% AP) magic damage and slowing enemies in the trail by 45% over 5 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/rumble",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Junkyard Titan: Numeric prose was not fully structured; rawParsedText kept.",
+    "Junkyard Titan: Numeric prose was not fully structured; rawParsedText kept.",
+    "Flamespitter: Numeric prose was not fully structured; rawParsedText kept.",
+    "Electro-Harpoon: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "id": "viktor",
+  "name": "Viktor",
+  "title": "The Herald of the Arcane",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "/images/champion/icon/viktor.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 460,
+      "maximumPerLevel": 37,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Glorious Evolution",
+      "form": null,
+      "description": {
+        "normalized": "Gains Hex Fragments whenever Viktor kills an enemy: - Killing minions or normal monsters grants 3 Hex Fragments. - Killing epic monsters, siege units, or super minions grants 5 Hex Fragments. - Champion takedowns grants 25 Hex Fragments. Every 100 Hex Fragments Viktor gains permanently upgrades an active ability. When all of his basic abilities are upgraded, the Hexcore will be perfected, augmenting Chaos Storm.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gains Hex Fragments whenever Viktor kills an enemy:\n\n- Killing minions or normal monsters grants 3 Hex Fragments.\n\n- Killing epic monsters, siege units, or super minions grants 5 Hex Fragments.\n\n- Champion takedowns grants 25 Hex Fragments.\n\nEvery 100 Hex Fragments Viktor gains permanently upgrades an active ability. When all of his basic abilities are upgraded, the Hexcore will be perfected, augmenting Chaos Storm.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Siphon Power",
+      "form": null,
+      "description": {
+        "normalized": "Blasts an enemy, dealing 55 / 70 / 85 / 100 (+35% AP) magic damage and gaining a shield that absorbs up to 30 / 55 / 80 / 105 (+15% AP) damage over 2.5 seconds. The next attack within 3.5 seconds deals 20 / 40 / 60 / 80 (+100% AD +40% AP) bonus magic damage. Upgrade - Turbocharge: This ability's shield absorbs up to 50 / 90 / 130 / 170 (+25% AP) damage and Viktor gains 30% bonus Movement Speed for 2.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            70,
+            85,
+            100
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            55,
+            70,
+            85,
+            100
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            50,
+            90,
+            130,
+            170
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Blasts an enemy, dealing 55 / 70 / 85 / 100 (+35% AP) magic damage and gaining a shield that absorbs up to 30 / 55 / 80 / 105 (+15% AP) damage over 2.5 seconds. The next attack within 3.5 seconds deals 20 / 40 / 60 / 80 (+100% AD +40% AP) bonus magic damage.\n\nUpgrade - Turbocharge: This ability's shield absorbs up to 50 / 90 / 130 / 170 (+25% AP) damage and Viktor gains 30% bonus Movement Speed for 2.5 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Gravity Field",
+      "form": null,
+      "description": {
+        "normalized": "Deploys a gravity field for 4 seconds, slowing enemies by 25% / 30% / 35% / 40%. After a short delay, the field applies a Gravitation stack to the target every 0.5 seconds, stacking up to 3 times. At 3 stacks, all stacks are consumed to stun the target for 1.5 seconds. The target then becomes immune to Gravitation for a short duration. Upgrade - Slow: The first time Siphon Power, Death Ray, and Chaos Storm deal damage to enemies slow them by an additional 20%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "base": 20,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deploys a gravity field for 4 seconds, slowing enemies by 25% / 30% / 35% / 40%. After a short delay, the field applies a Gravitation stack to the target every 0.5 seconds, stacking up to 3 times.\n\nAt 3 stacks, all stacks are consumed to stun the target for 1.5 seconds. The target then becomes immune to Gravitation for a short duration.\n\nUpgrade - Slow: The first time Siphon Power, Death Ray, and Chaos Storm deal damage to enemies slow them by an additional 20%.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Death Ray",
+      "form": null,
+      "description": {
+        "normalized": "Fires a chaos beam that cuts across the battlefield in a line, dealing 75 / 120 / 165 / 210 (+30% AP) magic damage to enemies in its path. Upgrade - Blastquake: After a brief delay, an explosion follows the beam's wake, dealing 30 / 70 / 110 / 150 (+60% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            120,
+            165,
+            210
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            30,
+            70,
+            110,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a chaos beam that cuts across the battlefield in a line, dealing 75 / 120 / 165 / 210 (+30% AP) magic damage to enemies in its path.\n\nUpgrade - Blastquake: After a brief delay, an explosion follows the beam's wake, dealing 30 / 70 / 110 / 150 (+60% AP) magic damage.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Chaos Storm",
+      "form": null,
+      "description": {
+        "normalized": "Conjures a Chaos Storm at the target location for 5.5 seconds, dealing 150 / 225 / 330 (+60% AP) magic damage to enemies within the area and disrupting their channeled abilities. The storm then deals 50 / 90 / 130 (+40% AP) magic damage to enemies within it every second. Upgrade - Howl: Chaos Storm moves faster. Champion takedowns empower the storm, extending its duration by 3.5 seconds and increasing its area of effect. The storm can be empowered up to 5 times. The closer the storm is to Viktor, the faster it moves.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            225,
+            330
+          ],
+          "duration": 5.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Conjures a Chaos Storm at the target location for 5.5 seconds, dealing 150 / 225 / 330 (+60% AP) magic damage to enemies within the area and disrupting their channeled abilities. The storm then deals 50 / 90 / 130 (+40% AP) magic damage to enemies within it every second.\n\nUpgrade - Howl: Chaos Storm moves faster. Champion takedowns empower the storm, extending its duration by 3.5 seconds and increasing its area of effect. The storm can be empowered up to 5 times.\n\nThe closer the storm is to Viktor, the faster it moves.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/viktor",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Glorious Evolution: Numeric prose was not fully structured; rawParsedText kept.",
+    "Glorious Evolution: Numeric prose was not fully structured; rawParsedText kept.",
+    "Glorious Evolution: Numeric prose was not fully structured; rawParsedText kept.",
+    "Glorious Evolution: Numeric prose was not fully structured; rawParsedText kept.",
+    "Gravity Field: Numeric prose was not fully structured; rawParsedText kept.",
+    "Gravity Field: Numeric prose was not fully structured; rawParsedText kept.",
+    "Chaos Storm: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

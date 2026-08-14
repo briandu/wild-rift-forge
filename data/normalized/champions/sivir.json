@@ -1,0 +1,217 @@
+{
+  "id": "sivir",
+  "name": "Sivir",
+  "title": "The Battle Mistress",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "/images/champion/icon/sivir.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 45,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 28,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Fleet of Foot",
+      "form": null,
+      "description": {
+        "normalized": "Gains 31 Movement Speed for 1.5 seconds after dealing damage to an enemy champion with an attack or ability.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gains 31 Movement Speed for 1.5 seconds after dealing damage to an enemy champion with an attack or ability.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Boomerang Blade",
+      "form": null,
+      "description": {
+        "normalized": "Sivir hurls her crossblade, dealing 10 / 30 / 50 / 70 (75% / 80% / 85% / 90% AD + 60% AP) physical damage to all enemies it cuts through. For every 1% Critical Rate, damage is increased by 0.5%. The higher the Attack Speed, the shorter the cast time. Deals 80% damage against non-champion enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          55,
+          55,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            10,
+            30,
+            50,
+            70
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 80,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Sivir hurls her crossblade, dealing 10 / 30 / 50 / 70 (75% / 80% / 85% / 90% AD + 60% AP) physical damage to all enemies it cuts through. For every 1% Critical Rate, damage is increased by 0.5%. The higher the Attack Speed, the shorter the cast time.\n\nDeals 80% damage against non-champion enemies.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Ricochet",
+      "form": null,
+      "description": {
+        "normalized": "Gains 25% / 30% / 35% / 40% Attack Speed for 4 seconds. Her attacks bounce to nearby enemies, dealing 4 / 6 / 8 / 10 (+15% / 18% / 21% / 24% AD) physical damage. If the first attack critically strikes, so will the bounces. Deals 75% damage to minions. Each enemy can be hit by a maximum of 2 bounces.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            4,
+            6,
+            8,
+            10
+          ],
+          "duration": 4,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 75,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 25% / 30% / 35% / 40% Attack Speed for 4 seconds. Her attacks bounce to nearby enemies, dealing 4 / 6 / 8 / 10 (+15% / 18% / 21% / 24% AD) physical damage. If the first attack critically strikes, so will the bounces.\n\nDeals 75% damage to minions. Each enemy can be hit by a maximum of 2 bounces.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Spell Shield",
+      "form": null,
+      "description": {
+        "normalized": "Gains a spell shield for 2 seconds. Heals herself for 38 ( 65% / 70% / 75% / 80% AD + 50% AP) Health and gains Fleet of Foot when she blocks an ability. If the block fails, 50% of the ability's cooldown is refunded.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        22,
+        20,
+        18,
+        16
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 2,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 2,
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains a spell shield for 2 seconds. Heals herself for 38 ( 65% / 70% / 75% / 80% AD + 50% AP) Health and gains Fleet of Foot when she blocks an ability.\n\nIf the block fails, 50% of the ability's cooldown is refunded.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "On The Hunt",
+      "form": null,
+      "description": {
+        "normalized": "Grants 15% bonus Movement Speed to nearby allied champions for 10 / 11 / 12 seconds. During this period, her basic ability cooldowns are reduced by 20% / 25% / 30%. Unyielding Valor: While the Hunt is active, gains 1 stack of Morale every time an attack or ability deals damage to an enemy champion, and 2 stacks of Morale after a champion takedown. Each stack of Morale grants 2 / 3 / 4 AD. At 8 stacks, grants an additional 25% bonus Movement Speed to nearby allied champions and refreshes On the Hunt's duration.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "base": 1,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Grants 15% bonus Movement Speed to nearby allied champions for 10 / 11 / 12 seconds. During this period, her basic ability cooldowns are reduced by 20% / 25% / 30%.\n\nUnyielding Valor: While the Hunt is active, gains 1 stack of Morale every time an attack or ability deals damage to an enemy champion, and 2 stacks of Morale after a champion takedown.\n\nEach stack of Morale grants 2 / 3 / 4 AD. At 8 stacks, grants an additional 25% bonus Movement Speed to nearby allied champions and refreshes On the Hunt's duration.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/sivir",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Fleet of Foot: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spell Shield: Numeric prose was not fully structured; rawParsedText kept.",
+    "On The Hunt: Numeric prose was not fully structured; rawParsedText kept.",
+    "On The Hunt: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

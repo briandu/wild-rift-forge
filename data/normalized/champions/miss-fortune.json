@@ -1,0 +1,256 @@
+{
+  "id": "miss-fortune",
+  "name": "Miss Fortune",
+  "title": "The Bounty Hunter",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/miss-fortune.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 50,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Love Tap",
+      "form": null,
+      "description": {
+        "normalized": "Applies Love Tap when attack enemy champions or epic monsters. At 3 stacks, increases Miss Fortune's damage to the target by 6% - 10.9% ( +0.4x per level ). At 3 stacks deal 15 (+70% bonus AD) X (1 + 100% Critical Rate) physical damage to the target. Deals 50% damage to minions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Applies Love Tap when attack enemy champions or epic monsters. At 3 stacks, increases Miss Fortune's damage to the target by 6% - 10.9% ( +0.4x per level ). At 3 stacks deal 15 (+70% bonus AD) X (1 + 100% Critical Rate) physical damage to the target.\n\nDeals 50% damage to minions and monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Double Up",
+      "form": null,
+      "description": {
+        "normalized": "Fires a shot that ricochets behind the first enemy hit, dealing 60 / 90 / 120 / 150 (+ 112% / 120% / 128% / 136% AD +35% AP) physical damage. The second hit will Critically Strike for 130% / 140% / 150% / 160% damage and apply Love Tap. On-hits are applied to both targets.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          35,
+          35,
+          35
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a shot that ricochets behind the first enemy hit, dealing 60 / 90 / 120 / 150 (+ 112% / 120% / 128% / 136% AD +35% AP) physical damage. The second hit will Critically Strike for 130% / 140% / 150% / 160% damage and apply Love Tap.\n\nOn-hits are applied to both targets.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Strut",
+      "form": null,
+      "description": {
+        "normalized": "Passive: After 4 seconds of not taking damage, gain 30 / 35 / 40 / 45 Movement Speed. After another 3 seconds, this bonus increases to 80 / 90 / 100 / 110. Active: Fully activates Strut's Movement Speed and grants 45% / 60% / 75% / 90% Attack Speed for 4 seconds. Attacking targets with full stacks of Love Tap reduces the remaining cooldown of Strut by 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          303,
+          30,
+          30
+        ]
+      },
+      "effects": [],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "After 4 seconds of not taking damage, gain 30 / 35 / 40 / 45 Movement Speed. After another 3 seconds, this bonus increases to 80 / 90 / 100 / 110.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Fully activates Strut's Movement Speed and grants 45% / 60% / 75% / 90% Attack Speed for 4 seconds. Attacking targets with full stacks of Love Tap reduces the remaining cooldown of Strut by 2 seconds.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: After 4 seconds of not taking damage, gain 30 / 35 / 40 / 45 Movement Speed. After another 3 seconds, this bonus increases to 80 / 90 / 100 / 110.\n\nActive: Fully activates Strut's Movement Speed and grants 45% / 60% / 75% / 90% Attack Speed for 4 seconds. Attacking targets with full stacks of Love Tap reduces the remaining cooldown of Strut by 2 seconds.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Make it Rain",
+      "form": null,
+      "description": {
+        "normalized": "Rains down bullets on an area for 2 seconds, dealing 15 / 20 / 25 / 30 (+10% AP) magic damage every quarter second and slowing enemies by 30% / 40% / 50% / 60%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        13,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          70,
+          75,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            15,
+            20,
+            25,
+            30
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Rains down bullets on an area for 2 seconds, dealing 15 / 20 / 25 / 30 (+10% AP) magic damage every quarter second and slowing enemies by 30% / 40% / 50% / 60%.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Bullet Time",
+      "form": null,
+      "description": {
+        "normalized": "Channels a 3 seconds barrage of bullets, with 12 / 14 / 16 waves that each deal 39 (85% AD +20% AP) physical damage. Each wave can Crit for 130% damage. Re-activate: Cancel the barrage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            12,
+            14,
+            16
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Channels a 3 seconds barrage of bullets, with 12 / 14 / 16 waves that each deal 39 (85% AD +20% AP) physical damage. Each wave can Crit for 130% damage.\n\nRe-activate: Cancel the barrage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/miss-fortune",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Strut: Numeric prose was not fully structured; rawParsedText kept.",
+    "Strut: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

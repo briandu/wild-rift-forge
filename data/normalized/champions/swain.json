@@ -1,0 +1,283 @@
+{
+  "id": "swain",
+  "name": "Swain",
+  "title": "The Noxian Grand General",
+  "roles": [],
+  "positions": [
+    "mid",
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/swain.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 460,
+      "maximumPerLevel": 30,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Ravenous Flock",
+      "form": null,
+      "description": {
+        "normalized": "Swain collects Soul Fragments when Visions of Empire and Nevermore hit enemy champions, and also when they die. Soul Fragments heal for 3% / 3.5% / 4% / 4.5% (+0.5% AP) health and provide 16 maximum health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.005
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Swain collects Soul Fragments when Visions of Empire and Nevermore hit enemy champions, and also when they die.\n\nSoul Fragments heal for 3% / 3.5% / 4% / 4.5% (+0.5% AP) health and provide 16 maximum health.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Death's Hand",
+      "form": null,
+      "description": {
+        "normalized": "Swain extends his demonic arm to launch eldritch bolts at enemies, dealing 55 / 90 / 125 / 160 (+32% AP) magic damage to enemies within range. Each bolt after the first deals 10 / 20 / 30 / 40 (+12% AP) magic damage (up to 110 damage).",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            90,
+            125,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.32
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.12
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Swain extends his demonic arm to launch eldritch bolts at enemies, dealing 55 / 90 / 125 / 160 (+32% AP) magic damage to enemies within range.\n\nEach bolt after the first deals 10 / 20 / 30 / 40 (+12% AP) magic damage (up to 110 damage).",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Vision of Empire",
+      "form": null,
+      "description": {
+        "normalized": "Swain summons a demonic eye that explodes after a short delay, dealing 80 / 130 / 180 / 230 (+55% AP) magic damage slowing by 30% / 40% / 50% / 60% for 2.5 seconds and revealing targets hit for 4 seconds. If Vision of Empire damages an immobilized champion it will critically strike for 50% damage. Champions hit will give 1 soul fragment.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        21,
+        20,
+        19,
+        18
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            130,
+            180,
+            230
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Swain summons a demonic eye that explodes after a short delay, dealing 80 / 130 / 180 / 230 (+55% AP) magic damage slowing by 30% / 40% / 50% / 60% for 2.5 seconds and revealing targets hit for 4 seconds. If Vision of Empire damages an immobilized champion it will critically strike for 50% damage.\n\nChampions hit will give 1 soul fragment.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Nevermove",
+      "form": null,
+      "description": {
+        "normalized": "Swain launches a demonic wave that deals 35 / 85 / 135 / 185 (+25% AP) magic damage to enemies along the way, then turns back after reaching the furthest distance, dealing 35 / 50 / 6+5 / 80 (+25% AP) magic daamge to the area and rooting enemies withing the area for 1.5 seconds. Recast: Swain pulls the rooted champions to himself and collets 1 Soul Fragment from targets.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            85,
+            135,
+            185
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Swain launches a demonic wave that deals 35 / 85 / 135 / 185 (+25% AP) magic damage to enemies along the way, then turns back after reaching the furthest distance, dealing 35 / 50 / 6+5 / 80 (+25% AP) magic daamge to the area and rooting enemies withing the area for 1.5 seconds.\n\nRecast: Swain pulls the rooted champions to himself and collets 1 Soul Fragment from targets.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Demonic Ascension",
+      "form": null,
+      "description": {
+        "normalized": "Swain frees the demon, dealing 10 / 25 / 45 (+15% AP)magic damage per second to enemies within his range and restoring 20 / 30 / 40 (+20% AP) health to himself. Recast: Can be cast again after 2 seconds of Demonic Ascension, dealing damage and slowing enemies. Non-champions units will restore 10% health.Demon Ascension is controlled by Demon Energy, which depletes over time, and can be recharged indefinitely by draining enemy Champions. Champion takedowns fully restore Demon Energy. Cooldown between two Demonflare: 6 seconds",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        65,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            10,
+            25,
+            45
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Swain frees the demon, dealing 10 / 25 / 45 (+15% AP)magic damage per second to enemies within his range and restoring 20 / 30 / 40 (+20% AP) health to himself.\n\nRecast: Can be cast again after 2 seconds of Demonic Ascension, dealing damage and slowing enemies.\n\nNon-champions units will restore 10% health.Demon Ascension is controlled by Demon Energy, which depletes over time, and can be recharged indefinitely by draining enemy Champions. Champion takedowns fully restore Demon Energy.\n\nCooldown between two Demonflare: 6 seconds",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/swain",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Vision of Empire: Numeric prose was not fully structured; rawParsedText kept.",
+    "Nevermove: Numeric prose was not fully structured; rawParsedText kept.",
+    "Demonic Ascension: Numeric prose was not fully structured; rawParsedText kept.",
+    "Demonic Ascension: Numeric prose was not fully structured; rawParsedText kept.",
+    "Demonic Ascension: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

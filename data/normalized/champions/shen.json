@@ -1,0 +1,218 @@
+{
+  "id": "shen",
+  "name": "Shen",
+  "title": "Eye of Twilight",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/shen.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 112,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 200,
+      "maximumPerLevel": 0,
+      "regen5": 50,
+      "regen5PerLevel": 0
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 3,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Ki Barrier",
+      "form": null,
+      "description": {
+        "normalized": "Gains a shield that absorbs 51 (+14% HP) damage for 2.5 seconds after completing an ability. If the ability affected at least one champion, Ki Barrier's cooldown is reduced by 4 seconds. Gains 10 Energy when Shen's abbilties damage an enemy.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "shield",
+          "base": 51,
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "maximum_health",
+              "ratio": 0.14
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains a shield that absorbs 51 (+14% HP) damage for 2.5 seconds after completing an ability. If the ability affected at least one champion, Ki Barrier's cooldown is reduced by 4 seconds.\n\nGains 10 Energy when Shen's abbilties damage an enemy.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Twilight Assault",
+      "form": null,
+      "description": {
+        "normalized": "Recalls the Spirit Blade, enhancing his next 3 attacks to deal an additional 12 + 3% / 3.5% / 4% / 4.5% (+1.5% AP) of the target's max Health as magic damage. If the Spirit Blade passed through an enemy champion, the damage bonus is increased to 12 + 5.5% / 6% / 6.5% / 7% (+2% AP) of the target's max Health as magic damage and Shen gains 50% Attack Speed. Enemy champions the Spirit Blade passes through are slowed by 15% / 20% / 25% / 30% for 2 seconds while moving away from Shen. Deals 150% damage to minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          70,
+          65,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.015
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.02
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 150,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Recalls the Spirit Blade, enhancing his next 3 attacks to deal an additional 12 + 3% / 3.5% / 4% / 4.5% (+1.5% AP) of the target's max Health as magic damage. If the Spirit Blade passed through an enemy champion, the damage bonus is increased to 12 + 5.5% / 6% / 6.5% / 7% (+2% AP) of the target's max Health as magic damage and Shen gains 50% Attack Speed.\n\nEnemy champions the Spirit Blade passes through are slowed by 15% / 20% / 25% / 30% for 2 seconds while moving away from Shen.\n\nDeals 150% damage to minions.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Spirit's Refuge",
+      "form": null,
+      "description": {
+        "normalized": "Sends the Spirit Blade to an allied champion, creatng a zone that blocks enemy attacks for 1.75 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Sends the Spirit Blade to an allied champion, creatng a zone that blocks enemy attacks for 1.75 seconds.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Shadow Dash",
+      "form": null,
+      "description": {
+        "normalized": "Dashes forward, dealing 60 / 90 / 120 / 150 (+15% HP) physical damage to enemy champions and monsters, taunting them for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          75,
+          75,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            90,
+            120,
+            150
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "maximum_health",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes forward, dealing 60 / 90 / 120 / 150 (+15% HP) physical damage to enemy champions and monsters, taunting them for 1.5 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Stand United",
+      "form": null,
+      "description": {
+        "normalized": "Channels for 3 seconds, shielding an allied champion for 170 / 340 / 510 (+135% AP +15% HP) damage for 5 seconds, increased by 0% - 60% based on target's missing health. Upon completing the channel, Shen teleports to the target ally.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        110,
+        100,
+        90
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Channels for 3 seconds, shielding an allied champion for 170 / 340 / 510 (+135% AP +15% HP) damage for 5 seconds, increased by 0% - 60% based on target's missing health.\n\nUpon completing the channel, Shen teleports to the target ally.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/shen",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Ki Barrier: Numeric prose was not fully structured; rawParsedText kept.",
+    "Twilight Assault: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spirit's Refuge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Stand United: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

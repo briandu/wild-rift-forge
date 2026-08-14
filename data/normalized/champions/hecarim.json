@@ -1,0 +1,274 @@
+{
+  "id": "hecarim",
+  "name": "Hecarim",
+  "title": "The Shadow of War",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "/images/champion/icon/hecarim.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Warpath",
+      "form": null,
+      "description": {
+        "normalized": "Hecarim gains 0 = (12% bonus MS) Attack Damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Hecarim gains 0 = (12% bonus MS) Attack Damage.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Rampage",
+      "form": null,
+      "description": {
+        "normalized": "Charges his halberd for 0.75 seconds, increasing the area Hecarim deals damage to. Automatically casts when fully charged, dealing 5 / 15 / 25 / 35 (+110% AD) physical damage. If Hecarim hits an enemy champion or a large monster with a full charge, he critically strikes them for 120% damage and gains a 18% Movement Speed bonus that decays over 3 seconds. This also empowers Hecarim's next Rampage within the next 8 seconds to deal 120% damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        4,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          28,
+          32,
+          36,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            5,
+            15,
+            25,
+            35
+          ],
+          "duration": 0.75,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 120,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 18,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Charges his halberd for 0.75 seconds, increasing the area Hecarim deals damage to. Automatically casts when fully charged, dealing 5 / 15 / 25 / 35 (+110% AD) physical damage.\n\nIf Hecarim hits an enemy champion or a large monster with a full charge, he critically strikes them for 120% damage and gains a 18% Movement Speed bonus that decays over 3 seconds. This also empowers Hecarim's next Rampage within the next 8 seconds to deal 120% damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Spirit of Dread",
+      "form": null,
+      "description": {
+        "normalized": "Gains 6 / 12 / 18 / 24 Armor and Magic Resist, and deals 12 / 18 / 24 / 30 (+20% AP) magic damage to nearby enemies once every 0.5 seconds for 4 seconds. For every enemy hit, he heals for 5 (+1% of bonus HP). Damaging enemies restores Health equal to 20% of damage dealt + 0.02% of bonus AD. Healing gained from damaging minions and monsters is reduced by 50% and capped at 90 Health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        15,
+        14,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          60,
+          70,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            6,
+            12,
+            18,
+            24
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": [
+            6,
+            12,
+            18,
+            24
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 6 / 12 / 18 / 24 Armor and Magic Resist, and deals 12 / 18 / 24 / 30 (+20% AP) magic damage to nearby enemies once every 0.5 seconds for 4 seconds. For every enemy hit, he heals for 5 (+1% of bonus HP).\n\nDamaging enemies restores Health equal to 20% of damage dealt + 0.02% of bonus AD.\n\nHealing gained from damaging minions and monsters is reduced by 50% and capped at 90 Health.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Devastating Charge",
+      "form": null,
+      "description": {
+        "normalized": "Gains 25% Movement Speed, which increases to 55% over 4 seconds. Hecarim dashes toward the enemy if his next attack is within 5 seconds, dealing 5 / 10 / 15 / 20 (+30% bonus AD) physical damage and knocking them back. He will also pursue the enemy that was knocked back. The remaining duration of this ability is paused during Onslaught of Shadows.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        17,
+        16,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            5,
+            10,
+            15,
+            20
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 25,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 25% Movement Speed, which increases to 55% over 4 seconds. Hecarim dashes toward the enemy if his next attack is within 5 seconds, dealing 5 / 10 / 15 / 20 (+30% bonus AD) physical damage and knocking them back. He will also pursue the enemy that was knocked back. The remaining duration of this ability is paused during Onslaught of Shadows.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Onslaught of Shadows",
+      "form": null,
+      "description": {
+        "normalized": "Hecarim summons spectral riders and charges forward, dealing150 / 250 / 350 (+100% AP) magic damage. Hecarim unleashes a shockwave at the end of the charge that Fears for between 0.75 to 1.5 seconds, increased by charge distance.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        100,
+        85,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hecarim summons spectral riders and charges forward, dealing150 / 250 / 350 (+100% AP) magic damage. Hecarim unleashes a shockwave at the end of the charge that Fears for between 0.75 to 1.5 seconds, increased by charge distance.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/hecarim",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Warpath: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spirit of Dread: Numeric prose was not fully structured; rawParsedText kept.",
+    "Spirit of Dread: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

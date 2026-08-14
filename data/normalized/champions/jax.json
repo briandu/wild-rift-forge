@@ -1,0 +1,343 @@
+{
+  "id": "jax",
+  "name": "Jax",
+  "title": "Grandmaster at Arms",
+  "roles": [],
+  "positions": [
+    "solo",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/jax.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Relentless Assault",
+      "form": null,
+      "description": {
+        "normalized": "Attacks against champions and minions grant 6% - 20% Attack Speed for 3 seconds. (Max 5 stacks.)",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Attacks against champions and minions grant 6% - 20% Attack Speed for 3 seconds. (Max 5 stacks.)",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Leap Strike",
+      "form": null,
+      "description": {
+        "normalized": "Leaps to a target unit, dealing 70 / 125 / 180 / 235 (+100% AD ) physical damage if it is an enemy.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            125,
+            180,
+            235
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Leaps to a target unit, dealing 70 / 125 / 180 / 235 (+100% AD ) physical damage if it is an enemy.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Empower",
+      "form": null,
+      "description": {
+        "normalized": "Empowers the next attack or Leap Strike to deal an additional 55 / 100 / 145 / 190 (+60% AP) magic damage. Deals 175% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        5,
+        4,
+        3
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            100,
+            145,
+            190
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 175,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers the next attack or Leap Strike to deal an additional 55 / 100 / 145 / 190 (+60% AP) magic damage.\n\nDeals 175% damage to monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Counter Strike",
+      "form": null,
+      "description": {
+        "normalized": "Enters a defensive stance, dodging all incoming attacks and taking 25% reduced damage from champions for 2 seconds. After this duration, nearby enemies are stunned for 1 second and take 35 / 75 / 115 / 155 (+3.5% max target HP + 70% AP) magic damage. Each attack dodged increases this damage by 20% (up to 100%). Re-cast: Ends the defensive stance early to damage and stun nearby enemies immediately.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            75,
+            115,
+            155
+          ],
+          "duration": 2,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Enters a defensive stance, dodging all incoming attacks and taking 25% reduced damage from champions for 2 seconds. After this duration, nearby enemies are stunned for 1 second and take 35 / 75 / 115 / 155 (+3.5% max target HP + 70% AP) magic damage. Each attack dodged increases this damage by 20% (up to 100%).\n\nRe-cast: Ends the defensive stance early to damage and stun nearby enemies immediately.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Grandmaster-at-Arms",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Deals an additional 75 / 130 / 185 (+70% AP) magic damage with every 3 consecutive attacks he haunches within 3 seconds. Active: Swings his stave, dealing 100 / 200 / 300 (+100% AP) magic damage to nearby enemies and gaining Armor and Magic Resist based on the number of champions hit. If he hits a champion, he gains 30 / 50 / 70 (+50% bonus AD) Armor and 18 / 30 / 42 (+30% bonus AD) Magic Resist. If he hits more than one champion, he gains 15 / 20 / 25 (+10% bonus AD) Armor and 9 / 12 / 15 (+6% bonus AD) Magic Resist for 8 seconds per additional champion hit. During this time, his size increases by 10%, and he deals additional magic damage with every 2 attacks instead. Deals 110% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        55,
+        55,
+        55
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            130,
+            185
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            200,
+            300
+          ],
+          "duration": 8,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.3
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.1
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.06
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 110,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Deals an additional 75 / 130 / 185 (+70% AP) magic damage with every 3 consecutive attacks he haunches within 3 seconds.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                75,
+                130,
+                185
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.7
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Swings his stave, dealing 100 / 200 / 300 (+100% AP) magic damage to nearby enemies and gaining Armor and Magic Resist based on the number of champions hit. If he hits a champion, he gains 30 / 50 / 70 (+50% bonus AD) Armor and 18 / 30 / 42 (+30% bonus AD) Magic Resist. If he hits more than one champion, he gains 15 / 20 / 25 (+10% bonus AD) Armor and 9 / 12 / 15 (+6% bonus AD) Magic Resist for 8 seconds per additional champion hit. During this time, his size increases by 10%, and he deals additional magic damage with every 2 attacks instead.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                100,
+                200,
+                300
+              ],
+              "duration": 8,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 1
+                },
+                {
+                  "stat": "bonus_ad",
+                  "ratio": 0.5
+                },
+                {
+                  "stat": "bonus_ad",
+                  "ratio": 0.3
+                },
+                {
+                  "stat": "bonus_ad",
+                  "ratio": 0.1
+                },
+                {
+                  "stat": "bonus_ad",
+                  "ratio": 0.06
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Deals an additional 75 / 130 / 185 (+70% AP) magic damage with every 3 consecutive attacks he haunches within 3 seconds.\n\nActive: Swings his stave, dealing 100 / 200 / 300 (+100% AP) magic damage to nearby enemies and gaining Armor and Magic Resist based on the number of champions hit. If he hits a champion, he gains 30 / 50 / 70 (+50% bonus AD) Armor and 18 / 30 / 42 (+30% bonus AD) Magic Resist. If he hits more than one champion, he gains 15 / 20 / 25 (+10% bonus AD) Armor and 9 / 12 / 15 (+6% bonus AD) Magic Resist for 8 seconds per additional champion hit. During this time, his size increases by 10%, and he deals additional magic damage with every 2 attacks instead.\n\nDeals 110% damage to monsters.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/jax",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Relentless Assault: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

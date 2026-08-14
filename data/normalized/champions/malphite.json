@@ -1,0 +1,315 @@
+{
+  "id": "malphite",
+  "name": "Malphite",
+  "title": "Shard of the Monolith",
+  "roles": [],
+  "positions": [
+    "solo",
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/malphite.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 31,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 49,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Granite Shield",
+      "form": null,
+      "description": {
+        "normalized": "Shield 72 (11% maximum HP) damage after not taking damage for 8 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "shield",
+          "base": 72,
+          "duration": 8,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Shield 72 (11% maximum HP) damage after not taking damage for 8 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Seismic Shard",
+      "form": null,
+      "description": {
+        "normalized": "Launches a shard that deals 70 / 130 / 190 / 250 (+45% AP) magic damage, slowing the target by 15% / 20% / 25% / 30%, and hasting Malphite by 15% for 3 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          80,
+          85,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            130,
+            190,
+            250
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launches a shard that deals 70 / 130 / 190 / 250 (+45% AP) magic damage, slowing the target by 15% / 20% / 25% / 30%, and hasting Malphite by 15% for 3 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Thunderclap",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 8 Armor (25% / 30% / 35% / 40% Armor). Active: For the next 6 seconds, attacks deal 10 / 20 / 30 / 40 (+20% AP +20% Armor) physical damage in a cone. The first attack is empowered to deal 40 / 60 / 80 / 100 (+40% AP +40% Armor) bonus physical damage to the target.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          25,
+          25,
+          25,
+          25
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            10,
+            20,
+            30,
+            40
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            },
+            {
+              "stat": "armor",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            40,
+            60,
+            80,
+            100
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            },
+            {
+              "stat": "armor",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 8 Armor (25% / 30% / 35% / 40% Armor).",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "For the next 6 seconds, attacks deal 10 / 20 / 30 / 40 (+20% AP +20% Armor) physical damage in a cone.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                10,
+                20,
+                30,
+                40
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.2
+                },
+                {
+                  "stat": "armor",
+                  "ratio": 0.2
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gains 8 Armor (25% / 30% / 35% / 40% Armor).\n\nActive: For the next 6 seconds, attacks deal 10 / 20 / 30 / 40 (+20% AP +20% Armor) physical damage in a cone.\n\nThe first attack is empowered to deal 40 / 60 / 80 / 100 (+40% AP +40% Armor) bonus physical damage to the target.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Ground Slam",
+      "form": null,
+      "description": {
+        "normalized": "Slams the ground, dealing 60 / 110 / 160 / 210 (+45% AP +45% Armor) magic damage to nearby enemies and reducing their attack speed by 35% / 40% / 45% / 50% for 3 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            },
+            {
+              "stat": "armor",
+              "ratio": 0.45
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Slams the ground, dealing 60 / 110 / 160 / 210 (+45% AP +45% Armor) magic damage to nearby enemies and reducing their attack speed by 35% / 40% / 45% / 50% for 3 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Unstoppable Force",
+      "form": null,
+      "description": {
+        "normalized": "Charges to the target area, dealing 200 / 300 / 400 (+90% AP) magic damage and knocking up nearby enemies for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        70,
+        65
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            200,
+            300,
+            400
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Charges to the target area, dealing 200 / 300 / 400 (+90% AP) magic damage and knocking up nearby enemies for 1.5 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/malphite",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Thunderclap: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

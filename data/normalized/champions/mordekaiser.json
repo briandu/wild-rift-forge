@@ -1,0 +1,254 @@
+{
+  "id": "mordekaiser",
+  "name": "Mordekaiser",
+  "title": "The Iron Revenant",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/mordekaiser.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 3,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Darkness Rise",
+      "form": null,
+      "description": {
+        "normalized": "Gains 1% Magic Pen. Attacks deal 30% bonus magic damage. When Mordekaiser gets a takedown, or his basic abilities or attacks hit an enemy champion or large monster, he gains 1 stack of Darkness Rise for 5 seconds. At 3 stacks, he cloaks himself in a negative energy field. The negative energy field deals magic damage equal to 4.75 (+ 0.25 per level + 25% AP ) plus 1% of the target's max Health per second and grants him 3% Movement Speed for 5 seconds. Takedowns and basic ability or attack hits against enemy champions or large monsters refresh the negative energy field's duration. Darkness Rise deals a maximum of 24 damage to monsters per second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 1,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 4.75,
+          "duration": 5,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 3,
+          "duration": 5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 24,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 1% Magic Pen. Attacks deal 30% bonus magic damage.\n\nWhen Mordekaiser gets a takedown, or his basic abilities or attacks hit an enemy champion or large monster, he gains 1 stack of Darkness Rise for 5 seconds. At 3 stacks, he cloaks himself in a negative energy field.\n\nThe negative energy field deals magic damage equal to 4.75 (+ 0.25 per level + 25% AP ) plus 1% of the target's max Health per second and grants him 3% Movement Speed for 5 seconds.\n\nTakedowns and basic ability or attack hits against enemy champions or large monsters refresh the negative energy field's duration.\n\nDarkness Rise deals a maximum of 24 damage to monsters per second.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Obliterate",
+      "form": null,
+      "description": {
+        "normalized": "Smashes the ground with Nightfall to deal 80 / 110 / 140 / 170 (+70% AP +120% bonus AD) magic damage. Damage is increased by 45% / 50% / 55% / 60% bonus AD when the ability hits only one enemy.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            110,
+            140,
+            170
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            },
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Smashes the ground with Nightfall to deal 80 / 110 / 140 / 170 (+70% AP +120% bonus AD) magic damage. Damage is increased by 45% / 50% / 55% / 60% bonus AD when the ability hits only one enemy.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Indestructible",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Stores 35% of the damage he deals and 7% of the damage he takes. Active: Gains the stored damage as a shield for 4 seconds. Recasting Indestructible restores 35% / 38% / 40% / 42% of the remaining shield as Health. Minimum Shield: 5% Maximum Shield: 30%",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "base": 35,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 4,
+          "duration": 4,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 5,
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": 30,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Stores 35% of the damage he deals and 7% of the damage he takes.",
+          "effects": [
+            {
+              "type": "damage",
+              "base": 35,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Gains the stored damage as a shield for 4 seconds. Recasting Indestructible restores 35% / 38% / 40% / 42% of the remaining shield as Health.",
+          "effects": [
+            {
+              "type": "shield",
+              "base": 4,
+              "duration": 4,
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Stores 35% of the damage he deals and 7% of the damage he takes.\n\nActive: Gains the stored damage as a shield for 4 seconds. Recasting Indestructible restores 35% / 38% / 40% / 42% of the remaining shield as Health.\n\nMinimum Shield: 5%\n\nMaximum Shield: 30%",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Death's Grasp",
+      "form": null,
+      "description": {
+        "normalized": "Pulls the enemy toward him, dealing 60 / 80 / 100 / 120 (+55% AP) magic damage and slowing them by 30% for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        15,
+        12,
+        10
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            80,
+            100,
+            120
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Pulls the enemy toward him, dealing 60 / 80 / 100 / 120 (+55% AP) magic damage and slowing them by 30% for 1 second.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Realm of Death",
+      "form": null,
+      "description": {
+        "normalized": "Banishes an enemy champion into the Death Realm with him for 7 seconds. During this period: - Steals 8% of the target's core stats (AP, AD, AS, Armor, Magic Resist and Max HP). - If Mordekaiser takes down the target, he keeps the stolen stats until the target respawns. -If he doesn't, the stolen stats are returned once the ability ends.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        105,
+        90,
+        75
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Banishes an enemy champion into the Death Realm with him for 7 seconds.\n\nDuring this period:\n\n- Steals 8% of the target's core stats (AP, AD, AS, Armor, Magic Resist and Max HP).\n\n- If Mordekaiser takes down the target, he keeps the stolen stats until the target respawns.\n\n-If he doesn't, the stolen stats are returned once the ability ends.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/mordekaiser",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Darkness Rise: Numeric prose was not fully structured; rawParsedText kept.",
+    "Realm of Death: Numeric prose was not fully structured; rawParsedText kept.",
+    "Realm of Death: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

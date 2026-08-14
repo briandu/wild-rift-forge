@@ -1,0 +1,293 @@
+{
+  "id": "dr-mundo",
+  "name": "Dr. Mundo",
+  "title": "The Madman of Zaun",
+  "roles": [],
+  "positions": [
+    "solo",
+    "jungle"
+  ],
+  "imageUrl": "/images/champion/icon/dr-mundo.png",
+  "stats": {
+    "health": 720,
+    "healthPerLevel": 112,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Goes Where He Pleases",
+      "form": null,
+      "description": {
+        "normalized": "Resists the first immobilizing effect, losing 3% current Health instead and dropping a Chemical Canister nearby. Retrieving the Canister reduces cooldown by 10 seconds and heals Dr. Mundo for 4% of his maximul Health (40 second CD). Regenerates 1% of his maximum Health ever 5 seconds. Enemy champions destroy the Canister if they reach it first.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 3,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Resists the first immobilizing effect, losing 3% current Health instead and dropping a Chemical Canister nearby. Retrieving the Canister reduces cooldown by 10 seconds and heals Dr. Mundo for 4% of his maximul Health (40 second CD). Regenerates 1% of his maximum Health ever 5 seconds. Enemy champions destroy the Canister if they reach it first.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Infected Bonesaw",
+      "form": null,
+      "description": {
+        "normalized": "Throws his bonesaw, dealing magic damage equal to 20% / 23% / 26% / 29% of the target's current Health ( min: 90 / 160 / 230 / 300) and slowing them by 40% for 2 seconds. Hitting and enemy heals Dr. Mundo for 25, or 50 on hitting a champion or monster. Deals up to 250 / 350 / 450 / 550 damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            160,
+            230,
+            300
+          ],
+          "duration": 2,
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 25,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": [
+            250,
+            350,
+            450,
+            550
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws his bonesaw, dealing magic damage equal to 20% / 23% / 26% / 29% of the target's current Health ( min: 90 / 160 / 230 / 300) and slowing them by 40% for 2 seconds.\n\nHitting and enemy heals Dr. Mundo for 25, or 50 on hitting a champion or monster.\n\nDeals up to 250 / 350 / 450 / 550 damage against monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Heart Zapper",
+      "form": null,
+      "description": {
+        "normalized": "Charges a defibrillator for 4 seconds, dealing 20 magic damage per second to nearby enemies. Re-cast: Detonates the defibrillator, dealing 20 / 40 / 60 / 80 (+5% bonus HP) magic damage to nearby enemies. If the detonation damaged an enemy, Dr. Mundo heals for 15% of the damage taken during Heart Zapper's duration. If it damaged a champion or monster he heals 30% / 35% / 40% / 45% instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 4,
+          "duration": 4,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            40,
+            60,
+            80
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_health",
+              "ratio": 0.05
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 15,
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 30,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Charges a defibrillator for 4 seconds, dealing 20 magic damage per second to nearby enemies.\n\nRe-cast: Detonates the defibrillator, dealing 20 / 40 / 60 / 80 (+5% bonus HP) magic damage to nearby enemies.\n\nIf the detonation damaged an enemy, Dr. Mundo heals for 15% of the damage taken during Heart Zapper's duration.\n\nIf it damaged a champion or monster he heals 30% / 35% / 40% / 45% instead.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Blunt Force Trauma",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Dr. Mundo gains 15 / 20 / 25 / 30, plus up to 30 / 45 / 50 / 60 Attack Damage based on his missing health. Active: Empowers his next attack to deal an addition 5 / 20 / 35 / 50 (+5% HP) physical damage, increased by up to 60% based on Dr. Mundo's missing heath. Dr. Mundo swats the target away if it was killed or was a small monster, dealing the same damage to enemies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          10,
+          20,
+          30,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            5,
+            20,
+            35,
+            50
+          ],
+          "scalings": [
+            {
+              "stat": "maximum_health",
+              "ratio": 0.05
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Dr. Mundo gains 15 / 20 / 25 / 30, plus up to 30 / 45 / 50 / 60 Attack Damage based on his missing health.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Empowers his next attack to deal an addition 5 / 20 / 35 / 50 (+5% HP) physical damage, increased by up to 60% based on Dr. Mundo's missing heath.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                5,
+                20,
+                35,
+                50
+              ],
+              "scalings": [
+                {
+                  "stat": "maximum_health",
+                  "ratio": 0.05
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Dr. Mundo gains 15 / 20 / 25 / 30, plus up to 30 / 45 / 50 / 60 Attack Damage based on his missing health.\n\nActive: Empowers his next attack to deal an addition 5 / 20 / 35 / 50 (+5% HP) physical damage, increased by up to 60% based on Dr. Mundo's missing heath.\n\nDr. Mundo swats the target away if it was killed or was a small monster, dealing the same damage to enemies.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Maximum Dosage",
+      "form": null,
+      "description": {
+        "normalized": "Dr. Mundo's base Health is increased by 25% / 30% / 35% of his missing Health. He also gains Attack Damage ( 4% / 5.5% / 7% bonus HP), 15% / 25% / 35% Movement Speed for 10 seconds and heals 15% / 35% / 55% of his maximum Health over the duration.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "heal",
+          "base": 25,
+          "confidence": "medium"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 35,
+          "duration": 10,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dr. Mundo's base Health is increased by 25% / 30% / 35% of his missing Health. He also gains Attack Damage ( 4% / 5.5% / 7% bonus HP), 15% / 25% / 35% Movement Speed for 10 seconds and heals 15% / 35% / 55% of his maximum Health over the duration.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/dr-mundo",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Blunt Force Trauma: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

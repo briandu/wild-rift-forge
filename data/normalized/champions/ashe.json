@@ -1,0 +1,233 @@
+{
+  "id": "ashe",
+  "name": "Ashe",
+  "title": "The Frost Archer",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/ashe.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 30,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Frost Shot",
+      "form": null,
+      "description": {
+        "normalized": "Attacks and damaging abilities slow targets hit by 15% for 2 seconds. Attacks deal 110% bonus damage, scaling with her Critical Damage. Critical Strikes deal no bonus damage but slow targets by 40%, decaying over time.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "base": 110,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attacks and damaging abilities slow targets hit by 15% for 2 seconds.\n\nAttacks deal 110% bonus damage, scaling with her Critical Damage. Critical Strikes deal no bonus damage but slow targets by 40%, decaying over time.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Ranger's Focus",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Attacks grant a Focus stack for 4 seconds. At 4 stacks, she can cast this ability Active: Gain 20% / 30% / 40% / 50% Attack Speed for 6 seconds. While active, her attack is transformed into a flurry of arrows, dealing 115% / 120% / 125% / 130% physical damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        0,
+        0,
+        0
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 20,
+          "duration": 6,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Attacks grant a Focus stack for 4 seconds. At 4 stacks, she can cast this ability",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Gain 20% / 30% / 40% / 50% Attack Speed for 6 seconds. While active, her attack is transformed into a flurry of arrows, dealing 115% / 120% / 125% / 130% physical damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": 20,
+              "duration": 6,
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Attacks grant a Focus stack for 4 seconds. At 4 stacks, she can cast this ability\n\nActive: Gain 20% / 30% / 40% / 50% Attack Speed for 6 seconds. While active, her attack is transformed into a flurry of arrows, dealing 115% / 120% / 125% / 130% physical damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Volley",
+      "form": null,
+      "description": {
+        "normalized": "Ashe fires 5 / 7 / 9 / 11 arrows in a cone, dealing 20 / 35 / 50 / 65 (+115% AD) physical damage. Also applies a critical slow from Frost Shot.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        11,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            5,
+            7,
+            9,
+            11
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.15
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ashe fires 5 / 7 / 9 / 11 arrows in a cone, dealing 20 / 35 / 50 / 65 (+115% AD) physical damage. Also applies a critical slow from Frost Shot.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Hawkshot",
+      "form": null,
+      "description": {
+        "normalized": "Ashe fires a hawk spirit that grants vision of enemies along its path. Re-cast: Explodes the hawk, granting vision of the area around it for 5 seconds. Units caught in the initial explosion are revealed for 5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        45,
+        40,
+        35,
+        30
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Ashe fires a hawk spirit that grants vision of enemies along its path.\n\nRe-cast: Explodes the hawk, granting vision of the area around it for 5 seconds. Units caught in the initial explosion are revealed for 5 seconds.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Enchanted Crystal Arrow",
+      "form": null,
+      "description": {
+        "normalized": "Ashe launches a crystal arrow of ice that sunts the first champion hit and deals 200 / 350 / 500 (+40% AP) magic damage to all nearby enemies. The stun lasts between 1.5 to 3.5 seconds, increasing with the distance of the arrow's flight. Re-cast: Hold and drag to steer the arrow's flight path. The arrow can only deviate from its original launch angle by a fixed amount. Tap the cancel button to stop steering.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            200,
+            350,
+            500
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ashe launches a crystal arrow of ice that sunts the first champion hit and deals 200 / 350 / 500 (+40% AP) magic damage to all nearby enemies. The stun lasts between 1.5 to 3.5 seconds, increasing with the distance of the arrow's flight.\n\nRe-cast: Hold and drag to steer the arrow's flight path. The arrow can only deviate from its original launch angle by a fixed amount. Tap the cancel button to stop steering.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ashe",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Frost Shot: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ranger's Focus: Numeric prose was not fully structured; rawParsedText kept.",
+    "Hawkshot: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

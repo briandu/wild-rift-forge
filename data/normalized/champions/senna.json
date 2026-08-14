@@ -1,0 +1,257 @@
+{
+  "id": "senna",
+  "name": "Senna",
+  "title": "The Redeemer",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/senna.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 120,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 49,
+      "regen5": 21,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 50,
+    "attackDamagePerLevel": 0,
+    "attackSpeed": 0.62,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Absolution",
+      "form": null,
+      "description": {
+        "normalized": "Each stack of Mist grants 1.25 Attack Damage. Every 20 stacks of Mist grant 15 Attack Range and 15% Critical Chance.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Each stack of Mist grants 1.25 Attack Damage. Every 20 stacks of Mist grant 15 Attack Range and 15% Critical Chance.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Piercing Darkness",
+      "form": null,
+      "description": {
+        "normalized": "Shoots a bolt of piercing shadow through any object, dealing 50 / 90 / 130 / 170 (+60% AD) physical damage to enemies, slowing enemies by 15% (+0.1 AD +0.06 AP) for 0.75 / 1 / 1.25 / 1.5 seconds and restoring 40 / 70 / 100 / 130 (+40% AD +25% AP) Health to ally champions. Attacks reduces Piercing Darkness's cooldown by 1 seconds. This Ability's cast range matches Senna's attack range and its cast time is improved with Attack Speed. It applies on-hit effects to enemy champions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        15,
+        15,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          80,
+          90,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            90,
+            130,
+            170
+          ],
+          "duration": [
+            0.75,
+            1,
+            1.25,
+            1.5
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.6
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.4
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Shoots a bolt of piercing shadow through any object, dealing 50 / 90 / 130 / 170 (+60% AD) physical damage to enemies, slowing enemies by 15% (+0.1 AD +0.06 AP) for 0.75 / 1 / 1.25 / 1.5 seconds and restoring 40 / 70 / 100 / 130 (+40% AD +25% AP) Health to ally champions.\n\nAttacks reduces Piercing Darkness's cooldown by 1 seconds.\n\nThis Ability's cast range matches Senna's attack range and its cast time is improved with Attack Speed. It applies on-hit effects to enemy champions.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Last Embrace",
+      "form": null,
+      "description": {
+        "normalized": "Sends forth a wave of Black Mist, dealing 90 / 155 / 220 / 285 (+70% AD) physical damage to the first enemy hit. After 1 second delay the target and other nearby enemies are Rooted for 1.3 / 1.6 / 1.9 / 2.2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            90,
+            155,
+            220,
+            285
+          ],
+          "duration": [
+            1.3,
+            1.6,
+            1.9,
+            2.2
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Sends forth a wave of Black Mist, dealing 90 / 155 / 220 / 285 (+70% AD) physical damage to the first enemy hit. After 1 second delay the target and other nearby enemies are Rooted for 1.3 / 1.6 / 1.9 / 2.2 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Curse of the Black Mist",
+      "form": null,
+      "description": {
+        "normalized": "Dissolves into a cloud of mist for a few seconds, becoming a Wraith. Allied champions who enters the mist are Camouflaged and become Wraiths when they leave. Wraiths gain 20% Movement Speed, are Unselectable, and hide their identities as long as no enemy champions are nearby. Camouflaged: These units are hidden from view. They are revealed by nearby enemi champions, turrets, and True Sight.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        22,
+        20,
+        18,
+        16
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 20,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dissolves into a cloud of mist for a few seconds, becoming a Wraith. Allied champions who enters the mist are Camouflaged and become Wraiths when they leave. Wraiths gain 20% Movement Speed, are Unselectable, and hide their identities as long as no enemy champions are nearby.\n\nCamouflaged: These units are hidden from view. They are revealed by nearby enemi champions, turrets, and True Sight.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Dawning Shadow",
+      "form": null,
+      "description": {
+        "normalized": "Fires a global wave that shields ally champions from 120 / 160 / 200 (+50% AP + 2.5 per Mist) damage for 3 seconds, while dealing 250 / 375 / 500 (+120% AD +50% AP) physical damage and applies Mist to enemy champions caught in the center.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        85,
+        80,
+        75
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            120,
+            160,
+            200
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1.2
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a global wave that shields ally champions from 120 / 160 / 200 (+50% AP + 2.5 per Mist) damage for 3 seconds, while dealing 250 / 375 / 500 (+120% AD +50% AP) physical damage and applies Mist to enemy champions caught in the center.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/senna",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Absolution: Numeric prose was not fully structured; rawParsedText kept.",
+    "Piercing Darkness: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

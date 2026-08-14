@@ -1,0 +1,224 @@
+{
+  "id": "veigar",
+  "name": "Veigar",
+  "title": "The Tiny Master of Evil",
+  "roles": [],
+  "positions": [
+    "mid",
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/veigar.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 37,
+      "regen5": 16,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 58,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 4,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 360,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Phenomenal Evil Power",
+      "form": null,
+      "description": {
+        "normalized": "Striking an enemy champion with an ability grants Veigar a stack of Phenomenal Evil. Takedowns grant an additional 5 stacks. Phenomenal Evil gives Veigar 1 ability power per stack.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Striking an enemy champion with an ability grants Veigar a stack of Phenomenal Evil. Takedowns grant an additional 5 stacks. Phenomenal Evil gives Veigar 1 ability power per stack.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Baleful Strike",
+      "form": null,
+      "description": {
+        "normalized": "Veigar unleashes a bolt of dark energy, dealing 65 / 125 / 185 / 245 (+55% / 60% / 65% / 70% AP) magic damage to the first two enemies hit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        6,
+        5,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          40,
+          45,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            65,
+            125,
+            185,
+            245
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Veigar unleashes a bolt of dark energy, dealing 65 / 125 / 185 / 245 (+55% / 60% / 65% / 70% AP) magic damage to the first two enemies hit.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Dark Matter",
+      "form": null,
+      "description": {
+        "normalized": "Veigar summons dark matter from the sky, dealing100 / 160 / 220 / 280 (+95% AP) magic damage. Every 50 stacks of Phenomenal Evil reduce this ability's cooldown by 10%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          70,
+          75,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            100,
+            160,
+            220,
+            280
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.95
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Veigar summons dark matter from the sky, dealing100 / 160 / 220 / 280 (+95% AP) magic damage.\n\nEvery 50 stacks of Phenomenal Evil reduce this ability's cooldown by 10%.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Event Horizon",
+      "form": null,
+      "description": {
+        "normalized": "Veigar creates a cage that stuns enemies that pass through for 1.75 / 2 / 2.25 / 2.5 seconds. The cage lasts for 3 seconds. Veigar's Dark Matter auto casts will prioritize targets stunned by Event Horizon.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        17,
+        16,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          75,
+          80,
+          85,
+          90
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Veigar creates a cage that stuns enemies that pass through for 1.75 / 2 / 2.25 / 2.5 seconds. The cage lasts for 3 seconds.\n\nVeigar's Dark Matter auto casts will prioritize targets stunned by Event Horizon.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Primordial Burst",
+      "form": null,
+      "description": {
+        "normalized": "Veigar blasts an Enemy Champion with primal magic to deal 185 / 250 / 315 (+75% AP) magic damage to them, increased by 0% - 100% based on the target's missing health. Deals max damage to enemies below 35% health.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        60,
+        55,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": [
+            185,
+            250,
+            315
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "damage",
+          "base": 35,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Veigar blasts an Enemy Champion with primal magic to deal 185 / 250 / 315 (+75% AP) magic damage to them, increased by 0% - 100% based on the target's missing health.\n\nDeals max damage to enemies below 35% health.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/veigar",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Phenomenal Evil Power: Numeric prose was not fully structured; rawParsedText kept.",
+    "Dark Matter: Numeric prose was not fully structured; rawParsedText kept.",
+    "Event Horizon: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

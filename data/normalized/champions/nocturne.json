@@ -1,0 +1,321 @@
+{
+  "id": "nocturne",
+  "name": "Nocturne",
+  "title": "The Eternal Nightmare",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/nocturne.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 89,
+    "healthRegen5": 10,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 43,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Umbra Blades",
+      "form": null,
+      "description": {
+        "normalized": "Umbra Blades: Every 12 seconds, Nocturne's next attack is empowered to strike the target and nearby enemies for 70 (120% AD) physical damage and restore 16 (+30% AP) Health per enemy hit. Except for the main target, Umbra Blades deals only 50% damage against minions and heals 50% less from them. Umbra Blades can Critically Strike the main target. Attacks reduce Umbra Blades' cooldown by 1 second, increased to 3 seconds against champions and monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 12,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        },
+        {
+          "type": "heal",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Umbra Blades: Every 12 seconds, Nocturne's next attack is empowered to strike the target and nearby enemies for 70 (120% AD) physical damage and restore 16 (+30% AP) Health per enemy hit.\n\nExcept for the main target, Umbra Blades deals only 50% damage against minions and heals 50% less from them. Umbra Blades can Critically Strike the main target. Attacks reduce Umbra Blades' cooldown by 1 second, increased to 3 seconds against champions and monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Duskbringer",
+      "form": null,
+      "description": {
+        "normalized": "Throws a shadow claw in a target direction, dealing 70 / 125 / 180 / 235 (+85% bonus AD) physical damage and leaving a Dusk Trail in its wake for 5 seconds. Enemy champions and large monster hit by the claw also leave a Dusk Trail behind when they move Gains 20 / 30 / 40 / 50 Attack Damage and 20% / 25% / 30% / 35% Movement Speed on Dusk Trails.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            125,
+            180,
+            235
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.85
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 35,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws a shadow claw in a target direction, dealing 70 / 125 / 180 / 235 (+85% bonus AD) physical damage and leaving a Dusk Trail in its wake for 5 seconds. Enemy champions and large monster hit by the claw also leave a Dusk Trail behind when they move\n\nGains 20 / 30 / 40 / 50 Attack Damage and 20% / 25% / 30% / 35% Movement Speed on Dusk Trails.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Shroud of Darkness",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 35% / 40% / 45% / 50% Attack Speed. Active: Creates a shadow barrier for 1.5 seconds that blocks the next enemy ability. If an ability is blocked, Shroud of Darkness' passive effect is increased to 70% / 80% / 90% / 100% Attack Speed for 5 seconds and slows nearby enemies by 20% / 25% / 30% / 35% for 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 35% / 40% / 45% / 50% Attack Speed.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Creates a shadow barrier for 1.5 seconds that blocks the next enemy ability. If an ability is blocked, Shroud of Darkness' passive effect is increased to 70% / 80% / 90% / 100% Attack Speed for 5 seconds and slows nearby enemies by 20% / 25% / 30% / 35% for 2 seconds.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: Gains 35% / 40% / 45% / 50% Attack Speed.\n\nActive: Creates a shadow barrier for 1.5 seconds that blocks the next enemy ability. If an ability is blocked, Shroud of Darkness' passive effect is increased to 70% / 80% / 90% / 100% Attack Speed for 5 seconds and slows nearby enemies by 20% / 25% / 30% / 35% for 2 seconds.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Unspeakable Horror",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Gains 90% Movement Speed toward feared enemies. Active: Plants a nightmare into his target's mind, dealing 80 / 140 / 200 / 260 (+100% AP) magic damage over 2 seconds. If the target does not get out of range by the end of the duration, they are feared and slowed by 90% for 1.2 / 1.5 / 1.8 / 2.1 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        13,
+        12,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 90,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            140,
+            200,
+            260
+          ],
+          "duration": [
+            1.2,
+            1.5,
+            1.8,
+            2.1
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Gains 90% Movement Speed toward feared enemies.",
+          "effects": [
+            {
+              "type": "movement_speed",
+              "percent": 90,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Plants a nightmare into his target's mind, dealing 80 / 140 / 200 / 260 (+100% AP) magic damage over 2 seconds. If the target does not get out of range by the end of the duration, they are feared and slowed by 90% for 1.2 / 1.5 / 1.8 / 2.1 seconds.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                80,
+                140,
+                200,
+                260
+              ],
+              "duration": [
+                1.2,
+                1.5,
+                1.8,
+                2.1
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 1
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Gains 90% Movement Speed toward feared enemies.\n\nActive: Plants a nightmare into his target's mind, dealing 80 / 140 / 200 / 260 (+100% AP) magic damage over 2 seconds. If the target does not get out of range by the end of the duration, they are feared and slowed by 90% for 1.2 / 1.5 / 1.8 / 2.1 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Paranoia",
+      "form": null,
+      "description": {
+        "normalized": "Darkens the map, reducing the field of vision of all enemy champions and removing their vision of allies for 6 seconds. Can be recast during the duration. Recast: Launches himself at an enemy champion, dealing 150 / 275 / 400 (+120% bonus AD) physical damage. Nocturne is unstoppable while launching.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        110,
+        90,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            150,
+            275,
+            400
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Darkens the map, reducing the field of vision of all enemy champions and removing their vision of allies for 6 seconds. Can be recast during the duration.\n\nRecast: Launches himself at an enemy champion, dealing 150 / 275 / 400 (+120% bonus AD) physical damage. Nocturne is unstoppable while launching.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/nocturne",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Shroud of Darkness: Numeric prose was not fully structured; rawParsedText kept.",
+    "Shroud of Darkness: Numeric prose was not fully structured; rawParsedText kept.",
+    "Paranoia: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "id": "xayah",
+  "name": "Xayah",
+  "title": "The Rebel",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/xayah.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 31,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Clean Cuts",
+      "form": null,
+      "description": {
+        "normalized": "After using an ability, Xayah's next 3 attacks will hit all enemies along their path and drop Feathers she can recall. Xayah can store up to 5 Feathers at a time. Lover's Leap - Xayah and Rakan can join each other's recall. Both will reach the Summoning Platform when the initiator's recall ends.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "After using an ability, Xayah's next 3 attacks will hit all enemies along their path and drop Feathers she can recall. Xayah can store up to 5 Feathers at a time.\n\nLover's Leap - Xayah and Rakan can join each other's recall. Both will reach the Summoning Platform when the initiator's recall ends.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Double Daggers",
+      "form": null,
+      "description": {
+        "normalized": "Throws two daggers dealing 50 / 75 / 100 / 125 (+50% bonus AD) physical damage each and leaving two Feathers. Targets hit after the first take 50% damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            75,
+            100,
+            125
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws two daggers dealing 50 / 75 / 100 / 125 (+50% bonus AD) physical damage each and leaving two Feathers. Targets hit after the first take 50% damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Deadly Plumage",
+      "form": null,
+      "description": {
+        "normalized": "Creates a storm of blades for 4 seconds that grants45% / 50% / 55% / 60% Attack Speed and causes attacks to deal 20% more damage. If Deadly Plumage strikes an enemy champion, gain25% / 30% / 35% / 40% Movement Speed for 1.5 seconds. If Rakan is nearby he will also gain the effects of this skill.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "base": 4,
+          "duration": 4,
+          "confidence": "high"
+        },
+        {
+          "type": "movement_speed",
+          "percent": 40,
+          "duration": 1.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Creates a storm of blades for 4 seconds that grants45% / 50% / 55% / 60% Attack Speed and causes attacks to deal 20% more damage.\n\nIf Deadly Plumage strikes an enemy champion, gain25% / 30% / 35% / 40% Movement Speed for 1.5 seconds.\n\nIf Rakan is nearby he will also gain the effects of this skill.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Bladecaller",
+      "form": null,
+      "description": {
+        "normalized": "Calls back all Feathers, dealing 60 / 70 / 80 / 90 (+90% bonus AD) physical damage to enemies they pass through. Hitting an enemy with 3 Feathers roots them for 1.25 seconds. Minions take 50% damage from Bladecaller.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            60,
+            70,
+            80,
+            90
+          ],
+          "duration": 1.25,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "root",
+          "duration": 1.25,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Calls back all Feathers, dealing 60 / 70 / 80 / 90 (+90% bonus AD) physical damage to enemies they pass through. Hitting an enemy with 3 Feathers roots them for 1.25 seconds.\n\nMinions take 50% damage from Bladecaller.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Featherstorm",
+      "form": null,
+      "description": {
+        "normalized": "Leaps into the air, becoming untargetable and throwing out a fan of daggers wich deal 125 / 250 / 375 (+100% bonus AD) physical damage and leave behind a line of Feathers. Can move while in the air.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            125,
+            250,
+            375
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Leaps into the air, becoming untargetable and throwing out a fan of daggers wich deal 125 / 250 / 375 (+100% bonus AD) physical damage and leave behind a line of Feathers. Can move while in the air.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/xayah",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Clean Cuts: Numeric prose was not fully structured; rawParsedText kept.",
+    "Bladecaller: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

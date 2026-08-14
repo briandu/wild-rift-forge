@@ -1,0 +1,262 @@
+{
+  "id": "vayne",
+  "name": "Vayne",
+  "title": "The Night Hunter",
+  "roles": [],
+  "positions": [
+    "duo",
+    "solo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/vayne.png",
+  "stats": {
+    "health": 570,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 0,
+    "resource": {
+      "type": "mana",
+      "maximum": 300,
+      "maximumPerLevel": 31,
+      "regen5": 9,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 31,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Night Hunter",
+      "form": null,
+      "description": {
+        "normalized": "Gain 10 Movement Speed when moving towards enemy champions. Final Hour: Gains 70 Movement Speed instead.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gain 10 Movement Speed when moving towards enemy champions.\n\nFinal Hour: Gains 70 Movement Speed instead.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Tumble",
+      "form": null,
+      "description": {
+        "normalized": "Dashes forward and empowers her next attack to deal an additional 24 (35% / 45% / 55% / 65% AD) physical damage. Final Hour: Gains 1 second of invisibility on cast. Tumble does not go through walls.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        4,
+        3,
+        2
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 24,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dashes forward and empowers her next attack to deal an additional 24 (35% / 45% / 55% / 65% AD) physical damage.\n\nFinal Hour: Gains 1 second of invisibility on cast.\n\nTumble does not go through walls.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Silver Bolts",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Every third consecutive attack or ability on the same target deals additional 2% / 5% / 8% / 11% true damage of the enemy's maximum Health. Active: Gains 10% / 15% / 20% / 25% Attack Speed and 10% Omnivamp for 3 seconds. Passive deals at least 50 / 65 / 80 / 95 true damage.Passive damage is capped at 200 against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        17,
+        16,
+        15
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          45,
+          45,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "true",
+          "base": 2,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": [
+            50,
+            65,
+            80,
+            95
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Every third consecutive attack or ability on the same target deals additional 2% / 5% / 8% / 11% true damage of the enemy's maximum Health.",
+          "effects": [
+            {
+              "type": "percent_health_damage",
+              "damageType": "true",
+              "base": 2,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Gains 10% / 15% / 20% / 25% Attack Speed and 10% Omnivamp for 3 seconds.",
+          "effects": []
+        },
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "deals at least 50 / 65 / 80 / 95 true damage.Passive damage is capped at 200 against monsters.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "true",
+              "base": [
+                50,
+                65,
+                80,
+                95
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Every third consecutive attack or ability on the same target deals additional 2% / 5% / 8% / 11% true damage of the enemy's maximum Health.\n\nActive: Gains 10% / 15% / 20% / 25% Attack Speed and 10% Omnivamp for 3 seconds.\n\nPassive deals at least 50 / 65 / 80 / 95 true damage.Passive damage is capped at 200 against monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Condemn",
+      "form": null,
+      "description": {
+        "normalized": "Fires a bolt that deals 50 / 80 / 110 / 140 (+55% AD) physical damage and knocks back. If enemies are knocked into a wall, they take an additional 105 / 145 / 185 / 225 (+75% AD) physical damage and are stunned for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        21,
+        18,
+        15,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          90,
+          90,
+          90,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            80,
+            110,
+            140
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.55
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a bolt that deals 50 / 80 / 110 / 140 (+55% AD) physical damage and knocks back. If enemies are knocked into a wall, they take an additional 105 / 145 / 185 / 225 (+75% AD) physical damage and are stunned for 1.5 seconds.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Final Hour",
+      "form": null,
+      "description": {
+        "normalized": "Gains 15 / 25 / 35 Attack Damage and strengthens Night Hunter and Tumble for 8 / 10 / 12 seconds. When an enemy champion damaged by Vayne dies within 3 seconds, Final Hour's duration is extended by 4 seconds, up to an additional 8 / 10 / 12 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Gains 15 / 25 / 35 Attack Damage and strengthens Night Hunter and Tumble for 8 / 10 / 12 seconds.\n\nWhen an enemy champion damaged by Vayne dies within 3 seconds, Final Hour's duration is extended by 4 seconds, up to an additional 8 / 10 / 12 seconds.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/vayne",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Night Hunter: Numeric prose was not fully structured; rawParsedText kept.",
+    "Night Hunter: Numeric prose was not fully structured; rawParsedText kept.",
+    "Tumble: Numeric prose was not fully structured; rawParsedText kept.",
+    "Silver Bolts: Numeric prose was not fully structured; rawParsedText kept.",
+    "Final Hour: Numeric prose was not fully structured; rawParsedText kept.",
+    "Final Hour: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

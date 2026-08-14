@@ -1,0 +1,302 @@
+{
+  "id": "heimerdinger",
+  "name": "Heimerdinger",
+  "title": "The Revered Inventor",
+  "roles": [],
+  "positions": [
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/heimerdinger.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 45,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 5,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Hextech Affinity",
+      "form": null,
+      "description": {
+        "normalized": "Gains 20% Movement Speed while near allied turrets and turrets deployed by Heimerdinger.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "movement_speed",
+          "percent": 20,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gains 20% Movement Speed while near allied turrets and turrets deployed by Heimerdinger.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "H-28G Evolution Turret",
+      "form": null,
+      "description": {
+        "normalized": "Constructs a turret that slowly build up charge and attacks nearby enemies. The turret deals 5 / 10 / 15 / 20 (+25% AP) magic damage on hit. At max charge, it fires a beam that deals 25 / 45 / 65 / 85 (+55% AP) magic damage. Heimerdinger can have a 3 H-28G Evolution Turrets active at once. If Heimerdinger gets too far away, his turrets will become dormant. UPGRADE!!!: Technological enhancement upgrades this ability to H-28Q Apex Turret. H-28G Evolution Turret Stats: Base Health: 110 (+8% to 50% AP) Base Armor: 20 - 90 (based on level) Base Magic Resist: 25",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            5,
+            10,
+            15,
+            20
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.55
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Constructs a turret that slowly build up charge and attacks nearby enemies. The turret deals 5 / 10 / 15 / 20 (+25% AP) magic damage on hit. At max charge, it fires a beam that deals 25 / 45 / 65 / 85 (+55% AP) magic damage. Heimerdinger can have a 3 H-28G Evolution Turrets active at once. If Heimerdinger gets too far away, his turrets will become dormant.\n\nUPGRADE!!!: Technological enhancement upgrades this ability to H-28Q Apex Turret.\n\nH-28G Evolution Turret Stats:\n\nBase Health: 110 (+8% to 50% AP)\n\nBase Armor: 20 - 90 (based on level)\n\nBase Magic Resist: 25",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Hextech Micro-Rockets",
+      "form": null,
+      "description": {
+        "normalized": "Unleashes a barrage of 5 rockets that deal 60 / 85 / 110 / 135 (+60% AP) magic damage to the first enemy hit. Nearby Turrets gain 20% charge for every rocket that hits a champion. Additional rocket hits after the first to the same champion or monster only deal 20% magic damage. This damage is increased to 60% for minions. UPGRADE!!!: Technological enhancement upgrades this ability to Hextech Rocket Swarm.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            85,
+            110,
+            135
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Unleashes a barrage of 5 rockets that deal 60 / 85 / 110 / 135 (+60% AP) magic damage to the first enemy hit. Nearby Turrets gain 20% charge for every rocket that hits a champion. Additional rocket hits after the first to the same champion or monster only deal 20% magic damage. This damage is increased to 60% for minions.\n\nUPGRADE!!!: Technological enhancement upgrades this ability to Hextech Rocket Swarm.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "CH-2 Electron Storm Grenade",
+      "form": null,
+      "description": {
+        "normalized": "Hurls a grenade that deals 70 / 120 / 170 / 220 (+60% AP) magic damage in a target area and slows by 35% for 2 seconds. Enemies in the center are also stunned for 1 second. Hitting a champion fully charges nearby turrets. UPGRADE!!!: Technological enhancement upgrades this ability to CH-3X Lightning Grenade.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          85,
+          85,
+          85,
+          85
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hurls a grenade that deals 70 / 120 / 170 / 220 (+60% AP) magic damage in a target area and slows by 35% for 2 seconds. Enemies in the center are also stunned for 1 second. Hitting a champion fully charges nearby turrets.\n\nUPGRADE!!!: Technological enhancement upgrades this ability to CH-3X Lightning Grenade.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "UPGRADE!!!",
+      "form": null,
+      "description": {
+        "normalized": "Active: Upgrades Heimerdinger's next basic ability. H-28Q Apex Turret: Places an upgraded turret for 10 seconds, dealing 80 / 100 / 120 (+35% AP) magic damage per shot, increased to 100 / 140 / 180 (+60% AP) magic damage at max charge. The turret slows for 1 second on hit. Hextech Rocket Swarm: Fires 4 waves of rockets. Each rocket deals 135 (+45% AP) magic damage to the first enemy hit. Additional rocket hits after the first to the same champion or monster only deal 25% magic damage per hit. Once the target is hit by five rockets, the damage decays further. Rockets deal full damage to minions. The rocket swarm deals a maximum of 524 (+175% AP) magic damage to each enemy champion or monster. CH-3X Lightning Grenade: Throws a bouncing grenade that discharges 3 times, each dealing 100 (+60% AP) magic damage. The stun and slow areas are larger, and the grenade now slows enemies by 40%. Recast: Cancels this ability.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        66,
+        56
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            100,
+            120
+          ],
+          "duration": 10,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.35
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.45
+            },
+            {
+              "stat": "ap",
+              "ratio": 1.75
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Upgrades Heimerdinger's next basic ability.",
+          "effects": []
+        },
+        {
+          "id": "recast",
+          "label": "Recast",
+          "rawParsedText": "Cancels this ability.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Active: Upgrades Heimerdinger's next basic ability.\n\nH-28Q Apex Turret: Places an upgraded turret for 10 seconds, dealing 80 / 100 / 120 (+35% AP) magic damage per shot, increased to 100 / 140 / 180 (+60% AP) magic damage at max charge. The turret slows for 1 second on hit.\n\nHextech Rocket Swarm: Fires 4 waves of rockets. Each rocket deals 135 (+45% AP) magic damage to the first enemy hit. Additional rocket hits after the first to the same champion or monster only deal 25% magic damage per hit. Once the target is hit by five rockets, the damage decays further. Rockets deal full damage to minions. The rocket swarm deals a maximum of 524 (+175% AP) magic damage to each enemy champion or monster.\n\nCH-3X Lightning Grenade: Throws a bouncing grenade that discharges 3 times, each dealing 100 (+60% AP) magic damage. The stun and slow areas are larger, and the grenade now slows enemies by 40%.\n\nRecast: Cancels this ability.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/heimerdinger",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+    "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+    "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+    "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+    "H-28G Evolution Turret: Numeric prose was not fully structured; rawParsedText kept.",
+    "CH-2 Electron Storm Grenade: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

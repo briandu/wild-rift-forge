@@ -1,0 +1,227 @@
+{
+  "id": "samira",
+  "name": "Samira",
+  "title": "The Desert Rose",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/samira.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 37,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 5,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 330,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Daredevil Impulse",
+      "form": null,
+      "description": {
+        "normalized": "Samira builds a combo by dealing damage with attacks or abilities against enemy champions unique from the previous one. Each one increases her Style from \"E\" to \"S\".",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Samira builds a combo by dealing damage with attacks or abilities against enemy champions unique from the previous one. Each one increases her Style from \"E\" to \"S\".",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Flair",
+      "form": null,
+      "description": {
+        "normalized": "Samira fires a shot, dealing 15 / 20 / 25 / 30 (+100% / 115% / 130% / 145% AD) physical damage to the first enemy hit. If this ability is cast towards an enemy in melee range, Samira will slash with her blade in a cone instead, dealing the same damage to all enemies within. Either hit can critically strike for 25% bonus damage. If cast during Wild Rush Samira will strike all enemies in her path upon completion.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        5,
+        4,
+        2
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            15,
+            20,
+            25,
+            30
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Samira fires a shot, dealing 15 / 20 / 25 / 30 (+100% / 115% / 130% / 145% AD) physical damage to the first enemy hit.\n\nIf this ability is cast towards an enemy in melee range, Samira will slash with her blade in a cone instead, dealing the same damage to all enemies within.\n\nEither hit can critically strike for 25% bonus damage.\n\nIf cast during Wild Rush Samira will strike all enemies in her path upon completion.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Blade Whirl",
+      "form": null,
+      "description": {
+        "normalized": "Samira slashes around her 0.75 seconds, damaging enemies twice for 20 / 40 / 60 / 80 (+80% AD) physical damage each and destroying enemy missiles that enter the area.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        22,
+        20,
+        18,
+        16
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            20,
+            40,
+            60,
+            80
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Samira slashes around her 0.75 seconds, damaging enemies twice for 20 / 40 / 60 / 80 (+80% AD) physical damage each and destroying enemy missiles that enter the area.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Wild Rush",
+      "form": null,
+      "description": {
+        "normalized": "Samira dashes through an enemy (including structures) slashing enemies she passes through, dealing 45 / 60 / 75 / 90 (+20% AD) magic damage and gaining 35% / 40% / 45% / 50% attack speed for 3 seconds. If Samira scores a takedown, Wild Rush's cooldown is reset. Tapping this ability mid-dash will cast Flair.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        20,
+        17,
+        14,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            45,
+            60,
+            75,
+            90
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Samira dashes through an enemy (including structures) slashing enemies she passes through, dealing 45 / 60 / 75 / 90 (+20% AD) magic damage and gaining 35% / 40% / 45% / 50% attack speed for 3 seconds.\n\nIf Samira scores a takedown, Wild Rush's cooldown is reset.\n\nTapping this ability mid-dash will cast Flair.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Inferno Trigger",
+      "form": null,
+      "description": {
+        "normalized": "Samira can only use this ability if her current Style rating is \"S\". Samira unleashes a torrent of shots from her weapons, reducing her Movement Speed by 30% while wildly shooting up to 5 enemies around her 10 times over 2.23 seconds, each shot dealing 5 / 20 / 35 (+ 60% AD) physical damage. Each shot can critically strike. Deals 25% damage to minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            5,
+            20,
+            35
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 25,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Samira can only use this ability if her current Style rating is \"S\".\n\nSamira unleashes a torrent of shots from her weapons, reducing her Movement Speed by 30% while wildly shooting up to 5 enemies around her 10 times over 2.23 seconds, each shot dealing 5 / 20 / 35 (+ 60% AD) physical damage. Each shot can critically strike.\n\nDeals 25% damage to minions.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/samira",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Flair: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

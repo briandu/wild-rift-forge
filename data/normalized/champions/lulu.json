@@ -1,0 +1,238 @@
+{
+  "id": "lulu",
+  "name": "Lulu",
+  "title": "The Fae Sorceress",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/lulu.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 104,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 480,
+      "maximumPerLevel": 43,
+      "regen5": 21,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 46,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Pix, Faerie Companion",
+      "form": null,
+      "description": {
+        "normalized": "Pix fires 3 bolts that deal a total of 6 (+6 per level +15% AP) magic damage when Lulu attacks an enemy unit. These bolts can be blocked by other units. Pix can attach to other champions by casting some of Lulu's abilities, revealing them if they are an enemy or aiding their attacks instead of Lulu's if they are an ally.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Pix fires 3 bolts that deal a total of 6 (+6 per level +15% AP) magic damage when Lulu attacks an enemy unit. These bolts can be blocked by other units.\n\nPix can attach to other champions by casting some of Lulu's abilities, revealing them if they are an enemy or aiding their attacks instead of Lulu's if they are an ally.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Glitterlance",
+      "form": null,
+      "description": {
+        "normalized": "Lulu and Pix each fire a piercing bolt that deals 50 / 85 / 120 / 155 (+30% AP) magic damage tot the first enemy hit and 70% damage to additional enemies. Enemies hit are slowed by 80%, decaying over the next 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          55,
+          60,
+          65
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            50,
+            85,
+            120,
+            155
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Lulu and Pix each fire a piercing bolt that deals 50 / 85 / 120 / 155 (+30% AP) magic damage tot the first enemy hit and 70% damage to additional enemies. Enemies hit are slowed by 80%, decaying over the next 2 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Whimsy",
+      "form": null,
+      "description": {
+        "normalized": "Pix creates a faerie ring, attaching to the first champion that enters for 5 seconds and casting an additional effect on them. On Allies: Grants 20% (+5% AP) Movement Speed and 25% / 30% / 35% / 40% Attack Speed for 3.5 / 4 / 4.5 / 5 seconds. On Enemies: Polymorphs the enemy for 1 / 1.25 / 1.5 / 1.75 seconds, disabling them from attacking or casting abilities and reducing their Movement Speed by 60. Reveals them while attached. Pix's ring will prioritize polymorphing enemies over speeding up allies.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          65,
+          65,
+          65,
+          65
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Pix creates a faerie ring, attaching to the first champion that enters for 5 seconds and casting an additional effect on them.\n\nOn Allies: Grants 20% (+5% AP) Movement Speed and 25% / 30% / 35% / 40% Attack Speed for 3.5 / 4 / 4.5 / 5 seconds.\n\nOn Enemies: Polymorphs the enemy for 1 / 1.25 / 1.5 / 1.75 seconds, disabling them from attacking or casting abilities and reducing their Movement Speed by 60. Reveals them while attached.\n\nPix's ring will prioritize polymorphing enemies over speeding up allies.",
+      "confidence": "medium"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Help, Pix!",
+      "form": null,
+      "description": {
+        "normalized": "Attaches Pix to target enemy or ally champion for 5 seconds. On Allies: Grants a shield that absorbs 60 / 100 / 140 / 180 (+60% AP) damage for 2.5 seconds. On Enemies: Deals 80 / 120 / 160 / 200 (+40% AP) magic damage and grants True Sight of them.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            60,
+            100,
+            140,
+            180
+          ],
+          "duration": 2.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            80,
+            120,
+            160,
+            200
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Attaches Pix to target enemy or ally champion for 5 seconds.\n\nOn Allies: Grants a shield that absorbs 60 / 100 / 140 / 180 (+60% AP) damage for 2.5 seconds.\n\nOn Enemies: Deals 80 / 120 / 160 / 200 (+40% AP) magic damage and grants True Sight of them.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Wild Growth",
+      "form": null,
+      "description": {
+        "normalized": "Enlarges an ally champion, knocking nearby enemies into the air for 0.75 seconds. For the next 7 seconds, the ally champion gains 250 / 400 / 550 (+50% AP) bonus Health and slows nearby enemies by 30%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Enlarges an ally champion, knocking nearby enemies into the air for 0.75 seconds. For the next 7 seconds, the ally champion gains 250 / 400 / 550 (+50% AP) bonus Health and slows nearby enemies by 30%.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/lulu",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Whimsy: Numeric prose was not fully structured; rawParsedText kept.",
+    "Whimsy: Numeric prose was not fully structured; rawParsedText kept.",
+    "Whimsy: Numeric prose was not fully structured; rawParsedText kept.",
+    "Help, Pix!: Numeric prose was not fully structured; rawParsedText kept.",
+    "Wild Growth: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

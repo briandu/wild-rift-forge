@@ -1,0 +1,234 @@
+{
+  "id": "riven",
+  "name": "Riven",
+  "title": "The Exile",
+  "roles": [],
+  "positions": [
+    "solo",
+    "jungle"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/riven.png",
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 120,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.8,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Runic Blade",
+      "form": null,
+      "description": {
+        "normalized": "Abilities charge Riven's blade up to 3 times. Attacks expend charges to deal 21 bonus physical damage (22% - 50% AD) Bonus damage to monsters and structures is reduced to 65%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 21,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Abilities charge Riven's blade up to 3 times.\n\nAttacks expend charges to deal 21 bonus physical damage (22% - 50% AD)\n\nBonus damage to monsters and structures is reduced to 65%.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Broken Wings",
+      "form": null,
+      "description": {
+        "normalized": "Slash in a direction up to 3 times. Each slash deals 30 / 55 / 80 / 105 (+55% / 60% / 65% / 70% AD) physical damage to nearby enemies. The third slash crosses terrain and knocks up nearby enemies for 0.5 seconds. Tap-casting prioritizes champions and large monsters within slash range. Deals 70% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            30,
+            55,
+            80,
+            105
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "knockup",
+          "duration": 0.5,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 70,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Slash in a direction up to 3 times. Each slash deals 30 / 55 / 80 / 105 (+55% / 60% / 65% / 70% AD) physical damage to nearby enemies.\n\nThe third slash crosses terrain and knocks up nearby enemies for 0.5 seconds.\n\nTap-casting prioritizes champions and large monsters within slash range.\n\nDeals 70% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Ki Burst",
+      "form": null,
+      "description": {
+        "normalized": "Stun nearby enemies for 0.75 seconds, dealing 55 / 95 / 135 / 175 (+100% AD) physical damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        8,
+        7
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            55,
+            95,
+            135,
+            175
+          ],
+          "duration": 0.75,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "stun",
+          "duration": 0.75,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Stun nearby enemies for 0.75 seconds, dealing 55 / 95 / 135 / 175 (+100% AD) physical damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Valor",
+      "form": null,
+      "description": {
+        "normalized": "Dash in a direction and gain a shield absorbing 85 / 120 / 155 / 190 (+90% AD) damage for 2 seconds. Valor cannot cross terrain.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            85,
+            120,
+            155,
+            190
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.9
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dash in a direction and gain a shield absorbing 85 / 120 / 155 / 190 (+90% AD) damage for 2 seconds.\n\nValor cannot cross terrain.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Blade of the Exile",
+      "form": null,
+      "description": {
+        "normalized": "Expand Riven's blade for 12 seconds, granting 25% bonus Attack Damage, increasing the range of her attacks and damaging abilities, and granting a single cast of Wind Slash. Wind Slash: Launches a shockwave, dealing 100 / 150 / 200(+60% AD) to 300 / 450 / 600 (+180% AD) physical damage based upon enemies' missing health. During Blade of the Exile, every takedown of a target resets the number of Wind Slash casts she has and extends this ability's duration for 3 seconds more, up to 12 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        60,
+        45
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": [
+            100,
+            150,
+            200
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.6
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1.8
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Expand Riven's blade for 12 seconds, granting 25% bonus Attack Damage, increasing the range of her attacks and damaging abilities, and granting a single cast of Wind Slash.\n\nWind Slash: Launches a shockwave, dealing 100 / 150 / 200(+60% AD) to 300 / 450 / 600 (+180% AD) physical damage based upon enemies' missing health.\n\nDuring Blade of the Exile, every takedown of a target resets the number of Wind Slash casts she has and extends this ability's duration for 3 seconds more, up to 12 seconds.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/riven",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Runic Blade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Runic Blade: Numeric prose was not fully structured; rawParsedText kept.",
+    "Blade of the Exile: Numeric prose was not fully structured; rawParsedText kept.",
+    "Blade of the Exile: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

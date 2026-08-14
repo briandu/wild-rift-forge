@@ -1,0 +1,278 @@
+{
+  "id": "shyvana",
+  "name": "Shyvana",
+  "title": "The Half-Dragon",
+  "roles": [],
+  "positions": [
+    "jungle"
+  ],
+  "imageUrl": "/images/champion/icon/shyvana.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 9,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "none",
+      "maximum": null,
+      "maximumPerLevel": null,
+      "regen5": null,
+      "regen5PerLevel": null
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.82,
+    "attackSpeedPerLevel": 0.0143,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 5,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Draconic Bloodline",
+      "form": null,
+      "description": {
+        "normalized": "Slaying a Large Monster grants 8 stacks of Draconic Bloodline. Champion takedowns or slaying the Rift Herald or Baron Nashor grants 15 stacks of Draconic Bloodline. Slaying a Dragon grants 35 Draconic Bloodline. Every 100 stacks of Draconic Bloodline enhances one of Shyvana's abilities.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Slaying a Large Monster grants 8 stacks of Draconic Bloodline.\n\nChampion takedowns or slaying the Rift Herald or Baron Nashor grants 15 stacks of Draconic Bloodline.\n\nSlaying a Dragon grants 35 Draconic Bloodline.\n\nEvery 100 stacks of Draconic Bloodline enhances one of Shyvana's abilities.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Twin Bite",
+      "form": null,
+      "description": {
+        "normalized": "Empowers Shyvana's next attack to strike twice, dealing 58 (100% AD) and 12 (20% / 40% / 60% / 80% AD) physical damage respectively. Attacks reduce the cooldown of Twin Bite by 0.5 seconds. Dragon Form: Strikes in a larger area and applies on-hits to all enemies. Acquiring 100 stacks of Draconic Bloodline, grants Weight of the Mountain, causing Twin Bite to slow enemies hit by 30% while in Dragon Form.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        5
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 58,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers Shyvana's next attack to strike twice, dealing 58 (100% AD) and 12 (20% / 40% / 60% / 80% AD) physical damage respectively. Attacks reduce the cooldown of Twin Bite by 0.5 seconds.\n\nDragon Form: Strikes in a larger area and applies on-hits to all enemies.\n\nAcquiring 100 stacks of Draconic Bloodline, grants Weight of the Mountain, causing Twin Bite to slow enemies hit by 30% while in Dragon Form.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Burnout",
+      "form": null,
+      "description": {
+        "normalized": "Deals 35 / 50 / 65 / 80 (+30% bonus AD) magic damage per second to nearby enemies and hastes Shyvana by 30% / 35% / 40% / 45% decaying over 3 seconds. Attacking extends the duration of Burnout up to 4 seconds. Dragon Form: Expands the flames, dealing damage to a larger area. Acquiring 200 stacks of Draconic Bloodline, grants Wings of the Cloud, causing Burnout to haste Shyvana by an additional 25% while in Dragon Form.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            50,
+            65,
+            80
+          ],
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 35 / 50 / 65 / 80 (+30% bonus AD) magic damage per second to nearby enemies and hastes Shyvana by 30% / 35% / 40% / 45% decaying over 3 seconds. Attacking extends the duration of Burnout up to 4 seconds.\n\nDragon Form: Expands the flames, dealing damage to a larger area.\n\nAcquiring 200 stacks of Draconic Bloodline, grants Wings of the Cloud, causing Burnout to haste Shyvana by an additional 25% while in Dragon Form.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Flame Breath",
+      "form": null,
+      "description": {
+        "normalized": "Launches a fireball that deals 60 / 110 / 160 / 210 (+30% AD +40% AP) magic damage to enemies hit and Scorches them for 5 seconds. Shyvana's attacks on Scorched enemies deal 3% bonus magic damage of their max Health. Dragon Form: The fireball explodes on impact, dealing 110 (+50% AD +70% AP) magic damage in an area that leaves a fire for 4 seconds that deals 28 (+10% AD +20% AP) magic damage and Scorches enemies within it. Acquiring 300 stacks of Draconic Bloodline, grants Breath of the Infernal, converting the damage dealt to Scorched enemies to True Damage while in Dragon Form.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        10,
+        9,
+        8
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": [
+            60,
+            110,
+            160,
+            210
+          ],
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.3
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 110,
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 0.1
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "true",
+          "base": 300,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launches a fireball that deals 60 / 110 / 160 / 210 (+30% AD +40% AP) magic damage to enemies hit and Scorches them for 5 seconds. Shyvana's attacks on Scorched enemies deal 3% bonus magic damage of their max Health.\n\nDragon Form: The fireball explodes on impact, dealing 110 (+50% AD +70% AP) magic damage in an area that leaves a fire for 4 seconds that deals 28 (+10% AD +20% AP) magic damage and Scorches enemies within it.\n\nAcquiring 300 stacks of Draconic Bloodline, grants Breath of the Infernal, converting the damage dealt to Scorched enemies to True Damage while in Dragon Form.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Dragon's Descent",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Generates 1 / 1.5 / 2 Fury per second and 2 Fury per attack. At 100 Fury, Shyvana can cast Dragon's Descent, Svhyvana remains in Dragon from until she has consumed all of her Fury. Active: Transforms into a dragon, gaining 350 / 475 / 600 Health and flying to a target location. Enemies along Shyvana's path take150 / 250 / 350 (+80% AP) magic damage and are knocked towards her landing point. Acquiring 400 stacks of Draconic Bloodline, grants Life of the Ocean, gaining 20% Omnivamp in Dragon Form.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        1,
+        1,
+        1
+      ],
+      "cost": {
+        "type": "other",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            350,
+            475,
+            600
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Generates 1 / 1.5 / 2 Fury per second and 2 Fury per attack. At 100 Fury, Shyvana can cast Dragon's Descent, Svhyvana remains in Dragon from until she has consumed all of her Fury.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Transforms into a dragon, gaining 350 / 475 / 600 Health and flying to a target location. Enemies along Shyvana's path take150 / 250 / 350 (+80% AP) magic damage and are knocked towards her landing point.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                350,
+                475,
+                600
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.8
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Generates 1 / 1.5 / 2 Fury per second and 2 Fury per attack. At 100 Fury, Shyvana can cast Dragon's Descent, Svhyvana remains in Dragon from until she has consumed all of her Fury.\n\nActive: Transforms into a dragon, gaining 350 / 475 / 600 Health and flying to a target location. Enemies along Shyvana's path take150 / 250 / 350 (+80% AP) magic damage and are knocked towards her landing point.\n\nAcquiring 400 stacks of Draconic Bloodline, grants Life of the Ocean, gaining 20% Omnivamp in Dragon Form.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/shyvana",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:39:17.878Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Draconic Bloodline: Numeric prose was not fully structured; rawParsedText kept.",
+    "Draconic Bloodline: Numeric prose was not fully structured; rawParsedText kept.",
+    "Draconic Bloodline: Numeric prose was not fully structured; rawParsedText kept.",
+    "Draconic Bloodline: Numeric prose was not fully structured; rawParsedText kept.",
+    "Twin Bite: Numeric prose was not fully structured; rawParsedText kept.",
+    "Burnout: Numeric prose was not fully structured; rawParsedText kept.",
+    "Dragon's Descent: Numeric prose was not fully structured; rawParsedText kept.",
+    "Dragon's Descent: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "olaf",
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/olaf",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "stats": {
+    "health": 690,
+    "healthPerLevel": 112,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 10,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 25,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 64,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.015,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 38,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilityNames": [
+    "Berserker Rage",
+    "Undertow",
+    "Vicious Strikes",
+    "Reckless Swing",
+    "Ragnarok"
+  ]
+}

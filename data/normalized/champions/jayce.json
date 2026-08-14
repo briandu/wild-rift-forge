@@ -1,0 +1,308 @@
+{
+  "id": "jayce",
+  "name": "Jayce",
+  "title": "The Defender of Tomorrow",
+  "roles": [],
+  "positions": [
+    "mid",
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/jayce.png",
+  "stats": {
+    "health": 650,
+    "healthPerLevel": 128,
+    "healthRegen5": 10,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 420,
+      "maximumPerLevel": 43,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 4,
+    "attackSpeed": 0.91,
+    "attackSpeedPerLevel": 0.0207,
+    "attackRange": null,
+    "armor": 37,
+    "armorPerLevel": 5,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Hextech Capacitor",
+      "form": null,
+      "description": {
+        "normalized": "Transforming between the Mercury Hammer and Mercury Cannon grants 30 Movement Speed for 1.25 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Transforming between the Mercury Hammer and Mercury Cannon grants 30 Movement Speed for 1.25 seconds.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "To The Skies! / Shock Blast",
+      "form": null,
+      "description": {
+        "normalized": "To the Skies!: Leaps to an enemy dealing 70 / 120 / 170 / 220 / 270 (+140% AD) physical damage and slowing nearby enemies by 35% / 40% / 45% / 50% / 55% for 2 seconds. Shock Blast fires an orb of electricity that detonates on hitting an enemy or reaching the end of its path, dealing 65 / 130 / 195 / 260 / 325 (+140% AD ) physical damage. Orbs fired through an Acceleration Gate travel farther and faster, increasing their damage by 45%. Deals 80% damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        12,
+        10,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            120,
+            170,
+            220,
+            270
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            65,
+            130,
+            195,
+            260,
+            325
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 80,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "To the Skies!: Leaps to an enemy dealing 70 / 120 / 170 / 220 / 270 (+140% AD) physical damage and slowing nearby enemies by 35% / 40% / 45% / 50% / 55% for 2 seconds.\n\nShock Blast fires an orb of electricity that detonates on hitting an enemy or reaching the end of its path, dealing 65 / 130 / 195 / 260 / 325 (+140% AD ) physical damage. Orbs fired through an Acceleration Gate travel farther and faster, increasing their damage by 45%.\n\nDeals 80% damage to monsters.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Lightning Field / Hyper Charge",
+      "form": null,
+      "description": {
+        "normalized": "Lightning Field: Passive: Attacks with the Mercury Hammer restore 12 / 15 / 18 / 21 / 24 Mana. Active: Releases an electrifying aura, dealing 160 / 230 / 300 / 370 / 440 (+100% AP) magic damage over 4 seconds to nearby enemies. Hyper Charge: Gains a burst of energy, increasing Attack Speed to maximum for 3 attacks within 4 seconds. These attacks deal (70% / 80% / 90% / 100% / 110% AD) physical damage. Cooldown: 13 / 11 / 9 / 7 / 5",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            160,
+            230,
+            300,
+            370,
+            440
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": 3,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Attacks with the Mercury Hammer restore 12 / 15 / 18 / 21 / 24 Mana.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Releases an electrifying aura, dealing 160 / 230 / 300 / 370 / 440 (+100% AP) magic damage over 4 seconds to nearby enemies.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                160,
+                230,
+                300,
+                370,
+                440
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 1
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Lightning Field:\n\nPassive: Attacks with the Mercury Hammer restore 12 / 15 / 18 / 21 / 24 Mana.\n\nActive: Releases an electrifying aura, dealing 160 / 230 / 300 / 370 / 440 (+100% AP) magic damage over 4 seconds to nearby enemies.\n\nHyper Charge: Gains a burst of energy, increasing Attack Speed to maximum for 3 attacks within 4 seconds. These attacks deal (70% / 80% / 90% / 100% / 110% AD) physical damage.\n\nCooldown: 13 / 11 / 9 / 7 / 5",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Thundering Blow / Acceleration Gate",
+      "form": null,
+      "description": {
+        "normalized": "Thundering Blow: Knocks a target and enemies near them backwards, dealing 10% / 12.5% / 15% / 17.5% / 20% (+100% AD) magic damage of their maximum health. Acceleration Gate: Deploys an Acceleration Gate that grants 35% / 40% / 45% / 50% / 55% decaying Movement Speed for 2.5 / 3 / 3.5 / 4 / 4.5 seconds to ally champions that pass through it. Shock Blasts fired through the gate travel farther and faster, increasing their damage by 40%. Cooldown: 14",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        18,
+        16,
+        14,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          50,
+          50,
+          50,
+          50
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 10,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Thundering Blow: Knocks a target and enemies near them backwards, dealing 10% / 12.5% / 15% / 17.5% / 20% (+100% AD) magic damage of their maximum health.\n\nAcceleration Gate: Deploys an Acceleration Gate that grants 35% / 40% / 45% / 50% / 55% decaying Movement Speed for 2.5 / 3 / 3.5 / 4 / 4.5 seconds to ally champions that pass through it. Shock Blasts fired through the gate travel farther and faster, increasing their damage by 40%.\n\nCooldown: 14",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Mercury Cannon / Mercury Hammer",
+      "form": null,
+      "description": {
+        "normalized": "Mercury Cannon: Transforms the Mercury Hammer into the Mercury Cannon, gaining new abilities and ranged attacks. The next attack with the Mercury Cannon is empowered to deal an additional 13 (+10% AD) magic damage and reduce the target's Armor and Magic Resist by 11% for 5 seconds. Mercury Hammer: Transforms the Mercury Cannon into the Mercury Hammer, gaining new abilities, 16% Attack Speed and 5 (+9% bonus AD) Armor and Magic Resist. The next attack with the Mercury Hammer is empowered to deal an additional 28 (+25% bonus AD) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 13,
+          "duration": 5,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 28,
+          "scalings": [
+            {
+              "stat": "bonus_ad",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Mercury Cannon: Transforms the Mercury Hammer into the Mercury Cannon, gaining new abilities and ranged attacks.\n\nThe next attack with the Mercury Cannon is empowered to deal an additional 13 (+10% AD) magic damage and reduce the target's Armor and Magic Resist by 11% for 5 seconds.\n\nMercury Hammer: Transforms the Mercury Cannon into the Mercury Hammer, gaining new abilities, 16% Attack Speed and 5 (+9% bonus AD) Armor and Magic Resist.\n\nThe next attack with the Mercury Hammer is empowered to deal an additional 28 (+25% bonus AD) magic damage.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/jayce",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Hextech Capacitor: Numeric prose was not fully structured; rawParsedText kept.",
+    "Lightning Field / Hyper Charge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Lightning Field / Hyper Charge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Thundering Blow / Acceleration Gate: Numeric prose was not fully structured; rawParsedText kept.",
+    "Thundering Blow / Acceleration Gate: Numeric prose was not fully structured; rawParsedText kept.",
+    "Mercury Cannon / Mercury Hammer: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

@@ -1,0 +1,309 @@
+{
+  "id": "kennen",
+  "name": "Kennen",
+  "title": "The Heart of the Tempest",
+  "roles": [],
+  "positions": [
+    "solo",
+    "mid"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/kennen.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 120,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 200,
+      "maximumPerLevel": 0,
+      "regen5": 50,
+      "regen5PerLevel": 0
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 5,
+    "magicResistance": 36,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 355,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Mark of the Storm",
+      "form": null,
+      "description": {
+        "normalized": "Hitting enemies with abilities places a Mark of the storm on them for 6 seconds. At 3 stacks, the enemy is tunned for 1.25 seconds and Kennen gains 25 Energy.Stunning an enemy multiple times within 6 seconds reduces the stun duration to 0.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "stun",
+          "duration": 0.5,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hitting enemies with abilities places a Mark of the storm on them for 6 seconds. At 3 stacks, the enemy is tunned for 1.25 seconds and Kennen gains 25 Energy.Stunning an enemy multiple times within 6 seconds reduces the stun duration to 0.5 seconds.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Thundering Shuriken",
+      "form": null,
+      "description": {
+        "normalized": "Throws a shuriken, dealing 75 / 140 / 205 / 270 (+75% AP) magic damage to the first enemy hit.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        7,
+        6,
+        5,
+        4
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          55,
+          50,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            140,
+            205,
+            270
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Throws a shuriken, dealing 75 / 140 / 205 / 270 (+75% AP) magic damage to the first enemy hit.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Electrical Surge",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Every 5th attack deals 55 / 65 / 75 / 85 (+70% / 80% / 90% / 100% bonus AD + 30% AP) bonus magic damage and applies a Mark of the Storm. Active: Shocks nearby enemies afflicted by Mark of the Storm, dealing 70 / 100 / 130 / 160 (+80% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        10,
+        8,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          40,
+          40,
+          40,
+          40
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            65,
+            75,
+            85
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.8
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Every 5th attack deals 55 / 65 / 75 / 85 (+70% / 80% / 90% / 100% bonus AD + 30% AP) bonus magic damage and applies a Mark of the Storm.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                55,
+                65,
+                75,
+                85
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Shocks nearby enemies afflicted by Mark of the Storm, dealing 70 / 100 / 130 / 160 (+80% AP) magic damage.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                70,
+                100,
+                130,
+                160
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.8
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Every 5th attack deals 55 / 65 / 75 / 85 (+70% / 80% / 90% / 100% bonus AD + 30% AP) bonus magic damage and applies a Mark of the Storm.\n\nActive: Shocks nearby enemies afflicted by Mark of the Storm, dealing 70 / 100 / 130 / 160 (+80% AP) magic damage.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Lightning Rush",
+      "form": null,
+      "description": {
+        "normalized": "Transform into an electric ball for 2 seconds, becoming unable to attack but gaining 100% bonus Movement Speed, and dealing 70 / 120 / 170 / 220 (+70% AP) magic damage to enemies he passes through. The bonus Movement Speed is doubled during the first 0.5 seconds. Kennen gains 50% /60% / 70% / 80% Attack Speed for 3 seconds upon exiting Lightning Rush. Gains 40 Energy when Lightning Rush first damages an enemy. Deals 50% damage to minions.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        6,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          95,
+          90,
+          85
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            70,
+            120,
+            170,
+            220
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 40,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Transform into an electric ball for 2 seconds, becoming unable to attack but gaining 100% bonus Movement Speed, and dealing 70 / 120 / 170 / 220 (+70% AP) magic damage to enemies he passes through. The bonus Movement Speed is doubled during the first 0.5 seconds.\n\nKennen gains 50% /60% / 70% / 80% Attack Speed for 3 seconds upon exiting Lightning Rush.\n\nGains 40 Energy when Lightning Rush first damages an enemy. Deals 50% damage to minions.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Slicing Maelstrom",
+      "form": null,
+      "description": {
+        "normalized": "Summons a storm that grants Kennen 20 / 40 / 60 Armor and Magic Resist and deals 20 / 55 / 90 (+13% AP) magic damage every 0.5 seconds for 3 seconds.Each subsequent bolt against the same target deals 10% increased damage. Only applies 3 Marks of the Storm to a single target.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        75,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            20,
+            40,
+            60
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.13
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Summons a storm that grants Kennen 20 / 40 / 60 Armor and Magic Resist and deals 20 / 55 / 90 (+13% AP) magic damage every 0.5 seconds for 3 seconds.Each subsequent bolt against the same target deals 10% increased damage.\n\nOnly applies 3 Marks of the Storm to a single target.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kennen",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Lightning Rush: Numeric prose was not fully structured; rawParsedText kept.",
+    "Slicing Maelstrom: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

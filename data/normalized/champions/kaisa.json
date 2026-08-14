@@ -1,0 +1,259 @@
+{
+  "id": "kaisa",
+  "name": "Kai'Sa",
+  "title": "Daughter of the Void",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/kaisa.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 435,
+      "maximumPerLevel": 31,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.77,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Second Skin",
+      "form": null,
+      "description": {
+        "normalized": "Living Weapon: Kai'sa's abilities evolve based upon the permanent stats she gains from advanced equipment. Caustic Wounds: Kai'sa's attacks stack Plasma for 4 seconds and deal 5 (+15% AP) bonus magic damage. Plasma detonates at 5 stacks, dealing 15% (+0.025% AP) bonus magic damage of their missing Health.Nearby allies apply 1 stack to champions they Immobilize. Plasma detonations deal a max of 400 damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "magic",
+          "base": 4,
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.00025
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        },
+        {
+          "type": "damage",
+          "base": 400,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Living Weapon: Kai'sa's abilities evolve based upon the permanent stats she gains from advanced equipment.\n\nCaustic Wounds: Kai'sa's attacks stack Plasma for 4 seconds and deal 5 (+15% AP) bonus magic damage. Plasma detonates at 5 stacks, dealing 15% (+0.025% AP) bonus magic damage of their missing Health.Nearby allies apply 1 stack to champions they Immobilize.\n\nPlasma detonations deal a max of 400 damage to monsters.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Icathian Rain",
+      "form": null,
+      "description": {
+        "normalized": "Launches 6 missiles that split evenly among nearby enemies, each dealing 40 / 60 / 80 / 100 (+50% AD +30% AP) physical damage. Additional hits on champions or monsters deal 25% damage. Living Weapon: 70 Attack Damage - Fires 12 missiles. Minions below 35% Health take 150% damage. Damage factor to Monsters: 50%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        8,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          55,
+          55,
+          55
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            40,
+            60,
+            80,
+            100
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.5
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launches 6 missiles that split evenly among nearby enemies, each dealing 40 / 60 / 80 / 100 (+50% AD +30% AP) physical damage. Additional hits on champions or monsters deal 25% damage.\n\nLiving Weapon: 70 Attack Damage - Fires 12 missiles.\n\nMinions below 35% Health take 150% damage. Damage factor to Monsters: 50%.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Void Seeker",
+      "form": null,
+      "description": {
+        "normalized": "Fires a blast that reveals the first enemy hit, adds 2 Plasma stacks, and deals 30 / 60 / 90 / 120 (+110% AD +60% AP) magic damage. Living Weapon: 80 Ability Power - Adds 3 stacks and refunds 70% Cooldown on champion hits.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        20,
+        18,
+        16,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            30,
+            60,
+            90,
+            120
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.1
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a blast that reveals the first enemy hit, adds 2 Plasma stacks, and deals 30 / 60 / 90 / 120 (+110% AD +60% AP) magic damage.\n\nLiving Weapon: 80 Ability Power - Adds 3 stacks and refunds 70% Cooldown on champion hits.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Supercharge",
+      "form": null,
+      "description": {
+        "normalized": "Charges up for 1 second, gaining 50% / 55% / 60% / 65% (+80% Attack Speed) Movement Speed. For 4 seconds after charging, gain 40% / 50% / 60% / 70% Attack Speed. Living Weapon: 65% Attack Speed - Grants invisibility during the charge up. Attacks reduce Supercharge's Cooldown by 0.5 seconds.Charge time and Movement Speed scale with Attack Speed.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        16,
+        14,
+        12,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Charges up for 1 second, gaining 50% / 55% / 60% / 65% (+80% Attack Speed) Movement Speed. For 4 seconds after charging, gain 40% / 50% / 60% / 70% Attack Speed.\n\nLiving Weapon: 65% Attack Speed - Grants invisibility during the charge up.\n\nAttacks reduce Supercharge's Cooldown by 0.5 seconds.Charge time and Movement Speed scale with Attack Speed.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Killer Instinct",
+      "form": null,
+      "description": {
+        "normalized": "Dash to a location near an enemy champion marked by Plasma, gaining a shield that aborbs 75 / 100 / 125 (+100% / 150% / 200% AD +75% AP) damage for 2 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        70,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "shield",
+          "base": [
+            75,
+            100,
+            125
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.75
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Dash to a location near an enemy champion marked by Plasma, gaining a shield that aborbs 75 / 100 / 125 (+100% / 150% / 200% AD +75% AP) damage for 2 seconds.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kaisa",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Icathian Rain: Numeric prose was not fully structured; rawParsedText kept.",
+    "Icathian Rain: Numeric prose was not fully structured; rawParsedText kept.",
+    "Void Seeker: Numeric prose was not fully structured; rawParsedText kept.",
+    "Supercharge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Supercharge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Supercharge: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

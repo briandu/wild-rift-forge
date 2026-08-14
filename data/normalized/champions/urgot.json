@@ -1,0 +1,280 @@
+{
+  "id": "urgot",
+  "name": "Urgot",
+  "title": "The Dreadnought",
+  "roles": [],
+  "positions": [
+    "solo"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/urgot.png",
+  "stats": {
+    "health": 660,
+    "healthPerLevel": 136,
+    "healthRegen5": 10,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 37,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0.0136,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Echoing Flames",
+      "form": null,
+      "description": {
+        "normalized": "Urgot's attacks and Purge periodically trigger blasts from his leg cannons, dealing 31 (60% / 75% / 90% / 105% AD) + 3% / 4% / 5% / 6% of the target's max health as physical damage. (15 / 8 / 4 / 2 second cooldown per leg) Deals 120 max damage against monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "physical",
+          "base": [
+            15,
+            8,
+            4,
+            2
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 120,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Urgot's attacks and Purge periodically trigger blasts from his leg cannons, dealing 31 (60% / 75% / 90% / 105% AD) + 3% / 4% / 5% / 6% of the target's max health as physical damage. (15 / 8 / 4 / 2 second cooldown per leg)\n\nDeals 120 max damage against monsters.",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Corrosive Charge",
+      "form": null,
+      "description": {
+        "normalized": "Fires an explosive charge that deals 40 / 95 / 150 / 205 (+70% AD) physical damage and slows by 45% / 50% / 55% / 60% for 1.25 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        9,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          70,
+          70,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            40,
+            95,
+            150,
+            205
+          ],
+          "duration": 1.25,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires an explosive charge that deals 40 / 95 / 150 / 205 (+70% AD) physical damage and slows by 45% / 50% / 55% / 60% for 1.25 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Purge",
+      "form": null,
+      "description": {
+        "normalized": "Shoots the nearest enemy rapidly for 4 seconds, dealing 10 (+20% / 27.5% / 35% / 42.5% AD) physical damage and applying on-hits at 70% effectiveness. During this time Urgot's Movement Speed is reduced by 125 / 110 / 95 / 80 and he gains 40% Slow Resist. Re-cast: End Purge. Dealing a minimum of 50 damage to minions and monsters, prioritizes the champion hit most recently by Urgot's abilities. At max rank, Purge gains infinite duration.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        8,
+        4,
+        1
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          20,
+          10
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            125,
+            110,
+            95,
+            80
+          ],
+          "duration": 4,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Shoots the nearest enemy rapidly for 4 seconds, dealing 10 (+20% / 27.5% / 35% / 42.5% AD) physical damage and applying on-hits at 70% effectiveness. During this time Urgot's Movement Speed is reduced by 125 / 110 / 95 / 80 and he gains 40% Slow Resist.\n\nRe-cast: End Purge.\n\nDealing a minimum of 50 damage to minions and monsters, prioritizes the champion hit most recently by Urgot's abilities.\n\nAt max rank, Purge gains infinite duration.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Disdain",
+      "form": null,
+      "description": {
+        "normalized": "Gain a shield that absorbs 70 / 100 / 130 / 160(+150% AD +15 bonus HP) damage for 4 seconds and charges forward, dealing 90 / 130 / 170 / 210 (+100% AD) physical damage and stunnng them for 1.5 seconds. Flings the first enemy champion over him and knocks non-champions aside.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          70,
+          80,
+          90
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.5
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            70,
+            100,
+            130,
+            160
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.5
+            },
+            {
+              "stat": "total_ad",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Gain a shield that absorbs 70 / 100 / 130 / 160(+150% AD +15 bonus HP) damage for 4 seconds and charges forward, dealing 90 / 130 / 170 / 210 (+100% AD) physical damage and stunnng them for 1.5 seconds. Flings the first enemy champion over him and knocks non-champions aside.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Fear Beyond Death",
+      "form": null,
+      "description": {
+        "normalized": "Fires a chem-drill that deals 100 / 225 / 350 (+70% AD) physical damage to the first champion hit and impales them for 4 seconds, slowing them by up to 75% based on their missing health. Re-cast: If the impaled target falls below 25% Health, Urgot channels for 1.5 seconds while he reels in and executes them. Upon an execution, nearby enemies are feared for 1.5 seconds. Fear Beyond Death is automatically re-cast if the enemy is below the threshold at the end of the duration.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        60,
+        55,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "missing_health_damage",
+          "damageType": "physical",
+          "base": [
+            100,
+            225,
+            350
+          ],
+          "duration": 4,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.7
+            }
+          ],
+          "note": "Formula kept in rawParsedText; structured fields are partial.",
+          "confidence": "medium"
+        }
+      ],
+      "rawParsedText": "Fires a chem-drill that deals 100 / 225 / 350 (+70% AD) physical damage to the first champion hit and impales them for 4 seconds, slowing them by up to 75% based on their missing health.\n\nRe-cast: If the impaled target falls below 25% Health, Urgot channels for 1.5 seconds while he reels in and executes them. Upon an execution, nearby enemies are feared for 1.5 seconds.\n\nFear Beyond Death is automatically re-cast if the enemy is below the threshold at the end of the duration.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/urgot",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Purge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Fear Beyond Death: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

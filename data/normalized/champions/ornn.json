@@ -1,0 +1,281 @@
+{
+  "id": "ornn",
+  "name": "Ornn",
+  "title": "The Fire Below The Mountain",
+  "roles": [],
+  "positions": [
+    "solo",
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/ornn.png",
+  "stats": {
+    "health": 720,
+    "healthPerLevel": 120,
+    "healthRegen5": 12,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 380,
+      "maximumPerLevel": 45,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 62,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.73,
+    "attackSpeedPerLevel": 0.0079,
+    "attackRange": null,
+    "armor": 46,
+    "armorPerLevel": 4,
+    "magicResistance": 40,
+    "magicResistancePerLevel": 2,
+    "movementSpeed": 345,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Living Forge",
+      "form": null,
+      "description": {
+        "normalized": "Ornn can spend gold to forge items anywhere on the map. Ornn gains an additional 7% / 12% / 17% / 22%",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Ornn can spend gold to forge items anywhere on the map.\n\nOrnn gains an additional 7% / 12% / 17% / 22%",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Volcanic Rupture",
+      "form": null,
+      "description": {
+        "normalized": "Ornn slams the ground, creating a fissure dealing 25 / 60 / 95 / 130(+110% AD) physical damage and slowing by 55% for 2 seconds.A pillar of rock forms at the fissure's end for 4 seconds. The fissure stops shortly after hitting an enemy champion.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        9,
+        9,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          45,
+          45,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            25,
+            60,
+            95,
+            130
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ornn slams the ground, creating a fissure dealing 25 / 60 / 95 / 130(+110% AD) physical damage and slowing by 55% for 2 seconds.A pillar of rock forms at the fissure's end for 4 seconds.\n\nThe fissure stops shortly after hitting an enemy champion.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Bellows Breath",
+      "form": null,
+      "description": {
+        "normalized": "Ornn stomps forward Unstoppably while breathing fire, dealing10% / 11% / 12% / 13% max Health magic damage over 0.75 seconds. Enemies hit by the final bout of flame become Brittle for 3 seconds. Immobilizing effects on Brittle targets have their duration increased by 30% and deal an additional 8% max Health magic damage( 7% - 22%). Ornn's Attacks against Brittle targets Knock them Back, dealing additional damage. Dealing a minimum of 90 / 140 / 190 / 240 magic damage to minions, and a max of 155 / 190 / 225 / 260 magic damage to jungle monsters.Immobilizing deals a maximum of 250 damage to monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          45,
+          45,
+          45,
+          45
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 11,
+          "duration": 3,
+          "confidence": "high"
+        },
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 30,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            90,
+            140,
+            190,
+            240
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ornn stomps forward Unstoppably while breathing fire, dealing10% / 11% / 12% / 13% max Health magic damage over 0.75 seconds. Enemies hit by the final bout of flame become Brittle for 3 seconds.\n\nImmobilizing effects on Brittle targets have their duration increased by 30% and deal an additional 8% max Health magic damage( 7% - 22%). Ornn's Attacks against Brittle targets Knock them Back, dealing additional damage.\n\nDealing a minimum of 90 / 140 / 190 / 240 magic damage to minions, and a max of 155 / 190 / 225 / 260 magic damage to jungle monsters.Immobilizing deals a maximum of 250 damage to monsters.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Searing Charge",
+      "form": null,
+      "description": {
+        "normalized": "Ornn charges, dealing 80 / 140 / 200 / 260( +40% bonus Armor +40% bonus MR) physical damage. If Ornn rams into terrain, he creates a shockwave that Knocks Up enemies for 1.25 seconds and applies the same damage to those in the area. Ornn's charge destroys magma pillars and terrain created by enemies and reduces the cooldown of this skill by 25%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        13,
+        12,
+        11,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          35,
+          35,
+          35,
+          35
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            80,
+            140,
+            200,
+            260
+          ],
+          "duration": 1.25,
+          "scalings": [
+            {
+              "stat": "armor",
+              "ratio": 0.4
+            },
+            {
+              "stat": "magic_resistance",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "knockup",
+          "duration": 1.25,
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ornn charges, dealing 80 / 140 / 200 / 260( +40% bonus Armor +40% bonus MR) physical damage. If Ornn rams into terrain, he creates a shockwave that Knocks Up enemies for 1.25 seconds and applies the same damage to those in the area.\n\nOrnn's charge destroys magma pillars and terrain created by enemies and reduces the cooldown of this skill by 25%.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Call of the Forge God",
+      "form": null,
+      "description": {
+        "normalized": "Ornn summons a massive lava elemental, wich stampedes towards him, dealing 125 / 175 / 225 (+20% AP) magic damage, and applies Brittle for 3 seconds. The elemental also slows by up to 40% for 2 seconds, based on Ornn's level. Ornn can recast this to dash with a headbutt. If he dashes into the elemental, he redirects and empowers it, causing it to Knock Up the first champion hit for 1 second and subsequent champions for 0.5 seconds. The elemental also deals 125 / 175 / 225 (+20% AP) magic damage and reapplies Brittle.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        90,
+        80,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            125,
+            175,
+            225
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "knockup",
+          "duration": 1,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            125,
+            175,
+            225
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Ornn summons a massive lava elemental, wich stampedes towards him, dealing 125 / 175 / 225 (+20% AP) magic damage, and applies Brittle for 3 seconds. The elemental also slows by up to 40% for 2 seconds, based on Ornn's level.\n\nOrnn can recast this to dash with a headbutt. If he dashes into the elemental, he redirects and empowers it, causing it to Knock Up the first champion hit for 1 second and subsequent champions for 0.5 seconds.\n\nThe elemental also deals 125 / 175 / 225 (+20% AP) magic damage and reapplies Brittle.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/ornn",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Living Forge: Numeric prose was not fully structured; rawParsedText kept.",
+    "Searing Charge: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

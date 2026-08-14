@@ -1,0 +1,329 @@
+{
+  "id": "sona",
+  "name": "Sona",
+  "title": "The Maven of the Strings",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/sona.png",
+  "stats": {
+    "health": 600,
+    "healthPerLevel": 104,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 345,
+      "maximumPerLevel": 37,
+      "regen5": 15,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 46,
+    "attackDamagePerLevel": 2,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 3,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 340,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Power Chord",
+      "form": null,
+      "description": {
+        "normalized": "After casting three basic abilities for 3 times, Sona's next attack will be empowered dealing 20 - 160 (+15% AP) bonus magic damage, stunning the target for 0.5 seconds. Casting basic abilities creates a non-stacking buff aura for 3 seconds. Grants full stack of passive at respawn. Hymn of Valor-Staccato: Bonus damage increased to 8 (+6% AP) magic damage. Aria of Perseverance-Diminuendo: Reduces damage dealt by the target by 25% (+4% AP) for 3 seconds. Song of Celerity-Tempo: Slows by 40% (+4% AP) for 2 seconds. Cooldown of basic abilities will be reduced (level X 2% - 20%).",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 3,
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": 8,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.06
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "After casting three basic abilities for 3 times, Sona's next attack will be empowered dealing 20 - 160 (+15% AP) bonus magic damage, stunning the target for 0.5 seconds. Casting basic abilities creates a non-stacking buff aura for 3 seconds. Grants full stack of passive at respawn.\n\nHymn of Valor-Staccato: Bonus damage increased to 8 (+6% AP) magic damage.\n\nAria of Perseverance-Diminuendo: Reduces damage dealt by the target by 25% (+4% AP) for 3 seconds.\n\nSong of Celerity-Tempo: Slows by 40% (+4% AP) for 2 seconds.\n\nCooldown of basic abilities will be reduced (level X 2% - 20%).",
+      "confidence": "high"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Hymn of Valor",
+      "form": null,
+      "description": {
+        "normalized": "Deals 40 / 80 / 120 / 160 (+40% AP) magic damage to two nearest enemies. Aura: Enhances allied champions' next attack to deal an additional 8 / 13 / 18 / 23 (+20% AP) magic damage.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          65,
+          70,
+          75
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            40,
+            80,
+            120,
+            160
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.4
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            8,
+            13,
+            18,
+            23
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Deals 40 / 80 / 120 / 160 (+40% AP) magic damage to two nearest enemies.\n\nAura: Enhances allied champions' next attack to deal an additional 8 / 13 / 18 / 23 (+20% AP) magic damage.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Aria of Perseverance",
+      "form": null,
+      "description": {
+        "normalized": "Heals herself and another allied champion for 35 / 60 / 65 / 80 (+20% AP). Aura: Grants allied champions a shield that absorbs 25 / 50 / 75 / 100 (+18% AP) damage for 3 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          85,
+          90,
+          95,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "heal",
+          "base": [
+            35,
+            60,
+            65,
+            80
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "shield",
+          "base": [
+            25,
+            50,
+            75,
+            100
+          ],
+          "duration": 3,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.18
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Heals herself and another allied champion for 35 / 60 / 65 / 80 (+20% AP).\n\nAura: Grants allied champions a shield that absorbs 25 / 50 / 75 / 100 (+18% AP) damage for 3 seconds.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Song of Celerity",
+      "form": null,
+      "description": {
+        "normalized": "Gains 15% / 16% / 17% / 18% (+3% AP) Movement Speed for 5 seconds. Aura: Gains an aura that lasts 5 seconds. Allied champions within the aura gain 10% / 11% / 12% / 13% (+3% AP) Movement Speed. The empowered aura grants 1.2 times the Movement Speed that the normal aura does.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          80,
+          80,
+          80,
+          80
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Gains 15% / 16% / 17% / 18% (+3% AP) Movement Speed for 5 seconds.\n\nAura: Gains an aura that lasts 5 seconds. Allied champions within the aura gain 10% / 11% / 12% / 13% (+3% AP) Movement Speed.\n\nThe empowered aura grants 1.2 times the Movement Speed that the normal aura does.",
+      "confidence": "medium"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Crescendo",
+      "form": null,
+      "description": {
+        "normalized": "Passive: The aura will be reinforced for 20 seconds after casting the ability, providing a higher buff effect than usual. Active: Plays a chord that emits a soundwave ever 0.75 seconds as it travels to the target location. The soundwave deals 35 / 60 / 85 (+15% AP) magic damage and stuns enemies for 1 second. Enemies caught inside the chord are also slowed by 25% / 30% / 35%.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        80,
+        75,
+        70
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            35,
+            60,
+            85
+          ],
+          "duration": 1,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.15
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "stun",
+          "duration": 1,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "The aura will be reinforced for 20 seconds after casting the ability, providing a higher buff effect than usual.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Plays a chord that emits a soundwave ever 0.75 seconds as it travels to the target location. The soundwave deals 35 / 60 / 85 (+15% AP) magic damage and stuns enemies for 1 second. Enemies caught inside the chord are also slowed by 25% / 30% / 35%.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                35,
+                60,
+                85
+              ],
+              "duration": 1,
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.15
+                }
+              ],
+              "confidence": "high"
+            },
+            {
+              "type": "stun",
+              "duration": 1,
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: The aura will be reinforced for 20 seconds after casting the ability, providing a higher buff effect than usual.\n\nActive: Plays a chord that emits a soundwave ever 0.75 seconds as it travels to the target location. The soundwave deals 35 / 60 / 85 (+15% AP) magic damage and stuns enemies for 1 second. Enemies caught inside the chord are also slowed by 25% / 30% / 35%.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/sona",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Power Chord: Numeric prose was not fully structured; rawParsedText kept.",
+    "Power Chord: Numeric prose was not fully structured; rawParsedText kept.",
+    "Power Chord: Numeric prose was not fully structured; rawParsedText kept.",
+    "Song of Celerity: Numeric prose was not fully structured; rawParsedText kept.",
+    "Song of Celerity: Numeric prose was not fully structured; rawParsedText kept.",
+    "Song of Celerity: Numeric prose was not fully structured; rawParsedText kept.",
+    "Crescendo: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

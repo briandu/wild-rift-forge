@@ -1,0 +1,282 @@
+{
+  "id": "kalista",
+  "name": "Kalista",
+  "title": "The Spear of Vengeance",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/kalista.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 340,
+      "maximumPerLevel": 37,
+      "regen5": 10,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 5,
+    "attackSpeed": 0.81,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 34,
+    "armorPerLevel": 4,
+    "magicResistance": 32,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Martial Poise",
+      "form": null,
+      "description": {
+        "normalized": "When Kalista winds up her attacks, moving the left joystick will cause her to dash for a short distance in that direction after she throws her spear. When the game starts, she can choose an ally to become her Oathsworn. Kalista cannot change her Oathsworn. Once Kalista launches her attacks, they cannot be canceled. Her dash speed and distance scale with boot tier.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "When Kalista winds up her attacks, moving the left joystick will cause her to dash for a short distance in that direction after she throws her spear.\n\nWhen the game starts, she can choose an ally to become her Oathsworn. Kalista cannot change her Oathsworn.\n\nOnce Kalista launches her attacks, they cannot be canceled. Her dash speed and distance scale with boot tier.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Pierce",
+      "form": null,
+      "description": {
+        "normalized": "Hurls a spear, dealing 70 / 135 / 200 / 265 (+110% AD) physical damage to the first target hit. If this kills the target, the spear continues onward, carrying the target's Rend stacks to the next enemy hit. After casting this ability, Kalista can dash using Martial Poise.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        8,
+        7,
+        7,
+        6
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            70,
+            135,
+            200,
+            265
+          ],
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 1.1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Hurls a spear, dealing 70 / 135 / 200 / 265 (+110% AD) physical damage to the first target hit. If this kills the target, the spear continues onward, carrying the target's Rend stacks to the next enemy hit.\n\nAfter casting this ability, Kalista can dash using Martial Poise.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Sentinel",
+      "form": null,
+      "description": {
+        "normalized": "Passive: When the distance between Kalista and her Oathsworn is less than 8, and both hit the same target within 4 seconds using attacks or Pierce, Kalista deals 16% / 17% / 18% / 19% of the target's max Health as bonus magic damage. This effect has a 8 second cooldown per target. Active: Sends a Soul Sentinel to patrol an area. Upon spotting an enemy champion, the Sentinel follows them for 4 seconds, revealing them for 4 seconds. Sentinels disappear after patrolling 3 laps. Charge: Kalista gains a charge every 45 / 40 / 35 / 30 seconds, storing up to 2 charges. This ability's passive deals at least 75 damage against minions and executes them if their Health is below 125.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        20,
+        20,
+        20,
+        20
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "percent_health_damage",
+          "damageType": "magic",
+          "base": 8,
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 75,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "When the distance between Kalista and her Oathsworn is less than 8, and both hit the same target within 4 seconds using attacks or Pierce, Kalista deals 16% / 17% / 18% / 19% of the target's max Health as bonus magic damage. This effect has a 8 second cooldown per target.",
+          "effects": [
+            {
+              "type": "percent_health_damage",
+              "damageType": "magic",
+              "base": 8,
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Sends a Soul Sentinel to patrol an area. Upon spotting an enemy champion, the Sentinel follows them for 4 seconds, revealing them for 4 seconds. Sentinels disappear after patrolling 3 laps.",
+          "effects": []
+        }
+      ],
+      "rawParsedText": "Passive: When the distance between Kalista and her Oathsworn is less than 8, and both hit the same target within 4 seconds using attacks or Pierce, Kalista deals 16% / 17% / 18% / 19% of the target's max Health as bonus magic damage. This effect has a 8 second cooldown per target.\n\nActive: Sends a Soul Sentinel to patrol an area. Upon spotting an enemy champion, the Sentinel follows them for 4 seconds, revealing them for 4 seconds. Sentinels disappear after patrolling 3 laps.\n\nCharge: Kalista gains a charge every 45 / 40 / 35 / 30 seconds, storing up to 2 charges.\n\nThis ability's passive deals at least 75 damage against minions and executes them if their Health is below 125.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Rend",
+      "form": null,
+      "description": {
+        "normalized": "Passive: On hit, Kalista's spears linger in their target for 4 seconds, applying a stacking Rend. Active: Kalista rips the spears from nearby enemies, dealing 30 / 45 / 60 / 75 (+70% AD) physical damage plus 12 / 22 / 32 / 42 (+36% / 43% / 50% / 57% AD) physical damage per spear after the first. Slows enemies hit by 15% / 25% / 35% / 45% for 2 seconds. If this ability kills at least one target, it's cooldown is refreshed, and it refunds 12 / 18 / 24 / 30 Mana. Deals 50% damage to epic monsters.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        9,
+        8,
+        7
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          30,
+          30,
+          30,
+          30
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            30,
+            45,
+            60,
+            75
+          ],
+          "duration": 2,
+          "scalings": [
+            {
+              "stat": "total_ad",
+              "ratio": 0.7
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "base": 50,
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "On hit, Kalista's spears linger in their target for 4 seconds, applying a stacking Rend.",
+          "effects": []
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Kalista rips the spears from nearby enemies, dealing 30 / 45 / 60 / 75 (+70% AD) physical damage plus 12 / 22 / 32 / 42 (+36% / 43% / 50% / 57% AD) physical damage per spear after the first. Slows enemies hit by 15% / 25% / 35% / 45% for 2 seconds.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                30,
+                45,
+                60,
+                75
+              ],
+              "duration": 2,
+              "scalings": [
+                {
+                  "stat": "total_ad",
+                  "ratio": 0.7
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: On hit, Kalista's spears linger in their target for 4 seconds, applying a stacking Rend.\n\nActive: Kalista rips the spears from nearby enemies, dealing 30 / 45 / 60 / 75 (+70% AD) physical damage plus 12 / 22 / 32 / 42 (+36% / 43% / 50% / 57% AD) physical damage per spear after the first. Slows enemies hit by 15% / 25% / 35% / 45% for 2 seconds.\n\nIf this ability kills at least one target, it's cooldown is refreshed, and it refunds 12 / 18 / 24 / 30 Mana.\n\nDeals 50% damage to epic monsters.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Fate's Call",
+      "form": null,
+      "description": {
+        "normalized": "Kalista puts her Oathsworn into stasis and draws them to herself for up to 4 seconds. The Oathsworn can launch themselves in a direction, knocking nearby enemies airborne for 1 / 1.5 / 2 seconds upon hitting the first enemy champion. The Oathsworn then ricochets for a distance based on their max attack range.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        60,
+        55,
+        50
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [],
+      "rawParsedText": "Kalista puts her Oathsworn into stasis and draws them to herself for up to 4 seconds.\n\nThe Oathsworn can launch themselves in a direction, knocking nearby enemies airborne for 1 / 1.5 / 2 seconds upon hitting the first enemy champion. The Oathsworn then ricochets for a distance based on their max attack range.",
+      "confidence": "medium"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/kalista",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Sentinel: Numeric prose was not fully structured; rawParsedText kept.",
+    "Sentinel: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rend: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rend: Numeric prose was not fully structured; rawParsedText kept.",
+    "Fate's Call: Numeric prose was not fully structured; rawParsedText kept.",
+    "Fate's Call: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

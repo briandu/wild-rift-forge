@@ -1,0 +1,288 @@
+{
+  "id": "tristana",
+  "name": "Tristana",
+  "title": "The Megling Gunner",
+  "roles": [],
+  "positions": [
+    "duo",
+    "dragon"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/tristana.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 128,
+    "healthRegen5": 8,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 300,
+      "maximumPerLevel": 31,
+      "regen5": 12,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 54,
+    "attackDamagePerLevel": 6,
+    "attackSpeed": 0.83,
+    "attackSpeedPerLevel": 0.02,
+    "attackRange": null,
+    "armor": 35,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 335,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Draw a Bead",
+      "form": null,
+      "description": {
+        "normalized": "Increases the range of attacks, Explosive Charge, and Buster Shot by 10 per level.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Increases the range of attacks, Explosive Charge, and Buster Shot by 10 per level.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Rapid Fire",
+      "form": null,
+      "description": {
+        "normalized": "Gain 50% / 75% / 100% / 125% bonus Attack Speed for 7 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        17,
+        16,
+        15,
+        14
+      ],
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Gain 50% / 75% / 100% / 125% bonus Attack Speed for 7 seconds.",
+      "confidence": "medium"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Rocket Jump",
+      "form": null,
+      "description": {
+        "normalized": "Leap to a target location, dealing 85 /155 / 225 / 295 (+50% AP) magic damage and slowing nearby enemies by 60% for 1.5 / 2 / 2.5 / 3 seconds. Takedowns and fully stacked Explosive Charge detonations on champions reset Rocket Jump's cooldown.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        22,
+        19,
+        16,
+        13
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            85,
+            155,
+            225,
+            295
+          ],
+          "duration": [
+            1.5,
+            2,
+            2.5,
+            3
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Leap to a target location, dealing 85 /155 / 225 / 295 (+50% AP) magic damage and slowing nearby enemies by 60% for 1.5 / 2 / 2.5 / 3 seconds.\n\nTakedowns and fully stacked Explosive Charge detonations on champions reset Rocket Jump's cooldown.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Explosive Charge",
+      "form": null,
+      "description": {
+        "normalized": "Passive: Enemies explode when killed by Tristana's attacks, dealing 65 / 100 / 135 / 170 (+25% AP) magic damage to nearby enemies. Active: Places a bomb on an enemy or turret, dealing 50 / 75 / 100 / 125 (+75% / 110% / 145% / 180% bonus AD +50% AP) physical damage to nearby enemies. Tristana's attacks and abilities charge the bomb's damage by 30% stacking 4 times. Bombs explode immediately at full stacks. Explosion radius is doubled for bombs placed on turrets.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        15,
+        14,
+        13,
+        12
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            65,
+            100,
+            135,
+            170
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.25
+            }
+          ],
+          "confidence": "high"
+        },
+        {
+          "type": "damage",
+          "damageType": "physical",
+          "base": [
+            50,
+            75,
+            100,
+            125
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "states": [
+        {
+          "id": "passive",
+          "label": "Passive",
+          "rawParsedText": "Enemies explode when killed by Tristana's attacks, dealing 65 / 100 / 135 / 170 (+25% AP) magic damage to nearby enemies.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "magic",
+              "base": [
+                65,
+                100,
+                135,
+                170
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.25
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        },
+        {
+          "id": "active",
+          "label": "Active",
+          "rawParsedText": "Places a bomb on an enemy or turret, dealing 50 / 75 / 100 / 125 (+75% / 110% / 145% / 180% bonus AD +50% AP) physical damage to nearby enemies. Tristana's attacks and abilities charge the bomb's damage by 30% stacking 4 times.",
+          "effects": [
+            {
+              "type": "damage",
+              "damageType": "physical",
+              "base": [
+                50,
+                75,
+                100,
+                125
+              ],
+              "scalings": [
+                {
+                  "stat": "ap",
+                  "ratio": 0.5
+                }
+              ],
+              "confidence": "high"
+            }
+          ]
+        }
+      ],
+      "rawParsedText": "Passive: Enemies explode when killed by Tristana's attacks, dealing 65 / 100 / 135 / 170 (+25% AP) magic damage to nearby enemies.\n\nActive: Places a bomb on an enemy or turret, dealing 50 / 75 / 100 / 125 (+75% / 110% / 145% / 180% bonus AD +50% AP) physical damage to nearby enemies. Tristana's attacks and abilities charge the bomb's damage by 30% stacking 4 times.\n\nBombs explode immediately at full stacks. Explosion radius is doubled for bombs placed on turrets.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Buster Shot",
+      "form": null,
+      "description": {
+        "normalized": "Fires a massive cannonball at an enemy, dealing 350 / 450 / 550 (+100% AP) magic damage and knocking them back.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        70,
+        65,
+        60
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            350,
+            450,
+            550
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 1
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a massive cannonball at an enemy, dealing 350 / 450 / 550 (+100% AP) magic damage and knocking them back.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/tristana",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Draw a Bead: Numeric prose was not fully structured; rawParsedText kept.",
+    "Rapid Fire: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}

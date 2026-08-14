@@ -1,0 +1,252 @@
+{
+  "id": "nami",
+  "name": "Nami",
+  "title": "the Tidecaller",
+  "roles": [],
+  "positions": [
+    "support"
+  ],
+  "imageUrl": "https://www.mobafire.com/images/champion/square/nami.png",
+  "stats": {
+    "health": 630,
+    "healthPerLevel": 104,
+    "healthRegen5": 6,
+    "healthRegen5PerLevel": 1,
+    "resource": {
+      "type": "mana",
+      "maximum": 390,
+      "maximumPerLevel": 37,
+      "regen5": 18,
+      "regen5PerLevel": 1
+    },
+    "attackDamage": 52,
+    "attackDamagePerLevel": 3,
+    "attackSpeed": 0.75,
+    "attackSpeedPerLevel": 0,
+    "attackRange": null,
+    "armor": 40,
+    "armorPerLevel": 4,
+    "magicResistance": 30,
+    "magicResistancePerLevel": 1,
+    "movementSpeed": 350,
+    "additional": {}
+  },
+  "abilities": {
+    "passive": {
+      "slot": "passive",
+      "name": "Surging Tides",
+      "form": null,
+      "description": {
+        "normalized": "Allied champions touched by Nami's abilities gain 65 (+20% AP) Movement Speed for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": null,
+      "cost": null,
+      "effects": [],
+      "rawParsedText": "Allied champions touched by Nami's abilities gain 65 (+20% AP) Movement Speed for 1.5 seconds.",
+      "confidence": "medium"
+    },
+    "q": {
+      "slot": "q",
+      "name": "Aqua Prison",
+      "form": null,
+      "description": {
+        "normalized": "Fires a bubble, dealing 75 / 145 / 215 / 285 (+50% AP) magic damage and knocking up for 1.5 seconds.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        12,
+        11,
+        10,
+        9
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          60,
+          60,
+          60,
+          60
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            75,
+            145,
+            215,
+            285
+          ],
+          "duration": 1.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Fires a bubble, dealing 75 / 145 / 215 / 285 (+50% AP) magic damage and knocking up for 1.5 seconds.",
+      "confidence": "high"
+    },
+    "w": {
+      "slot": "w",
+      "name": "Ebb and Flow",
+      "form": null,
+      "description": {
+        "normalized": "Launches a stream that bounces 3 times between allied and enemy champions, healing allies for 55 / 85 / 115 / 145 (+30% AP) and dealing 65 / 120 / 175 / 230 (+50% AP) magic damage to enemies. Can hit each target once. Healing and damage values are modified by -15% (+7.5% AP) each bounce.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        10,
+        10,
+        10,
+        10
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          70,
+          85,
+          100,
+          115
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            55,
+            85,
+            115,
+            145
+          ],
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.3
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.5
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Launches a stream that bounces 3 times between allied and enemy champions, healing allies for 55 / 85 / 115 / 145 (+30% AP) and dealing 65 / 120 / 175 / 230 (+50% AP) magic damage to enemies.\n\nCan hit each target once. Healing and damage values are modified by -15% (+7.5% AP) each bounce.",
+      "confidence": "high"
+    },
+    "e": {
+      "slot": "e",
+      "name": "Tidecaller's Blessing",
+      "form": null,
+      "description": {
+        "normalized": "Empowers an allied champion's next 3 attacks for 6 seconds to deal an additional 25 / 45 / 65 / 85 (+20% AP) magic damage and slow by 15% / 20% / 25% / 30% (+0.05% AP) for 1 second.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        11,
+        11,
+        11,
+        11
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          55,
+          60,
+          65,
+          70
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            25,
+            45,
+            65,
+            85
+          ],
+          "duration": 6,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.2
+            },
+            {
+              "stat": "ap",
+              "ratio": 0.0005
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Empowers an allied champion's next 3 attacks for 6 seconds to deal an additional 25 / 45 / 65 / 85 (+20% AP) magic damage and slow by 15% / 20% / 25% / 30% (+0.05% AP) for 1 second.",
+      "confidence": "high"
+    },
+    "r": {
+      "slot": "r",
+      "name": "Tidal Wave",
+      "form": null,
+      "description": {
+        "normalized": "Sends a wave, dealing 150 / 250 / 350 (+60% AP) magic damage, knocking up for 0.5 seconds and slowing by 50% / 60% / 70%. Slow lasts for 2 - 4 seconds, increasing with how far the wave travels. Allies touched gain double the effect from Surging Tides.",
+        "source": "wildriftfire"
+      },
+      "cooldown": [
+        75,
+        70,
+        65
+      ],
+      "cost": {
+        "type": "mana",
+        "values": [
+          100,
+          100,
+          100
+        ]
+      },
+      "effects": [
+        {
+          "type": "damage",
+          "damageType": "magic",
+          "base": [
+            150,
+            250,
+            350
+          ],
+          "duration": 0.5,
+          "scalings": [
+            {
+              "stat": "ap",
+              "ratio": 0.6
+            }
+          ],
+          "confidence": "high"
+        }
+      ],
+      "rawParsedText": "Sends a wave, dealing 150 / 250 / 350 (+60% AP) magic damage, knocking up for 0.5 seconds and slowing by 50% / 60% / 70%.\n\nSlow lasts for 2 - 4 seconds, increasing with how far the wave travels.\n\nAllies touched gain double the effect from Surging Tides.",
+      "confidence": "high"
+    }
+  },
+  "extraAbilities": [],
+  "source": {
+    "provider": "WildRiftFire",
+    "sourceType": "champion_guide",
+    "url": "https://www.wildriftfire.com/guide/nami",
+    "observedPatch": "7.2c",
+    "scrapedAt": "2026-08-14T17:35:18.837Z"
+  },
+  "gaps": [],
+  "parseWarnings": [
+    "Surging Tides: Numeric prose was not fully structured; rawParsedText kept.",
+    "Ebb and Flow: Numeric prose was not fully structured; rawParsedText kept.",
+    "Tidal Wave: Numeric prose was not fully structured; rawParsedText kept."
+  ]
+}
