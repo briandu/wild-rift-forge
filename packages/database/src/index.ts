@@ -44,6 +44,7 @@ export {
 export {
   replaceChampionAbilities,
   listChampionAbilities,
+  listAbilitiesBySlug,
   type StoredChampionAbility,
 } from './champion-abilities';
 export {

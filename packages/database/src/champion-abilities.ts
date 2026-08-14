@@ -77,6 +77,25 @@ export async function listChampionAbilities(
   return result.rows.map(mapAbilityRow);
 }
 
+/** Every scraped kit, keyed by champion slug, for patch notes and bulk loaders. */
+export async function listAbilitiesBySlug(): Promise<Map<string, StoredChampionAbility[]>> {
+  const result = await getPool().query(
+    `SELECT a.id, a.champion_id, a.slot, a.name, a.description, a.icon_url, a.video_url,
+            a.sort_order, c.slug
+     FROM champion_abilities a
+     JOIN champions c ON c.id = a.champion_id
+     ORDER BY c.slug, a.sort_order, a.slot`,
+  );
+  const bySlug = new Map<string, StoredChampionAbility[]>();
+  for (const row of result.rows) {
+    const slug = row.slug as string;
+    const list = bySlug.get(slug) ?? [];
+    list.push(mapAbilityRow(row));
+    bySlug.set(slug, list);
+  }
+  return bySlug;
+}
+
 function mapAbilityRow(row: Record<string, unknown>): StoredChampionAbility {
   return {
     id: row.id as number,
