@@ -181,6 +181,50 @@ export {
   type DraftSuggestion,
 } from './draft';
 
+export {
+  DAMAGE_TYPES,
+  EFFECT_TYPES,
+  GAP_KINDS,
+  PARSE_CONFIDENCE,
+  RESOURCE_TYPES,
+  SCALING_STATS,
+  WRF_ABILITY_SLOTS,
+  abilityCostSchema as wrfAbilityCostSchema,
+  abilityEffectSchema,
+  wrfAbilitySchema,
+  wrfChampionSchema,
+  wrfChampionStatsSchema,
+  wrfIndexEntrySchema,
+  wrfSourceSchema,
+  type AbilityEffect,
+  type AbilityScaling,
+  type AbilityState,
+  type ChampionResource,
+  type DamageType,
+  type EffectType,
+  type GapKind,
+  type ParseConfidence,
+  type ParseGap,
+  type RankValue,
+  type ResourceType,
+  type ScalingStat,
+  type WrfAbility,
+  type WrfAbilityCost,
+  type WrfAbilitySlot,
+  type WrfChampion,
+  type WrfChampionStats,
+  type WrfIndexEntry,
+  type WrfSource,
+} from './wrf-champion';
+export {
+  championIdsMatch,
+  compactChampionId,
+  DB_SLOT_BY_BASELINE,
+  pickBaselineAbilityForSlot,
+  slugFromOfficialUrl,
+  SORT_ORDER_BY_BASELINE,
+} from './snapshot';
+
 /** One ability from a champion's kit (passive / 1 / 2 / 3 / ultimate). */
 export interface ChampionAbility {
   /** Kit slot key, e.g. "passive", "1", "ultimate". */
