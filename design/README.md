@@ -14,7 +14,7 @@ npm run design:ingest -- "C:/Users/Brian Du/Downloads/Your Export.zip"
 npm run design:ingest -- "./my.zip" --slug counters-v2
 ```
 
-4. In Cursor: `/import-claude-design` (or “import the latest Claude Design handoff”).
+4. In Cursor: `/implement-design-update` (incremental zip) or `/import-claude-design` (first import).
 5. Agent translates layout, tokens, and IA into `apps/web` against real data types / API — not by copying `support.js`.
 
 ## Layout

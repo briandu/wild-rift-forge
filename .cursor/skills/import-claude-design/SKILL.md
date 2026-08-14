@@ -12,7 +12,7 @@ description: >-
 
 ## Trigger
 
-User provides a `.zip` path, a handoff slug, says `/import-claude-design`, or asks to implement the latest Claude Design export.
+User provides a `.zip` path, a handoff slug, says `/import-claude-design` or `/implement-design-update`, or asks to implement the latest Claude Design export. Incremental zips should follow `.cursor/commands/implement-design-update.md`.
 
 ## Steps
 
@@ -37,7 +37,8 @@ User provides a `.zip` path, a handoff slug, says `/import-claude-design`, or as
    - Build real React components; **never** ship `support.js` or `<x-dc>` runtime.  
    - Preserve Premium Gaming hierarchy (art-led hero, search-first, staged counters).  
    - Wire loading/empty/sparse states when present in the handoff.  
-   - Keep diffs focused on the screens asked for.
+   - Keep diffs focused on the screens asked for.  
+   - Diff against the previous handoff; leave unchanged screens alone.
 
 5. **Verify**  
    - Typecheck / lint touched packages when `apps/web` exists.  

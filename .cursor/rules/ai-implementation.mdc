@@ -1,0 +1,46 @@
+---
+description: Match LLM model, reasoning effort, and prompt depth to the job — sol 5.6 for trusted rankings/matchups, everyday models for summaries
+globs: ["apps/scraper/src/jobs/**", "apps/scraper/src/tiers/**", "packages/recommendation/**"]
+alwaysApply: false
+---
+
+# AI implementation
+
+Match **model**, **reasoning effort**, and **prompt depth** to the job. Do not default every OpenAI call to `gpt-5.6-sol`.
+
+Prefer deterministic code for rankings (`apps/scraper/src/tiers/compute.ts`, `@wild-rift-forge/game-data`). Use a model only when the user asks for generated copy or for a judgment the pipeline cannot compute.
+
+## Judgment — trusted player-facing calls
+
+The model **decides** something players will treat as truth:
+
+- Producing or revising a tier list / letter
+- Matchup winner, counter strength, draft priority
+- Any ranking, score, or “who is better” call not already computed in code
+
+Use `gpt-5.6-sol` with `reasoning_effort: "high"`. Drop to `"medium"` only if batch cost is the constraint — ask first. Give the model the evidence (rates, sample, patch lines, prior letter) and require it to cite those signals. Structured `json_schema` output.
+
+## Everyday — summarize or rewrite
+
+The model **restates** facts the pipeline already computed:
+
+- Tier “why” blurbs (`explain-tiers`)
+- Patch lede / watch / movers (`analyze-patch`)
+- Titles, tags, one-line copy
+
+Use an everyday chat model (`gpt-4o-mini` unless the job already has a cheaper default). Omit `reasoning_effort` on non-reasoning models; `"low"` only if the model requires the field. One or two sentences. Facts only — do not invent rates or change letters.
+
+`explain-tiers` is everyday copy even though it currently defaults to `gpt-5.6-sol`. Do not raise its effort. When touching that job, keep or move it toward the everyday default; do not treat the current model as the pattern for new summary jobs.
+
+## Mixed jobs
+
+If a request both ranks and explains, **split the calls**: judgment (sol + high) or deterministic compute first, then everyday copy. One expensive call that also writes blurbs is the wrong default.
+
+## Every LLM job
+
+- Structured output (`response_format.json_schema`)
+- Prompt: use only supplied facts; never change computed letters or scores
+- Env override for the model (`OPENAI_*_MODEL`), default documented in `.env.example`
+- Fingerprint prompt + model so reruns skip unchanged rows
+- Fail closed on missing `OPENAI_API_KEY` (skip + log, do not crash the scrape)
+- Do not raise model or effort “to be safe” on a summary job
