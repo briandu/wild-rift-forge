@@ -1,0 +1,196 @@
+{
+  "id": "katarina",
+  "name": "Katarina",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/katarina/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/katarina",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 34,
+    "magicResist": 38,
+    "moveSpeed": 345,
+    "attackDamage": 58,
+    "attackSpeed": 0.8,
+    "resourceNote": "No mana/energy resource listed."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Voracity",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Takedown on champion damaged within 3s reduces remaining ability cooldowns 15s. Picking up dagger deals 55 +100% bonus AD +34.5% AP magic nearby.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Bouncing Blades",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "75/115/155/195 +30% AP magic to target and 2 nearby enemies; drops dagger behind initial strike.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Preparation",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          13,
+          12,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Drops dagger and grants 50/60/70/80% movement speed.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Shunpo",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          10,
+          9,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Blink near dagger/unit and deal 20/50/80/110 +50% AD +30% AP magic to nearest enemy; dagger pickup greatly reduces cooldown.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Death Lotus",
+      "form": null,
+      "cooldown": {
+        "value": [
+          60,
+          50,
+          40
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/katarina"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Up to 2.6s moving channel; 400/600/800 +260% AD +290% AP magic to 3 nearest champions; applies 60% Grievous Wounds.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/katarina",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/katarina",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

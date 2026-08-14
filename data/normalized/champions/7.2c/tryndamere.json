@@ -1,0 +1,196 @@
+{
+  "id": "tryndamere",
+  "name": "Tryndamere",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/tryndamere/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/tryndamere",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 8,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 54,
+    "attackSpeed": 0.82,
+    "resourceNote": "Fury; no mana."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Battle Fury",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Each Fury grants 0.32% crit. Champion attack grants 30% attack speed for 5s (6s cooldown). Fury: +5 per attack, +10 crit, +15 kill; loses 5/s after 8s out of combat. Crit above 100% converts to AD at 1 AD per 1% crit.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Bloodlust",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive AD [7,12,17,22] plus [0.35,0.4,0.45,0.5] AD per 1% missing HP. Active consumes Fury and heals [55,65,75,85] +30% AP plus per-Fury scaling [1.5,2.1,2.7,3.3] +1.2% AP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Mocking Shout",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Reduces nearby enemy AD by 40% for 3s; enemies moving away slowed [25,30,35,40]%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Spinning Slash",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          10,
+          9,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [80,120,160,200] +135% AD +100% AP physical. Critical strikes reduce cooldown 1s vs minions, doubled vs champions. +2 Fury per enemy hit.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Undying Rage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          80,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/tryndamere"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive champion-attack attack-speed bonus becomes [45,60,75]%. Active prevents death for 5s and grants [50,75,100] Fury; usable while crowd controlled.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/tryndamere",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/tryndamere",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

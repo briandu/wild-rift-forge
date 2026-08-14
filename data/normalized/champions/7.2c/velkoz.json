@@ -1,0 +1,227 @@
+{
+  "id": "velkoz",
+  "name": "Vel'Koz",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/vel-koz/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/velkoz",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 480,
+    "manaRegen5s": 10,
+    "armor": 37,
+    "magicResist": 36,
+    "moveSpeed": 360,
+    "attackDamage": 54,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Organic Deconstruction",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Ability hits apply stack for 7s; at 3 stacks deals 28 +45% AP true damage. Attacks refresh duration.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Plasma Fission",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            45,
+            50,
+            55
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [80,135,190,245] +75% AP magic and 70% slow decaying over [1,1.5,2,2.5]s. Kill restores [20,23,26,29] Mana.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Void Rift",
+      "form": null,
+      "cooldown": {
+        "value": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Initial [30,60,90,120] +20% AP magic; delayed eruption [45,85,125,165] +25% AP. Charge every [16,15,14,13]s, stores 2.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Tectonic Disruption",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [70,110,150,190] +30% AP magic and knocks up 0.75s; close casts knock enemies away from Vel'Koz.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Life Form Disintegration Ray",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/velkoz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "2.5s channel totals [450,625,800] +125% AP magic and slows 20%; applies passive stacks every 0.7s. Fully Researched targets take equal true damage instead.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/velkoz",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/velkoz",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

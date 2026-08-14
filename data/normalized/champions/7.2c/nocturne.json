@@ -1,0 +1,227 @@
+{
+  "id": "nocturne",
+  "name": "Nocturne",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/nocturne/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/nocturne",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 10,
+    "mana": 380,
+    "manaRegen5s": 12,
+    "armor": 43,
+    "magicResist": 40,
+    "moveSpeed": 345,
+    "attackDamage": 54,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Umbra Blades",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Every 12s next attack hits target/nearby enemies for 120% AD physical (70 shown in level-1 context) and heals 16 +30% AP per enemy. Secondary minion damage/heal 50%; attacks reduce cooldown 1s, 3s vs champions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Duskbringer",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            65,
+            70,
+            75
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [70,125,180,235] +85% bonus AD physical, creates 5s Dusk Trail; on trail gains [20,30,40,50] AD and [20,25,30,35]% MS.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Shroud of Darkness",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive AS [35,40,45,50]%. Active 1.5s spell shield; successful block raises passive AS to [70,80,90,100]% for 5s and slows nearby enemies [20,25,30,35]% for 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Unspeakable Horror",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          13,
+          12,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            65,
+            70,
+            75
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive +90% MS toward feared enemies. Active deals [80,140,200,260] +100% AP magic over 2s; if tether holds, fear +90% slow for [1.2,1.5,1.8,2.1]s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Paranoia",
+      "form": null,
+      "cooldown": {
+        "value": [
+          110,
+          90,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nocturne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Reduces enemy vision/removes ally vision for 6s; recast launches unstoppable to champion and deals [150,275,400] +120% bonus AD physical.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/nocturne",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/nocturne",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

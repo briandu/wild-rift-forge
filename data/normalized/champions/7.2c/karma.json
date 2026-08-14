@@ -1,0 +1,227 @@
+{
+  "id": "karma",
+  "name": "Karma",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/karma/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/karma",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 9,
+    "mana": 390,
+    "manaRegen5s": 21,
+    "armor": 37,
+    "magicResist": 36,
+    "moveSpeed": 360,
+    "attackDamage": 58,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Mantra",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Every ability cast grants 1 stack; at 3 stacks next basic ability is Mantra-enhanced.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Inner Flame",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "60/100/140/180 +40% AP magic, 35% slow 1.5s. Mantra: 65/140/215/290 +50% AP, field slow 42.5/45/47.5/50%, then 40/80/120/160 +50% AP explosion.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Focused Resolve",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          15,
+          15,
+          15
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            60,
+            65,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Initial 35/60/85/110 +40% AP, then 40/70/100/130 +45% AP if tether holds; root 1/1.25/1.5/1.75s. Mantra improves root to 1.5/1.75/2/2.25s and adds tether behavior.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Inspire",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shield 60/90/120/150 +65% AP for 3s and 30% MS 1.5s. Mantra: 120/180/240/300 +65% AP decaying over 4s and 60%→20% MS; shares with first ally entering ring.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Transcendent Embrace",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/karma"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Immediately enters Mantra. After 1s, 170/280/390 +80% AP magic; 35% slow 1s and outer-ring knockback toward center.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/karma",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/karma",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,223 @@
+{
+  "id": "jayce",
+  "name": "Jayce",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/jayce/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/jayce",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 650,
+    "healthRegen5s": 10,
+    "mana": 420,
+    "manaRegen5s": 12,
+    "armor": 37,
+    "magicResist": 30,
+    "moveSpeed": 345,
+    "attackDamage": 62,
+    "attackSpeed": 0.91,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Hextech Capacitor",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Transforming between Hammer and Cannon grants 30 movement speed for 1.25s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "To the Skies! / Shock Blast",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          12,
+          10,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Hammer: 70/120/170/220/270 +140% AD physical and 35/40/45/50/55% slow 2s. Cannon: 65/130/195/260/325 +140% AD physical; gate boosts travel and damage by 45%. 80% monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Lightning Field / Hyper Charge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Hammer passive restores 12/15/18/21/24 mana per attack; active 160/230/300/370/440 +100% AP magic over 4s. Cannon grants max AS for 3 attacks, each 70/80/90/100/110% AD; source separately lists Hyper Charge cooldown 13/11/9/7/5.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Thundering Blow / Acceleration Gate",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Hammer knocks back and deals 10/12.5/15/17.5/20% target max HP +100% AD magic. Gate grants 35/40/45/50/55% decaying MS for 2.5/3/3.5/4/4.5s and boosts Shock Blast damage; source also lists Gate cooldown 14.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Mercury Cannon / Mercury Hammer",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jayce"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Cannon transform: next ranged attack +13 +10% AD magic and -11% Armor/MR 5s. Hammer transform: +16% AS and 5 +9% bonus AD Armor/MR; next melee attack +28 +25% bonus AD magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire displays five scaling values for several Jayce stance effects while basic cooldown/cost arrays show four ranks. Preserve source values and verify rank mapping."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/jayce",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/jayce",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

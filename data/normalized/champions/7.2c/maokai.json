@@ -1,0 +1,229 @@
+{
+  "id": "maokai",
+  "name": "Maokai",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/maokai/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/maokai",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 10,
+    "mana": 380,
+    "manaRegen5s": 12,
+    "armor": 49,
+    "magicResist": 36,
+    "moveSpeed": 345,
+    "attackDamage": 66,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Sap Magic",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Every 24s next attack heals; WildRiftFire renders heal formula ambiguously as '2 x 30 (+4 x 10%) Health'. Ability use or enemy champion ability hit reduces cooldown 3s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Bramble Smash",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [60,115,170,225] +50% AP magic +[2.5,3,3.5,4]% target max HP; brief 0.25s slow and nearby knockback; +120 bonus monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Twisted Advance",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          13,
+          12,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Untargetable dash; deals [60,95,130,165] +50% AP magic and roots [0.8,0.95,1.1,1.25]s; 180% monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Sapling Toss",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Sapling lasts 20s; explosion [60,90,120,150] +25% AP +6% bonus HP magic, 30% slow 2s. Brush: 30s duration, 200% magic damage, slow 30% +1.5% per 100 bonus HP +1% per 100 AP for 3s; monster cap 300.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Nature's Grasp",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          75,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/maokai"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [175,250,325] +65% AP magic; roots at least 0.8s increasing with travel; champion hit gives [40,50,60]% decaying MS over 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire passive healing formula is malformed/ambiguous; retained as textual warning instead of inventing normalized numbers."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/maokai",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/maokai",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

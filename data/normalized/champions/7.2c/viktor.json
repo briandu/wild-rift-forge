@@ -1,0 +1,227 @@
+{
+  "id": "viktor",
+  "name": "Viktor",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/viktor/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/viktor",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 460,
+    "manaRegen5s": 10,
+    "armor": 34,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 54,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Glorious Evolution",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Minion/normal monster kill 3 Hex Fragments; epic/siege/super 5; champion takedown 25. Every 100 upgrades one active; all basics upgraded perfects Hexcore and augments R.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Siphon Power",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [55,70,85,100] +35% AP magic, shields [30,55,80,105] +15% AP 2.5s; next attack [20,40,60,80] +100% AD +40% AP bonus magic. Upgrade shield [50,90,130,170]+25% AP and +30% MS 2.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Gravity Field",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            65,
+            65,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Field 4s, slow [25,30,35,40]%; stack every 0.5s, at 3 stun 1.5s. Upgrade causes Q/E/R first damage to add 20% slow.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Death Ray",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Beam [75,120,165,210] +30% AP magic. Upgrade delayed explosion [30,70,110,150] +60% AP magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Chaos Storm",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          65,
+          55
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viktor"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Initial [150,225,330] +60% AP magic and disrupts channels; then [50,90,130] +40% AP per second for 5.5s. Upgrade moves faster; takedown extends 3.5s and enlarges, up to 5 empowers.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/viktor",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/viktor",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

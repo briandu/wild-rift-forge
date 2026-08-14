@@ -1,0 +1,227 @@
+{
+  "id": "smolder",
+  "name": "Smolder",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/smolder/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/smolder",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 8,
+    "mana": 390,
+    "manaRegen5s": 14,
+    "armor": 34,
+    "magicResist": 30,
+    "moveSpeed": 335,
+    "attackDamage": 54,
+    "attackSpeed": 0.81,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Dragon Practice",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Champion ability hits and Q last-hits grant stacks. Q gains +30% magic component and milestones at 25/100/175; W explosion +55% magic; E hit +12% magic and extra bolt every 65 stacks.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Super Scorcher Breath",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          5,
+          4,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[45,80,115,150]+110% bonus AD physical plus 40% magic; kill refunds 15 mana. 25 stacks AoE; 100 sends 2 explosions at 50% damage; 175 adds max-HP true burn and 6.5% execute threshold. +7.5% damage per 10% crit, max +75%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Achooo!",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[65,85,105,125]+60% bonus AD physical; 35% slow 1.5s. Champion explosion [10,35,60,85]+55% bonus AD+80% AP physical plus 55% magic; repeat explosions 75%; 130% minion/monster.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Flap, Flap, Flap",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            65,
+            65,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "+75% MS and terrain ignore 1.25s; 5 auto bolts to lowest-HP target, each [15,20,25,30]+30% AD physical plus 12% magic; expanded vision.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "MMOOOMMMM!",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/smolder"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Area [200,300,400]+110% bonus AD+100% AP physical; center [300,450,600]+165% bonus AD+150% AP and 40% slow 2s. Heals Smolder [100,135,170]+50% bonus AD+75% AP. 50% damage to minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/smolder",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/smolder",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

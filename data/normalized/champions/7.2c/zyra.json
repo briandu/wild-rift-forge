@@ -1,0 +1,229 @@
+{
+  "id": "zyra",
+  "name": "Zyra",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/zyra/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/zyra",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 6,
+    "mana": 420,
+    "manaRegen5s": 14,
+    "armor": 37,
+    "magicResist": 36,
+    "moveSpeed": 360,
+    "attackDamage": 54,
+    "attackSpeed": 0.96,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Garden of Thorns",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Thorn Spitter health 30–240 with source-listed AP scaling; attacks for 6s dealing 10–108 +10% AP magic. Additional plants spawn per champion/large/epic monster hit; later plants deal 50% to same target. Champion abilities and non-epic monsters deal 35% to plants.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Deadly Spines",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            75,
+            75,
+            75,
+            75
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [60,115,170,225]+60% AP magic and sprouts Thorn Spitter.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Rampant Growth",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Nearby Thorn Spitters reset duration and gain [35,40,45,60]% Health and 50% attack speed.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Grasping Roots",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [60,100,140,180]+40% AP magic and roots [1,1.25,1.5,1.75]s; spawns Thorn Spitter when first champion hit or when ability ends.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Stranglethorns",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zyra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [150,225,300]+50% AP magic; after 2s knocks up 1s. Thorn Spitters inside reset duration and gain 50% bonus Health/AS.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire's current top section and its embedded patch history disagree on some Zyra Q/W values; dataset preserves top-of-page Patch 7.2c values and flags for manual verification."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/zyra",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/zyra",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,229 @@
+{
+  "id": "pyke",
+  "name": "Pyke",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/pyke/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/pyke",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 11,
+    "mana": 435,
+    "manaRegen5s": 12,
+    "armor": 50,
+    "magicResist": 38,
+    "moveSpeed": 340,
+    "attackDamage": 64,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Gift of the Drowned Ones",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Stores a portion of recent champion damage as grey health and heals it out of enemy vision; storage increases near 2+ enemies. Cannot gain max HP; 14 bonus HP converts to 1 AD.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Bone Skewer",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            40,
+            45,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[130,195,260,325]+60% AD physical; 90% slow 1s and pull. Deals 50% to minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Ghostwater Dive",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          10,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Camouflage for 5s; gains 40% movement speed plus lethality-linked scaling, decaying.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Phantom Undertow",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          11,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[120,175,230,285]+100% AD physical; stun 1.5s plus lethality-linked duration. Deals 50% to minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Death From Below",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/pyke"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Execute threshold [250,400,550]+80% AD+250% lethality. Above threshold deals 50% of threshold amount as physical. Kill allows recast within 15s; gold-sharing mechanics apply.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "Passive grey-health formulas on source page are complex/malformed in scraped text; summary intentionally avoids inventing coefficients."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/pyke",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/pyke",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

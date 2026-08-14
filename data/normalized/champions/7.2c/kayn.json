@@ -1,0 +1,409 @@
+{
+  "id": "kayn",
+  "name": "Kayn",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/kayn/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/kayn",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 40,
+    "magicResist": 36,
+    "moveSpeed": 350,
+    "attackDamage": 70,
+    "attackSpeed": 0.8,
+    "resourceNote": "No mana stat shown by WildRiftFire; abilities display costs of 50–100, treated as resource costs."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "The Darkin Scythe — Shadow Assassin",
+      "form": "Shadow Assassin",
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Transformation meter: ranged damage charges Shadow Assassin, melee damage charges Rhaast. Shadow Assassin adds 52–66% magic damage for 3s after 6s out of combat or after R.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Reaping Slash — Shadow Assassin",
+      "form": "Shadow Assassin",
+      "cooldown": {
+        "value": [
+          5,
+          4,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Two hits, each 70/100/130/160 +60/65/70/75% AD physical; +35 physical to minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Blade's Reach — Shadow Assassin",
+      "form": "Shadow Assassin",
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            60,
+            70,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "105/165/225/285 +120% AD physical; 90% slow decays over 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Shadow Step — Shadow Assassin",
+      "form": "Shadow Assassin",
+      "cooldown": {
+        "value": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "75% MS, slow immunity and terrain traversal for 5/5.5/6/6.5s; first terrain entry heals 100/120/140/160.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Umbral Trespass — Shadow Assassin",
+      "form": "Shadow Assassin",
+      "cooldown": {
+        "value": [
+          59,
+          52,
+          44
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Infests 2.5s; exit deals 200/300/400 +165% AD physical and refreshes passive.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "P",
+      "name": "The Darkin Scythe — Rhaast",
+      "form": "Rhaast",
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Rhaast heals for 24–38% of physical damage dealt to champions.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Reaping Slash — Rhaast",
+      "form": "Rhaast",
+      "cooldown": {
+        "value": [
+          4,
+          3,
+          3,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Two hits; each uses 60/65/70/75% AD plus 7% target max HP +0.06% per bonus AD physical; monster cap 235/310/385/460; +35 to minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Blade's Reach — Rhaast",
+      "form": "Rhaast",
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            60,
+            70,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "105/165/225/285 +120% AD physical; 1s knockup and 90% slow decaying over 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Shadow Step — Rhaast",
+      "form": "Rhaast",
+      "cooldown": {
+        "value": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "35% MS and terrain traversal for 5/5.5/6/6.5s; first terrain entry heals 100/120/140/160 +50% AD.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Umbral Trespass — Rhaast",
+      "form": "Rhaast",
+      "cooldown": {
+        "value": [
+          50,
+          44,
+          38
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kayn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Infests 2.5s; exit deals 36% target max HP + AD scaling physical and heals 27% target max HP + AD scaling.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "Kayn has two permanent forms; this record stores separate Shadow Assassin and Rhaast ability entries. Some max-HP coefficient notation is rendered unusually by WildRiftFire and should be verified."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/kayn",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/kayn",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

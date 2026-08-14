@@ -1,0 +1,227 @@
+{
+  "id": "khazix",
+  "name": "Kha'Zix",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/kha-zix/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/khazix",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 390,
+    "manaRegen5s": 12,
+    "armor": 40,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 58,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Unseen Threat",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next attack after becoming unseen adds 15 +8 per level +50% AD magic and slows 25% for 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Taste Their Fear",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          4,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            20,
+            20,
+            20,
+            20
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "75/110/145/180 +130% AD physical; isolated target damage increased by 110%. Evolved: +50 range and 40% cooldown refund vs isolated.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Void Spike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            60,
+            65,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "70/110/150/190 +100% AD physical; heals 40/75/110/145 +50% AP if near explosion. Evolved fires 2 extra, reveals and slows 60% for 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Leap",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "65/110/155/200 +20% AD physical. Evolved +250 range and resets on champion takedown.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Void Assault",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          65,
+          55
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/khazix"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Each rank allows one evolution. Active invisibility +40% MS for 1.25s, recast within 10s; evolved duration 2s and up to 3 casts.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/khazix",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/khazix",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

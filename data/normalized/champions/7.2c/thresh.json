@@ -1,0 +1,227 @@
+{
+  "id": "thresh",
+  "name": "Thresh",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/thresh/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/thresh",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 11,
+    "mana": 435,
+    "manaRegen5s": 12,
+    "armor": 34,
+    "magicResist": 30,
+    "moveSpeed": 345,
+    "attackDamage": 58,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Damnation",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Collected souls grant 2 Armor and 2 AP each; no natural Armor growth.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Death Sentence",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          15,
+          12,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [100,160,220,280] +80% AP magic, stuns/pulls 1.5s; recast dashes to target. Hit reduces cooldown 3s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Dark Passage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          21,
+          19,
+          17,
+          15
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shields Thresh and first nearby ally for [50,90,130,170] +2 per Soul for 4s; ally can dash to Thresh via lantern.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Flay",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive next attack builds bonus damage up to 58 +2 per Soul plus [80,120,160,200]% AD. Active [75,115,155,195] +60% AP magic, slows [20,25,30,35]% 1s and pushes/pulls.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "The Box",
+      "form": null,
+      "cooldown": {
+        "value": [
+          85,
+          80,
+          75
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/thresh"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Walls deal [250,400,500] +100% AP magic and slow 99% for 2s. First wall deals damage; subsequent walls no damage and half slow duration.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/thresh",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/thresh",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

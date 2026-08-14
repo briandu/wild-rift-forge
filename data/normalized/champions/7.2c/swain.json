@@ -1,0 +1,232 @@
+{
+  "id": "swain",
+  "name": "Swain",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/swain/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/swain",
+  "dataStatus": "partial",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": 460,
+    "manaRegen5s": 12,
+    "armor": 40,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 58,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Ravenous Flock",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Soul Fragment restores [3,3.5,4,4.5]% Health plus AP-linked component and permanently grants 16 max Health.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Death's Hand",
+      "form": null,
+      "cooldown": {
+        "value": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "First bolt deals [55,90,125,160] +32% AP magic; each additional bolt [10,20,30,40] +12% AP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Vision of Empire",
+      "form": null,
+      "cooldown": {
+        "value": [
+          21,
+          20,
+          19,
+          18
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            65,
+            65,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [80,130,180,230] +55% AP magic, slows [30,40,50,60]% for 2.5s, reveals 4s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Nevermove",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Outbound deals [35,85,135,185] +25% AP magic; returning projectile roots 1.5s and can be recast to pull/grant Soul Fragment. Return-damage values on source are malformed.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Demonic Ascension",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          65,
+          55
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/swain"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [10,25,45] +15% AP magic per second and heals [20,30,40] +20% AP while draining. Recast damage not cleanly exposed in source text.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [
+    "Exact Nevermove return-damage rank values",
+    "Exact Demonic Ascension recast damage"
+  ],
+  "warnings": [
+    "WildRiftFire Nevermove return-damage string is malformed on the current page."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/swain",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "partial"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/swain",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "partial",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

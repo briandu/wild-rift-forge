@@ -1,0 +1,196 @@
+{
+  "id": "riven",
+  "name": "Riven",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/riven/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/riven",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 12,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 345,
+    "attackDamage": 64,
+    "attackSpeed": 0.8,
+    "resourceNote": "No mana."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Runic Blade",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Abilities grant up to 3 charges; attacks consume a charge for 21 bonus physical with source-listed 22–50% AD scaling. 65% bonus damage to monsters/structures.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Broken Wings",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Three casts, each [30,55,80,105]+[55,60,65,70]% AD physical; third crosses terrain and knocks up 0.5s; 70% monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Ki Burst",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[55,95,135,175]+100% AD physical; stun 0.75s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Valor",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash and shield [85,120,155,190]+90% AD for 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Blade of the Exile",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          60,
+          45
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/riven"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "12s: +25% AD, increased attack/damage-ability range, grants Wind Slash. Wind Slash deals [100,150,200]+60% AD to [300,450,600]+180% AD based on missing HP. Takedowns refresh Wind Slash and extend duration 3s, up to 12s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/riven",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/riven",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

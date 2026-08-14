@@ -1,0 +1,227 @@
+{
+  "id": "lissandra",
+  "name": "Lissandra",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/lissandra/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/lissandra",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": 460,
+    "manaRegen5s": 10,
+    "armor": 34,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 54,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Iceborn Subjugation",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Nearby enemy champion death creates Frozen Thrall; 25% slow aura; shatters after 4s for 110 +40% AP magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Ice Shard",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          6,
+          5,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            55,
+            55,
+            55
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [70,110,150,190] +70% AP magic and slows [20,25,30,35]% for 1.5s; shatter hits enemies behind.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Ring of Frost",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [55,100,145,190] +55% AP magic and roots [1.25,1.35,1.45,1.55]s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Glacial Path",
+      "form": null,
+      "cooldown": {
+        "value": [
+          19,
+          16,
+          13,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            85,
+            85,
+            85,
+            85
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Claw deals [50,95,140,185] +40% AP magic; recast teleports to claw.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Frozen Tomb",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          66,
+          57
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lissandra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Area deals [150,250,350] +75% AP magic over 3s and slows [30,45,60]%. Enemy cast stuns 1.5s. Self cast stasis 2.5s and heals [100,150,200] +40% AP, up to +100% based on missing HP.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/lissandra",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/lissandra",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

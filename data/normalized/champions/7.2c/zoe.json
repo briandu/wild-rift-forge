@@ -1,0 +1,220 @@
+{
+  "id": "zoe",
+  "name": "Zoe",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/zoe/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/zoe",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 420,
+    "manaRegen5s": 12,
+    "armor": 34,
+    "magicResist": 36,
+    "moveSpeed": 360,
+    "attackDamage": 54,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "More Sparkles!",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "After ability, next attack adds 9–128 +20% AP magic; 50% damage to structures.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Paddle Star",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Damage scales with travel from [45,80,115,150]+60% AP to [75,162.5,250,337.5]+150% AP magic. Nearby enemies take 80%; recast redirects.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Spell Thief",
+      "form": null,
+      "cooldown": {
+        "value": [
+          0,
+          0,
+          0
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Spell/enchantment shards can be picked up and cast once. Casting W or a spell grants [25,30,35,40]% MS 2s and fires 3 missiles, each [25,35,45,55]+15% AP magic. Shards last 20s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Sleepy Trouble Bubble",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          14,
+          13,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            80,
+            80,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [40,90,140,190]+50% AP magic; then target sleeps 2s after delay. Wake-up hit adds same values as bonus true damage. Drowsy slow up to [15,20,25,30]%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Portal Jump",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          8,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zoe"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Teleports nearby for 1s then returns; can cast/attack but not move during window.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire displays W cooldown as 0/0/0 despite four skill ranks; preserve source shape."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/zoe",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/zoe",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

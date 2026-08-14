@@ -1,0 +1,227 @@
+{
+  "id": "twitch",
+  "name": "Twitch",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/twitch/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/twitch",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 340,
+    "manaRegen5s": 14,
+    "armor": 40,
+    "magicResist": 32,
+    "moveSpeed": 340,
+    "attackDamage": 54,
+    "attackSpeed": 0.83,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Deadly Venom",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks apply venom dealing 1 +2.5% AP true damage over 5s, stacking to 5. At full champion stacks, gains [30,35,40,45,50]% attack speed for 5s. Monsters take 130% increased passive damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Ambush",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          15,
+          15,
+          15
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Camouflage and 10% haste for [8,9,10,11]s, increasing to 20% when nearby champions cannot see Twitch. On exit, attacks apply an additional Venom stack for 3s; champion death while infected resets.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Venom Cask",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Applies Deadly Venom and slows [30,35,40,45]% plus source-listed 6% bonus for 3s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Contaminate",
+      "form": null,
+      "cooldown": {
+        "value": [
+          16,
+          15,
+          14,
+          13
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            45,
+            55,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Base [25,35,45,55] physical plus each Venom stack [20,25,30,35] +42% bonus AD +18% AP. Max-stack targets spread damage and max Venom to nearby targets; source lists 130 physical at max stacks and +80% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Spray and Pray",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/twitch"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "For 6s gains 225 attack range and [30,45,60] bonus AD; attacks become piercing bolts. Subsequent targets take 15% less, minimum 40%.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/twitch",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/twitch",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

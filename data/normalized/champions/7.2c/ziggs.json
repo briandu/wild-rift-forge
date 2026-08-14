@@ -1,0 +1,227 @@
+{
+  "id": "ziggs",
+  "name": "Ziggs",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/ziggs/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/ziggs",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 460,
+    "manaRegen5s": 16,
+    "armor": 34,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 52,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Short Fuse",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Abilities can deal 24% damage to turrets. Empowers Bouncing Bomb for 17 +3 per level +15% AP extra magic and 32% turret damage. Passive cooldown -4s per ability cast.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Bouncing Bomb",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          5,
+          4,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            60,
+            65,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [70,135,200,265]+65% AP magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Satchel Charge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            65,
+            65,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Detonates within 4s for [70,115,160,205]+50% AP magic and knockback; self knockback no damage. Executes turrets below [20,22.5,25,27.5]% HP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Hexplosive Minefield",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          15,
+          15,
+          15
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            80,
+            90,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Mines deal [50,105,160,215]+35% AP magic and slow [35,40,45,50]% for 2s. Subsequent mines 40% damage; last 5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Mega Inferno Bomb",
+      "form": null,
+      "cooldown": {
+        "value": [
+          85,
+          75,
+          65
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ziggs"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [270,375,480]+85% AP magic in blast zone.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/ziggs",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/ziggs",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

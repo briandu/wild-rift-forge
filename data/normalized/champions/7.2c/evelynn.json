@@ -1,0 +1,227 @@
+{
+  "id": "evelynn",
+  "name": "Evelynn",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/evelynn/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/evelynn",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 11,
+    "mana": 345,
+    "manaRegen5s": 15,
+    "armor": 45,
+    "magicResist": 38,
+    "moveSpeed": 345,
+    "attackDamage": 64,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Demon Shade",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Enters Demon Shade after 4s without attack/cast; champion/turret damage delays 1.5s. While low, heals 17 +7.5% AP per second; camouflage from level 5.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Hate Spike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            35,
+            40,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Two casts, each 40/47.5/55/62.5 +50% AP magic; recast window 4s. Damage to minions 40/50/60/70%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Allure",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          13,
+          12,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            80,
+            90,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Curse 5s. Early trigger slows 65% for 1/1.25/1.5/1.75s; after 2.5s charms for same duration and shreds champion MR 20/24/28/32% for 4s. Monsters take extra 300/350/400/450 +60% AP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Whiplash",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            50,
+            55,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Base 55/75/95/115 +2% target max HP (+ AP scaling) magic and +30% MS for 2s. Empowered 80/110/140/170 +4% max HP (+ AP scaling).",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Last Caress",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          75,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/evelynn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "150/260/370 +75% AP magic; deals 230% damage to champions below 35% HP.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/evelynn",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/evelynn",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

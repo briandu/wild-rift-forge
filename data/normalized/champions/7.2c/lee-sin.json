@@ -1,0 +1,220 @@
+{
+  "id": "lee-sin",
+  "name": "Lee Sin",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/lee-sin/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/lee-sin",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 11,
+    "mana": 200,
+    "manaRegen5s": 50,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 66,
+    "attackSpeed": 0.8,
+    "resourceNote": "Energy: 200; regen 50."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Flurry",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Abilities grant 40% AS for next 2 attacks within 3s; first restores 20 Energy, second 10.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Sonic Wave / Resonating Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Q1 60/100/140/180 +90% AD physical. Q2 60/100/140/160 to 110/180/250/360 +90–200% AD based on missing HP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Safeguard / Iron Will",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          14,
+          14,
+          13
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash; if enemy nearby, shield 100/160/220/280 +100% AP for 2s; attacks reduce W CD 0.5s. Recast next 2 attacks add 26/39/52/65 +40% AP magic and grant 20/30/40/50% omnivamp.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Tempest / Cripple",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "E1 35/70/105/140 +90% AD magic and reveal 3s. Recast slows 30/40/50/60%, decaying over 4s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Dragon's Rage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          60,
+          50
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/lee-sin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Primary target 125/350/575 +190% bonus AD +12/15/18% target max HP physical and knockback. Collided enemies take 100/300/500 +200% bonus AD +10/13/16% kicked target max HP and 1s knockup. Monster cap 800.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/lee-sin",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/lee-sin",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

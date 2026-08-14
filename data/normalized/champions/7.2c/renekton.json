@@ -1,0 +1,196 @@
+{
+  "id": "renekton",
+  "name": "Renekton",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/renekton/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/renekton",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 9,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 66,
+    "attackSpeed": 0.8,
+    "resourceNote": "Fury resource; no mana."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Reign of Anger",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Abilities at 50+ Fury consume 50 Fury for empowered effects. Attacks generate 5 Fury; Fury gain +50% below 50% HP; loses 4 Fury/sec out of combat.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Cull the Meek",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[80,130,180,230]+90% AD physical; heals [4,6,8,10]+5% bonus AD per enemy, or [16,24,32,40]+20% bonus AD per champion. Empowered damage [120,195,270,345]+135% AD and healing +200%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Ruthless Predator",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          12,
+          10,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Two strikes: [24,48,72,96]+150% AD physical, stun 0.75s. Empowered three strikes: [36,72,108,144]+225% AD, stun 1.5s and destroys target shields.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Slice and Dice",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          13,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[40,80,120,160]+90% AD physical; champion hit generates 10 Fury. Second dash available within 4s after hit. Empowered second dash [70,130,190,250]+135% AD and Armor shred [25,30,35,40]% for 4s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Dominus",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          70,
+          65
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/renekton"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Gain 20 Fury and [300,575,750] Health for 12s; then +5 Fury/sec and [70,120,170]+20% AP magic/sec nearby.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/renekton",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/renekton",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

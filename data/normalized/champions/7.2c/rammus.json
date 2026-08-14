@@ -1,0 +1,227 @@
+{
+  "id": "rammus",
+  "name": "Rammus",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/rammus/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/rammus",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 9,
+    "mana": 345,
+    "manaRegen5s": 12,
+    "armor": 49,
+    "magicResist": 38,
+    "moveSpeed": 335,
+    "attackDamage": 54,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Rolling Armordillo",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Out of combat +32 movement speed; during Powerball bonus becomes 60 +1 per level. Leaves combat after 5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Powerball",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          10,
+          8,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            65,
+            65,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Accelerates up to 115% +5% per level bonus movement speed over 6s; collision [80,110,140,170]+100% AP magic, knockback and [40,50,60,70]% slow for 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Defensive Ball Curl",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive attacks deal [12,14,16,18]+10% Armor bonus magic. Active up to 6s: +30+[45,50,55,60]% Armor and +10+[35,40,45,50]% MR; passive damage +40% and reflects attackers; 175% monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Frenzying Taunt",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          13,
+          13,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Taunt [1.25,1.5,1.75,2]s; attack speed [35,45,55,65]% decays over 5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Soaring Slam",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          60,
+          50
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rammus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Impact [75,150,225]+[50,60,70]% AP magic. Aftershocks for 4s deal 30+20% AP magic/sec and stack 10% slow up to 50%; center inherits Powerball effects if cast during Q.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/rammus",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/rammus",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

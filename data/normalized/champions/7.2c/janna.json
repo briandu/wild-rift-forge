@@ -1,0 +1,227 @@
+{
+  "id": "janna",
+  "name": "Janna",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/janna/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/janna",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 6,
+    "mana": 435,
+    "manaRegen5s": 21,
+    "armor": 45,
+    "magicResist": 30,
+    "moveSpeed": 340,
+    "attackDamage": 52,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Tailwind",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Janna and nearby allied champions gain 5% movement speed.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Howling Gale",
+      "form": null,
+      "cooldown": {
+        "value": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "After 0.75s charge deals 50/90/130/170 +50% AP magic and knocks up. Stores charges every 14s, max 2.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Zephyr",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Janna gains 10/15/20/25% MS 2s; spirit targets nearest 3 champions. Enemy hit takes 50/90/130/170 +50% AP +20% bonus-MS magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Eye of the Storm",
+      "form": null,
+      "cooldown": {
+        "value": [
+          16,
+          14,
+          12,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            80,
+            90,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shields self and lowest-HP ally for 65/90/115/140 +45% AP, grants 10/20/30/40 +10% AP AD while shield persists; 3s duration; can shield turret.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Monsoon",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          75,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/janna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Knocks enemies back and heals 50/100/150 +30% AP per second for 3s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/janna",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/janna",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

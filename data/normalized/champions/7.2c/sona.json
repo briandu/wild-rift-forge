@@ -1,0 +1,229 @@
+{
+  "id": "sona",
+  "name": "Sona",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/sona/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/sona",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 6,
+    "mana": 345,
+    "manaRegen5s": 15,
+    "armor": 40,
+    "magicResist": 30,
+    "moveSpeed": 340,
+    "attackDamage": 46,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Power Chord",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "After three basic-ability casts, next attack deals 20–160 +15% AP bonus magic damage and stuns 0.5s. Staccato adds 8 +6% AP magic; Diminuendo reduces target damage by 25% +4% AP for 3s; Tempo slows 40% +4% AP for 2s. Basic ability cooldowns reduced by level×2%, up to 20%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Hymn of Valor",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            65,
+            70,
+            75
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [40,80,120,160] +40% AP magic to two nearest enemies. Aura grants allied next attack [8,13,18,23] +20% AP magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Aria of Perseverance",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            85,
+            90,
+            95,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Heals self and ally [35,50,65,80] +20% AP. Aura shields [25,50,75,100] +18% AP for 3s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Song of Celerity",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            80,
+            80,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Self movement speed [15,16,17,18]% +3% AP for 5s; aura allies [10,11,12,13]% +3% AP. Empowered aura is 1.2× normal.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Crescendo",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          75,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Reinforces aura 20s. Soundwave every 0.75s deals [35,60,85] +15% AP magic; first hit stuns 1s; enemies inside slowed [25,30,35]%.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire's top ability text lists W heal rank 2 as 60, but its Patch 7.2b history shows the current sequence 35/50/65/80. Dataset uses the patch-history value."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/sona",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/sona",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

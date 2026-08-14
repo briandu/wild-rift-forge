@@ -1,0 +1,227 @@
+{
+  "id": "zilean",
+  "name": "Zilean",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/zilean/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/zilean",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 6,
+    "mana": 460,
+    "manaRegen5s": 12,
+    "armor": 45,
+    "magicResist": 28,
+    "moveSpeed": 360,
+    "attackDamage": 54,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Time in a Bottle",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Stores XP at [20,50,80] per 5s; can grant enough to level nearest eligible ally and gains same XP; interruption on damage/CC.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Time Bomb",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            65,
+            70,
+            75
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Bomb detonates after 3s for [60,125,190,255]+75% AP magic. Second bomb on same target detonates first early and stuns [1.2,1.3,1.4,1.5]s. Stores 2 charges; charge time [12,11.5,11,10.5]s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Twisted Timeflow",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            35,
+            35,
+            35
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Self and nearest ally shield [45,70,95,120]+45% AP 3s and Fleeting Time: +60% projectile speed and [25,35,45,55]% + AP-linked MS. While active, Zilean basic ability haste +80%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Temporal Mirage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          25,
+          25,
+          25,
+          25
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Field 2.5s; enemy champions slowed [20,25,30,35]% +5% AP; projectiles slowed 80%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Chronoshift",
+      "form": null,
+      "cooldown": {
+        "value": [
+          110,
+          95,
+          80
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            125,
+            125,
+            125
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zilean"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Rune lasts 5s. Lethal damage triggers 3s untargetable then revive/heal [600,850,1000]+200% AP. If unused, refunds 10% cooldown.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/zilean",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/zilean",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

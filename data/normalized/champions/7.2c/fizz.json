@@ -1,0 +1,227 @@
+{
+  "id": "fizz",
+  "name": "Fizz",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/fizz/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/fizz",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 345,
+    "manaRegen5s": 18,
+    "armor": 30,
+    "magicResist": 38,
+    "moveSpeed": 345,
+    "attackDamage": 58,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Seastone Trident",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks add 24 +45% AP magic over 3s; 90% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Urchin Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "20/40/60/80 +60% AP magic plus 100% AD physical; applies on-hit effects.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Rending Wave",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          9,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            40,
+            50,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next attack adds 50/75/100/125 +45% AP magic and applies passive; following attacks within 5s add 10/15/20/25 +40% AP magic. Kill with first attack reduces cooldown to 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Playful / Trickster",
+      "form": null,
+      "cooldown": {
+        "value": [
+          16,
+          14,
+          12,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            85,
+            90,
+            95,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Untargetable; full splash 80/150/220/290 +80% AP magic and 40/45/50/55% slow 2s. Early recast uses smaller splash without slow.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Chum the Waters",
+      "form": null,
+      "cooldown": {
+        "value": [
+          85,
+          70,
+          55
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fizz"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "After 2s shark deals 150/250/350 +60% AP to 300/400/500 +120% AP magic and 40–80% slow depending on travel/size; knocks target up.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/fizz",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/fizz",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

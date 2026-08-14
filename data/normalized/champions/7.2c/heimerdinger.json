@@ -1,0 +1,227 @@
+{
+  "id": "heimerdinger",
+  "name": "Heimerdinger",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/heimerdinger/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/heimerdinger",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 8,
+    "mana": 420,
+    "manaRegen5s": 12,
+    "armor": 34,
+    "magicResist": 40,
+    "moveSpeed": 355,
+    "attackDamage": 54,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Hextech Affinity",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "+20% movement speed near allied or own turrets.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "H-28G Evolution Turret",
+      "form": null,
+      "cooldown": {
+        "value": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            20,
+            20,
+            20,
+            20
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Turret shot 5/10/15/20 +25% AP; charged beam 25/45/65/85 +55% AP; max 3 turrets. Turret HP 110 + AP scaling; defenses scale by level.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Hextech Micro-Rockets",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Five rockets total 60/85/110/135 +60% AP to first enemy; repeated hits on same champion/monster deal 20%, minions 60%; each rocket charges turrets 20%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "CH-2 Electron Storm Grenade",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            85,
+            85,
+            85,
+            85
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "70/120/170/220 +60% AP magic, 35% slow 2s; center stun 1s. Champion hit fully charges turrets.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "UPGRADE!!!",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          66,
+          56
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/heimerdinger"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Empowers next basic ability: Apex turret 10s with enhanced shots; Rocket Swarm fires 4 waves (first rocket 135 +45% AP, later same-target hits reduced); Lightning Grenade bounces 3 times, each 100 +60% AP with 40% slow and larger CC.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/heimerdinger",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/heimerdinger",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

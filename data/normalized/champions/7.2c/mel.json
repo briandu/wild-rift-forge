@@ -1,0 +1,228 @@
+{
+  "id": "mel",
+  "name": "Mel",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/mel/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/mel",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 8,
+    "mana": 480,
+    "manaRegen5s": 9,
+    "armor": 30,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 52,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Searing Brilliance",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Overwhelm lasts/refreshed 5s: stores 50 +8% AP plus 2 +0.5% AP per stack; executes if stored amount exceeds shields + current HP. After ability, next attack fires 3 extra projectiles, each 3–33 +3% AP magic; up to 9 extra.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Radiant Volley",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            80,
+            90,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Fires [7,8,9,10] projectiles; each explosion [11,14,17,20] +6% AP magic; maximum [91,128,171,220] +49% AP. 90% minion damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Rebuttal",
+      "form": null,
+      "cooldown": {
+        "value": [
+          38,
+          36,
+          34,
+          32
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            40,
+            20
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "1s invulnerability/projectile reflection and 30% decaying MS for 1s; reflected projectile deals [40,45,50,55]% of original as magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Solar Snare",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Center root [1.2,1.3,1.4,1.5]s; direct [55,110,165,220] +50% AP magic. Area slows 30% and deals [20,40,60,80] +6% AP magic each second; effects linger 0.75s; 75% minion damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Golden Eclipse",
+      "form": null,
+      "cooldown": {
+        "value": [
+          95,
+          80,
+          65
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/mel"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive Overwhelm uses 50 +8% AP base plus 2 +0.6% AP per stack. Active all marked enemies: [100,150,200] +25% AP base magic plus [4,7,10] +2.5% AP per stack.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire displays only three mana-cost values for Rebuttal despite four ranks; preserved as source data."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/mel",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/mel",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

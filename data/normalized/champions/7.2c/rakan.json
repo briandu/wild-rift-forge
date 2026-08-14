@@ -1,0 +1,227 @@
+{
+  "id": "rakan",
+  "name": "Rakan",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/rakan/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/rakan",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 6,
+    "mana": 435,
+    "manaRegen5s": 15,
+    "armor": 49,
+    "magicResist": 34,
+    "moveSpeed": 345,
+    "attackDamage": 58,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Fey Feathers",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Periodic shield every 35→14s by level: source example/formula 31+80% AP. Champion attacks/abilities reduce cooldown 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Gleaming Quill",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[90,150,210,270]+60% AP magic. Champion/epic hit creates delayed heal after 3s or ally touch: 56–140 by level +70% AP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Grand Entrance",
+      "form": null,
+      "cooldown": {
+        "value": [
+          16,
+          14,
+          12,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            60,
+            70,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[70,135,200,265]+45% AP magic; 1s knockup.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Battle Dance",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            70,
+            80,
+            90
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Ally shield [50,80,110,140]+65% AP for 3s; free recast within 5s. Shield +25% when targeting Xayah.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "The Quickness",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rakan"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Grants 60% movement speed for 4s. First touch on each enemy deals [100,200,300]+50% AP magic and charms [1,1.25,1.5]s; first charm grants 75% decaying movement speed.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/rakan",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/rakan",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

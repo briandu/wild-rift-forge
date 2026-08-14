@@ -1,0 +1,196 @@
+{
+  "id": "aatrox",
+  "name": "Aatrox",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/aatrox/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/aatrox",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 6,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 46,
+    "magicResist": 40,
+    "moveSpeed": 355,
+    "attackDamage": 62,
+    "attackSpeed": 0.73,
+    "resourceNote": "No mana/energy value listed by bootstrap source."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Deathbringer Stance",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Empowered attack every 24s: 4–13% target max HP bonus physical damage; heals for same amount. Cooldown reduced 3s per champion/large-monster hit; max 50 damage vs monsters; healing vs minions 60%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "The Darkin Blade",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          10,
+          8,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Base physical damage [10,40,70,100] + [75,80,85,90]% AD. Up to 3 casts; each later cast +25% damage. Sweet spot +60% damage and 0.25s knockup. 65% damage to minions, 70% to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Infernal Chains",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          14,
+          13,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Physical damage [25,40,55,70] +40% AD; 25% slow for 1.5s. If pull triggers, deals same damage again. Double damage to minions.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Umbral Dash",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive physical vamp vs champions [19,21,23,25]%; dash.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "World Ender",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          65,
+          55
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aatrox"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "10s duration; AD +[30,40,50]%; increased healing [25,35,45]%; decaying movement speed [60,75,90]%. E physical vamp +50%. Takedown extends by 5s, up to 10s extra.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/aatrox",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/aatrox",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

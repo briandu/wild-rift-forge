@@ -1,0 +1,227 @@
+{
+  "id": "xin-zhao",
+  "name": "Xin Zhao",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/xin-zhao/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/xin-zhao",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 9,
+    "mana": 345,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 62,
+    "attackSpeed": 0.82,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Determination",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Every third attack adds 13 +22% AD physical and heals 13 +10% AD +40% AP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Three Talon Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next 3 attacks add [20,28,36,44] +40% bonus AD physical and reduce other cooldowns 1s; third knocks up 0.75s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Wind Becomes Lightning",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          9,
+          8,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Slash [40,50,60,70] +50% AD physical then thrust [40,85,130,175] +75% AD; each slows 50% 1.5s. Furthest champion/large monster Challenged 3.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Audacious Charge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          11,
+          11,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash deals [55,90,122,160] +80% AP magic, slows 30% 0.5s, grants [45,52.5,60,67.5]% AS for 5s. Cast range increased vs Challenged target.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Crescent Guard",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/xin-zhao"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [75,150,225] +100% bonus AD +80% AP physical plus 15% enemy max HP, knocks back all except Challenged; blocks damage from distant enemies for 5s. Monster cap 600.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/xin-zhao",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/xin-zhao",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

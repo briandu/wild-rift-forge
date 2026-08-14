@@ -1,0 +1,221 @@
+{
+  "id": "varus",
+  "name": "Varus",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/varus/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/varus",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 6,
+    "mana": 390,
+    "manaRegen5s": 12,
+    "armor": 35,
+    "magicResist": 30,
+    "moveSpeed": 340,
+    "attackDamage": 54,
+    "attackSpeed": 0.81,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Living Vengeance",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Champion takedown: 55% attack speed (can exceed cap), with source-listed AD/AP conversions from bonus AS, lasts 5s. Non-champion takedown grants [20,25,30]% attack speed with smaller conversion.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Piercing Arrow",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          14,
+          13,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            75,
+            80,
+            85,
+            90
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Charge increases range/damage. Deals from [80,140,200,260] with [110,120,130,140]% AD to [105,195,285,375] +150% AD physical; -15% per enemy hit, minimum 33%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Blighted Quiver",
+      "form": null,
+      "cooldown": {
+        "value": [
+          25,
+          25,
+          25,
+          25
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks deal source-listed [15,35,35,45] +35% AP magic and apply Blight 6s, max 3. Detonation per stack deals [3,3.5,4,4.5]% target max HP + AP-linked scaling and reduces basic cooldowns 13% per stack. Active next Q adds 6–9% target missing HP magic, up to +50% with charge.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Hail of Arrows",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            80,
+            80,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [70,115,160,205] +90% AD physical; ground lasts 4s, slows 25% and applies 40% Grievous Wounds.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Chain of Corruption",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          65,
+          55
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/varus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [150,250,350] +85% AP magic and roots first champion 2s; spreads to nearby champions and grants immobilized units 3 Blight stacks over 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire currently displays Blighted Quiver on-hit base damage as 15/35/35/45; rank 2 may be a source typo, so preserve until verified."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/varus",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/varus",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

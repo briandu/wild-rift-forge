@@ -1,0 +1,227 @@
+{
+  "id": "jhin",
+  "name": "Jhin",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/jhin/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/jhin",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 6,
+    "mana": 390,
+    "manaRegen5s": 9,
+    "armor": 35,
+    "magicResist": 30,
+    "moveSpeed": 340,
+    "attackDamage": 58,
+    "attackSpeed": 0.66,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Whisper",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "4-shot weapon; fourth shot crits and adds 11% target missing HP physical. Crit grants 15% +0.55% per 1% bonus AS movement speed for 2s; AS converts to AD.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Dancing Grenade",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          6,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            50,
+            55,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "45/80/115/150 +35/45/55/65% AD +60% AP physical; up to 4 targets, +44% damage per kill during bounces.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Deadly Flourish",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "60/100/140/180 +40% AD physical; 75% to minions/monsters. Recently marked champions are rooted 1.25/1.5/1.75/2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Captive Audience",
+      "form": null,
+      "cooldown": {
+        "value": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            40,
+            45,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Trap slows 30%, then deals 20/100/180/260 +120% AD +100% AP magic. 65% damage to non-champions and recently trapped champions.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Curtain Call",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jhin"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Four shots; each 75/150/225 +25% AD physical, +3% damage per 1% target missing HP, 80% slow 0.75s. Fourth shot crits for 200%.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/jhin",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/jhin",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

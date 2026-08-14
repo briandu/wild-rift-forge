@@ -1,0 +1,229 @@
+{
+  "id": "urgot",
+  "name": "Urgot",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/urgot/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/urgot",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 10,
+    "mana": 380,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 40,
+    "moveSpeed": 350,
+    "attackDamage": 62,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Echoing Flames",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Leg cannons deal 31 with [60,75,90,105]% AD scaling plus [3,4,5,6]% target max HP physical; per-leg cooldown [15,8,4,2]s. Monster cap 120.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Corrosive Charge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          9,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [40,95,150,205] +70% AD physical and slows [45,50,55,60]% for 1.25s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Purge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          8,
+          4,
+          1
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            20,
+            10
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Rapid shots for 4s, each 10 +[20,27.5,35,42.5]% AD physical and on-hits at 70% effectiveness. Movement speed reduced by [125,110,95,80], +40% slow resist. Max rank gains infinite duration.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Disdain",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          14,
+          13,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            70,
+            80,
+            90
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shield [70,100,130,160] +150% AD + source-listed '15 bonus HP' scaling for 4s; charge deals [90,130,170,210] +100% AD physical and stuns 1.5s, flipping first champion.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Fear Beyond Death",
+      "form": null,
+      "cooldown": {
+        "value": [
+          60,
+          55,
+          50
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/urgot"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [100,225,350] +70% AD physical, impales 4s and slows up to 75% based on missing HP. Recast executes target below 25% after 1.5s channel; nearby enemies feared 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire lists only three Purge mana-cost values (30/20/10) despite four ranks; verify max-rank cost.",
+    "Disdain shield text shows '+15 bonus HP' without a clear percent sign; verify exact scaling."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/urgot",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/urgot",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

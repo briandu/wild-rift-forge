@@ -1,0 +1,227 @@
+{
+  "id": "kaisa",
+  "name": "Kai'Sa",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/kai-sa/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/kaisa",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 6,
+    "mana": 435,
+    "manaRegen5s": 15,
+    "armor": 35,
+    "magicResist": 30,
+    "moveSpeed": 340,
+    "attackDamage": 62,
+    "attackSpeed": 0.77,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Second Skin",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks add Plasma for 4s and 5 +15% AP bonus magic; at 5 stacks detonates for 15% target missing HP plus AP scaling; monster cap 400. Abilities evolve at stat thresholds.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Icathian Rain",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            55,
+            55,
+            55
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "6 missiles, each 40/60/80/100 +50% AD +30% AP physical; extra hits on champion/monster 25%. Evolve at 70 AD to 12 missiles. 50% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Void Seeker",
+      "form": null,
+      "cooldown": {
+        "value": [
+          20,
+          18,
+          16,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            65,
+            70,
+            75
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "30/60/90/120 +110% AD +60% AP magic; adds 2 Plasma. Evolve at 80 AP to 3 Plasma and 70% cooldown refund on champion hit.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Supercharge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          16,
+          14,
+          12,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Charge grants 50/55/60/65% + AS-scaled movement speed; then 40/50/60/70% AS for 4s. Evolve at 65% AS grants invisibility during charge; attacks reduce cooldown 0.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Killer Instinct",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kaisa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash near Plasma-marked champion; shield 75/100/125 +100/150/200% AD +75% AP for 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/kaisa",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/kaisa",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

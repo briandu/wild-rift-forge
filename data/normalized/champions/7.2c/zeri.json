@@ -1,0 +1,227 @@
+{
+  "id": "zeri",
+  "name": "Zeri",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/zeri/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/zeri",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 380,
+    "manaRegen5s": 10,
+    "armor": 31,
+    "magicResist": 32,
+    "moveSpeed": 325,
+    "attackDamage": 58,
+    "attackSpeed": 0.83,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Living Battery",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks fire 6-round burst; source lists [13,15,17,19,21] with [105,110,115,120,125]% AD physical by level band. AS capped 1.5/s; 50% excess AS converts to bonus AD.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Electrocute!",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          6,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [35,60,85,110] with [55,70,85,100]% AD +[30,35,40,45]% AP magic and slow [14,18,22,26]% decaying 2s. Kill refunds 50% cooldown and 100% Mana.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Ultrashock Laser",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [30,70,110,150] +80% AD +40% AP physical, slows [30,35,40,45]% 2s. Wall hit expands and critically strikes champions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Spark Surge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          22,
+          19,
+          17,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            80,
+            80,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash; next 3 attacks pierce and add [20,23,26,29]+10% bonus AD+20% bonus AP magic to first target, up to +100% by crit rate; subsequent targets [80,85,90,95]% damage. Champion hits reduce cooldown 0.5s; crits 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Lightning Crash",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zeri"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Nova [150,200,250]+70% bonus AD+80% AP magic. Champion hit grants 10% MS and 30% AS bypassing cap for 5s; attacks chain 14 physical. Hits extend duration and add Overcharge; crits add 2 extra stacks; each stack +0.5 MS.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/zeri",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/zeri",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

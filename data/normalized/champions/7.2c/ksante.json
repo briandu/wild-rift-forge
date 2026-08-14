@@ -1,0 +1,227 @@
+{
+  "id": "ksante",
+  "name": "K'Sante",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/ksante/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/ksante",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 8,
+    "mana": 380,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 40,
+    "moveSpeed": 350,
+    "attackDamage": 62,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Dauntless Instinct",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Damaging abilities mark; consuming mark with attack deals percent max-HP physical. All Out adds 1% +0.01% bonus Armor +0.01% bonus MR max-HP physical to attacks/active abilities/passive; minion/monster minimum caps.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Ntofo Strikes",
+      "form": null,
+      "cooldown": {
+        "value": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            20,
+            20,
+            20,
+            20
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "80/120/160/200 +35% bonus Armor +35% bonus MR physical; 80% slow 0.5s. At 2 stacks, shockwave pulls/stuns 0.75s. All Out reduces cooldown 30%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Path Maker",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            45,
+            50,
+            55
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Charge 0.3–0.75s, unstoppable, 30% damage reduction. Deals 50/80/110/140 +8% target max HP plus defensive-stat scaling physical, knockback and 0.5–1.65s stun. All Out changes to extra 10–80% true damage and stronger mitigation.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Footwork",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          10,
+          9,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            45,
+            50,
+            55
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shield 75/120/165/210 +15% bonus HP for 2s; ally dash shares shield. All Out reduces cooldown 50%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "All Out",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ksante"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Initial knockback 80/115/150 physical; wall strike adds 80/115/150 +5% bonus HP. All Out 15s: +40/60/80% AS, 50% bonus Armor Pen, 20% omnivamp, -30% max HP, -80% bonus Armor/MR.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/ksante",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/ksante",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

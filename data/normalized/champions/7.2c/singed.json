@@ -1,0 +1,227 @@
+{
+  "id": "singed",
+  "name": "Singed",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/singed/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/singed",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 9,
+    "mana": 345,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 32,
+    "moveSpeed": 355,
+    "attackDamage": 64,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Noxious Slipstream",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Near a champion gains 20% bonus MS for 2s; 10s cooldown per champion.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Poison Trail",
+      "form": null,
+      "cooldown": {
+        "value": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            12,
+            12,
+            12,
+            12
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Toggle trail deals [20,28,36,44]+30% AP magic per second.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Mega Adhesive",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          11,
+          11,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            70,
+            80,
+            90
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Landing deals [50,70,90,100]+25% AP magic; slow [35,40,45,50]%; zone lasts 3s and grounds. Fling into zone also roots.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Fling",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            95,
+            110,
+            125
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[40,60,80,100]+50% AP plus [5,6,7,8]% target max HP magic; Adhesive combo root [1.25,1.5,1.75,2]s; max 500 vs non-champions.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Insanity Potion",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/singed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "20s buffs, nearest ally receives 30%: AP/Armor/MR/MS +[30,55,80]; HP and Mana regen +[15,20,25]. Magic damage applies 40% Grievous Wounds 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/singed",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/singed",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

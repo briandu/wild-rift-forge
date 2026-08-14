@@ -1,0 +1,227 @@
+{
+  "id": "jax",
+  "name": "Jax",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/jax/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/jax",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 12,
+    "mana": 390,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 58,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Relentless Assault",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks vs champions/minions grant 6–20% attack speed for 3s, up to 5 stacks.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Leap Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            65,
+            65,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "70/125/180/235 +100% AD physical.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Empower",
+      "form": null,
+      "cooldown": {
+        "value": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next attack or Q adds 55/100/145/190 +60% AP magic; 175% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Counter Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          9,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            70,
+            80,
+            90
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dodges attacks and takes 25% reduced champion damage for 2s; then 35/75/115/155 +3.5% target max HP +70% AP magic and 1s stun. Damage +20% per attack dodged, up to +100%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Grandmaster-at-Arms",
+      "form": null,
+      "cooldown": {
+        "value": [
+          55,
+          55,
+          55
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/jax"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive every third attack: 75/130/185 +70% AP magic. Active 100/200/300 +100% AP magic and grants Armor/MR based on champions hit for 8s; during active passive triggers every 2 attacks.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/jax",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/jax",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

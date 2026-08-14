@@ -1,0 +1,227 @@
+{
+  "id": "senna",
+  "name": "Senna",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/senna/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/senna",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 6,
+    "mana": 345,
+    "manaRegen5s": 21,
+    "armor": 35,
+    "magicResist": 30,
+    "moveSpeed": 340,
+    "attackDamage": 50,
+    "attackSpeed": 0.62,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Absolution",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Mist siphon on twice-hit champion deals 1–10% current HP bonus physical (6s target cooldown). Each Mist grants 1.25 AD; every 20 Mist grants 15 attack range and 15% crit.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Piercing Darkness",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          15,
+          15,
+          15
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            80,
+            90,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[50,90,130,170]+60% AD physical; slows 15% plus AD/AP scaling for [0.75,1,1.25,1.5]s; heals allies [40,70,100,130]+40% AD+25% AP. Attacks reduce cooldown 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Last Embrace",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          11,
+          11,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            60,
+            65,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[90,155,220,285]+70% AD physical; after 1s delay roots target/nearby enemies [1.3,1.6,1.9,2.2]s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Curse of the Black Mist",
+      "form": null,
+      "cooldown": {
+        "value": [
+          22,
+          20,
+          18,
+          16
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Wraith/camouflage zone; allied wraiths gain 20% movement speed.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Dawning Shadow",
+      "form": null,
+      "cooldown": {
+        "value": [
+          85,
+          80,
+          75
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/senna"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Global: ally shield [120,160,200]+50% AP+2.5 per Mist for 3s; center deals [250,375,500]+120% AD+50% AP physical and applies Mist.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/senna",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/senna",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

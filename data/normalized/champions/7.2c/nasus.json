@@ -1,0 +1,238 @@
+{
+  "id": "nasus",
+  "name": "Nasus",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/nasus/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/nasus",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 650,
+    "healthRegen5s": 9,
+    "mana": 390,
+    "manaRegen5s": 14,
+    "armor": 40,
+    "magicResist": 32,
+    "moveSpeed": 355,
+    "attackDamage": 58,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Soul Eater",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Physical vamp [6,12,18,24]% by level breakpoint.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Siphoning Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          6,
+          5,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            15,
+            15,
+            15,
+            15
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next attack within 10s adds [20,50,80,110] physical. Kill permanently adds 5 damage; champion/large minion/large monster kill adds 14.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Wither",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          13,
+          12,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            80,
+            80,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "5s slow: movement starts 35% and ramps to [45,60,75,90]%; attack speed reduction [22.49,29.98,37.48,44.96]%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Spirit Fire",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            110,
+            120,
+            130,
+            140
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Initial [55,110,165,220] +40% AP magic; 5s zone deals [11,22,33,44] +12% AP magic over-time as listed and reduces Armor [20,25,30,35]%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Fury of the Sands",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          80,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nasus"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "For 12s gains [300,450,600] HP and [40,50,60] Armor/MR; area deals [3,4,5]% + AP-linked target-HP magic damage (source formula displayed incompletely).",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire's Fury of the Sands percentage/AP formula is truncated/ambiguous after '+0.01% AP'; preserve for manual verification."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [
+      {
+        "patch": "7.2c",
+        "deltaIndex": 21
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 22
+      }
+    ],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/nasus",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/nasus",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

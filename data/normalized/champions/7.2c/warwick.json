@@ -1,0 +1,236 @@
+{
+  "id": "warwick",
+  "name": "Warwick",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/warwick/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/warwick",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 6,
+    "mana": 340,
+    "manaRegen5s": 16,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 345,
+    "attackDamage": 58,
+    "attackSpeed": 0.82,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Eternal Hunger",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks add 12–46 +15% bonus AD +10% AP magic; below 50% Health heals for 100% of this damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Jaws of the Beast",
+      "form": null,
+      "cooldown": {
+        "value": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals 70 +120% AD +85% AP magic plus [6,7,8,9]% target max HP and heals [42.5,55,67.5,80]% damage. Monster bonus cap [100,125,150,175].",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Blood Hunt",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          60,
+          50,
+          40
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive vs champions below 50%: [40,45,50,55]% MS toward and [60,70,80,90]% AS against low-health enemies; 150% value below 35%. Active marks closest champion 8s when out of champion combat.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Primal Howl",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          13,
+          12,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Damage reduction [35,40,45,50]% for 2.5s, then fear 1s with 90% slow. Early recast within 1s can return 45% cooldown if fear not triggered.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Infinite Duress",
+      "form": null,
+      "cooldown": {
+        "value": [
+          100,
+          90,
+          80
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/warwick"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Leap range scales with MS; empowered follow-up suppresses and attacks 4 times, total [100,275,450] +167% bonus AD magic; heals for 100% damage during channel.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [
+      {
+        "patch": "7.2c",
+        "deltaIndex": 26
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 27
+      }
+    ],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/warwick",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/warwick",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

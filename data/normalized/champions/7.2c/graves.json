@@ -1,0 +1,227 @@
+{
+  "id": "graves",
+  "name": "Graves",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/graves/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/graves",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 11,
+    "mana": 390,
+    "manaRegen5s": 12,
+    "armor": 35,
+    "magicResist": 40,
+    "moveSpeed": 350,
+    "attackDamage": 66,
+    "attackSpeed": 1.03,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "New Destiny",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shotgun has 4 shells/bullets; first pellet 72% AD and each extra 24%. Crit fires 6 pellets with source-listed 130% damage per pellet; structures take 75%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "End of the Line",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            70,
+            75,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Initial 70/90/110/130 +80% AD physical; explosion 80/130/180/230 +110/130/150/170% AD. Terrain return 0.25s; 110% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Smoke Screen",
+      "form": null,
+      "cooldown": {
+        "value": [
+          20,
+          18,
+          16,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            75,
+            80,
+            85,
+            90
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Initial 60/125/190/255 +60% AP magic, 50% slow 0.5s; smoke lasts 4s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Quickdraw",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          13,
+          13,
+          13
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Reloads one shell and grants True Grit 13/18/23/28 Armor per stack, up to 6, 4s duration. Dash toward champion grants 2 stacks; bullet hit reduces cooldown 0.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Collateral Damage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          60,
+          45
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/graves"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shell 300/450/600 +150% AD physical; cone 200/320/440 +120% AD. Initial target not hit twice.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/graves",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/graves",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,230 @@
+{
+  "id": "aurelion-sol",
+  "name": "Aurelion Sol",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/aurelion-sol/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/aurelion-sol",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 435,
+    "manaRegen5s": 9,
+    "armor": 34,
+    "magicResist": 36,
+    "moveSpeed": 345,
+    "attackDamage": 52,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Cosmic Creator",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Stardust empowers Q burst max-HP damage, W max flight distance, E area/execute threshold, and R area. Source displays stack coefficients in unusual notation; preserve as verification target.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Breath of Light",
+      "form": null,
+      "cooldown": {
+        "value": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            10,
+            12,
+            14,
+            16
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Per-second damage 58/53/88/103 +60% AP; every 1s on same target bursts for 70/80/90/100 +35% AP plus Stardust-based max-HP damage. Max-HP component capped at 100 vs monsters; 40% total damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Astral Flight",
+      "form": null,
+      "cooldown": {
+        "value": [
+          17,
+          16,
+          15,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            80,
+            80,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "During flight Q has no cooldown/max channel duration and source lists 115/120/125/130% damage modifier; champion takedown within 3s refunds 90% cooldown.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Singularity",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          11,
+          11,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            85,
+            90,
+            95
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "20/27.5/35/42.5 +15% AP magic per second for 5s; execute threshold 5% plus Stardust scaling; Stardust awarded for trapped champions and units killed in area.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Falling Star / The Skies Descend",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          75,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/aurelion-sol"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Falling Star: 150/250/350 +65% AP magic and 1s stun; 8 Stardust per champion. At 65 Stardust transforms: 188/313/438 +65% AP and 1s knockup, plus shockwave 150/250/350 +65% AP vs champions/epic monsters and 50% slow 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire currently displays Q per-second base values as 58/53/88/103; rank 2 looks suspicious and should be manually verified.",
+    "Stardust percentage formatting on the source page is ambiguous and should not be treated as fully normalized."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/aurelion-sol",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/aurelion-sol",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

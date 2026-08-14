@@ -1,0 +1,198 @@
+{
+  "id": "sett",
+  "name": "Sett",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/sett/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/sett",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 10,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 350,
+    "attackDamage": 62,
+    "attackSpeed": 0.75,
+    "resourceNote": "Grit resource; no mana."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Pit Grit",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Alternating punches; right punch gains level/AD-linked bonus physical and executes faster. +0.25 health regen per 5% missing HP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Knuckle Down",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          8,
+          7,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "+35% MS toward champions 1.5s; next two attacks add rank-based base damage plus max-HP physical scaling tied to AD; monster bonus capped 100.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Haymaker",
+      "form": null,
+      "cooldown": {
+        "value": [
+          16,
+          15,
+          13,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Stores 100% damage taken as Grit, max 50% max HP. Consumes Grit for equal shield decaying 3s; center deals [80,105,130,155] +25% of consumed Grit plus AD-linked scaling as true damage; outer area physical.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Facebreaker",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[50,75,100,125]+60% AD physical; 50% slow 0.5s. Pulling enemies from both sides stuns 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "The Show Stopper",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/sett"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[200,300,400]+100% AD plus [35,45,55]% target bonus HP physical to surrounding enemies; 99% slow 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "Q formula is malformed in source text; base/scaling should be manually normalized."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/sett",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/sett",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

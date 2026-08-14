@@ -1,0 +1,227 @@
+{
+  "id": "skarner",
+  "name": "Skarner",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/skarner/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/skarner",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 9,
+    "mana": 380,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 40,
+    "moveSpeed": 350,
+    "attackDamage": 62,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Threads of Vibration",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks/Q/E/R apply Quaking 4s, max 3. At 3 stacks deals 5–10% target max HP magic over duration; monster cap 100–450 by level.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Shattered Earth / Upheaval",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          5,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next 3 attacks gain [25,30,35,40]% AS and add [15,30,45,60]+100% bonus AD+4% bonus HP physical AoE. Third adds 11% target max HP and 45% slow 1s. Recast projectile adds 9% max HP and slows 40% 1s; monster percent-HP cap [200,250,300,350]+scaling.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Seismic Bastion",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            65,
+            70,
+            75
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shield 10% max HP for 2.5s; AoE [50,70,90,110]+80% AP magic and 25% slow 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Ixtal's Impact",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Terrain-ignoring charge; wall collision while towing target deals [60,90,120,150]+120% bonus AD+6% max HP physical and stuns 1.5s; successful wall collision reduces cooldown 35%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Impale",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/skarner"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[150,250,350]+100% AP magic; suppresses up to first 3 champions 1.5s and drags them. On champion hit +40% MS 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/skarner",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/skarner",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

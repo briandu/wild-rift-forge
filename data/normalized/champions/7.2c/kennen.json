@@ -1,0 +1,227 @@
+{
+  "id": "kennen",
+  "name": "Kennen",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/kennen/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/kennen",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": 200,
+    "manaRegen5s": 50,
+    "armor": 46,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 62,
+    "attackSpeed": 0.75,
+    "resourceNote": "Energy: 200; regen 50."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Mark of the Storm",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Abilities apply marks for 6s. At 3 marks: stun 1.25s and restore 25 Energy; repeated stun within 6s becomes 0.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Thundering Shuriken",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          6,
+          5,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            60,
+            55,
+            50,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "75/140/205/270 +75% AP magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Electrical Surge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          10,
+          8,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive every 5th attack adds 55/65/75/85 +70/80/90/100% bonus AD +30% AP magic and mark. Active 70/100/130/160 +80% AP magic to marked nearby enemies.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Lightning Rush",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          6,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            100,
+            95,
+            90,
+            85
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "2s form, +100% MS (double first 0.5s), 70/120/170/220 +70% AP magic on pass-through; exiting grants 50/60/70/80% AS 3s. First enemy hit restores 40 Energy; 50% minion damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Slicing Maelstrom",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          75,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            80,
+            80,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kennen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Grants 20/40/60 Armor/MR; deals 20/55/90 +13% AP magic every 0.5s for 3s, +10% each subsequent bolt on same target; max 3 marks.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/kennen",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/kennen",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

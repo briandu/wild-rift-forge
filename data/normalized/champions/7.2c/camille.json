@@ -1,0 +1,227 @@
+{
+  "id": "camille",
+  "name": "Camille",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/camille/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/camille",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 11,
+    "mana": 390,
+    "manaRegen5s": 15,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 350,
+    "attackDamage": 62,
+    "attackSpeed": 0.82,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Adaptive Defenses",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Champion attack grants physical/magic shield: source lists 130 and 20% HP for 2s; shield type based on target damage profile.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Precision Protocol",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            25,
+            25,
+            25,
+            25
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next attack deals [130,140,150,160]% physical damage; +25% movement speed for 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Tactical Sweep",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          13,
+          11,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[100,130,160,190] +110% AD physical plus [3,5,7,9]% target max HP. Outer half slows 80% decaying over 2s and heals for 80% of champion damage; 95% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Hookshot",
+      "form": null,
+      "cooldown": {
+        "value": [
+          22,
+          20,
+          18,
+          16
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Second cast landing: [60,110,160,210] +75% AD physical. Next basic attack gains [50,60,70,80]% AS for 5s. Champion hit stuns 0.75s and reduces cooldown 5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Hextech Ultimatum",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          80,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/camille"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "30 magic damage +[15,20,25]% target current HP; creates inescapable zone for 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/camille",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/camille",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

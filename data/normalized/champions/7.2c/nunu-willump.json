@@ -1,0 +1,227 @@
+{
+  "id": "nunu-willump",
+  "name": "Nunu & Willump",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/nunu/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/nunu-amp-willump",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 8,
+    "mana": 345,
+    "manaRegen5s": 15,
+    "armor": 40,
+    "magicResist": 38,
+    "moveSpeed": 350,
+    "attackDamage": 64,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Call of the Freljord",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Damaging champion/large monster/structure grants 40% attack speed and 15% movement speed for 4s; highest-AS nearby ally gains half. Same target has 8s lockout.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Consume",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Champion damage [55,110,165,220]+65% AP+5% HP magic; heals [80,115,150,185]+70% AP+10% bonus HP, +50% healing below 50% max HP. Minion/monster true damage [350,500,650,800].",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Biggest Snowball Ever!",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            60,
+            65,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Damage scales with charge from [35,48,61,74] to [175,240,305,370], with AP scaling increasing from 30% to 150%; airborne 0.5–1.25s. Deals 33.33% damage to minions/small monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Snowball Barrage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            60,
+            65,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Each snowball [8,12,16,20]+5% AP magic, 20% slow 0.5s. End burst deals 3–15% target max HP plus AP-linked scaling and roots 0.5–1.5s; monster burst capped [150,200,250,300], 150% monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Absolute Zero",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nunu-amp-willump"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shield [65,75,85]+180% AP+[35,45,55]% HP; channel up to 3s, slow 50→95%; damage scales roughly 180→915 plus 50→275% AP magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/nunu-amp-willump",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/nunu-amp-willump",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

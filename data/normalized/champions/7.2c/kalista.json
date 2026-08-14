@@ -1,0 +1,227 @@
+{
+  "id": "kalista",
+  "name": "Kalista",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/kalista/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/kalista",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 6,
+    "mana": 340,
+    "manaRegen5s": 10,
+    "armor": 34,
+    "magicResist": 32,
+    "moveSpeed": 335,
+    "attackDamage": 54,
+    "attackSpeed": 0.81,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Martial Poise",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attack windup can convert movement input into post-attack dash; binds one Oathsworn at game start. Dash speed/distance scale with boots.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Pierce",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            55,
+            60,
+            65,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "70/135/200/265 +110% AD physical; on kill continues and transfers Rend stacks; enables Martial Poise dash.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Sentinel",
+      "form": null,
+      "cooldown": {
+        "value": [
+          20,
+          20,
+          20,
+          20
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Oathsworn proc: 16/17/18/19% target max HP bonus magic, 8s per-target CD; min 75 vs minions and executes below 125 HP. Active scouts; charge every 45/40/35/30s, max 2.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Rend",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Base 30/45/60/75 +70% AD physical plus each spear after first 12/22/32/42 +36/43/50/57% AD; slows 15/25/35/45% 2s. Kill refreshes and refunds 12/18/24/30 mana; 50% damage to epic monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Fate's Call",
+      "form": null,
+      "cooldown": {
+        "value": [
+          60,
+          55,
+          50
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kalista"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Oathsworn stasis up to 4s; launched ally knocks nearby enemies airborne 1/1.5/2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/kalista",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/kalista",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,229 @@
+{
+  "id": "hecarim",
+  "name": "Hecarim",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/hecarim/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/hecarim",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 380,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 36,
+    "moveSpeed": 350,
+    "attackDamage": 54,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Warpath",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Converts bonus movement speed into Attack Damage; WildRiftFire coefficient rendering is malformed, so exact ratio requires verification.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Rampage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          4,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            28,
+            32,
+            36,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Fully charged 5/15/25/35 +110% AD physical. Full-charge hit on champion/large monster deals 120% damage, grants 18% MS for 3s, and empowers next Q within 8s to 120%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Spirit of Dread",
+      "form": null,
+      "cooldown": {
+        "value": [
+          16,
+          15,
+          14,
+          13
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            60,
+            70,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Grants 6/12/18/24 Armor/MR. Every 0.5s for 4s deals 12/18/24/30 +20% AP magic; each enemy hit heals 5 +1% bonus HP. Additional damage-based healing; minion/monster healing -50%, cap 90.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Devastating Charge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          17,
+          16,
+          15
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "MS grows 25%→55% over 4s; next attack within 5s adds 5/10/15/20 +30% bonus AD physical and knocks back.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Onslaught of Shadows",
+      "form": null,
+      "cooldown": {
+        "value": [
+          100,
+          85,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/hecarim"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "150/250/350 +100% AP magic; fear 0.75–1.5s based on distance.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire Warpath AD coefficient is malformed in rendered text; keep unverified."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/hecarim",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/hecarim",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,196 @@
+{
+  "id": "viego",
+  "name": "Viego",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/viego/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/viego",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 46,
+    "magicResist": 36,
+    "moveSpeed": 345,
+    "attackDamage": 62,
+    "attackSpeed": 0.8,
+    "resourceNote": "No mana resource listed."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Sovereign's Domination",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Wraiths from recently damaged champion deaths last 8s; 1s channel possesses 10s. Possession grants free R, +10% MS toward champions, target's basics/attacks/items, and healing based on target max HP with source-listed AD/AP/AS scaling.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Blade of the Ruined King",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          4,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive attacks add [2,3,4,5]% target current HP physical. After ability damage, first attack within 5s strikes twice; second hit 15% AD +15% AP physical and heals for 135% of damage. Active [20,40,60,80] × (80% AD adjusted by bonus crit) physical.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Spectral Maw",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Charge up to 3s, then dash/projectile deals [80,150,220,290] +90% AP magic and stuns 0.4–1.25s based on charge.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Harrowed Path",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          10,
+          8,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Black Mist lasts 6s; inside gains [25,30,35,40]% MS plus AP-linked scaling and [45,50,55,60]% attack speed; camouflage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Heartbreaker",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          75,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/viego"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Area physical damage scales 110–210% AD with crit adjustment; lowest-health champion also takes [14,17,20]% missing HP +6% bonus AD, is slowed 99% for 0.25s; nearby enemies knocked back.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/viego",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/viego",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,229 @@
+{
+  "id": "syndra",
+  "name": "Syndra",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/syndra/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/syndra",
+  "dataStatus": "partial",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 6,
+    "mana": 380,
+    "manaRegen5s": 10,
+    "armor": 34,
+    "magicResist": 36,
+    "moveSpeed": 360,
+    "attackDamage": 54,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Transcendent",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Ability hits on champions grant 1 Splinter and 13 Mana; skill rank-ups grant 4 Splinters. At 40/60/80 Splinters basic abilities upgrade, at 100 R upgrades, at 120 gains 12% AP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Dark Sphere",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          7,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [70,115,160,205] +65% AP magic; sphere lasts 6s. Upgrade stores up to 2 charges with 7s charge time.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Force of Will",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            80,
+            90,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [60,100,140,180] +45% AP magic and slows [20,25,30,35]% for 1.5s. Upgrade adds 12% +2% AP true damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Scatter the Weak",
+      "form": null,
+      "cooldown": {
+        "value": [
+          17,
+          17,
+          17,
+          17
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [70,110,150,190] +35% AP magic and knocks back; pushed spheres stun/knock for 1.25s and deal same damage. Upgrade widens cone by 50%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Unleashed Power",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/syndra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Uses 3 orbiting spheres plus up to 4 nearby spheres; each sphere deals [60,110,165] +15% AP magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [
+    "Exact 100-Splinter R upgrade effect"
+  ],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/syndra",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "partial"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/syndra",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "partial",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

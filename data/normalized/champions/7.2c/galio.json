@@ -1,0 +1,227 @@
+{
+  "id": "galio",
+  "name": "Galio",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/galio/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/galio",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": 435,
+    "manaRegen5s": 12,
+    "armor": 40,
+    "magicResist": 44,
+    "moveSpeed": 355,
+    "attackDamage": 58,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Colossal Smash",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "AoE empowered attack: 15 +100% AD +10×(level-1) +45% AP +60% MR magic; +40% AS when ready. Ability hit on champion/epic monster reduces passive cooldown 3s once per ability.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Winds of War",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          10,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            75,
+            75,
+            75,
+            75
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "70/115/160/205 +75% AP magic, then tornado deals 8% target max HP plus AP scaling over 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Shield of Durand",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          17,
+          16,
+          15
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive magic shield 46 +8/12/16/20% HP. Hold grants magic damage reduction 25/30/35/40% plus scaling (physical half); release 40/80/120/160 +55% AP magic and taunt 0.5–1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Justice Punch",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          9,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "90/140/190/240 +80% AP magic; 0.75s knockup; 85% damage to minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Hero's Entrance",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          80,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/galio"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Grants W passive shield to nearby allies for 5s; after 2.5s lands for 150/250/350 +70% AP magic and 0.75s knockup.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/galio",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/galio",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

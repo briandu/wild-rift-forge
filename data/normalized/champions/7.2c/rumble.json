@@ -1,0 +1,229 @@
+{
+  "id": "rumble",
+  "name": "Rumble",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/rumble/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/rumble",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 46,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 62,
+    "attackSpeed": 0.8,
+    "resourceNote": "Heat resource; no mana."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Junkyard Titan",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Above 50 Heat enters Danger Zone; at 150 Heat overheats 4s, self-silenced but +55% AS and attacks add 5+20% AP magic +5% target max HP. Percent damage capped 65–150 vs monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Flamespitter",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Over 3s: [100,140,180,220]+125% AP +[7,8,9,10]% target max HP magic; 105% vs minions. Danger Zone: [150,210,270,330]+187.5% AP +[10.5,12,13.5,15]% max HP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Scrap Shield",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shield [40,80,120,160]+4% max HP+35% AP for 1.5s and [20,25,30,35]% MS 1s. Danger Zone: shield [60,120,180,240]+6% max HP+45% AP and [30,35,40,45]% MS.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Electro-Harpoon",
+      "form": null,
+      "cooldown": {
+        "value": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[60,90,120,150]+50% AP magic; slow [30,35,40,45]% 1.5s and MR reduction [8,12,16,20]% for 4s. Second hit increases slow/MR shred by 50%. Danger Zone damage [90,135,180,225]+75% AP; charge every 6s, max 2.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "The Equalizer",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rumble"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Burning trail 5s deals total [700,1050,1400]+200% AP magic and slows 45%.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [
+      {
+        "patch": "7.2c",
+        "deltaIndex": 13
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 14
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 15
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 16
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 17
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 18
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 19
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 20
+      }
+    ],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/rumble",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/rumble",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "darius",
+  "name": "Darius",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/darius/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/darius",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 650,
+    "healthRegen5s": 8,
+    "mana": 345,
+    "manaRegen5s": 9,
+    "armor": 52,
+    "magicResist": 38,
+    "moveSpeed": 350,
+    "attackDamage": 70,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Hemorrhage",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Bleed: 16 +2×level +40% bonus AD physical over 5s; max 5 stacks. At max stacks gains 32 AD for 5s and applies full stacks. 180% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Decimate",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            35,
+            35,
+            35
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Handle: [18,32,46,60] +[35,40,45,50]% AD physical. Blade: [50,90,130,170] +[100,115,130,145]% AD; heals 15% missing HP per champion/large monster, max 45%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Crippling Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next attack adds [30,40,50,60]% AD and slows 90% for 1s. Kill refunds 50% cooldown and 100% mana.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Apprehend",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive Armor Penetration [15,22,29,36]%. Active pull; 40% slow for 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Noxian Guillotine",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/darius"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[125,250,375] +75% AD true damage, +20% per Hemorrhage stack. Kill refreshes cooldown/mana and grants Noxian Might 5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/darius",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/darius",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

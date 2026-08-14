@@ -1,0 +1,227 @@
+{
+  "id": "kindred",
+  "name": "Kindred",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/kindred/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/kindred",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 14,
+    "mana": 340,
+    "manaRegen5s": 12,
+    "armor": 37,
+    "magicResist": 32,
+    "moveSpeed": 335,
+    "attackDamage": 62,
+    "attackSpeed": 0.81,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Mark of the Kindred",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Monster mark refresh 25s; champion mark CD 40s, 120s same champion. Hunt takedown grants marks: first 3 give +75 range, every 3 after +25. Marks add AS to Q, current-HP damage to W, missing-HP damage to E.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Dance of Arrows",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            35,
+            35,
+            35
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "50/75/100/125 +70% bonus AD physical to up to 3 enemies; +25% plus 5% per mark AS for 4s. Cooldown 4s inside W.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Wolf's Frenzy",
+      "form": null,
+      "cooldown": {
+        "value": [
+          17,
+          16,
+          15,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive 100 Vigor makes next attack heal based on missing HP/level. Active Wolf: 25/30/35/40 +20% bonus AD +20% AP magic plus 1.5% target current HP +1% per mark; 50% slow to marked/surrounding monsters; monster cap 300.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Mounting Dread",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "50% + AP-scaled slow 1s. Third attack: 90/115/140/165 +80% bonus AD physical plus 8% target missing HP +0.5% per mark; stronger 12% +0.75% per mark when target below 25% + crit-linked threshold. Monster cap 300.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Lamb's Respite",
+      "form": null,
+      "cooldown": {
+        "value": [
+          105,
+          90,
+          75
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/kindred"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "3s zone prevents death; units at ≤10% HP become invulnerable and cannot be healed. End restores 150/200/250 Health to units plus source-listed extra 50 heal.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/kindred",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/kindred",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

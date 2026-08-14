@@ -1,0 +1,196 @@
+{
+  "id": "rengar",
+  "name": "Rengar",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/rengar/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/rengar",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 9,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 40,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 62,
+    "attackSpeed": 0.82,
+    "resourceNote": "Ferocity resource; no mana."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Unseen Predator",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Brush/camouflage enables leap. Bonetooth Necklace gives 4–20% AD for unique champion takedowns. At 4 Ferocity, next basic ability empowered; empowered cast gives 30–50% MS for 1.5s by level; Ferocity lost after 8s out of combat.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Savagery",
+      "form": null,
+      "cooldown": {
+        "value": [
+          6,
+          5,
+          4,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next 2 attacks gain 40% AS for 3s; first adds [40,80,120,160]+[5,10,15,20]% AD physical and always crits, with up to +55% damage from crit rate. Empowered: +45% AS for 3s and first attack adds [40,80,120,160]+40% AD. 60% turret damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Battle Roar",
+      "form": null,
+      "cooldown": {
+        "value": [
+          16,
+          14,
+          12,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[60,100,140,180]+80% AP magic and heals 60% of damage taken in last 2s. Empowered [80,120,160,200]+80% AP, same heal and cleanses CC; monster damage received heals back 100%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Bola Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[70,130,190,250]+70% bonus AD physical; slow [30,50,70,90]% for 1.75s. Empowered source lists 75+70% bonus AD and roots 1.75s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Thrill of the Hunt",
+      "form": null,
+      "cooldown": {
+        "value": [
+          85,
+          75,
+          65
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rengar"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Movement speed [40,50,60]% and nearest-champion reveal for [12,14,16]s; camouflage after 1s; leap shreds Armor [16,24,32] for 4s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/rengar",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/rengar",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,229 @@
+{
+  "id": "miss-fortune",
+  "name": "Miss Fortune",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/miss-fortune/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/miss-fortune",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 6,
+    "mana": 420,
+    "manaRegen5s": 12,
+    "armor": 34,
+    "magicResist": 30,
+    "moveSpeed": 335,
+    "attackDamage": 58,
+    "attackSpeed": 0.81,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Love Tap",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Stacks on champions/epic monsters. At 3 stacks, target damage amplification rises 6–10.9% with level; 3-stack hit adds 15 +70% bonus AD multiplied by crit-rate factor as physical. 50% to minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Double Up",
+      "form": null,
+      "cooldown": {
+        "value": [
+          6,
+          5,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            35,
+            35,
+            35
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "First/ricochet damage [60,90,120,150] with AD ratios [112,120,128,136]% +35% AP physical. Second hit crits for [130,140,150,160]% and applies Love Tap.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Strut",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive after 4s no damage: MS +[30,35,40,45], after 3s more increases to [80,90,100,110]. Active fully activates and grants [45,60,75,90]% AS for 4s; full Love Tap attacks reduce cooldown 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Make it Rain",
+      "form": null,
+      "cooldown": {
+        "value": [
+          15,
+          13,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            70,
+            75,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "2s area; every 0.25s deals [15,20,25,30] +10% AP magic and slows [30,40,50,60]%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Bullet Time",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/miss-fortune"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "3s channel with [12,14,16] waves; each wave deals 85% AD +20% AP physical (39 shown in source context) and can crit for 130%.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire displays Strut mana costs as '30 / 303 / 30 / 30'; normalized to [30,30,30,30] as an obvious formatting typo."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/miss-fortune",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/miss-fortune",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

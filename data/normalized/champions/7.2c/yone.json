@@ -1,0 +1,196 @@
+{
+  "id": "yone",
+  "name": "Yone",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/yone/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/yone",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 650,
+    "healthRegen5s": 9,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 43,
+    "magicResist": 38,
+    "moveSpeed": 345,
+    "attackDamage": 54,
+    "attackSpeed": 0.82,
+    "resourceNote": "No mana resource."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Way of the Hunter",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Every other attack converts 50% of attack damage to magic. Crit rate doubled; crit over 100% converts 0.6 AD per 1% crit.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Mortal Steel",
+      "form": null,
+      "cooldown": {
+        "value": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [30,50,70,90] +175% AD physical. Two stacks dashes and launches knockup whirlwind. Treated as attack; can crit/on-hit; cooldown/cast time reduced by AS; 65% monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Spirit Cleave",
+      "form": null,
+      "cooldown": {
+        "value": [
+          14,
+          14,
+          14,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [25,35,45,55] plus [11,12,13,14]% target max HP as mixed physical/magic. Shield 45 +80% bonus AD for 1.5s; +100% on first champion and +40% subsequent champion hits.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Soul Unbound",
+      "form": null,
+      "cooldown": {
+        "value": [
+          20,
+          17,
+          14,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Spirit form 5s with increasing MS; return deals [24,28,32,36]% of damage dealt during form as true damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Fate Sealed",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yone"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [200,350,500] +80% AD mixed physical/magic along line, teleports behind last champion and pulls enemies toward Yone.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/yone",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/yone",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

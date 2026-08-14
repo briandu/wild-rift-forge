@@ -1,0 +1,231 @@
+{
+  "id": "volibear",
+  "name": "Volibear",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/volibear/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/volibear",
+  "dataStatus": "partial",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 9,
+    "mana": 390,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 350,
+    "attackDamage": 62,
+    "attackSpeed": 0.73,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "The Relentless Storm",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Ability/attack grants 5% +4% AP attack speed for 6s, max 5 stacks. At 5, attacks add 11–80 +40% AP magic to target and 4 nearest.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Thundering Smash",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Gains [10,15,20,25]% MS, doubled toward champions, 4s. Next attack adds [15,40,65,90] +100% bonus AD physical and stuns 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Frenzied Maul",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            40,
+            45,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [5,30,55,80] +100% AD +6.5% bonus HP physical and Frenzy 8s. During Frenzy: [8,48,88,128] +160% AD +10.4% bonus HP and heals 10 + source-listed missing-HP scaling.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Sky Splitter",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          13,
+          13,
+          13
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [80,110,140,170] +50% AP +11% target max HP magic; slows 40% 2s. If Volibear inside, shield source lists 131 +75% AP +14% max HP for 2.5s. Non-champion damage cap [150,250,350,450].",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Stormbringer",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          80,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/volibear"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Leaps, gains [175,350,525] Health and 50 range for 12s; landing disables nearby towers 3s and deals [300,500,700] +100% AP +210% bonus AD physical to towers; nearby enemies slowed 50% decaying 1s. Direct-underfoot enemy damage is truncated on source page.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [
+    "Exact Stormbringer direct-underfoot champion damage"
+  ],
+  "warnings": [
+    "WildRiftFire Sky Splitter shield displays a single '131' base value rather than rank-by-rank values; verify."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/volibear",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "partial"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/volibear",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "partial",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

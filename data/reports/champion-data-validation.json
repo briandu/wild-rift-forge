@@ -1,0 +1,33 @@
+{
+  "patch": "7.2c",
+  "championCount": 141,
+  "errorCount": 0,
+  "warningCount": 5,
+  "issues": [
+    {
+      "level": "warning",
+      "champion": "amumu",
+      "message": "Tantrum cost contains a null rank (source gap, not filled)"
+    },
+    {
+      "level": "warning",
+      "champion": "chogath",
+      "message": "Feast numeric_summary still lists +8% bonus HP on champions; official 7.2c delta is 10%. Not auto-corrected."
+    },
+    {
+      "level": "warning",
+      "champion": "leona",
+      "message": "Official 7.2c Base Stats.health_per_level after-value is not visible in the snapshot (possible stale numeric_summary)"
+    },
+    {
+      "level": "warning",
+      "champion": "rumble",
+      "message": "Official 7.2c Base Stats.health_per_level after-value is not visible in the snapshot (possible stale numeric_summary)"
+    },
+    {
+      "level": "warning",
+      "champion": "kogmaw",
+      "message": "Official 7.2c Living Artillery.range after-value is not visible in the snapshot (possible stale numeric_summary)"
+    }
+  ]
+}

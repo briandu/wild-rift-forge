@@ -1,0 +1,220 @@
+{
+  "id": "zed",
+  "name": "Zed",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/zed/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/zed",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 9,
+    "mana": 200,
+    "manaRegen5s": 50,
+    "armor": 40,
+    "magicResist": 40,
+    "moveSpeed": 355,
+    "attackDamage": 64,
+    "attackSpeed": 0.8,
+    "resourceNote": "Energy is displayed by WildRiftFire in Mana fields: 200 max, 50 regen/5s."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Contempt for the Weak",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks vs enemies below 50% Health deal 7% target max-HP bonus magic; 10s per-target cooldown.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Razor Shuriken",
+      "form": null,
+      "cooldown": {
+        "value": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            60,
+            55,
+            50,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "First target [70,120,170,220]+110% bonus AD physical; later targets [49,84,119,154]+77% bonus AD. 80% monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Living Shadow",
+      "form": null,
+      "cooldown": {
+        "value": [
+          17,
+          16,
+          15,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            35,
+            30,
+            25,
+            20
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive restores [40,45,50,55] Energy when same enemy hit twice by ability, once per cast. Shadow lasts 4.5s; recast swaps.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Shadow Slash",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          4,
+          4,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "energy",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Each slash [65,95,125,155] +70% bonus AD physical and slow [25,30,35,40]% 1.5s. Additional same-target slashes deal 50% and increase slow 50%. Champion hit by Zed slash reduces W cooldown 2s. 60% monster damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Death Mark",
+      "form": null,
+      "cooldown": {
+        "value": [
+          85,
+          70,
+          55
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/zed"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Untargetable dash and 2.8s mark; detonation deals 60 +100% AD physical plus [30,42.5,55]% of damage Zed dealt during mark. Leaves 6s shadow; recast swaps.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/zed",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/zed",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,221 @@
+{
+  "id": "talon",
+  "name": "Talon",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/talon/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/talon",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 9,
+    "mana": 460,
+    "manaRegen5s": 12,
+    "armor": 40,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 66,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Blade's End",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Three Wound stacks consumed by attack to bleed for 100–300 +210% bonus AD physical over 2s; 90% damage to monsters. Champion death while bleeding grants 50% movement speed decaying over 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Noxian Diplomacy",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          6,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            65,
+            60,
+            55
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Long-range dash [75,100,125,150] +100% bonus AD physical. Close stab [98,135,173,210] +150% bonus AD. Kill heals 35–70 and reduces cooldown 65%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Rake",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Outgoing [40,50,60,70] +50% bonus AD physical; returning [60,100,140,180] +100% bonus AD and slows 40% for 1s. 80% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Assassin's Path",
+      "form": null,
+      "cooldown": {
+        "value": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Vaults terrain/structures. Same terrain lockout [135,110,85,60]s; vault speed +10%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Shadow Assault",
+      "form": null,
+      "cooldown": {
+        "value": [
+          65,
+          55,
+          45
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/talon"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "First cast [90,135,180] +110% bonus AD physical, invisibility and [40,55,70]% bonus movement speed up to 2.5s. Recast [90,130,170] +100% bonus AD physical.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire shows an isolated 'Crit Chance 2' stat for Talon; omitted as likely display/parser artifact."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/talon",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/talon",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

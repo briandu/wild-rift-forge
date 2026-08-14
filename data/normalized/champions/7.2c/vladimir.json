@@ -1,0 +1,196 @@
+{
+  "id": "vladimir",
+  "name": "Vladimir",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/vladimir/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/vladimir",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 37,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 52,
+    "attackSpeed": 0.75,
+    "resourceNote": "No mana resource."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Crimson Pact",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Gains AP equal to 4.5% Health and bonus Health equal to 140% AP; effects do not recursively stack.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Transfusion",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          6,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [70,100,130,160] +60% AP magic and heals [15,20,25,30] +35% AP. At 2 Bloodthirst enters Crimson Rush; empowered Q +75% damage and heals 30–170 plus missing-HP/AP scaling.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Sanguine Pool",
+      "form": null,
+      "cooldown": {
+        "value": [
+          25,
+          22,
+          19,
+          16
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Untargetable 2s; +27.5% decaying MS. Enemies take [20,40,60,80] +2% max HP magic every 0.5s and are slowed 40%; restores 15% of damage dealt.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Tides of Blood",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          10,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Charge up to 1.5s at 2–8% Health cost; base [20,40,60,80] +35% AP +2.5% max HP magic, up to +100% after charging. Long charge slows self 20%, enemies [40,45,50,55]%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Hemoplague",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          90,
+          90
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vladimir"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Marks area 4s then deals [150,250,350] +70% AP magic, plus 10% of damage targets took during infection as bonus magic. First infected champion heals same base+ratio; subsequent champions 40% healing.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/vladimir",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/vladimir",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

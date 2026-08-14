@@ -1,0 +1,229 @@
+{
+  "id": "norra",
+  "name": "Norra",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/norra/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/norra",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 10,
+    "mana": 460,
+    "manaRegen5s": 14,
+    "armor": 34,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 54,
+    "attackSpeed": 0.75,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Beloved Trinkets",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Every 21s, next ability leaves a trinket for 4s; enemy champion touching it takes 20 +20% AP magic. Basic-ability champion hit reduces passive cooldown by 20% of maximum.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Memory Surge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          6,
+          5,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Release deals [55,110,165,220]+60% AP magic; charging increases damage up to +140%. Enemies enlarged by Threads take additional target-max-HP magic damage (source expresses scaling as 1–2.5% based on rank/context). Full hold also increases backward teleport; self slow 20%, full hold 30%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Journey to Nowhere",
+      "form": null,
+      "cooldown": {
+        "value": [
+          23,
+          22,
+          21,
+          20
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            75,
+            80,
+            85,
+            90
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[65,105,145,185]+40% AP magic; banishes target 1.5s, then slows 80% for 0.75s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Threads",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          10,
+          9,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            65,
+            65,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[70,120,170,220]+60% AP magic; Threads enlarge target hitbox 4s and slow 20% for 2s. Deals 115% damage to minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Portalpalooza",
+      "form": null,
+      "cooldown": {
+        "value": [
+          105,
+          95,
+          95
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/norra"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Up to 4 bolts, each [100,140,180]+55% AP magic; first champion hit slowed 80% for 0.5s; fourth bolt deals +40% magic damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "Ultimate cooldown array [105,95,95] is preserved exactly from the current WildRiftFire page and should be verified."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/norra",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/norra",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

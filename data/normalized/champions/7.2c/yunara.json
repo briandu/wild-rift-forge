@@ -1,0 +1,228 @@
+{
+  "id": "yunara",
+  "name": "Yunara",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/yunara/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/yunara",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 6,
+    "mana": 345,
+    "manaRegen5s": 9,
+    "armor": 35,
+    "magicResist": 30,
+    "moveSpeed": 335,
+    "attackDamage": 58,
+    "attackSpeed": 0.77,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Vow of the First Lands",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Critical strikes deal additional magic damage scaling by 10% per 100 AP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Cultivation of Spirit",
+      "form": null,
+      "cooldown": {
+        "value": [
+          0,
+          0,
+          0
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive attacks add [10,15,20,25] +20% AP magic and build Unleash to 6. Active consumes Unleash for [22,35,47,60]% AS 5s; empowered attacks repeat bonus magic and spread 18 +30% AD physical. Auto-active in Transcendent State.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Arc of Judgment / Arc of Ruin",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Arc initial [60,110,160,210] +85% bonus AD +50% AP magic, 99% decaying slow; lingering ticks [8,14,20,26] +12% bonus AD +7.5% AP every 0.25s. Transcendent Arc of Ruin laser 160 +120% bonus AD +75% AP magic.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Kanmei's Steps / Untouchable Shadow",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Gains [30,35,40,45]% MS for 1.5s, increased to [45,52.5,60,67.5]% toward nearby visible champion. Transcendent version dashes.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Transcend One's Self",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          60,
+          50
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yunara"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Transcendent State 15s: basics empowered and cost no Mana; Q auto-activates; W upgrades and remaining cooldown reduced 80% on entering/exiting. R rank scales Arc of Ruin base damage and E dash speed.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire displays Q cooldown as 0/0/0 (three entries) while the ability has four ranks; preserved source shape and should be verified."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/yunara",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/yunara",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

@@ -1,0 +1,220 @@
+{
+  "id": "dr-mundo",
+  "name": "Dr. Mundo",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/dr-mundo/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/dr-mundo",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 720,
+    "healthRegen5s": 9,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 40,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 58,
+    "attackSpeed": 0.8,
+    "resourceNote": "No mana; abilities spend Health."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Goes Where He Pleases",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "First immobilizing effect is resisted; loses 3% current HP and drops canister. Pickup reduces passive cooldown by 10s and heals 4% max HP. Passive cooldown 40s. Regenerates 1% max HP every 5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Infected Bonesaw",
+      "form": null,
+      "cooldown": {
+        "value": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "health",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals 20/23/26/29% target current HP magic (min 90/160/230/300), slows 40% for 2s. Hit heals 25 Health, doubled vs champions/monsters. Monster cap 250/350/450/550.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Heart Zapper",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "health",
+          "values": [
+            5,
+            5,
+            5,
+            5
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "20 magic damage/sec for 4s; detonation 20/40/60/80 +5% bonus HP magic. Heals 15% of recent damage taken, or 30/35/40/45% if champion/monster hit.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Blunt Force Trauma",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          7,
+          7,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "health",
+          "values": [
+            10,
+            20,
+            30,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive AD 15/20/25/30, increasing up to 30/45/50/60 based on missing HP. Active next hit +5/20/35/50 +5% HP physical, up to +60% based on missing HP.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Maximum Dosage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/dr-mundo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Increases base Health by 25/30/35% of missing HP; gains AD equal to 4/5.5/7% bonus HP and 15/25/35% move speed for 10s; heals 15/35/55% max HP over duration.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/dr-mundo",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/dr-mundo",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

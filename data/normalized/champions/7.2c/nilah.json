@@ -1,0 +1,236 @@
+{
+  "id": "nilah",
+  "name": "Nilah",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/nilah/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/nilah",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 600,
+    "healthRegen5s": 10,
+    "mana": 340,
+    "manaRegen5s": 10,
+    "armor": 37,
+    "magicResist": 32,
+    "moveSpeed": 350,
+    "attackDamage": 58,
+    "attackSpeed": 0.89,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Joy Unending",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Critical attack heals Nilah for 20% of damage; excess healing becomes equal shield for 6s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Formless Blade",
+      "form": null,
+      "cooldown": {
+        "value": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive: 28% of current crit chance converts to Armor Pen rate. Active [10,15,20,25] with [90,100,110,120]% AD physical; +1% damage per 1% crit. On hit +14% AS and +125 range for 4s; cone attacks; non-champion damage -80%; monster ratio 25%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Jubilant Veil",
+      "form": null,
+      "cooldown": {
+        "value": [
+          21,
+          20,
+          19,
+          18
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "1.75s mist: +[15,20,25,30]% MS, 25% magic damage reduction, immune to non-tower attacks. Nearby nearest ally gains same; Nilah duration +1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Slipstream",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash deals [70,100,130,160] +20% AD physical. Empowered attacks reduce cooldown 1s; champion hit further -1s. Hitting a unit can refresh cooldown with 10s refresh lockout.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Apotheosis",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            80,
+            80,
+            80
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nilah"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Over 1s deals [60,110,160] +50% AD physical and slows 10% for 3s; finish deals [125,225,325] +120% AD and pulls. Heals Nilah/nearby allies for 20% +30% crit-based share of champion damage; excess becomes 6s shield; non-champion heal 10%.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [
+      {
+        "patch": "7.2c",
+        "deltaIndex": 5
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 6
+      }
+    ],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/nilah",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/nilah",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

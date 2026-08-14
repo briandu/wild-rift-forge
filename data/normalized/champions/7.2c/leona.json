@@ -1,0 +1,252 @@
+{
+  "id": "leona",
+  "name": "Leona",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/leona/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/leona",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 9,
+    "mana": 390,
+    "manaRegen5s": 12,
+    "armor": 50,
+    "magicResist": 38,
+    "moveSpeed": 345,
+    "attackDamage": 62,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Sunlight",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Abilities mark enemies 1.5s; allied champion damage consumes mark for 34 bonus magic damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Shield of Daybreak",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            50,
+            55,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next attack deals [15,50,85,120] +30% AP magic and stuns 1s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Eclipse",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "For 3s gains [30,50,70,90] +20% bonus Armor Armor and same base +20% bonus MR Magic Resist. Then deals [80,115,150,185] +40% AP magic; hitting an enemy extends defenses 3s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Zenith Blade",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          10,
+          8,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [60,115,170,225] +40% AP magic; roots last champion hit 0.5s and dashes to them.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Solar Flare",
+      "form": null,
+      "cooldown": {
+        "value": [
+          55,
+          45,
+          35
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/leona"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [150,225,300] +80% AP magic; 80% slow for 1.75s, center stuns instead.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [
+      {
+        "patch": "7.2c",
+        "deltaIndex": 7
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 8
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 9
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 10
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 11
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 12
+      }
+    ],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/leona",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/leona",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

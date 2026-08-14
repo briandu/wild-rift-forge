@@ -1,0 +1,227 @@
+{
+  "id": "vayne",
+  "name": "Vayne",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/vayne/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/vayne",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 570,
+    "healthRegen5s": 8,
+    "mana": 300,
+    "manaRegen5s": 9,
+    "armor": 31,
+    "magicResist": 30,
+    "moveSpeed": 335,
+    "attackDamage": 54,
+    "attackSpeed": 0.83,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Night Hunter",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Gains 10 movement speed toward enemy champions; during Final Hour gains 70 instead.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Tumble",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          4,
+          3,
+          2
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash; next attack adds 24 with [35,45,55,65]% AD physical. During Final Hour grants 1s invisibility.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Silver Bolts",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          17,
+          16,
+          15
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Every third consecutive hit on same target deals [2,5,8,11]% max-HP true damage, minimum [50,65,80,95], capped 200 vs monsters. Active grants [10,15,20,25]% attack speed and 10% omnivamp for 3s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Condemn",
+      "form": null,
+      "cooldown": {
+        "value": [
+          21,
+          18,
+          15,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            90,
+            90,
+            90,
+            90
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [50,80,110,140] +55% AD physical and knocks back. Wall impact adds [105,145,185,225] +75% AD physical and stuns 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Final Hour",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/vayne"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Gains [15,25,35] AD and empowers passive/Q for [8,10,12]s. Champion death within 3s extends by 4s, up to [8,10,12] additional seconds.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/vayne",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/vayne",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

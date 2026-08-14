@@ -1,0 +1,223 @@
+{
+  "id": "ambessa",
+  "name": "Ambessa",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/ambessa/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/ambessa",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": 200,
+    "manaRegen5s": 50,
+    "armor": 43,
+    "magicResist": 36,
+    "moveSpeed": 355,
+    "attackDamage": 58,
+    "attackSpeed": 0.8,
+    "resourceNote": "Energy: 200 (WildRiftFire displays it in Mana field); regen 50."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Drakehound's Step",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "After Feint, next attack within 4s is 50% faster, gains range, deals 5–40 + (2.5 +25% bonus AD) bonus physical damage, restores 50 Energy; up to 3 stacks.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Cunning Sweep / Sundering Slam",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Sweep: 30/40/50/60 +30% bonus AD plus 2/2.5/3/3.5% target max HP; edge doubles both. Slam first target: 70/100/130/160 +90% bonus AD plus 4/5/6/7% max HP; other targets half.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Repudiation",
+      "form": null,
+      "cooldown": {
+        "value": [
+          17,
+          16,
+          15,
+          14
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shield 50–330 +120% bonus AD for 1.5s; 0.5s CC block. Shockwave 70/100/130/160 +80% bonus AD; if it blocks immobilize: 105/150/195/240 +120% bonus AD.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Lacerate",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          10,
+          9,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            70,
+            70,
+            70
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "40/80/120/160 +50/60/70/80% bonus AD physical; 99% slow decays over 1s; recasts after Feint dash.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Public Execution",
+      "form": null,
+      "cooldown": {
+        "value": [
+          80,
+          70,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ambessa"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive: 10/20/30% armor penetration and 12.5/15/17.5% ability-damage healing. Active suppresses 1s, grants 10/20/30% damage reduction, then 200/300/400 plus listed bonus-AD/AP scaling +10/17.5/25% target missing HP physical; 0.4s stun. Miss refunds 35% cooldown.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire renders ultimate cooldown as '0 / 80 / 70 / 60'; normalized to the three ultimate ranks [80,70,60].",
+    "Some coefficient formatting on passive/ultimate is ambiguous on the source page; verify those exact coefficients in-game."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/ambessa",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/ambessa",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

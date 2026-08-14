@@ -1,0 +1,240 @@
+{
+  "id": "chogath",
+  "name": "Cho'Gath",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/cho-gath/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/chogath",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 690,
+    "healthRegen5s": 8,
+    "mana": 380,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 40,
+    "moveSpeed": 350,
+    "attackDamage": 62,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Carnivore",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Kill restores 16 +2×level Health and 4 +0.35×level Mana; doubled for champion, turret, or epic monster.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Rupture",
+      "form": null,
+      "cooldown": {
+        "value": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[80,135,190,245] +100% AP magic; 1s knockup; 60% slow for 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Feral Scream",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            70,
+            80,
+            90,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[80,130,180,230] +70% AP magic; silence [1.4,1.6,1.8,2.0]s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Vorpal Spikes",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          6,
+          5,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next 3 attacks: [20,45,70,95] +30% AP magic plus [2.3,2.7,3.1,3.5]% target max HP +0.6% per Feast stack; slow [30,35,40,45]% decaying 1.5s. Base damage cap 100 vs minions/monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Feast",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          60,
+          50
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/chogath"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Champions: [300,450,600] +50% AP +8% bonus HP true damage. Minions/monsters: 1200 +50% AP +10% bonus HP true. On kill gains Feast stack; each stack grants [80,120,160] max HP plus size/range scaling.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [
+      {
+        "patch": "7.2c",
+        "deltaIndex": 0
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 1
+      },
+      {
+        "patch": "7.2c",
+        "deltaIndex": 2
+      }
+    ],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/chogath",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/chogath",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

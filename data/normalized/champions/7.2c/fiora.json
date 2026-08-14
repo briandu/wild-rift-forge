@@ -1,0 +1,227 @@
+{
+  "id": "fiora",
+  "name": "Fiora",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/fiora/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/fiora",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 650,
+    "healthRegen5s": 9,
+    "mana": 300,
+    "manaRegen5s": 9,
+    "armor": 46,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 70,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Duelist's Dance",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Vital hit deals 3.5% target max HP plus 0.05% per bonus AD true damage, heals 45, and grants 30% movement speed decaying over 1.75s. A new Vital appears after 16.75s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Lunge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          10,
+          8,
+          6
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            20,
+            25,
+            30,
+            35
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "75/85/95/105 +110/115/120/125% bonus AD physical; hit refunds 50% cooldown; deals 50% damage to monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Riposte",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Parries damage and debuffs for 0.75s; then deals 120/170/220/270 +100% AP magic, slowing movement and attack speed by 50% for 1.5s. Stuns if an immobilizing effect was parried.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Bladework",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          9,
+          7,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            35,
+            40,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Next two attacks gain 60% attack speed. First slows 30% for 1s and cannot crit; second always crits for 170/180/190/200% physical damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Grand Challenge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          60,
+          50
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/fiora"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive reduces Vital reveal time by 0.25/0.5/0.75s. Active exposes 4 Vitals for 8s; healing field restores 80/110/140 +60% bonus AD per second for 2–5s. Hitting all 4 Vitals corresponds to 16% target max HP true damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/fiora",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/fiora",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

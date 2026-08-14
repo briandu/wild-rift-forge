@@ -7,6 +7,7 @@
     "apps/scraper/src/**/*.ts",
     "apps/scraper/test/**/*.ts",
     "apps/api/src/**/*.ts",
-    "packages/*/src/**/*.ts"
+    "packages/*/src/**/*.ts",
+    "scripts/data/**/*.ts"
   ]
 }

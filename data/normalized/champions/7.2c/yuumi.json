@@ -1,0 +1,221 @@
+{
+  "id": "yuumi",
+  "name": "Yuumi",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/yuumi/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/yuumi",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 570,
+    "healthRegen5s": 11,
+    "mana": 435,
+    "manaRegen5s": 15,
+    "armor": 40,
+    "magicResist": 30,
+    "moveSpeed": 340,
+    "attackDamage": 50,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Feline Friendship",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Champion hit heals Yuumi 67 +25% AP; attaching within 4s heals ally same; 18s cooldown. Friendship determines Best Friend; attached Best Friend gains bonus effects.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Prowling Projectile",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Source lists five numeric tiers: base [60,100,140,180,220]+20% AP; after ≥1s travel while attached [100,160,220,280,340]+35% AP and slow [45,50,55,60,65]%. Best Friend grants ally [18,19,20,21,22]+5% AP magic on-hit 5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "You and Me!",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Best Friend passive grants [6,7,8,9]% + AP-linked heal/shield power. Active attaches and becomes untargetable except turrets; immobilization puts W on 5s cooldown.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Zoomies",
+      "form": null,
+      "cooldown": {
+        "value": [
+          10,
+          10,
+          10,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            65,
+            75,
+            85,
+            95
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Shield [85,110,135,160]+30% AP and [24,28,32,36]% +8% AP attack speed for 3s; while shield persists +20% MS. If attached, affects ally.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Final Chapter",
+      "form": null,
+      "cooldown": {
+        "value": [
+          85,
+          75,
+          65
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yuumi"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "7 waves over 3.5s. Enemy per first wave [80,100,120]+15% AP magic and stacking 10% slow; later-wave damage [20,30,40]+5% AP. Ally per wave heals [20,35,50]+5% AP; Best Friend [26,39,52]+8% AP.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire shows five Q value tiers despite four displayed ability ranks; preserve until verified."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/yuumi",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/yuumi",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

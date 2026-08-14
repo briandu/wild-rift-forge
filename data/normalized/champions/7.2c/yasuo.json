@@ -1,0 +1,196 @@
+{
+  "id": "yasuo",
+  "name": "Yasuo",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/yasuo/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/yasuo",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 12,
+    "mana": 100,
+    "manaRegen5s": 0,
+    "armor": 40,
+    "magicResist": 38,
+    "moveSpeed": 355,
+    "attackDamage": 58,
+    "attackSpeed": 0.89,
+    "resourceNote": "Flow is displayed by WildRiftFire in the Mana field as 100; no mana costs."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Way of the Wanderer",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Movement builds Flow; at max, champion/monster damage grants 125–680 +100% crit-rate shield for 1s. Crit rate doubled; crit above 100% converts at 0.6 AD per 1% crit.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Steel Tempest",
+      "form": null,
+      "cooldown": {
+        "value": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [20,50,80,110] +105% AD physical. Two stacks causes whirlwind knockup. Treated as attack; can crit for 75% bonus and applies on-hits; cooldown/cast time scale with AS.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Wind Wall",
+      "form": null,
+      "cooldown": {
+        "value": [
+          22,
+          20,
+          18,
+          16
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Projectile-blocking wall size [300,400,500,600] for 4s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Sweeping Blade",
+      "form": null,
+      "cooldown": {
+        "value": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash deals [70,80,90,100] +20% bonus AD +60% AP magic. Consecutive casts raise base damage 25%, up to +75%. Same target lockout [7,6,5,4]s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Last Breath",
+      "form": null,
+      "cooldown": {
+        "value": [
+          50,
+          40,
+          30
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/yasuo"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Blinks to airborne champion; deals [250,400,550] +160% bonus AD physical and holds airborne enemies +1.3s. Grants max Flow; for 15s crits gain 55% Armor Pen.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/yasuo",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/yasuo",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

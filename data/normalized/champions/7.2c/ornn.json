@@ -1,0 +1,229 @@
+{
+  "id": "ornn",
+  "name": "Ornn",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/ornn/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/ornn",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 720,
+    "healthRegen5s": 12,
+    "mana": 380,
+    "manaRegen5s": 12,
+    "armor": 46,
+    "magicResist": 40,
+    "moveSpeed": 345,
+    "attackDamage": 62,
+    "attackSpeed": 0.73,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Living Forge",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Source states Ornn gains an additional 7%/12%/17%/22% but truncates the affected stat; item-forging mechanics omitted from numeric summary.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Volcanic Rupture",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          9,
+          8,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[25,60,95,130]+110% AD physical; slow 55% for 2s; creates pillar for 4s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Bellows Breath",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            45,
+            45,
+            45,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Deals [10,11,12,13]% target max HP magic over 0.75s and applies Brittle 3s. Brittle increases immobilize duration 30% and next immobilizing hit adds 8% max-HP magic. Minion minimum [90,140,190,240], monster max [155,190,225,260], immobilize monster cap 250.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Searing Charge",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          12,
+          11,
+          10
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            35,
+            35,
+            35,
+            35
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[80,140,200,260]+40% bonus Armor+40% bonus MR physical; terrain collision knocks up 1.25s and repeats damage; breaking terrain reduces own cooldown 25%.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Call of the Forge God",
+      "form": null,
+      "cooldown": {
+        "value": [
+          90,
+          80,
+          70
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/ornn"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Each ram pass deals [125,175,225]+20% AP magic and applies Brittle 3s; first pass slows up to 40% for 2s. Redirected ram knocks first champion up 1s, later targets 0.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "Passive percentage line is truncated on source page; exact affected stat requires manual verification."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/ornn",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/ornn",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

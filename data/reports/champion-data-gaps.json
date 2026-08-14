@@ -1,0 +1,27 @@
+{
+  "Amumu": [
+    "Tantrum cost has a null rank"
+  ],
+  "Cho'Gath": [
+    "Feast champion bonus-health ratio still +8% in numeric_summary; Riot 7.2c says 10%"
+  ],
+  "Swain": [
+    "Exact Nevermove return-damage rank values",
+    "Exact Demonic Ascension recast damage"
+  ],
+  "Syndra": [
+    "Exact 100-Splinter R upgrade effect"
+  ],
+  "Volibear": [
+    "Exact Stormbringer direct-underfoot champion damage"
+  ],
+  "Leona": [
+    "Official 7.2c health_per_level after-value not reflected in snapshot text"
+  ],
+  "Rumble": [
+    "Official 7.2c health_per_level after-value not reflected in snapshot text"
+  ],
+  "Kog'Maw": [
+    "Official 7.2c range after-value not reflected in snapshot text"
+  ]
+}

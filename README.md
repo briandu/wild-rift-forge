@@ -13,6 +13,8 @@ packages/
   database/   # pg client + query helpers
   game-data/  # canonical internal types (Champion, Patch, PatchChange, ...)
 design/       # Claude Design handoffs → apps/web (see design/README.md)
+data/         # versioned champion gameplay baseline (see data/README.md)
+docs/data/    # baseline schema notes
 supabase/
   migrations/ # SQL migrations, applied via `supabase db push`
 ```

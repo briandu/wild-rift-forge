@@ -1,0 +1,227 @@
+{
+  "id": "rell",
+  "name": "Rell",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/rell/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/rell",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": 380,
+    "manaRegen5s": 10,
+    "armor": 46,
+    "magicResist": 36,
+    "moveSpeed": 335,
+    "attackDamage": 62,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Break the Mold",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Attacks/abilities steal 2.5% Armor and MR for 5s, up to 12.5% (5 stacks per target); attacks also deal 4 +5% Armor +5% MR magic on hit. Minimum steal 1.5–3; not from minions/epic monsters.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Shattering Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          11,
+          10,
+          9,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            50,
+            50,
+            50
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[70,130,190,250]+50% AP magic; stun 0.65s and destroys shields (not monster shields).",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Ferromancy: Crash Down / Mount Up",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Crash Down: [70,100,130,160]+50% AP magic, knockup, shield [30,60,90,120]+13% max HP. Dismounted grants +12% Armor/MR, +20% AS, +75 range. Mount Up grants 30% decaying MS 2s; next attack adds [15,30,45,60]+35% AP magic and knocks up/behind.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Full Tilt",
+      "form": null,
+      "cooldown": {
+        "value": [
+          13,
+          13,
+          13,
+          13
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Rell and allied champion gain 10% MS, increasing to 25% for 3s when facing champions/each other. Next attack/Q explodes for [5.5,6,6.5,7]% target max HP + source-listed AP scaling; cap 150 vs monsters/structures.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Magnet Storm",
+      "form": null,
+      "cooldown": {
+        "value": [
+          75,
+          70,
+          65
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            100,
+            100,
+            100
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/rell"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Initial pull; continuous pull deals [120,200,280]+100% AP magic over 2s.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/rell",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/rell",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

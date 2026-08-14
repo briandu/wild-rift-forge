@@ -1,0 +1,196 @@
+{
+  "id": "garen",
+  "name": "Garen",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/garen/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/garen",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": null,
+    "manaRegen5s": null,
+    "armor": 52,
+    "magicResist": 38,
+    "moveSpeed": 350,
+    "attackDamage": 64,
+    "attackSpeed": 0.8,
+    "resourceNote": "No mana resource."
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Perseverance",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "After 5s without qualifying damage, regenerates 1.2%–4.5% missing HP per second; source formula: 1% + champion level×0.3.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Decisive Strike",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          8,
+          8,
+          7
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Cleanses slows; slow immunity 0.5s; +35% movement speed for [2,2.5,3,3.5]s. Next attack +[40,80,120,160] +40% AD physical; silence 1.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Courage",
+      "form": null,
+      "cooldown": {
+        "value": [
+          18,
+          16,
+          14,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Passive +10% bonus Armor/MR. Active 30% damage reduction for 4s; 60% tenacity 1s; shield [65,95,125,155] +20% bonus HP for 2.5s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Judgment",
+      "form": null,
+      "cooldown": {
+        "value": [
+          9,
+          9,
+          9,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "8 hits over 3s, each [13,17,21,25] +[25,30,35,40]% AD physical. +1 spin every 4 levels, max 11. After 6 champion hits: 10% Armor shred 4.5s. Nearest target takes +20% damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Demacian Justice",
+      "form": null,
+      "cooldown": {
+        "value": [
+          70,
+          65,
+          60
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/garen"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Target: [150,250,350] +15% target missing HP with additional AD-linked missing-HP ratio as listed by source; nearby enemies take half base/missing-HP component. Epic-monster cap 600.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/garen",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/garen",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

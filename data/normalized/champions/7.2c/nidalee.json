@@ -1,0 +1,222 @@
+{
+  "id": "nidalee",
+  "name": "Nidalee",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/nidalee/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/nidalee",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 660,
+    "healthRegen5s": 8,
+    "mana": 420,
+    "manaRegen5s": 14,
+    "armor": 37,
+    "magicResist": 36,
+    "moveSpeed": 350,
+    "attackDamage": 54,
+    "attackSpeed": 0.8,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Prowl",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Starts with rank in R. Brush gives 10% MS, 30% toward champions, persisting 2s. Q/W human hits mark Hunted 4s; Hunted reveals target and gives 10% MS, 30% toward target; bonuses stack up to 30.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Javelin Toss / Takedown",
+      "form": null,
+      "cooldown": {
+        "value": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Human: [90,120,150,180] +50% AP magic, scaling by distance to [225,300,375,450] +125% AP. Cougar: next attack [10,45,80,115] +75% AD +40% AP magic, +1.25% per 1% target missing HP; +30% if Hunted.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Bushwhack / Pounce",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          11,
+          10,
+          9
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            35,
+            40,
+            45
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Human trap 10s; on trigger deals [10,20,30,40] +4% AP magic per second for 4s; max 4 traps. Cougar pounce [55,90,125,160] +40% bonus AD +25% AP magic; kill or Hunted target reduces cooldown to [2.75,2.25,1.75,1.25]s.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Primal Surge / Swipe",
+      "form": null,
+      "cooldown": {
+        "value": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            50,
+            55,
+            60,
+            65
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Human heals [40,70,100,130] +30% AP up to [80,140,200,260] +60% AP based on missing HP; grants [30,40,50,60]% AS for 7s. Cougar Swipe: 140 +70% bonus AD +40% AP magic (source does not show rank scaling here).",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Aspect Of The Cougar",
+      "form": null,
+      "cooldown": {
+        "value": [
+          3,
+          3,
+          3
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/nidalee"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Transforms between human/cougar. Applying Hunted in human refreshes cooldown. Cougar basic ability damage scales with R rank; gains 2 +2.5% AP bonus Armor and MR.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [
+    "WildRiftFire lists Cougar Swipe as a single 140 base value without rank array; left as source-provided summary."
+  ],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/nidalee",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/nidalee",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}

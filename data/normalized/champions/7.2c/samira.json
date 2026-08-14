@@ -1,0 +1,220 @@
+{
+  "id": "samira",
+  "name": "Samira",
+  "snapshotPatch": "7.2c",
+  "officialChampionUrl": "https://wildrift.leagueoflegends.com/en-us/champions/samira/",
+  "bootstrapSourceUrl": "https://www.wildriftfire.com/guide/samira",
+  "dataStatus": "extracted",
+  "level1Stats": {
+    "health": 630,
+    "healthRegen5s": 8,
+    "mana": 345,
+    "manaRegen5s": 15,
+    "armor": 35,
+    "magicResist": 30,
+    "moveSpeed": 330,
+    "attackDamage": 62,
+    "attackSpeed": 0.81,
+    "resourceNote": null
+  },
+  "abilities": [
+    {
+      "slot": "P",
+      "name": "Daredevil Impulse",
+      "form": null,
+      "cooldown": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Damaging champions with attacks/abilities different from the previous hit raises Style rank E→S.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "Q",
+      "name": "Flair",
+      "form": null,
+      "cooldown": {
+        "value": [
+          7,
+          5,
+          4,
+          2
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "[15,20,25,30]+[100,115,130,145]% AD physical; melee cast becomes cone; can crit for 25% bonus damage.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "W",
+      "name": "Blade Whirl",
+      "form": null,
+      "cooldown": {
+        "value": [
+          22,
+          20,
+          18,
+          16
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            60,
+            60,
+            60,
+            60
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Two hits over 0.75s, each [20,40,60,80]+80% AD physical; destroys enemy missiles entering area.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "E",
+      "name": "Wild Rush",
+      "form": null,
+      "cooldown": {
+        "value": [
+          20,
+          17,
+          14,
+          11
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": {
+          "type": "mana",
+          "values": [
+            40,
+            40,
+            40,
+            40
+          ]
+        },
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Dash through enemy/structure; [45,60,75,90]+20% AD magic; AS [35,40,45,50]% for 3s; takedown resets cooldown.",
+      "sourceQuality": "wildriftfire_baseline"
+    },
+    {
+      "slot": "R",
+      "name": "Inferno Trigger",
+      "form": null,
+      "cooldown": {
+        "value": [
+          8,
+          8,
+          8
+        ],
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "cost": {
+        "value": null,
+        "source": {
+          "type": "wildriftfire_baseline",
+          "patch": "7.2c",
+          "url": "https://www.wildriftfire.com/guide/samira"
+        },
+        "verified": false
+      },
+      "structured": {},
+      "rawNumericSummary": "Requires S Style. Over 2.23s fires 10 shots at up to 5 enemies; each shot [5,20,35]+60% AD physical and can crit. Self slow 30%; 25% damage to minions.",
+      "sourceQuality": "wildriftfire_baseline"
+    }
+  ],
+  "gaps": [],
+  "warnings": [],
+  "verification": {
+    "baselineNumericSource": "wildriftfire_baseline",
+    "officialPatchVerifiedFields": [],
+    "manualIngameVerified": false,
+    "baselineNumericSourceUrl": "https://www.wildriftfire.com/guide/samira",
+    "baselinePatch": "7.2c",
+    "baselineLastChecked": "2026-08-14",
+    "baselineStatus": "normalized"
+  },
+  "wildriftfireReference": {
+    "provider": "WildRiftFire",
+    "sourceType": "third_party_baseline",
+    "guideUrl": "https://www.wildriftfire.com/guide/samira",
+    "observedPatch": "7.2c",
+    "checkedAt": "2026-08-14",
+    "normalizationStatus": "normalized",
+    "note": "Fallback baseline. Riot official patch deltas override conflicting values."
+  },
+  "generatedFrom": {
+    "baseline": "7.2c",
+    "patches": []
+  },
+  "generatedAt": "2026-08-14T17:08:34.072Z"
+}
