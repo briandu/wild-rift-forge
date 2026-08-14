@@ -81,60 +81,49 @@ export function abilityHotkey(slot: AbilitySlot): AbilityHotkey {
   return HOTKEY_BY_SLOT[slot];
 }
 
-export type RankBracket = 'all' | 'diamond_plus' | 'master_plus' | 'challenger_plus' | 'legendary';
+export {
+  matchAbilityByName,
+  normalizeAbilityName,
+  patchAbilityKey,
+  type NamedAbility,
+} from './abilities';
 
-export type TierLane = 'Top' | 'Jungle' | 'Mid' | 'Dragon' | 'Support';
-
-export type TierLetter = 'S' | 'A' | 'B' | 'C';
-
-export const TIER_LANES: readonly TierLane[] = ['Top', 'Jungle', 'Mid', 'Dragon', 'Support'];
-
-export const DEFAULT_RANK_BRACKET: RankBracket = 'diamond_plus';
-
-/** Win rate is primary; pick/ban add contested-pick pressure. */
-export function championTierScore(winRate: number, pickRate: number, banRate: number): number {
-  return winRate + 0.15 * pickRate + 0.1 * banRate;
-}
-
-export interface TierBandCounts {
-  S: number;
-  A: number;
-  B: number;
-  C: number;
-}
-
-/** Relative S/A/B/C sizes for a lane: ~10% / 20% / 40% / remainder. */
-export function tierBandCounts(n: number): TierBandCounts {
-  if (n <= 0) {
-    return { S: 0, A: 0, B: 0, C: 0 };
-  }
-  const s = Math.max(1, Math.round(n * 0.1));
-  const a = Math.round(n * 0.2);
-  const b = Math.round(n * 0.4);
-  let counts: TierBandCounts = { S: s, A: a, B: b, C: n - s - a - b };
-  for (const letter of ['B', 'A', 'S'] as const) {
-    while (counts.C < 0 && counts[letter] > 0) {
-      counts = { ...counts, [letter]: counts[letter] - 1, C: counts.C + 1 };
-    }
-  }
-  if (counts.C < 0) {
-    counts = { ...counts, C: 0 };
-  }
-  return counts;
-}
-
-export function assignTierLetter(rankInLane: number, counts: TierBandCounts): TierLetter {
-  if (rankInLane <= counts.S) {
-    return 'S';
-  }
-  if (rankInLane <= counts.S + counts.A) {
-    return 'A';
-  }
-  if (rankInLane <= counts.S + counts.A + counts.B) {
-    return 'B';
-  }
-  return 'C';
-}
+export {
+  adjustmentKey,
+  applyLetterAdjustment,
+  assignTierLetter,
+  assignTierLetterHybrid,
+  assignTierLetterWithHysteresis,
+  championTierScore,
+  compositeTierScore,
+  daysSincePatch,
+  DEFAULT_RANK_BRACKET,
+  DEFAULT_TIER_RULESET,
+  HYSTERESIS_MARGIN,
+  PATCH_NUDGE_CAP,
+  PATCH_NUDGE_DECAY_DAYS,
+  patchChangeSign,
+  patchNudge,
+  SHRINKAGE_K,
+  SKILL_SPREAD_CAP,
+  SKILL_SPREAD_WEIGHT,
+  shrinkWinRate,
+  skillSpread,
+  skillSpreadAdjustment,
+  TIER_LANES,
+  TIER_LETTERS,
+  TIER_RULESET_BLENDED,
+  TIER_RULESET_CN,
+  TIER_SCORE_FLOORS,
+  tierBandCounts,
+  type CompositeTierScore,
+  type CompositeTierScoreInput,
+  type RankBracket,
+  type TierBandCounts,
+  type TierLane,
+  type TierLetter,
+  type TierRuleset,
+} from './tiers';
 
 export interface PatchAnalysisWatch {
   slug: string;
@@ -180,7 +169,6 @@ export {
   type DraftPlacement,
   type DraftSuggestion,
 } from './draft';
-
 export {
   DAMAGE_TYPES,
   EFFECT_TYPES,

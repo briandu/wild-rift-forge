@@ -1,5 +1,26 @@
 import { describe, expect, it } from 'vitest';
-import { assignTierLetter, championTierScore, tierBandCounts } from './index';
+import { draftFitScore } from './draft';
+import {
+  applyLetterAdjustment,
+  assignTierLetter,
+  assignTierLetterHybrid,
+  assignTierLetterWithHysteresis,
+  BAN_RATE_CAP,
+  championTierScore,
+  compositeTierScore,
+  daysSincePatch,
+  HYSTERESIS_MARGIN,
+  PATCH_NUDGE_CAP,
+  PATCH_NUDGE_DECAY_DAYS,
+  patchChangeSign,
+  patchNudge,
+  SHRINKAGE_K,
+  SKILL_SPREAD_CAP,
+  shrinkWinRate,
+  skillSpreadAdjustment,
+  TIER_SCORE_FLOORS,
+  tierBandCounts,
+} from './tiers';
 
 describe('championTierScore', () => {
   it('weights win rate above pick and ban pressure', () => {
@@ -45,5 +66,163 @@ describe('assignTierLetter', () => {
     expect(assignTierLetter(7, counts)).toBe('B');
     expect(assignTierLetter(14, counts)).toBe('B');
     expect(assignTierLetter(15, counts)).toBe('C');
+  });
+});
+
+describe('shrinkWinRate', () => {
+  it('barely trusts a 0.3% pick-rate sample', () => {
+    const weight = 0.3 / (0.3 + SHRINKAGE_K);
+    expect(weight).toBeCloseTo(0.146, 2);
+    expect(shrinkWinRate(54, 0.3, 50)).toBeCloseTo(50 + 4 * weight);
+  });
+
+  it('mostly trusts a 10% pick-rate sample', () => {
+    const weight = 10 / (10 + SHRINKAGE_K);
+    expect(weight).toBeCloseTo(0.851, 2);
+    expect(shrinkWinRate(54, 10, 50)).toBeCloseTo(50 + 4 * weight);
+  });
+});
+
+describe('skillSpreadAdjustment', () => {
+  it('caps a large positive Challenger spread', () => {
+    expect(skillSpreadAdjustment(10)).toBe(-SKILL_SPREAD_CAP);
+  });
+
+  it('caps a large negative Challenger spread', () => {
+    expect(skillSpreadAdjustment(-10)).toBe(SKILL_SPREAD_CAP);
+  });
+});
+
+describe('patchNudge', () => {
+  it('is full strength on patch day', () => {
+    expect(patchNudge(1, 0)).toBe(PATCH_NUDGE_CAP);
+    expect(patchNudge(-1, 0)).toBe(-PATCH_NUDGE_CAP);
+  });
+
+  it('decays to zero at the horizon', () => {
+    expect(patchNudge(1, PATCH_NUDGE_DECAY_DAYS)).toBe(0);
+    expect(patchNudge(1, PATCH_NUDGE_DECAY_DAYS + 3)).toBe(0);
+  });
+
+  it('is partial mid-window', () => {
+    expect(patchNudge(1, 4)).toBeCloseTo(PATCH_NUDGE_CAP * (1 - 4 / PATCH_NUDGE_DECAY_DAYS));
+  });
+
+  it('nets mixed patch lines to a sign', () => {
+    expect(patchChangeSign(['buff', 'buff', 'nerf'])).toBe(1);
+    expect(patchChangeSign(['nerf', 'adjustment'])).toBe(-1);
+    expect(patchChangeSign(['buff', 'nerf'])).toBe(0);
+    expect(patchChangeSign(['rework'])).toBe(0);
+  });
+
+  it('treats a missing release date as day zero', () => {
+    expect(daysSincePatch(null, '2026-08-14')).toBe(0);
+    expect(daysSincePatch('2026-08-07', '2026-08-14')).toBe(7);
+  });
+});
+
+describe('assignTierLetterHybrid', () => {
+  it('suppresses S in a weak lane even when rank is 1', () => {
+    const counts = tierBandCounts(20);
+    expect(assignTierLetter(1, counts)).toBe('S');
+    expect(assignTierLetterHybrid(1, counts, 51)).toBe('A');
+    expect(assignTierLetterHybrid(1, counts, TIER_SCORE_FLOORS.S)).toBe('S');
+  });
+
+  it('cascades down when the score misses several floors', () => {
+    const counts = tierBandCounts(20);
+    expect(assignTierLetterHybrid(1, counts, 47)).toBe('C');
+  });
+});
+
+describe('assignTierLetterWithHysteresis', () => {
+  it('holds A when the S crossing is only marginal', () => {
+    const score = TIER_SCORE_FLOORS.S + HYSTERESIS_MARGIN - 0.05;
+    expect(assignTierLetterWithHysteresis('S', 'A', score)).toBe('A');
+  });
+
+  it('promotes once the floor plus margin is cleared', () => {
+    const score = TIER_SCORE_FLOORS.S + HYSTERESIS_MARGIN;
+    expect(assignTierLetterWithHysteresis('S', 'A', score)).toBe('S');
+  });
+
+  it('holds S when the demotion is only marginal', () => {
+    const score = TIER_SCORE_FLOORS.S - HYSTERESIS_MARGIN + 0.05;
+    expect(assignTierLetterWithHysteresis('A', 'S', score)).toBe('S');
+  });
+
+  it('demotes once the previous floor minus margin is crossed', () => {
+    const score = TIER_SCORE_FLOORS.S - HYSTERESIS_MARGIN;
+    expect(assignTierLetterWithHysteresis('A', 'S', score)).toBe('A');
+  });
+
+  it('lets a two-letter jump through without a hold', () => {
+    expect(assignTierLetterWithHysteresis('S', 'C', 51)).toBe('S');
+  });
+});
+
+describe('ban contribution', () => {
+  it('caps a huge ban rate so it cannot manufacture an S tier', () => {
+    const uncapped = compositeTierScore({
+      winRate: 47.5,
+      pickRate: 10,
+      banRate: 40,
+      laneMeanWinRate: 50,
+      challengerWinRate: 46,
+      allWinRate: 48,
+      patchNudge: 0,
+    });
+    const noBan = compositeTierScore({
+      winRate: 47.5,
+      pickRate: 10,
+      banRate: 0,
+      laneMeanWinRate: 50,
+      challengerWinRate: 46,
+      allWinRate: 48,
+      patchNudge: 0,
+    });
+    expect(uncapped.score - noBan.score).toBeCloseTo(BAN_RATE_CAP);
+    expect(uncapped.score).toBeLessThan(TIER_SCORE_FLOORS.S);
+  });
+});
+
+describe('compositeTierScore scale', () => {
+  it('stays on a win-rate-like scale that draftFitScore can consume', () => {
+    const result = compositeTierScore({
+      winRate: 54,
+      pickRate: 10,
+      banRate: 5,
+      laneMeanWinRate: 50,
+      challengerWinRate: 56,
+      allWinRate: 52,
+      patchNudge: 0.5,
+    });
+    expect(result.score).toBeGreaterThan(45);
+    expect(result.score).toBeLessThan(60);
+
+    const fit = draftFitScore(
+      {
+        slug: 'ahri',
+        name: 'Ahri',
+        lane: 'Mid',
+        letter: 'A',
+        score: result.score,
+        winRate: 54,
+        roles: ['mage'],
+      },
+      {},
+    );
+    expect(fit.score).toBeGreaterThanOrEqual(40);
+    expect(fit.score).toBeLessThanOrEqual(99);
+  });
+});
+
+describe('applyLetterAdjustment', () => {
+  it('clamps to one letter toward S or C', () => {
+    expect(applyLetterAdjustment('A', 1)).toBe('S');
+    expect(applyLetterAdjustment('A', -1)).toBe('B');
+    expect(applyLetterAdjustment('S', 1)).toBe('S');
+    expect(applyLetterAdjustment('C', -1)).toBe('C');
+    expect(applyLetterAdjustment('B', 4)).toBe('A');
   });
 });
