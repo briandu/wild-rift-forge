@@ -33,6 +33,7 @@ export function AbilityStrip({
               className={`${styles.icon} ${size === 'lg' ? styles.iconLg : ''} ${selected ? styles.iconActive : ''}`}
               onMouseEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
+              onClick={() => setActive(i)}
               aria-label={`${ability.key}: ${ability.name}`}
             >
               {ability.imageUrl ? (
@@ -61,7 +62,7 @@ export function AbilityStrip({
             <span className={styles.key}>{current.key}</span>
             <span className={styles.name}>{current.name}</span>
           </div>
-          <p className={styles.hint}>Hover an ability for details</p>
+          <p className={styles.hint}>{current.cooldownLabel ?? 'Hover an ability for details'}</p>
           <p className={styles.desc}>{current.description}</p>
         </div>
       ) : null}

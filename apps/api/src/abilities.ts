@@ -7,6 +7,10 @@ export interface AbilityDto {
   description: string;
   imageUrl?: string;
   videoUrl?: string;
+  cooldown?: Array<number | null>;
+  cost?: { type: string; values: Array<number | null> };
+  numericSummary?: string;
+  snapshotPatch?: string;
 }
 
 export function toAbilityDtos(rows: StoredChampionAbility[]): AbilityDto[] {
@@ -16,6 +20,10 @@ export function toAbilityDtos(rows: StoredChampionAbility[]): AbilityDto[] {
     description: row.description ?? '',
     imageUrl: row.iconUrl ?? undefined,
     videoUrl: row.videoUrl ?? undefined,
+    cooldown: row.cooldown ?? undefined,
+    cost: row.cost ?? undefined,
+    numericSummary: row.numericSummary ?? undefined,
+    snapshotPatch: row.snapshotPatch ?? undefined,
   }));
 }
 

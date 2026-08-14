@@ -45,6 +45,8 @@ export {
   replaceChampionAbilities,
   listChampionAbilities,
   listAbilitiesBySlug,
+  upsertChampionAbilityGameplay,
+  type ChampionAbilityGameplay,
   type StoredChampionAbility,
 } from './champion-abilities';
 export {

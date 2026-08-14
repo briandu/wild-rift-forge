@@ -6,6 +6,10 @@ export interface AbilityDto {
   description: string;
   imageUrl?: string;
   videoUrl?: string;
+  cooldown?: Array<number | null>;
+  cost?: { type: string; values: Array<number | null> };
+  numericSummary?: string;
+  snapshotPatch?: string;
 }
 
 export interface ApiChampion extends Champion {
@@ -97,6 +101,7 @@ export interface TierPlacementDto {
   banRate: number;
   thumbnailUrl: string | null;
   imageUrl: string | null;
+  why: string | null;
 }
 
 export interface TiersResponse {
@@ -114,7 +119,7 @@ export interface PatchChampionChangeDto {
   kind: 'BUFF' | 'NERF' | 'ADJUST';
   wr: string | null;
   wrShift: number | null;
-  lines: Array<{ k: string; t: string }>;
+  lines: Array<{ k: string; t: string; imageUrl?: string }>;
   abilities?: AbilityDto[];
 }
 

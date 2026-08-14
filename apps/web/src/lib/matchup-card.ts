@@ -1,4 +1,5 @@
 import { matchupVerdict } from '@wild-rift-forge/game-data';
+import { composeAbilityText } from './abilities';
 import type { AbilityDto, ApiChampion, MatchupResponse, MatchupSideDto } from './api-types';
 import { FACE_FALLBACK_BG, roleLabel } from './champions';
 
@@ -11,6 +12,7 @@ export type MatchupAbilityRow = {
   k: string;
   n: string;
   note: string;
+  imageUrl?: string;
 };
 
 export type MatchupSideCard = {
@@ -86,7 +88,10 @@ function abilityRows(own: boolean, abilities: AbilityDto[] | undefined): Matchup
     own,
     k: ability.key,
     n: ability.name,
-    note: ability.description || 'Kit text is not uploaded for this ability yet.',
+    note:
+      composeAbilityText(ability.description, ability.numericSummary) ||
+      'Kit text is not uploaded for this ability yet.',
+    imageUrl: ability.imageUrl,
   }));
 }
 
