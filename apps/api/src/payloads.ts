@@ -18,6 +18,7 @@ import {
   buildLaneCounters,
   formatWinRate,
   matchupVerdict,
+  patchAbilityKey,
   type ChangeType,
   type PatchAnalysisPayload,
   type RankBracket,
@@ -311,7 +312,20 @@ export async function getTiersPayload(query: { bracket?: unknown; lane?: unknown
       snapshotDate: snapshotDate || null,
       patchVersion: patch?.version ?? null,
       sourceLabel: bracketLabel(bracket),
-      placements,
+      placements: placements.map((row) => ({
+        slug: row.slug,
+        name: row.name,
+        lane: row.lane,
+        letter: row.letter,
+        score: row.score,
+        rankInLane: row.rankInLane,
+        winRate: row.winRate,
+        pickRate: row.pickRate,
+        banRate: row.banRate,
+        thumbnailUrl: row.thumbnailUrl,
+        imageUrl: row.imageUrl,
+        why: row.why ?? null,
+      })),
     };
   } catch (err) {
     console.warn('listLatestTierPlacements failed:', err instanceof Error ? err.message : err);
@@ -355,17 +369,9 @@ function groupKind(types: ChangeType[]): 'BUFF' | 'NERF' | 'ADJUST' {
   return 'ADJUST';
 }
 
-function lineKey(ability: string | null): string {
-  if (!ability) {
-    return '—';
-  }
-  if (/base stats/i.test(ability)) {
-    return 'Base';
-  }
-  if (/^passive$/i.test(ability)) {
-    return 'P';
-  }
-  return ability.slice(0, 1).toUpperCase();
+function metadataIconUrl(metadata: Record<string, unknown> | null): string | undefined {
+  const url = metadata?.iconUrl;
+  return typeof url === 'string' && url.length > 0 ? url : undefined;
 }
 
 function lineText(property: string | null, description: string | null): string {
@@ -435,7 +441,13 @@ export async function getLatestPatchPayload() {
 
   const grouped = new Map<
     string,
-    { name: string; slug: string; kinds: ChangeType[]; lines: Array<{ k: string; t: string }> }
+    {
+      name: string;
+      slug: string;
+      kinds: ChangeType[];
+      lines: Array<{ k: string; t: string; imageUrl?: string }>;
+      abilities: ReturnType<typeof toAbilityDtos>;
+    }
   >();
   const items: string[] = [];
   for (const change of changes) {
@@ -454,11 +466,16 @@ export async function getLatestPatchPayload() {
       slug,
       kinds: [],
       lines: [],
+      abilities: toAbilityDtos(kits.get(slug) ?? []),
     };
     current.kinds.push(change.changeType);
     const text = lineText(change.property, change.description);
     if (text) {
-      current.lines.push({ k: lineKey(change.ability), t: text });
+      current.lines.push({
+        k: patchAbilityKey(change.ability, current.abilities),
+        t: text,
+        imageUrl: metadataIconUrl(change.metadata),
+      });
     }
     grouped.set(slug, current);
   }
@@ -475,7 +492,7 @@ export async function getLatestPatchPayload() {
       wr: current ? `${current.winRate.toFixed(1)}%` : null,
       wrShift,
       lines: group.lines.slice(0, 6),
-      abilities: toAbilityDtos(kits.get(group.slug) ?? []),
+      abilities: group.abilities,
     };
   });
 
