@@ -48,3 +48,13 @@ jobs:
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Email pool patch alerts
+        if: steps.patch.outputs.inserted == 'true'
+        run: node scripts/send-account-alerts.mjs --kind=pool
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          SITE_URL: https://wildriftforge.com

@@ -27,7 +27,8 @@
     "typecheck": "tsc --noEmit && npm run --workspace @wild-rift-forge/web typecheck && npm run --workspace @wild-rift-forge/api typecheck",
     "emails:smtp": "node scripts/configure-resend-smtp.mjs",
     "emails:push": "node scripts/push-auth-email-templates.mjs",
-    "emails:digest": "node scripts/send-weekly-digest.mjs"
+    "emails:digest": "node scripts/send-weekly-digest.mjs",
+    "emails:alerts": "node scripts/send-account-alerts.mjs"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",

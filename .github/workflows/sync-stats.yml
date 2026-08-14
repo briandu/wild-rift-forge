@@ -29,3 +29,12 @@ jobs:
         run: npm run scrape:stats
         env:
           SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+
+      - name: Email tier shift alerts
+        run: node scripts/send-account-alerts.mjs --kind=tier
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          SITE_URL: https://wildriftforge.com
