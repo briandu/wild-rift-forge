@@ -1,5 +1,5 @@
 import type { ApiChampion, TierPlacementDto } from './api-types';
-import { bestPlacement, placementsForSlug } from './placements';
+import { bestPlacement, parseTierLane, placementsForSlug } from './placements';
 
 export function playsLane(placements: TierPlacementDto[], slug: string, lane: string): boolean {
   return placementsForSlug(placements, slug).some((row) => row.lane === lane);
@@ -12,7 +12,7 @@ export function poolInLane(pool: string[], placements: TierPlacementDto[], lane:
 }
 
 function pickRateInLane(placements: TierPlacementDto[], slug: string, lane: string): number {
-  return bestPlacement(placementsForSlug(placements, slug), lane)?.pickRate ?? 0;
+  return bestPlacement(placementsForSlug(placements, slug), parseTierLane(lane))?.pickRate ?? 0;
 }
 
 export function commonLaneChampions(

@@ -26,7 +26,7 @@ describe('firstNameFromUser', () => {
       firstNameFromUser(
         user({
           user_metadata: {},
-          identities: [{ identity_data: { given_name: 'Brian', full_name: 'Brian Du' } }] as User['identities'],
+          identities: [{ identity_data: { given_name: 'Brian', full_name: 'Brian Du' } }] as unknown as User['identities'],
         }),
       ),
     ).toBe('Brian');
