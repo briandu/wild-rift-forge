@@ -12,6 +12,11 @@
     "icon-signatures": "tsx src/index.ts icon-signatures",
     "stats": "tsx src/index.ts stats",
     "analyze-patch": "tsx src/index.ts analyze-patch",
+    "tiers:preview": "tsx src/index.ts tiers:preview",
+    "tiers:recompute": "tsx src/index.ts tiers:recompute",
+    "tiers:explain": "tsx src/index.ts tiers:explain",
+    "tiers:review": "tsx src/index.ts tiers:review",
+    "tiers:update": "tsx src/index.ts tiers:update",
     "test": "vitest run"
   },
   "dependencies": {

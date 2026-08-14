@@ -5,9 +5,13 @@ import { backfillPatches } from './jobs/backfill-patches';
 import { syncChampions } from './jobs/sync-champions';
 import { syncChampionAssets } from './jobs/sync-champion-assets';
 import { syncChampionThumbnails } from './jobs/sync-champion-thumbnails';
-import { syncChampionStats } from './jobs/sync-stats';
+import { recomputeTierPlacements, syncChampionStats } from './jobs/sync-stats';
 import { syncIconSignatures } from './jobs/sync-icon-signatures';
 import { analyzePatch } from './jobs/analyze-patch';
+import { previewTierDiff } from './jobs/preview-tiers';
+import { explainTierPlacements } from './jobs/explain-tiers';
+import { reviewTierPlacements } from './jobs/review-tiers';
+import { updateTiersWithSol } from './jobs/update-tiers';
 
 function getFlag(name: string, fallback: number): number {
   const index = process.argv.indexOf(`--${name}`);
@@ -55,6 +59,26 @@ async function main(): Promise<void> {
     case 'analyze-patch':
       await analyzePatch(getStringFlag('version'));
       break;
+    case 'tiers:preview':
+    case 'preview-tiers':
+      await previewTierDiff();
+      break;
+    case 'tiers:recompute':
+    case 'recompute-tiers':
+      await recomputeTierPlacements();
+      break;
+    case 'tiers:explain':
+    case 'explain-tiers':
+      await explainTierPlacements();
+      break;
+    case 'tiers:review':
+    case 'review-tiers':
+      await reviewTierPlacements();
+      break;
+    case 'tiers:update':
+    case 'update-tiers':
+      await updateTiersWithSol();
+      break;
     default:
       console.log('Usage: scraper <command>');
       console.log('  latest                      ingest the latest patch if new');
@@ -73,6 +97,11 @@ async function main(): Promise<void> {
       );
       console.log('  stats                       ingest Tencent CN stats and recompute tiers');
       console.log('  analyze-patch [--version V]  ChatGPT commentary for a stored patch');
+      console.log('  tiers:preview                diff cn_stats_v1 vs blended_v1 on the latest snapshot');
+      console.log('  tiers:recompute              write both rulesets from stored snapshots');
+      console.log('  tiers:explain                write AI why-text for the latest live tier list');
+      console.log('  tiers:review                 Sol ±1 letter review for surprising placements');
+      console.log('  tiers:update                 review, apply moves, then refresh explanations');
       process.exitCode = 1;
   }
 }

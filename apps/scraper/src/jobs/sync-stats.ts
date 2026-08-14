@@ -1,23 +1,36 @@
 import {
+  getLatestPatch,
+  getLatestSnapshotDate,
+  getPreviousSnapshotDate,
   insertRawSource,
   insertStatSnapshots,
   listChampions,
-  listSnapshotsForDate,
+  listPatchChanges,
+  listSnapshotDates,
+  listPlacementsForDate,
+  listSnapshotsForDateAllBrackets,
+  listTierAdjustments,
   replaceTierPlacements,
   type StatSnapshotInput,
-  type TierPlacementInput,
 } from '@wild-rift-forge/database';
 import {
-  assignTierLetter,
-  championTierScore,
-  TIER_LANES,
-  tierBandCounts,
+  adjustmentKey,
+  DEFAULT_RANK_BRACKET,
+  TIER_RULESET_BLENDED,
+  TIER_RULESET_CN,
   type RankBracket,
 } from '@wild-rift-forge/game-data';
 import { fetchJson } from '../fetchers/fetch-json';
 import { parseTencentHeroList, parseRy2xHeroMap } from '../sources/tencent/hero-list.parser';
 import { matchHeroToRoster } from '../sources/tencent/hero-map';
 import { parseRy2xHeroStats, parseTencentHeroRank } from '../sources/tencent/stats.parser';
+import {
+  championNudgesFromChanges,
+  nudgeByChampionId,
+  placementsFromBlended,
+  placementsFromCnStats,
+  type TierAdjustmentMap,
+} from '../tiers/compute';
 
 export const TENCENT_STATS_URL = 'https://mlol.qt.qq.com/go/lgame_battle_info/hero_rank_list_v2';
 export const TENCENT_HERO_LIST_URL =
@@ -97,39 +110,92 @@ async function loadStatRows(): Promise<{
   }
 }
 
-function placementsFromSnapshots(
-  snapshots: Awaited<ReturnType<typeof listSnapshotsForDate>>,
-): TierPlacementInput[] {
-  const out: TierPlacementInput[] = [];
-  for (const lane of TIER_LANES) {
-    const laneRows = snapshots
-      .filter((row) => row.lane === lane)
-      .map((row) => ({
-        ...row,
-        score: championTierScore(row.winRate, row.pickRate, row.banRate),
-      }))
-      .sort((a, b) => b.score - a.score || b.winRate - a.winRate);
-    const counts = tierBandCounts(laneRows.length);
-    laneRows.forEach((row, index) => {
-      const rankInLane = index + 1;
-      out.push({
-        snapshotDate: row.snapshotDate,
-        championId: row.championId,
-        lane: row.lane,
-        rankBracket: row.rankBracket,
-        letter: assignTierLetter(rankInLane, counts),
-        score: row.score,
-        rankInLane,
-        winRate: row.winRate,
-        pickRate: row.pickRate,
-        banRate: row.banRate,
-      });
-    });
+async function loadStoredAdjustments(): Promise<TierAdjustmentMap> {
+  const [patch, snapshotDate] = await Promise.all([
+    getLatestPatch(),
+    getLatestSnapshotDate(DEFAULT_RANK_BRACKET),
+  ]);
+  const cycleKey = patch?.version ?? snapshotDate;
+  if (!cycleKey) {
+    return new Map();
   }
-  return out;
+  const rows = await listTierAdjustments(cycleKey, TIER_RULESET_BLENDED);
+  return new Map(rows.map((row) => [adjustmentKey(row.championId, row.lane), row.delta]));
 }
 
-export async function syncChampionStats(): Promise<SyncStatsResult> {
+async function writePlacementsForDate(
+  snapshotDate: string,
+  adjustments: TierAdjustmentMap,
+  roster: Array<{ id: number; slug: string }>,
+): Promise<void> {
+  const [allRows, patch] = await Promise.all([
+    listSnapshotsForDateAllBrackets(snapshotDate),
+    getLatestPatch(),
+  ]);
+  if (allRows.length === 0) {
+    return;
+  }
+  const changes = patch ? await listPatchChanges(patch.id) : [];
+  const nudgeByChampion = nudgeByChampionId(
+    championNudgesFromChanges(changes, roster, matchHeroToRoster),
+    patch?.releaseDate,
+    snapshotDate,
+  );
+
+  for (const bracket of BRACKETS) {
+    const bracketRows = allRows.filter((row) => row.rankBracket === bracket);
+    if (bracketRows.length === 0) {
+      continue;
+    }
+    await replaceTierPlacements(
+      snapshotDate,
+      bracket,
+      TIER_RULESET_CN,
+      placementsFromCnStats(bracketRows),
+    );
+    const previousDate = await getPreviousSnapshotDate(bracket, snapshotDate);
+    const previous = previousDate
+      ? await listPlacementsForDate(previousDate, bracket, TIER_RULESET_BLENDED)
+      : [];
+    await replaceTierPlacements(
+      snapshotDate,
+      bracket,
+      TIER_RULESET_BLENDED,
+      placementsFromBlended({
+        snapshots: allRows,
+        bracket,
+        previous,
+        nudgeByChampion,
+        adjustments,
+      }),
+    );
+  }
+}
+
+/** Rebuild both rulesets from stored snapshots. Does not fetch Tencent. */
+export async function recomputeTierPlacements(
+  adjustments: TierAdjustmentMap = new Map(),
+): Promise<{ dates: string[] }> {
+  const roster = await listChampions();
+  if (roster.length === 0) {
+    throw new Error('Champion roster is empty — run scrape:champions first');
+  }
+  const dates = await listSnapshotDates();
+  const stored = await loadStoredAdjustments();
+  const merged = new Map([...stored, ...adjustments]);
+  for (const snapshotDate of dates) {
+    await writePlacementsForDate(snapshotDate, merged, roster);
+    console.log(`Recomputed cn_stats_v1 + blended_v1 for ${snapshotDate}.`);
+  }
+  if (dates.length === 0) {
+    console.log('No ranked snapshots stored. Run scrape:stats first.');
+  }
+  return { dates };
+}
+
+export async function syncChampionStats(
+  adjustments: TierAdjustmentMap = new Map(),
+): Promise<SyncStatsResult> {
   const roster = await listChampions();
   if (roster.length === 0) {
     throw new Error('Champion roster is empty — run scrape:champions first');
@@ -149,6 +215,7 @@ export async function syncChampionStats(): Promise<SyncStatsResult> {
     parserVersion: PARSER_VERSION,
   });
 
+  const patch = await getLatestPatch();
   const snapshots: StatSnapshotInput[] = [];
   const unmatchedIds = new Set<string>();
   for (const row of rows) {
@@ -170,19 +237,16 @@ export async function syncChampionStats(): Promise<SyncStatsResult> {
       tencentStrength: row.strength,
       tencentStrengthLevel: row.strengthLevel,
       sourceUrl,
+      patchVersion: patch?.version ?? null,
     });
   }
 
   const inserted = await insertStatSnapshots(snapshots);
   const snapshotDates = [...new Set(snapshots.map((row) => row.snapshotDate))].sort();
+  const stored = await loadStoredAdjustments();
+  const merged = new Map([...stored, ...adjustments]);
   for (const snapshotDate of snapshotDates) {
-    for (const bracket of BRACKETS) {
-      const dayRows = await listSnapshotsForDate(snapshotDate, bracket);
-      if (dayRows.length === 0) {
-        continue;
-      }
-      await replaceTierPlacements(snapshotDate, bracket, placementsFromSnapshots(dayRows));
-    }
+    await writePlacementsForDate(snapshotDate, merged, roster);
   }
 
   console.log(

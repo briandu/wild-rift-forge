@@ -5,10 +5,10 @@ import {
   getPatchAnalysis,
   getPatchByVersion,
   getPreviousSnapshotDate,
-  insertPatchAnalysis,
   listChampions,
   listPatchChanges,
   listWinRatesByChampion,
+  upsertPatchAnalysis,
 } from '@wild-rift-forge/database';
 import type { PatchAnalysisPayload } from '@wild-rift-forge/game-data';
 import { matchHeroToRoster } from '../sources/tencent/hero-map';
@@ -56,7 +56,32 @@ const ANALYSIS_SCHEMA = {
 
 export interface AnalyzePatchResult {
   version: string;
-  status: 'written' | 'skipped' | 'missing-key';
+  status: 'written' | 'updated' | 'skipped' | 'missing-key';
+}
+
+export interface PatchNoteFingerprintInput {
+  version: string;
+  title: string;
+  champions: Array<{ slug: string; name: string; changes: string[] }>;
+  items: string[];
+}
+
+/** Stable hash of stored patch-note facts. Live win rates are excluded. */
+export function fingerprintPatchNotes(input: PatchNoteFingerprintInput): string {
+  return createHash('sha256')
+    .update(
+      JSON.stringify({
+        version: input.version,
+        title: input.title,
+        champions: input.champions,
+        items: input.items,
+      }),
+    )
+    .digest('hex');
+}
+
+export function analysisIsCurrent(existingHash: string | undefined, nextHash: string): boolean {
+  return existingHash === nextHash;
 }
 
 function parsePayload(raw: unknown, allowedSlugs: Set<string>): PatchAnalysisPayload {
@@ -126,6 +151,11 @@ async function completeAnalysis(prompt: string, apiKey: string): Promise<unknown
   });
   if (!response.ok) {
     const detail = await response.text();
+    if (response.status === 429 && detail.includes('insufficient_quota')) {
+      throw new Error(
+        'OpenAI rejected the request: this API key has no remaining quota. Add billing at https://platform.openai.com/settings/organization/billing and re-run scrape:analyze-patch.',
+      );
+    }
     throw new Error(`OpenAI HTTP ${response.status}: ${detail.slice(0, 400)}`);
   }
   const json = (await response.json()) as {
@@ -145,26 +175,12 @@ export async function analyzePatch(version?: string): Promise<AnalyzePatchResult
   }
 
   const existing = await getPatchAnalysis(patch.id);
-  if (existing) {
-    console.log(`Patch ${patch.version} already has analysis. Skipping.`);
-    return { version: patch.version, status: 'skipped' };
-  }
-
   const apiKey = process.env.OPENAI_API_KEY?.trim();
-  if (!apiKey) {
-    console.log('OPENAI_API_KEY is not set — skipping patch commentary.');
-    return { version: patch.version, status: 'missing-key' };
-  }
 
   const roster = await listChampions();
   const slugs = roster.map((champion) => champion.slug);
   const allowedSlugs = new Set(slugs);
   const changes = await listPatchChanges(patch.id);
-
-  const latestDate = await getLatestSnapshotDate('diamond_plus');
-  const prevDate = latestDate ? await getPreviousSnapshotDate('diamond_plus', latestDate) : null;
-  const latestRates = latestDate ? await listWinRatesByChampion(latestDate, 'diamond_plus') : new Map();
-  const prevRates = prevDate ? await listWinRatesByChampion(prevDate, 'diamond_plus') : new Map();
 
   const championBlocks = new Map<
     string,
@@ -199,7 +215,35 @@ export async function analyzePatch(version?: string): Promise<AnalyzePatchResult
     championBlocks.set(key, current);
   }
 
-  const championFacts = [...championBlocks.values()].map((block) => {
+  const noteChampions = [...championBlocks.values()].map((block) => ({
+    slug: block.slug,
+    name: block.name,
+    changes: block.lines.slice(0, 8),
+  }));
+  const noteItems = itemLines.slice(0, 20);
+  const promptHash = fingerprintPatchNotes({
+    version: patch.version,
+    title: patch.title,
+    champions: noteChampions,
+    items: noteItems,
+  });
+
+  if (analysisIsCurrent(existing?.promptHash, promptHash)) {
+    console.log(`Patch ${patch.version} commentary is current. Skipping OpenAI.`);
+    return { version: patch.version, status: 'skipped' };
+  }
+
+  if (!apiKey) {
+    console.log('OPENAI_API_KEY is not set — skipping patch commentary.');
+    return { version: patch.version, status: 'missing-key' };
+  }
+
+  const latestDate = await getLatestSnapshotDate('diamond_plus');
+  const prevDate = latestDate ? await getPreviousSnapshotDate('diamond_plus', latestDate) : null;
+  const latestRates = latestDate ? await listWinRatesByChampion(latestDate, 'diamond_plus') : new Map();
+  const prevRates = prevDate ? await listWinRatesByChampion(prevDate, 'diamond_plus') : new Map();
+
+  const championFacts = noteChampions.map((block) => {
     const rates = block.slug ? latestRates.get(block.slug) : undefined;
     const prev = block.slug ? prevRates.get(block.slug) : undefined;
     const wr =
@@ -212,7 +256,7 @@ export async function analyzePatch(version?: string): Promise<AnalyzePatchResult
       slug: block.slug,
       name: block.name,
       wr,
-      changes: block.lines.slice(0, 8),
+      changes: block.changes,
     };
   });
 
@@ -225,23 +269,26 @@ export async function analyzePatch(version?: string): Promise<AnalyzePatchResult
     JSON.stringify(championFacts, null, 2),
     '',
     'Item / system changes:',
-    itemLines.slice(0, 20).join('\n') || '(none)',
+    noteItems.join('\n') || '(none)',
   ].join('\n');
 
-  const promptHash = createHash('sha256').update(prompt).digest('hex');
   const raw = await completeAnalysis(prompt, apiKey);
   const payload = parsePayload(raw, allowedSlugs);
 
-  const written = await insertPatchAnalysis({
+  const written = await upsertPatchAnalysis({
     patchId: patch.id,
     model: MODEL,
     promptHash,
     payload,
   });
-  console.log(
-    written.inserted
-      ? `Stored analysis for patch ${patch.version} (${MODEL}).`
-      : `Patch ${patch.version} analysis already existed.`,
-  );
-  return { version: patch.version, status: written.inserted ? 'written' : 'skipped' };
+  if (written.updated) {
+    console.log(`Updated analysis for patch ${patch.version} (${MODEL}) — notes changed.`);
+    return { version: patch.version, status: 'updated' };
+  }
+  if (written.inserted) {
+    console.log(`Stored analysis for patch ${patch.version} (${MODEL}).`);
+    return { version: patch.version, status: 'written' };
+  }
+  console.log(`Patch ${patch.version} commentary is current. Skipping OpenAI.`);
+  return { version: patch.version, status: 'skipped' };
 }
