@@ -51,7 +51,7 @@ function useSheetSnaps() {
     function measure() {
       const styles = getComputedStyle(document.documentElement);
       const header = Number.parseInt(styles.getPropertyValue('--shell-height')) || 62;
-      const navHeight = Number.parseInt(styles.getPropertyValue('--mobile-nav-height')) || 72;
+      const navHeight = Number.parseInt(styles.getPropertyValue('--mobile-nav-height')) || 84;
       const vh = window.visualViewport?.height ?? window.innerHeight;
       setMaxFull(Math.max(PEEK + 80, Math.floor(vh - header - navHeight - 12)));
     }

@@ -19,7 +19,7 @@
   --danger: #e58b7b;
   --ally: #7bc4e0;
   --shell-height: 78px;
-  --mobile-nav-height: 72px;
+  --mobile-nav-height: 84px;
 }
 
 @media (max-width: 600px) {
