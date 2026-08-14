@@ -11,15 +11,16 @@
   "dependencies": {
     "@supabase/ssr": "^0.12.4",
     "@supabase/supabase-js": "^2.112.3",
+    "@vercel/analytics": "^2.0.1",
     "@wild-rift-forge/api": "*",
     "@wild-rift-forge/database": "*",
     "@wild-rift-forge/game-data": "*",
     "@wild-rift-forge/vision": "*",
-    "server-only": "^0.0.1",
     "fuse.js": "^7.5.0",
     "next": "^15.5.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@types/react": "^19.1.0",
