@@ -1,0 +1,28 @@
+---
+description: How authored matchup guides are generated, cached, and spend-capped
+globs: ["apps/api/src/generate-matchup.ts", "apps/scraper/src/jobs/generate-matchup.ts", "packages/database/src/matchup-guides.ts", "apps/web/src/lib/matchup-card.ts", "apps/web/src/components/MatchupView.tsx"]
+alwaysApply: false
+---
+
+# Matchup generation
+
+Page load **checks for a stored guide first**. If one exists, show it. If not, show the modelled read and generate in the background (`ensureMatchupGuide`). Do not block the response on OpenAI.
+
+## Model
+
+Judgment copy uses `gpt-5.6-sol` + `reasoning_effort: "high"`. Verdict, score, and difficulty stay computed in code (`matchupVerdict`). Do not ask the model who wins.
+
+## Spend
+
+Reserve a slot in `matchup_generation_usage` **before** the OpenAI call. Defaults: 2 in flight, 8/hour, 40/day. `OPENAI_MATCHUP_GENERATION=off` is a kill switch. Fail closed on a missing key. Same pairing is generated once (`kit_hash`); number-only patches reuse punish/trade copy unless a rework/new ability lands.
+
+## Editorial rules
+
+Player-facing constraints live in `MATCHUP_GUIDE_RULES` in `apps/api/src/generate-matchup.ts`. Append a line there when policy changes, then bump `MATCHUP_PROMPT_VERSION` so existing guides refresh. Do not invent items, runes, or pairwise samples. Write only from the locked `you` champion — Garen vs Darius is not Darius vs Garen.
+
+## Do not
+
+- Pregenerate the full champion grid
+- Raise model/effort “to be safe”
+- Let a page view bypass the budget reserve
+- Treat the Coaching “Generate” button as matchup generation (it only restates the snapshot)

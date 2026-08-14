@@ -14,6 +14,7 @@ import {
 import { createPortal } from 'react-dom';
 import type { AbilityInfo } from '@/lib/abilities';
 import { parseAbilityMentions } from '@/lib/ability-mentions';
+import { AbilityMarkup, AbilityMeta } from './AbilityMarkup';
 import styles from './AbilityTip.module.css';
 
 export type AbilityTipPayload = {
@@ -122,9 +123,12 @@ function AbilityTipOverlay({ tip }: { tip: AbilityTipPayload }) {
         <div>
           <div className={styles.slot}>{tip.slot}</div>
           <div className={styles.name}>{tip.name}</div>
+          <AbilityMeta abilityKey={tip.letter} description={tip.text} />
         </div>
       </div>
-      <p className={styles.text}>{tip.text}</p>
+      <p className={styles.text}>
+        <AbilityMarkup text={tip.text} />
+      </p>
     </div>
   );
   return createPortal(box, document.body);
@@ -202,18 +206,22 @@ export function AbilityRichText({
     <>
       {segs.map((seg, index) =>
         seg.kind === 'text' ? (
-          <span key={`t${index}`}>{seg.t}</span>
+          <span key={`t${index}`}>
+            <AbilityMarkup text={seg.t} />
+          </span>
         ) : (
-          <AbilityChip
-            key={seg.id}
-            id={seg.id}
-            slot={seg.slot}
-            name={seg.name}
-            text={seg.text}
-            letter={seg.key}
-            imageUrl={seg.imageUrl}
-            size={size}
-          />
+          <span key={seg.id}>
+            <AbilityChip
+              id={seg.id}
+              slot={seg.slot}
+              name={seg.name}
+              text={seg.text}
+              letter={seg.key}
+              imageUrl={seg.imageUrl}
+              size={size}
+            />
+            {seg.label ? seg.label : null}
+          </span>
         ),
       )}
     </>

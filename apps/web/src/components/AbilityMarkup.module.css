@@ -1,0 +1,111 @@
+.root {
+  --ability-physical: #e08a4a;
+  --ability-magic: #7fd4ff;
+  --ability-true: #e8d48a;
+  --ability-heal: #5cff6a;
+  --ability-ap: #c090ff;
+  --ability-cc: #d080ff;
+  --ability-health: #7cff8a;
+  --ability-cooldown: #b8a3ff;
+  --ability-passive: #c8c4d8;
+  --ability-buff: #b6e04a;
+}
+
+.physical,
+.ad,
+.tagPhysical {
+  color: var(--ability-physical);
+}
+
+.magic,
+.tagMagic {
+  color: var(--ability-magic);
+}
+
+.true,
+.tagTrue {
+  color: var(--ability-true);
+}
+
+.heal,
+.shield,
+.tagHeal,
+.tagShield {
+  color: var(--ability-heal);
+}
+
+.ap {
+  color: var(--ability-ap);
+}
+
+.cc {
+  color: var(--ability-cc);
+}
+
+.health,
+.armor,
+.mr {
+  color: var(--ability-health);
+}
+
+.armor {
+  color: #d8c48a;
+}
+
+.mr {
+  color: var(--ability-ap);
+}
+
+.note {
+  color: var(--text-extra-dim);
+}
+
+.text {
+  color: inherit;
+}
+
+.icon {
+  display: inline-block;
+  width: 0.95em;
+  height: 0.95em;
+  margin: 0 0.14em;
+  vertical-align: -0.16em;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.tagPassive {
+  color: var(--ability-passive);
+}
+
+.tagBuff,
+.tagControl {
+  color: var(--ability-buff);
+}
+
+.cooldown {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ability-cooldown);
+  font-weight: 600;
+}
+
+.cost {
+  color: var(--text-extra-dim);
+  font-weight: 500;
+}

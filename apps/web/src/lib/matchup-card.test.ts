@@ -59,6 +59,43 @@ describe('buildMatchupCard', () => {
   });
 });
 
+describe('buildMatchupCard with a stored guide', () => {
+  it('uses authored copy and keeps the computed lane verdict', () => {
+    const card = buildMatchupCard(
+      {
+        ...live,
+        guide: {
+          oneThing: 'Do not let Darius extend the fight past two autos.',
+          style: 'CAUTIOUS / SHORT TRADES',
+          stylePos: 26,
+          phases: [
+            { n: 'EARLY', t: 'Levels 1–4', body: 'Concede the first two waves.' },
+            { n: 'MID', t: 'Levels 5–10', body: 'Look for the ultimate window.' },
+            { n: 'LATE', t: 'Levels 11+', body: 'Stop duelling him in the side lane.' },
+          ],
+          trades: {
+            good: { steps: ['Missed Q', 'Silence', 'Two autos'], out: 'Reset the wave.' },
+            bad: { steps: ['Stay in melee', 'Five stacks', 'Execute'], out: 'He takes the lane.' },
+          },
+          mistakes: ['Spending Courage on his Q.'],
+          tags: ['Fighter'],
+          patchVersion: '7.2c',
+        },
+      },
+      'garen',
+      'darius',
+      'Top',
+      [],
+    );
+    expect(card.authored).toBe(true);
+    expect(card.rule).toContain('Do not let Darius extend');
+    expect(card.verdict).toBe('GAREN FAVOURED');
+    expect(card.freshness).toContain('7.2c');
+    expect(card.quick.map((chip) => chip.k)).toContain('PLAYSTYLE');
+    expect(JSON.stringify(card)).not.toContain('Plated Steelcaps');
+  });
+});
+
 describe('savedLaneVerdict', () => {
   it('uses live rates and does not invent a favourite without them', () => {
     expect(savedLaneVerdict('Garen', 'Darius', 54, 50)).toEqual({

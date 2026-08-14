@@ -17,6 +17,7 @@ export type {
   IconSignatureDto,
   IconSignaturesResponse,
   LatestPatchResponse,
+  MatchupGuideDto,
   MatchupResponse,
   PatchChampionChangeDto,
   TierPlacementDto,

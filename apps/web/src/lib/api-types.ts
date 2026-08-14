@@ -74,6 +74,20 @@ export interface MatchupSideDto {
   pickRate: string | null;
 }
 
+export interface MatchupGuideDto {
+  oneThing: string;
+  style: string;
+  stylePos: number;
+  phases: Array<{ n: string; t: string; body: string }>;
+  trades: {
+    good: { steps: string[]; out: string };
+    bad: { steps: string[]; out: string };
+  };
+  mistakes: string[];
+  tags: string[];
+  patchVersion: string | null;
+}
+
 export interface MatchupResponse {
   you: MatchupSideDto;
   them: MatchupSideDto;
@@ -87,6 +101,7 @@ export interface MatchupResponse {
   freshness: string;
   abilitiesYou: AbilityDto[];
   abilitiesThem: AbilityDto[];
+  guide?: MatchupGuideDto | null;
 }
 
 export interface TierPlacementDto {

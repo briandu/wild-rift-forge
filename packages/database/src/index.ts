@@ -72,3 +72,21 @@ export {
   type StoredTierAdjustment,
   type TierAdjustmentInput,
 } from './tier-adjustments';
+export {
+  getMatchupGuide,
+  upsertMatchupGuide,
+  requestMatchupGuide,
+  listPendingMatchupRequests,
+  markMatchupRequestGenerated,
+  countInFlightMatchupGenerations,
+  claimMatchupGuideRequest,
+  releaseMatchupGuideClaim,
+  tryReserveMatchupGenerationCall,
+  type MatchupGuideContent,
+  type MatchupGuideInput,
+  type MatchupGuidePhase,
+  type MatchupGuideRequest,
+  type MatchupGuideTrades,
+  type MatchupGenerationReserve,
+  type StoredMatchupGuide,
+} from './matchup-guides';

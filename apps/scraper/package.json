@@ -17,10 +17,12 @@
     "tiers:explain": "tsx src/index.ts tiers:explain",
     "tiers:review": "tsx src/index.ts tiers:review",
     "tiers:update": "tsx src/index.ts tiers:update",
+    "matchups:generate": "tsx src/index.ts matchups:generate",
     "test": "vitest run"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.0",
+    "@wild-rift-forge/api": "*",
     "@wild-rift-forge/database": "*",
     "@wild-rift-forge/game-data": "*",
     "@wild-rift-forge/vision": "*",

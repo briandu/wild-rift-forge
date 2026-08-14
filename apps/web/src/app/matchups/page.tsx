@@ -1,6 +1,13 @@
+import { after } from 'next/server';
+import { TIER_LANES, type TierLane } from '@wild-rift-forge/game-data';
+import { ensureMatchupGuide } from '@wild-rift-forge/api/generate-matchup';
 import { MatchupView } from '@/components/MatchupView';
 import { Shell } from '@/components/Shell';
 import { fetchChampions, fetchMatchup } from '@/lib/api';
+
+function asLane(value: string): TierLane {
+  return TIER_LANES.includes(value as TierLane) ? (value as TierLane) : 'Top';
+}
 
 export default async function MatchupsPage({
   searchParams,
@@ -17,6 +24,13 @@ export default async function MatchupsPage({
     'darius';
   const lane = params.lane || 'Top';
   const matchup = await fetchMatchup(you, them, lane);
+  if (matchup && !matchup.guide && you !== them) {
+    after(() =>
+      ensureMatchupGuide({ you, them, lane: asLane(matchup.lane) }).catch((err) => {
+        console.warn('ensureMatchupGuide failed:', err instanceof Error ? err.message : err);
+      }),
+    );
+  }
 
   return (
     <Shell pathname="/matchups">

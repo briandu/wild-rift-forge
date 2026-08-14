@@ -83,6 +83,12 @@ export function sideCard(
   };
 }
 
+const PHASE_COLORS: Record<string, string> = {
+  EARLY: '#E58B7B',
+  MID: '#F0A87B',
+  LATE: '#8FEDB8',
+};
+
 function abilityRows(own: boolean, abilities: AbilityDto[] | undefined): MatchupAbilityRow[] {
   return (abilities ?? []).map((ability) => ({
     own,
@@ -113,9 +119,12 @@ export function buildMatchupCard(
   const themWrN = parseFloat(live?.them.winRate ?? '');
   const hasRates = Number.isFinite(youWrN) && Number.isFinite(themWrN);
   const gap = hasRates ? +(youWrN - themWrN).toFixed(1) : 0;
-  const rule = live
-    ? `${verdict}. These are ${resolvedLane} win rates, not a head-to-head sample.`
-    : 'No ranked snapshot for this pair yet. Pick two champions after stats ingest.';
+  const guide = live?.guide ?? null;
+  const rule = guide
+    ? guide.oneThing
+    : live
+      ? `${verdict}. These are ${resolvedLane} win rates, not a head-to-head sample.`
+      : 'No ranked snapshot for this pair yet. Pick two champions after stats ingest.';
 
   return {
     you,
@@ -127,9 +136,11 @@ export function buildMatchupCard(
     score: live?.score ?? 5,
     confidence: live?.confidence ?? 'No snapshot yet',
     sample: live?.sample ?? 'Pairwise games are not in the dataset yet',
-    freshness: live?.freshness ?? 'Waiting on the next stats ingest.',
+    freshness: guide?.patchVersion
+      ? `Guide written against ${guide.patchVersion} kits. ${live?.freshness ?? ''}`.trim()
+      : live?.freshness ?? 'Waiting on the next stats ingest.',
     rule,
-    authored: false,
+    authored: Boolean(guide),
     modelled: {
       gapLine: hasRates
         ? `${you.name} ${youWrN.toFixed(1)}% · ${them.name} ${themWrN.toFixed(1)}% · ${gap > 0 ? '+' : ''}${gap.toFixed(1)} pts in your favour`
@@ -139,12 +150,13 @@ export function buildMatchupCard(
       notes: [],
     },
     style:
-      side === 'them'
+      guide?.style ??
+      (side === 'them'
         ? 'CAUTIOUS / SHORT TRADES'
         : side === 'you'
           ? 'PRESS / EXTEND'
-          : 'EVEN / PUNISH',
-    stylePos: side === 'them' ? 26 : side === 'you' ? 68 : 50,
+          : 'EVEN / PUNISH'),
+    stylePos: guide?.stylePos ?? (side === 'them' ? 26 : side === 'you' ? 68 : 50),
     quick: [
       {
         k: 'VERDICT',
@@ -153,32 +165,42 @@ export function buildMatchupCard(
       },
       { k: 'YOU', v: live?.you.winRate ?? '—', c: '#9FCBE4' },
       { k: 'THEM', v: live?.them.winRate ?? '—', c: '#E58B7B' },
+      ...(guide
+        ? [{ k: 'PLAYSTYLE', v: guide.style.split(' / ')[0] ?? guide.style, c: '#F0A87B' }]
+        : []),
     ],
-    phases: [
-      {
-        n: 'EARLY',
-        t: 'Levels 1–4',
-        c: '#E58B7B',
-        body: `Play around the ${resolvedLane} win-rate gap. ${you.name} is at ${youWr} this snapshot; ${them.name} is at ${themWr}.`,
-      },
-      {
-        n: 'MID',
-        t: 'Levels 5–10',
-        c: '#F0A87B',
-        body: 'Track ultimates and the first item spike. The numbers above are lane strength, not a scripted trade.',
-      },
-      {
-        n: 'LATE',
-        t: 'Levels 11+',
-        c: '#8FEDB8',
-        body: 'Stop treating this as a pure duel. Group around the win condition your draft actually has.',
-      },
-    ],
+    phases: guide
+      ? guide.phases.map((phase) => ({
+          n: phase.n,
+          t: phase.t,
+          c: PHASE_COLORS[phase.n] ?? '#F0A87B',
+          body: phase.body,
+        }))
+      : [
+          {
+            n: 'EARLY',
+            t: 'Levels 1–4',
+            c: '#E58B7B',
+            body: `Play around the ${resolvedLane} win-rate gap. ${you.name} is at ${youWr} this snapshot; ${them.name} is at ${themWr}.`,
+          },
+          {
+            n: 'MID',
+            t: 'Levels 5–10',
+            c: '#F0A87B',
+            body: 'Track ultimates and the first item spike. The numbers above are lane strength, not a scripted trade.',
+          },
+          {
+            n: 'LATE',
+            t: 'Levels 11+',
+            c: '#8FEDB8',
+            body: 'Stop treating this as a pure duel. Group around the win condition your draft actually has.',
+          },
+        ],
     abilities: [
       ...abilityRows(true, live?.abilitiesYou),
       ...abilityRows(false, live?.abilitiesThem),
     ],
-    mistakes: [
+    mistakes: guide?.mistakes ?? [
       'Reading these lane win rates as a pairwise matchup sample.',
       side === 'them'
         ? `Forcing long fights while ${them.name} holds the ${resolvedLane} rate edge.`
@@ -186,10 +208,12 @@ export function buildMatchupCard(
           ? `Playing scared after ${you.name} already has the ${resolvedLane} rate edge.`
           : 'Overcommitting to a duel when the snapshot says the lane is even.',
     ],
-    tags: (live?.them.roles ?? findChamp(champions, themSlug)?.roles ?? []).map(
-      (role) => role.charAt(0).toUpperCase() + role.slice(1),
-    ),
-    trades: {
+    tags:
+      guide?.tags ??
+      (live?.them.roles ?? findChamp(champions, themSlug)?.roles ?? []).map(
+        (role) => role.charAt(0).toUpperCase() + role.slice(1),
+      ),
+    trades: guide?.trades ?? {
       good: {
         steps: [
           `Respect ${them.name}'s stronger cooldown`,
@@ -244,7 +268,7 @@ export function coachBriefFor(card: MatchupCard): Array<{ n: string; t: string }
       },
       {
         n: '4',
-        t: 'Written breakdowns cover lane phases, ability windows and build reasoning. This pairing is queued behind the ones people open most.',
+        t: 'Written breakdowns cover lane phases, ability windows and build reasoning. Check back shortly while we write this pairing.',
       },
     ];
   }

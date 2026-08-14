@@ -124,6 +124,11 @@ npm run scrape:champion-assets -- --limit 5  # host portraits in Supabase Storag
 npm run scrape:champion-thumbnails -- --limit 200  # WildRiftFire face-crops → Storage
 npm run scrape:stats               # Tencent CN win/pick/ban → snapshots + tier bands
 npm run scrape:analyze-patch       # ChatGPT commentary for a newly ingested patch (optional)
+npm run scrape:matchups-generate -- --you garen --them darius --lane Top
+                                   # write one authored matchup (optional; page views also generate;
+                                   # hard-capped at 2 in flight, 8/hour, 40/day unless env overrides)
+npm run scrape:matchups-generate -- --requested --limit 10
+                                   # drain pairings that were queued while the cap was full
 npm test                           # parser/normalizer tests against committed fixtures
 ```
 

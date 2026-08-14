@@ -26,6 +26,7 @@
     "scrape:tiers-explain": "npm run --workspace @wild-rift-forge/scraper tiers:explain",
     "scrape:tiers-review": "npm run --workspace @wild-rift-forge/scraper tiers:review",
     "scrape:tiers-update": "npm run --workspace @wild-rift-forge/scraper tiers:update",
+    "scrape:matchups-generate": "npm run --workspace @wild-rift-forge/scraper matchups:generate --",
     "design:ingest": "node scripts/ingest-claude-design.mjs",
     "design:preview": "node scripts/preview-claude-design.mjs",
     "test": "vitest run",

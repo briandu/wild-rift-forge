@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./payloads": "./src/payloads.ts"
+    "./payloads": "./src/payloads.ts",
+    "./generate-matchup": "./src/generate-matchup.ts"
   },
   "scripts": {
     "dev": "tsx watch src/index.ts",

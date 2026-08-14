@@ -37,7 +37,7 @@ For a real roster and hosted art: start local Postgres (`node scripts/dev-db.mjs
 | `/` | Homepage search + hero |
 | `/counters/[champion]` | Counter results (lane win-rate gaps from CN stats) |
 | `/champions/[slug]` | Profile + live matchup table |
-| `/matchups` | Pair picker + lane stats (authored Garen/Darius copy kept) |
+| `/matchups` | Pair picker + lane stats; authored plan/trades when a guide is stored |
 | `/draft` | Interactive lobby; suggestions from pool + tier stats |
 | `/login` | Sign in / sign up (Supabase) |
 | `/me` | Account: avatar, pool, saved matchups, settings |

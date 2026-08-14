@@ -2,6 +2,7 @@ import {
   getChampionBySlug,
   getLatestPatch,
   getLatestSnapshotDate,
+  getMatchupGuide,
   getPatchAnalysis,
   getPreviousSnapshotDate,
   listAbilitiesBySlug,
@@ -11,6 +12,8 @@ import {
   listLatestTierPlacements,
   listPatchChanges,
   listWinRatesByChampion,
+  requestMatchupGuide,
+  type StoredMatchupGuide,
 } from '@wild-rift-forge/database';
 import {
   DEFAULT_RANK_BRACKET,
@@ -248,10 +251,19 @@ export async function getMatchupPayload(query: { you?: unknown; them?: unknown; 
   const youWr = youRow?.winRate ?? 50;
   const themWr = themRow?.winRate ?? 50;
   const verdict = matchupVerdict(youWr, themWr);
-  const [youAbilities, themAbilities] = await Promise.all([
+  const [youAbilities, themAbilities, storedGuide] = await Promise.all([
     abilitiesForChampion(youChamp.id),
     abilitiesForChampion(themChamp.id),
+    getMatchupGuide(youChamp.id, themChamp.id, lane).catch((err) => {
+      console.warn('getMatchupGuide failed:', err instanceof Error ? err.message : err);
+      return null;
+    }),
   ]);
+  if (!storedGuide && youChamp.id !== themChamp.id) {
+    void requestMatchupGuide(youChamp.id, themChamp.id, lane).catch((err) => {
+      console.warn('requestMatchupGuide failed:', err instanceof Error ? err.message : err);
+    });
+  }
 
   const sideLabel =
     verdict.side === 'you'
@@ -295,6 +307,20 @@ export async function getMatchupPayload(query: { you?: unknown; them?: unknown; 
       : 'Waiting on the next stats ingest.',
     abilitiesYou: youAbilities,
     abilitiesThem: themAbilities,
+    guide: storedGuide ? toMatchupGuideDto(storedGuide) : null,
+  };
+}
+
+function toMatchupGuideDto(guide: StoredMatchupGuide) {
+  return {
+    oneThing: guide.oneThing,
+    style: guide.style,
+    stylePos: guide.stylePos,
+    phases: guide.phases,
+    trades: guide.trades,
+    mistakes: guide.mistakes,
+    tags: guide.tags,
+    patchVersion: guide.patchVersion,
   };
 }
 

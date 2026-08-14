@@ -1,6 +1,6 @@
 ---
 description: Match LLM model, reasoning effort, and prompt depth to the job — sol 5.6 for trusted rankings/matchups, everyday models for summaries
-globs: ["apps/scraper/src/jobs/**", "apps/scraper/src/tiers/**", "packages/recommendation/**"]
+globs: ["apps/scraper/src/jobs/**", "apps/scraper/src/tiers/**", "apps/api/src/generate-matchup.ts", "packages/recommendation/**"]
 alwaysApply: false
 ---
 

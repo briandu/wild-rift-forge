@@ -12,6 +12,7 @@ import { previewTierDiff } from './jobs/preview-tiers';
 import { explainTierPlacements } from './jobs/explain-tiers';
 import { reviewTierPlacements } from './jobs/review-tiers';
 import { updateTiersWithSol } from './jobs/update-tiers';
+import { generateMatchupGuide, generateRequestedMatchups, parseLaneFlag } from './jobs/generate-matchup';
 
 function getFlag(name: string, fallback: number): number {
   const index = process.argv.indexOf(`--${name}`);
@@ -79,6 +80,28 @@ async function main(): Promise<void> {
     case 'update-tiers':
       await updateTiersWithSol();
       break;
+    case 'matchups:generate':
+    case 'generate-matchup': {
+      const you = getStringFlag('you');
+      const them = getStringFlag('them');
+      const requested = process.argv.includes('--requested');
+      const force = process.argv.includes('--force');
+      if (you && them) {
+        await generateMatchupGuide({
+          you,
+          them,
+          lane: parseLaneFlag(getStringFlag('lane')),
+          force,
+        });
+      } else if (requested) {
+        await generateRequestedMatchups(getFlag('limit', 10));
+      } else {
+        console.log('Usage: scraper matchups:generate --you garen --them darius [--lane Top] [--force]');
+        console.log('       scraper matchups:generate --requested [--limit 10]');
+        process.exitCode = 1;
+      }
+      break;
+    }
     default:
       console.log('Usage: scraper <command>');
       console.log('  latest                      ingest the latest patch if new');
@@ -102,6 +125,12 @@ async function main(): Promise<void> {
       console.log('  tiers:explain                write AI why-text for the latest live tier list');
       console.log('  tiers:review                 Sol ±1 letter review for surprising placements');
       console.log('  tiers:update                 review, apply moves, then refresh explanations');
+      console.log(
+        '  matchups:generate --you S --them S [--lane L] [--force]  write one authored matchup (gpt-5.6-sol)',
+      );
+      console.log(
+        '  matchups:generate --requested [--limit N]  drain viewed pairings that have no guide yet',
+      );
       process.exitCode = 1;
   }
 }
