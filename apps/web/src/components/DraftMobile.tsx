@@ -105,10 +105,10 @@ export function DraftMobile({
   onReset: () => void;
 }) {
   const snaps = useSheetSnaps();
-  const [snap, setSnap] = useState(1);
+  const [snap, setSnap] = useState(0);
   const [dragH, setDragH] = useState<number | null>(null);
   const startY = useRef(0);
-  const startH = useRef(snaps[1] ?? MID);
+  const startH = useRef(snaps[0] ?? PEEK);
   const dy = useRef(0);
 
   const height = dragH ?? snaps[snap] ?? MID;

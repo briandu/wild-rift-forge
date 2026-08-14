@@ -425,6 +425,7 @@
   height: 36px;
   display: flex;
   align-items: center;
+  gap: 8px;
   border-radius: 7px;
   color: #8b87a8;
   white-space: nowrap;

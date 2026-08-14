@@ -96,6 +96,10 @@
   margin-top: 30px;
 }
 
+.stat {
+  min-width: 0;
+}
+
 .statValue {
   font-weight: 800;
   font-size: 32px;
@@ -130,6 +134,7 @@
   backdrop-filter: blur(10px);
   flex: none;
   margin-top: 8px;
+  overflow-x: auto;
 }
 
 .lane,
@@ -140,8 +145,11 @@
   height: 38px;
   display: flex;
   align-items: center;
+  gap: 8px;
   border-radius: 8px;
   color: var(--text-dim);
+  flex: none;
+  white-space: nowrap;
 }
 
 .laneActive {
@@ -498,15 +506,13 @@
     grid-template-columns: 1fr;
   }
 
-  .lanes {
-    display: none;
-  }
-
   .heroContent {
     padding: 28px 20px 0;
   }
 
   .heroFooter {
+    flex-direction: column;
+    align-items: stretch;
     padding: 28px 20px 20px;
   }
 
@@ -518,5 +524,60 @@
 @media (max-width: 720px) {
   .hero {
     min-height: 420px;
+  }
+
+  .stats {
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .stat {
+    flex: 1;
+  }
+
+  .statValue {
+    font-size: 24px;
+  }
+
+  .statLabel {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+
+  .pickArt {
+    height: 124px;
+  }
+
+  .tag {
+    left: 12px;
+    top: 10px;
+    font-size: 9.5px;
+    padding: 4px 9px;
+  }
+
+  .score {
+    font-size: 26px;
+  }
+
+  .scoreLabel {
+    font-size: 9px;
+  }
+
+  .pickBody {
+    padding: 12px 14px 14px;
+  }
+
+  .pickName {
+    font-size: 18px;
+  }
+
+  .why {
+    font-size: 13px;
+    min-height: 0;
+    margin-top: 4px;
+  }
+
+  .barRow {
+    margin-top: 11px;
   }
 }

@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import type { LatestPatchResponse } from '@/lib/api-types';
+import { abilitySlotLabel } from '@/lib/ability-mentions';
+import { AbilityChip } from './AbilityTip';
 import { ChampFace } from './ChampFace';
 import styles from './PatchNotes.module.css';
 
@@ -176,17 +178,18 @@ export function PatchNotes({
                       </div>
                       <div className={styles.lines}>
                         {c.lines.map((line) => {
-                          const icon = c.abilities?.find((ability) => ability.key === line.k)
-                            ?.imageUrl;
+                          const ability = c.abilities?.find((item) => item.key === line.k);
                           return (
                             <div key={`${line.k}-${line.t}`} className={styles.line}>
-                              {icon ? (
-                                // Riot CDN icons — skip the Next optimizer so query-string URLs load.
-                                // eslint-disable-next-line @next/next/no-img-element
-                                <img className={styles.lineIcon} src={icon} alt="" />
-                              ) : (
-                                <span className={styles.lineKey}>{line.k}</span>
-                              )}
+                              <AbilityChip
+                                id={`patch-${c.name}-${line.k}-${line.t}`}
+                                slot={`${c.name.toUpperCase()} · ${abilitySlotLabel(line.k)}`}
+                                name={ability?.name ?? (line.k === 'P' ? 'Passive' : line.k)}
+                                text={ability?.description || line.t}
+                                letter={line.k}
+                                imageUrl={ability?.imageUrl ?? line.imageUrl}
+                                size={26}
+                              />
                               <span>{line.t}</span>
                             </div>
                           );

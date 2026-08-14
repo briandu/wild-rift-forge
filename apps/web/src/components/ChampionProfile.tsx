@@ -14,7 +14,10 @@ import { resolveAbilities } from '@/lib/abilities';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { ART_BY_SLUG, HERO_FALLBACK, initials, portraitFor, roleLabel } from '@/lib/champions';
 import { bestPlacement, formatRate, laneFromLabel, tierBadge } from '@/lib/placements';
+import { abilitySlotLabel } from '@/lib/ability-mentions';
 import { AbilityStrip } from './AbilityStrip';
+import { AbilityChip } from './AbilityTip';
+import { LaneGlyph } from './LaneGlyph';
 import styles from './ChampionProfile.module.css';
 
 const TABS = ['Overview', 'Matchups', 'Builds', 'Skill order', 'Pro play'] as const;
@@ -206,7 +209,15 @@ export function ChampionProfile({
               <ul className={styles.kit}>
                 {abilities.map((ability) => (
                   <li key={ability.key}>
-                    <span className={styles.kitKey}>{ability.key}</span>
+                    <AbilityChip
+                      id={`prof-kit-${ability.key}`}
+                      slot={`${name.toUpperCase()} · ${abilitySlotLabel(ability.key)}`}
+                      name={ability.name}
+                      text={ability.description || `${name}'s ${ability.key} has not been written up yet.`}
+                      letter={ability.key}
+                      imageUrl={ability.imageUrl}
+                      size={29}
+                    />
                     <span>
                       <strong>{ability.name}</strong>
                       <span className={styles.kitDesc}>{ability.description}</span>
@@ -232,7 +243,7 @@ export function ChampionProfile({
           <div className={styles.grid}>
             <div>
               <div className={styles.controls}>
-                <div className={styles.lanes} role="group" aria-label="Lane">
+                <div className={`${styles.lanes} xfade`} role="group" aria-label="Lane">
                   {TIER_LANES.map((lane) => {
                     const active = activeLane === lane;
                     const hasData = placements.some((row) => row.lane === lane);
@@ -245,6 +256,7 @@ export function ChampionProfile({
                         aria-current={active ? 'page' : undefined}
                         data-thin={hasData ? undefined : 'true'}
                       >
+                        <LaneGlyph lane={lane} />
                         {lane}
                       </Link>
                     );

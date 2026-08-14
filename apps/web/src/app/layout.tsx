@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import { Archivo } from 'next/font/google';
+import { AbilityTipProvider } from '@/components/AbilityTip';
 import './globals.css';
 
 const archivo = Archivo({
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={archivo.variable}>
       <body>
-        {children}
+        <AbilityTipProvider>{children}</AbilityTipProvider>
         <Analytics />
       </body>
     </html>

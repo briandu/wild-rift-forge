@@ -218,6 +218,7 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 5px;
+  overflow-x: auto;
 }
 
 .lane,
@@ -230,8 +231,11 @@
   height: 34px;
   display: flex;
   align-items: center;
+  gap: 8px;
   border-radius: 8px;
   color: var(--text-dim);
+  flex: none;
+  white-space: nowrap;
 }
 
 .lane[data-thin='true'] {
@@ -445,7 +449,7 @@
 
 .kit li {
   display: grid;
-  grid-template-columns: 28px 1fr;
+  grid-template-columns: 32px 1fr;
   gap: 10px;
   align-items: start;
 }
@@ -543,5 +547,11 @@
   .row span:nth-child(4),
   .row span:nth-child(5) {
     display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    height: 480px;
   }
 }

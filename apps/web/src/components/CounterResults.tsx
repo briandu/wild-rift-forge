@@ -9,6 +9,7 @@ import { bannerFocusFor } from '@/lib/banner-focus';
 import { artFor, HERO_FALLBACK, initials, portraitFor } from '@/lib/champions';
 import { laneFromLabel } from '@/lib/placements';
 import { AbilityStrip } from './AbilityStrip';
+import { LaneGlyph } from './LaneGlyph';
 import styles from './CounterResults.module.css';
 
 export function CounterResults({ data }: { data: CountersResponse }) {
@@ -62,7 +63,7 @@ export function CounterResults({ data }: { data: CountersResponse }) {
 
           <div className={styles.stats}>
             {data.stats.map((s) => (
-              <div key={s.label}>
+              <div key={s.label} className={styles.stat}>
                 <div className={styles.statValue}>{s.value}</div>
                 <div className={styles.statLabel}>{s.label}</div>
               </div>
@@ -83,6 +84,7 @@ export function CounterResults({ data }: { data: CountersResponse }) {
                   className={active ? styles.laneActive : styles.lane}
                   aria-current={active ? 'page' : undefined}
                 >
+                  <LaneGlyph lane={lane} />
                   {lane}
                 </Link>
               );

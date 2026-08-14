@@ -5,6 +5,8 @@ import { useState, type CSSProperties } from 'react';
 import { useRouter } from 'next/navigation';
 import { TIER_LANES } from '@wild-rift-forge/game-data';
 import type { ApiChampion, MatchupResponse } from '@/lib/api';
+import { resolveAbilities } from '@/lib/abilities';
+import { abilitySlotLabel } from '@/lib/ability-mentions';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { initials, portraitsFromRoster, splashFor } from '@/lib/champions';
 import {
@@ -16,8 +18,10 @@ import {
 } from '@/lib/matchup-card';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
+import { AbilityChip, AbilityRichText } from './AbilityTip';
 import { ChampFace } from './ChampFace';
 import { ChampionPicker } from './ChampionPicker';
+import { LaneGlyph } from './LaneGlyph';
 import styles from './MatchupView.module.css';
 
 const MU_TABS = ['Quick', 'Plan', 'Trades', 'Build'] as const;
@@ -57,6 +61,10 @@ export function MatchupView({
   const [saved, setSaved] = useState(false);
   const [tab, setTab] = useState<MuTab>('Quick');
   const brief = coachBriefFor(mu);
+  const kits = {
+    [mu.you.name]: resolveAbilities(matchup?.abilitiesYou),
+    [mu.them.name]: resolveAbilities(matchup?.abilitiesThem),
+  };
 
   function setPair(next: { you?: string; them?: string; lane?: string }) {
     const params = new URLSearchParams();
@@ -163,6 +171,7 @@ export function MatchupView({
               className={lane === item ? styles.pickLaneOn : styles.pickLane}
               onClick={() => setPair({ lane: item })}
             >
+              <LaneGlyph lane={item} />
               {item}
             </button>
           ))}
@@ -236,7 +245,14 @@ export function MatchupView({
                 {mu.modelled.notes.map((note) => (
                   <div key={note} className={styles.mobileNote}>
                     <span />
-                    <p>{note}</p>
+                    <p>
+                      <AbilityRichText
+                        text={note}
+                        you={mu.you.name}
+                        them={mu.them.name}
+                        kits={kits}
+                      />
+                    </p>
                   </div>
                 ))}
               </div>
@@ -267,7 +283,15 @@ export function MatchupView({
                   <span style={{ color: p.c }}>{p.n}</span>
                   <span>{p.t}</span>
                 </div>
-                <p>{p.body}</p>
+                <p>
+                  <AbilityRichText
+                    text={p.body}
+                    id={`mph-${p.n}`}
+                    you={mu.you.name}
+                    them={mu.them.name}
+                    kits={kits}
+                  />
+                </p>
               </div>
             ))}
           </div>
@@ -275,8 +299,22 @@ export function MatchupView({
 
         {tab === 'Trades' && mu.authored ? (
           <div className={styles.mobileTabBody}>
-            <TradeColumn kind="good" steps={mu.trades.good.steps} out={mu.trades.good.out} />
-            <TradeColumn kind="bad" steps={mu.trades.bad.steps} out={mu.trades.bad.out} />
+            <TradeColumn
+              kind="good"
+              steps={mu.trades.good.steps}
+              out={mu.trades.good.out}
+              you={mu.you.name}
+              them={mu.them.name}
+              kits={kits}
+            />
+            <TradeColumn
+              kind="bad"
+              steps={mu.trades.bad.steps}
+              out={mu.trades.bad.out}
+              you={mu.you.name}
+              them={mu.them.name}
+              kits={kits}
+            />
           </div>
         ) : null}
 
@@ -307,7 +345,15 @@ export function MatchupView({
                         </div>
                         <div className={styles.phaseT}>{p.t}</div>
                       </div>
-                      <p className={styles.phaseBody}>{p.body}</p>
+                      <p className={styles.phaseBody}>
+                        <AbilityRichText
+                          text={p.body}
+                          id={`ph-${p.n}`}
+                          you={mu.you.name}
+                          them={mu.them.name}
+                          kits={kits}
+                        />
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -319,8 +365,22 @@ export function MatchupView({
                   These are lane-strength habits, not a pairwise combo script.
                 </p>
                 <div className={styles.trades}>
-                  <TradeColumn kind="good" steps={mu.trades.good.steps} out={mu.trades.good.out} />
-                  <TradeColumn kind="bad" steps={mu.trades.bad.steps} out={mu.trades.bad.out} />
+                  <TradeColumn
+                    kind="good"
+                    steps={mu.trades.good.steps}
+                    out={mu.trades.good.out}
+                    you={mu.you.name}
+                    them={mu.them.name}
+                    kits={kits}
+                  />
+                  <TradeColumn
+                    kind="bad"
+                    steps={mu.trades.bad.steps}
+                    out={mu.trades.bad.out}
+                    you={mu.you.name}
+                    them={mu.them.name}
+                    kits={kits}
+                  />
                 </div>
               </section>
             </>
@@ -350,7 +410,14 @@ export function MatchupView({
                     {mu.modelled.notes.map((note) => (
                       <div key={note} className={styles.modelledNote}>
                         <span />
-                        <p>{note}</p>
+                        <p>
+                          <AbilityRichText
+                            text={note}
+                            you={mu.you.name}
+                            them={mu.them.name}
+                            kits={kits}
+                          />
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -371,22 +438,28 @@ export function MatchupView({
                   const key = `i${i}`;
                   const isOpen = open === key;
                   return (
-                    <button
+                    <div
                       key={key}
-                      type="button"
                       className={styles.ability}
                       onClick={() => toggle(key)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          event.preventDefault();
+                          toggle(key);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
                     >
-                      <span
-                        className={styles.abilityKey}
-                        style={{
-                          background: x.own ? 'rgba(22,192,255,.14)' : 'rgba(229,139,123,.14)',
-                          borderColor: x.own ? 'rgba(22,192,255,.36)' : 'rgba(229,139,123,.36)',
-                          color: x.own ? '#7FDCFF' : '#E58B7B',
-                        }}
-                      >
-                        {x.k}
-                      </span>
+                      <AbilityChip
+                        id={`mu-ab-${x.own ? 'you' : 'them'}-${x.k}`}
+                        slot={`${(x.own ? mu.you.name : mu.them.name).toUpperCase()} · ${abilitySlotLabel(x.k)}`}
+                        name={x.n}
+                        text={x.note}
+                        letter={x.k}
+                        imageUrl={x.imageUrl}
+                        size={42}
+                      />
                       <span className={styles.abilityCopy}>
                         <span className={styles.abilityTitle}>
                           <span className={styles.abilityName}>{x.n}</span>
@@ -402,7 +475,7 @@ export function MatchupView({
                         <span>Kit</span>
                         <span className={styles.why}>Why?</span>
                       </span>
-                    </button>
+                    </div>
                   );
                 })}
               </div>
@@ -431,7 +504,14 @@ export function MatchupView({
                       <circle cx="12" cy="12" r="9" />
                       <path d="M12 8v5M12 16.2v.1" />
                     </svg>
-                    <span>{m}</span>
+                    <span>
+                    <AbilityRichText
+                      text={m}
+                      you={mu.you.name}
+                      them={mu.them.name}
+                      kits={kits}
+                    />
+                  </span>
                   </div>
                 ))}
               </div>
@@ -532,7 +612,15 @@ export function MatchupView({
                 {brief.map((b) => (
                   <div key={b.n} className={styles.coachLine}>
                     <div className={styles.coachN}>{b.n}</div>
-                    <div className={styles.coachT}>{b.t}</div>
+                    <div className={styles.coachT}>
+                      <AbilityRichText
+                        text={b.t}
+                        id={`coach-${b.n}`}
+                        you={mu.you.name}
+                        them={mu.them.name}
+                        kits={kits}
+                      />
+                    </div>
                   </div>
                 ))}
                 <button type="button" className={styles.coachGhost} onClick={runCoach}>
@@ -732,7 +820,21 @@ function SplashPane({
   );
 }
 
-function TradeColumn({ kind, steps, out }: { kind: 'good' | 'bad'; steps: string[]; out: string }) {
+function TradeColumn({
+  kind,
+  steps,
+  out,
+  you,
+  them,
+  kits,
+}: {
+  kind: 'good' | 'bad';
+  steps: string[];
+  out: string;
+  you: string;
+  them: string;
+  kits: Record<string, ReturnType<typeof resolveAbilities>>;
+}) {
   const good = kind === 'good';
   return (
     <div>
@@ -742,10 +844,14 @@ function TradeColumn({ kind, steps, out }: { kind: 'good' | 'bad'; steps: string
       {steps.map((step, i) => (
         <div key={step} className={styles.tradeStep}>
           <span className={good ? styles.tradeNGood : styles.tradeNBad}>{i + 1}</span>
-          <span className={good ? styles.tradeTGood : styles.tradeTBad}>{step}</span>
+          <span className={good ? styles.tradeTGood : styles.tradeTBad}>
+            <AbilityRichText text={step} id={`${kind}-${i}`} you={you} them={them} kits={kits} />
+          </span>
         </div>
       ))}
-      <div className={good ? styles.tradeOutGood : styles.tradeOutBad}>{out}</div>
+      <div className={good ? styles.tradeOutGood : styles.tradeOutBad}>
+        <AbilityRichText text={out} id={`${kind}-out`} you={you} them={them} kits={kits} />
+      </div>
     </div>
   );
 }

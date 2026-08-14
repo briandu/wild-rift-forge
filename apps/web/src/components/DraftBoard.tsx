@@ -19,6 +19,7 @@ import {
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { ChampionPicker } from './ChampionPicker';
+import { LaneGlyph } from './LaneGlyph';
 import styles from './DraftBoard.module.css';
 import { DraftCaptureBar } from './DraftCaptureBar';
 import { DraftMobile } from './DraftMobile';
@@ -291,6 +292,7 @@ export function DraftBoard({
                 onClick={() => setState((cur) => ({ ...cur, mySlotIndex: index }))}
                 aria-pressed={index === mySlotIndex}
               >
+                <LaneGlyph lane={lane} />
                 {lane}
               </button>
             ))}

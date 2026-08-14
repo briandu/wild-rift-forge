@@ -113,3 +113,33 @@
   overflow: hidden;
   height: calc(1.55em * 3);
 }
+
+@media (max-width: 720px) {
+  .overlay {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: auto;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .overlay .detail {
+    max-width: none;
+  }
+
+  .icons {
+    gap: 8px;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .iconLg {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+}

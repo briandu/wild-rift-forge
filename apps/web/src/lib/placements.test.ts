@@ -30,6 +30,7 @@ function row(
     banRate: 0,
     thumbnailUrl: null,
     imageUrl: null,
+    why: null,
   };
 }
 

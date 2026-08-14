@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import type { TierPlacementDto } from '@/lib/api-types';
 import { TIER_DEFS } from '@/lib/tier-bands';
+import { useAbilityTip } from './AbilityTip';
 import { ChampFace } from './ChampFace';
+import { LaneGlyph } from './LaneGlyph';
 import styles from './TierList.module.css';
 
 const ROLES = ['All', 'Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
@@ -38,6 +40,7 @@ export function TierList({
   sourceLabel: string;
 }) {
   const [role, setRole] = useState<(typeof ROLES)[number]>('All');
+  const tip = useAbilityTip();
 
   const pool = useMemo(() => {
     const filtered =
@@ -111,6 +114,7 @@ export function TierList({
                 className={role === r ? styles.roleActive : styles.role}
                 onClick={() => setRole(r)}
               >
+                <LaneGlyph lane={r} />
                 {r}
               </button>
             ))}
@@ -152,6 +156,20 @@ export function TierList({
                         key={`${champ.slug}-${champ.lane}`}
                         href={`/champions/${champ.slug}`}
                         className={styles.champ}
+                        onMouseEnter={(event) => {
+                          if (!champ.why) {
+                            return;
+                          }
+                          tip.open(event, {
+                            id: `${champ.slug}-${champ.lane}`,
+                            slot: `${champ.letter} TIER · ${champ.lane.toUpperCase()}`,
+                            name: champ.name,
+                            text: champ.why,
+                            letter: champ.letter,
+                            imageUrl: portraits[champ.slug] ?? champ.thumbnailUrl ?? undefined,
+                          });
+                        }}
+                        onMouseLeave={tip.close}
                       >
                         <span className={styles.ring} style={{ borderColor: band.bd }}>
                           <ChampFace
@@ -173,7 +191,7 @@ export function TierList({
         </div>
 
         <div className={styles.footer}>
-          <p>Tiers are set by win rate across the lane, then adjusted for pick and ban pressure.</p>
+          <p>Tiers weight win rate by how often a champion is played, then adjust for skill bracket and recent patch changes.</p>
           <Link href="/patch" className={styles.patchLink}>
             {patchVersion ? `See what changed in ${patchVersion}` : 'See patch notes'}
           </Link>

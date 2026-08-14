@@ -6,6 +6,7 @@ import { useMemo, useState, type CSSProperties } from 'react';
 import type { ApiChampion, TierPlacementDto } from '@/lib/api-types';
 import { cardFocusFor } from '@/lib/banner-focus';
 import { FACE_FALLBACK_BG, initials, roleLabel, splashFor } from '@/lib/champions';
+import { LaneGlyph } from './LaneGlyph';
 import styles from './ChampionRoster.module.css';
 
 const LANES = ['All', 'Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
@@ -183,6 +184,7 @@ export function ChampionRoster({
               className={lane === item ? styles.pillActive : styles.pill}
               onClick={() => setLane(item)}
             >
+              <LaneGlyph lane={item} />
               {item}
             </button>
           ))}

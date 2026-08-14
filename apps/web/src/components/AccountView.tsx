@@ -40,6 +40,7 @@ import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { accountHeadingName } from '@/lib/user-name';
 import { ChampFace } from './ChampFace';
 import { ChampionPicker } from './ChampionPicker';
+import { LaneGlyph } from './LaneGlyph';
 import styles from './AccountView.module.css';
 
 const TABS = [
@@ -850,6 +851,7 @@ function Pool({
               className={lane === item ? styles.pillOn : styles.pill}
               onClick={() => onLane(item)}
             >
+              <LaneGlyph lane={item} />
               {item}
             </button>
           ))}
