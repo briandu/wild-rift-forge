@@ -1,5 +1,5 @@
 import { abilityHotkey } from '@wild-rift-forge/game-data';
-import { listChampionAbilities } from '@wild-rift-forge/database';
+import { listChampionAbilities, type StoredChampionAbility } from '@wild-rift-forge/database';
 
 export interface AbilityDto {
   key: string;
@@ -9,8 +9,7 @@ export interface AbilityDto {
   videoUrl?: string;
 }
 
-export async function abilitiesForChampion(championId: number): Promise<AbilityDto[]> {
-  const rows = await listChampionAbilities(championId);
+export function toAbilityDtos(rows: StoredChampionAbility[]): AbilityDto[] {
   return rows.map((row) => ({
     key: abilityHotkey(row.slot),
     name: row.name,
@@ -18,4 +17,8 @@ export async function abilitiesForChampion(championId: number): Promise<AbilityD
     imageUrl: row.iconUrl ?? undefined,
     videoUrl: row.videoUrl ?? undefined,
   }));
+}
+
+export async function abilitiesForChampion(championId: number): Promise<AbilityDto[]> {
+  return toAbilityDtos(await listChampionAbilities(championId));
 }

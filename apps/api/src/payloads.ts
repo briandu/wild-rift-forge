@@ -4,6 +4,7 @@ import {
   getLatestSnapshotDate,
   getPatchAnalysis,
   getPreviousSnapshotDate,
+  listAbilitiesBySlug,
   listChampions,
   listIconSignatures,
   listLatestLaneStats,
@@ -22,8 +23,7 @@ import {
   type RankBracket,
   type TierLane,
 } from '@wild-rift-forge/game-data';
-import { abilitiesForChampion } from './abilities';
-import { getStubCounters } from './stubs/counters';
+import { abilitiesForChampion, toAbilityDtos } from './abilities';
 
 const BRACKETS = new Set<RankBracket>([
   'all',
@@ -110,43 +110,6 @@ export async function getChampionPayload(slug: string) {
   }
 }
 
-interface ChampionArt {
-  imageUrl: string | null;
-  thumbnailUrl: string | null;
-}
-
-async function championImageMap(): Promise<Map<string, ChampionArt>> {
-  try {
-    const champions = await listChampions();
-    return new Map(
-      champions.map((champion) => [
-        champion.slug,
-        {
-          imageUrl: champion.imageUrl,
-          thumbnailUrl: champion.thumbnailUrl,
-        },
-      ]),
-    );
-  } catch (err) {
-    console.warn('listChampions failed:', err instanceof Error ? err.message : err);
-    return new Map();
-  }
-}
-
-function withArt<T extends { slug: string }>(
-  rows: T[],
-  images: Map<string, ChampionArt>,
-): Array<T & ChampionArt> {
-  return rows.map((row) => {
-    const art = images.get(row.slug);
-    return {
-      ...row,
-      imageUrl: art?.imageUrl ?? null,
-      thumbnailUrl: art?.thumbnailUrl ?? null,
-    };
-  });
-}
-
 function laneLabel(lane: TierLane): string {
   if (lane === 'Jungle') return 'JUNGLE';
   return `${lane.toUpperCase()} LANE`;
@@ -160,7 +123,6 @@ export async function getCountersPayload(slug: string, query: { lane?: unknown }
     console.warn('getChampionBySlug failed:', err instanceof Error ? err.message : err);
   }
 
-  const images = await championImageMap();
   const enemyName = champion?.name ?? slug.charAt(0).toUpperCase() + slug.slice(1);
   const abilities = champion ? await abilitiesForChampion(champion.id) : [];
   const enemy = champion
@@ -229,12 +191,23 @@ export async function getCountersPayload(slug: string, query: { lane?: unknown }
     console.warn('listLatestLaneStats failed:', err instanceof Error ? err.message : err);
   }
 
-  const counters = getStubCounters(slug, enemyName);
   return {
-    ...counters,
-    picks: withArt(counters.picks, images),
-    also: withArt(counters.also, images),
-    beats: withArt(counters.also, images),
+    stub: false,
+    enemySlug: slug,
+    enemyName,
+    lane: preferredLane ? laneLabel(preferredLane) : 'TOP LANE',
+    games: 'No ranked snapshot yet',
+    blurb: `${enemyName} has no CN Diamond+ lane snapshot yet. We will not invent counter scores.`,
+    stats: [
+      { value: '—', label: 'WIN RATE' },
+      { value: '—', label: 'PICK RATE' },
+      { value: '—', label: 'BAN RATE' },
+    ],
+    notes: ['Scores need a ranked snapshot. We will not invent them.'],
+    picks: [],
+    also: [],
+    beats: [],
+    thin: true,
     abilities,
     enemy,
   };
@@ -447,11 +420,12 @@ export async function getLatestPatchPayload() {
   if (!patch) {
     return null;
   }
-  const [changes, analysisRow, roster, latestDate] = await Promise.all([
+  const [changes, analysisRow, roster, latestDate, kits] = await Promise.all([
     listPatchChanges(patch.id),
     getPatchAnalysis(patch.id),
     listChampions(),
     getLatestSnapshotDate('diamond_plus'),
+    listAbilitiesBySlug(),
   ]);
   const prevDate = latestDate ? await getPreviousSnapshotDate('diamond_plus', latestDate) : null;
   const latestRates = latestDate
@@ -501,6 +475,7 @@ export async function getLatestPatchPayload() {
       wr: current ? `${current.winRate.toFixed(1)}%` : null,
       wrShift,
       lines: group.lines.slice(0, 6),
+      abilities: toAbilityDtos(kits.get(group.slug) ?? []),
     };
   });
 
