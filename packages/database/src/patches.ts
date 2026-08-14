@@ -137,20 +137,29 @@ export async function getPatchAnalysis(patchId: number): Promise<StoredPatchAnal
   };
 }
 
-export async function insertPatchAnalysis(input: {
+export async function upsertPatchAnalysis(input: {
   patchId: number;
   model: string;
   promptHash: string;
   payload: unknown;
-}): Promise<{ inserted: boolean }> {
-  const result = await getPool().query(
+}): Promise<{ inserted: boolean; updated: boolean }> {
+  const result = await getPool().query<{ id: number; inserted: boolean }>(
     `INSERT INTO patch_analyses (patch_id, model, prompt_hash, payload)
      VALUES ($1, $2, $3, $4)
-     ON CONFLICT (patch_id) DO NOTHING
-     RETURNING id`,
+     ON CONFLICT (patch_id) DO UPDATE
+       SET model = EXCLUDED.model,
+           prompt_hash = EXCLUDED.prompt_hash,
+           payload = EXCLUDED.payload,
+           updated_at = now()
+     WHERE patch_analyses.prompt_hash IS DISTINCT FROM EXCLUDED.prompt_hash
+     RETURNING id, (xmax = 0) AS inserted`,
     [input.patchId, input.model, input.promptHash, JSON.stringify(input.payload)],
   );
-  return { inserted: Boolean(result.rows[0]) };
+  const row = result.rows[0];
+  if (!row) {
+    return { inserted: false, updated: false };
+  }
+  return { inserted: row.inserted, updated: !row.inserted };
 }
 
 function rowToPatch(row: Record<string, unknown>): StoredPatch {

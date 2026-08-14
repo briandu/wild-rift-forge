@@ -9,7 +9,7 @@ export {
   insertPatchWithChanges,
   listPatchChanges,
   getPatchAnalysis,
-  insertPatchAnalysis,
+  upsertPatchAnalysis,
   type StoredPatch,
   type StoredPatchChange,
   type StoredPatchAnalysis,
@@ -17,9 +17,12 @@ export {
 export {
   insertStatSnapshots,
   listSnapshotsForDate,
+  listSnapshotsForDateAllBrackets,
+  listSnapshotDates,
   getLatestSnapshotDate,
   getPreviousSnapshotDate,
   replaceTierPlacements,
+  listPlacementsForDate,
   listLatestTierPlacements,
   listWinRatesByChampion,
   listLatestLaneStats,
@@ -57,3 +60,15 @@ export {
   type IconSignatureVariant,
   type StoredIconSignature,
 } from './icon-signatures';
+export {
+  listTierExplanations,
+  upsertTierExplanations,
+  type StoredTierExplanation,
+  type TierExplanationInput,
+} from './tier-explanations';
+export {
+  listTierAdjustments,
+  replaceTierAdjustments,
+  type StoredTierAdjustment,
+  type TierAdjustmentInput,
+} from './tier-adjustments';
