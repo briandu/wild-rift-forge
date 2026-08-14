@@ -10,7 +10,8 @@ alwaysApply: false
 
 ## Source of truth
 
-- Visual direction: **Premium Gaming** (Wild Rift Forge) — see `design/STACK.md` and the latest folder under `design/handoffs/` (or `design/claude-baseline/` if not yet re-ingested).
+- **Live UI:** already-applied design in `apps/web` wins over a newly imported mock. Do not revert or restyle existing screens/tokens/components to match the handoff unless the user explicitly says to change them.
+- Visual direction (for **new** work): **Premium Gaming** (Wild Rift Forge) — see `design/STACK.md` and the latest folder under `design/handoffs/` (or `design/claude-baseline/` if not yet re-ingested).
 - Product data / types: `@wild-rift-forge/game-data`, Supabase schema via migrations, champion art via Storage `game-assets`.
 - Implementation target: **`apps/web`** (Next.js App Router + React + TypeScript). API in `apps/api`.
 
@@ -22,6 +23,7 @@ alwaysApply: false
 4. Map mock data to real shapes from `packages/game-data`; never treat design mock WR/pick rates as production facts.
 5. Prefer CSS variables / shared tokens in `apps/web` over one-off inline style dumps.
 6. Preserve Premium Gaming language (dark base `#0B0A12`, cyan accent `#16C0FF` / `#7FDCFF`, Archivo, art-led heroes). Do not reopen directions 1A/1C unless asked.
+7. Implement only screens/states that are **not already built**. Do not overwrite existing `apps/web` design to “match the mock.” If the handoff conflicts with live UI, keep the code and call out the delta.
 
 ## Stack boundaries
 

@@ -1,0 +1,35 @@
+---
+description: Do not invent UI/visual design unless the user explicitly asks or imports a Claude Design
+alwaysApply: true
+---
+
+# No invented design
+
+Do not invent visual design, layout, color, typography, motion, or new UI patterns on your own.
+
+## Allowed only when
+
+1. The user **explicitly** asks to design, redesign, restyle, or invent UI (e.g. “design this screen”, “change the look”, “pick a new layout”).
+2. The user **imports a Claude Design** (`/import-claude-design`, drops a `.zip`, names a `design/handoffs/` slug, or asks to implement a handoff). Then follow `.cursor/rules/claude-design-handoff.mdc` and the import-claude-design skill. Importing a handoff is **not** permission to restyle screens already implemented in `apps/web`.
+
+Vague feature work (“add counters”, “wire the API”, “fix this page”) is **not** permission to redesign.
+
+## Already-applied frontend design is locked
+
+What is already implemented in `apps/web` (tokens, layout, components, spacing, type, color, motion) is the live source of truth. Do not revert, restyle, or “align” existing UI to a new Claude Design mock unless the user **explicitly** says to change that screen or those styles.
+
+On import: implement **new / not-yet-built** screens and gaps only. Leave already-applied design untouched. If the mock conflicts with live UI, keep the code and note the conflict.
+
+## Default
+
+- Reuse existing `apps/web` components, tokens, and hierarchy.
+- Follow `design/STACK.md` and the latest `design/handoffs/` direction (Premium Gaming). Do not reopen 1A / 1C.
+- Match neighboring screens. Prefer the smallest visual change that ships the request.
+- If the existing UI cannot support the request, ask before inventing a new look.
+
+## Do not
+
+- “Improve” spacing, color, type, or composition unprompted.
+- Introduce a new CSS framework, icon set, font, or token palette.
+- Invent screens, empty/loading states, or IA that are not in the current UI or a provided handoff.
+- Rewrite existing `apps/web` styles to match a newly imported handoff.
