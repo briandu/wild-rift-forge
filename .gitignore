@@ -30,3 +30,6 @@ design/**/*.zip
 .vercel
 
 *.tsbuildinfo
+
+# Temporary scrape scratch (never commit live HTML dumps)
+.tmp-wrf/

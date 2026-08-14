@@ -28,7 +28,12 @@
     "emails:smtp": "node scripts/configure-resend-smtp.mjs",
     "emails:push": "node scripts/push-auth-email-templates.mjs",
     "emails:digest": "node scripts/send-weekly-digest.mjs",
-    "emails:alerts": "node scripts/send-account-alerts.mjs"
+    "emails:alerts": "node scripts/send-account-alerts.mjs",
+    "wrf:scrape": "tsx scripts/wildriftfire/scrape-champions.ts",
+    "wrf:scrape-one": "tsx scripts/wildriftfire/scrape-champion.ts",
+    "wrf:validate": "tsx scripts/wildriftfire/validate-scrape.ts",
+    "wrf:diff": "tsx scripts/wildriftfire/diff-snapshots.ts",
+    "wrf:import": "tsx scripts/wildriftfire/import-gameplay.ts"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
