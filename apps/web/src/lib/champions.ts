@@ -46,6 +46,8 @@ export const FALLBACK_CHAMPIONS: ApiChampion[] = [
 
 export const HERO_FALLBACK = '/hero-fallback.avif';
 
+export const FACE_FALLBACK_BG = 'linear-gradient(150deg, #6e6a8c, #3e3a54)';
+
 export const ART_BY_SLUG: Record<string, string> = {
   sett: '/more_art-1786470895713-hupj.avif',
   ashe: '/more_art-1786470895700-w5u0.avif',

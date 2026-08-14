@@ -72,6 +72,16 @@ export function formatRate(value: number): string {
   return `${value.toFixed(1)}%`;
 }
 
+const MONTHS = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+export function formatSnapshotDate(snapshotDate: string | null | undefined): string | null {
+  if (!snapshotDate) return null;
+  const [year, month, day] = snapshotDate.split('-');
+  if (!year || !month || !day) return snapshotDate;
+  const monthName = MONTHS[Number(month) - 1];
+  return monthName ? `${Number(day)} ${monthName}` : snapshotDate;
+}
+
 export function tierBadge(letter: TierLetter): string {
   return `${letter} TIER`;
 }

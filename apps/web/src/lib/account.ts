@@ -77,7 +77,12 @@ export async function loadAccountState(supabase: SupabaseClient, userId: string)
       )
       .eq('id', userId)
       .maybeSingle(),
-    supabase.from('user_champion_pool').select('champion_slug').eq('user_id', userId),
+    supabase
+      .from('user_champion_pool')
+      .select('champion_slug, sort_order')
+      .eq('user_id', userId)
+      .order('sort_order', { ascending: true })
+      .order('created_at', { ascending: true }),
     supabase.from('user_saved_matchups').select('you_slug, them_slug, lane').eq('user_id', userId),
   ]);
 
@@ -100,4 +105,22 @@ export async function patchProfile(
     { onConflict: 'id' },
   );
   if (error) throw error;
+}
+
+export async function savePoolOrder(
+  supabase: SupabaseClient,
+  userId: string,
+  slugs: string[],
+) {
+  const results = await Promise.all(
+    slugs.map((slug, index) =>
+      supabase
+        .from('user_champion_pool')
+        .update({ sort_order: index })
+        .eq('user_id', userId)
+        .eq('champion_slug', slug),
+    ),
+  );
+  const failed = results.find((result) => result.error);
+  if (failed?.error) throw failed.error;
 }

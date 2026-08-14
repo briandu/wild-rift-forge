@@ -6,6 +6,7 @@ import {
   mostPicked,
   mostPickedByLane,
   parseTierLane,
+  formatSnapshotDate,
   patchNoteLine,
   placementsForSlug,
   uniqueBestPlacements,
@@ -97,6 +98,13 @@ describe('placementsForSlug', () => {
     expect(placementsForSlug([row('gwen', 'Top', 10), row('sett', 'Top', 8)], 'gwen')).toHaveLength(
       1,
     );
+  });
+});
+
+describe('formatSnapshotDate', () => {
+  it('formats an ISO date without inventing a patch', () => {
+    expect(formatSnapshotDate('2026-08-12')).toBe('12 AUG');
+    expect(formatSnapshotDate(null)).toBeNull();
   });
 });
 

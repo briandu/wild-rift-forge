@@ -115,6 +115,7 @@ export interface PatchChampionChangeDto {
   wr: string | null;
   wrShift: number | null;
   lines: Array<{ k: string; t: string }>;
+  abilities?: AbilityDto[];
 }
 
 export interface LatestPatchResponse {
