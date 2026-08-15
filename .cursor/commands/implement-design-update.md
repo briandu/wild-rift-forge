@@ -9,22 +9,22 @@ Use this for incremental exports like `Champion-art plan update (N).zip`. For a 
 If the user gave a `.zip` path:
 
 ```bash
-npm run design:ingest -- "<zip-path>"
+npm run design:ingest -- "<zip-path>" --title "Short title" --offers "What this patch adds; second offer"
 ```
 
 If they said “latest” / no path:
 
 ```bash
-npm run design:ingest -- --latest
+npm run design:ingest -- --latest --title "Short title" --offers "..."
 ```
 
-Skip ingest when files are already under `design/handoffs/<slug>/`.
+Skip ingest when files are already under `design/handoffs/vNN-*`.
 
-Read `design/handoffs/LATEST` and that folder’s `MANIFEST.json`.
+Read `design/handoffs/CHANGELOG.md`, `LATEST`, and that folder’s `PATCH.md` + `MANIFEST.json`. Claude’s download name (`update (3).zip`) is not the version.
 
 ## 2. Diff the delta
 
-Compare the new slug to the **previous** handoff (the `LATEST` value before ingest, or the next-newest `design/handoffs/20*` folder).
+Compare the new slug to the **previous** handoff (the `LATEST` value before ingest, or the next-newest `design/handoffs/v*` folder).
 
 - List new / removed files (especially a new canvas like `Lane Glyphs.dc.html`).
 - `diff` product HTML that actually changed: prefer `Wild Rift Forge.dc.html` and `Wild Rift Forge Mobile.dc.html`.

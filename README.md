@@ -26,9 +26,12 @@ supabase/
 Visual work lives in Claude Design (Premium Gaming / Wild Rift Forge). Export a `.zip`, then:
 
 ```bash
-npm run design:ingest -- "C:/Users/Brian Du/Downloads/Your Export.zip"
-# In Cursor: /import-claude-design
+npm run design:ingest -- "C:/Users/brian/Downloads/Your Export.zip" \
+  --title "Short title" --offers "What this patch adds"
+# In Cursor: /implement-design-update
 ```
+
+Handoffs are versioned as `design/handoffs/vNN-short-slug/`. See [`design/handoffs/CHANGELOG.md`](design/handoffs/CHANGELOG.md).
 
 Pasteable stack brief for Claude Design: [`design/STACK.md`](design/STACK.md).
 
@@ -129,6 +132,7 @@ npm run scrape:matchups-generate -- --you garen --them darius --lane Top
                                    # hard-capped at 2 in flight, 8/hour, 40/day unless env overrides)
 npm run scrape:matchups-generate -- --requested --limit 10
                                    # drain pairings that were queued while the cap was full
+npm run gather:items-runes         # RiftGG item/rune icons → data/raw/items-runes (256px PNG)
 npm test                           # parser/normalizer tests against committed fixtures
 ```
 

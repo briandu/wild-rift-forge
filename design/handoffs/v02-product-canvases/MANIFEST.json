@@ -1,0 +1,50 @@
+{
+  "slug": "v02-product-canvases",
+  "version": 2,
+  "version_label": "v02",
+  "title": "Product canvases + mobile",
+  "offers": [
+    "First Wild Rift Forge product canvases (desktop + mobile) instead of direction studies only.",
+    "Adds logo, Gwen ability icons, and the iOS frame helper."
+  ],
+  "ingested_at": "2026-08-12T17:52:57.073Z",
+  "legacy_slug": "2026-08-12-champion-art-plan-update-2",
+  "source_zip": "c:\\Users\\Brian Du\\Downloads\\Champion-art plan update (2).zip",
+  "source_zip_basename": "Champion-art plan update (2).zip",
+  "source_zip_versioned": "wrf-design-v02-product-canvases.zip",
+  "visual_direction": "premium-gaming",
+  "implement_into": "apps/web",
+  "stack_brief": "design/STACK.md",
+  "changelog": "design/handoffs/CHANGELOG.md",
+  "entry_html": [
+    "Riftline - Next Screens.dc.html",
+    "Wild Rift Forge Mobile.dc.html",
+    "Wild Rift Forge.dc.html",
+    "WildRift Directions.dc.html"
+  ],
+  "files": [
+    ".thumbnail",
+    "Riftline - Next Screens.dc.html",
+    "Wild Rift Forge Mobile.dc.html",
+    "Wild Rift Forge.dc.html",
+    "WildRift Directions.dc.html",
+    "ios-frame.jsx",
+    "support.js",
+    "uploads/art_files-1786469819275-kw5c.avif",
+    "uploads/gwen-e.avif",
+    "uploads/gwen-passive.avif",
+    "uploads/gwen-q.avif",
+    "uploads/gwen-r.avif",
+    "uploads/gwen-w.avif",
+    "uploads/logo-wr-forge.png",
+    "uploads/more_art-1786470895700-w5u0.avif",
+    "uploads/more_art-1786470895704-yijl.avif",
+    "uploads/more_art-1786470895708-zrx7.avif",
+    "uploads/more_art-1786470895713-hupj.avif",
+    "uploads/more_art-1786470895717-2xza.avif",
+    "uploads/pasted-1786509004274-0.png",
+    "uploads/pasted-1786509105913-0.png",
+    "uploads/pasted-1786555669152-0.png"
+  ],
+  "notes": "Preview-only Claude Design export. Translate into Next.js — do not ship support.js to production."
+}

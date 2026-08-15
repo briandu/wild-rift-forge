@@ -1,0 +1,285 @@
+{
+  "scheme": "vNN-short-slug",
+  "zip_scheme": "wrf-design-vNN-short-slug.zip",
+  "note": "Claude download names reset and collide. Use version + slug as identity.",
+  "latest": "v12-loading-states",
+  "patches": [
+    {
+      "version": 1,
+      "version_label": "v01",
+      "slug": "v01-premium-gaming-baseline",
+      "title": "Premium Gaming baseline",
+      "ingested_at": "2026-08-11T19:15:18.504Z",
+      "offers": [
+        "Locks visual direction 1B (Premium Gaming): dark #0B0A12, cyan #16C0FF / #7FDCFF, Archivo, art-led heroes.",
+        "Canvases: Riftline Premium Gaming (homepage + counters), Next Screens (profile, draft, empty/loading/sparse), WildRift Directions (1A / 1B / 1C).",
+        "Do not reopen 1A (dense analytics) or 1C (command palette) unless asked."
+      ],
+      "entry_html": [
+        "Riftline - Next Screens.dc.html",
+        "Riftline - Premium Gaming.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-11-champion-art-plan",
+      "source_zip_basename": "Champion-art plan update.zip",
+      "source_zip_versioned": "wrf-design-v01-premium-gaming-baseline.zip"
+    },
+    {
+      "version": 2,
+      "version_label": "v02",
+      "slug": "v02-product-canvases",
+      "title": "Product canvases + mobile",
+      "ingested_at": "2026-08-12T17:52:57.073Z",
+      "offers": [
+        "First Wild Rift Forge product canvases (desktop + mobile) instead of direction studies only.",
+        "Adds logo, Gwen ability icons, and the iOS frame helper."
+      ],
+      "entry_html": [
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-12-champion-art-plan-update-2",
+      "source_zip_basename": "Champion-art plan update (2).zip",
+      "source_zip_versioned": "wrf-design-v02-product-canvases.zip"
+    },
+    {
+      "version": 3,
+      "version_label": "v03",
+      "slug": "v03-champion-list-directions",
+      "title": "Champion list directions",
+      "ingested_at": "2026-08-12T18:59:00.741Z",
+      "offers": [
+        "Adds Champion List Directions — roster / directory explorations for the champions index."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-12-champion-art-plan-update-3",
+      "source_zip_basename": "Champion-art plan update (3).zip",
+      "source_zip_versioned": "wrf-design-v03-champion-list-directions.zip"
+    },
+    {
+      "version": 4,
+      "version_label": "v04",
+      "slug": "v04-champion-list-refine",
+      "title": "Champion list refinements",
+      "ingested_at": "2026-08-13T01:28:34.516Z",
+      "offers": [
+        "Refines the champion-list explorations (same canvas set as v03, extra pasted refs).",
+        "Claude skipped an “update (4)” download; this is the next ingest after v03."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-13-champion-art-plan-update-5",
+      "source_zip_basename": "Champion-art plan update (5).zip",
+      "source_zip_versioned": "wrf-design-v04-champion-list-refine.zip"
+    },
+    {
+      "version": 5,
+      "version_label": "v05",
+      "slug": "v05-matchup-page-directions",
+      "title": "Matchup page directions",
+      "ingested_at": "2026-08-13T02:25:43.924Z",
+      "offers": [
+        "Adds Matchup Page Directions — versus-poster / rail explorations for /matchups.",
+        "Adds the wordmark-without-text logo."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-13-champion-art-plan-update-6",
+      "source_zip_basename": "Champion-art plan update (6).zip",
+      "source_zip_versioned": "wrf-design-v05-matchup-page-directions.zip"
+    },
+    {
+      "version": 6,
+      "version_label": "v06",
+      "slug": "v06-matchup-page-refine",
+      "title": "Matchup page refinements",
+      "ingested_at": "2026-08-13T04:22:06.888Z",
+      "offers": [
+        "Refines matchup-page directions (extra pasted refs)."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-13-champion-art-plan-update-7",
+      "source_zip_basename": "Champion-art plan update (7).zip",
+      "source_zip_versioned": "wrf-design-v06-matchup-page-refine.zip"
+    },
+    {
+      "version": 7,
+      "version_label": "v07",
+      "slug": "v07-matchup-page-polish",
+      "title": "Matchup page polish",
+      "ingested_at": "2026-08-13T04:46:34.145Z",
+      "offers": [
+        "Further matchup / list polish on the same canvas set as v06."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-13-champion-art-plan-update-8",
+      "source_zip_basename": "Champion-art plan update (8).zip",
+      "source_zip_versioned": "wrf-design-v07-matchup-page-polish.zip"
+    },
+    {
+      "version": 8,
+      "version_label": "v08",
+      "slug": "v08-auth-emails",
+      "title": "Auth emails",
+      "ingested_at": "2026-08-13T14:14:33.709Z",
+      "offers": [
+        "Adds branded email HTML: Welcome, Password Reset, Weekly Digest."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Email - Password Reset.html",
+        "Email - Weekly Digest.html",
+        "Email - Welcome.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-13-champion-art-plan-update-9",
+      "source_zip_basename": "Champion-art plan update (9).zip",
+      "source_zip_versioned": "wrf-design-v08-auth-emails.zip"
+    },
+    {
+      "version": 9,
+      "version_label": "v09",
+      "slug": "v09-mobile-draft-nav",
+      "title": "Mobile draft + five-tab nav",
+      "ingested_at": "2026-08-13T19:53:30.183Z",
+      "offers": [
+        "Adds Draft Layout Ideas — sheet-layout studies for the mobile draft board.",
+        "Five-tab mobile bottom nav and a large mobile draft-pick layout update."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Draft Layout Ideas.dc.html",
+        "Email - Password Reset.html",
+        "Email - Weekly Digest.html",
+        "Email - Welcome.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-13-champion-art-plan-update",
+      "source_zip_basename": "Champion-art plan update.zip",
+      "source_zip_versioned": "wrf-design-v09-mobile-draft-nav.zip"
+    },
+    {
+      "version": 10,
+      "version_label": "v10",
+      "slug": "v10-product-polish",
+      "title": "Product polish",
+      "ingested_at": "2026-08-14T03:13:53.457Z",
+      "offers": [
+        "Incremental desktop + mobile polish on the existing product canvases."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Draft Layout Ideas.dc.html",
+        "Email - Password Reset.html",
+        "Email - Weekly Digest.html",
+        "Email - Welcome.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-14-champion-art-plan-update-1",
+      "source_zip_basename": "Champion-art plan update (1).zip",
+      "source_zip_versioned": "wrf-design-v10-product-polish.zip"
+    },
+    {
+      "version": 11,
+      "version_label": "v11",
+      "slug": "v11-lane-glyphs",
+      "title": "Lane glyphs + ability tips",
+      "ingested_at": "2026-08-14T15:27:20.204Z",
+      "offers": [
+        "Adds Lane Glyphs canvas and traced glyph sources (baron / mid / jungle / duo / support).",
+        "Ability-tip treatment on kits and matchup copy."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Draft Layout Ideas.dc.html",
+        "Email - Password Reset.html",
+        "Email - Weekly Digest.html",
+        "Email - Welcome.html",
+        "Lane Glyphs.dc.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": "2026-08-14-champion-art-plan-update-2",
+      "source_zip_basename": "Champion-art plan update (2).zip",
+      "source_zip_versioned": "wrf-design-v11-lane-glyphs.zip"
+    },
+    {
+      "version": 12,
+      "version_label": "v12",
+      "slug": "v12-loading-states",
+      "title": "Loading states and item art",
+      "ingested_at": "2026-08-15T16:01:37.696Z",
+      "offers": [
+        "Adds Loading States canvas: one sweep primitive (1.4s), three depths, 300ms show / 400ms hold, mapped onto six surfaces (tier rows, counter cards, coach, mobile picks, search, matchup hero).",
+        "Specs four non-skeleton states: pending action, stale-while-refresh, empty, failed.",
+        "Adds ASSETS-NEEDED.md (runes, items, abilities, splash inventory).",
+        "Adds Garen and Darius ability icons plus 10 item icons for the matchup-rail / builds mock — do not invent live builds from these."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Draft Layout Ideas.dc.html",
+        "Email - Password Reset.html",
+        "Email - Weekly Digest.html",
+        "Email - Welcome.html",
+        "Lane Glyphs.dc.html",
+        "Loading States.dc.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": null,
+      "source_zip_basename": "Champion-art plan update (3).zip",
+      "source_zip_versioned": "wrf-design-v12-loading-states.zip"
+    }
+  ]
+}

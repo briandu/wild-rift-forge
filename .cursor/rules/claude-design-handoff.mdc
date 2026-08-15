@@ -8,29 +8,41 @@ alwaysApply: false
 
 # Claude Design handoffs
 
+## Versioning
+
+Claude download names reset (`Champion-art plan update (3).zip`) and collide. **Identity is sequential `vNN`**, not the zip filename.
+
+- Folder: `design/handoffs/vNN-short-slug/`
+- Zip: `wrf-design-vNN-short-slug.zip` (copied into the folder as `source.zip`, gitignored)
+- Catalog: `design/handoffs/CHANGELOG.md` + `INDEX.json` — what each patch offers
+- Each handoff has `PATCH.md` + versioned `MANIFEST.json`
+
+Ingest assigns the next `vNN`. Always pass `--title` and `--offers` (semicolon-separated). After ingest, fill `PATCH.md` if offers were a placeholder. Never treat Claude’s `(N)` as the version.
+
+Read `CHANGELOG.md` before implementing so you know what this patch adds vs prior versions.
+
 ## Source of truth
 
-- **Live UI:** already-applied design in `apps/web` wins over a newly imported mock. Do not revert or restyle existing screens/tokens/components to match the handoff unless the user explicitly says to change them.
-- Visual direction (for **new** work): **Premium Gaming** (Wild Rift Forge) — see `design/STACK.md` and the latest folder under `design/handoffs/` (or `design/claude-baseline/` if not yet re-ingested).
+- **Live UI:** already-applied design in `apps/web` wins over a newly imported mock. Do not revert or restyle existing screens unless the user explicitly says to change them.
+- Visual direction (for **new** work): **Premium Gaming** — `design/STACK.md` + latest `design/handoffs/vNN-*`.
 - Product data / types: `@wild-rift-forge/game-data`, Supabase schema via migrations, champion art via Storage `game-assets`.
-- Implementation target: **`apps/web`** (Next.js App Router + React + TypeScript). API in `apps/api`.
+- Implementation target: **`apps/web`**. API in `apps/api`.
 
 ## When the user drops a zip / asks to import design
 
-1. Run `npm run design:ingest -- "<path-to.zip>"` (or `--latest`) unless files are already under `design/handoffs/<slug>/`.
-2. Read that handoff’s `MANIFEST.json` and entry `*.dc.html` files. Preview via `npm run design:preview` if visual check is needed.
-3. **Translate** into Next.js components/routes — do not copy `support.js`, `<x-dc>`, or `sc-*` runtime into production.
-4. Map mock data to real shapes from `packages/game-data`; never treat design mock WR/pick rates as production facts.
-5. Prefer CSS variables / shared tokens in `apps/web` over one-off inline style dumps.
-6. Preserve Premium Gaming language (dark base `#0B0A12`, cyan accent `#16C0FF` / `#7FDCFF`, Archivo, art-led heroes). Do not reopen directions 1A/1C unless asked.
-7. Implement only screens/states that are **not already built**. Do not overwrite existing `apps/web` design to “match the mock.” If the handoff conflicts with live UI, keep the code and call out the delta.
+1. `npm run design:ingest -- "<zip>" --title "..." --offers "a; b"` (or `--latest`). Skip if already under `design/handoffs/vNN-*`.
+2. Read that handoff’s `PATCH.md`, `MANIFEST.json`, and entry `*.dc.html`. Preview via `npm run design:preview` if needed.
+3. **Translate** into Next.js — do not copy `support.js`, `<x-dc>`, or `sc-*` runtime.
+4. Map mock data to `@wild-rift-forge/game-data`; never treat mock WR/pick rates as facts.
+5. Prefer CSS variables / shared tokens in `apps/web`.
+6. Keep Premium Gaming (`#0B0A12`, cyan `#16C0FF` / `#7FDCFF`, Archivo). Do not reopen 1A/1C unless asked.
+7. Implement only the **delta** vs the previous version. Leave already-built screens alone unless the zip updates those screens and the user asked to apply it.
 
 ## Stack boundaries
 
 - Riot page scraping stays in `apps/scraper`.
 - Schema changes only via `supabase/migrations/` + `npx supabase db push` for remote.
-- Keep recommendation logic out of Next/Express when it lands in a package.
 
 ## Handoff quality bar
 
-Implement structure, hierarchy, and interaction model from the mock. Tighten spacing only after the screen is wired. Match empty/loading/sparse states when the handoff includes them.
+Implement structure, hierarchy, and interaction model from the mock. Match empty/loading/sparse states when the handoff includes them.

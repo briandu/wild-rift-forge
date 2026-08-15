@@ -10,7 +10,7 @@ Do not invent visual design, layout, color, typography, motion, or new UI patter
 ## Allowed only when
 
 1. The user **explicitly** asks to design, redesign, restyle, or invent UI (e.g. “design this screen”, “change the look”, “pick a new layout”).
-2. The user **imports a Claude Design** (`/import-claude-design`, drops a `.zip`, names a `design/handoffs/` slug, or asks to implement a handoff). Then follow `.cursor/rules/claude-design-handoff.mdc` and the import-claude-design skill. Importing a handoff is **not** permission to restyle screens already implemented in `apps/web`.
+2. The user **imports a Claude Design** (`/import-claude-design`, drops a `.zip`, names a `design/handoffs/vNN-*` slug, or asks to implement a handoff). Then follow `.cursor/rules/claude-design-handoff.mdc` and the import-claude-design skill. Importing a handoff is **not** permission to restyle screens already implemented in `apps/web`.
 
 Vague feature work (“add counters”, “wire the API”, “fix this page”) is **not** permission to redesign.
 

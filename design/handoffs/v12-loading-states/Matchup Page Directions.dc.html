@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#07060D;}
+a{color:#7FDCFF;text-decoration:none;}
+a:hover{color:#DEDCEE;}
+</style>
+</helmet>
+
+<section style="padding:56px 56px 100px;font-family:Archivo,system-ui,sans-serif;color:#fff;">
+  <div style="max-width:820px;margin-bottom:40px;">
+    <div style="font-size:12px;font-weight:700;letter-spacing:0.22em;color:#7FDCFF;">TURN 3 · MATCHUP PAGE</div>
+    <div style="font-weight:900;font-size:46px;line-height:1.02;letter-spacing:-0.036em;margin-top:14px;">Three ways to stage Garen vs Darius</div>
+    <div style="font-size:16px;color:#A9A5C4;line-height:1.6;margin-top:14px;text-wrap:pretty;">The current page stacks equal-weight cards, so nothing leads. <a href="#3a">3a</a> makes the versus a poster and lets art carry the identity. <a href="#3b">3b</a> treats the guide as written coaching, typography first. <a href="#3c">3c</a> compresses everything into a board you read at a glance during draft.</div>
+  </div>
+
+  <div style="display:flex;gap:36px;flex-wrap:wrap;align-items:flex-start;">
+
+    <div id="3a" style="width:1000px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">3a</div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:-0.016em;">Versus poster</div>
+        <div style="font-size:14px;color:#7B769B;">Art-led, cinematic header</div>
+      </div>
+
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:24px;overflow:hidden;">
+        <div style="position:relative;height:380px;">
+          <div style="position:absolute;inset:0;left:0;width:56%;overflow:hidden;">
+            <div role="img" aria-label="Garen splash art" style="position:absolute;inset:0;background-image:url({{ you.art }});background-size:cover;background-position:46% 20%;"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,10,18,.5) 0%,rgba(11,10,18,.1) 46%,rgba(11,10,18,.98) 96%);"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,18,.96) 6%,transparent 52%);"></div>
+          </div>
+          <div style="position:absolute;inset:0;left:44%;overflow:hidden;">
+            <div role="img" aria-label="Darius splash art" style="position:absolute;inset:0;background-image:url({{ them.art }});background-size:cover;background-position:56% 18%;"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(270deg,rgba(11,10,18,.5) 0%,rgba(11,10,18,.1) 46%,rgba(11,10,18,.98) 96%);"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,10,18,.96) 6%,transparent 52%);"></div>
+          </div>
+          <div style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.22),transparent);"></div>
+
+          <div style="position:absolute;left:36px;top:32px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#7FDCFF;">YOU PICKED</div>
+            <div style="font-weight:900;font-size:54px;line-height:.94;letter-spacing:-0.04em;margin-top:10px;">GAREN</div>
+            <div style="font-size:13px;color:#A9A5C4;margin-top:8px;">Fighter · Baron lane</div>
+          </div>
+          <div style="position:absolute;right:36px;top:32px;text-align:right;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#E58B7B;">AGAINST</div>
+            <div style="font-weight:900;font-size:54px;line-height:.94;letter-spacing:-0.04em;margin-top:10px;">DARIUS</div>
+            <div style="font-size:13px;color:#A9A5C4;margin-top:8px;">Fighter · Baron lane</div>
+          </div>
+
+          <div style="position:absolute;left:50%;top:132px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:9px;">
+            <div style="font-weight:900;font-size:13px;letter-spacing:0.28em;color:#4A4560;">VS</div>
+            <div style="width:78px;height:78px;border-radius:50%;background:rgba(8,7,14,.82);border:2px solid rgba(229,139,123,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;backdrop-filter:blur(8px);">
+              <div style="font-weight:900;font-size:26px;line-height:1;letter-spacing:-0.03em;color:#E58B7B;">7.5</div>
+              <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:#8B87A8;margin-top:2px;">HARD</div>
+            </div>
+          </div>
+
+          <div style="position:absolute;left:36px;right:36px;bottom:28px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;">
+            <div style="max-width:430px;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;color:#E58B7B;">THE ONE THING</div>
+              <div style="font-size:22px;font-weight:700;line-height:1.35;letter-spacing:-0.014em;margin-top:9px;text-wrap:pretty;">Never let Darius extend the fight. Every second in melee range is a stack in his favour.</div>
+            </div>
+            <div style="display:flex;gap:10px;flex:none;">
+              <div style="background:rgba(8,7,14,.7);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;backdrop-filter:blur(8px);">
+                <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">PLAYSTYLE</div>
+                <div style="font-size:15px;font-weight:700;color:#F0A87B;margin-top:5px;">Short trades</div>
+              </div>
+              <div style="background:rgba(8,7,14,.7);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 16px;backdrop-filter:blur(8px);">
+                <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">PUNISH</div>
+                <div style="font-size:15px;font-weight:700;color:#8FEDB8;margin-top:5px;">Missed Q</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;border-top:1px solid rgba(255,255,255,.08);">
+          <div style="flex:1;min-width:0;padding:30px 32px;">
+            <div style="font-weight:800;font-size:24px;letter-spacing:-0.022em;">The plan</div>
+            <div style="display:flex;flex-direction:column;margin-top:20px;">
+              <sc-for list="{{ phases }}" as="p" hint-placeholder-count="3">
+                <div style="display:flex;gap:20px;padding:18px 0;border-top:1px solid rgba(255,255,255,.07);">
+                  <div style="width:96px;flex:none;">
+                    <div style="font-size:12px;font-weight:800;letter-spacing:0.14em;color:{{ p.c }};">{{ p.n }}</div>
+                    <div style="font-size:12px;color:#5C5878;margin-top:4px;">{{ p.t }}</div>
+                  </div>
+                  <div style="flex:1;min-width:0;font-size:15px;color:#BBB7D4;line-height:1.62;text-wrap:pretty;">{{ p.body }}</div>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="font-weight:800;font-size:24px;letter-spacing:-0.022em;margin-top:34px;">Trades</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px;">
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:2px solid #8FEDB8;">
+                  <div style="font-size:11px;font-weight:800;letter-spacing:0.14em;color:#8FEDB8;">DO THIS</div>
+                </div>
+                <sc-for list="{{ good }}" as="s" hint-placeholder-count="4">
+                  <div style="display:flex;gap:12px;padding:11px 0;">
+                    <div style="font-size:12px;font-weight:800;color:#8FEDB8;width:14px;flex:none;">{{ s.n }}</div>
+                    <div style="font-size:14px;color:#DEDCEE;line-height:1.45;">{{ s.t }}</div>
+                  </div>
+                </sc-for>
+              </div>
+              <div>
+                <div style="display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:2px solid #E58B7B;">
+                  <div style="font-size:11px;font-weight:800;letter-spacing:0.14em;color:#E58B7B;">NOT THIS</div>
+                </div>
+                <sc-for list="{{ bad }}" as="s" hint-placeholder-count="4">
+                  <div style="display:flex;gap:12px;padding:11px 0;">
+                    <div style="font-size:12px;font-weight:800;color:#E58B7B;width:14px;flex:none;">{{ s.n }}</div>
+                    <div style="font-size:14px;color:#8B87A8;line-height:1.45;">{{ s.t }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+
+          <div style="width:290px;flex:none;border-left:1px solid rgba(255,255,255,.08);padding:30px 26px;background:rgba(255,255,255,.02);">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">WHEN CAN I FIGHT</div>
+            <div style="margin-top:18px;">
+              <sc-for list="{{ spikes }}" as="s" hint-placeholder-count="5">
+                <div style="display:flex;gap:14px;">
+                  <div style="display:flex;flex-direction:column;align-items:center;flex:none;">
+                    <div style="width:11px;height:11px;border-radius:50%;background:{{ s.c }};"></div>
+                    <div style="width:2px;flex:1;background:rgba(255,255,255,.09);"></div>
+                  </div>
+                  <div style="padding-bottom:18px;min-width:0;">
+                    <div style="font-size:11px;font-weight:800;letter-spacing:0.1em;color:{{ s.c }};">{{ s.at }}</div>
+                    <div style="font-size:13px;color:#BBB7D4;line-height:1.45;margin-top:3px;">{{ s.label }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;margin-top:14px;">BUILD BECAUSE OF THIS LANE</div>
+            <sc-for list="{{ items }}" as="i" hint-placeholder-count="3">
+              <div style="display:flex;gap:12px;margin-top:16px;">
+                <div style="width:38px;height:38px;border-radius:11px;background:{{ i.tint }};border:1px solid {{ i.c }};flex:none;"></div>
+                <div style="min-width:0;">
+                  <div style="font-size:14px;font-weight:600;">{{ i.n }}</div>
+                  <div style="font-size:12px;color:#7B769B;line-height:1.45;margin-top:3px;">{{ i.short }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;max-width:900px;text-wrap:pretty;">Uses the same full-bleed splash language as the counters and profile pages, so the matchup finally looks like it belongs. The difficulty score sits on the seam between the two champions rather than in a stat row. Below the fold, rules replace boxes: phases are table rows, trades are two columns under coloured headers.</div>
+    </div>
+
+    <div id="3b" style="width:1000px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">3b</div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:-0.016em;">Coach's briefing</div>
+        <div style="font-size:14px;color:#7B769B;">Typography-led, almost no boxes</div>
+      </div>
+
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:24px;overflow:hidden;display:flex;">
+        <div style="width:230px;flex:none;border-right:1px solid rgba(255,255,255,.08);padding:34px 26px;background:linear-gradient(180deg,rgba(229,139,123,.07),transparent 46%);">
+          <div style="display:flex;align-items:center;gap:-10px;">
+            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid rgba(22,192,255,.5);flex:none;">
+              <div role="img" aria-label="Garen" style="width:100%;height:100%;background-image:url({{ you.art }});background-size:cover;background-position:46% 14%;"></div>
+            </div>
+            <div style="width:52px;height:52px;border-radius:50%;overflow:hidden;border:2px solid rgba(229,139,123,.5);margin-left:-14px;flex:none;">
+              <div role="img" aria-label="Darius" style="width:100%;height:100%;background-image:url({{ them.art }});background-size:cover;background-position:56% 14%;"></div>
+            </div>
+          </div>
+          <div style="font-weight:900;font-size:26px;line-height:1.08;letter-spacing:-0.028em;margin-top:18px;">Garen<br><span style="color:#4A4560;font-size:17px;">into</span><br>Darius</div>
+          <div style="height:1px;background:rgba(255,255,255,.09);margin:22px 0;"></div>
+          <sc-for list="{{ facts }}" as="f" hint-placeholder-count="5">
+            <div style="margin-bottom:17px;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:#5C5878;">{{ f.k }}</div>
+              <div style="font-size:15px;font-weight:600;color:{{ f.c }};margin-top:4px;">{{ f.v }}</div>
+            </div>
+          </sc-for>
+          <div style="height:1px;background:rgba(255,255,255,.09);margin:22px 0;"></div>
+          <div style="font-size:12px;color:#5C5878;line-height:1.55;">Patch 6.2b · 38,410 games · updated after the Darius changes.</div>
+        </div>
+
+        <div style="flex:1;min-width:0;padding:40px 46px 44px;">
+          <div style="max-width:620px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#E58B7B;">THE GAME PLAN</div>
+            <div style="font-weight:800;font-size:31px;line-height:1.24;letter-spacing:-0.024em;margin-top:14px;text-wrap:pretty;">You are behind on paper, so stop trying to win the lane. Win three short trades and get to your team.</div>
+
+            <div style="display:flex;flex-direction:column;gap:26px;margin-top:34px;">
+              <sc-for list="{{ phases }}" as="p" hint-placeholder-count="3">
+                <div style="display:flex;gap:22px;">
+                  <div style="width:8px;flex:none;background:{{ p.c }};border-radius:4px;opacity:.7;"></div>
+                  <div style="min-width:0;">
+                    <div style="display:flex;align-items:baseline;gap:10px;">
+                      <div style="font-size:17px;font-weight:800;letter-spacing:-0.012em;color:{{ p.c }};">{{ p.title }}</div>
+                      <div style="font-size:12px;color:#5C5878;">{{ p.t }}</div>
+                    </div>
+                    <div style="font-size:16px;color:#BBB7D4;line-height:1.66;margin-top:8px;text-wrap:pretty;">{{ p.body }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="border-left:3px solid #E58B7B;padding:4px 0 4px 22px;margin:34px 0;">
+              <div style="font-size:19px;font-weight:600;line-height:1.55;color:#DEDCEE;text-wrap:pretty;">Every second in melee range is a stack in his favour. Leave before the fourth.</div>
+            </div>
+
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#7FDCFF;margin-top:38px;">READING HIS ABILITIES</div>
+            <div style="margin-top:18px;">
+              <sc-for list="{{ interactions }}" as="x" hint-placeholder-count="4">
+                <div style="display:flex;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.07);">
+                  <div style="width:38px;height:38px;border-radius:11px;background:{{ x.tint }};border:1px solid {{ x.bd }};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:{{ x.c }};flex:none;">{{ x.k }}</div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:16px;font-weight:600;">{{ x.n }}</div>
+                    <div style="font-size:14px;color:#8B87A8;line-height:1.55;margin-top:4px;text-wrap:pretty;">{{ x.line }}</div>
+                  </div>
+                  <div style="font-size:13px;font-weight:700;color:#8FEDB8;flex:none;text-align:right;width:130px;">{{ x.win }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;max-width:900px;text-wrap:pretty;">Reads like something a coach wrote rather than a database rendered. One measured column, a standing rail of facts on the left, and a pull-quote where the key rule used to be a red box. Strongest for studying a matchup, weakest during a live draft.</div>
+    </div>
+
+    <div id="3c" style="width:1000px;flex:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+        <div style="font-size:13px;font-weight:800;letter-spacing:0.1em;color:#0B0A12;background:#7FDCFF;border-radius:7px;padding:4px 10px;">3c</div>
+        <div style="font-size:20px;font-weight:700;letter-spacing:-0.016em;">Command board</div>
+        <div style="font-size:14px;color:#7B769B;">Everything above the fold</div>
+      </div>
+
+      <div style="background:#0B0A12;border:1px solid rgba(255,255,255,.09);border-radius:24px;padding:20px;">
+        <div style="display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:auto;gap:12px;">
+
+          <div style="grid-column:span 5;position:relative;border-radius:18px;overflow:hidden;min-height:200px;">
+            <div role="img" aria-label="Garen versus Darius" style="position:absolute;inset:0;background-image:url({{ them.art }});background-size:cover;background-position:56% 16%;"></div>
+            <div style="position:absolute;inset:0;background:linear-gradient(60deg,rgba(11,10,18,.97) 30%,rgba(11,10,18,.5));"></div>
+            <div style="position:relative;padding:20px;">
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="width:36px;height:36px;border-radius:10px;overflow:hidden;border:1px solid rgba(22,192,255,.5);flex:none;">
+                  <div role="img" aria-label="Garen" style="width:100%;height:100%;background-image:url({{ you.art }});background-size:cover;background-position:46% 14%;"></div>
+                </div>
+                <div style="font-size:15px;font-weight:700;">Garen</div>
+                <div style="font-size:11px;font-weight:800;letter-spacing:0.14em;color:#4A4560;">VS</div>
+                <div style="font-size:15px;font-weight:700;">Darius</div>
+              </div>
+              <div style="font-weight:900;font-size:42px;line-height:1;letter-spacing:-0.035em;margin-top:22px;color:#E58B7B;">7.5<span style="font-size:16px;color:#6E6A8C;font-weight:600;"> / 10 hard</span></div>
+              <div style="display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:0.1em;color:#E58B7B;background:rgba(229,139,123,.14);border:1px solid rgba(229,139,123,.36);border-radius:14px;padding:5px 12px;margin-top:14px;width:fit-content;">
+                <div style="width:6px;height:6px;border-radius:50%;background:#E58B7B;"></div>DARIUS FAVOURED
+              </div>
+              <div style="font-size:12px;color:#6E6A8C;margin-top:12px;">Baron lane · 38,410 games · patch 6.2b</div>
+            </div>
+          </div>
+
+          <div style="grid-column:span 7;border-radius:18px;background:rgba(22,192,255,.07);border:1px solid rgba(22,192,255,.28);padding:20px;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">LANE STYLE</div>
+            <div style="font-weight:900;font-size:30px;line-height:1.06;letter-spacing:-0.028em;margin-top:10px;">CAUTIOUS / SHORT TRADES</div>
+            <div style="position:relative;height:6px;border-radius:3px;background:linear-gradient(90deg,#7FB8D8,#F0A87B,#E58B7B);margin-top:20px;">
+              <div style="position:absolute;top:-5px;left:26%;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid #0B0A12;"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:0.08em;color:#5C5878;margin-top:9px;">
+              <div>DEFENSIVE</div><div>ALL-IN</div>
+            </div>
+            <div style="font-size:15px;color:#DEDCEE;line-height:1.5;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.09);text-wrap:pretty;">Do not let Darius extend the fight. Every second in melee range is a stack in his favour.</div>
+          </div>
+
+          <sc-for list="{{ board }}" as="b" hint-placeholder-count="4">
+            <div style="grid-column:span 3;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);padding:16px;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">{{ b.k }}</div>
+              <div style="font-size:17px;font-weight:700;line-height:1.2;letter-spacing:-0.012em;color:{{ b.c }};margin-top:9px;">{{ b.v }}</div>
+              <div style="font-size:12px;color:#5C5878;line-height:1.45;margin-top:7px;">{{ b.sub }}</div>
+            </div>
+          </sc-for>
+
+          <div style="grid-column:span 4;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);padding:18px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#8FEDB8;">GOOD TRADE</div>
+            <sc-for list="{{ good }}" as="s" hint-placeholder-count="4">
+              <div style="display:flex;gap:10px;margin-top:11px;">
+                <div style="font-size:11px;font-weight:800;color:#8FEDB8;width:12px;flex:none;">{{ s.n }}</div>
+                <div style="font-size:13px;color:#BBB7D4;line-height:1.42;">{{ s.t }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="grid-column:span 4;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);padding:18px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#E58B7B;">BAD TRADE</div>
+            <sc-for list="{{ bad }}" as="s" hint-placeholder-count="4">
+              <div style="display:flex;gap:10px;margin-top:11px;">
+                <div style="font-size:11px;font-weight:800;color:#E58B7B;width:12px;flex:none;">{{ s.n }}</div>
+                <div style="font-size:13px;color:#8B87A8;line-height:1.42;">{{ s.t }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="grid-column:span 4;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);padding:18px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">BUILD FOR THIS LANE</div>
+            <sc-for list="{{ items }}" as="i" hint-placeholder-count="3">
+              <div style="display:flex;align-items:center;gap:11px;margin-top:13px;">
+                <div style="width:32px;height:32px;border-radius:9px;background:{{ i.tint }};border:1px solid {{ i.c }};flex:none;"></div>
+                <div style="min-width:0;flex:1;">
+                  <div style="font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ i.n }}</div>
+                  <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;color:{{ i.c }};margin-top:2px;">{{ i.kind }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="grid-column:span 12;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:18px 20px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#7B769B;margin-bottom:16px;">WHEN CAN I FIGHT</div>
+            <div style="display:flex;">
+              <sc-for list="{{ spikes }}" as="s" hint-placeholder-count="5">
+                <div style="flex:1;min-width:0;padding-right:14px;">
+                  <div style="display:flex;align-items:center;">
+                    <div style="width:12px;height:12px;border-radius:50%;background:{{ s.c }};flex:none;"></div>
+                    <div style="flex:1;height:2px;background:rgba(255,255,255,.08);"></div>
+                  </div>
+                  <div style="font-size:11px;font-weight:800;letter-spacing:0.1em;color:{{ s.c }};margin-top:11px;">{{ s.at }}</div>
+                  <div style="font-size:13px;color:#BBB7D4;margin-top:4px;">{{ s.label }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:14px;color:#7B769B;line-height:1.6;margin-top:14px;max-width:900px;text-wrap:pretty;">A twelve-column board where tile size sets the hierarchy, so the verdict and the lane style dominate and everything else is glanceable underneath. Designed for the thirty seconds of champion select rather than for study, and it drops straight into the draft assistant at half width.</div>
+    </div>
+
+  </div>
+</section>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      you: { art: "uploads/more_art-1786470895713-hupj.avif" },
+      them: { art: "uploads/more_art-1786470895717-2xza.avif" },
+      phases: [
+        { n: "EARLY", title: "Early game", t: "Levels 1–4", c: "#E58B7B", body: "Concede the first two waves rather than contest them. Trade only when his Q is down, and never past two auto-attacks. Bone Plating carries you through his combo." },
+        { n: "MID", title: "Mid game", t: "Levels 5–10", c: "#F0A87B", body: "Your ultimate creates real kill pressure once he is below half. Look for the window when he pushes without vision, or when he returns to lane on low health." },
+        { n: "LATE", title: "Late game", t: "Levels 11+", c: "#8FEDB8", body: "Stop duelling him. Your job becomes flanking their carries and cutting the back line. Let a tank absorb his ultimate and take the fight elsewhere." }
+      ],
+      good: [
+        { n: 1, t: "Darius misses Q" },
+        { n: 2, t: "Close with Q, silence lands" },
+        { n: 3, t: "Two auto-attacks" },
+        { n: 4, t: "Walk out before stack three" }
+      ],
+      bad: [
+        { n: 1, t: "Hold melee range" },
+        { n: 2, t: "He keeps auto-attacking" },
+        { n: 3, t: "Hemorrhage hits five stacks" },
+        { n: 4, t: "Guillotine executes you" }
+      ],
+      spikes: [
+        { at: "LVL 1", label: "Darius favoured", c: "#E58B7B" },
+        { at: "LVL 3", label: "Safer for Garen", c: "#F0A87B" },
+        { at: "LVL 5", label: "Ultimate kill pressure", c: "#8FEDB8" },
+        { at: "1ST ITEM", label: "Swings on build", c: "#F0A87B" },
+        { at: "LVL 11", label: "He out-duels again", c: "#E58B7B" }
+      ],
+      items: [
+        { n: "Plated Steelcaps", kind: "MATCHUP", c: "#F0A87B", tint: "rgba(240,168,123,.14)", short: "Cuts his repeated physical trades." },
+        { n: "Black Cleaver", kind: "COMPOSITION", c: "#9FCBE4", tint: "rgba(159,203,228,.14)", short: "Their front line stacks armour." },
+        { n: "Sterak's Gage", kind: "CORE", c: "#8FEDB8", tint: "rgba(143,237,184,.14)", short: "Survives the execute threshold." }
+      ],
+      facts: [
+        { k: "MATCHUP", v: "Darius favoured", c: "#E58B7B" },
+        { k: "DIFFICULTY", v: "Hard · 7.5 / 10", c: "#FFFFFF" },
+        { k: "PLAYSTYLE", v: "Short trades", c: "#F0A87B" },
+        { k: "AVOID", v: "Extended fights", c: "#E58B7B" },
+        { k: "PUNISH", v: "Missed Darius Q", c: "#8FEDB8" }
+      ],
+      board: [
+        { k: "VERDICT", v: "Darius favoured", sub: "By 1.2 points of win rate", c: "#E58B7B" },
+        { k: "AVOID", v: "Extended fights", sub: "Five stacks ends you", c: "#E58B7B" },
+        { k: "PUNISH", v: "Missed Darius Q", sub: "About three seconds", c: "#8FEDB8" },
+        { k: "FIRST BUY", v: "Plated Steelcaps", sub: "Before any damage item", c: "#9FCBE4" }
+      ],
+      interactions: [
+        { k: "Q", n: "Decimate", c: "#E58B7B", bd: "rgba(229,139,123,.36)", tint: "rgba(229,139,123,.14)", line: "The outer edge is where his healing comes from. Stand chest-to-chest and he gets nothing.", win: "~3s punish" },
+        { k: "E", n: "Apprehend", c: "#E58B7B", bd: "rgba(229,139,123,.36)", tint: "rgba(229,139,123,.14)", line: "Stay on the far side of the wave. Without the pull he cannot start a fight you did not agree to.", win: "9s cooldown" },
+        { k: "R", n: "Noxian Guillotine", c: "#E58B7B", bd: "rgba(229,139,123,.36)", tint: "rgba(229,139,123,.14)", line: "Track your own health against his stacks, not against his health bar.", win: "Leave at stack 4" },
+        { k: "W", n: "Courage", c: "#7FDCFF", bd: "rgba(22,192,255,.36)", tint: "rgba(22,192,255,.14)", line: "Hold it for his ultimate, not for his Q. Spending it early is how this matchup is usually lost.", win: "Survives execute" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

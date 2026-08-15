@@ -17,13 +17,14 @@ User provides a `.zip` path, a handoff slug, says `/import-claude-design` or `/i
 ## Steps
 
 1. **Ingest (if needed)**  
-   - If given a zip: `npm run design:ingest -- "<zip>" --slug <optional>`  
-   - If `--latest` / “latest download”: `npm run design:ingest -- --latest`  
-   - If files already in `design/handoffs/<slug>/` or `design/claude-baseline/`, skip ingest.
+   - If given a zip: `npm run design:ingest -- "<zip>" --title "..." --offers "a; b" --slug <optional>`  
+   - If `--latest` / “latest download”: same flags with `--latest`  
+   - Ingest assigns the next `vNN-short-slug`. Claude’s `(N)` zip number is **not** the version.  
+   - If files already in `design/handoffs/vNN-*` or `design/claude-baseline/`, skip ingest.
 
 2. **Orient**  
-   - Read `design/STACK.md`.  
-   - Read `design/handoffs/LATEST` (or the named slug) and that folder’s `MANIFEST.json`.  
+   - Read `design/STACK.md` and `design/handoffs/CHANGELOG.md`.  
+   - Read `design/handoffs/LATEST` and that folder’s `PATCH.md` + `MANIFEST.json`.  
    - Skim entry `*.dc.html` for screens, IA, tokens (colors, type, layout).  
    - Note which screens are in scope for this request (homepage, counters, profile, draft, states).
 
