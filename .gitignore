@@ -34,6 +34,11 @@ design/**/*.zip
 # Temporary scrape scratch (never commit live HTML dumps)
 .tmp-wrf/
 
+# Gathered item/rune image binaries (JSON manifests under data/raw/items-runes stay)
+data/raw/items-runes/original/
+data/raw/items-runes/png-256/
+data/raw/items-runes/png-512/
+
 # Android research binaries (scripts and reports are kept)
 research/android/input/
 research/android/extracted/

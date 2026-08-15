@@ -45,7 +45,8 @@
     "wrf:scrape-one": "tsx scripts/wildriftfire/scrape-champion.ts",
     "wrf:validate": "tsx scripts/wildriftfire/validate-scrape.ts",
     "wrf:diff": "tsx scripts/wildriftfire/diff-snapshots.ts",
-    "wrf:import": "tsx scripts/wildriftfire/import-gameplay.ts"
+    "wrf:import": "tsx scripts/wildriftfire/import-gameplay.ts",
+    "gather:items-runes": "node scripts/gather-wild-rift-items-runes.mjs --include-legacy --out data/raw/items-runes"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
