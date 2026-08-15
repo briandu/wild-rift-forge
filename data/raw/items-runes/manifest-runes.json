@@ -1,0 +1,682 @@
+{
+  "sourcePages": {
+    "runes": "https://www.riftgg.app/en/runes"
+  },
+  "generatedAt": "2026-08-15T16:30:22.742Z",
+  "count": 56,
+  "runes": [
+    {
+      "kind": "runes",
+      "name": "Absolute Focus",
+      "slug": "absolute-focus",
+      "url": "https://assets.riftgg.app/runes/absolute-focus.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-absolute-focus.webp",
+        "png512": "png-512/runes/rune-absolute-focus.png",
+        "png256": "png-256/runes/rune-absolute-focus.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Aery",
+      "slug": "aery",
+      "url": "https://assets.riftgg.app/runes/aery.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-aery.webp",
+        "png512": "png-512/runes/rune-aery.png",
+        "png256": "png-256/runes/rune-aery.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Aftershock",
+      "slug": "aftershock",
+      "url": "https://assets.riftgg.app/runes/aftershock.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-aftershock.webp",
+        "png512": "png-512/runes/rune-aftershock.png",
+        "png256": "png-256/runes/rune-aftershock.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Arcane Comet",
+      "slug": "arcane-comet",
+      "url": "https://assets.riftgg.app/runes/arcane-comet.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-arcane-comet.webp",
+        "png512": "png-512/runes/rune-arcane-comet.png",
+        "png256": "png-256/runes/rune-arcane-comet.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Axiom Arcanist",
+      "slug": "axiom-arcanist",
+      "url": "https://assets.riftgg.app/runes/axiom-arcanist.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-axiom-arcanist.webp",
+        "png512": "png-512/runes/rune-axiom-arcanist.png",
+        "png256": "png-256/runes/rune-axiom-arcanist.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Battle Zeal",
+      "slug": "battle-zeal",
+      "url": "https://assets.riftgg.app/runes/battle-zeal.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-battle-zeal.webp",
+        "png512": "png-512/runes/rune-battle-zeal.png",
+        "png256": "png-256/runes/rune-battle-zeal.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Bone Plating",
+      "slug": "bone-plating",
+      "url": "https://assets.riftgg.app/runes/bone-plating.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-bone-plating.webp",
+        "png512": "png-512/runes/rune-bone-plating.png",
+        "png256": "png-256/runes/rune-bone-plating.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Botanist",
+      "slug": "botanist",
+      "url": "https://assets.riftgg.app/runes/botanist.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-botanist.webp",
+        "png512": "png-512/runes/rune-botanist.png",
+        "png256": "png-256/runes/rune-botanist.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Brutal",
+      "slug": "brutal",
+      "url": "https://assets.riftgg.app/runes/brutal.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-brutal.webp",
+        "png512": "png-512/runes/rune-brutal.png",
+        "png256": "png-256/runes/rune-brutal.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Celerity",
+      "slug": "celerity",
+      "url": "https://assets.riftgg.app/runes/celerity.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-celerity.webp",
+        "png512": "png-512/runes/rune-celerity.png",
+        "png256": "png-256/runes/rune-celerity.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Chain Assault",
+      "slug": "chain-assault",
+      "url": "https://assets.riftgg.app/runes/chain-assault.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-chain-assault.webp",
+        "png512": "png-512/runes/rune-chain-assault.png",
+        "png256": "png-256/runes/rune-chain-assault.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Cheap Shot",
+      "slug": "cheap-shot",
+      "url": "https://assets.riftgg.app/runes/cheap-shot.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-cheap-shot.webp",
+        "png512": "png-512/runes/rune-cheap-shot.png",
+        "png256": "png-256/runes/rune-cheap-shot.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Conqueror",
+      "slug": "conqueror",
+      "url": "https://assets.riftgg.app/runes/conqueror.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-conqueror.webp",
+        "png512": "png-512/runes/rune-conqueror.png",
+        "png256": "png-256/runes/rune-conqueror.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Coup De Grace",
+      "slug": "coup-de-grace",
+      "url": "https://assets.riftgg.app/runes/coup-de-grace.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-coup-de-grace.webp",
+        "png512": "png-512/runes/rune-coup-de-grace.png",
+        "png256": "png-256/runes/rune-coup-de-grace.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Courage of the Colossus",
+      "slug": "courage-of-the-colossus",
+      "url": "https://assets.riftgg.app/runes/courage-of-the-colossus.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-courage-of-the-colossus.webp",
+        "png512": "png-512/runes/rune-courage-of-the-colossus.png",
+        "png256": "png-256/runes/rune-courage-of-the-colossus.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Cut Down",
+      "slug": "cut-down",
+      "url": "https://assets.riftgg.app/runes/cut-down.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-cut-down.webp",
+        "png512": "png-512/runes/rune-cut-down.png",
+        "png256": "png-256/runes/rune-cut-down.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Dark Harvest",
+      "slug": "dark-harvest",
+      "url": "https://assets.riftgg.app/runes/dark-harvest.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-dark-harvest.webp",
+        "png512": "png-512/runes/rune-dark-harvest.png",
+        "png256": "png-256/runes/rune-dark-harvest.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Demolish",
+      "slug": "demolish",
+      "url": "https://assets.riftgg.app/runes/demolish.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-demolish.webp",
+        "png512": "png-512/runes/rune-demolish.png",
+        "png256": "png-256/runes/rune-demolish.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Electrocute",
+      "slug": "electrocute",
+      "url": "https://assets.riftgg.app/runes/electrocute.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-electrocute.webp",
+        "png512": "png-512/runes/rune-electrocute.png",
+        "png256": "png-256/runes/rune-electrocute.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Empowered Attack",
+      "slug": "empowered-attack",
+      "url": "https://assets.riftgg.app/runes/empowered-attack.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-empowered-attack.webp",
+        "png512": "png-512/runes/rune-empowered-attack.png",
+        "png256": "png-256/runes/rune-empowered-attack.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Empowerment",
+      "slug": "empowerment",
+      "url": "https://assets.riftgg.app/runes/empowerment.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-empowerment.webp",
+        "png512": "png-512/runes/rune-empowerment.png",
+        "png256": "png-256/runes/rune-empowerment.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Eyeball Collection",
+      "slug": "eyeball-collection",
+      "url": "https://assets.riftgg.app/runes/eyeball-collection.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-eyeball-collection.webp",
+        "png512": "png-512/runes/rune-eyeball-collection.png",
+        "png256": "png-256/runes/rune-eyeball-collection.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "First Strike",
+      "slug": "first-strike",
+      "url": "https://assets.riftgg.app/runes/first-strike.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-first-strike.webp",
+        "png512": "png-512/runes/rune-first-strike.png",
+        "png256": "png-256/runes/rune-first-strike.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Fleet Footwork",
+      "slug": "fleet-footwork",
+      "url": "https://assets.riftgg.app/runes/fleet-footwork.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-fleet-footwork.webp",
+        "png512": "png-512/runes/rune-fleet-footwork.png",
+        "png256": "png-256/runes/rune-fleet-footwork.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Font of Life",
+      "slug": "font-of-life",
+      "url": "https://assets.riftgg.app/runes/font-of-life.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-font-of-life.webp",
+        "png512": "png-512/runes/rune-font-of-life.png",
+        "png256": "png-256/runes/rune-font-of-life.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Gathering Storm",
+      "slug": "gathering-storm",
+      "url": "https://assets.riftgg.app/runes/gathering-storm.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-gathering-storm.webp",
+        "png512": "png-512/runes/rune-gathering-storm.png",
+        "png256": "png-256/runes/rune-gathering-storm.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Glacial Augment",
+      "slug": "glacial-augment",
+      "url": "https://assets.riftgg.app/runes/glacial-augment.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-glacial-augment.webp",
+        "png512": "png-512/runes/rune-glacial-augment.png",
+        "png256": "png-256/runes/rune-glacial-augment.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Grasp of the Undying",
+      "slug": "grasp-of-the-undying",
+      "url": "https://assets.riftgg.app/runes/grasp-of-the-undying.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-grasp-of-the-undying.webp",
+        "png512": "png-512/runes/rune-grasp-of-the-undying.png",
+        "png256": "png-256/runes/rune-grasp-of-the-undying.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Guardian",
+      "slug": "guardian",
+      "url": "https://assets.riftgg.app/runes/guardian.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-guardian.webp",
+        "png512": "png-512/runes/rune-guardian.png",
+        "png256": "png-256/runes/rune-guardian.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Hexflash",
+      "slug": "hexflash",
+      "url": "https://assets.riftgg.app/runes/hexflash.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-hexflash.webp",
+        "png512": "png-512/runes/rune-hexflash.png",
+        "png256": "png-256/runes/rune-hexflash.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Hubris",
+      "slug": "hubris",
+      "url": "https://assets.riftgg.app/runes/hubris.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-hubris.webp",
+        "png512": "png-512/runes/rune-hubris.png",
+        "png256": "png-256/runes/rune-hubris.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Ice Overlord",
+      "slug": "ice-overlord",
+      "url": "https://assets.riftgg.app/runes/ice-overlord.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-ice-overlord.webp",
+        "png512": "png-512/runes/rune-ice-overlord.png",
+        "png256": "png-256/runes/rune-ice-overlord.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Ingenious Hunter",
+      "slug": "ingenious-hunter",
+      "url": "https://assets.riftgg.app/runes/ingenious-hunter.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-ingenious-hunter.webp",
+        "png512": "png-512/runes/rune-ingenious-hunter.png",
+        "png256": "png-256/runes/rune-ingenious-hunter.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Ixtali Seedjar",
+      "slug": "ixtali-seedjar",
+      "url": "https://assets.riftgg.app/runes/ixtali-seedjar.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-ixtali-seedjar.webp",
+        "png512": "png-512/runes/rune-ixtali-seedjar.png",
+        "png256": "png-256/runes/rune-ixtali-seedjar.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Last Stand",
+      "slug": "last-stand",
+      "url": "https://assets.riftgg.app/runes/last-stand.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-last-stand.webp",
+        "png512": "png-512/runes/rune-last-stand.png",
+        "png256": "png-256/runes/rune-last-stand.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Legend Alacrity",
+      "slug": "legend-alacrity",
+      "url": "https://assets.riftgg.app/runes/legend-alacrity.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-legend-alacrity.webp",
+        "png512": "png-512/runes/rune-legend-alacrity.png",
+        "png256": "png-256/runes/rune-legend-alacrity.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Legend Bloodline",
+      "slug": "legend-bloodline",
+      "url": "https://assets.riftgg.app/runes/legend-bloodline.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-legend-bloodline.webp",
+        "png512": "png-512/runes/rune-legend-bloodline.png",
+        "png256": "png-256/runes/rune-legend-bloodline.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Legend Tenacity",
+      "slug": "legend-tenacity",
+      "url": "https://assets.riftgg.app/runes/legend-tenacity.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-legend-tenacity.webp",
+        "png512": "png-512/runes/rune-legend-tenacity.png",
+        "png256": "png-256/runes/rune-legend-tenacity.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Lethal Tempo",
+      "slug": "lethal-tempo",
+      "url": "https://assets.riftgg.app/runes/lethal-tempo.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-lethal-tempo.webp",
+        "png512": "png-512/runes/rune-lethal-tempo.png",
+        "png256": "png-256/runes/rune-lethal-tempo.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Manaflow Band",
+      "slug": "manaflow-band",
+      "url": "https://assets.riftgg.app/runes/manaflow-band.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-manaflow-band.webp",
+        "png512": "png-512/runes/rune-manaflow-band.png",
+        "png256": "png-256/runes/rune-manaflow-band.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Nimbus Cloak",
+      "slug": "nimbus-cloak",
+      "url": "https://assets.riftgg.app/runes/nimbus-cloak.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-nimbus-cloak.webp",
+        "png512": "png-512/runes/rune-nimbus-cloak.png",
+        "png256": "png-256/runes/rune-nimbus-cloak.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Nullifying Orb",
+      "slug": "nullifying-orb",
+      "url": "https://assets.riftgg.app/runes/nullifying-orb.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-nullifying-orb.webp",
+        "png512": "png-512/runes/rune-nullifying-orb.png",
+        "png256": "png-256/runes/rune-nullifying-orb.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Overgrowth",
+      "slug": "overgrowth",
+      "url": "https://assets.riftgg.app/runes/overgrowth.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-overgrowth.webp",
+        "png512": "png-512/runes/rune-overgrowth.png",
+        "png256": "png-256/runes/rune-overgrowth.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Perseverance",
+      "slug": "perseverance",
+      "url": "https://assets.riftgg.app/runes/perseverance.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-perseverance.webp",
+        "png512": "png-512/runes/rune-perseverance.png",
+        "png256": "png-256/runes/rune-perseverance.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Phase Rush",
+      "slug": "phase-rush",
+      "url": "https://assets.riftgg.app/runes/phase-rush.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-phase-rush.webp",
+        "png512": "png-512/runes/rune-phase-rush.png",
+        "png256": "png-256/runes/rune-phase-rush.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Relentless Hunter",
+      "slug": "relentless-hunter",
+      "url": "https://assets.riftgg.app/runes/relentless-hunter.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-relentless-hunter.webp",
+        "png512": "png-512/runes/rune-relentless-hunter.png",
+        "png256": "png-256/runes/rune-relentless-hunter.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Revitalize",
+      "slug": "revitalize",
+      "url": "https://assets.riftgg.app/runes/revitalize.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-revitalize.webp",
+        "png512": "png-512/runes/rune-revitalize.png",
+        "png256": "png-256/runes/rune-revitalize.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Scorch",
+      "slug": "scorch",
+      "url": "https://assets.riftgg.app/runes/scorch.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-scorch.webp",
+        "png512": "png-512/runes/rune-scorch.png",
+        "png256": "png-256/runes/rune-scorch.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Second Wind",
+      "slug": "second-wind",
+      "url": "https://assets.riftgg.app/runes/second-wind.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-second-wind.webp",
+        "png512": "png-512/runes/rune-second-wind.png",
+        "png256": "png-256/runes/rune-second-wind.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Sudden Impact",
+      "slug": "sudden-impact",
+      "url": "https://assets.riftgg.app/runes/sudden-impact.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-sudden-impact.webp",
+        "png512": "png-512/runes/rune-sudden-impact.png",
+        "png256": "png-256/runes/rune-sudden-impact.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Transcendence",
+      "slug": "transcendence",
+      "url": "https://assets.riftgg.app/runes/transcendence.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-transcendence.webp",
+        "png512": "png-512/runes/rune-transcendence.png",
+        "png256": "png-256/runes/rune-transcendence.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Triumph",
+      "slug": "triumph",
+      "url": "https://assets.riftgg.app/runes/triumph.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-triumph.webp",
+        "png512": "png-512/runes/rune-triumph.png",
+        "png256": "png-256/runes/rune-triumph.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Tyrant",
+      "slug": "tyrant",
+      "url": "https://assets.riftgg.app/runes/tyrant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-tyrant.webp",
+        "png512": "png-512/runes/rune-tyrant.png",
+        "png256": "png-256/runes/rune-tyrant.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Unshakeable",
+      "slug": "unshakeable",
+      "url": "https://assets.riftgg.app/runes/unshakeable.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-unshakeable.webp",
+        "png512": "png-512/runes/rune-unshakeable.png",
+        "png256": "png-256/runes/rune-unshakeable.png"
+      }
+    },
+    {
+      "kind": "runes",
+      "name": "Zombie Ward",
+      "slug": "zombie-ward",
+      "url": "https://assets.riftgg.app/runes/zombie-ward.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/runes/rune-zombie-ward.webp",
+        "png512": "png-512/runes/rune-zombie-ward.png",
+        "png256": "png-256/runes/rune-zombie-ward.png"
+      }
+    },
+    {
+      "name": "Hunter–Titan",
+      "slug": "hunter-titan",
+      "url": "https://wildriftguides.gg/img/wildrift/runes/HunterTitan.png",
+      "note": "Legacy rune; optional extra from non-official fallback source.",
+      "kind": "runes",
+      "source": "Legacy fallback",
+      "files": {
+        "original": "original/runes/rune-hunter-titan.png",
+        "png512": "png-512/runes/rune-hunter-titan.png",
+        "png256": "png-256/runes/rune-hunter-titan.png"
+      }
+    }
+  ]
+}

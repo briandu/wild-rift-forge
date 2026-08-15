@@ -1,0 +1,1978 @@
+{
+  "sourcePages": {
+    "items": "https://www.riftgg.app/en/items"
+  },
+  "generatedAt": "2026-08-15T16:30:22.543Z",
+  "count": 164,
+  "items": [
+    {
+      "kind": "items",
+      "name": "Abyssal Mask",
+      "slug": "abyssal-mask",
+      "url": "https://assets.riftgg.app/items/abyssal-mask.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-abyssal-mask.webp",
+        "png512": "png-512/items/item-abyssal-mask.png",
+        "png256": "png-256/items/item-abyssal-mask.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Aether Wisp",
+      "slug": "aether-wisp",
+      "url": "https://assets.riftgg.app/items/aether-wisp.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-aether-wisp.webp",
+        "png512": "png-512/items/item-aether-wisp.png",
+        "png256": "png-256/items/item-aether-wisp.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Amaranths Twinguard",
+      "slug": "amaranths-twinguard",
+      "url": "https://assets.riftgg.app/items/amaranths-twinguard.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-amaranths-twinguard.webp",
+        "png512": "png-512/items/item-amaranths-twinguard.png",
+        "png256": "png-256/items/item-amaranths-twinguard.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Amplifying Tome",
+      "slug": "amplifying-tome",
+      "url": "https://assets.riftgg.app/items/amplifying-tome.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-amplifying-tome.webp",
+        "png512": "png-512/items/item-amplifying-tome.png",
+        "png256": "png-256/items/item-amplifying-tome.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Archangels Staff",
+      "slug": "archangels-staff",
+      "url": "https://assets.riftgg.app/items/archangels-staff.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-archangels-staff.webp",
+        "png512": "png-512/items/item-archangels-staff.png",
+        "png256": "png-256/items/item-archangels-staff.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Ardent Censer",
+      "slug": "ardent-censer",
+      "url": "https://assets.riftgg.app/items/ardent-censer.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-ardent-censer.webp",
+        "png512": "png-512/items/item-ardent-censer.png",
+        "png256": "png-256/items/item-ardent-censer.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Awakened Soulstealer",
+      "slug": "awakened-soulstealer",
+      "url": "https://assets.riftgg.app/items/awakened-soulstealer.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-awakened-soulstealer.webp",
+        "png512": "png-512/items/item-awakened-soulstealer.png",
+        "png256": "png-256/items/item-awakened-soulstealer.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "B F Sword",
+      "slug": "b-f-sword",
+      "url": "https://assets.riftgg.app/items/b-f-sword.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-b-f-sword.webp",
+        "png512": "png-512/items/item-b-f-sword.png",
+        "png256": "png-256/items/item-b-f-sword.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Bamis Cinder",
+      "slug": "bamis-cinder",
+      "url": "https://assets.riftgg.app/items/bamis-cinder.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-bamis-cinder.webp",
+        "png512": "png-512/items/item-bamis-cinder.png",
+        "png256": "png-256/items/item-bamis-cinder.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Bandle Fantasy",
+      "slug": "bandle-fantasy",
+      "url": "https://assets.riftgg.app/items/bandle-fantasy.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-bandle-fantasy.webp",
+        "png512": "png-512/items/item-bandle-fantasy.png",
+        "png256": "png-256/items/item-bandle-fantasy.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Berserkers Greaves",
+      "slug": "berserkers-greaves",
+      "url": "https://assets.riftgg.app/items/berserkers-greaves.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-berserkers-greaves.webp",
+        "png512": "png-512/items/item-berserkers-greaves.png",
+        "png256": "png-256/items/item-berserkers-greaves.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Black Cleaver",
+      "slug": "black-cleaver",
+      "url": "https://assets.riftgg.app/items/black-cleaver.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-black-cleaver.webp",
+        "png512": "png-512/items/item-black-cleaver.png",
+        "png256": "png-256/items/item-black-cleaver.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Blade of the Ruined King",
+      "slug": "blade-of-the-ruined-king",
+      "url": "https://assets.riftgg.app/items/blade-of-the-ruined-king.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-blade-of-the-ruined-king.webp",
+        "png512": "png-512/items/item-blade-of-the-ruined-king.png",
+        "png256": "png-256/items/item-blade-of-the-ruined-king.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Blasting Wand",
+      "slug": "blasting-wand",
+      "url": "https://assets.riftgg.app/items/blasting-wand.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-blasting-wand.webp",
+        "png512": "png-512/items/item-blasting-wand.png",
+        "png256": "png-256/items/item-blasting-wand.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Bloodthirster",
+      "slug": "bloodthirster",
+      "url": "https://assets.riftgg.app/items/bloodthirster.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-bloodthirster.webp",
+        "png512": "png-512/items/item-bloodthirster.png",
+        "png256": "png-256/items/item-bloodthirster.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Boots of Dynamism",
+      "slug": "boots-of-dynamism",
+      "url": "https://assets.riftgg.app/items/boots-of-dynamism.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-boots-of-dynamism.webp",
+        "png512": "png-512/items/item-boots-of-dynamism.png",
+        "png256": "png-256/items/item-boots-of-dynamism.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Boots of Mana",
+      "slug": "boots-of-mana",
+      "url": "https://assets.riftgg.app/items/boots-of-mana.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-boots-of-mana.webp",
+        "png512": "png-512/items/item-boots-of-mana.png",
+        "png256": "png-256/items/item-boots-of-mana.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Boots of Speed",
+      "slug": "boots-of-speed",
+      "url": "https://assets.riftgg.app/items/boots-of-speed.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-boots-of-speed.webp",
+        "png512": "png-512/items/item-boots-of-speed.png",
+        "png256": "png-256/items/item-boots-of-speed.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Bramble Vest",
+      "slug": "bramble-vest",
+      "url": "https://assets.riftgg.app/items/bramble-vest.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-bramble-vest.webp",
+        "png512": "png-512/items/item-bramble-vest.png",
+        "png256": "png-256/items/item-bramble-vest.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Brawlers Gloves",
+      "slug": "brawlers-gloves",
+      "url": "https://assets.riftgg.app/items/brawlers-gloves.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-brawlers-gloves.webp",
+        "png512": "png-512/items/item-brawlers-gloves.png",
+        "png256": "png-256/items/item-brawlers-gloves.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Bulwark of the Mountain",
+      "slug": "bulwark-of-the-mountain",
+      "url": "https://assets.riftgg.app/items/bulwark-of-the-mountain.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-bulwark-of-the-mountain.webp",
+        "png512": "png-512/items/item-bulwark-of-the-mountain.png",
+        "png256": "png-256/items/item-bulwark-of-the-mountain.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Catalyst of Aeons",
+      "slug": "catalyst-of-aeons",
+      "url": "https://assets.riftgg.app/items/catalyst-of-aeons.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-catalyst-of-aeons.webp",
+        "png512": "png-512/items/item-catalyst-of-aeons.png",
+        "png256": "png-256/items/item-catalyst-of-aeons.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Caulfields Warhammer",
+      "slug": "caulfields-warhammer",
+      "url": "https://assets.riftgg.app/items/caulfields-warhammer.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-caulfields-warhammer.webp",
+        "png512": "png-512/items/item-caulfields-warhammer.png",
+        "png256": "png-256/items/item-caulfields-warhammer.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Chain Vest",
+      "slug": "chain-vest",
+      "url": "https://assets.riftgg.app/items/chain-vest.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-chain-vest.webp",
+        "png512": "png-512/items/item-chain-vest.png",
+        "png256": "png-256/items/item-chain-vest.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Chempunk Chainsword",
+      "slug": "chempunk-chainsword",
+      "url": "https://assets.riftgg.app/items/chempunk-chainsword.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-chempunk-chainsword.webp",
+        "png512": "png-512/items/item-chempunk-chainsword.png",
+        "png256": "png-256/items/item-chempunk-chainsword.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Cloak of Agility",
+      "slug": "cloak-of-agility",
+      "url": "https://assets.riftgg.app/items/cloak-of-agility.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-cloak-of-agility.webp",
+        "png512": "png-512/items/item-cloak-of-agility.png",
+        "png256": "png-256/items/item-cloak-of-agility.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Cloth Armor",
+      "slug": "cloth-armor",
+      "url": "https://assets.riftgg.app/items/cloth-armor.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-cloth-armor.webp",
+        "png512": "png-512/items/item-cloth-armor.png",
+        "png256": "png-256/items/item-cloth-armor.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Cosmic Drive",
+      "slug": "cosmic-drive",
+      "url": "https://assets.riftgg.app/items/cosmic-drive.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-cosmic-drive.webp",
+        "png512": "png-512/items/item-cosmic-drive.png",
+        "png256": "png-256/items/item-cosmic-drive.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Crown of the Shattered Queen",
+      "slug": "crown-of-the-shattered-queen",
+      "url": "https://assets.riftgg.app/items/crown-of-the-shattered-queen.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-crown-of-the-shattered-queen.webp",
+        "png512": "png-512/items/item-crown-of-the-shattered-queen.png",
+        "png256": "png-256/items/item-crown-of-the-shattered-queen.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Dagger",
+      "slug": "dagger",
+      "url": "https://assets.riftgg.app/items/dagger.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-dagger.webp",
+        "png512": "png-512/items/item-dagger.png",
+        "png256": "png-256/items/item-dagger.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Dawnshroud",
+      "slug": "dawnshroud",
+      "url": "https://assets.riftgg.app/items/dawnshroud.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-dawnshroud.webp",
+        "png512": "png-512/items/item-dawnshroud.png",
+        "png256": "png-256/items/item-dawnshroud.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Dead Mans Plate",
+      "slug": "dead-mans-plate",
+      "url": "https://assets.riftgg.app/items/dead-mans-plate.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-dead-mans-plate.webp",
+        "png512": "png-512/items/item-dead-mans-plate.png",
+        "png256": "png-256/items/item-dead-mans-plate.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Deaths Dance",
+      "slug": "deaths-dance",
+      "url": "https://assets.riftgg.app/items/deaths-dance.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-deaths-dance.webp",
+        "png512": "png-512/items/item-deaths-dance.png",
+        "png256": "png-256/items/item-deaths-dance.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Divine Sunderer",
+      "slug": "divine-sunderer",
+      "url": "https://assets.riftgg.app/items/divine-sunderer.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-divine-sunderer.webp",
+        "png512": "png-512/items/item-divine-sunderer.png",
+        "png256": "png-256/items/item-divine-sunderer.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Dream Maker",
+      "slug": "dream-maker",
+      "url": "https://assets.riftgg.app/items/dream-maker.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-dream-maker.webp",
+        "png512": "png-512/items/item-dream-maker.png",
+        "png256": "png-256/items/item-dream-maker.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Duskblade of Draktharr",
+      "slug": "duskblade-of-draktharr",
+      "url": "https://assets.riftgg.app/items/duskblade-of-draktharr.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-duskblade-of-draktharr.webp",
+        "png512": "png-512/items/item-duskblade-of-draktharr.png",
+        "png256": "png-256/items/item-duskblade-of-draktharr.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Eclipse",
+      "slug": "eclipse",
+      "url": "https://assets.riftgg.app/items/eclipse.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-eclipse.webp",
+        "png512": "png-512/items/item-eclipse.png",
+        "png256": "png-256/items/item-eclipse.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Edge of Night",
+      "slug": "edge-of-night",
+      "url": "https://assets.riftgg.app/items/edge-of-night.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-edge-of-night.webp",
+        "png512": "png-512/items/item-edge-of-night.png",
+        "png256": "png-256/items/item-edge-of-night.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Essence Reaver",
+      "slug": "essence-reaver",
+      "url": "https://assets.riftgg.app/items/essence-reaver.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-essence-reaver.webp",
+        "png512": "png-512/items/item-essence-reaver.png",
+        "png256": "png-256/items/item-essence-reaver.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Executioners Calling",
+      "slug": "executioners-calling",
+      "url": "https://assets.riftgg.app/items/executioners-calling.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-executioners-calling.webp",
+        "png512": "png-512/items/item-executioners-calling.png",
+        "png256": "png-256/items/item-executioners-calling.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Experimental Hexplate",
+      "slug": "experimental-hexplate",
+      "url": "https://assets.riftgg.app/items/experimental-hexplate.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-experimental-hexplate.webp",
+        "png512": "png-512/items/item-experimental-hexplate.png",
+        "png256": "png-256/items/item-experimental-hexplate.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Fiendish Codex",
+      "slug": "fiendish-codex",
+      "url": "https://assets.riftgg.app/items/fiendish-codex.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-fiendish-codex.webp",
+        "png512": "png-512/items/item-fiendish-codex.png",
+        "png256": "png-256/items/item-fiendish-codex.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Fimbulwinter",
+      "slug": "fimbulwinter",
+      "url": "https://assets.riftgg.app/items/fimbulwinter.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-fimbulwinter.webp",
+        "png512": "png-512/items/item-fimbulwinter.png",
+        "png256": "png-256/items/item-fimbulwinter.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Forbidden Idol",
+      "slug": "forbidden-idol",
+      "url": "https://assets.riftgg.app/items/forbidden-idol.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-forbidden-idol.webp",
+        "png512": "png-512/items/item-forbidden-idol.png",
+        "png256": "png-256/items/item-forbidden-idol.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Force of Nature",
+      "slug": "force-of-nature",
+      "url": "https://assets.riftgg.app/items/force-of-nature.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-force-of-nature.webp",
+        "png512": "png-512/items/item-force-of-nature.png",
+        "png256": "png-256/items/item-force-of-nature.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Frozen Heart",
+      "slug": "frozen-heart",
+      "url": "https://assets.riftgg.app/items/frozen-heart.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-frozen-heart.webp",
+        "png512": "png-512/items/item-frozen-heart.png",
+        "png256": "png-256/items/item-frozen-heart.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Galeforce",
+      "slug": "galeforce",
+      "url": "https://assets.riftgg.app/items/galeforce.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-galeforce.webp",
+        "png512": "png-512/items/item-galeforce.png",
+        "png256": "png-256/items/item-galeforce.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Giants Belt",
+      "slug": "giants-belt",
+      "url": "https://assets.riftgg.app/items/giants-belt.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-giants-belt.webp",
+        "png512": "png-512/items/item-giants-belt.png",
+        "png256": "png-256/items/item-giants-belt.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Glacial Shroud",
+      "slug": "glacial-shroud",
+      "url": "https://assets.riftgg.app/items/glacial-shroud.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-glacial-shroud.webp",
+        "png512": "png-512/items/item-glacial-shroud.png",
+        "png256": "png-256/items/item-glacial-shroud.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Glorious Enchant",
+      "slug": "glorious-enchant",
+      "url": "https://assets.riftgg.app/items/glorious-enchant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-glorious-enchant.webp",
+        "png512": "png-512/items/item-glorious-enchant.png",
+        "png256": "png-256/items/item-glorious-enchant.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Gluttonous Greaves",
+      "slug": "gluttonous-greaves",
+      "url": "https://assets.riftgg.app/items/gluttonous-greaves.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-gluttonous-greaves.webp",
+        "png512": "png-512/items/item-gluttonous-greaves.png",
+        "png256": "png-256/items/item-gluttonous-greaves.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Goredrinker",
+      "slug": "goredrinker",
+      "url": "https://assets.riftgg.app/items/goredrinker.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-goredrinker.webp",
+        "png512": "png-512/items/item-goredrinker.png",
+        "png256": "png-256/items/item-goredrinker.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Guardian Angel",
+      "slug": "guardian-angel",
+      "url": "https://assets.riftgg.app/items/guardian-angel.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-guardian-angel.webp",
+        "png512": "png-512/items/item-guardian-angel.png",
+        "png256": "png-256/items/item-guardian-angel.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Guinsoos Rageblade",
+      "slug": "guinsoos-rageblade",
+      "url": "https://assets.riftgg.app/items/guinsoos-rageblade.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-guinsoos-rageblade.webp",
+        "png512": "png-512/items/item-guinsoos-rageblade.png",
+        "png256": "png-256/items/item-guinsoos-rageblade.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Harmonic Echo",
+      "slug": "harmonic-echo",
+      "url": "https://assets.riftgg.app/items/harmonic-echo.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-harmonic-echo.webp",
+        "png512": "png-512/items/item-harmonic-echo.png",
+        "png256": "png-256/items/item-harmonic-echo.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Haunting Guise",
+      "slug": "haunting-guise",
+      "url": "https://assets.riftgg.app/items/haunting-guise.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-haunting-guise.webp",
+        "png512": "png-512/items/item-haunting-guise.png",
+        "png256": "png-256/items/item-haunting-guise.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Heartsteel",
+      "slug": "heartsteel",
+      "url": "https://assets.riftgg.app/items/heartsteel.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-heartsteel.webp",
+        "png512": "png-512/items/item-heartsteel.png",
+        "png256": "png-256/items/item-heartsteel.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Hexdrinker",
+      "slug": "hexdrinker",
+      "url": "https://assets.riftgg.app/items/hexdrinker.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-hexdrinker.webp",
+        "png512": "png-512/items/item-hexdrinker.png",
+        "png256": "png-256/items/item-hexdrinker.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Hextech Alternator",
+      "slug": "hextech-alternator",
+      "url": "https://assets.riftgg.app/items/hextech-alternator.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-hextech-alternator.webp",
+        "png512": "png-512/items/item-hextech-alternator.png",
+        "png256": "png-256/items/item-hextech-alternator.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Hollow Radiance",
+      "slug": "hollow-radiance",
+      "url": "https://assets.riftgg.app/items/hollow-radiance.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-hollow-radiance.webp",
+        "png512": "png-512/items/item-hollow-radiance.png",
+        "png256": "png-256/items/item-hollow-radiance.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Horizon Focus",
+      "slug": "horizon-focus",
+      "url": "https://assets.riftgg.app/items/horizon-focus.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-horizon-focus.webp",
+        "png512": "png-512/items/item-horizon-focus.png",
+        "png256": "png-256/items/item-horizon-focus.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Hullbreaker",
+      "slug": "hullbreaker",
+      "url": "https://assets.riftgg.app/items/hullbreaker.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-hullbreaker.webp",
+        "png512": "png-512/items/item-hullbreaker.png",
+        "png256": "png-256/items/item-hullbreaker.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Iceborn Gauntlet",
+      "slug": "iceborn-gauntlet",
+      "url": "https://assets.riftgg.app/items/iceborn-gauntlet.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-iceborn-gauntlet.webp",
+        "png512": "png-512/items/item-iceborn-gauntlet.png",
+        "png256": "png-256/items/item-iceborn-gauntlet.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Immortal Shieldbow",
+      "slug": "immortal-shieldbow",
+      "url": "https://assets.riftgg.app/items/immortal-shieldbow.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-immortal-shieldbow.webp",
+        "png512": "png-512/items/item-immortal-shieldbow.png",
+        "png256": "png-256/items/item-immortal-shieldbow.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Imperial Mandate",
+      "slug": "imperial-mandate",
+      "url": "https://assets.riftgg.app/items/imperial-mandate.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-imperial-mandate.webp",
+        "png512": "png-512/items/item-imperial-mandate.png",
+        "png256": "png-256/items/item-imperial-mandate.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Infinity Edge",
+      "slug": "infinity-edge",
+      "url": "https://assets.riftgg.app/items/infinity-edge.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-infinity-edge.webp",
+        "png512": "png-512/items/item-infinity-edge.png",
+        "png256": "png-256/items/item-infinity-edge.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Infinity Orb",
+      "slug": "infinity-orb",
+      "url": "https://assets.riftgg.app/items/infinity-orb.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-infinity-orb.webp",
+        "png512": "png-512/items/item-infinity-orb.png",
+        "png256": "png-256/items/item-infinity-orb.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Ionian Boots of Lucidity",
+      "slug": "ionian-boots-of-lucidity",
+      "url": "https://assets.riftgg.app/items/ionian-boots-of-lucidity.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-ionian-boots-of-lucidity.webp",
+        "png512": "png-512/items/item-ionian-boots-of-lucidity.png",
+        "png256": "png-256/items/item-ionian-boots-of-lucidity.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Jaurims Fist",
+      "slug": "jaurims-fist",
+      "url": "https://assets.riftgg.app/items/jaurims-fist.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-jaurims-fist.webp",
+        "png512": "png-512/items/item-jaurims-fist.png",
+        "png256": "png-256/items/item-jaurims-fist.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Kaenic Rookern",
+      "slug": "kaenic-rookern",
+      "url": "https://assets.riftgg.app/items/kaenic-rookern.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-kaenic-rookern.webp",
+        "png512": "png-512/items/item-kaenic-rookern.png",
+        "png256": "png-256/items/item-kaenic-rookern.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Kindlegem",
+      "slug": "kindlegem",
+      "url": "https://assets.riftgg.app/items/kindlegem.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-kindlegem.webp",
+        "png512": "png-512/items/item-kindlegem.png",
+        "png256": "png-256/items/item-kindlegem.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Kircheis Shard",
+      "slug": "kircheis-shard",
+      "url": "https://assets.riftgg.app/items/kircheis-shard.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-kircheis-shard.webp",
+        "png512": "png-512/items/item-kircheis-shard.png",
+        "png256": "png-256/items/item-kircheis-shard.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Knights Vow",
+      "slug": "knights-vow",
+      "url": "https://assets.riftgg.app/items/knights-vow.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-knights-vow.webp",
+        "png512": "png-512/items/item-knights-vow.png",
+        "png256": "png-256/items/item-knights-vow.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Kraken Slayer",
+      "slug": "kraken-slayer",
+      "url": "https://assets.riftgg.app/items/kraken-slayer.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-kraken-slayer.webp",
+        "png512": "png-512/items/item-kraken-slayer.png",
+        "png256": "png-256/items/item-kraken-slayer.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Last Whisper",
+      "slug": "last-whisper",
+      "url": "https://assets.riftgg.app/items/last-whisper.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-last-whisper.webp",
+        "png512": "png-512/items/item-last-whisper.png",
+        "png256": "png-256/items/item-last-whisper.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Liandrys Torment",
+      "slug": "liandrys-torment",
+      "url": "https://assets.riftgg.app/items/liandrys-torment.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-liandrys-torment.webp",
+        "png512": "png-512/items/item-liandrys-torment.png",
+        "png256": "png-256/items/item-liandrys-torment.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Lich Bane",
+      "slug": "lich-bane",
+      "url": "https://assets.riftgg.app/items/lich-bane.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-lich-bane.webp",
+        "png512": "png-512/items/item-lich-bane.png",
+        "png256": "png-256/items/item-lich-bane.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Locket Enchant",
+      "slug": "locket-enchant",
+      "url": "https://assets.riftgg.app/items/locket-enchant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-locket-enchant.webp",
+        "png512": "png-512/items/item-locket-enchant.png",
+        "png256": "png-256/items/item-locket-enchant.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Long Sword",
+      "slug": "long-sword",
+      "url": "https://assets.riftgg.app/items/long-sword.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-long-sword.webp",
+        "png512": "png-512/items/item-long-sword.png",
+        "png256": "png-256/items/item-long-sword.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Lord Dominiks Regards",
+      "slug": "lord-dominiks-regards",
+      "url": "https://assets.riftgg.app/items/lord-dominiks-regards.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-lord-dominiks-regards.webp",
+        "png512": "png-512/items/item-lord-dominiks-regards.png",
+        "png256": "png-256/items/item-lord-dominiks-regards.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Lost Chapter",
+      "slug": "lost-chapter",
+      "url": "https://assets.riftgg.app/items/lost-chapter.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-lost-chapter.webp",
+        "png512": "png-512/items/item-lost-chapter.png",
+        "png256": "png-256/items/item-lost-chapter.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Ludens Echo",
+      "slug": "ludens-echo",
+      "url": "https://assets.riftgg.app/items/ludens-echo.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-ludens-echo.webp",
+        "png512": "png-512/items/item-ludens-echo.png",
+        "png256": "png-256/items/item-ludens-echo.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Magnetic Blaster",
+      "slug": "magnetic-blaster",
+      "url": "https://assets.riftgg.app/items/magnetic-blaster.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-magnetic-blaster.webp",
+        "png512": "png-512/items/item-magnetic-blaster.png",
+        "png256": "png-256/items/item-magnetic-blaster.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Malignance",
+      "slug": "malignance",
+      "url": "https://assets.riftgg.app/items/malignance.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-malignance.webp",
+        "png512": "png-512/items/item-malignance.png",
+        "png256": "png-256/items/item-malignance.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Manamune",
+      "slug": "manamune",
+      "url": "https://assets.riftgg.app/items/manamune.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-manamune.webp",
+        "png512": "png-512/items/item-manamune.png",
+        "png256": "png-256/items/item-manamune.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Mantle of the Twelfth Hour",
+      "slug": "mantle-of-the-twelfth-hour",
+      "url": "https://assets.riftgg.app/items/mantle-of-the-twelfth-hour.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-mantle-of-the-twelfth-hour.webp",
+        "png512": "png-512/items/item-mantle-of-the-twelfth-hour.png",
+        "png256": "png-256/items/item-mantle-of-the-twelfth-hour.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Maw of Malmortius",
+      "slug": "maw-of-malmortius",
+      "url": "https://assets.riftgg.app/items/maw-of-malmortius.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-maw-of-malmortius.webp",
+        "png512": "png-512/items/item-maw-of-malmortius.png",
+        "png256": "png-256/items/item-maw-of-malmortius.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Mejais Soulstealer",
+      "slug": "mejais-soulstealer",
+      "url": "https://assets.riftgg.app/items/mejais-soulstealer.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-mejais-soulstealer.webp",
+        "png512": "png-512/items/item-mejais-soulstealer.png",
+        "png256": "png-256/items/item-mejais-soulstealer.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Mercurys Treads",
+      "slug": "mercurys-treads",
+      "url": "https://assets.riftgg.app/items/mercurys-treads.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-mercurys-treads.webp",
+        "png512": "png-512/items/item-mercurys-treads.png",
+        "png256": "png-256/items/item-mercurys-treads.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Morellonomicon",
+      "slug": "morellonomicon",
+      "url": "https://assets.riftgg.app/items/morellonomicon.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-morellonomicon.webp",
+        "png512": "png-512/items/item-morellonomicon.png",
+        "png256": "png-256/items/item-morellonomicon.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Mortal Reminder",
+      "slug": "mortal-reminder",
+      "url": "https://assets.riftgg.app/items/mortal-reminder.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-mortal-reminder.webp",
+        "png512": "png-512/items/item-mortal-reminder.png",
+        "png256": "png-256/items/item-mortal-reminder.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Muramana",
+      "slug": "muramana",
+      "url": "https://assets.riftgg.app/items/muramana.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-muramana.webp",
+        "png512": "png-512/items/item-muramana.png",
+        "png256": "png-256/items/item-muramana.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Nashors Talon",
+      "slug": "nashors-talon",
+      "url": "https://assets.riftgg.app/items/nashors-talon.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-nashors-talon.webp",
+        "png512": "png-512/items/item-nashors-talon.png",
+        "png256": "png-256/items/item-nashors-talon.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Nashors Tooth",
+      "slug": "nashors-tooth",
+      "url": "https://assets.riftgg.app/items/nashors-tooth.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-nashors-tooth.webp",
+        "png512": "png-512/items/item-nashors-tooth.png",
+        "png256": "png-256/items/item-nashors-tooth.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Navori Quickblades",
+      "slug": "navori-quickblades",
+      "url": "https://assets.riftgg.app/items/navori-quickblades.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-navori-quickblades.webp",
+        "png512": "png-512/items/item-navori-quickblades.png",
+        "png256": "png-256/items/item-navori-quickblades.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Needlessly Large Rod",
+      "slug": "needlessly-large-rod",
+      "url": "https://assets.riftgg.app/items/needlessly-large-rod.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-needlessly-large-rod.webp",
+        "png512": "png-512/items/item-needlessly-large-rod.png",
+        "png256": "png-256/items/item-needlessly-large-rod.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Negatron Cloak",
+      "slug": "negatron-cloak",
+      "url": "https://assets.riftgg.app/items/negatron-cloak.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-negatron-cloak.webp",
+        "png512": "png-512/items/item-negatron-cloak.png",
+        "png256": "png-256/items/item-negatron-cloak.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Noonquiver",
+      "slug": "noonquiver",
+      "url": "https://assets.riftgg.app/items/noonquiver.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-noonquiver.webp",
+        "png512": "png-512/items/item-noonquiver.png",
+        "png256": "png-256/items/item-noonquiver.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Null Magic Mantle",
+      "slug": "null-magic-mantle",
+      "url": "https://assets.riftgg.app/items/null-magic-mantle.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-null-magic-mantle.webp",
+        "png512": "png-512/items/item-null-magic-mantle.png",
+        "png256": "png-256/items/item-null-magic-mantle.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Oblivion Orb",
+      "slug": "oblivion-orb",
+      "url": "https://assets.riftgg.app/items/oblivion-orb.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-oblivion-orb.webp",
+        "png512": "png-512/items/item-oblivion-orb.png",
+        "png256": "png-256/items/item-oblivion-orb.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Oceanids Trident",
+      "slug": "oceanids-trident",
+      "url": "https://assets.riftgg.app/items/oceanids-trident.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-oceanids-trident.webp",
+        "png512": "png-512/items/item-oceanids-trident.png",
+        "png256": "png-256/items/item-oceanids-trident.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Overlords Bloodmail",
+      "slug": "overlords-bloodmail",
+      "url": "https://assets.riftgg.app/items/overlords-bloodmail.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-overlords-bloodmail.webp",
+        "png512": "png-512/items/item-overlords-bloodmail.png",
+        "png256": "png-256/items/item-overlords-bloodmail.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Phage",
+      "slug": "phage",
+      "url": "https://assets.riftgg.app/items/phage.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-phage.webp",
+        "png512": "png-512/items/item-phage.png",
+        "png256": "png-256/items/item-phage.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Phantom Dancer",
+      "slug": "phantom-dancer",
+      "url": "https://assets.riftgg.app/items/phantom-dancer.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-phantom-dancer.webp",
+        "png512": "png-512/items/item-phantom-dancer.png",
+        "png256": "png-256/items/item-phantom-dancer.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Plated Steelcaps",
+      "slug": "plated-steelcaps",
+      "url": "https://assets.riftgg.app/items/plated-steelcaps.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-plated-steelcaps.webp",
+        "png512": "png-512/items/item-plated-steelcaps.png",
+        "png256": "png-256/items/item-plated-steelcaps.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Prophets Pendant",
+      "slug": "prophets-pendant",
+      "url": "https://assets.riftgg.app/items/prophets-pendant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-prophets-pendant.webp",
+        "png512": "png-512/items/item-prophets-pendant.png",
+        "png256": "png-256/items/item-prophets-pendant.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Protectors Vow",
+      "slug": "protectors-vow",
+      "url": "https://assets.riftgg.app/items/protectors-vow.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-protectors-vow.webp",
+        "png512": "png-512/items/item-protectors-vow.png",
+        "png256": "png-256/items/item-protectors-vow.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Protobelt Enchant",
+      "slug": "protobelt-enchant",
+      "url": "https://assets.riftgg.app/items/protobelt-enchant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-protobelt-enchant.webp",
+        "png512": "png-512/items/item-protobelt-enchant.png",
+        "png256": "png-256/items/item-protobelt-enchant.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Psychic Projector",
+      "slug": "psychic-projector",
+      "url": "https://assets.riftgg.app/items/psychic-projector.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-psychic-projector.webp",
+        "png512": "png-512/items/item-psychic-projector.png",
+        "png256": "png-256/items/item-psychic-projector.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Quicksilver Enchant",
+      "slug": "quicksilver-enchant",
+      "url": "https://assets.riftgg.app/items/quicksilver-enchant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-quicksilver-enchant.webp",
+        "png512": "png-512/items/item-quicksilver-enchant.png",
+        "png256": "png-256/items/item-quicksilver-enchant.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Rabadons Deathcap",
+      "slug": "rabadons-deathcap",
+      "url": "https://assets.riftgg.app/items/rabadons-deathcap.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-rabadons-deathcap.webp",
+        "png512": "png-512/items/item-rabadons-deathcap.png",
+        "png256": "png-256/items/item-rabadons-deathcap.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Radiant Virtue",
+      "slug": "radiant-virtue",
+      "url": "https://assets.riftgg.app/items/radiant-virtue.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-radiant-virtue.webp",
+        "png512": "png-512/items/item-radiant-virtue.png",
+        "png256": "png-256/items/item-radiant-virtue.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Randuins Omen",
+      "slug": "randuins-omen",
+      "url": "https://assets.riftgg.app/items/randuins-omen.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-randuins-omen.webp",
+        "png512": "png-512/items/item-randuins-omen.png",
+        "png256": "png-256/items/item-randuins-omen.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Recurve Bow",
+      "slug": "recurve-bow",
+      "url": "https://assets.riftgg.app/items/recurve-bow.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-recurve-bow.webp",
+        "png512": "png-512/items/item-recurve-bow.png",
+        "png256": "png-256/items/item-recurve-bow.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Redemption",
+      "slug": "redemption",
+      "url": "https://assets.riftgg.app/items/redemption.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-redemption.webp",
+        "png512": "png-512/items/item-redemption.png",
+        "png256": "png-256/items/item-redemption.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Relic Shield",
+      "slug": "relic-shield",
+      "url": "https://assets.riftgg.app/items/relic-shield.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-relic-shield.webp",
+        "png512": "png-512/items/item-relic-shield.png",
+        "png256": "png-256/items/item-relic-shield.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Riftmaker",
+      "slug": "riftmaker",
+      "url": "https://assets.riftgg.app/items/riftmaker.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-riftmaker.webp",
+        "png512": "png-512/items/item-riftmaker.png",
+        "png256": "png-256/items/item-riftmaker.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Ring of Revelation",
+      "slug": "ring-of-revelation",
+      "url": "https://assets.riftgg.app/items/ring-of-revelation.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-ring-of-revelation.webp",
+        "png512": "png-512/items/item-ring-of-revelation.png",
+        "png256": "png-256/items/item-ring-of-revelation.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Rod of Ages",
+      "slug": "rod-of-ages",
+      "url": "https://assets.riftgg.app/items/rod-of-ages.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-rod-of-ages.webp",
+        "png512": "png-512/items/item-rod-of-ages.png",
+        "png256": "png-256/items/item-rod-of-ages.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Ruby Crystal",
+      "slug": "ruby-crystal",
+      "url": "https://assets.riftgg.app/items/ruby-crystal.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-ruby-crystal.webp",
+        "png512": "png-512/items/item-ruby-crystal.png",
+        "png256": "png-256/items/item-ruby-crystal.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Runaans Hurricane",
+      "slug": "runaans-hurricane",
+      "url": "https://assets.riftgg.app/items/runaans-hurricane.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-runaans-hurricane.webp",
+        "png512": "png-512/items/item-runaans-hurricane.png",
+        "png256": "png-256/items/item-runaans-hurricane.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Rylais Crystal Scepter",
+      "slug": "rylais-crystal-scepter",
+      "url": "https://assets.riftgg.app/items/rylais-crystal-scepter.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-rylais-crystal-scepter.webp",
+        "png512": "png-512/items/item-rylais-crystal-scepter.png",
+        "png256": "png-256/items/item-rylais-crystal-scepter.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Sapphire Crystal",
+      "slug": "sapphire-crystal",
+      "url": "https://assets.riftgg.app/items/sapphire-crystal.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-sapphire-crystal.webp",
+        "png512": "png-512/items/item-sapphire-crystal.png",
+        "png256": "png-256/items/item-sapphire-crystal.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Searing Crown",
+      "slug": "searing-crown",
+      "url": "https://assets.riftgg.app/items/searing-crown.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-searing-crown.webp",
+        "png512": "png-512/items/item-searing-crown.png",
+        "png256": "png-256/items/item-searing-crown.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Seekers Armguard",
+      "slug": "seekers-armguard",
+      "url": "https://assets.riftgg.app/items/seekers-armguard.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-seekers-armguard.webp",
+        "png512": "png-512/items/item-seekers-armguard.png",
+        "png256": "png-256/items/item-seekers-armguard.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Seraphs Embrace",
+      "slug": "seraphs-embrace",
+      "url": "https://assets.riftgg.app/items/seraphs-embrace.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-seraphs-embrace.webp",
+        "png512": "png-512/items/item-seraphs-embrace.png",
+        "png256": "png-256/items/item-seraphs-embrace.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Serpents Fang",
+      "slug": "serpents-fang",
+      "url": "https://assets.riftgg.app/items/serpents-fang.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-serpents-fang.webp",
+        "png512": "png-512/items/item-serpents-fang.png",
+        "png256": "png-256/items/item-serpents-fang.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Serrated Dirk",
+      "slug": "serrated-dirk",
+      "url": "https://assets.riftgg.app/items/serrated-dirk.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-serrated-dirk.webp",
+        "png512": "png-512/items/item-serrated-dirk.png",
+        "png256": "png-256/items/item-serrated-dirk.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Seryldas Grudge",
+      "slug": "seryldas-grudge",
+      "url": "https://assets.riftgg.app/items/seryldas-grudge.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-seryldas-grudge.webp",
+        "png512": "png-512/items/item-seryldas-grudge.png",
+        "png256": "png-256/items/item-seryldas-grudge.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Sheen",
+      "slug": "sheen",
+      "url": "https://assets.riftgg.app/items/sheen.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-sheen.webp",
+        "png512": "png-512/items/item-sheen.png",
+        "png256": "png-256/items/item-sheen.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Shimmering Spark",
+      "slug": "shimmering-spark",
+      "url": "https://assets.riftgg.app/items/shimmering-spark.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-shimmering-spark.webp",
+        "png512": "png-512/items/item-shimmering-spark.png",
+        "png256": "png-256/items/item-shimmering-spark.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Soul Transfer",
+      "slug": "soul-transfer",
+      "url": "https://assets.riftgg.app/items/soul-transfer.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-soul-transfer.webp",
+        "png512": "png-512/items/item-soul-transfer.png",
+        "png256": "png-256/items/item-soul-transfer.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Spear of Shojin",
+      "slug": "spear-of-shojin",
+      "url": "https://assets.riftgg.app/items/spear-of-shojin.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-spear-of-shojin.webp",
+        "png512": "png-512/items/item-spear-of-shojin.png",
+        "png256": "png-256/items/item-spear-of-shojin.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Spectral Sickle",
+      "slug": "spectral-sickle",
+      "url": "https://assets.riftgg.app/items/spectral-sickle.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-spectral-sickle.webp",
+        "png512": "png-512/items/item-spectral-sickle.png",
+        "png256": "png-256/items/item-spectral-sickle.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Spectres Cowl",
+      "slug": "spectres-cowl",
+      "url": "https://assets.riftgg.app/items/spectres-cowl.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-spectres-cowl.webp",
+        "png512": "png-512/items/item-spectres-cowl.png",
+        "png256": "png-256/items/item-spectres-cowl.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Staff of Flowing Waters",
+      "slug": "staff-of-flowing-waters",
+      "url": "https://assets.riftgg.app/items/staff-of-flowing-waters.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-staff-of-flowing-waters.webp",
+        "png512": "png-512/items/item-staff-of-flowing-waters.png",
+        "png256": "png-256/items/item-staff-of-flowing-waters.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Stasis Enchant",
+      "slug": "stasis-enchant",
+      "url": "https://assets.riftgg.app/items/stasis-enchant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-stasis-enchant.webp",
+        "png512": "png-512/items/item-stasis-enchant.png",
+        "png256": "png-256/items/item-stasis-enchant.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Steraks Gage",
+      "slug": "steraks-gage",
+      "url": "https://assets.riftgg.app/items/steraks-gage.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-steraks-gage.webp",
+        "png512": "png-512/items/item-steraks-gage.png",
+        "png256": "png-256/items/item-steraks-gage.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Stinger",
+      "slug": "stinger",
+      "url": "https://assets.riftgg.app/items/stinger.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-stinger.webp",
+        "png512": "png-512/items/item-stinger.png",
+        "png256": "png-256/items/item-stinger.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Stoneplate Enchant",
+      "slug": "stoneplate-enchant",
+      "url": "https://assets.riftgg.app/items/stoneplate-enchant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-stoneplate-enchant.webp",
+        "png512": "png-512/items/item-stoneplate-enchant.png",
+        "png256": "png-256/items/item-stoneplate-enchant.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Stormrazor",
+      "slug": "stormrazor",
+      "url": "https://assets.riftgg.app/items/stormrazor.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-stormrazor.webp",
+        "png512": "png-512/items/item-stormrazor.png",
+        "png256": "png-256/items/item-stormrazor.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Stridebreaker",
+      "slug": "stridebreaker",
+      "url": "https://assets.riftgg.app/items/stridebreaker.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-stridebreaker.webp",
+        "png512": "png-512/items/item-stridebreaker.png",
+        "png256": "png-256/items/item-stridebreaker.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Sundered Sky",
+      "slug": "sundered-sky",
+      "url": "https://assets.riftgg.app/items/sundered-sky.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-sundered-sky.webp",
+        "png512": "png-512/items/item-sundered-sky.png",
+        "png256": "png-256/items/item-sundered-sky.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Sunfire Aegis",
+      "slug": "sunfire-aegis",
+      "url": "https://assets.riftgg.app/items/sunfire-aegis.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-sunfire-aegis.webp",
+        "png512": "png-512/items/item-sunfire-aegis.png",
+        "png256": "png-256/items/item-sunfire-aegis.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Surging Scales",
+      "slug": "surging-scales",
+      "url": "https://assets.riftgg.app/items/surging-scales.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-surging-scales.webp",
+        "png512": "png-512/items/item-surging-scales.png",
+        "png256": "png-256/items/item-surging-scales.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Tear of the Goddess",
+      "slug": "tear-of-the-goddess",
+      "url": "https://assets.riftgg.app/items/tear-of-the-goddess.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-tear-of-the-goddess.webp",
+        "png512": "png-512/items/item-tear-of-the-goddess.png",
+        "png256": "png-256/items/item-tear-of-the-goddess.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Terminus",
+      "slug": "terminus",
+      "url": "https://assets.riftgg.app/items/terminus.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-terminus.webp",
+        "png512": "png-512/items/item-terminus.png",
+        "png256": "png-256/items/item-terminus.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "the Collector",
+      "slug": "the-collector",
+      "url": "https://assets.riftgg.app/items/the-collector.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-the-collector.webp",
+        "png512": "png-512/items/item-the-collector.png",
+        "png256": "png-256/items/item-the-collector.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Thornmail",
+      "slug": "thornmail",
+      "url": "https://assets.riftgg.app/items/thornmail.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-thornmail.webp",
+        "png512": "png-512/items/item-thornmail.png",
+        "png256": "png-256/items/item-thornmail.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Titanic Hydra",
+      "slug": "titanic-hydra",
+      "url": "https://assets.riftgg.app/items/titanic-hydra.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-titanic-hydra.webp",
+        "png512": "png-512/items/item-titanic-hydra.png",
+        "png256": "png-256/items/item-titanic-hydra.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Trinity Force",
+      "slug": "trinity-force",
+      "url": "https://assets.riftgg.app/items/trinity-force.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-trinity-force.webp",
+        "png512": "png-512/items/item-trinity-force.png",
+        "png256": "png-256/items/item-trinity-force.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Unending Despair",
+      "slug": "unending-despair",
+      "url": "https://assets.riftgg.app/items/unending-despair.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-unending-despair.webp",
+        "png512": "png-512/items/item-unending-despair.png",
+        "png256": "png-256/items/item-unending-despair.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Vampiric Scepter",
+      "slug": "vampiric-scepter",
+      "url": "https://assets.riftgg.app/items/vampiric-scepter.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-vampiric-scepter.webp",
+        "png512": "png-512/items/item-vampiric-scepter.png",
+        "png256": "png-256/items/item-vampiric-scepter.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Veil Enchant",
+      "slug": "veil-enchant",
+      "url": "https://assets.riftgg.app/items/veil-enchant.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-veil-enchant.webp",
+        "png512": "png-512/items/item-veil-enchant.png",
+        "png256": "png-256/items/item-veil-enchant.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Wardens Mail",
+      "slug": "wardens-mail",
+      "url": "https://assets.riftgg.app/items/wardens-mail.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-wardens-mail.webp",
+        "png512": "png-512/items/item-wardens-mail.png",
+        "png256": "png-256/items/item-wardens-mail.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Warmogs Armor",
+      "slug": "warmogs-armor",
+      "url": "https://assets.riftgg.app/items/warmogs-armor.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-warmogs-armor.webp",
+        "png512": "png-512/items/item-warmogs-armor.png",
+        "png256": "png-256/items/item-warmogs-armor.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Winged Moonplate",
+      "slug": "winged-moonplate",
+      "url": "https://assets.riftgg.app/items/winged-moonplate.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-winged-moonplate.webp",
+        "png512": "png-512/items/item-winged-moonplate.png",
+        "png256": "png-256/items/item-winged-moonplate.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Winters Approach",
+      "slug": "winters-approach",
+      "url": "https://assets.riftgg.app/items/winters-approach.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-winters-approach.webp",
+        "png512": "png-512/items/item-winters-approach.png",
+        "png256": "png-256/items/item-winters-approach.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Wits End",
+      "slug": "wits-end",
+      "url": "https://assets.riftgg.app/items/wits-end.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-wits-end.webp",
+        "png512": "png-512/items/item-wits-end.png",
+        "png256": "png-256/items/item-wits-end.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Yordle Trap",
+      "slug": "yordle-trap",
+      "url": "https://assets.riftgg.app/items/yordle-trap.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-yordle-trap.webp",
+        "png512": "png-512/items/item-yordle-trap.png",
+        "png256": "png-256/items/item-yordle-trap.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Youmuus Ghostblade",
+      "slug": "youmuus-ghostblade",
+      "url": "https://assets.riftgg.app/items/youmuus-ghostblade.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-youmuus-ghostblade.webp",
+        "png512": "png-512/items/item-youmuus-ghostblade.png",
+        "png256": "png-256/items/item-youmuus-ghostblade.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Zeal",
+      "slug": "zeal",
+      "url": "https://assets.riftgg.app/items/zeal.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-zeal.webp",
+        "png512": "png-512/items/item-zeal.png",
+        "png256": "png-256/items/item-zeal.png"
+      }
+    },
+    {
+      "kind": "items",
+      "name": "Zekes Convergence",
+      "slug": "zekes-convergence",
+      "url": "https://assets.riftgg.app/items/zekes-convergence.webp",
+      "source": "RiftGG",
+      "files": {
+        "original": "original/items/item-zekes-convergence.webp",
+        "png512": "png-512/items/item-zekes-convergence.png",
+        "png256": "png-256/items/item-zekes-convergence.png"
+      }
+    },
+    {
+      "name": "Spirit Visage",
+      "slug": "spirit-visage",
+      "url": "https://wildriftguides.gg/img/wildrift/items/74/spirit-visage.webp",
+      "note": "Legacy item; optional extra from non-official fallback source.",
+      "kind": "items",
+      "source": "Legacy fallback",
+      "files": {
+        "original": "original/items/item-spirit-visage.webp",
+        "png512": "png-512/items/item-spirit-visage.png",
+        "png256": "png-256/items/item-spirit-visage.png"
+      }
+    }
+  ]
+}
