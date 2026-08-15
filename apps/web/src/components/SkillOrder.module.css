@@ -1,0 +1,127 @@
+.layout {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.main {
+  flex: 1 1 600px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.rail {
+  flex: 1 1 300px;
+  max-width: 360px;
+  min-width: 0;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.maxRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.maxStep {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.note,
+.need {
+  margin: 16px 0 0;
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.need {
+  color: var(--text-muted);
+}
+
+.gridWrap {
+  overflow-x: auto;
+}
+
+.levelHead {
+  display: flex;
+  gap: 5px;
+  margin: 0 0 8px 34px;
+}
+
+.levelHead span {
+  flex: 1;
+  min-width: 22px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: #4a4560;
+}
+
+.gridRow {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+.cell {
+  flex: 1;
+  min-width: 22px;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.early {
+  display: flex;
+  gap: 13px;
+  margin-bottom: 16px;
+}
+
+.early:last-child {
+  margin-bottom: 0;
+}
+
+.earlyLvl {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.earlyWhy {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .rail {
+    max-width: none;
+  }
+}

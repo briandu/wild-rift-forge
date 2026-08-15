@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { composeAbilityText, formatAbilityHint, resolveAbilities } from './abilities';
+import { composeAbilityText, formatAbilityHint, localAbilityArt, resolveAbilities } from './abilities';
 
 describe('resolveAbilities', () => {
   it('uses scraped kit text and does not invent a blank kit', () => {
@@ -48,6 +48,16 @@ describe('formatAbilityHint', () => {
       '8/7/6/5s · 50/60/70/80 mana',
     );
     expect(formatAbilityHint(null, null)).toBeUndefined();
+  });
+});
+
+describe('localAbilityArt', () => {
+  it('falls back to handoff icons for Garen and Darius', () => {
+    expect(localAbilityArt('garen', 'Q')).toBe('/abilities/garen-q.png');
+    expect(localAbilityArt('darius', 'R')).toBe('/abilities/darius-r.png');
+    expect(
+      resolveAbilities([{ key: 'Q', name: 'Decisive Strike', description: 'Silence.' }], 'garen')[0]?.imageUrl,
+    ).toBe('/abilities/garen-q.png');
   });
 });
 

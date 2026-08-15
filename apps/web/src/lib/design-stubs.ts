@@ -414,5 +414,5 @@ export const ACCOUNT_MENU = [
   { href: '/me?tab=pool', label: 'Champion pool' },
   { href: '/me?tab=saved', label: 'Saved matchups' },
   { href: '/me?tab=notifications', label: 'Notifications' },
-  { href: '/me?tab=plan', label: 'Plan', meta: 'Beta' },
+  { href: '/me?tab=plan', label: 'Plan', meta: 'Free' },
 ] as const;

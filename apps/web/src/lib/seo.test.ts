@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { PRODUCTION_SITE_URL } from './supabase/site-url';
 import {
+  PAGE_COPY,
   SITE_DESCRIPTION,
   SITE_TITLE,
   absoluteUrl,
@@ -58,6 +59,9 @@ describe('page titles and descriptions', () => {
     expect(matchupDescription('Garen', 'Darius', 'Top')).toContain('Top');
     expect(patchTitle('6.3')).toBe('Patch 6.3');
     expect(patchDescription('6.3')).toContain('6.3');
+    expect(PAGE_COPY.items.title).toBe('Items & runes');
+    expect(PAGE_COPY.items.description).toContain('items and runes');
+    expect(PAGE_COPY.upgrade.title).toBe('Plans');
   });
 });
 

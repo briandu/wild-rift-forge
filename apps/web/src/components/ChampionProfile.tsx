@@ -22,6 +22,8 @@ import { skeletonDelay } from '@/lib/loading';
 import { AbilityChip } from './AbilityTip';
 import { EmptyPanel, emptyCtaClass, FailedPanel } from './LoadState';
 import { LaneGlyph } from './LaneGlyph';
+import { SkillOrder } from './SkillOrder';
+import { GEAR_CATALOG } from '@/lib/gear-catalog';
 import styles from './ChampionProfile.module.css';
 
 const TABLE_SKEL = ['112px', '96px', '124px', '88px', '104px', '90px', '118px'] as const;
@@ -64,7 +66,7 @@ export function ChampionProfile({
   const art = imageUrl || ART_BY_SLUG[slug] || HERO_FALLBACK;
   const focus = bannerFocusFor(slug);
   const avatar = portraitFor(slug, imageUrl, thumbnailUrl);
-  const abilities = resolveAbilities(abilitiesProp ?? counters?.abilities);
+  const abilities = resolveAbilities(abilitiesProp ?? counters?.abilities, slug);
   const activeLane = laneFromLabel(counters?.lane);
   const placement = bestPlacement(placements, activeLane);
   const rows = counters
@@ -238,7 +240,11 @@ export function ChampionProfile({
               <p className={styles.stubCopy}>Kit fills in when abilities are scraped.</p>
             )}
           </div>
-        ) : tab === 'Builds' || tab === 'Skill order' || tab === 'Pro play' ? (
+        ) : tab === 'Builds' ? (
+          <ChampionBuilds slug={slug} />
+        ) : tab === 'Skill order' ? (
+          <SkillOrder name={name} abilities={abilities} />
+        ) : tab === 'Pro play' ? (
           <div className={styles.stubPanel}>
             <h2 className={styles.stubTitle}>{tab} needs a data source</h2>
             <p className={styles.stubCopy}>
@@ -392,6 +398,83 @@ export function ChampionProfileSkeleton() {
       <section className={styles.body}>
         <MatchupTableSkeleton />
       </section>
+    </div>
+  );
+}
+
+function ChampionBuilds({ slug }: { slug: string }) {
+  const items = GEAR_CATALOG.filter((row) => row.kind === 'Items' && row.by.includes(slug));
+  const core = items.filter((row) => row.cls !== 'Boots');
+  const boots = items.filter((row) => row.cls === 'Boots');
+  const runes = GEAR_CATALOG.filter((row) => row.kind === 'Runes' && row.by.includes(slug));
+
+  if (items.length === 0 && runes.length === 0) {
+    return (
+      <div className={styles.stubPanel}>
+        <h2 className={styles.stubTitle}>Core build</h2>
+        <p className={styles.stubCopy}>
+          No catalog items list {slug} yet. Open the items page for the full handoff set.
+        </p>
+        <Link href="/items" className={styles.primary} style={{ display: 'inline-flex', alignItems: 'center' }}>
+          Open items &amp; runes
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className={styles.buildLayout}>
+      <div>
+        <h2 className={styles.stubTitle}>Core build</h2>
+        <p className={styles.stubLead}>
+          Items from the design catalog that name this champion. Not a live win-rate build.
+        </p>
+        <div className={styles.buildList}>
+          {core.map((item) => (
+            <Link key={item.slug} href="/items" className={styles.buildRow}>
+              <Image src={item.icon} alt="" width={52} height={52} className={styles.buildIcon} />
+              <span>
+                <strong>{item.n}</strong>
+                <span className={styles.kitDesc}>{item.passive}</span>
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+      <aside className={styles.buildRail}>
+        <section className={styles.buildCard}>
+          <h3 className={styles.buildEyebrow}>Boots</h3>
+          {boots.length ? (
+            boots.map((item) => (
+              <Link key={item.slug} href="/items" className={styles.buildMini}>
+                <Image src={item.icon} alt="" width={36} height={36} />
+                <span>
+                  <strong>{item.n}</strong>
+                  <span>{item.cls}</span>
+                </span>
+              </Link>
+            ))
+          ) : (
+            <p className={styles.stubCopy}>No boots in the catalog for this champion.</p>
+          )}
+        </section>
+        <section className={styles.buildCard}>
+          <h3 className={styles.buildEyebrow}>Runes</h3>
+          {runes.length ? (
+            runes.map((item) => (
+              <Link key={item.slug} href="/items" className={styles.buildMini}>
+                <Image src={item.icon} alt="" width={36} height={36} />
+                <span>
+                  <strong>{item.n}</strong>
+                  <span>{item.cls}</span>
+                </span>
+              </Link>
+            ))
+          ) : (
+            <p className={styles.stubCopy}>No runes in the catalog for this champion.</p>
+          )}
+        </section>
+      </aside>
     </div>
   );
 }

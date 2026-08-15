@@ -22,6 +22,7 @@ import {
 } from '@/lib/account';
 import { portraitsFromRoster, roleLabel } from '@/lib/champions';
 import { savedLaneVerdict } from '@/lib/matchup-card';
+import { UpgradePlans } from './UpgradePlans';
 import {
   bestPlacement,
   formatRate,
@@ -92,17 +93,6 @@ const NOTIFS = [
     note: 'One summary on Monday instead of alerts through the week.',
   },
 ] as const;
-const PLAN_INCLUDED = [
-  'Every matchup, counter and tier list',
-  'Draft suggestions weighted to your pool',
-  'Unlimited saved matchups',
-  'Patch alerts for your champions',
-];
-const PLAN_PRO = [
-  'Desktop draft helper from a screen you share',
-  'Your own match history as the data source',
-  'Shared plans for a full team',
-];
 
 function tabFrom(value: string | null): TabId {
   return TABS.some((tab) => tab.id === value) ? (value as TabId) : 'overview';
@@ -657,14 +647,15 @@ export function AccountView({
         ) : null}
 
         {tab === 'plan' ? (
-          <Plan
-            waitlist={profile.proWaitlisted}
-            onWaitlist={() => {
-              const next = !profile.proWaitlisted;
+          <UpgradePlans
+            embedded
+            waitlisted={profile.proWaitlisted}
+            onJoinWaitlist={() => {
+              if (profile.proWaitlisted) return;
               void persistProfile(
-                { pro_waitlisted_at: next ? new Date().toISOString() : null },
-                { ...profile, proWaitlisted: next },
-                next ? 'You are on the waitlist.' : 'Removed from the waitlist.',
+                { pro_waitlisted_at: new Date().toISOString() },
+                { ...profile, proWaitlisted: true },
+                'You are on the waitlist.',
               );
             }}
           />
@@ -1370,64 +1361,6 @@ function Notifications({
           </button>
         ))}
       </div>
-    </div>
-  );
-}
-
-function Plan({ waitlist, onWaitlist }: { waitlist: boolean; onWaitlist: () => void }) {
-  return (
-    <div className={styles.planGrid}>
-      <section className={styles.planNow}>
-        <div className={styles.planKicker}>
-          <span className={styles.cardK}>CURRENT PLAN</span>
-          <span className={styles.active}>ACTIVE</span>
-        </div>
-        <div className={styles.planName}>Beta · Free</div>
-        <p className={styles.planCopy}>
-          Everything is open while we are in beta. No card, no trial clock.
-        </p>
-        <ul className={styles.planList}>
-          {PLAN_INCLUDED.map((item) => (
-            <li key={item}>
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#8FEDB8"
-                strokeWidth="3"
-                aria-hidden
-              >
-                <path d="M4 12.5l5.2 5.2L20 7" />
-              </svg>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section className={styles.card}>
-        <div className={styles.laterK}>LATER</div>
-        <div className={styles.planName}>Forge Pro</div>
-        <p className={styles.planMuted}>
-          Live champion select overlay, your own match history as the data source, and unlimited
-          saved plans.
-        </p>
-        <ul className={styles.planLater}>
-          {PLAN_PRO.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-        <button
-          type="button"
-          className={waitlist ? styles.waitOn : styles.wait}
-          onClick={onWaitlist}
-        >
-          {waitlist ? 'You are on the waitlist' : 'Join the Pro waitlist'}
-        </button>
-        <p className={styles.waitNote}>
-          Beta accounts keep free access for a season after Pro launches.
-        </p>
-      </section>
     </div>
   );
 }

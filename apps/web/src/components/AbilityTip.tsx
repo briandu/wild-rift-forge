@@ -177,7 +177,7 @@ export function AbilityChip({
       tabIndex={0}
       aria-label={`${slot}: ${name}`}
     >
-      {imageUrl ? null : letter}
+      {imageUrl ? <span className={styles.chipKey}>{letter}</span> : letter}
     </span>
   );
 }

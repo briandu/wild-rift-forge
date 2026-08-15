@@ -21,6 +21,15 @@ export const PAGE_COPY = {
     title: 'Draft',
     description: 'Build a Wild Rift draft. See who counters the enemy team and who fits your side.',
   },
+  items: {
+    title: 'Items & runes',
+    description:
+      'Wild Rift items and runes — catalog art, stats, and passives from the current design handoff.',
+  },
+  upgrade: {
+    title: 'Plans',
+    description: 'Wild Rift Forge Free, Pro, and Squad — climb with your own data.',
+  },
   tier: {
     title: 'Tier list',
     description:

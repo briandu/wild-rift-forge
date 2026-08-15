@@ -1,0 +1,299 @@
+.hero {
+  position: relative;
+  padding: 44px 48px 0;
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(720px 380px at 80% 0%, rgba(22, 192, 255, 0.14), transparent 64%);
+  pointer-events: none;
+}
+
+.heroInner {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-soft);
+}
+
+.title {
+  margin: 0;
+  font-weight: 900;
+  font-size: clamp(42px, 7vw, 64px);
+  line-height: 0.94;
+  letter-spacing: -0.038em;
+}
+
+.copy {
+  margin: 14px 0 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  max-width: 520px;
+  text-wrap: pretty;
+}
+
+.tabs {
+  display: flex;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  flex: none;
+}
+
+.tab,
+.tabOn {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0 20px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  border-radius: 9px;
+  color: #8b87a8;
+}
+
+.tabOn {
+  color: #0b0a12;
+  background: var(--link-cool);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 24px 48px 0;
+}
+
+.classes {
+  display: flex;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 5px;
+  overflow-x: auto;
+}
+
+.classBtn,
+.classOn {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 15px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  color: #8b87a8;
+  flex: none;
+}
+
+.classOn {
+  color: #fff;
+  background: var(--accent);
+}
+
+.count {
+  margin: 0 0 0 auto;
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.cols {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 22px 48px 90px;
+}
+
+.grid {
+  flex: 1 1 560px;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.card,
+.cardOn {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 15px 16px;
+}
+
+.cardOn {
+  background: rgba(22, 192, 255, 0.08);
+  border-color: var(--accent);
+}
+
+.cardCopy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cardName {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+}
+
+.cardMeta {
+  font-size: 12px;
+  color: #6e6a8c;
+  margin-top: 3px;
+}
+
+.icon,
+.iconRound {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.icon {
+  border-radius: 14px;
+}
+
+.iconRound {
+  border-radius: 50%;
+}
+
+.icon img,
+.iconRound img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rail {
+  flex: 1 1 320px;
+  max-width: 360px;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.railHead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.railName {
+  margin: 0;
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: -0.02em;
+}
+
+.railMeta {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.railBlock {
+  margin-top: 22px;
+}
+
+.railEyebrow {
+  margin: 0 0 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+.railLine {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.by {
+  display: flex;
+  gap: 8px;
+}
+
+.byChamp {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.byFace {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 6px;
+}
+
+.byFace img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skelGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.skelCard {
+  height: 82px;
+  border-radius: 16px;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .toolbar,
+  .cols {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .grid,
+  .skelGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .rail {
+    max-width: none;
+  }
+}

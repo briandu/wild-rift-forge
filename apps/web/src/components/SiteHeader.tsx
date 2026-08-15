@@ -10,6 +10,7 @@ const NAV = [
   { href: '/', label: 'Counters', match: '/counters', alsoHome: true },
   { href: '/champions', label: 'Champions', match: '/champions' },
   { href: '/matchups', label: 'Matchups', match: '/matchups' },
+  { href: '/items', label: 'Items', match: '/items' },
   { href: '/tier', label: 'Tier List', match: '/tier' },
   { href: '/draft', label: 'Draft', match: '/draft' },
   { href: '/patch', label: 'Patch', match: '/patch' },

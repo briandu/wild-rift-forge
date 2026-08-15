@@ -37,14 +37,42 @@ export function composeAbilityText(
     .join(' ');
 }
 
+const LOCAL_ABILITY_ART: Record<string, Partial<Record<string, string>>> = {
+  darius: {
+    P: '/abilities/darius-passive.png',
+    Q: '/abilities/darius-q.png',
+    W: '/abilities/darius-w.png',
+    E: '/abilities/darius-e.png',
+    R: '/abilities/darius-r.png',
+  },
+  garen: {
+    P: '/abilities/garen-passive.png',
+    Q: '/abilities/garen-q.png',
+    W: '/abilities/garen-w.png',
+    E: '/abilities/garen-e.png',
+    R: '/abilities/garen-r.png',
+  },
+  gwen: {
+    P: '/abilities/gwen-passive.avif',
+    Q: '/abilities/gwen-q.avif',
+    W: '/abilities/gwen-w.avif',
+    E: '/abilities/gwen-e.avif',
+    R: '/abilities/gwen-r.avif',
+  },
+};
+
+export function localAbilityArt(slug: string, key: string): string | undefined {
+  return LOCAL_ABILITY_ART[slug]?.[key];
+}
+
 /** Scraped kit plus snapshot numbers when the API has ingested them. */
-export function resolveAbilities(fromApi?: AbilityDto[] | null): AbilityInfo[] {
+export function resolveAbilities(fromApi?: AbilityDto[] | null, slug?: string): AbilityInfo[] {
   if (!fromApi?.length) return [];
   return fromApi.map((ability) => ({
     key: ability.key,
     name: ability.name,
     description: composeAbilityText(ability.description, ability.numericSummary),
-    imageUrl: ability.imageUrl,
+    imageUrl: ability.imageUrl || (slug ? localAbilityArt(slug, ability.key) : undefined),
     cooldownLabel: formatAbilityHint(ability.cooldown, ability.cost),
   }));
 }
