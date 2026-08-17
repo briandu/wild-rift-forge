@@ -141,6 +141,36 @@ describe('rankDraftSuggestions', () => {
     expect(suggestions[0]?.slug).toBe('gwen');
     expect(suggestions[0]?.why).toContain('bans cleared');
   });
+
+  it('skips every locked pick from a recorded ranked draft', () => {
+    // Game 1 late pick: user is Urgot baron. Visual order is pick order, not lane order.
+    const taken = new Set([
+      'kayn',
+      'draven',
+      'swain',
+      'morgana',
+      'urgot',
+      'yone',
+      'ornn',
+      'caitlyn',
+      'bard',
+      'akali',
+    ]);
+    const suggestions = rankDraftSuggestions(lanePool, { taken, enemy: nasus }, 3);
+    expect(suggestions.every((row) => !taken.has(row.slug))).toBe(true);
+  });
+
+  it('still offers a baron pick while a recorded draft is mid-select', () => {
+    // Game 2: user (Red Ranger) is on baron with Garen hovered, last enemy still open.
+    const taken = new Set(['yone', 'vi', 'jhin', 'morgana', 'ryze', 'braum']);
+    const suggestions = rankDraftSuggestions(
+      lanePool,
+      { taken, pool: new Set(['garen', 'urgot']), allyRoles: [['fighter'], ['fighter'], ['marksman'], ['mage']] },
+      3,
+    );
+    expect(suggestions.some((row) => row.slug === 'volibear' || row.slug === 'gwen')).toBe(true);
+    expect(suggestions.every((row) => !taken.has(row.slug))).toBe(true);
+  });
 });
 
 describe('traitsForRoles', () => {
@@ -162,6 +192,13 @@ describe('compNeeds', () => {
   it('marks frontline covered with a tank and a fighter', () => {
     const needs = compNeeds([['tank'], ['fighter']]);
     expect(needs[0]?.status).toBe('Covered');
+  });
+
+  it('reads a recorded five-man as having frontline once the baron and support lock', () => {
+    // Game 2 final: Yone, Vi, Garen, Jhin, Thresh.
+    const needs = compNeeds([['fighter'], ['fighter'], ['fighter'], ['marksman'], ['support']]);
+    const frontline = needs.find((row) => row.trait === 'frontline');
+    expect(frontline?.status).not.toBe('Missing');
   });
 
   it('separates engage from frontline', () => {
