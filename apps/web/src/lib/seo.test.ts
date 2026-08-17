@@ -67,13 +67,16 @@ describe('page titles and descriptions', () => {
 });
 
 describe('SITE_ICONS', () => {
-  it('leads with a 96x96 PNG and never declares a 16x16 favicon', () => {
+  it('leads with a 96x96 PNG for Google and a root ICO shortcut for Bing', () => {
     const icons = Array.isArray(SITE_ICONS) ? SITE_ICONS : SITE_ICONS.icon;
     const list = Array.isArray(icons) ? icons : [icons];
     const first = list[0];
+    const shortcut = Array.isArray(SITE_ICONS) ? undefined : SITE_ICONS.shortcut;
+    const shortcutList = Array.isArray(shortcut) ? shortcut : [shortcut];
     expect(first).toMatchObject({ url: '/icon-96.png', sizes: '96x96', type: 'image/png' });
     expect(list.some((icon) => typeof icon === 'object' && icon.sizes === '16x16')).toBe(false);
     expect(list.some((icon) => typeof icon === 'object' && icon.url === '/favicon.ico')).toBe(false);
+    expect(shortcutList[0]).toMatchObject({ url: '/favicon.ico', type: 'image/x-icon' });
   });
 });
 

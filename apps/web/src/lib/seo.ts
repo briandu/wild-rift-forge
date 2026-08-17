@@ -6,14 +6,17 @@ export const SITE_TITLE = 'Wild Rift Forge — Counters, Matchups & Draft';
 export const SITE_DESCRIPTION =
   'Find the right Wild Rift counter. Search any champion for counters, matchup notes, tier lists, and draft help — updated with the current patch.';
 
-/** Primary icon is a 96×96 PNG. Next.js `app/favicon.ico` injects sizes="16x16" first, which Google Search skips. */
+/**
+ * Google Search uses the first rel=icon and skips 16x16.
+ * Bing looks for rel="shortcut icon" at /favicon.ico (keep the file in public/, not app/).
+ */
 export const SITE_ICONS: NonNullable<Metadata['icons']> = {
   icon: [
     { url: '/icon-96.png', sizes: '96x96', type: 'image/png' },
     { url: '/icon-48.png', sizes: '48x48', type: 'image/png' },
     { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
   ],
-  shortcut: '/icon-96.png',
+  shortcut: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
 };
 
