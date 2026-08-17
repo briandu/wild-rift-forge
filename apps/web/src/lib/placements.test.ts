@@ -5,6 +5,7 @@ import {
   laneFromLabel,
   mostPicked,
   mostPickedByLane,
+  tierListLeaders,
   parseTierLane,
   formatSnapshotDate,
   patchNoteLine,
@@ -82,6 +83,19 @@ describe('mostPicked', () => {
       1,
     );
     expect(picked.map((item) => item.slug)).toEqual(['sett']);
+  });
+});
+
+describe('tierListLeaders', () => {
+  it('keeps the highest-score lane and orders like the All-view tier list', () => {
+    const leaders = tierListLeaders(
+      [row('gwen', 'Top', 11, 40), row('sett', 'Top', 19, 50), row('gwen', 'Jungle', 3, 80)],
+      2,
+    );
+    expect(leaders.map((item) => `${item.slug}:${item.lane}`)).toEqual([
+      'gwen:Jungle',
+      'sett:Top',
+    ]);
   });
 });
 

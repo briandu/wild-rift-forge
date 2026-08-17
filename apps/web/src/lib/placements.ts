@@ -59,6 +59,13 @@ export function mostPicked(placements: TierPlacementDto[], limit: number): TierP
     .slice(0, limit);
 }
 
+/** Same champion set and order as the tier list All view. */
+export function tierListLeaders(placements: TierPlacementDto[], limit: number): TierPlacementDto[] {
+  return [...uniqueBestPlacements(placements)]
+    .sort((a, b) => b.score - a.score || b.pickRate - a.pickRate)
+    .slice(0, limit);
+}
+
 /** Highest pick-rate champion in each lane, in display order. */
 export function mostPickedByLane(placements: TierPlacementDto[]): TierPlacementDto[] {
   const byLane = new Map<TierLane, TierPlacementDto>();

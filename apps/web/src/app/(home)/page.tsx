@@ -3,7 +3,7 @@ import { HomeHero, HomeLive, HomeLiveSkeleton } from '@/components/HomeHero';
 import { Shell } from '@/components/Shell';
 import { fetchChampions, fetchLatestPatch, fetchTiers } from '@/lib/api';
 import { HERO_FALLBACK, splashFor, withRoster } from '@/lib/champions';
-import { mostPicked, mostPickedByLane } from '@/lib/placements';
+import { mostPickedByLane, tierListLeaders } from '@/lib/placements';
 import { SITE_DESCRIPTION, SITE_TITLE, pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
@@ -40,7 +40,7 @@ async function HomeLiveSection({
 }) {
   const [tiers, patch] = await Promise.all([fetchTiers(), fetchLatestPatch()]);
   const placements = tiers?.placements ?? [];
-  const climbing = mostPicked(placements, 4);
+  const climbing = tierListLeaders(placements, 4);
   const laneLeaders = mostPickedByLane(placements);
 
   return (
