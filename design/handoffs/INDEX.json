@@ -2,7 +2,7 @@
   "scheme": "vNN-short-slug",
   "zip_scheme": "wrf-design-vNN-short-slug.zip",
   "note": "Claude download names reset and collide. Use version + slug as identity.",
-  "latest": "v12-loading-states",
+  "latest": "v13-product-ui-update",
   "patches": [
     {
       "version": 1,
@@ -280,6 +280,35 @@
       "legacy_slug": null,
       "source_zip_basename": "Champion-art plan update (3).zip",
       "source_zip_versioned": "wrf-design-v12-loading-states.zip"
+    },
+    {
+      "version": 13,
+      "version_label": "v13",
+      "slug": "v13-product-ui-update",
+      "title": "Save gate + Pro draft",
+      "ingested_at": "2026-08-17T18:00:01.057Z",
+      "offers": [
+        "Desktop product canvas adds a Save this matchup auth gate: splash header, three benefits, create-account / sign-in, return-here copy.",
+        "/draft is restaged into three states: Forge Pro gate, Ready when the lobby is, and the live board. Live pick scoring is positioned as Pro.",
+        "Mobile product canvas, emails, and direction studies are unchanged vs v12."
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Draft Layout Ideas.dc.html",
+        "Email - Password Reset.html",
+        "Email - Weekly Digest.html",
+        "Email - Welcome.html",
+        "Lane Glyphs.dc.html",
+        "Loading States.dc.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": null,
+      "source_zip_basename": "Champion-art plan update (12).zip",
+      "source_zip_versioned": "wrf-design-v13-product-ui-update.zip"
     }
   ]
 }

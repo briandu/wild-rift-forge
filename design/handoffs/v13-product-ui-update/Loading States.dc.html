@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12;}
+a{color:#A9A5C4;text-decoration:none;}
+a:hover{color:#DEDCEE;}
+@keyframes sweep{0%{background-position:190% 0}100%{background-position:-90% 0}}
+@keyframes pulse{0%{opacity:.45}50%{opacity:1}100%{opacity:.45}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes creep{0%{transform:translateX(-100%)}100%{transform:translateX(340%)}}
+@keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@media (max-width:1000px){
+  [data-r~="pad"]{padding-left:24px !important;padding-right:24px !important;}
+  [data-r~="g3"]{grid-template-columns:1fr !important;}
+  [data-r~="g2"]{grid-template-columns:1fr !important;}
+  [data-r~="cmp"]{flex-direction:column !important;}
+  [data-r~="cell"]{display:none !important;}
+  [data-r~="h1"]{font-size:44px !important;}
+}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#0B0A12;color:#fff;font-family:Archivo,system-ui,sans-serif;overflow-x:hidden;">
+
+  <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:64px 48px 40px;">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div style="width:7px;height:7px;border-radius:50%;background:#16C0FF;"></div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;color:#7FDCFF;">INTERFACE SPEC · 06</div>
+    </div>
+    <div data-r="h1" style="font-weight:900;font-size:62px;line-height:1.02;letter-spacing:-0.035em;margin-top:20px;max-width:15ch;">Loading and skeleton states</div>
+    <div style="font-size:17px;color:#A9A5C4;line-height:1.6;margin-top:22px;max-width:62ch;text-wrap:pretty;">Every surface in Forge waits on match data at some point. This sheet fixes one skeleton primitive, maps it onto the six surfaces that need it, and covers the four states a skeleton cannot express. Build from this rather than a component library — the value is in the geometry matching, and no library knows our layout.</div>
+    <div style="display:flex;gap:34px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid rgba(255,255,255,.09);">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:#5C5878;">SURFACES</div>
+        <div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-top:7px;">6</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:#5C5878;">PRIMITIVES</div>
+        <div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-top:7px;">1</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:#5C5878;">SWEEP CYCLE</div>
+        <div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-top:7px;">1.4s</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:#5C5878;">SHOW THRESHOLD</div>
+        <div style="font-size:22px;font-weight:800;letter-spacing:-0.02em;margin-top:7px;">300ms</div>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:26px 48px 0;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">01 — THE RULES</div>
+    <div data-r="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:20px;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="font-weight:800;font-size:20px;letter-spacing:-0.018em;">Mirror layout, not content</div>
+        <div style="font-size:14px;color:#A9A5C4;line-height:1.6;margin-top:10px;text-wrap:pretty;">A skeleton block sits at the exact height, width and radius of the thing replacing it. If content shifts when it lands, the skeleton was wrong. Text lines get percentage widths so they read as prose, never full-width bars.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="font-weight:800;font-size:20px;letter-spacing:-0.018em;">One sweep, one speed</div>
+        <div style="font-size:14px;color:#A9A5C4;line-height:1.6;margin-top:10px;text-wrap:pretty;">Every skeleton on the page runs the same 1.4s sweep. Stagger by 60ms per row to a 300ms cap, so a long table reads as one wave instead of forty independent blinks.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="font-weight:800;font-size:20px;letter-spacing:-0.018em;">Under 300ms, show nothing</div>
+        <div style="font-size:14px;color:#A9A5C4;line-height:1.6;margin-top:10px;text-wrap:pretty;">A skeleton that flashes for 120ms is worse than no skeleton. Delay the skeleton by 300ms; if data arrives first it never paints. Once shown, hold it for at least 400ms so it does not strobe.</div>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:56px 48px 0;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">02 — THE PRIMITIVE</div>
+    <div style="font-weight:800;font-size:30px;letter-spacing:-0.026em;margin-top:14px;">One block, three depths</div>
+    <div style="font-size:15px;color:#A9A5C4;line-height:1.6;margin-top:10px;max-width:66ch;text-wrap:pretty;">Depth tracks the visual weight of what is missing. A champion portrait is a level 1 block; the body copy under it is level 3. Mixing depths is what keeps a skeleton from looking like a grey rectangle farm.</div>
+
+    <div data-r="g3" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:24px;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#DEDCEE;">LEVEL 1</div>
+          <div style="font-size:11px;color:#5C5878;font-weight:600;">.08 alpha</div>
+        </div>
+        <div style="height:56px;border-radius:10px;margin-top:16px;background:rgba(255,255,255,.08) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+        <div style="font-size:13px;color:#7B769B;line-height:1.55;margin-top:14px;">Portraits, avatars, art blocks, headings.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#DEDCEE;">LEVEL 2</div>
+          <div style="font-size:11px;color:#5C5878;font-weight:600;">.06 alpha</div>
+        </div>
+        <div style="height:56px;border-radius:10px;margin-top:16px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear .08s infinite;"></div>
+        <div style="font-size:13px;color:#7B769B;line-height:1.55;margin-top:14px;">Champion names, stat values, labels.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#DEDCEE;">LEVEL 3</div>
+          <div style="font-size:11px;color:#5C5878;font-weight:600;">.05 alpha</div>
+        </div>
+        <div style="height:56px;border-radius:10px;margin-top:16px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear .16s infinite;"></div>
+        <div style="font-size:13px;color:#7B769B;line-height:1.55;margin-top:14px;">Body copy, meta rows, secondary lines.</div>
+      </div>
+    </div>
+
+    <div data-r="g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#8FEDB8;">SWEEP</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#8FEDB8;background:rgba(123,224,168,.14);border:1px solid rgba(123,224,168,.34);border-radius:11px;padding:3px 9px;">USE THIS</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px;">
+          <div style="height:13px;border-radius:6px;background:rgba(255,255,255,.07) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+          <div style="height:13px;width:82%;border-radius:6px;background:rgba(255,255,255,.07) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear .06s infinite;"></div>
+          <div style="height:13px;width:58%;border-radius:6px;background:rgba(255,255,255,.07) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear .12s infinite;"></div>
+        </div>
+        <div style="font-size:13.5px;color:#A9A5C4;line-height:1.6;margin-top:18px;text-wrap:pretty;">Directional, so it reads as progress rather than a heartbeat. Holds up on a dark background where opacity pulses go muddy.</div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#F0A87B;">OPACITY PULSE</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;color:#F0A87B;background:rgba(240,168,123,.14);border:1px solid rgba(240,168,123,.32);border-radius:11px;padding:3px 9px;">IN PROD NOW</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px;">
+          <div style="height:13px;border-radius:6px;background:rgba(255,255,255,.09);animation:pulse 1.5s ease-in-out infinite;"></div>
+          <div style="height:13px;width:82%;border-radius:6px;background:rgba(255,255,255,.09);animation:pulse 1.5s ease-in-out .18s infinite;"></div>
+          <div style="height:13px;width:58%;border-radius:6px;background:rgba(255,255,255,.09);animation:pulse 1.5s ease-in-out .34s infinite;"></div>
+        </div>
+        <div style="font-size:13.5px;color:#A9A5C4;line-height:1.6;margin-top:18px;text-wrap:pretty;">What the three existing skeletons use. Fine, but the staggered fade makes rows look like they are loading independently. Migrate when convenient.</div>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:56px 48px 0;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">03 — SURFACES</div>
+    <div style="font-weight:800;font-size:30px;letter-spacing:-0.026em;margin-top:14px;">Skeleton above, loaded below</div>
+    <div style="font-size:15px;color:#A9A5C4;line-height:1.6;margin-top:10px;max-width:66ch;text-wrap:pretty;">Each pair uses identical geometry. Scan down the boundary between the two halves — nothing should move sideways or change height as you cross it.</div>
+
+    <div style="margin-top:30px;">
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+        <div style="font-weight:800;font-size:19px;letter-spacing:-0.016em;">Tier table rows</div>
+        <div style="font-size:13px;color:#7B769B;">Patch or role filter change · 600ms typical</div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;margin-top:14px;">
+        <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="width:22px;height:12px;border-radius:6px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+          <div style="width:38px;height:38px;flex:none;border-radius:50%;background:rgba(255,255,255,.08) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:7px;">
+            <div style="width:112px;height:14px;border-radius:6px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+            <div style="width:64%;height:11px;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+          </div>
+          <div data-r="cell" style="width:150px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.07);"></div>
+            <div style="width:30px;height:12px;border-radius:6px;background:rgba(255,255,255,.06);"></div>
+          </div>
+          <div data-r="cell" style="width:62px;height:12px;border-radius:6px;background:rgba(255,255,255,.05);"></div>
+          <div data-r="cell" style="width:64px;height:12px;border-radius:6px;background:rgba(255,255,255,.05);"></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);">
+          <div style="width:22px;height:12px;border-radius:6px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear .06s infinite;"></div>
+          <div style="width:38px;height:38px;flex:none;border-radius:50%;background:rgba(255,255,255,.08) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear .06s infinite;"></div>
+          <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:7px;">
+            <div style="width:96px;height:14px;border-radius:6px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear .06s infinite;"></div>
+            <div style="width:58%;height:11px;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear .06s infinite;"></div>
+          </div>
+          <div data-r="cell" style="width:150px;display:flex;align-items:center;gap:10px;">
+            <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.07);"></div>
+            <div style="width:30px;height:12px;border-radius:6px;background:rgba(255,255,255,.06);"></div>
+          </div>
+          <div data-r="cell" style="width:62px;height:12px;border-radius:6px;background:rgba(255,255,255,.05);"></div>
+          <div data-r="cell" style="width:64px;height:12px;border-radius:6px;background:rgba(255,255,255,.05);"></div>
+        </div>
+        <div style="height:1px;background:rgba(22,192,255,.4);"></div>
+        <sc-for list="{{ tierRows }}" as="r" hint-placeholder-count="2">
+          <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);">
+            <div style="width:22px;font-size:12px;font-weight:700;color:#5C5878;">{{ r.n }}</div>
+            <div style="width:38px;height:38px;flex:none;border-radius:50%;background:{{ r.bg }};"></div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:14px;font-weight:700;letter-spacing:-0.01em;">{{ r.name }}</div>
+              <div style="font-size:11px;color:#7B769B;margin-top:3px;">{{ r.role }}</div>
+            </div>
+            <div data-r="cell" style="width:150px;display:flex;align-items:center;gap:10px;">
+              <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden;"><div style="width:{{ r.barw }};height:100%;background:#8FEDB8;"></div></div>
+              <div style="width:30px;font-size:12px;font-weight:700;color:#8FEDB8;text-align:right;">{{ r.wr }}</div>
+            </div>
+            <div data-r="cell" style="width:62px;font-size:12px;color:#A9A5C4;text-align:right;">{{ r.gd }}</div>
+            <div data-r="cell" style="width:64px;font-size:12px;color:#A9A5C4;text-align:right;">{{ r.games }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div data-r="g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:34px;">
+      <div>
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+          <div style="font-weight:800;font-size:19px;letter-spacing:-0.016em;">Counter cards</div>
+          <div style="font-size:13px;color:#7B769B;">Champion switch · 850ms</div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:14px;">
+          <div style="border-radius:18px;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);">
+            <div style="height:132px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+            <div style="padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px;">
+              <div style="width:104px;height:19px;border-radius:7px;background:rgba(255,255,255,.08) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+              <div style="width:100%;height:11px;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+              <div style="width:68%;height:11px;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+              <div style="display:flex;align-items:center;gap:11px;margin-top:5px;">
+                <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.07);"></div>
+                <div style="width:28px;height:11px;border-radius:5px;background:rgba(255,255,255,.06);"></div>
+              </div>
+            </div>
+          </div>
+          <div style="border-radius:18px;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);">
+            <div style="height:132px;background:linear-gradient(150deg,#5BC0F0,#2A6FA8);"></div>
+            <div style="padding:14px 16px 16px;">
+              <div style="font-weight:800;font-size:18px;letter-spacing:-0.018em;">Volibear</div>
+              <div style="font-size:13px;color:#A9A5C4;line-height:1.5;margin-top:5px;text-wrap:pretty;">Out-sustains the trade and punishes short cooldowns.</div>
+              <div style="display:flex;align-items:center;gap:11px;margin-top:14px;">
+                <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden;"><div style="width:74%;height:100%;background:#8FEDB8;"></div></div>
+                <div style="font-size:12px;font-weight:700;color:#8FEDB8;">56.2%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+          <div style="font-weight:800;font-size:19px;letter-spacing:-0.016em;">Coach output</div>
+          <div style="font-size:13px;color:#7B769B;">Streaming · label the wait</div>
+        </div>
+        <div style="background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:20px;margin-top:14px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="width:13px;height:13px;border-radius:50%;border:2px solid rgba(22,192,255,.25);border-top-color:#16C0FF;animation:spin .7s linear infinite;flex:none;"></div>
+            <div style="font-size:12px;color:#7B769B;">Reading 4,182 ranked games…</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:16px;">
+            <div style="height:11px;border-radius:5px;background:rgba(255,255,255,.07) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+            <div style="height:11px;width:88%;border-radius:5px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+            <div style="height:11px;width:62%;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+          </div>
+          <div style="height:1px;background:rgba(22,192,255,.4);margin:20px 0;"></div>
+          <div style="font-size:14px;color:#DEDCEE;line-height:1.6;text-wrap:pretty;">Concede the first two waves rather than contest them. Trade only when his Q is down, and never past two auto-attacks.</div>
+        </div>
+        <div style="font-size:13px;color:#7B769B;line-height:1.55;margin-top:12px;text-wrap:pretty;">The only surface that gets a spinner. Analysis has no predictable shape, so the wait is named instead of mimicked.</div>
+      </div>
+    </div>
+
+    <div data-r="cmp" style="display:flex;gap:26px;margin-top:34px;align-items:flex-start;">
+      <div style="flex:none;">
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+          <div style="font-weight:800;font-size:19px;letter-spacing:-0.016em;">Mobile pick cards</div>
+        </div>
+        <div style="width:330px;max-width:100%;box-sizing:border-box;background:#0B0A12;border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:16px;margin-top:14px;">
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
+            <div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);">
+              <div style="height:96px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+              <div style="padding:11px 12px 13px;display:flex;flex-direction:column;gap:8px;">
+                <div style="width:70%;height:15px;border-radius:6px;background:rgba(255,255,255,.08) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+                <div style="width:100%;height:10px;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+                <div style="width:52%;height:10px;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+              </div>
+            </div>
+            <div style="border-radius:14px;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);">
+              <div style="height:96px;background:linear-gradient(150deg,#E8734A,#B4341F);"></div>
+              <div style="padding:11px 12px 13px;">
+                <div style="font-weight:800;font-size:16px;letter-spacing:-0.014em;">Sett</div>
+                <div style="font-size:12px;color:#A9A5C4;line-height:1.45;margin-top:4px;text-wrap:pretty;">Wins the all-in at level six.</div>
+                <div style="font-size:12px;font-weight:700;color:#8FEDB8;margin-top:9px;">51.4%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:0;">
+        <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+          <div style="font-weight:800;font-size:19px;letter-spacing:-0.016em;">Search results</div>
+          <div style="font-size:13px;color:#7B769B;">Debounced 250ms, so rarely seen</div>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:10px;margin-top:14px;">
+          <sc-for list="{{ skelPills }}" as="s" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:12px;padding:9px 10px;">
+              <div style="width:32px;height:32px;border-radius:50%;flex:none;background:rgba(255,255,255,.07) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px;">
+                <div style="width:{{ s.w1 }};height:12px;border-radius:5px;background:rgba(255,255,255,.07) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+                <div style="width:{{ s.w2 }};height:9px;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+              </div>
+            </div>
+          </sc-for>
+          <div style="height:1px;background:rgba(22,192,255,.4);margin:6px 10px;"></div>
+          <sc-for list="{{ searchHits }}" as="h" hint-placeholder-count="2">
+            <div style="display:flex;align-items:center;gap:12px;padding:9px 10px;">
+              <div style="width:32px;height:32px;border-radius:50%;flex:none;background:{{ h.bg }};"></div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:14px;font-weight:700;letter-spacing:-0.01em;">{{ h.name }}</div>
+                <div style="font-size:11px;color:#7B769B;margin-top:2px;">{{ h.role }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:34px 48px 0;">
+      <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;">
+        <div style="font-weight:800;font-size:19px;letter-spacing:-0.016em;">Matchup hero</div>
+        <div style="font-size:13px;color:#7B769B;">Split by champion · 440px in production, shown at 300px</div>
+      </div>
+      <div style="position:relative;height:300px;border-radius:16px;overflow:hidden;margin-top:14px;border:1px solid rgba(255,255,255,.08);">
+        <div style="position:absolute;inset:0;right:50%;overflow:hidden;background:rgba(255,255,255,.035);">
+          <div style="position:absolute;inset:0;background:linear-gradient(140deg,rgba(22,192,255,.07),transparent 60%);"></div>
+        </div>
+        <div style="position:absolute;inset:0;left:50%;overflow:hidden;background:linear-gradient(150deg,#5BC0F0,#2A6FA8);"></div>
+        <div style="position:absolute;left:0;top:0;bottom:0;width:1px;background:rgba(22,192,255,.4);left:50%;"></div>
+        <div style="position:absolute;left:32px;top:34px;max-width:300px;">
+          <div style="display:block;width:fit-content;font-size:11px;font-weight:700;letter-spacing:0.2em;color:transparent;border-radius:5px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;">AGAINST</div>
+          <div style="display:block;width:fit-content;font-weight:900;font-size:52px;line-height:.92;letter-spacing:-0.042em;margin-top:12px;color:transparent;border-radius:10px;background:rgba(255,255,255,.08) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;">VOLIBEAR</div>
+          <div style="display:block;width:fit-content;font-size:13px;letter-spacing:normal;color:transparent;margin-top:12px;border-radius:5px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;">Top · Fighter · 4,182 games</div>
+        </div>
+        <div style="position:absolute;right:32px;top:34px;text-align:right;max-width:300px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#E58B7B;">AGAINST</div>
+          <div style="font-weight:900;font-size:52px;line-height:.92;letter-spacing:-0.042em;margin-top:12px;">VOLIBEAR</div>
+          <div style="font-size:13px;color:#DEDCEE;margin-top:12px;">Top · Fighter · 4,182 games</div>
+        </div>
+        <div style="position:absolute;left:32px;right:32px;bottom:26px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;">
+          <div style="flex:1;min-width:0;max-width:46%;">
+            <div style="width:70%;height:11px;border-radius:5px;background:rgba(255,255,255,.06) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+            <div style="width:100%;height:18px;border-radius:6px;margin-top:10px;background:rgba(255,255,255,.05) linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%);background-size:220% 100%;animation:sweep 1.4s linear infinite;"></div>
+          </div>
+          <div style="flex:none;text-align:right;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#E58B7B;">VERDICT</div>
+            <div style="font-weight:800;font-size:18px;letter-spacing:-0.018em;margin-top:9px;">Volibear favoured</div>
+          </div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:#7B769B;line-height:1.55;margin-top:12px;max-width:74ch;text-wrap:pretty;">Skeleton left, loaded right — the two halves are mirror images, so the blocks read directly against the type they replace. The champion-colour wash only appears once the pick resolves; loading holds the neutral surface rather than guessing a hue.</div>
+  </div>
+
+  <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:56px 48px 0;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">04 — WHAT A SKELETON CANNOT SAY</div>
+    <div style="font-weight:800;font-size:30px;letter-spacing:-0.026em;margin-top:14px;">Four states that need their own treatment</div>
+    <div data-r="g2" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px;">
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7FDCFF;">PENDING ACTION</div>
+        <div style="font-size:14px;color:#A9A5C4;line-height:1.6;margin-top:10px;text-wrap:pretty;">The user pressed something. Lock the control, keep its width, swap the label for a spinner. Never skeleton a button — the user knows what it said.</div>
+        <div style="display:flex;gap:12px;margin-top:18px;align-items:center;flex-wrap:wrap;">
+          <div style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:14px;font-weight:700;color:#FFFFFF;background:linear-gradient(140deg,#16C0FF,#0A72C8);border-radius:20px;padding:10px 20px;">Add to pool</div>
+          <div style="display:inline-flex;align-items:center;justify-content:center;gap:9px;font-size:14px;font-weight:700;color:rgba(255,255,255,.55);background:linear-gradient(140deg,#16C0FF,#0A72C8);border-radius:20px;padding:10px 20px;opacity:.5;">
+            <div style="width:13px;height:13px;border-radius:50%;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;animation:spin .7s linear infinite;"></div>
+            Adding
+          </div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7FDCFF;">STALE WHILE REFRESHING</div>
+        <div style="font-size:14px;color:#A9A5C4;line-height:1.6;margin-top:10px;text-wrap:pretty;">Data exists but is being replaced. Keep the old content readable at full opacity, run a hairline creep across the top of the container. Replacing readable data with skeletons is a downgrade.</div>
+        <div style="border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;margin-top:18px;">
+          <div style="height:2px;background:rgba(255,255,255,.06);overflow:hidden;"><div style="width:30%;height:100%;background:#16C0FF;animation:creep 1.3s ease-in-out infinite;"></div></div>
+          <div style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;">
+            <div>
+              <div style="font-size:14px;font-weight:700;">Patch 5.2 tier list</div>
+              <div style="font-size:12px;color:#7B769B;margin-top:3px;">Showing 5.1 while 5.2 loads</div>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:#8FEDB8;">53.3%</div>
+          </div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7FDCFF;">EMPTY, NOT LOADING</div>
+        <div style="font-size:14px;color:#A9A5C4;line-height:1.6;margin-top:10px;text-wrap:pretty;">The request succeeded and returned nothing. Say what was searched and offer the nearest way out. A skeleton that never resolves is the most common loading bug — this state is how you avoid it.</div>
+        <div style="border:1px dashed rgba(255,255,255,.14);border-radius:14px;padding:22px;margin-top:18px;text-align:center;">
+          <div style="font-size:15px;font-weight:700;">No champion matches “vollibear”</div>
+          <div style="font-size:13px;color:#7B769B;line-height:1.55;margin-top:7px;">Check the spelling, or browse the Top lane roster.</div>
+          <div style="display:inline-flex;font-size:13px;font-weight:600;color:#7FDCFF;background:rgba(22,192,255,.1);border:1px solid rgba(22,192,255,.3);border-radius:18px;padding:8px 16px;margin-top:16px;">Browse Top lane</div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:24px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7FDCFF;">FAILED</div>
+        <div style="font-size:14px;color:#A9A5C4;line-height:1.6;margin-top:10px;text-wrap:pretty;">Name what failed, keep the retry in the same place the content would have been, and never blame the user. Retry replaces the panel contents only — the page around it stays put.</div>
+        <div style="background:rgba(229,139,123,.07);border:1px solid rgba(229,139,123,.3);border-radius:14px;padding:18px;margin-top:18px;display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;">
+          <div style="width:7px;height:7px;border-radius:50%;background:#E58B7B;flex:none;margin-top:7px;"></div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-size:14px;font-weight:700;color:#E58B7B;">Counter data did not load</div>
+            <div style="font-size:13px;color:#A9A5C4;line-height:1.55;margin-top:5px;text-wrap:pretty;">Everything else on this page is current.</div>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:#E58B7B;background:rgba(229,139,123,.12);border:1px solid rgba(229,139,123,.32);border-radius:18px;padding:7px 15px;flex:none;">Retry</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:56px 48px 0;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">05 — REPLAY</div>
+    <div style="font-weight:800;font-size:30px;letter-spacing:-0.026em;margin-top:14px;">Watch it land</div>
+    <div style="font-size:15px;color:#A9A5C4;line-height:1.6;margin-top:10px;max-width:66ch;text-wrap:pretty;">The test for a skeleton is the transition, not the still frame. Run it and watch the rows — the portrait, name and win-rate bar should arrive without moving.</div>
+    <div style="display:flex;align-items:center;gap:14px;margin-top:20px;flex-wrap:wrap;">
+      <div onClick="{{ replay }}" style="display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:700;color:#FFFFFF;background:linear-gradient(140deg,#16C0FF,#0A72C8);border-radius:20px;padding:11px 22px;cursor:pointer;user-select:none;" style-hover="filter:brightness(1.1);">Replay load</div>
+      <div style="font-size:13px;color:#7B769B;">Delay {{ speedLabel }} · {{ treatmentLabel }}</div>
+    </div>
+    <div style="border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;margin-top:18px;min-height:216px;">
+      <sc-if value="{{ isIdle }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:60px 24px;text-align:center;">
+          <div style="font-size:14px;color:#5C5878;">Press replay to run the sequence.</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isLoad }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <sc-for list="{{ skelRows }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);">
+              <div style="width:22px;height:12px;border-radius:6px;background:{{ blockBg2 }};background-size:{{ blockSize }};animation:{{ s.anim }};"></div>
+              <div style="width:38px;height:38px;flex:none;border-radius:50%;background:{{ blockBg1 }};background-size:{{ blockSize }};animation:{{ s.anim }};"></div>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:7px;">
+                <div style="width:{{ s.w1 }};height:14px;border-radius:6px;background:{{ blockBg2 }};background-size:{{ blockSize }};animation:{{ s.anim }};"></div>
+                <div style="width:{{ s.w2 }};height:11px;border-radius:5px;background:{{ blockBg3 }};background-size:{{ blockSize }};animation:{{ s.anim }};"></div>
+              </div>
+              <div data-r="cell" style="width:150px;display:flex;align-items:center;gap:10px;">
+                <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.07);"></div>
+                <div style="width:30px;height:12px;border-radius:6px;background:rgba(255,255,255,.06);"></div>
+              </div>
+              <div data-r="cell" style="width:62px;height:12px;border-radius:6px;background:rgba(255,255,255,.05);"></div>
+              <div data-r="cell" style="width:64px;height:12px;border-radius:6px;background:rgba(255,255,255,.05);"></div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <sc-for list="{{ liveRows }}" as="r" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:16px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.05);animation:rise .26s ease-out both;">
+              <div style="width:22px;font-size:12px;font-weight:700;color:#5C5878;">{{ r.n }}</div>
+              <div style="width:38px;height:38px;flex:none;border-radius:50%;background:{{ r.bg }};"></div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:14px;font-weight:700;letter-spacing:-0.01em;">{{ r.name }}</div>
+                <div style="font-size:11px;color:#7B769B;margin-top:3px;">{{ r.role }}</div>
+              </div>
+              <div data-r="cell" style="width:150px;display:flex;align-items:center;gap:10px;">
+                <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden;"><div style="width:{{ r.barw }};height:100%;background:#8FEDB8;"></div></div>
+                <div style="width:30px;font-size:12px;font-weight:700;color:#8FEDB8;text-align:right;">{{ r.wr }}</div>
+              </div>
+              <div data-r="cell" style="width:62px;font-size:12px;color:#A9A5C4;text-align:right;">{{ r.gd }}</div>
+              <div data-r="cell" style="width:64px;font-size:12px;color:#A9A5C4;text-align:right;">{{ r.games }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div data-r="pad" style="max-width:1240px;margin:0 auto;padding:56px 48px 100px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">06 — HANDOFF</div>
+    <div style="font-weight:800;font-size:30px;letter-spacing:-0.026em;margin-top:14px;">Notes for implementation</div>
+    <div data-r="g2" style="display:grid;grid-template-columns:1.1fr .9fr;gap:26px;margin-top:24px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <sc-for list="{{ notes }}" as="nt" hint-placeholder-count="9">
+          <div style="display:flex;gap:14px;">
+            <div style="font-size:12px;font-weight:800;color:#16C0FF;width:16px;flex:none;padding-top:2px;">{{ nt.n }}</div>
+            <div style="flex:1;min-width:0;font-size:14.5px;color:#DEDCEE;line-height:1.6;text-wrap:pretty;">{{ nt.t }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:22px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#5C5878;">THE WHOLE PRIMITIVE</div>
+        <pre style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.7;color:#A9A5C4;margin:14px 0 0;white-space:pre-wrap;word-break:break-word;">{{ css }}</pre>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;speedMs&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:700,&quot;min&quot;:200,&quot;max&quot;:1600,&quot;step&quot;:100,&quot;unit&quot;:&quot;ms&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Replay&quot;},&quot;treatment&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Sweep&quot;,&quot;Pulse&quot;],&quot;default&quot;:&quot;Sweep&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Replay&quot;}}">
+class Component extends DCLogic {
+  state = { phase: "idle" };
+
+  componentWillUnmount() { clearTimeout(this._t); }
+
+  replay() {
+    clearTimeout(this._t);
+    const ms = Math.max(120, this.props.speedMs ?? 700);
+    this.setState({ phase: "load" });
+    this._t = setTimeout(() => this.setState({ phase: "done" }), ms);
+  }
+
+  renderVals() {
+    const p = this.props;
+    const ms = Math.max(120, p.speedMs ?? 700);
+    const treatment = p.treatment ?? "Sweep";
+    const st = this.state;
+    const grad = "linear-gradient(90deg,rgba(255,255,255,0) 18%,rgba(255,255,255,.10) 50%,rgba(255,255,255,0) 82%)";
+    const sweeping = treatment === "Sweep";
+
+    const rows = [
+      { n: "01", name: "Volibear", role: "Top · Fighter", wr: "56.2%", barw: "74%", gd: "+412", games: "18.2k", bg: "linear-gradient(150deg,#5BC0F0,#2A6FA8)" },
+      { n: "02", name: "Renekton", role: "Top · Fighter", wr: "55.4%", barw: "70%", gd: "+338", games: "22.9k", bg: "linear-gradient(150deg,#E39A55,#9A5220)" },
+      { n: "03", name: "Gwen", role: "Top · Fighter", wr: "54.0%", barw: "63%", gd: "+201", games: "11.4k", bg: "linear-gradient(150deg,#8FE0D0,#2E8F84)" },
+      { n: "04", name: "Garen", role: "Top · Fighter", wr: "53.3%", barw: "58%", gd: "+164", games: "31.7k", bg: "linear-gradient(150deg,#E5C067,#9A7526)" }
+    ];
+
+    const widths = [["112px", "64%"], ["96px", "58%"], ["124px", "66%"], ["88px", "52%"]];
+    const skelRows = widths.map((w, i) => ({
+      w1: w[0], w2: w[1],
+      anim: sweeping
+        ? "sweep 1.4s linear " + Math.min(i * 0.06, 0.3) + "s infinite"
+        : "pulse 1.5s ease-in-out " + Math.min(i * 0.06, 0.3) + "s infinite"
+    }));
+
+    return {
+      speedLabel: ms + "ms",
+      treatmentLabel: sweeping ? "sweep" : "opacity pulse",
+      isIdle: st.phase === "idle",
+      isLoad: st.phase === "load",
+      isDone: st.phase === "done",
+      replay: () => this.replay(),
+      tierRows: rows.slice(0, 2),
+      liveRows: rows,
+      skelRows,
+      skelPills: [{ w1: "62%", w2: "38%" }, { w1: "48%", w2: "30%" }, { w1: "70%", w2: "42%" }],
+      searchHits: [
+        { name: "Volibear", role: "Top · Fighter", bg: "linear-gradient(150deg,#5BC0F0,#2A6FA8)" },
+        { name: "Vayne", role: "ADC · Marksman", bg: "linear-gradient(150deg,#6FA8DC,#2E5F94)" }
+      ],
+      blockBg1: sweeping ? "rgba(255,255,255,.08) " + grad : "rgba(255,255,255,.09)",
+      blockBg2: sweeping ? "rgba(255,255,255,.06) " + grad : "rgba(255,255,255,.08)",
+      blockBg3: sweeping ? "rgba(255,255,255,.05) " + grad : "rgba(255,255,255,.07)",
+      blockSize: sweeping ? "220% 100%" : "auto",
+      notes: [
+        { n: "1", t: "No library needed. The primitive below is the entire implementation — one keyframe and three background values. react-loading-skeleton and MUI Skeleton both ship a grey box that knows nothing about our geometry, and both add a wrapper element that breaks the flex rows in the tier table." },
+        { n: "2", t: "Build skeletons next to the component they mirror, in the same file. A shared <Skeleton width height /> drifts out of sync the moment someone changes a row height. Copy the real element's style values." },
+        { n: "3", t: "For blocks replacing a single line of text, do not hardcode a height. Give the block the same font-size, weight, line-height and letter-spacing as the real element and put placeholder text inside it at color:transparent — the box then sizes itself from the same font metrics and cannot drift. Fixed pixel heights are for images, portraits and bars only." },
+        { n: "4", t: "Delay 300ms before showing, then hold a minimum of 400ms. Both numbers matter: the first prevents flashes on cached responses, the second prevents a strobe when the response lands at 320ms." },
+        { n: "5", t: "Stagger with animation-delay, capped at 300ms. Rows past the fifth reuse the cap so a forty-row table stays one wave." },
+        { n: "6", t: "Match the row count to what you expect, not what you hope. Four skeleton rows for a table that returns twenty is a worse guess than seven; a short skeleton followed by a page jump reads as a bug." },
+        { n: "7", t: "Respect prefers-reduced-motion: keep the block fills, drop the animation entirely. Static blocks still communicate structure." },
+        { n: "8", t: "Every skeleton needs a timeout that resolves to the failed state. An indefinite skeleton is the failure mode users report as “it hung”." },
+        { n: "9", t: "The three skeletons already in Wild Rift Forge.dc.html use an opacity pulse under the keyframe name shimmer. Replace with sweep when touching those files; do not run both treatments on one page." }
+      ],
+      css: "@keyframes sweep {\n  0%   { background-position: 190% 0 }\n  100% { background-position: -90% 0 }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  [data-skel] { animation: none !important }\n}\n\n/* level 1 · .08 — portraits, headings\n   level 2 · .06 — names, values\n   level 3 · .05 — body, meta      */\n\n[data-skel] {\n  background:\n    rgba(255,255,255,.06)\n    linear-gradient(90deg,\n      rgba(255,255,255,0)   18%,\n      rgba(255,255,255,.10) 50%,\n      rgba(255,255,255,0)   82%);\n  background-size: 220% 100%;\n  animation: sweep 1.4s linear infinite;\n}"
+    };
+  }
+}
+</script>
+</body>
+</html>

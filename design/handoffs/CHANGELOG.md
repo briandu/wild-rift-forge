@@ -18,6 +18,7 @@ Claude Design exports are stored under `design/handoffs/vNN-short-slug/`.
 | v10 | `v10-product-polish` | Product polish | Incremental desktop + mobile polish on the existing product canvases. |
 | v11 | `v11-lane-glyphs` | Lane glyphs + ability tips | Adds Lane Glyphs canvas and traced glyph sources (baron / mid / jungle / duo / support). |
 | v12 | `v12-loading-states` | Loading states and item art | Adds Loading States canvas: one sweep primitive (1.4s), three depths, 300ms show / 400ms hold, mapped onto six surfaces (tier rows, counter cards, coach, mobile picks, search, matchup hero). |
+| v13 | `v13-product-ui-update` | Save gate + Pro draft | Save-matchup auth gate; draft restaged as Pro gate / ready / live board. |
 
 ## v01 — Premium Gaming baseline
 
@@ -136,5 +137,15 @@ Claude Design exports are stored under `design/handoffs/vNN-short-slug/`.
 - Specs four non-skeleton states: pending action, stale-while-refresh, empty, failed.
 - Adds ASSETS-NEEDED.md (runes, items, abilities, splash inventory).
 - Adds Garen and Darius ability icons plus 10 item icons for the matchup-rail / builds mock — do not invent live builds from these.
-- Applied in `apps/web`: `/items` catalog, Skill order tab + local ability art, Free/Pro/Squad on `/upgrade` and Account → Plan (waitlist, no card form).
+
+## v13 — Save gate + Pro draft
+
+- Folder: `design/handoffs/v13-product-ui-update/`
+- Ingested: 2026-08-17T18:00:01.057Z
+- Claude download name: Champion-art plan update (12).zip
+- Canvases: `Champion List Directions.dc.html`, `Draft Layout Ideas.dc.html`, `Email - Password Reset.html`, `Email - Weekly Digest.html`, `Email - Welcome.html`, `Lane Glyphs.dc.html`, `Loading States.dc.html`, `Matchup Page Directions.dc.html`, `Riftline - Next Screens.dc.html`, `Wild Rift Forge Mobile.dc.html`, `Wild Rift Forge.dc.html`, `WildRift Directions.dc.html`
+
+- Desktop product canvas adds a Save this matchup auth gate.
+- `/draft` restaged as Pro gate / ready / live. Live pick scoring is Pro; Free keeps counters, matchups, and the tier list.
+- Applied in `apps/web`: save gate + return-to-matchup auth, draft Pro landing, plan copy. Mobile canvas unchanged.
 
