@@ -9,6 +9,7 @@
 
 export {
   centerCrop,
+  contentFrame,
   createBitmap,
   cropBitmap,
   findContentBounds,
@@ -54,11 +55,18 @@ export {
   BAN_TRAY_MAX_Y,
   calibrateLayout,
   CENTER_BAND,
+  brighterColumns,
   detectHighlightedRow,
+  locateBanTrays,
+  locatePortraitColumns,
   parseSlotKey,
   refineRegion,
+  shiftCompanionRegions,
+  withMeasuredRegions,
   SEED_PARAMS,
+  SEED_PARAMS_PHONE,
   seedLayoutProfile,
+  seedParamsFor,
   slotKey,
   TEAM_SLOTS,
   type CalibrateOptions,
@@ -73,6 +81,19 @@ export {
 } from './layout';
 
 export {
+  DRAFT_LANES,
+  inferMissingLanes,
+  isLockedPick,
+  isLockedPortrait,
+  LANE_TEMPLATES,
+  laneIndex,
+  mergeRowLanes,
+  readLaneLabel,
+  type DraftLane,
+  type LaneTemplate,
+} from './lanes';
+
+export {
   detectPhase,
   isAvatarPhase,
   MATCH_MODAL,
@@ -85,5 +106,7 @@ export {
   type HudTitle,
   type PhaseTemplate,
 } from './phase';
+
+export { CAPTURED_ICONS } from './captured-icons';
 
 export { readDraft, type DraftRead, type ReadDraftOptions, type SlotRead } from './read';

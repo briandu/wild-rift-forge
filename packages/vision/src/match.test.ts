@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { patternBitmap, solidBitmap } from './fixtures';
-import { colorSignature, dhash } from './hash';
+import { colorSignature, dhash, isColorSignature, isHash64 } from './hash';
 import { matchTile, type IconReference } from './match';
 
 function reference(slug: string, seed: number, variant?: IconReference['variant']): IconReference {
@@ -60,6 +60,23 @@ describe('matchTile', () => {
     expect(muddy.best?.confidence).toBeLessThan(clean.best?.confidence ?? 1);
   });
 
+  it('ranks a closer colour over a slightly closer hash', () => {
+    const tile = patternBitmap(64, 64, 3);
+    const hash = dhash(tile);
+    const color = colorSignature(tile);
+    const decoyHash = `${hash.slice(0, 14)}00`;
+    const result = matchTile(hash, color, [
+      { slug: 'real', hash, color, variant: 'captured' },
+      {
+        slug: 'decoy',
+        hash: decoyHash,
+        color: colorSignature(patternBitmap(64, 64, 99)),
+        variant: 'captured',
+      },
+    ]);
+    expect(result.best?.slug).toBe('real');
+  });
+
   it('prefers a confirmed capture when two variants tie', () => {
     const tile = patternBitmap(64, 64, 7);
     const result = matchTile(dhash(tile), colorSignature(tile), [
@@ -97,5 +114,74 @@ describe('matchTile', () => {
     expect(lenient.best?.confidence).toBeLessThan(0.99);
     expect(strict.accepted).toBe(false);
     expect(strict.best?.slug).toBe(lenient.best?.slug);
+  });
+});
+
+/** Ban tiles measured off a real ranked frame, with the champion each one shows. */
+const BAN_TILES: Array<{ slug: string; hash: string; color: string }> = [
+  {
+    slug: 'mordekaiser',
+    hash: 'e6e0e4e4e0f0f0f2',
+    color:
+      '313d39282d2c3639394c5b5a283d372224234a4e4c5d6e6a365c4f1e24232728273a403f5da78d1925221f21212e302f',
+  },
+  {
+    slug: 'yuumi',
+    hash: 'ddd70e1d173f0c80',
+    color:
+      '9b7b616b4f46573f395038465e535ca0aeba54667e333a584a54777d8ca87e8aa75e648d43426c47456e47416a6a525d',
+  },
+  {
+    slug: 'jax',
+    hash: '0607071f81c6eef6',
+    color:
+      '1a1c34323e6f4a668f172241261e3d404873445d7c192543332949212640273c591c274a645a8c362e48242236171b2e',
+  },
+  {
+    slug: 'syndra',
+    hash: 'a7ff66621387939a',
+    color:
+      '6b519e463965433f602a284b46355c34223e3a26464131593d234b6841679b7ea75c4a705c43729b5c9a86638f504660',
+  },
+  {
+    slug: 'yunara',
+    hash: '1f3d7cfe66272607',
+    color:
+      '473ea0594c883a2770321d6f7074cc68567d4e384c3a25647b7acb755d79835869593a7f3b2c6769495b9867695d3773',
+  },
+];
+
+describe('CAPTURED_ICONS', () => {
+  it('covers the roster with well-formed signatures', async () => {
+    const { CAPTURED_ICONS } = await import('./captured-icons');
+    expect(CAPTURED_ICONS.length).toBeGreaterThan(100);
+    expect(new Set(CAPTURED_ICONS.map((icon) => icon.slug)).size).toBeGreaterThan(100);
+    expect(new Set(CAPTURED_ICONS.map((icon) => `${icon.slug}:${icon.hash}`)).size).toBe(
+      CAPTURED_ICONS.length,
+    );
+    for (const icon of CAPTURED_ICONS) {
+      expect(icon.variant).toBe('captured');
+      expect(isHash64(icon.hash)).toBe(true);
+      expect(isColorSignature(icon.color)).toBe(true);
+    }
+  });
+
+  it('identifies champions from real ban tiles', async () => {
+    const { CAPTURED_ICONS } = await import('./captured-icons');
+    for (const tile of BAN_TILES) {
+      const result = matchTile(tile.hash, tile.color, CAPTURED_ICONS);
+      expect(result.best?.slug).toBe(tile.slug);
+      expect(result.accepted).toBe(true);
+    }
+  });
+
+  it('leaves an unused ban slot unmatched rather than guessing', async () => {
+    const { CAPTURED_ICONS } = await import('./captured-icons');
+    const empty = matchTile(
+      'e4f8d69aaab6cc70',
+      '1515171213161113161315191314161b1d1d161817131417131416161719191c1d121517141517131416131416131517',
+      CAPTURED_ICONS,
+    );
+    expect(empty.accepted).toBe(false);
   });
 });

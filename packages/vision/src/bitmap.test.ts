@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   centerCrop,
+  contentFrame,
   createBitmap,
   cropBitmap,
   findContentBounds,
@@ -43,6 +44,16 @@ describe('findContentBounds', () => {
     const bounds = findContentBounds(createBitmap(20, 10));
     expect(bounds.width).toBeGreaterThan(0);
     expect(bounds.height).toBeGreaterThan(0);
+  });
+});
+
+describe('contentFrame', () => {
+  it('returns the inner frame and the bars it sat in', () => {
+    const inner = solidBitmap(120, 80, 90, 90, 90);
+    const { frame, bounds } = contentFrame(letterbox(inner, 20, 12));
+    expect(bounds).toEqual({ x: 20, y: 12, width: 120, height: 80 });
+    expect(frame.width).toBe(120);
+    expect(frame.height).toBe(80);
   });
 });
 

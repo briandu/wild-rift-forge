@@ -164,3 +164,18 @@ export function grabFrame(session: CaptureSession): Bitmap {
   const image = context.getImageData(0, 0, width, height);
   return { width: image.width, height: image.height, data: image.data };
 }
+
+/** JPEG of the frame already drawn by {@link grabFrame}, for the mini preview. */
+export function previewDataUrl(session: CaptureSession, quality = 0.55): string | null {
+  try {
+    return session.canvas.toDataURL('image/jpeg', quality);
+  } catch {
+    return null;
+  }
+}
+
+export function previewBlob(session: CaptureSession, quality = 0.7): Promise<Blob | null> {
+  return new Promise((resolve) => {
+    session.canvas.toBlob((blob) => resolve(blob), 'image/jpeg', quality);
+  });
+}

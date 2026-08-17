@@ -8,6 +8,9 @@ function slot(partial: Partial<SlotRead> & Pick<SlotRead, 'key' | 'role' | 'inde
     slug: null,
     candidate: null,
     confidence: 0,
+    lane: null,
+    locked: true,
+    empty: false,
     rect: { x: 0, y: 0, width: 10, height: 10 },
     hash: '0000000000000000',
     color: '0'.repeat(96),
@@ -19,10 +22,19 @@ function read(slots: SlotRead[], extra: Partial<DraftRead> = {}): DraftRead {
   return {
     slots,
     mySlotIndex: null,
+    rowLanes: [],
     phase: 'pick' as DraftPhase,
-    profile: { aspectKey: '16:9', regions: [], highlightRegions: [], source: 'seed' },
+    profile: {
+      aspectKey: '16:9',
+      regions: [],
+      highlightRegions: [],
+      laneLabelRegions: [],
+      source: 'seed',
+    },
     contentBounds: { x: 0, y: 0, width: 100, height: 100 },
     frame: { width: 100, height: 100, data: new Uint8ClampedArray(4) },
+    sourceWidth: 100,
+    sourceHeight: 100,
     ...extra,
   } as DraftRead;
 }
@@ -145,11 +157,159 @@ describe('applyRead', () => {
     expect(applied.resolved).toBe(1);
   });
 
-  it('adopts the highlighted row as the user lane, but not during bans', () => {
+  it('maps a visual row onto the named lane, not pick-order index', () => {
+    const applied = applyRead(
+      read([slot({ key: 'ally-0', role: 'ally', index: 0, slug: 'yone', confidence: 0.95, lane: 'Mid' })]),
+    );
+    expect(applied.state.allies[2]?.slug).toBe('yone');
+    expect(applied.state.allies[2]?.lane).toBe('Mid');
+    expect(applied.state.allies[0]?.slug).toBeNull();
+  });
+
+  it('keeps a darkened pre-pick off the locked board', () => {
+    const applied = applyRead(
+      read([
+        slot({
+          key: 'ally-3',
+          role: 'ally',
+          index: 3,
+          slug: 'leesin',
+          confidence: 0.99,
+          lane: 'Dragon',
+          locked: false,
+        }),
+      ]),
+    );
+    expect(applied.state.allies[3]?.slug).toBeNull();
+    expect(applied.state.allyPrePicks[3]).toBe('leesin');
+    expect(applied.resolved).toBe(0);
+  });
+
+  it('clears a pre-pick that an earlier read had dropped on the wrong lane', () => {
+    const previous = emptyDraftState();
+    previous.allies[3] = { lane: 'Dragon', slug: 'leesin' };
+    const applied = applyRead(
+      read([
+        slot({
+          key: 'ally-3',
+          role: 'ally',
+          index: 3,
+          slug: 'leesin',
+          confidence: 0.99,
+          lane: 'Jungle',
+          locked: false,
+        }),
+      ]),
+      previous,
+    );
+    expect(applied.state.allies[3]?.slug).toBeNull();
+  });
+
+  it('leaves a weak ban pending instead of painting the wrong champion', () => {
+    const applied = applyRead(
+      read([
+        slot({
+          key: 'ban-ally-1',
+          role: 'ban-ally',
+          index: 1,
+          slug: 'samira',
+          confidence: REVIEW_CONFIDENCE - 0.1,
+        }),
+      ]),
+    );
+    expect(applied.state.allyBans[1]).toBeNull();
+    expect(applied.review).toHaveLength(1);
+    expect(applied.review[0]?.candidate).toBe('samira');
+    expect(applied.resolved).toBe(0);
+  });
+
+  it('still writes bans during the ban phase', () => {
+    const applied = applyRead(
+      read(
+        [slot({ key: 'ban-ally-0', role: 'ban-ally', index: 0, slug: 'seraphine', confidence: 0.94 })],
+        { phase: 'ban' },
+      ),
+    );
+    expect(applied.state.allyBans[0]).toBe('seraphine');
+    expect(applied.resolved).toBe(1);
+  });
+
+  it('maps the highlighted visual row onto the named lane', () => {
+    const applied = applyRead(
+      read([], {
+        mySlotIndex: 2,
+        rowLanes: ['Mid', 'Jungle', 'Top', 'Dragon', 'Support'],
+      }),
+    );
+    expect(applied.state.mySlotIndex).toBe(0);
+    expect(applied.state.allyRowLanes[2]).toBe('Top');
+  });
+
+  it('adopts a raw highlight only during pick, when no lane label was read', () => {
     const picked = applyRead(read([], { mySlotIndex: 3 }));
     expect(picked.state.mySlotIndex).toBe(3);
     const banned = applyRead(read([], { mySlotIndex: 3, phase: 'ban' }));
     expect(banned.state.mySlotIndex).toBe(0);
+  });
+
+  it('keeps a ban when this frame cannot read that slot', () => {
+    const previous = emptyDraftState();
+    previous.allyBans[2] = 'samira';
+    const applied = applyRead(
+      read([slot({ key: 'ban-ally-2', role: 'ban-ally', index: 2 })]),
+      previous,
+    );
+    expect(applied.state.allyBans[2]).toBe('samira');
+  });
+
+  it('clears a ban the camera now reads as empty', () => {
+    const previous = emptyDraftState();
+    previous.enemyBans[3] = 'sivir';
+    const applied = applyRead(
+      read([slot({ key: 'ban-enemy-3', role: 'ban-enemy', index: 3, empty: true })]),
+      previous,
+    );
+    expect(applied.state.enemyBans[3]).toBeNull();
+  });
+
+  it('will not leave the same champion in two ban slots', () => {
+    const previous = emptyDraftState();
+    previous.allyBans[4] = 'mordekaiser';
+    const applied = applyRead(
+      read([
+        slot({
+          key: 'ban-ally-3',
+          role: 'ban-ally',
+          index: 3,
+          slug: 'mordekaiser',
+          confidence: 0.92,
+        }),
+      ]),
+      previous,
+    );
+    expect(applied.state.allyBans[3]).toBe('mordekaiser');
+    expect(applied.state.allyBans[4]).toBeNull();
+  });
+
+  it('does not overwrite a slot the user set by hand', () => {
+    const previous = emptyDraftState();
+    previous.overrides['ally-0'] = 'renekton';
+    previous.allies[0] = { lane: 'Top', slug: 'renekton' };
+    const applied = applyRead(
+      read([slot({ key: 'ally-0', role: 'ally', index: 0, slug: 'garen', confidence: 0.99 })]),
+      previous,
+    );
+    expect(applied.state.allies[0]?.slug).toBe('renekton');
+  });
+
+  it('does not put back a champion the user just cleared', () => {
+    const previous = emptyDraftState();
+    previous.cleared['enemy-0'] = 'riven';
+    const applied = applyRead(
+      read([slot({ key: 'enemy-0', role: 'enemy', index: 0, slug: 'riven', confidence: 0.99 })]),
+      previous,
+    );
+    expect(applied.state.enemies[0]?.slug).toBeNull();
   });
 
   it('drops slots outside the board rather than growing it', () => {

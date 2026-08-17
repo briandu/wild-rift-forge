@@ -40,8 +40,14 @@ export type TileMatchResult = {
   accepted: boolean;
 };
 
-/** Beyond this many differing bits the tile is treated as unrelated artwork. */
-const MAX_DISTANCE = 24;
+/**
+ * Beyond this many differing bits the tile is treated as unrelated artwork.
+ *
+ * Even same-source art lands around 20 bits apart once a 30px ban tile has been
+ * scaled, tinted and re-compressed, so the ceiling has to sit above that; the
+ * separation term below is what actually rejects a wrong champion.
+ */
+const MAX_DISTANCE = 30;
 
 /** Distance gap over which a match counts as cleanly separated from the next champion. */
 const SEPARATION_SPAN = 6;
@@ -49,10 +55,18 @@ const SEPARATION_SPAN = 6;
 /** A confirmed capture is worth this many bits of benefit of the doubt. */
 const CAPTURED_BONUS = 1;
 
+/**
+ * Colour distance (0-1) scaled into hash-bit units so two champions with a
+ * similar dhash but different paint do not steal each other's slot. 16 means a
+ * 0.25 colour gap is worth 4 bits — enough to separate Mel/Samira or
+ * Mordekaiser/Hecarim without drowning the hash on a tinted tray.
+ */
+const COLOR_RANK_WEIGHT = 16;
+
 export const DEFAULT_ACCEPT_CONFIDENCE = 0.55;
 
 /** Hard ceiling: no match is accepted past this distance regardless of separation. */
-const ACCEPT_MAX_DISTANCE = 18;
+const ACCEPT_MAX_DISTANCE = 22;
 
 function clamp01(value: number): number {
   return Math.max(0, Math.min(1, value));
@@ -93,8 +107,9 @@ export function matchTile(
     const distance = hamming(hash, reference.hash);
     if (!Number.isFinite(distance)) continue;
     const variant = reference.variant ?? 'thumb';
-    const rank = distance - (variant === 'captured' ? CAPTURED_BONUS : 0);
     const tint = color && reference.color ? colorDistance(color, reference.color) : 0;
+    const rank =
+      distance - (variant === 'captured' ? CAPTURED_BONUS : 0) + COLOR_RANK_WEIGHT * tint;
     const existing = bySlug.get(reference.slug);
     if (!existing || rank < existing.rank) {
       bySlug.set(reference.slug, {

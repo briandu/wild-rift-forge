@@ -226,3 +226,14 @@ export function findContentBounds(bitmap: Bitmap, threshold = LETTERBOX_MAX_LUMA
   }
   return bounds;
 }
+
+/** Trim letterbox bars and return both the content frame and where it sat. */
+export function contentFrame(bitmap: Bitmap): { frame: Bitmap; bounds: Rect } {
+  const bounds = findContentBounds(bitmap);
+  const trimmed =
+    bounds.x === 0 &&
+    bounds.y === 0 &&
+    bounds.width === bitmap.width &&
+    bounds.height === bitmap.height;
+  return { frame: trimmed ? bitmap : cropBitmap(bitmap, bounds), bounds };
+}

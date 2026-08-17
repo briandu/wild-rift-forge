@@ -5,6 +5,7 @@ import { colorSignature, dhash } from './hash';
 import { calibrateLayout, seedLayoutProfile, slotKey } from './layout';
 import type { IconReference } from './match';
 import { drawText } from './fixtures';
+import { readLaneSignature, type LaneTemplate } from './lanes';
 import { readHudTitle, type PhaseTemplate } from './phase';
 import { readDraft } from './read';
 
@@ -131,6 +132,8 @@ describe('readDraft', () => {
     const padded = letterbox(frame, 60, 40);
     const read = readDraft(padded, references);
     expect(read.contentBounds).toEqual({ x: 60, y: 40, width: WIDTH, height: HEIGHT });
+    expect(read.sourceWidth).toBe(WIDTH + 120);
+    expect(read.sourceHeight).toBe(HEIGHT + 80);
     expect(read.slots.find((slot) => slot.key === slotKey('ally', 0))?.slug).toBe(
       expected.get(slotKey('ally', 0)),
     );
@@ -210,5 +213,31 @@ describe('readDraft', () => {
     const profile = seedLayoutProfile(WIDTH, HEIGHT);
     const read = readDraft(frame, references);
     expect(read.slots.map((slot) => slot.key)).toEqual(profile.regions.map((region) => region.key));
+  });
+
+  it('keeps a locked pick locked after the missing lane is inferred', () => {
+    const { frame, references } = lobby({ roles: ['ally'] });
+    const profile = seedLayoutProfile(WIDTH, HEIGHT);
+    const samples: Array<[number, string, LaneTemplate['lane']]> = [
+      [1, 'JUNGLE', 'Jungle'],
+      [2, 'BARON LANE', 'Top'],
+      [3, 'DRAGON LANE', 'Dragon'],
+      [4, 'SUPPORT', 'Support'],
+    ];
+    const laneTemplates: LaneTemplate[] = samples.map(([index, text, lane]) => {
+      const region = profile.laneLabelRegions[index]!;
+      const rect = toPixelRect(region.rect, WIDTH, HEIGHT);
+      drawText(frame, text, rect.x + 2, rect.y + 2, 1);
+      const signature = readLaneSignature(frame, region.rect);
+      if (!signature) throw new Error(`no signature for ${text}`);
+      return { lane, label: text, hash: signature.hash, aspect: signature.aspect };
+    });
+
+    const read = readDraft(frame, references, { laneTemplates });
+    expect(read.rowLanes).toEqual(['Mid', 'Jungle', 'Top', 'Dragon', 'Support']);
+    const first = read.slots.find((slot) => slot.key === slotKey('ally', 0));
+    expect(first?.lane).toBe('Mid');
+    expect(first?.locked).toBe(true);
+    expect(read.slots.find((slot) => slot.key === slotKey('ally', 1))?.locked).toBe(false);
   });
 });

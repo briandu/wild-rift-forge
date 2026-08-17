@@ -1,0 +1,277 @@
+.card {
+  margin-top: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.compact {
+  margin-top: 12px;
+  border-radius: 18px;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.compact .head {
+  padding: 15px 18px 13px;
+}
+
+.kicker {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.compact .kicker {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #9fcbe4;
+}
+
+.live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #8fedb8;
+}
+
+.liveDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #8fedb8;
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+}
+
+.compact .body {
+  flex-direction: row;
+  gap: 14px;
+  padding: 0 18px 16px;
+  align-items: flex-start;
+}
+
+.preview {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #08070e;
+  overflow: hidden;
+}
+
+.compact .preview {
+  width: 132px;
+  flex: none;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.frame {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, #141225, #0a0912 60%, #161327);
+}
+
+.box {
+  position: absolute;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.boxAlly {
+  border: 1px solid rgba(127, 220, 255, 0.85);
+}
+
+.boxEnemy {
+  border: 1px solid rgba(229, 139, 123, 0.85);
+}
+
+.boxBanAlly {
+  border: 1px dashed rgba(127, 220, 255, 0.85);
+}
+
+.boxBanEnemy {
+  border: 1px dashed rgba(229, 139, 123, 0.85);
+}
+
+.boxLane {
+  border: 1px solid rgba(127, 220, 255, 0.4);
+}
+
+.boxPhase {
+  border: 1px solid rgba(143, 237, 184, 0.75);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 7, 14, 0.78);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.overlayK {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #7fdcff;
+}
+
+.overlayCopy {
+  font-size: 11px;
+  color: #8b87a8;
+  text-align: center;
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.spinner,
+.spinnerSm {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(127, 220, 255, 0.22);
+  border-top-color: #7fdcff;
+  animation: spin 850ms linear infinite;
+}
+
+.spinnerSm {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.meta {
+  padding: 10px 12px 12px;
+}
+
+.compact .meta {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+}
+
+.region {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.regionDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.regionK {
+  font-size: 11px;
+  color: #8b87a8;
+  flex: 1;
+  min-width: 0;
+}
+
+.compact .regionK {
+  font-size: 12.5px;
+}
+
+.regionV {
+  font-size: 10.5px;
+  flex: none;
+}
+
+.copy {
+  margin: 0;
+  font-size: 13px;
+  color: #bbb7d4;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.finding {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: #bbb7d4;
+}
+
+.cta {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #0b0a12;
+  background: var(--accent-soft);
+  border: 0;
+  border-radius: 9px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+.compact .cta {
+  font-size: 13px;
+  border-radius: 11px;
+  padding: 9px 16px;
+  margin-top: 11px;
+}
+
+.textBtn {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: #7b769b;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.textBtn:hover {
+  color: var(--text-soft);
+}
+
+.error {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.45;
+  }
+}

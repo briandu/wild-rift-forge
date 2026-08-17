@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   aspectKey,
   calibrateLayout,
+  contentFrame,
   readDraft,
   type IconReference,
   type LayoutProfile,
@@ -14,6 +15,8 @@ import {
   grabFrame,
   isCaptureSupported,
   onCaptureEnded,
+  previewBlob,
+  previewDataUrl,
   stopCapture,
   type CaptureSession,
 } from './screen';
@@ -21,8 +24,9 @@ import { applyRead, type AppliedRead } from './to-draft-state';
 import type { DraftState } from '../draft-state';
 
 export type CaptureStatus = 'idle' | 'arming' | 'armed' | 'reading' | 'unsupported';
+export type CalibStatus = 'idle' | 'running' | 'done';
 
-const PROFILE_KEY = 'wrf.capture.profiles.v1';
+const PROFILE_KEY = 'wrf.capture.profiles.v5';
 
 /**
  * Calibrated layouts are cached per aspect ratio, so a user who always shares the
@@ -54,10 +58,14 @@ export type UseDraftCapture = {
   error: string | null;
   /** Result of the most recent read, or null before the first capture. */
   lastRead: AppliedRead | null;
+  calib: CalibStatus;
+  previewUrl: string | null;
+  profile: LayoutProfile | null;
   arm: () => Promise<void>;
   disarm: () => void;
   capture: (previous?: DraftState) => Promise<AppliedRead | null>;
   calibrate: () => Promise<boolean>;
+  snapshot: () => Promise<Blob | null>;
 };
 
 /**
@@ -71,6 +79,9 @@ export function useDraftCapture(references: readonly IconReference[]): UseDraftC
   const [status, setStatus] = useState<CaptureStatus>('idle');
   const [error, setError] = useState<string | null>(null);
   const [lastRead, setLastRead] = useState<AppliedRead | null>(null);
+  const [calib, setCalib] = useState<CalibStatus>('idle');
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [profile, setProfile] = useState<LayoutProfile | null>(null);
   const sessionRef = useRef<CaptureSession | null>(null);
   const detachRef = useRef<(() => void) | null>(null);
 
@@ -111,6 +122,12 @@ export function useDraftCapture(references: readonly IconReference[]): UseDraftC
     teardown();
     setStatus('idle');
     setError(null);
+    setCalib('idle');
+    setPreviewUrl(null);
+    setProfile(null);
+    // Otherwise the bar reads "Read the draft off your screen" while still listing
+    // slots to review from a capture that is no longer running.
+    setLastRead(null);
   }, [teardown]);
 
   const capture = useCallback(
@@ -124,11 +141,16 @@ export function useDraftCapture(references: readonly IconReference[]): UseDraftC
       setError(null);
       try {
         const frame = grabFrame(session);
-        const profile = loadProfiles()[aspectKey(frame.width, frame.height)];
-        const read = readDraft(frame, references, { profile });
+        const { frame: content } = contentFrame(frame);
+        const nextProfile = loadProfiles()[aspectKey(content.width, content.height)] ?? null;
+        setPreviewUrl(previewDataUrl(session));
+        if (nextProfile?.source === 'calibrated') setCalib('done');
+        const read = readDraft(frame, references, { profile: nextProfile ?? undefined });
+        setProfile(read.profile);
         const applied = applyRead(read, previous);
         setLastRead(applied);
-        if (applied.resolved === 0) {
+        const sawBans = [...applied.state.allyBans, ...applied.state.enemyBans].some(Boolean);
+        if (applied.resolved === 0 && applied.phase === 'unknown' && !sawBans) {
           setError('No champions recognised. Try calibrating on a champion-select screen.');
         }
         return applied;
@@ -149,15 +171,21 @@ export function useDraftCapture(references: readonly IconReference[]): UseDraftC
       return false;
     }
     setStatus('reading');
+    setCalib('running');
     setError(null);
     try {
       const frame = grabFrame(session);
-      const { profile, hits } = calibrateLayout(frame, references);
+      setPreviewUrl(previewDataUrl(session));
+      const { frame: content } = contentFrame(frame);
+      const { profile: nextProfile, hits } = calibrateLayout(content, references);
       if (hits.size === 0) {
         setError('Nothing recognisable on screen. Calibrate during champion select.');
+        setCalib('idle');
         return false;
       }
-      saveProfile(profile);
+      saveProfile(nextProfile);
+      setProfile(nextProfile);
+      setCalib('done');
       return true;
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Calibration failed.');
@@ -167,5 +195,28 @@ export function useDraftCapture(references: readonly IconReference[]): UseDraftC
     }
   }, [references]);
 
-  return { status, error, lastRead, arm, disarm, capture, calibrate };
+  const snapshot = useCallback(async () => {
+    const session = sessionRef.current;
+    if (!session) return null;
+    try {
+      grabFrame(session);
+      return previewBlob(session);
+    } catch {
+      return null;
+    }
+  }, []);
+
+  return {
+    status,
+    error,
+    lastRead,
+    calib,
+    previewUrl,
+    profile,
+    arm,
+    disarm,
+    capture,
+    calibrate,
+    snapshot,
+  };
 }
