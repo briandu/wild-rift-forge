@@ -12,6 +12,7 @@ import {
   parseAbilityNotes,
   parseMatchupGuide,
   parseSpikes,
+  explainMatchupGuideRejection,
   parseMatchupLimit,
   type MatchupContextFact,
   type MatchupKitFact,
@@ -212,6 +213,30 @@ describe('parseMatchupGuide', () => {
 
   it('rejects a guide with no fight windows', () => {
     expect(parseMatchupGuide({ ...validGuide, spikes: [] }, 'garen')).toBeNull();
+  });
+
+  it('keeps an over-long play line instead of discarding the guide', () => {
+    const longWin = 'Leave before he stacks four and then walks you down the lane';
+    expect(longWin.length).toBeGreaterThan(48);
+    const parsed = parseMatchupGuide(
+      {
+        ...validGuide,
+        ability_notes: validGuide.ability_notes.map((row, index) =>
+          index === 0 ? { ...row, win: longWin } : row,
+        ),
+      },
+      'garen',
+    );
+    expect(parsed?.abilityNotes[0]?.win).toHaveLength(48);
+  });
+
+  it('names the check that rejected the guide', () => {
+    expect(explainMatchupGuideRejection({ ...validGuide, you_slug: 'darius' }, 'garen')).toContain(
+      'you_slug',
+    );
+    expect(explainMatchupGuideRejection({ ...validGuide, ability_notes: [] }, 'garen')).toContain(
+      'ability_notes',
+    );
   });
 });
 

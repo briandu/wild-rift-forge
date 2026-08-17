@@ -79,8 +79,8 @@ const TRADE_SIDE_SCHEMA = {
   additionalProperties: false,
   required: ['steps', 'out'],
   properties: {
-    steps: { type: 'array', items: { type: 'string' } },
-    out: { type: 'string' },
+    steps: { type: 'array', minItems: 3, maxItems: 5, items: { type: 'string' } },
+    out: { type: 'string', minLength: 8 },
   },
 } as const;
 
@@ -104,11 +104,13 @@ const MATCHUP_GUIDE_SCHEMA = {
     ],
     properties: {
       you_slug: { type: 'string' },
-      one_thing: { type: 'string' },
+      one_thing: { type: 'string', minLength: 20, maxLength: 240 },
       style: { type: 'string', enum: [...LANE_STYLES] },
       style_pos: { type: 'integer' },
       phases: {
         type: 'array',
+        minItems: 3,
+        maxItems: 3,
         items: {
           type: 'object',
           additionalProperties: false,
@@ -116,7 +118,7 @@ const MATCHUP_GUIDE_SCHEMA = {
           properties: {
             n: { type: 'string', enum: [...PHASE_KEYS] },
             t: { type: 'string' },
-            body: { type: 'string' },
+            body: { type: 'string', minLength: 40 },
           },
         },
       },
@@ -129,10 +131,12 @@ const MATCHUP_GUIDE_SCHEMA = {
           bad: TRADE_SIDE_SCHEMA,
         },
       },
-      mistakes: { type: 'array', items: { type: 'string' } },
-      tags: { type: 'array', items: { type: 'string' } },
+      mistakes: { type: 'array', minItems: 2, maxItems: 5, items: { type: 'string' } },
+      tags: { type: 'array', maxItems: 6, items: { type: 'string' } },
       ability_notes: {
         type: 'array',
+        minItems: 3,
+        maxItems: 6,
         items: {
           type: 'object',
           additionalProperties: false,
@@ -140,15 +144,17 @@ const MATCHUP_GUIDE_SCHEMA = {
           properties: {
             own: { type: 'boolean' },
             k: { type: 'string', enum: ['P', 'Q', 'W', 'E', 'R'] },
-            when: { type: 'string' },
-            then: { type: 'string' },
-            win: { type: 'string' },
-            note: { type: 'string' },
+            when: { type: 'string', minLength: 8, maxLength: 90 },
+            then: { type: 'string', minLength: 6, maxLength: 80 },
+            win: { type: 'string', minLength: 6, maxLength: 48 },
+            note: { type: 'string', minLength: 20, maxLength: 220 },
           },
         },
       },
       spikes: {
         type: 'array',
+        minItems: 5,
+        maxItems: 5,
         items: {
           type: 'object',
           additionalProperties: false,
@@ -156,7 +162,7 @@ const MATCHUP_GUIDE_SCHEMA = {
           properties: {
             at: { type: 'string', enum: ['LVL 1', 'LVL 3', 'LVL 5', '1st ITEM', 'LVL 11'] },
             who: { type: 'string', enum: ['you', 'them', 'even'] },
-            label: { type: 'string' },
+            label: { type: 'string', minLength: 8, maxLength: 72 },
           },
         },
       },
@@ -272,6 +278,19 @@ function asStringArray(value: unknown, min: number, max: number): string[] | nul
   return items;
 }
 
+/** Keep over-long copy instead of dropping the row. Under-min still fails. */
+function clipField(value: unknown, min: number, max: number): string | null {
+  if (typeof value !== 'string') {
+    return null;
+  }
+  const text = value.trim();
+  if (text.length < min) {
+    return null;
+  }
+  const clipped = text.length > max ? text.slice(0, max).trimEnd() : text;
+  return clipped.length < min ? null : clipped;
+}
+
 const ABILITY_KEYS = new Set(['P', 'Q', 'W', 'E', 'R']);
 
 export function parseAbilityNotes(
@@ -302,20 +321,11 @@ export function parseAbilityNotes(
     if (seen.has(id)) {
       continue;
     }
-    const when = typeof row.when === 'string' ? row.when.trim() : '';
-    const then = typeof row.then === 'string' ? row.then.trim() : '';
-    const win = typeof row.win === 'string' ? row.win.trim() : '';
-    const note = typeof row.note === 'string' ? row.note.trim() : '';
-    if (when.length < 8 || when.length > 90) {
-      continue;
-    }
-    if (then.length < 6 || then.length > 80) {
-      continue;
-    }
-    if (win.length < 6 || win.length > 48) {
-      continue;
-    }
-    if (note.length < 20 || note.length > 220) {
+    const when = clipField(row.when, 8, 90);
+    const then = clipField(row.then, 6, 80);
+    const win = clipField(row.win, 6, 48);
+    const note = clipField(row.note, 20, 220);
+    if (!when || !then || !win || !note) {
       continue;
     }
     seen.add(id);
@@ -339,8 +349,8 @@ export function parseSpikes(raw: unknown): MatchupGuideSpike[] | null {
       return item && typeof item === 'object' && (item as { at?: unknown }).at === at;
     }) as { who?: unknown; label?: unknown } | undefined;
     const who = SPIKE_WHOS.find((value) => value === row?.who);
-    const label = typeof row?.label === 'string' ? row.label.trim() : '';
-    if (!who || label.length < 8 || label.length > 72) {
+    const label = clipField(row?.label, 8, 72);
+    if (!who || !label) {
       return [];
     }
     return [{ at, who, label }];
@@ -348,32 +358,49 @@ export function parseSpikes(raw: unknown): MatchupGuideSpike[] | null {
   return spikes.length === SPIKE_ATS.length ? spikes : null;
 }
 
+export function explainMatchupGuideRejection(
+  raw: unknown,
+  youSlug?: string,
+  kits?: { you: readonly string[]; them: readonly string[] },
+): string {
+  return inspectMatchupGuide(raw, youSlug, kits).reason ?? 'ok';
+}
+
 export function parseMatchupGuide(
   raw: unknown,
   youSlug?: string,
   kits?: { you: readonly string[]; them: readonly string[] },
 ): MatchupGuideContent | null {
+  return inspectMatchupGuide(raw, youSlug, kits).value;
+}
+
+function inspectMatchupGuide(
+  raw: unknown,
+  youSlug?: string,
+  kits?: { you: readonly string[]; them: readonly string[] },
+): { value: MatchupGuideContent | null; reason: string | null } {
   if (!raw || typeof raw !== 'object') {
-    return null;
+    return { value: null, reason: 'response was not an object' };
   }
   const body = raw as Record<string, unknown>;
   const reported = typeof body.you_slug === 'string' ? body.you_slug.trim().toLowerCase() : '';
   if (youSlug && reported !== youSlug) {
-    return null;
+    return { value: null, reason: `you_slug was "${reported || 'missing'}", expected "${youSlug}"` };
   }
-  const oneThing = typeof body.one_thing === 'string' ? body.one_thing.trim() : '';
-  const style = LANE_STYLES.find((item) => item === body.style);
+  const oneThing = clipField(body.one_thing, 20, 240);
+  const styleRaw = typeof body.style === 'string' ? body.style.trim() : body.style;
+  const style = LANE_STYLES.find((item) => item === styleRaw);
   const stylePos = typeof body.style_pos === 'number' ? Math.round(body.style_pos) : NaN;
-  if (oneThing.length < 20 || oneThing.length > 240 || !style || stylePos < 0 || stylePos > 100) {
-    return null;
+  if (!oneThing || !style || stylePos < 0 || stylePos > 100) {
+    return { value: null, reason: 'one_thing, style, or style_pos failed checks' };
   }
   const phasesRaw = Array.isArray(body.phases) ? body.phases : [];
   const phases = PHASE_KEYS.flatMap((key) => {
     const row = phasesRaw.find((item) => {
       return item && typeof item === 'object' && (item as { n?: unknown }).n === key;
     }) as { t?: unknown; body?: unknown } | undefined;
-    const text = typeof row?.body === 'string' ? row.body.trim() : '';
-    if (text.length < 40) {
+    const text = clipField(row?.body, 40, 2000);
+    if (!text) {
       return [];
     }
     return [
@@ -385,48 +412,51 @@ export function parseMatchupGuide(
     ];
   });
   if (phases.length !== 3) {
-    return null;
+    return { value: null, reason: `phases: need EARLY, MID, and LATE (kept ${phases.length})` };
   }
   const tradesRaw = body.trades && typeof body.trades === 'object' ? (body.trades as Record<string, unknown>) : null;
   const goodSteps = asStringArray((tradesRaw?.good as { steps?: unknown } | undefined)?.steps, 3, 5);
   const badSteps = asStringArray((tradesRaw?.bad as { steps?: unknown } | undefined)?.steps, 3, 5);
-  const goodOut =
-    typeof (tradesRaw?.good as { out?: unknown } | undefined)?.out === 'string'
-      ? ((tradesRaw?.good as { out: string }).out.trim())
-      : '';
-  const badOut =
-    typeof (tradesRaw?.bad as { out?: unknown } | undefined)?.out === 'string'
-      ? ((tradesRaw?.bad as { out: string }).out.trim())
-      : '';
+  const goodOut = clipField((tradesRaw?.good as { out?: unknown } | undefined)?.out, 8, 240);
+  const badOut = clipField((tradesRaw?.bad as { out?: unknown } | undefined)?.out, 8, 240);
   const mistakes = asStringArray(body.mistakes, 2, 5);
   const tags = asStringArray(body.tags, 0, 6);
   const abilityNotes = parseAbilityNotes(body.ability_notes, kits);
   const spikes = parseSpikes(body.spikes);
-  if (
-    !goodSteps ||
-    !badSteps ||
-    !mistakes ||
-    !tags ||
-    !abilityNotes ||
-    !spikes ||
-    goodOut.length < 8 ||
-    badOut.length < 8
-  ) {
-    return null;
+  if (!goodSteps || !badSteps || !goodOut || !badOut) {
+    return { value: null, reason: 'trades: need 3–5 steps and an 8+ char outcome on both sides' };
+  }
+  if (!mistakes) {
+    return { value: null, reason: 'mistakes: need 2–5 lines' };
+  }
+  if (!tags) {
+    return { value: null, reason: 'tags: need 0–6 strings' };
+  }
+  if (!abilityNotes) {
+    return {
+      value: null,
+      reason: 'ability_notes: need 3–6 rows with at least 2 enemy spells (cue/play/note lengths)',
+    };
+  }
+  if (!spikes) {
+    return { value: null, reason: 'spikes: need LVL 1, LVL 3, LVL 5, 1st ITEM, LVL 11 with 8–72 char labels' };
   }
   return {
-    oneThing,
-    style,
-    stylePos,
-    phases,
-    trades: {
-      good: { steps: goodSteps, out: goodOut },
-      bad: { steps: badSteps, out: badOut },
+    value: {
+      oneThing,
+      style,
+      stylePos,
+      phases,
+      trades: {
+        good: { steps: goodSteps, out: goodOut },
+        bad: { steps: badSteps, out: badOut },
+      },
+      mistakes,
+      tags,
+      abilityNotes,
+      spikes,
     },
-    mistakes,
-    tags,
-    abilityNotes,
-    spikes,
+    reason: null,
   };
 }
 
@@ -645,12 +675,16 @@ export async function generateMatchupGuide(options: {
       2,
     ),
   ].join('\n');
-  const parsed = parseMatchupGuide(await completeMatchupGuide(prompt, apiKey, model), you, {
+  const rawGuide = await completeMatchupGuide(prompt, apiKey, model);
+  const kits = {
     you: facts.youKit.abilities.map((ability) => ability.key),
     them: facts.themKit.abilities.map((ability) => ability.key),
-  });
+  };
+  const parsed = parseMatchupGuide(rawGuide, you, kits);
   if (!parsed) {
-    throw new Error(`OpenAI returned an unusable guide for ${you} vs ${them} ${lane}`);
+    throw new Error(
+      `OpenAI returned an unusable guide for ${you} vs ${them} ${lane}: ${explainMatchupGuideRejection(rawGuide, you, kits)}`,
+    );
   }
   await upsertMatchupGuide({
     youChampionId: facts.youChamp.id,

@@ -21,6 +21,7 @@ export {
   parseAbilityNotes,
   parseMatchupGuide,
   parseSpikes,
+  explainMatchupGuideRejection,
   type CompactAbility,
   type GenerateMatchupResult,
   type MatchupContextFact,
