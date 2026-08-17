@@ -115,6 +115,21 @@ describe('applyRead', () => {
     expect(applied.review).toHaveLength(0);
   });
 
+  it('ignores player rows during pre-pick, where they are still avatars', () => {
+    const applied = applyRead(
+      read(
+        [
+          slot({ key: 'ally-0', role: 'ally', index: 0, slug: 'garen', confidence: 0.99 }),
+          slot({ key: 'ban-enemy-0', role: 'ban-enemy', index: 0, slug: 'zed', confidence: 0.99 }),
+        ],
+        { phase: 'pre-pick' },
+      ),
+    );
+    expect(applied.state.allies[0]?.slug).toBeNull();
+    expect(applied.state.enemyBans[0]).toBe('zed');
+    expect(applied.phase).toBe('pre-pick');
+  });
+
   it('ignores player rows during the ban phase, where they are account avatars', () => {
     const applied = applyRead(
       read(

@@ -18,6 +18,9 @@ import {
   matchTile,
   type IconReference,
 } from './match';
+import { detectPhase, type DraftPhase, type PhaseTemplate } from './phase';
+
+export type { DraftPhase };
 
 export type SlotRead = {
   key: SlotKey;
@@ -33,14 +36,6 @@ export type SlotRead = {
   hash: Hash64;
   color: ColorSignature;
 };
-
-/**
- * Which champion-select phase the frame looks like.
- *
- * This matters because during the ban phase the player rows show account avatars,
- * which are themselves champion art and would otherwise be read as locked picks.
- */
-export type DraftPhase = 'ban' | 'pick' | 'unknown';
 
 export type DraftRead = {
   slots: SlotRead[];
@@ -59,6 +54,8 @@ export type ReadDraftOptions = {
   acceptConfidence?: number;
   /** Skip letterbox trimming when the caller already normalized the frame. */
   skipTrim?: boolean;
+  /** Override the built-in HUD title catalog, used by tests. */
+  phaseTemplates?: readonly PhaseTemplate[];
 };
 
 function guessPhase(slots: readonly SlotRead[]): DraftPhase {
@@ -138,11 +135,12 @@ export function readDraft(
   // Restore the profile's ordering so callers get a stable slot sequence.
   const slots = profile.regions.map((region) => resolved.get(region.key)!).filter(Boolean);
   const highlight = detectHighlightedRow(frame, profile.highlightRegions);
+  const titlePhase = detectPhase(frame, { templates: options.phaseTemplates });
 
   return {
     slots,
     mySlotIndex: highlight?.index ?? null,
-    phase: guessPhase(slots),
+    phase: titlePhase !== 'unknown' ? titlePhase : guessPhase(slots),
     profile,
     contentBounds,
     frame,

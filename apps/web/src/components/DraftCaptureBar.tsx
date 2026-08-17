@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useMemo } from 'react';
 import type { ApiChampion } from '@/lib/api';
+import { phaseLabel } from '@wild-rift-forge/vision';
 import { toIconReferences } from '@/lib/capture/to-draft-state';
 import { useDraftCapture } from '@/lib/capture/use-draft-capture';
 import type { IconSignatureDto } from '@/lib/api-types';
@@ -110,6 +111,7 @@ export function DraftCaptureBar({
 
       {lastRead ? (
         <p className={styles.note}>
+          {lastRead.phase !== 'unknown' ? `${phaseLabel(lastRead.phase)}. ` : ''}
           Read {lastRead.resolved} slot{lastRead.resolved === 1 ? '' : 's'}.
           {lastRead.review.length
             ? ` ${lastRead.review.length} need${lastRead.review.length === 1 ? 's' : ''} a look.`

@@ -1,4 +1,10 @@
-import type { DraftRead, IconReference, SlotRead } from '@wild-rift-forge/vision';
+import {
+  isAvatarPhase,
+  type DraftPhase,
+  type DraftRead,
+  type IconReference,
+  type SlotRead,
+} from '@wild-rift-forge/vision';
 import type { IconSignatureDto } from '../api-types';
 import { BANS_PER_TEAM, DRAFT_LANES, emptyDraftState, type DraftState } from '../draft-state';
 
@@ -26,6 +32,7 @@ export type AppliedRead = {
   /** Slots that were resolved, for a "read 7 of 10" style summary. */
   resolved: number;
   review: LowConfidenceSlot[];
+  phase: DraftPhase;
 };
 
 /** Below this a read is shown to the user for confirmation rather than trusted. */
@@ -35,7 +42,7 @@ export const REVIEW_CONFIDENCE = 0.78;
  * Merge a capture into the board.
  *
  * Existing picks are kept where the capture saw nothing, so a partial read never
- * wipes work the user already did by hand. During the ban phase the ally column
+ * wipes work the user already did by hand. During ban / pre-pick the ally column
  * shows account avatars rather than picks, so those rows are ignored outright.
  */
 export function applyRead(read: DraftRead, previous?: DraftState): AppliedRead {
@@ -49,7 +56,7 @@ export function applyRead(read: DraftRead, previous?: DraftState): AppliedRead {
       }
     : emptyDraftState();
 
-  const trustRows = read.phase !== 'ban';
+  const trustRows = !isAvatarPhase(read.phase);
   let resolved = 0;
   const review: LowConfidenceSlot[] = [];
 
@@ -104,5 +111,5 @@ export function applyRead(read: DraftRead, previous?: DraftState): AppliedRead {
     state.mySlotIndex = read.mySlotIndex;
   }
 
-  return { state, resolved, review };
+  return { state, resolved, review, phase: read.phase };
 }

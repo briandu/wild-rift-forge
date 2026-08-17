@@ -4,6 +4,8 @@ import { letterbox, patternBitmap, pasteBitmap } from './fixtures';
 import { colorSignature, dhash } from './hash';
 import { calibrateLayout, seedLayoutProfile, slotKey } from './layout';
 import type { IconReference } from './match';
+import { drawText } from './fixtures';
+import { readHudTitle, type PhaseTemplate } from './phase';
 import { readDraft } from './read';
 
 const WIDTH = 800;
@@ -163,6 +165,18 @@ describe('readDraft', () => {
   it('reports an unknown phase for an empty lobby', () => {
     const { references } = lobby();
     expect(readDraft(darkFrame(), references).phase).toBe('unknown');
+  });
+
+  it('prefers the HUD title over the portrait-occupancy guess', () => {
+    const { frame, references } = lobby({ roles: ['ally'] });
+    drawText(frame, 'SELECT YOUR CHAMPION!', 220, 6, 2);
+    const title = readHudTitle(frame);
+    expect(title).not.toBeNull();
+    const templates: PhaseTemplate[] = [
+      { phase: 'pick-self', label: 'SELECT YOUR CHAMPION!', hash: title!.hash, aspect: title!.aspect },
+    ];
+    expect(readDraft(frame, references).phase).toBe('ban');
+    expect(readDraft(frame, references, { phaseTemplates: templates }).phase).toBe('pick-self');
   });
 
   it('reads a near-aligned lobby once calibrated', () => {

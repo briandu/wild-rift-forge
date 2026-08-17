@@ -13,7 +13,7 @@
  *
  * The reference frame predates the current five-ban format and shows only three
  * tray slots per side, so the ban tray spacing below is a structural placeholder
- * pending a current screenshot. Row and portrait geometry is unaffected.
+ * pending a current undistorted screenshot. Row and portrait geometry is unaffected.
  *
  * Seed numbers are approximate by design: they only need to land close enough for
  * a calibration pass to lock on, after which the refined rects are persisted.
