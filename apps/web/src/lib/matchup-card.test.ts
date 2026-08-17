@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { MatchupResponse } from './api-types';
-import { buildMatchupCard, coachBriefFor, savedLaneVerdict } from './matchup-card';
+import { buildMatchupCard, coachBriefFor, matchupMobileSections, savedLaneVerdict } from './matchup-card';
 
 const live: MatchupResponse = {
   you: {
@@ -161,6 +161,31 @@ describe('savedLaneVerdict', () => {
       side: 'even',
       verdict: 'NO LANE SNAPSHOT',
     });
+  });
+});
+
+describe('matchupMobileSections', () => {
+  it('lists authored jump targets and drops empty ability or spike tabs', () => {
+    expect(
+      matchupMobileSections({ authored: true, hasAbilities: true, hasSpikes: true }).map(
+        (section) => section.id,
+      ),
+    ).toEqual(['plan', 'trades', 'abilities', 'mistakes', 'spikes', 'team', 'build']);
+    expect(
+      matchupMobileSections({ authored: true, hasAbilities: false, hasSpikes: false }).map(
+        (section) => section.id,
+      ),
+    ).toEqual(['plan', 'trades', 'mistakes', 'team', 'build']);
+  });
+
+  it('lists modelled jump targets without inventing a written plan', () => {
+    expect(matchupMobileSections({ authored: false }).map((section) => section.id)).toEqual([
+      'data',
+      'style',
+    ]);
+    expect(
+      matchupMobileSections({ authored: false, hasNotes: true }).map((section) => section.name),
+    ).toEqual(['The data', 'Lane style', 'Modelled read']);
   });
 });
 

@@ -20,7 +20,7 @@ import { loadViewerRoleOrder } from '@/lib/server/viewer';
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams: Promise<{ you?: string; them?: string; lane?: string }>;
+  searchParams: Promise<{ you?: string; them?: string; lane?: string; save?: string }>;
 }): Promise<Metadata> {
   const params = await searchParams;
   if (!params.you || !params.them) {
@@ -67,7 +67,7 @@ function laneForPair(
 export default async function MatchupsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ you?: string; them?: string; lane?: string }>;
+  searchParams: Promise<{ you?: string; them?: string; lane?: string; save?: string }>;
 }) {
   const params = await searchParams;
   const [champions, tiers, roleOrder] = await Promise.all([
@@ -99,6 +99,7 @@ export default async function MatchupsPage({
         lane={lane}
         placements={placements}
         roleOrder={roles}
+        pendingSave={params.save === '1'}
       />
     </Shell>
   );

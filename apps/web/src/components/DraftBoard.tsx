@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { ApiChampion, IconSignatureDto, TierPlacementDto } from '@/lib/api';
 import { initials } from '@/lib/champions';
+import { draftPhase, type DraftMode } from '@/lib/draft-copy';
 import {
   bannedSlugs,
   clearDraftState,
@@ -19,6 +20,8 @@ import {
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { ChampionPicker } from './ChampionPicker';
+import { DraftGate } from './DraftGate';
+import { DraftReady } from './DraftReady';
 import { LaneGlyph } from './LaneGlyph';
 import styles from './DraftBoard.module.css';
 import { DraftCaptureBar } from './DraftCaptureBar';
@@ -67,12 +70,19 @@ export function DraftBoard({
   const [picking, setPicking] = useState<PickTarget | null>(null);
   const [lockedSlug, setLockedSlug] = useState<string | null>(null);
   const [pool, setPool] = useState<string[]>([]);
+  const [started, setStarted] = useState(false);
+  const [mode, setMode] = useState<DraftMode>('Ranked');
+  const [hydrated, setHydrated] = useState(false);
 
   const { allies, enemies, allyBans, enemyBans, mySlotIndex } = state;
 
   useEffect(() => {
     const restored = loadDraftState();
-    if (restored) setState(restored);
+    if (restored) {
+      setState(restored);
+      if (!isDraftEmpty(restored)) setStarted(true);
+    }
+    setHydrated(true);
   }, []);
 
   useEffect(() => {
@@ -94,6 +104,9 @@ export function DraftBoard({
     });
   }, []);
 
+  const phase = hydrated
+    ? draftPhase('Free', started, started && !isDraftEmpty(state))
+    : null;
   const myLane = allies[mySlotIndex]?.lane ?? 'Top';
   const pickingLane: TierLane =
     (picking?.side === 'ally' || picking?.side === 'enemy'
@@ -193,7 +206,21 @@ export function DraftBoard({
     setState(emptyDraftState());
     setLockedSlug(null);
     setPicking(null);
+    setStarted(false);
     clearDraftState();
+  }
+
+  function startDraft() {
+    setStarted(true);
+    const laneIndex = DRAFT_LANES.indexOf(state.allies[state.mySlotIndex]?.lane ?? 'Top');
+    if (laneIndex >= 0) {
+      setState((cur) => ({ ...cur, mySlotIndex: laneIndex }));
+    }
+  }
+
+  function pickReadyLane(lane: (typeof DRAFT_LANES)[number]) {
+    const index = DRAFT_LANES.indexOf(lane);
+    setState((cur) => ({ ...cur, mySlotIndex: index >= 0 ? index : 0 }));
   }
 
   function pickAlly(index: number) {
@@ -236,6 +263,35 @@ export function DraftBoard({
             </button>
           );
         })}
+      </div>
+    );
+  }
+
+  if (!hydrated || !phase) {
+    return <div className={styles.wrap} />;
+  }
+
+  if (phase === 'gated') {
+    return (
+      <div className={styles.wrap}>
+        <DraftGate champions={champions} portraits={portraits} />
+      </div>
+    );
+  }
+
+  if (phase === 'ready') {
+    return (
+      <div className={styles.wrap}>
+        <DraftReady
+          champions={champions}
+          portraits={portraits}
+          pool={pool}
+          mode={mode}
+          lane={myLane}
+          onMode={setMode}
+          onLane={pickReadyLane}
+          onStart={startDraft}
+        />
       </div>
     );
   }
@@ -305,18 +361,16 @@ export function DraftBoard({
               <span className={styles.timerDot} />
               {locked ? `${locked.name} locked` : `Your pick · ${pickingLane}`}
             </div>
-            <div className={styles.rank}>Tap a slot to fill the lobby</div>
+            <div className={styles.rank}>{mode}</div>
             <div className={styles.spacer} />
             {locked ? (
               <button type="button" className={styles.undo} onClick={() => setLockedSlug(null)}>
                 Undo pick
               </button>
             ) : null}
-            {!isDraftEmpty(state) ? (
-              <button type="button" className={styles.undo} onClick={reset}>
-                Clear board
-              </button>
-            ) : null}
+            <button type="button" className={styles.end} onClick={reset}>
+              End draft
+            </button>
           </div>
 
           <h1 className={styles.heading}>
@@ -452,6 +506,7 @@ export function DraftBoard({
         onLock={lockIn}
         onUndo={() => setLockedSlug(null)}
         onReset={reset}
+        mode={mode}
       />
 
       <ChampionPicker

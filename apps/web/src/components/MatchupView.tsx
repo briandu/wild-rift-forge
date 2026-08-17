@@ -16,6 +16,7 @@ import {
 import {
   buildMatchupCard,
   coachBriefFor,
+  matchupMobileSections,
   type MatchupCard,
   type MatchupChip,
   type MatchupSideCard,
@@ -24,18 +25,16 @@ import { commonLaneChampions, poolInLane, youLaneSuggestions } from '@/lib/match
 import { bestPlacement, formatRate, placementsForSlug } from '@/lib/placements';
 import { preferredLaneOf } from '@/lib/roles';
 import { useDelayedReveal } from '@/hooks/useDelayedReveal';
+import { loginHref, matchupReturnPath } from '@/lib/auth-next';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
-import { AbilityMarkup } from './AbilityMarkup';
 import { AbilityChip, AbilityRichText } from './AbilityTip';
 import { ChampFace } from './ChampFace';
 import { ChampionPicker } from './ChampionPicker';
 import { LaneGlyph } from './LaneGlyph';
 import { PendingLabel, RefreshFrame, Spinner } from './LoadState';
+import { SaveMatchupGate } from './SaveMatchupGate';
 import styles from './MatchupView.module.css';
-
-const MU_TABS = ['Quick', 'Plan', 'Trades', 'Build'] as const;
-type MuTab = (typeof MU_TABS)[number];
 
 function laneNice(lane: string): string {
   return lane.charAt(0) + lane.slice(1).toLowerCase();
@@ -57,6 +56,7 @@ type MatchupProps = {
   lane: string;
   placements?: TierPlacementDto[];
   roleOrder?: TierLane[];
+  pendingSave?: boolean;
 };
 
 export function MatchupView(props: MatchupProps) {
@@ -74,6 +74,7 @@ function MatchupLoaded({
   lane,
   placements = [],
   roleOrder = TIER_LANES as TierLane[],
+  pendingSave = false,
 }: MatchupProps) {
   const router = useRouter();
   const mu = buildMatchupCard(matchup, youSlug, themSlug, lane, champions);
@@ -83,10 +84,12 @@ function MatchupLoaded({
   const [picking, setPicking] = useState<'you' | 'them' | null>(null);
   const [saved, setSaved] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [tab, setTab] = useState<MuTab>('Quick');
+  const [gateOpen, setGateOpen] = useState(false);
+  const [muSec, setMuSec] = useState('plan');
   const [refreshing, startTransition] = useTransition();
   const showCoachSkel = useDelayedReveal(coach === 'loading');
   const coachTimer = useRef<number | null>(null);
+  const muBarRef = useRef<HTMLDivElement | null>(null);
   const brief = coachBriefFor(mu);
   const kits = {
     [mu.you.name]: resolveAbilities(matchup?.abilitiesYou),
@@ -105,9 +108,10 @@ function MatchupLoaded({
       router.replace(params.size ? `/matchups?${params}` : '/matchups');
     });
     setSaved(false);
+    setGateOpen(false);
     if (coachTimer.current) window.clearTimeout(coachTimer.current);
     setCoach('idle');
-    setTab('Quick');
+    setMuSec('plan');
   }
 
   function swapPair() {
@@ -115,19 +119,19 @@ function MatchupLoaded({
   }
 
   async function savePair() {
-    if (saving) return;
+    if (saving || saved) return;
+    if (!isSupabaseConfigured()) {
+      setSaved(true);
+      return;
+    }
+    const supabase = createClient();
+    const { data } = await supabase.auth.getUser();
+    if (!data.user) {
+      setGateOpen(true);
+      return;
+    }
     setSaving(true);
     try {
-      if (!isSupabaseConfigured()) {
-        setSaved(true);
-        return;
-      }
-      const supabase = createClient();
-      const { data } = await supabase.auth.getUser();
-      if (!data.user) {
-        router.push('/login');
-        return;
-      }
       await supabase.rpc('ensure_default_avatar');
       const { error } = await supabase.from('user_saved_matchups').insert({
         user_id: data.user.id,
@@ -139,10 +143,27 @@ function MatchupLoaded({
         return;
       }
       setSaved(true);
+      if (pendingSave) {
+        router.replace(matchupReturnPath({ you: youSlug, them: themSlug, lane }));
+      }
     } finally {
       setSaving(false);
     }
   }
+
+  useEffect(() => {
+    if (!isSupabaseConfigured()) return;
+    const supabase = createClient();
+    void supabase.auth.getUser().then(async ({ data }) => {
+      if (!data.user) return;
+      const state = await loadAccountState(supabase, data.user.id);
+      const already = state.saved.some(
+        (row) => row.youSlug === youSlug && row.themSlug === themSlug && row.lane === lane,
+      );
+      if (already) setSaved(true);
+      else if (pendingSave) void savePair();
+    });
+  }, [lane, pendingSave, themSlug, youSlug]);
 
   function runCoach() {
     if (coachTimer.current) window.clearTimeout(coachTimer.current);
@@ -154,6 +175,49 @@ function MatchupLoaded({
     if (coachTimer.current) window.clearTimeout(coachTimer.current);
   }, []);
 
+  const hasAuthoredAbilities = mu.abilities.some((ability) => ability.authored);
+  const hasFightWindows = mu.authored && mu.spikes.length > 0;
+  const mobileSections = useMemo(
+    () =>
+      matchupMobileSections({
+        authored: mu.authored,
+        hasAbilities: hasAuthoredAbilities,
+        hasSpikes: hasFightWindows,
+        hasNotes: mu.modelled.notes.length > 0,
+      }),
+    [hasAuthoredAbilities, hasFightWindows, mu.authored, mu.modelled.notes.length],
+  );
+
+  useEffect(() => {
+    if (!mobileSections.some((section) => section.id === muSec)) {
+      setMuSec(mobileSections[0]?.id ?? 'plan');
+    }
+  }, [mobileSections, muSec]);
+
+  useEffect(() => {
+    const ids = mobileSections.map((section) => section.id);
+    function revealTab(index: number) {
+      const bar = muBarRef.current;
+      if (!bar || index < 0) return;
+      const link = bar.querySelectorAll('a')[index];
+      if (!link) return;
+      const target = link.offsetLeft - (bar.clientWidth - link.offsetWidth) / 2;
+      bar.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+    }
+    function onScroll() {
+      if (window.innerWidth > 900) return;
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(`mu-${id}`);
+        if (el && el.getBoundingClientRect().top <= 150) current = id;
+      }
+      if (!current || current === muSec) return;
+      setMuSec(current);
+      revealTab(ids.indexOf(current));
+    }
+    window.addEventListener('scroll', onScroll, true);
+    return () => window.removeEventListener('scroll', onScroll, true);
+  }, [mobileSections, muSec]);
   const verdictC = mu.side === 'them' ? '#E58B7B' : mu.side === 'you' ? '#8FEDB8' : '#F0A87B';
   const verdictBg =
     mu.side === 'them'
@@ -178,64 +242,88 @@ function MatchupLoaded({
     '--verdict-bd': verdictBd,
   } as CSSProperties;
 
+  const returnTo = matchupReturnPath({ you: youSlug, them: themSlug, lane, save: true });
+
   return (
     <RefreshFrame active={refreshing} style={vars}>
+      {gateOpen ? (
+        <SaveMatchupGate
+          youName={mu.you.name}
+          themName={mu.them.name}
+          themSlug={mu.them.slug}
+          themArt={splashFor(mu.them.slug, champions.find((row) => row.slug === mu.them.slug)?.imageUrl)}
+          signUpHref={loginHref('signup', returnTo)}
+          signInHref={loginHref('signin', returnTo)}
+          onClose={() => setGateOpen(false)}
+        />
+      ) : null}
       <PosterHero you={mu.you} them={mu.them} champions={champions} mu={mu} chips={mu.quick} />
       <MobileHero you={mu.you} them={mu.them} portraits={portraits} mu={mu} chips={mu.quick} />
       <div className={styles.pickerBar}>
-        <button type="button" className={styles.pairPick} onClick={() => setPicking('you')}>
-          <ChampFace name={mu.you.name} slug={mu.you.slug} size={30} portraits={portraits} />
-          <span className={styles.pairCopy}>
-            <span className={styles.pairKYou}>YOU</span>
-            <span className={styles.pairName}>{mu.you.name}</span>
-          </span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7B769B" strokeWidth="2.4" aria-hidden>
-            <path d="M6 9.5l6 6 6-6" />
-          </svg>
-        </button>
-        <button type="button" className={styles.swapBtn} onClick={swapPair} aria-label="Swap champions">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBB7D4" strokeWidth="2.2">
-            <path d="M4 8h14l-3.4-3.4M20 16H6l3.4 3.4" />
-          </svg>
-        </button>
-        <button type="button" className={styles.pairPickThem} onClick={() => setPicking('them')}>
-          <ChampFace name={mu.them.name} slug={mu.them.slug} size={30} portraits={portraits} />
-          <span className={styles.pairCopy}>
-            <span className={styles.pairKThem}>AGAINST</span>
-            <span className={styles.pairName}>{mu.them.name}</span>
-          </span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7B769B" strokeWidth="2.4" aria-hidden>
-            <path d="M6 9.5l6 6 6-6" />
-          </svg>
-        </button>
-        <div className={`${styles.pickLanes} xfade`}>
-          {TIER_LANES.map((item) => (
-            <button
-              key={item}
-              type="button"
-              className={lane === item ? styles.pickLaneOn : styles.pickLane}
-              onClick={() => setPair({ lane: item })}
-            >
-              <LaneGlyph lane={item} />
-              {item}
-            </button>
-          ))}
+        <div className={styles.pairCluster}>
+          <button type="button" className={styles.pairPick} onClick={() => setPicking('you')}>
+            <ChampFace name={mu.you.name} slug={mu.you.slug} size={30} portraits={portraits} />
+            <span className={styles.pairCopy}>
+              <span className={styles.pairKYou}>YOU</span>
+              <span className={styles.pairName}>{mu.you.name}</span>
+            </span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7B769B" strokeWidth="2.4" aria-hidden>
+              <path d="M6 9.5l6 6 6-6" />
+            </svg>
+          </button>
+          <button type="button" className={styles.swapBtn} onClick={swapPair} aria-label="Swap champions">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBB7D4" strokeWidth="2.2">
+              <path d="M4 8h14l-3.4-3.4M20 16H6l3.4 3.4" />
+            </svg>
+          </button>
+          <button type="button" className={styles.pairPickThem} onClick={() => setPicking('them')}>
+            <ChampFace name={mu.them.name} slug={mu.them.slug} size={30} portraits={portraits} />
+            <span className={styles.pairCopy}>
+              <span className={styles.pairKThem}>AGAINST</span>
+              <span className={styles.pairName}>{mu.them.name}</span>
+            </span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7B769B" strokeWidth="2.4" aria-hidden>
+              <path d="M6 9.5l6 6 6-6" />
+            </svg>
+          </button>
         </div>
-        <button type="button" className={styles.clearBtn} onClick={() => setPair({ you: null, them: null, lane: null })}>
-          Clear
-        </button>
-        <button type="button" className={styles.saveBtn} onClick={() => void savePair()} disabled={saving}>
-          {saving ? (
-            <PendingLabel>Saving</PendingLabel>
-          ) : (
-            <>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
-                <path d="M7 4h10v16l-5-4-5 4z" />
-              </svg>
-              {saved ? 'Saved' : 'Save matchup'}
-            </>
-          )}
-        </button>
+        <div className={styles.pickerTools}>
+          <div className={`${styles.pickLanes} xfade`}>
+            {TIER_LANES.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={lane === item ? styles.pickLaneOn : styles.pickLane}
+                onClick={() => setPair({ lane: item })}
+              >
+                <LaneGlyph lane={item} />
+                {item}
+              </button>
+            ))}
+          </div>
+          <div className={styles.pickerActions}>
+            <button type="button" className={styles.clearBtn} onClick={() => setPair({ you: null, them: null, lane: null })}>
+              Clear
+            </button>
+            <button
+              type="button"
+              className={saved ? styles.saveBtnOn : styles.saveBtn}
+              onClick={() => void savePair()}
+              disabled={saving || saved}
+            >
+              {saving ? (
+                <PendingLabel>Saving</PendingLabel>
+              ) : (
+                <>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden>
+                    <path d="M7 4h10v16l-5-4-5 4z" />
+                  </svg>
+                  {saved ? 'Saved' : 'Save matchup'}
+                </>
+              )}
+            </button>
+          </div>
+        </div>
       </div>
       <ChampionPicker
         open={picking !== null}
@@ -254,142 +342,41 @@ function MatchupLoaded({
         }}
       />
 
-      <div className={styles.mobilePane}>
-        <div className={styles.mobileTabBar}>
-          {MU_TABS.map((item) => (
-            <button
-              key={item}
-              type="button"
-              className={tab === item ? styles.mobileTabOn : styles.mobileTab}
-              onClick={() => setTab(item)}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-
-        {tab === 'Quick' ? (
-          <div className={styles.mobileTabBody}>
-            <div className={styles.styleCard}>
-              <div className={styles.styleK}>RECOMMENDED LANE STYLE</div>
-              <div className={styles.styleTitle}>{mu.style}</div>
-              <div className={styles.styleBar}>
-                <div className={styles.styleKnob} style={{ left: `${mu.stylePos}%` }} />
-              </div>
-              <div className={styles.styleEnds}>
-                <span>DEFENSIVE</span>
-                <span>ALL-IN</span>
-              </div>
-            </div>
-            {mu.authored ? null : (
-              <div className={styles.mobileModelled}>
-                <div className={styles.mobileModelledK}>MODELLED READ</div>
-                <p>
-                  No written breakdown for this pairing yet. Everything here is modelled from match
-                  data. Check back shortly — we are writing the plan now.
-                </p>
-                <p className={styles.mobileModelledGap}>{mu.modelled.gapLine}</p>
-              </div>
-            )}
-            {mu.modelled.counterWhy ? (
-              <div className={styles.mobileWhy}>
-                <div className={styles.mobileModelledK}>{mu.modelled.counterTag}</div>
-                <p>{mu.modelled.counterWhy}</p>
-              </div>
-            ) : null}
-            {mu.modelled.notes.length > 0 ? (
-              <div>
-                <div className={styles.mobileKnow}>WHAT TO KNOW</div>
-                {mu.modelled.notes.map((note) => (
-                  <div key={note} className={styles.mobileNote}>
-                    <span />
-                    <p>
-                      <AbilityRichText
-                        text={note}
-                        you={mu.you.name}
-                        them={mu.them.name}
-                        kits={kits}
-                      />
-                    </p>
-                  </div>
-                ))}
-              </div>
-            ) : null}
-          </div>
-        ) : null}
-
-        {tab !== 'Quick' && !mu.authored ? (
-          <div className={styles.mobileTabBody}>
-            <div className={styles.deepEmpty}>
-              <div className={styles.deepK}>{tab.toUpperCase()} NOT WRITTEN YET</div>
-              <p>
-                {mu.you.name} into {mu.them.name} has no authored breakdown yet. Check back shortly
-                while we write it. The Quick tab still carries the modelled read from win rates.
-              </p>
-              <button type="button" className={styles.deepCta} onClick={() => setTab('Quick')}>
-                See the modelled read
-              </button>
-            </div>
-          </div>
-        ) : null}
-
-        {tab === 'Plan' && mu.authored ? (
-          <div className={styles.mobileTabBody}>
-            {mu.phases.map((p) => (
-              <div key={p.n} className={styles.mobilePhase} style={{ borderTopColor: p.c }}>
-                <div className={styles.mobilePhaseHead}>
-                  <span style={{ color: p.c }}>{p.n}</span>
-                  <span>{p.t}</span>
-                </div>
-                <p>
-                  <AbilityRichText
-                    text={p.body}
-                    id={`mph-${p.n}`}
-                    you={mu.you.name}
-                    them={mu.them.name}
-                    kits={kits}
-                  />
-                </p>
-              </div>
+      {mobileSections.length > 1 ? (
+        <div ref={muBarRef} className={styles.muSticky}>
+          <div className={styles.muStickyInner}>
+            {mobileSections.map((item, index) => (
+              <a
+                key={item.id}
+                href={`#mu-${item.id}`}
+                className={muSec === item.id ? styles.muStickyLinkOn : styles.muStickyLink}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setMuSec(item.id);
+                  document
+                    .getElementById(`mu-${item.id}`)
+                    ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  const bar = muBarRef.current;
+                  const link = bar?.querySelectorAll('a')[index];
+                  if (bar && link) {
+                    const target = link.offsetLeft - (bar.clientWidth - link.offsetWidth) / 2;
+                    bar.scrollTo({ left: Math.max(0, target), behavior: 'smooth' });
+                  }
+                }}
+              >
+                <span className={styles.muStickyName}>{item.name}</span>
+                <span className={styles.muStickyBar} />
+              </a>
             ))}
           </div>
-        ) : null}
-
-        {tab === 'Trades' && mu.authored ? (
-          <div className={styles.mobileTabBody}>
-            <TradeColumn
-              kind="good"
-              steps={mu.trades.good.steps}
-              out={mu.trades.good.out}
-              you={mu.you.name}
-              them={mu.them.name}
-              kits={kits}
-            />
-            <TradeColumn
-              kind="bad"
-              steps={mu.trades.bad.steps}
-              out={mu.trades.bad.out}
-              you={mu.you.name}
-              them={mu.them.name}
-              kits={kits}
-            />
-          </div>
-        ) : null}
-
-        {tab === 'Build' && mu.authored ? (
-          <div className={styles.mobileTabBody}>
-            <p className={styles.needSource}>
-              Items and runes need a build source. We will not invent them from lane win rates.
-            </p>
-          </div>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
 
       <div className={styles.body}>
         <div className={styles.main}>
           {mu.authored ? (
             <>
-              <section>
+              <section id="mu-plan" className={styles.muAnchor}>
                 <div className={styles.planHead}>
                   <h2 className={styles.h2}>The plan</h2>
                   <span className={styles.freshness}>{mu.freshness}</span>
@@ -417,7 +404,7 @@ function MatchupLoaded({
                 </div>
               </section>
 
-              <section>
+              <section id="mu-trades" className={styles.muAnchor}>
                 <h2 className={styles.h2}>Trades</h2>
                 <p className={styles.needSource}>
                   These are lane-strength habits, not a pairwise combo script.
@@ -451,7 +438,9 @@ function MatchupLoaded({
                   data. Check back shortly — we are writing the plan now.
                 </p>
               </div>
-              <h2 className={styles.h2}>What the data says</h2>
+              <h2 id="mu-data" className={`${styles.h2} ${styles.muAnchor}`}>
+                What the data says
+              </h2>
               <p className={styles.modelledGap}>{mu.modelled.gapLine}</p>
               {mu.modelled.counterWhy ? (
                 <div className={styles.modelledWhy}>
@@ -461,7 +450,7 @@ function MatchupLoaded({
               ) : null}
               {mu.modelled.notes.length > 0 ? (
                 <div>
-                  <h2 className={`${styles.h2} ${styles.modelledReadHead}`}>
+                  <h2 id="mu-read" className={`${styles.h2} ${styles.modelledReadHead} ${styles.muAnchor}`}>
                     Reading {mu.them.name}
                   </h2>
                   <div className={styles.modelledNotes}>
@@ -488,9 +477,9 @@ function MatchupLoaded({
             </section>
           )}
 
-          <section>
-            <h2 className={styles.h2}>Reading the abilities</h2>
-            {mu.abilities.length > 0 ? (
+          {hasAuthoredAbilities ? (
+            <section id="mu-abilities" className={styles.muAnchor}>
+              <h2 className={styles.h2}>Reading the abilities</h2>
               <div className={styles.interactions}>
                 {mu.abilities.map((x, i) => {
                   const key = `i${i}`;
@@ -527,18 +516,14 @@ function MatchupLoaded({
                         </span>
                         <span className={styles.abilityLine}>
                           {isOpen ? (
-                            x.authored ? (
-                              <AbilityRichText
-                                text={x.note}
-                                id={`ab-why-${key}`}
-                                you={mu.you.name}
-                                them={mu.them.name}
-                                kits={kits}
-                              />
-                            ) : (
-                              <AbilityMarkup text={x.note} />
-                            )
-                          ) : x.authored && x.when && x.then ? (
+                            <AbilityRichText
+                              text={x.note}
+                              id={`ab-why-${key}`}
+                              you={mu.you.name}
+                              them={mu.them.name}
+                              kits={kits}
+                            />
+                          ) : x.when && x.then ? (
                             <AbilityRichText
                               text={`${x.when} — ${x.then}`}
                               id={`ab-line-${key}`}
@@ -547,27 +532,23 @@ function MatchupLoaded({
                               kits={kits}
                             />
                           ) : (
-                            'Live kit text — tap for the full description'
+                            x.note
                           )}
                         </span>
                       </span>
                       <span className={styles.abilityWin}>
-                        <span>{x.authored && x.win ? x.win : 'Kit'}</span>
+                        <span>{x.win ?? 'Kit'}</span>
                         <span className={styles.why}>Why?</span>
                       </span>
                     </div>
                   );
                 })}
               </div>
-            ) : (
-              <p className={styles.needSource}>
-                Ability text fills in when the champion kit is scraped.
-              </p>
-            )}
-          </section>
+            </section>
+          ) : null}
 
           {mu.authored ? (
-            <section>
+            <section id="mu-mistakes" className={styles.muAnchor}>
               <h2 className={styles.h2}>Mistakes to avoid</h2>
               <div className={styles.mistakes}>
                 {mu.mistakes.map((m) => (
@@ -600,10 +581,11 @@ function MatchupLoaded({
         </div>
 
         <aside className={styles.rail}>
-          <div className={styles.railLabel}>WHEN CAN I FIGHT</div>
-          <div className={styles.timeline}>
-            {mu.spikes.length > 0
-              ? mu.spikes.map((spike) => {
+          {hasFightWindows ? (
+            <div id="mu-spikes" className={styles.muAnchor}>
+              <div className={styles.railLabel}>WHEN CAN I FIGHT</div>
+              <div className={styles.timeline}>
+                {mu.spikes.map((spike) => {
                   const color =
                     spike.who === 'them' ? '#E58B7B' : spike.who === 'you' ? '#8FEDB8' : '#F0A87B';
                   return (
@@ -628,113 +610,108 @@ function MatchupLoaded({
                       </div>
                     </div>
                   );
-                })
-              : [
-                  { at: 'THIS SNAPSHOT', color: verdictC, label: mu.verdict },
-                  { at: 'SAMPLE', color: '#9FCBE4', label: mu.sample },
-                ].map((row) => (
-                  <div key={row.at} className={styles.spike}>
-                    <div className={styles.spikeTrack}>
-                      <span className={styles.spikeDot} style={{ background: row.color }} />
-                      <span className={styles.spikeStem} />
-                    </div>
-                    <div className={styles.spikeCopy}>
-                      <div className={styles.spikeAt} style={{ color: row.color }}>
-                        {row.at}
-                      </div>
-                      <div className={styles.spikeLabel}>{row.label}</div>
-                    </div>
-                  </div>
-                ))}
-          </div>
-
-          <div className={styles.railLabel}>LANE STYLE</div>
-          <div className={styles.styleTitle}>{mu.style}</div>
-          <div className={styles.styleBar}>
-            <div className={styles.styleKnob} style={{ left: `${mu.stylePos}%` }} />
-          </div>
-          <div className={styles.styleEnds}>
-            <span>DEFENSIVE</span>
-            <span>ALL-IN</span>
-          </div>
-
-          <div className={styles.divider} />
-
-          <div className={styles.railLabel}>THEIR CHAMPION</div>
-          <div className={styles.team}>
-            <div className={styles.teamChamp}>
-              <ThemSplash name={mu.them.name} slug={mu.them.slug} champions={champions} />
-              <span className={styles.teamName}>{mu.them.name}</span>
-            </div>
-          </div>
-          {mu.tags.length > 0 ? (
-            <div className={styles.tags}>
-              {mu.tags.map((t) => (
-                <span key={t}>{t}</span>
-              ))}
+                })}
+              </div>
             </div>
           ) : null}
 
-          <div className={styles.divider} />
+          <div id="mu-style" className={styles.muAnchor}>
+            <div className={styles.railLabel}>LANE STYLE</div>
+            <div className={styles.styleTitle}>{mu.style}</div>
+            <div className={styles.styleBar}>
+              <div className={styles.styleKnob} style={{ left: `${mu.stylePos}%` }} />
+            </div>
+            <div className={styles.styleEnds}>
+              <span>DEFENSIVE</span>
+              <span>ALL-IN</span>
+            </div>
+          </div>
 
-          <div className={styles.railLabel}>BUILD BECAUSE OF THIS LANE</div>
-          <p className={styles.needSource}>
-            Items and runes need a build source. We will not invent them from lane win rates.
-          </p>
+          {mu.authored ? (
+            <>
+              <div className={styles.divider} />
 
-          <div className={styles.divider} />
-
-          <div className={styles.coach}>
-            <div className={styles.railLabel}>COACHING</div>
-            <div className={styles.coachTitle}>Explain my game plan</div>
-            {coach === 'idle' ? (
-              <>
-                <p className={styles.coachCopy}>
-                  Restates the live {mu.lane} snapshot. It will not invent items, runes, or pairwise
-                  combos.
-                </p>
-                <button type="button" className={styles.coachBtn} onClick={runCoach}>
-                  Generate
-                </button>
-              </>
-            ) : null}
-            {coach === 'loading' ? (
-              <div className={styles.coachWait}>
-                <div className={styles.coachWaitRow}>
-                  <Spinner />
-                  <span>Reading {mu.sample}…</span>
+              <div id="mu-team" className={styles.muAnchor}>
+                <div className={styles.railLabel}>THEIR CHAMPION</div>
+                <div className={styles.team}>
+                  <div className={styles.teamChamp}>
+                    <ThemSplash name={mu.them.name} slug={mu.them.slug} champions={champions} />
+                    <span className={styles.teamName}>{mu.them.name}</span>
+                  </div>
                 </div>
-                {showCoachSkel ? (
-                  <div className={styles.coachSkel}>
-                    <div data-skel="2" className={styles.coachBar} />
-                    <div data-skel="3" className={styles.coachBar} />
-                    <div data-skel="3" className={styles.coachBar} />
+                {mu.tags.length > 0 ? (
+                  <div className={styles.tags}>
+                    {mu.tags.map((t) => (
+                      <span key={t}>{t}</span>
+                    ))}
                   </div>
                 ) : null}
               </div>
-            ) : null}
-            {coach === 'done' ? (
-              <>
-                {brief.map((b) => (
-                  <div key={b.n} className={styles.coachLine}>
-                    <div className={styles.coachN}>{b.n}</div>
-                    <div className={styles.coachT}>
-                      <AbilityRichText
-                        text={b.t}
-                        id={`coach-${b.n}`}
-                        you={mu.you.name}
-                        them={mu.them.name}
-                        kits={kits}
-                      />
+
+              <div className={styles.divider} />
+
+              <div id="mu-build" className={styles.muAnchor}>
+                <div className={styles.railLabel}>BUILD BECAUSE OF THIS LANE</div>
+                <p className={styles.needSource}>
+                  Items and runes need a build source. We will not invent them from lane win rates.
+                </p>
+              </div>
+
+              <div className={styles.divider} />
+
+              <div className={styles.coach}>
+                <div className={styles.railLabel}>COACHING</div>
+                <div className={styles.coachTitle}>Explain my game plan</div>
+                {coach === 'idle' ? (
+                  <>
+                    <p className={styles.coachCopy}>
+                      Restates the live {mu.lane} snapshot. It will not invent items, runes, or pairwise
+                      combos.
+                    </p>
+                    <button type="button" className={styles.coachBtn} onClick={runCoach}>
+                      Generate
+                    </button>
+                  </>
+                ) : null}
+                {coach === 'loading' ? (
+                  <div className={styles.coachWait}>
+                    <div className={styles.coachWaitRow}>
+                      <Spinner />
+                      <span>Reading {mu.sample}…</span>
                     </div>
+                    {showCoachSkel ? (
+                      <div className={styles.coachSkel}>
+                        <div data-skel="2" className={styles.coachBar} />
+                        <div data-skel="3" className={styles.coachBar} />
+                        <div data-skel="3" className={styles.coachBar} />
+                      </div>
+                    ) : null}
                   </div>
-                ))}
-                <button type="button" className={styles.coachGhost} onClick={runCoach}>
-                  Regenerate
-                </button>
-              </>
-            ) : null}
-          </div>
+                ) : null}
+                {coach === 'done' ? (
+                  <>
+                    {brief.map((b) => (
+                      <div key={b.n} className={styles.coachLine}>
+                        <div className={styles.coachN}>{b.n}</div>
+                        <div className={styles.coachT}>
+                          <AbilityRichText
+                            text={b.t}
+                            id={`coach-${b.n}`}
+                            you={mu.you.name}
+                            them={mu.them.name}
+                            kits={kits}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                    <button type="button" className={styles.coachGhost} onClick={runCoach}>
+                      Regenerate
+                    </button>
+                  </>
+                ) : null}
+              </div>
+            </>
+          ) : null}
         </aside>
       </div>
     </RefreshFrame>
@@ -1156,56 +1133,60 @@ function MatchupSelect({
   return (
     <div>
       <div className={styles.pickerBar}>
-        <button type="button" className={styles.pairPick} onClick={() => setPicking('you')}>
-          {youChamp ? (
-            <ChampFace name={youChamp.name} slug={youChamp.slug} size={30} portraits={portraits} />
-          ) : (
-            <span className={styles.pairEmptyYou}>+</span>
-          )}
-          <span className={styles.pairCopy}>
-            <span className={styles.pairKYou}>YOU</span>
-            <span className={styles.pairName}>{youChamp?.name ?? 'Choose champion'}</span>
-          </span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7B769B" strokeWidth="2.4" aria-hidden>
-            <path d="M6 9.5l6 6 6-6" />
-          </svg>
-        </button>
-        <button
-          type="button"
-          className={styles.swapBtn}
-          onClick={() => setPair({ you: themSlug || null, them: youSlug || null })}
-          aria-label="Swap champions"
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBB7D4" strokeWidth="2.2">
-            <path d="M4 8h14l-3.4-3.4M20 16H6l3.4 3.4" />
-          </svg>
-        </button>
-        <button type="button" className={styles.pairPickThem} onClick={() => setPicking('them')}>
-          {themChamp ? (
-            <ChampFace name={themChamp.name} slug={themChamp.slug} size={30} portraits={portraits} />
-          ) : (
-            <span className={styles.pairEmptyThem}>+</span>
-          )}
-          <span className={styles.pairCopy}>
-            <span className={styles.pairKThem}>AGAINST</span>
-            <span className={styles.pairName}>{themChamp?.name ?? 'Choose opponent'}</span>
-          </span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7B769B" strokeWidth="2.4" aria-hidden>
-            <path d="M6 9.5l6 6 6-6" />
-          </svg>
-        </button>
-        <div className={`${styles.pickLanes} xfade`}>
-          {TIER_LANES.map((item) => (
-            <button
-              key={item}
-              type="button"
-              className={lane === item ? styles.pickLaneOn : styles.pickLane}
-              onClick={() => setPair({ lane: item })}
-            >
-              <LaneGlyph lane={item} />
-              {item}
-            </button>
-          ))}
+        <div className={styles.pairCluster}>
+          <button type="button" className={styles.pairPick} onClick={() => setPicking('you')}>
+            {youChamp ? (
+              <ChampFace name={youChamp.name} slug={youChamp.slug} size={30} portraits={portraits} />
+            ) : (
+              <span className={styles.pairEmptyYou}>+</span>
+            )}
+            <span className={styles.pairCopy}>
+              <span className={styles.pairKYou}>YOU</span>
+              <span className={styles.pairName}>{youChamp?.name ?? 'Choose champion'}</span>
+            </span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7B769B" strokeWidth="2.4" aria-hidden>
+              <path d="M6 9.5l6 6 6-6" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            className={styles.swapBtn}
+            onClick={() => setPair({ you: themSlug || null, them: youSlug || null })}
+            aria-label="Swap champions"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#BBB7D4" strokeWidth="2.2">
+              <path d="M4 8h14l-3.4-3.4M20 16H6l3.4 3.4" />
+            </svg>
+          </button>
+          <button type="button" className={styles.pairPickThem} onClick={() => setPicking('them')}>
+            {themChamp ? (
+              <ChampFace name={themChamp.name} slug={themChamp.slug} size={30} portraits={portraits} />
+            ) : (
+              <span className={styles.pairEmptyThem}>+</span>
+            )}
+            <span className={styles.pairCopy}>
+              <span className={styles.pairKThem}>AGAINST</span>
+              <span className={styles.pairName}>{themChamp?.name ?? 'Choose opponent'}</span>
+            </span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7B769B" strokeWidth="2.4" aria-hidden>
+              <path d="M6 9.5l6 6 6-6" />
+            </svg>
+          </button>
+        </div>
+        <div className={styles.pickerTools}>
+          <div className={`${styles.pickLanes} xfade`}>
+            {TIER_LANES.map((item) => (
+              <button
+                key={item}
+                type="button"
+                className={lane === item ? styles.pickLaneOn : styles.pickLane}
+                onClick={() => setPair({ lane: item })}
+              >
+                <LaneGlyph lane={item} />
+                {item}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 

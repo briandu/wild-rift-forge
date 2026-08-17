@@ -3,7 +3,7 @@ import styles from './MobileBottomNav.module.css';
 
 const TABS = [
   { href: '/', label: 'Counters', match: 'counters', icon: 'search' },
-  { href: '/tier', label: 'Tiers', match: 'tier', icon: 'tier' },
+  { href: '/matchups', label: 'Matchup', match: 'matchups', icon: 'tier' },
   { href: '/draft', label: 'Draft', match: 'draft', icon: 'draft' },
   { href: '/patch', label: 'Patch', match: 'patch', icon: 'patch' },
   { href: '/me', label: 'Me', match: 'me', icon: 'me' },
@@ -14,7 +14,6 @@ function isActive(pathname: string, match: string): boolean {
     return (
       pathname === '/' ||
       pathname.startsWith('/counters') ||
-      pathname.startsWith('/matchups') ||
       pathname.startsWith('/champions')
     );
   }
@@ -37,9 +36,8 @@ function TabIcon({ name, active }: { name: (typeof TABS)[number]['icon']; active
       ) : null}
       {name === 'tier' ? (
         <g>
-          <path d="M4 6h16" />
-          <path d="M4 12h11" />
-          <path d="M4 18h6" />
+          <path d="M6 4v7a6 6 0 0012 0V4" />
+          <path d="M12 17v3" />
         </g>
       ) : null}
       {name === 'draft' ? (

@@ -328,3 +328,30 @@ export function coachBriefFor(card: MatchupCard): Array<{ n: string; t: string }
     },
   ];
 }
+
+export type MatchupMobileSection = { id: string; name: string };
+
+/** Sticky jump links for the mobile matchup page. Skip sections that are not on the page. */
+export function matchupMobileSections(input: {
+  authored: boolean;
+  hasAbilities?: boolean;
+  hasSpikes?: boolean;
+  hasNotes?: boolean;
+}): MatchupMobileSection[] {
+  if (input.authored) {
+    return [
+      { id: 'plan', name: 'Plan' },
+      { id: 'trades', name: 'Trades' },
+      ...(input.hasAbilities ? [{ id: 'abilities', name: 'Abilities' }] : []),
+      { id: 'mistakes', name: 'Mistakes' },
+      ...(input.hasSpikes ? [{ id: 'spikes', name: 'Spikes' }] : []),
+      { id: 'team', name: 'Enemy' },
+      { id: 'build', name: 'Build' },
+    ];
+  }
+  return [
+    { id: 'data', name: 'The data' },
+    { id: 'style', name: 'Lane style' },
+    ...(input.hasNotes ? [{ id: 'read', name: 'Modelled read' }] : []),
+  ];
+}

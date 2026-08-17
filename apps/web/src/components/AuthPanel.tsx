@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState, type ReactElement } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { formatSnapshotDate } from '@/lib/placements';
+import { loginHref, safeNextPath, type AuthMode } from '@/lib/auth-next';
 import { clientAuthCallbackUrl } from '@/lib/supabase/site-url';
 import { Spinner } from './LoadState';
 import styles from './AuthPanel.module.css';
@@ -192,12 +193,18 @@ export function AuthPanel({
   const showSso = mode === 'signin' || mode === 'signup';
   const configured = isSupabaseConfigured();
   const ssoProviders = useMemo(() => SSO.filter((p) => !p.appleOnly || onApple), [onApple]);
+  const afterAuth = safeNextPath(searchParams.get('next'));
+
+  function finishAuth() {
+    router.replace(afterAuth);
+    router.refresh();
+  }
 
   function goMode(next: Mode) {
     setNotice(null);
     setMode(next);
     if (next === 'signin' || next === 'signup' || next === 'forgot') {
-      router.replace(next === 'signin' ? '/login' : `/login?mode=${next}`, { scroll: false });
+      router.replace(loginHref(next as AuthMode, afterAuth), { scroll: false });
     }
   }
 
@@ -223,18 +230,16 @@ export function AuthPanel({
         return;
       }
       if (session && mode !== 'reset' && mode !== 'forgot' && mode !== 'sent') {
-        router.replace('/');
-        router.refresh();
+        finishAuth();
       }
     });
     void supabase.auth.getUser().then(({ data }) => {
       if (data.user && mode !== 'reset') {
-        router.replace('/');
-        router.refresh();
+        finishAuth();
       }
     });
     return () => subscription.unsubscribe();
-  }, [configured, mode, router]);
+  }, [afterAuth, configured, mode, router]);
 
   async function submit() {
     if (!configured) {
@@ -283,8 +288,7 @@ export function AuthPanel({
         setPassword('');
         setConfirmPassword('');
         setNotice({ kind: 'ok', text: 'Password updated. You are signed in.' });
-        router.replace('/');
-        router.refresh();
+        finishAuth();
         return;
       }
 
@@ -302,7 +306,7 @@ export function AuthPanel({
           email: email.trim(),
           password,
           options: {
-            emailRedirectTo: callbackUrl(),
+            emailRedirectTo: callbackUrl(afterAuth),
             data: {
               region,
               riot_id: riotId.trim() || null,
@@ -320,8 +324,7 @@ export function AuthPanel({
           });
           return;
         }
-        router.replace('/');
-        router.refresh();
+        finishAuth();
         return;
       }
 
@@ -333,8 +336,7 @@ export function AuthPanel({
         setNotice({ kind: 'err', text: friendlyAuthError(error.message) });
         return;
       }
-      router.replace('/');
-      router.refresh();
+      finishAuth();
     } finally {
       setBusy(false);
     }
@@ -359,7 +361,7 @@ export function AuthPanel({
     setNotice(null);
     const { error } = await createClient().auth.signInWithOAuth({
       provider,
-      options: { redirectTo: callbackUrl() },
+      options: { redirectTo: callbackUrl(afterAuth) },
     });
     if (error) {
       setBusy(false);

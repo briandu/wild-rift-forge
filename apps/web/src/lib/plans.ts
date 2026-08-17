@@ -16,7 +16,6 @@ export const PLANS: Array<{
     feats: [
       'Every counter and matchup page',
       'Tier list and patch notes',
-      'Draft assistant',
       'Three saved matchups',
     ],
   },
@@ -27,6 +26,7 @@ export const PLANS: Array<{
     blurb: 'Your own games become the data. Built for one player climbing solo.',
     feats: [
       'Everything in Free',
+      'Draft assistant',
       'Champion select overlay',
       'Your match history as the source',
       'Unlimited saved matchups',
@@ -55,7 +55,7 @@ export const PLAN_MATRIX: Array<{
   s: boolean | string;
 }> = [
   { k: 'Counters, tier list and patch notes', f: true, p: true, s: true },
-  { k: 'Draft assistant', f: true, p: true, s: true },
+  { k: 'Draft assistant', f: false, p: true, s: true },
   { k: 'Saved matchups', f: '3', p: 'Unlimited', s: 'Unlimited' },
   { k: 'Champion select overlay', f: false, p: true, s: true },
   { k: 'Your match history as the data source', f: false, p: true, s: true },

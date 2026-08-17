@@ -85,6 +85,7 @@ export function DraftMobile({
   onLock,
   onUndo,
   onReset,
+  mode,
 }: {
   champions: ApiChampion[];
   portraits: Record<string, string>;
@@ -103,6 +104,7 @@ export function DraftMobile({
   onLock: (slug: string) => void;
   onUndo: () => void;
   onReset: () => void;
+  mode?: string;
 }) {
   const snaps = useSheetSnaps();
   const [snap, setSnap] = useState(0);
@@ -215,12 +217,6 @@ export function DraftMobile({
     return null;
   }
 
-  const emptyBoard =
-    state.allies.every((slot) => !slot.slug) &&
-    state.enemies.every((slot) => !slot.slug) &&
-    state.allyBans.every((slug) => !slug) &&
-    state.enemyBans.every((slug) => !slug);
-
   return (
     <div className={styles.root}>
       <div className={styles.head}>
@@ -238,13 +234,11 @@ export function DraftMobile({
               Undo pick
             </button>
           ) : (
-            <div className={styles.rankNote}>Tap a slot to fill the lobby</div>
+            <div className={styles.rankNote}>{mode ?? 'Tap a slot to fill the lobby'}</div>
           )}
-          {!emptyBoard ? (
-            <button type="button" className={styles.textBtn} onClick={onReset}>
-              Clear board
-            </button>
-          ) : null}
+          <button type="button" className={styles.textBtn} onClick={onReset}>
+            End draft
+          </button>
         </div>
       </div>
 

@@ -4,6 +4,14 @@
   min-height: calc(100vh - var(--shell-height));
 }
 
+@media (max-width: 600px) {
+  .wrap {
+    min-height: calc(
+      100dvh - var(--shell-height) - var(--mobile-nav-height) - env(safe-area-inset-bottom, 0px)
+    );
+  }
+}
+
 .board {
   display: flex;
   flex: 1;
@@ -206,6 +214,19 @@
 
 .undo:hover {
   background: rgba(255, 255, 255, 0.13);
+}
+
+.end {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+  padding: 7px 4px;
+  background: transparent;
+  border: 0;
+}
+
+.end:hover {
+  color: var(--text-soft);
 }
 
 .heading {

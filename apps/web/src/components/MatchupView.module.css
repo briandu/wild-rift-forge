@@ -1221,21 +1221,9 @@
     display: block;
   }
 
-  .body {
-    display: none;
-  }
-
-  .mobilePane {
-    display: block;
-  }
-
-  .pickerBar {
-    padding: 14px 18px;
-  }
-
   .main,
   .rail {
-    padding: 26px 18px 60px;
+    padding: 26px 18px calc(60px + var(--mobile-nav-height) + env(safe-area-inset-bottom, 0px));
   }
 
   .trades {
@@ -1267,6 +1255,43 @@
   gap: 12px;
   padding: 16px 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pairCluster,
+.pickerTools,
+.pickerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.pickerTools {
+  margin-left: auto;
+}
+
+@media (max-width: 1200px) {
+  .pickerBar {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .pickerBar {
+    padding: 14px 18px;
+  }
+
+  .pairCluster,
+  .pickerTools {
+    flex: 1 1 100%;
+    margin-left: 0;
+  }
+
+  .pickerTools {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 .pairPick,
@@ -1366,8 +1391,26 @@
   color: var(--accent-soft);
 }
 
-.saveBtn:disabled {
+.saveBtn:disabled,
+.saveBtnOn:disabled {
   cursor: default;
+}
+
+.saveBtnOn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  flex: none;
+  min-width: 148px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 11px;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: #8fedb8;
+  background: rgba(123, 224, 168, 0.14);
+  border: 1px solid rgba(123, 224, 168, 0.4);
 }
 
 .pickLaneOn {
@@ -1378,8 +1421,73 @@
 .pickLanes {
   display: flex;
   gap: 6px;
-  margin-left: auto;
   overflow-x: auto;
+}
+
+.muSticky {
+  display: none;
+}
+
+.muStickyInner {
+  display: flex;
+  gap: 2px;
+  padding: 0 14px;
+  min-width: max-content;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.muStickyLink,
+.muStickyLinkOn {
+  flex: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 46px;
+  padding: 0 14px;
+  color: var(--text-dim);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.muStickyLinkOn {
+  color: #ffffff;
+}
+
+.muStickyName {
+  font-size: 13.5px;
+  font-weight: 600;
+  padding-bottom: 9px;
+}
+
+.muStickyBar {
+  height: 2px;
+  border-radius: 2px 2px 0 0;
+  background: transparent;
+}
+
+.muStickyLinkOn .muStickyBar {
+  background: var(--accent);
+}
+
+.muAnchor {
+  scroll-margin-top: calc(var(--shell-height) + 54px);
+}
+
+@media (max-width: 900px) {
+  .muSticky {
+    display: block;
+    position: -webkit-sticky;
+    position: sticky;
+    top: var(--shell-height);
+    z-index: 14;
+    background: rgba(11, 10, 18, 0.94);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  }
 }
 
 .mobilePane {
