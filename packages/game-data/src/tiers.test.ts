@@ -31,41 +31,43 @@ describe('championTierScore', () => {
 
 describe('tierBandCounts', () => {
   it('returns zeros for an empty lane', () => {
-    expect(tierBandCounts(0)).toEqual({ S: 0, A: 0, B: 0, C: 0 });
+    expect(tierBandCounts(0)).toEqual({ 'S+': 0, S: 0, A: 0, B: 0, C: 0 });
   });
 
   it('puts a single champion in S', () => {
-    expect(tierBandCounts(1)).toEqual({ S: 1, A: 0, B: 0, C: 0 });
+    expect(tierBandCounts(1)).toEqual({ 'S+': 0, S: 1, A: 0, B: 0, C: 0 });
   });
 
-  it('uses ~10/20/40 split on a full lane', () => {
+  it('uses ~5/10/20/40 split on a full lane', () => {
     const counts = tierBandCounts(20);
+    expect(counts['S+']).toBe(1);
     expect(counts.S).toBe(2);
     expect(counts.A).toBe(4);
     expect(counts.B).toBe(8);
-    expect(counts.C).toBe(6);
-    expect(counts.S + counts.A + counts.B + counts.C).toBe(20);
+    expect(counts.C).toBe(5);
+    expect(counts['S+'] + counts.S + counts.A + counts.B + counts.C).toBe(20);
   });
 
   it('never over-assigns relative to n', () => {
     for (let n = 1; n <= 40; n++) {
       const counts = tierBandCounts(n);
-      expect(counts.S + counts.A + counts.B + counts.C).toBe(n);
+      expect(counts['S+'] + counts.S + counts.A + counts.B + counts.C).toBe(n);
       expect(counts.C).toBeGreaterThanOrEqual(0);
     }
   });
 });
 
 describe('assignTierLetter', () => {
-  it('maps rank into S then A then B then C', () => {
-    const counts = { S: 2, A: 4, B: 8, C: 6 };
-    expect(assignTierLetter(1, counts)).toBe('S');
+  it('maps rank into S+ then S then A then B then C', () => {
+    const counts = { 'S+': 1, S: 2, A: 4, B: 8, C: 5 };
+    expect(assignTierLetter(1, counts)).toBe('S+');
     expect(assignTierLetter(2, counts)).toBe('S');
-    expect(assignTierLetter(3, counts)).toBe('A');
-    expect(assignTierLetter(6, counts)).toBe('A');
-    expect(assignTierLetter(7, counts)).toBe('B');
-    expect(assignTierLetter(14, counts)).toBe('B');
-    expect(assignTierLetter(15, counts)).toBe('C');
+    expect(assignTierLetter(3, counts)).toBe('S');
+    expect(assignTierLetter(4, counts)).toBe('A');
+    expect(assignTierLetter(7, counts)).toBe('A');
+    expect(assignTierLetter(8, counts)).toBe('B');
+    expect(assignTierLetter(15, counts)).toBe('B');
+    expect(assignTierLetter(16, counts)).toBe('C');
   });
 });
 
@@ -122,11 +124,12 @@ describe('patchNudge', () => {
 });
 
 describe('assignTierLetterHybrid', () => {
-  it('suppresses S in a weak lane even when rank is 1', () => {
+  it('suppresses S+ and S in a weak lane even when rank is 1', () => {
     const counts = tierBandCounts(20);
-    expect(assignTierLetter(1, counts)).toBe('S');
+    expect(assignTierLetter(1, counts)).toBe('S+');
     expect(assignTierLetterHybrid(1, counts, 51)).toBe('A');
     expect(assignTierLetterHybrid(1, counts, TIER_SCORE_FLOORS.S)).toBe('S');
+    expect(assignTierLetterHybrid(1, counts, TIER_SCORE_FLOORS['S+'])).toBe('S+');
   });
 
   it('cascades down when the score misses several floors', () => {
@@ -218,10 +221,11 @@ describe('compositeTierScore scale', () => {
 });
 
 describe('applyLetterAdjustment', () => {
-  it('clamps to one letter toward S or C', () => {
+  it('clamps to one letter toward S+ or C', () => {
     expect(applyLetterAdjustment('A', 1)).toBe('S');
+    expect(applyLetterAdjustment('S', 1)).toBe('S+');
     expect(applyLetterAdjustment('A', -1)).toBe('B');
-    expect(applyLetterAdjustment('S', 1)).toBe('S');
+    expect(applyLetterAdjustment('S+', 1)).toBe('S+');
     expect(applyLetterAdjustment('C', -1)).toBe('C');
     expect(applyLetterAdjustment('B', 4)).toBe('A');
   });

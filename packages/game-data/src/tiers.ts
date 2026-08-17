@@ -4,13 +4,13 @@ export type RankBracket = 'all' | 'diamond_plus' | 'master_plus' | 'challenger_p
 
 export type TierLane = 'Top' | 'Jungle' | 'Mid' | 'Dragon' | 'Support';
 
-export type TierLetter = 'S' | 'A' | 'B' | 'C';
+export type TierLetter = 'S+' | 'S' | 'A' | 'B' | 'C';
 
 export type TierRuleset = 'cn_stats_v1' | 'blended_v1';
 
 export const TIER_LANES: readonly TierLane[] = ['Top', 'Jungle', 'Mid', 'Dragon', 'Support'];
 
-export const TIER_LETTERS: readonly TierLetter[] = ['S', 'A', 'B', 'C'];
+export const TIER_LETTERS: readonly TierLetter[] = ['S+', 'S', 'A', 'B', 'C'];
 
 export const DEFAULT_RANK_BRACKET: RankBracket = 'diamond_plus';
 
@@ -41,8 +41,9 @@ export const PATCH_NUDGE_CAP = 1;
 export const PATCH_NUDGE_DECAY_DAYS = 7;
 /** Extra score a champion must clear past a band floor before the letter flips. */
 export const HYSTERESIS_MARGIN = 0.4;
-/** Absolute score floors. Rank percentile alone cannot manufacture an S tier. */
+/** Absolute score floors. Rank percentile alone cannot manufacture an S or S+ tier. */
 export const TIER_SCORE_FLOORS: Record<TierLetter, number> = {
+  'S+': 53.5,
   S: 52.5,
   A: 50.5,
   B: 48.5,
@@ -50,6 +51,7 @@ export const TIER_SCORE_FLOORS: Record<TierLetter, number> = {
 };
 
 export interface TierBandCounts {
+  'S+': number;
   S: number;
   A: number;
   B: number;
@@ -86,16 +88,17 @@ export function championTierScore(winRate: number, pickRate: number, banRate: nu
   return winRate + 0.15 * pickRate + 0.1 * banRate;
 }
 
-/** Relative S/A/B/C sizes for a lane: ~10% / 20% / 40% / remainder. */
+/** Relative S+/S/A/B/C sizes for a lane: ~5% / 10% / 20% / 40% / remainder. */
 export function tierBandCounts(n: number): TierBandCounts {
   if (n <= 0) {
-    return { S: 0, A: 0, B: 0, C: 0 };
+    return { 'S+': 0, S: 0, A: 0, B: 0, C: 0 };
   }
+  const sPlus = Math.round(n * 0.05);
   const s = Math.max(1, Math.round(n * 0.1));
   const a = Math.round(n * 0.2);
   const b = Math.round(n * 0.4);
-  let counts: TierBandCounts = { S: s, A: a, B: b, C: n - s - a - b };
-  for (const letter of ['B', 'A', 'S'] as const) {
+  let counts: TierBandCounts = { 'S+': sPlus, S: s, A: a, B: b, C: n - sPlus - s - a - b };
+  for (const letter of ['B', 'A', 'S', 'S+'] as const) {
     while (counts.C < 0 && counts[letter] > 0) {
       counts = { ...counts, [letter]: counts[letter] - 1, C: counts.C + 1 };
     }
@@ -107,13 +110,16 @@ export function tierBandCounts(n: number): TierBandCounts {
 }
 
 export function assignTierLetter(rankInLane: number, counts: TierBandCounts): TierLetter {
-  if (rankInLane <= counts.S) {
+  if (rankInLane <= counts['S+']) {
+    return 'S+';
+  }
+  if (rankInLane <= counts['S+'] + counts.S) {
     return 'S';
   }
-  if (rankInLane <= counts.S + counts.A) {
+  if (rankInLane <= counts['S+'] + counts.S + counts.A) {
     return 'A';
   }
-  if (rankInLane <= counts.S + counts.A + counts.B) {
+  if (rankInLane <= counts['S+'] + counts.S + counts.A + counts.B) {
     return 'B';
   }
   return 'C';
@@ -222,7 +228,7 @@ export function assignTierLetterWithHysteresis(
   return score <= TIER_SCORE_FLOORS[previous] - HYSTERESIS_MARGIN ? proposed : previous;
 }
 
-/** +1 promotes toward S, −1 demotes toward C. Clamped to one letter. */
+/** +1 promotes toward S+, −1 demotes toward C. Clamped to one letter. */
 export function applyLetterAdjustment(letter: TierLetter, delta: number): TierLetter {
   const step = clamp(Math.trunc(delta), -1, 1);
   const next = clamp(letterIndex(letter) - step, 0, TIER_LETTERS.length - 1);

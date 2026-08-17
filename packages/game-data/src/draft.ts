@@ -166,7 +166,7 @@ export function draftFitScore(
   let score = candidate.score;
   const reasons: string[] = [];
 
-  if (candidate.letter === 'S' || candidate.letter === 'A') {
+  if (candidate.letter === 'S+' || candidate.letter === 'S' || candidate.letter === 'A') {
     reasons.push(`${candidate.letter} tier ${candidate.lane}`);
   }
 
