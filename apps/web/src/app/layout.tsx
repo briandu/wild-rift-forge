@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
 import { Archivo } from 'next/font/google';
 import { AbilityTipProvider } from '@/components/AbilityTip';
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, absoluteUrl } from '@/lib/seo';
+import { SITE_DESCRIPTION, SITE_ICONS, SITE_NAME, SITE_TITLE, absoluteUrl } from '@/lib/seo';
 import { PRODUCTION_SITE_URL } from '@/lib/supabase/site-url';
 import './globals.css';
 
@@ -23,14 +23,7 @@ export const metadata: Metadata = {
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: PRODUCTION_SITE_URL }],
   alternates: { canonical: absoluteUrl('/') },
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
-      { url: '/icon-48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
-    ],
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
-  },
+  icons: SITE_ICONS,
   openGraph: {
     type: 'website',
     locale: 'en_US',
