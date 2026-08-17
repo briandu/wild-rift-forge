@@ -725,7 +725,7 @@ export function AuthPanel({
         <div className={styles.artFade} aria-hidden />
         <div className={styles.artCopy}>
           <p className={styles.quote}>
-            Lane win rates from the latest CN Diamond+ snapshot, not pairwise matchups.
+            Lane win rates from the latest Diamond+ snapshot, not pairwise matchups.
           </p>
           <div className={styles.stats}>
             {liveStats(patchVersion, championCount, snapshotDate).map((s) => (

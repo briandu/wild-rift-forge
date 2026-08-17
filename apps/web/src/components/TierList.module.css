@@ -137,11 +137,17 @@
   border-right: 1px solid;
 }
 
-.letter {
+.letter,
+.letterWide {
   font-weight: 900;
   font-size: 44px;
   line-height: 1;
   letter-spacing: -0.03em;
+}
+
+.letterWide {
+  font-size: 34px;
+  letter-spacing: -0.04em;
 }
 
 .badgeLabel {
@@ -209,11 +215,6 @@
   white-space: nowrap;
 }
 
-.champWr {
-  font-size: 12px;
-  color: var(--text-dim);
-}
-
 .skelFace {
   width: 54px;
   height: 54px;
@@ -223,11 +224,6 @@
 .skelChampName {
   width: 64px;
   height: 13px;
-}
-
-.skelChampWr {
-  width: 36px;
-  height: 12px;
 }
 
 .footer {
@@ -281,6 +277,10 @@
 
   .letter {
     font-size: 28px;
+  }
+
+  .letterWide {
+    font-size: 24px;
   }
 
   .count {

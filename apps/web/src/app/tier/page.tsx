@@ -20,7 +20,7 @@ export default async function TierPage() {
         placements={tiers?.placements ?? []}
         patchVersion={tiers?.patchVersion ?? null}
         snapshotDate={tiers?.snapshotDate ?? null}
-        sourceLabel={tiers?.sourceLabel ?? 'CN Diamond+ ranked stats'}
+        sourceLabel={tiers?.sourceLabel ?? 'Diamond+ ranked stats'}
       />
     </Shell>
   );

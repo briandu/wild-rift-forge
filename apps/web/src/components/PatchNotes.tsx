@@ -99,7 +99,7 @@ export function PatchNotes({
               <div className={styles.rebuildTitle}>Matchup data is rebuilding</div>
               <p>
                 Counter scores for the changed champions are recalculating. Tier bands use the
-                latest CN Diamond+ snapshot
+                latest Diamond+ snapshot
                 {data?.statsAsOf ? ` (${data.statsAsOf})` : ''}.
               </p>
             </div>
@@ -267,6 +267,7 @@ export function PatchNotes({
                     name={nameOf(mover.slug)}
                     slug={mover.slug}
                     size={34}
+                    round="soft"
                     portraits={portraits}
                   />
                   <div className={styles.moverCopy}>

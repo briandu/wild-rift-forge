@@ -359,7 +359,7 @@ if (kindArg === 'tier' || kindArg === 'all') {
             name: `${name} · ${shift.lane}`,
             badge: `${shift.was} → ${shift.now}`,
             badgeColor: up ? 'buff' : 'nerf',
-            note: `${name} moved a full letter in ${shift.lane} on the ${latest} CN Diamond+ snapshot.`,
+            note: `${name} moved a full letter in ${shift.lane} on the ${latest} Diamond+ snapshot.`,
           });
         })
         .join('');
@@ -369,7 +369,7 @@ if (kindArg === 'tier' || kindArg === 'all') {
         badge: latest,
         eyebrow: 'TIER ALERT',
         title: `${shifts.length} letter shift${shifts.length === 1 ? '' : 's'} in your pool.`,
-        lede: `Compared with the ${previous} snapshot. Only full S/A/B/C moves, not decimal win-rate noise.`,
+        lede: `Compared with the ${previous} snapshot. Only full S+/S/A/B/C moves, not decimal win-rate noise.`,
         section: 'LETTER SHIFTS',
         count: `${shifts.length} THIS SNAPSHOT`,
         rows,

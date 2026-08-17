@@ -35,7 +35,7 @@ For a real roster and hosted art: start local Postgres (`node scripts/dev-db.mjs
 | Path | Status |
 | --- | --- |
 | `/` | Homepage search + hero |
-| `/counters/[champion]` | Counter results (lane win-rate gaps from CN stats) |
+| `/counters/[champion]` | Counter results (lane win-rate gaps from ranked stats) |
 | `/champions/[slug]` | Profile + live matchup table |
 | `/matchups` | Pair picker + lane stats; authored plan/trades when a guide is stored |
 | `/draft` | Interactive lobby; suggestions from pool + tier stats |

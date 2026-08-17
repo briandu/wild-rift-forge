@@ -80,7 +80,7 @@ const NOTIFS = [
   {
     k: 'tier',
     name: 'Tier shifts in my lanes',
-    note: 'Email when a pool champion moves a full S/A/B/C letter.',
+    note: 'Email when a pool champion moves a full S+/S/A/B/C letter.',
   },
   {
     k: 'counters',

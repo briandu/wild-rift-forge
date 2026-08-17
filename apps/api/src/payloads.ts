@@ -52,18 +52,18 @@ export function parseLane(value: unknown): TierLane | undefined {
 
 function bracketLabel(bracket: RankBracket): string {
   if (bracket === 'diamond_plus') {
-    return 'CN Diamond+ ranked stats';
+    return 'Diamond+ ranked stats';
   }
   if (bracket === 'master_plus') {
-    return 'CN Master+ ranked stats';
+    return 'Master+ ranked stats';
   }
   if (bracket === 'challenger_plus') {
-    return 'CN Challenger+ ranked stats';
+    return 'Challenger+ ranked stats';
   }
   if (bracket === 'legendary') {
-    return 'CN Legendary ranked stats';
+    return 'Legendary ranked stats';
   }
-  return 'CN all-ranks stats';
+  return 'All-ranks stats';
 }
 
 export async function getChampionsPayload() {
@@ -158,7 +158,7 @@ export async function getCountersPayload(slug: string, query: { lane?: unknown }
       const br = enemyRow?.banRate;
       const notes = enemyRow
         ? [
-            `${enemyName} sits at ${formatWinRate(enemyRow.winRate)} win rate in ${built.lane} on the latest CN Diamond+ snapshot.`,
+            `${enemyName} sits at ${formatWinRate(enemyRow.winRate)} win rate in ${built.lane} on the latest Diamond+ snapshot.`,
             enemyRow.pickRate >= 10
               ? `Picked in ${formatWinRate(enemyRow.pickRate)} of games — expect to see it.`
               : `Only ${formatWinRate(enemyRow.pickRate)} pick rate, so the sample is thinner than a staple.`,
@@ -201,7 +201,7 @@ export async function getCountersPayload(slug: string, query: { lane?: unknown }
     enemyName,
     lane: preferredLane ? laneLabel(preferredLane) : 'TOP LANE',
     games: 'No ranked snapshot yet',
-    blurb: `${enemyName} has no CN Diamond+ lane snapshot yet. We will not invent counter scores.`,
+    blurb: `${enemyName} has no Diamond+ lane snapshot yet. We will not invent counter scores.`,
     stats: [
       { value: '—', label: 'WIN RATE' },
       { value: '—', label: 'PICK RATE' },
@@ -300,7 +300,7 @@ export async function getMatchupPayload(query: { you?: unknown; them?: unknown; 
     score: verdict.score,
     confidence: snapshotDate ? 'Lane win rates this snapshot' : 'No snapshot yet',
     sample: snapshotDate
-      ? `CN Diamond+ snapshot ${snapshotDate}`
+      ? `Diamond+ snapshot ${snapshotDate}`
       : 'Pairwise games are not in the dataset yet',
     freshness: snapshotDate
       ? `Lane rates from ${snapshotDate}. Not a head-to-head sample.`

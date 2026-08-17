@@ -1,5 +1,13 @@
-/** Visual tokens for S/A/B/C rows. Letters themselves come from live placements. */
+/** Visual tokens for S+/S/A/B/C rows. Letters themselves come from live placements. */
 export const TIER_DEFS = [
+  {
+    letter: 'S+',
+    label: 'BEST',
+    c: '#8FEDB8',
+    bd: 'rgba(123,224,168,.5)',
+    rowbg: 'rgba(123,224,168,.08)',
+    badgebg: 'rgba(123,224,168,.14)',
+  },
   {
     letter: 'S',
     label: 'FIRST PICK',

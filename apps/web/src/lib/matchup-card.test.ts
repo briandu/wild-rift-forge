@@ -27,7 +27,7 @@ const live: MatchupResponse = {
   difficulty: 'Easy',
   score: 4.5,
   confidence: 'Lane win rates this snapshot',
-  sample: 'CN Diamond+ snapshot 2026-08-12',
+  sample: 'Diamond+ snapshot 2026-08-12',
   freshness: 'Lane rates from 2026-08-12. Not a head-to-head sample.',
   abilitiesYou: [
     { key: 'Q', name: 'Decisive Strike', description: 'Silences on the next attack.' },

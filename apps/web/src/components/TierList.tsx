@@ -12,10 +12,6 @@ import styles from './TierList.module.css';
 
 const ROLES = ['All', 'Top', 'Jungle', 'Mid', 'Dragon', 'Support'] as const;
 
-function formatWr(winRate: number): string {
-  return `${winRate.toFixed(1)}%`;
-}
-
 function formatSnapshot(snapshotDate: string | null): string {
   if (!snapshotDate) {
     return '—';
@@ -93,7 +89,7 @@ export function TierList({
               <div className={styles.statValue} style={{ color: 'var(--success)' }}>
                 {sCount}
               </div>
-              <div className={styles.statLabel}>IN S TIER</div>
+              <div className={styles.statLabel}>IN S+ TIER</div>
             </div>
             <div>
               <div className={styles.statValue}>{formatSnapshot(snapshotDate)}</div>
@@ -133,7 +129,10 @@ export function TierList({
               style={{ borderColor: band.bd, background: band.rowbg }}
             >
               <div className={styles.badge} style={{ background: band.badgebg, borderColor: band.bd }}>
-                <div className={styles.letter} style={{ color: band.c }}>
+                <div
+                  className={band.letter.length > 1 ? styles.letterWide : styles.letter}
+                  style={{ color: band.c }}
+                >
                   {band.letter}
                 </div>
                 <div className={styles.badgeLabel} style={{ color: band.c }}>
@@ -147,7 +146,7 @@ export function TierList({
                 {band.champs.length === 0 ? (
                   <div className={styles.empty}>
                     {placements.length === 0
-                      ? 'No ranked snapshot yet. Run scrape:stats to ingest Tencent CN rates.'
+                      ? 'No ranked snapshot yet. Run scrape:stats to ingest ranked rates.'
                       : 'No champions in this tier for the lane you picked.'}
                   </div>
                 ) : (
@@ -181,7 +180,6 @@ export function TierList({
                           />
                         </span>
                         <span className={styles.champName}>{champ.name}</span>
-                        <span className={styles.champWr}>{formatWr(champ.winRate)}</span>
                       </Link>
                     ))}
                   </div>
@@ -231,7 +229,10 @@ export function TierListSkeleton() {
               style={{ borderColor: band.bd, background: band.rowbg }}
             >
               <div className={styles.badge} style={{ background: band.badgebg, borderColor: band.bd }}>
-                <div className={styles.letter} style={{ color: band.c }}>
+                <div
+                  className={band.letter.length > 1 ? styles.letterWide : styles.letter}
+                  style={{ color: band.c }}
+                >
                   {band.letter}
                 </div>
                 <div className={styles.badgeLabel} style={{ color: band.c }}>
@@ -250,11 +251,6 @@ export function TierListSkeleton() {
                       <span
                         data-skel="2"
                         className={styles.skelChampName}
-                        style={{ animationDelay: skeletonDelay(i) }}
-                      />
-                      <span
-                        data-skel="3"
-                        className={styles.skelChampWr}
                         style={{ animationDelay: skeletonDelay(i) }}
                       />
                     </div>

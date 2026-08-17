@@ -5,16 +5,14 @@ import type { ApiChampion, PatchChampionChangeDto, TierPlacementDto } from '@/li
 import { cardFocusFor } from '@/lib/banner-focus';
 import { HERO_FALLBACK, initials, portraitFor, splashFor } from '@/lib/champions';
 import { formatRate, patchNoteFor, patchNoteLine, rosterBySlug, tierBadge } from '@/lib/placements';
+import { TIER_DEFS } from '@/lib/tier-bands';
 import { skeletonDelay } from '@/lib/loading';
 import { ChampionSearch } from './ChampionSearch';
 import styles from './HomeHero.module.css';
 
-const TIER_COLOR: Record<string, string> = {
-  S: '#8FEDB8',
-  A: '#F0A87B',
-  B: '#9FCBE4',
-  C: '#8B87A8',
-};
+const TIER_COLOR: Record<string, string> = Object.fromEntries(
+  TIER_DEFS.map((tier) => [tier.letter, tier.c]),
+);
 
 export function HomeHero({
   champions,
