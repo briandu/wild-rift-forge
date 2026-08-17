@@ -33,6 +33,7 @@ design/**/*.zip
 
 # Temporary scrape scratch (never commit live HTML dumps)
 .tmp-wrf/
+tmp/
 
 # Gathered item/rune image binaries (JSON manifests under data/raw/items-runes stay)
 data/raw/items-runes/original/
