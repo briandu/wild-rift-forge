@@ -34,6 +34,7 @@ describe('placementsFromCnStats / placementsFromBlended', () => {
     const blendedContested = blended.find((row) => row.championId === 2);
 
     expect(legacyOneTrick?.letter).toBe('S');
+    expect(blendedOneTrick?.letter).not.toBe('S+');
     expect(blendedOneTrick?.letter).not.toBe('S');
     expect(blendedContested?.rankInLane).toBeLessThan(blendedOneTrick?.rankInLane ?? 99);
   });

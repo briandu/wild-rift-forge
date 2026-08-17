@@ -75,14 +75,14 @@ export function pickReviewCandidates(
 ): StoredTierPlacement[] {
   const scored = placements.map((row) => {
     let priority = 0;
-    if (row.letter === 'S' || row.letter === 'C') {
+    if (row.letter === 'S+' || row.letter === 'S' || row.letter === 'C') {
       priority += 8;
     }
     if (patchSlugs.has(row.slug)) {
       priority += 6;
     }
     const adj = row.adjustedWinRate;
-    if (adj != null && row.letter === 'S' && adj < 51.5) {
+    if (adj != null && (row.letter === 'S+' || row.letter === 'S') && adj < 51.5) {
       priority += 5;
     }
     if (adj != null && row.letter === 'C' && adj > 50) {
@@ -91,7 +91,7 @@ export function pickReviewCandidates(
     if (row.skillSpread != null && Math.abs(row.skillSpread) >= 2) {
       priority += 3;
     }
-    if (row.confidence != null && row.confidence < 0.45 && (row.letter === 'S' || row.letter === 'A')) {
+    if (row.confidence != null && row.confidence < 0.45 && (row.letter === 'S+' || row.letter === 'S' || row.letter === 'A')) {
       priority += 3;
     }
     return { row, priority };

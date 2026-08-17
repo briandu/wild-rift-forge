@@ -135,7 +135,7 @@ export function fingerprintExplanation(fact: ExplanationFact, model = DEFAULT_MO
 
 export function whyIsUsable(why: string): boolean {
   const lower = why.toLowerCase();
-  const mentionsMove = /prior snapshot|moved from [sabc]/.test(lower);
+  const mentionsMove = /prior snapshot|moved from s\+|moved from [sabc]/.test(lower);
   const mentionsStat = /win rate|pick|ban|sample|spread|challenger|adjust/.test(lower);
   return why.length >= 40 && (!mentionsMove || mentionsStat);
 }
