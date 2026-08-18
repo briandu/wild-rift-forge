@@ -1,0 +1,2583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#07060D;}
+input{font-family:Archivo,system-ui,sans-serif;}
+input::placeholder{color:#6E6A8C;}
+*::-webkit-scrollbar{display:none;}
+a{color:#A9A5C4;text-decoration:none;}
+a:hover{color:#DEDCEE;}
+@keyframes pulse{0%{opacity:.5}50%{opacity:1}100%{opacity:.5}}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:radial-gradient(900px 600px at 50% -10%,rgba(22,192,255,.14),transparent 62%),#07060D;display:flex;align-items:center;justify-content:center;padding:44px 20px;box-sizing:border-box;font-family:Archivo,system-ui,sans-serif;">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" dark="{{ true }}" hint-size="402px,874px">
+
+  <div style="min-height:100%;display:flex;flex-direction:column;background:#0B0A12;color:#fff;font-family:Archivo,system-ui,sans-serif;">
+
+    <sc-if value="{{ isSearch }}" hint-placeholder-val="{{ true }}">
+    <div style="flex:1;">
+      <div style="padding:62px 20px 0;">
+        <img src="uploads/logo-wr-forge.png" alt="Wild Rift Forge" style="height:30px;width:auto;display:block;margin-bottom:22px;">
+        <div style="font-weight:800;font-size:32px;line-height:1.06;letter-spacing:-0.03em;">Who are you<br>up against?</div>
+        <div style="display:flex;align-items:center;gap:11px;height:54px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:16px;padding:0 16px;margin-top:18px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+          <input value="{{ q }}" onChange="{{ onQ }}" placeholder="Search a champion" style="flex:1;min-width:0;background:transparent;border:none;outline:none;color:#fff;font-size:16px;">
+          <sc-if value="{{ hasQ }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ clearQ }}" style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:14px;color:#BBB7D4;flex:none;">×</div>
+          </sc-if>
+        </div>
+      </div>
+
+      <sc-if value="{{ hasQ }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:14px 12px 0;">
+          <sc-for list="{{ results }}" as="r" hint-placeholder-count="4">
+            <div onClick="{{ r.pick }}" style="display:flex;align-items:center;gap:13px;padding:11px 10px;border-radius:14px;">
+              <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;background:{{ r.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:rgba(0,0,0,.45);flex:none;">
+                <sc-if value="{{ r.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ r.name }}" style="width:100%;height:100%;background-image:url({{ r.artSafe }});background-size:cover;background-position:{{ r.pos }};"></div></sc-if>
+                <sc-if value="{{ r.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ r.ini }}</div></sc-if>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:16px;font-weight:600;">{{ r.name }}</div>
+                <div style="font-size:13px;color:#7B769B;margin-top:2px;">{{ r.role }}</div>
+              </div>
+              <div style="font-size:14px;color:#9FCBE4;font-weight:600;">{{ r.wr }}</div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:26px 12px;font-size:15px;color:#6E6A8C;">No champion by that name yet.</div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ browseOn }}" hint-placeholder-val="{{ true }}">
+      <div>
+        <div style="display:flex;gap:9px;overflow-x:auto;scrollbar-width:none;padding:18px 46px 4px 20px;mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);">
+          <sc-for list="{{ popular }}" as="c" hint-placeholder-count="5">
+            <div onClick="{{ c.pick }}" style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:5px 14px 5px 5px;flex:none;">
+              <div style="width:30px;height:30px;border-radius:50%;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:rgba(0,0,0,.45);">
+                <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+              </div>
+              <div style="font-size:14px;font-weight:600;white-space:nowrap;">{{ c.name }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:26px 20px 12px;">
+          <div style="font-weight:800;font-size:20px;letter-spacing:-0.018em;">Climbing this patch</div>
+          <div onClick="{{ goTier }}" style="font-size:14px;color:#7FDCFF;font-weight:600;">Tier list</div>
+        </div>
+        <div style="display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:0 46px 4px 20px;mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);">
+          <sc-for list="{{ trending }}" as="c" hint-placeholder-count="4">
+            <div onClick="{{ c.pick }}" style="width:212px;flex:none;height:268px;border-radius:20px;overflow:hidden;position:relative;background:{{ c.bg }};border:1px solid rgba(255,255,255,.08);">
+              <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="position:absolute;inset:0;width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.cardPos }};background-repeat:no-repeat;"></div></sc-if>
+              <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:10px;bottom:-24px;font-weight:900;font-size:132px;color:rgba(0,0,0,.22);line-height:.8;">{{ c.ini }}</div></sc-if>
+              <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,7,14,.95) 16%,rgba(8,7,14,.05) 64%);"></div>
+              <div style="position:absolute;left:14px;top:14px;font-size:10px;font-weight:700;letter-spacing:0.1em;padding:4px 9px;border-radius:12px;background:rgba(8,7,14,.6);border:1px solid rgba(255,255,255,.16);color:{{ c.tagc }};">{{ c.tag }}</div>
+              <div style="position:absolute;left:16px;right:16px;bottom:16px;">
+                <div style="font-weight:800;font-size:21px;letter-spacing:-0.016em;">{{ c.name }}</div>
+                <div style="display:flex;gap:14px;margin-top:7px;">
+                  <div style="font-size:13px;color:#BBB7D4;">{{ c.wr }} WR</div>
+                  <div style="font-size:13px;color:#7B769B;">{{ c.pr }} PR</div>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="padding:28px 20px 10px;font-weight:800;font-size:20px;letter-spacing:-0.018em;">Your lane, this week</div>
+        <div style="padding:0 12px;">
+          <sc-for list="{{ recent }}" as="r" hint-placeholder-count="4">
+            <div onClick="{{ r.pick }}" style="display:flex;align-items:center;gap:13px;padding:10px;border-radius:14px;">
+              <div style="width:46px;height:46px;border-radius:14px;overflow:hidden;background:{{ r.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:rgba(0,0,0,.45);flex:none;">
+                <sc-if value="{{ r.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ r.name }}" style="width:100%;height:100%;background-image:url({{ r.artSafe }});background-size:cover;background-position:{{ r.pos }};"></div></sc-if>
+                <sc-if value="{{ r.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ r.ini }}</div></sc-if>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:16px;font-weight:600;">{{ r.name }}</div>
+                <div style="font-size:13px;color:#7B769B;margin-top:2px;">{{ r.note }}</div>
+              </div>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A4560" stroke-width="2.4"><path d="M9 6l6 6-6 6"></path></svg>
+            </div>
+          </sc-for>
+        </div>
+        <div style="height:22px;"></div>
+      </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isCounters }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="position:relative;height:330px;">
+        <div role="img" aria-label="{{ enemy.name }} splash art" style="position:absolute;inset:0;width:100%;height:100%;background-size:cover;background-position:{{ enemy.heroPos }};background-image:url({{ enemy.artSafe }});background-repeat:no-repeat;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,#0B0A12 4%,rgba(11,10,18,.25) 58%,rgba(11,10,18,.7));"></div>
+        <div onClick="{{ back }}" style="position:absolute;left:16px;top:60px;width:38px;height:38px;border-radius:50%;background:rgba(8,7,14,.62);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M14 6l-6 6 6 6"></path></svg>
+        </div>
+        <div style="position:absolute;left:20px;right:20px;bottom:16px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.18em;color:#7FDCFF;">COUNTERS FOR</div>
+          <div style="font-weight:900;font-size:38px;line-height:1;letter-spacing:-0.032em;margin-top:8px;">{{ enemy.name }}</div>
+          <div style="font-size:14px;color:#BBB7D4;line-height:1.5;margin-top:10px;text-wrap:pretty;">{{ enemy.blurb }}</div>
+          <div style="display:flex;gap:16px;margin-top:12px;">
+            <sc-for list="{{ enemy.stats }}" as="s" hint-placeholder-count="3">
+              <div style="display:flex;align-items:baseline;gap:6px;">
+                <div style="font-size:15px;font-weight:700;">{{ s.v }}</div>
+                <div style="font-size:11px;font-weight:600;letter-spacing:0.08em;color:#8B87A8;">{{ s.k }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:16px 46px 2px 20px;mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);">
+        <sc-for list="{{ laneChips }}" as="l" hint-placeholder-count="5">
+          <div style="font-size:12px;font-weight:700;letter-spacing:0.08em;padding:0 12px;height:28px;display:flex;align-items:center;border-radius:14px;flex:none;color:{{ l.fg }};background:{{ l.bg }};border:1px solid {{ l.bd }};">{{ l.name }}</div>
+        </sc-for>
+      </div>
+
+      <div onClick="{{ goMatchupScreen }}" style="margin:16px 20px 0;display:flex;align-items:center;gap:13px;background:rgba(22,192,255,.09);border:1px solid rgba(22,192,255,.3);border-radius:16px;padding:15px 16px;">
+        <div style="flex:1;min-width:0;">
+          <div style="font-size:15px;font-weight:700;">Already picked? Play the matchup</div>
+          <div style="font-size:13px;color:#8B87A8;line-height:1.45;margin-top:3px;">{{ muCtaSub }}</div>
+        </div>
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7FDCFF" stroke-width="2.4" style="flex:none;"><path d="M9 6l6 6-6 6"></path></svg>
+      </div>
+
+      <div style="padding:16px 20px 0;display:flex;flex-direction:column;gap:14px;">
+        <sc-for list="{{ picks }}" as="c" hint-placeholder-count="3">
+          <div onClick="{{ c.open }}" style="border-radius:20px;overflow:hidden;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);">
+            <div style="height:150px;position:relative;background:{{ c.bg }};">
+              <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="position:absolute;inset:0;width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.cardPos }};background-repeat:no-repeat;"></div></sc-if>
+              <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;left:12px;bottom:-26px;font-weight:900;font-size:130px;color:rgba(0,0,0,.22);line-height:.8;">{{ c.ini }}</div></sc-if>
+              <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(12,10,20,.9),transparent 64%);"></div>
+              <div style="position:absolute;left:14px;top:14px;font-size:10px;font-weight:700;letter-spacing:0.1em;padding:4px 9px;border-radius:12px;background:{{ c.tagbg }};border:1px solid {{ c.tagbd }};color:{{ c.tagc }};">{{ c.tag }}</div>
+              <div style="position:absolute;right:14px;top:12px;text-align:right;">
+                <div style="font-weight:900;font-size:26px;letter-spacing:-0.02em;color:{{ c.scorec }};">{{ c.score }}</div>
+                <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:#BBB7D4;">SCORE</div>
+              </div>
+              <div style="position:absolute;left:16px;bottom:12px;font-weight:800;font-size:24px;letter-spacing:-0.02em;">{{ c.name }}</div>
+            </div>
+            <div style="padding:14px 16px 16px;">
+              <div style="font-size:14px;color:#BBB7D4;line-height:1.5;">{{ c.why }}</div>
+              <div style="display:flex;align-items:center;gap:12px;margin-top:12px;">
+                <div style="flex:1;height:6px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden;"><div style="width:{{ c.barw }};height:100%;background:{{ c.scorec }};"></div></div>
+                <div style="font-size:13px;color:#8B87A8;">{{ c.wr }} win rate</div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="padding:26px 20px 10px;font-size:11px;font-weight:700;letter-spacing:0.16em;color:#7B769B;">ALSO WORKS</div>
+      <div style="padding:0 12px;">
+        <sc-for list="{{ alsoWorks }}" as="c" hint-placeholder-count="4">
+          <div onClick="{{ c.open }}" style="display:flex;align-items:center;gap:13px;padding:10px;border-radius:14px;">
+            <div style="width:42px;height:42px;border-radius:50%;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:rgba(0,0,0,.45);flex:none;">
+              <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+              <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:16px;font-weight:600;">{{ c.name }}</div>
+              <div style="font-size:13px;color:#7B769B;margin-top:2px;">{{ c.wr }} win rate</div>
+            </div>
+            <div style="font-size:15px;font-weight:700;color:{{ c.scorec }};">{{ c.score }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:18px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;margin-bottom:12px;">HOW {{ enemy.upper }} LOSES</div>
+        <sc-for list="{{ enemy.notes }}" as="n" hint-placeholder-count="3">
+          <div style="display:flex;gap:11px;margin-bottom:12px;">
+            <div style="width:5px;height:5px;border-radius:50%;background:#6E6A8C;margin-top:8px;flex:none;"></div>
+            <div style="font-size:14px;color:#BBB7D4;line-height:1.55;">{{ n }}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isChamp }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="position:relative;height:260px;">
+        <div role="img" aria-label="{{ champ.name }} splash art" style="position:absolute;inset:0;width:100%;height:100%;background-size:cover;background-position:{{ champ.heroPos }};background-image:url({{ champ.artSafe }});background-repeat:no-repeat;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,#0B0A12 5%,rgba(11,10,18,.3) 62%,rgba(11,10,18,.7));"></div>
+        <div onClick="{{ back }}" style="position:absolute;left:16px;top:60px;width:38px;height:38px;border-radius:50%;background:rgba(8,7,14,.62);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"><path d="M14 6l-6 6 6 6"></path></svg>
+        </div>
+        <div style="position:absolute;left:20px;right:20px;bottom:16px;display:flex;align-items:flex-end;gap:14px;">
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;align-items:center;gap:9px;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;padding:3px 9px;border-radius:11px;background:{{ champ.tierbg }};border:1px solid {{ champ.tierbd }};color:{{ champ.tierc }};">{{ champ.tier }} TIER</div>
+              <div style="font-size:13px;color:#A9A5C4;">{{ champ.role }}</div>
+            </div>
+            <div style="font-weight:900;font-size:34px;line-height:1;letter-spacing:-0.03em;margin-top:9px;">{{ champ.name }}</div>
+          </div>
+          <div style="text-align:right;flex:none;">
+            <div style="font-weight:800;font-size:22px;">{{ champ.wr }}</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;color:#8B87A8;">WIN RATE</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:18px 20px 0;">
+        <div style="display:flex;gap:10px;justify-content:space-between;">
+          <sc-for list="{{ champAbilities }}" as="a" hint-placeholder-count="5">
+            <div onClick="{{ a.pick }}" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;">
+              <div style="width:100%;aspect-ratio:1;border-radius:15px;overflow:hidden;border:2px solid {{ a.ring }};background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;box-shadow:{{ a.glow }};">
+                <sc-if value="{{ a.hasIcon }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ a.n }}" style="width:100%;height:100%;background-image:url({{ a.imgSafe }});background-size:cover;background-position:50% 50%;"></div></sc-if>
+                <sc-if value="{{ a.noIcon }}" hint-placeholder-val="{{ false }}"><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 5px,transparent 5px 10px);font-weight:800;font-size:16px;color:#6E6A8C;">{{ a.k }}</div></sc-if>
+              </div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;color:{{ a.keyc }};">{{ a.k }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px 16px;margin-top:12px;">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;color:#0B0A12;background:#9FCBE4;border-radius:5px;padding:2px 7px;">{{ abilityDetail.k }}</div>
+            <div style="font-size:16px;font-weight:700;letter-spacing:-0.01em;">{{ abilityDetail.n }}</div>
+          </div>
+          <div style="font-size:14px;color:#BBB7D4;line-height:1.55;margin-top:8px;">{{ abilityDetail.t }}</div>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:5px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:4px;margin:18px 20px 0;">
+        <sc-for list="{{ dirToggle }}" as="d" hint-placeholder-count="2">
+          <div onClick="{{ d.pick }}" style="flex:1;text-align:center;font-size:14px;font-weight:600;height:38px;display:flex;align-items:center;justify-content:center;border-radius:9px;color:{{ d.fg }};background:{{ d.bg }};">{{ d.name }}</div>
+        </sc-for>
+      </div>
+
+      <div style="padding:14px 12px 0;">
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="6">
+          <div onClick="{{ r.pick }}" style="display:flex;align-items:center;gap:13px;padding:11px 10px;border-radius:14px;background:{{ r.zebra }};">
+            <div style="width:22px;font-size:13px;font-weight:700;color:{{ r.rankc }};flex:none;">{{ r.rank }}</div>
+            <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;background:{{ r.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:rgba(0,0,0,.45);flex:none;">
+              <sc-if value="{{ r.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ r.name }}" style="width:100%;height:100%;background-image:url({{ r.artSafe }});background-size:cover;background-position:{{ r.pos }};"></div></sc-if>
+              <sc-if value="{{ r.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ r.ini }}</div></sc-if>
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:16px;font-weight:600;">{{ r.name }}</div>
+              <div style="display:flex;align-items:center;gap:9px;margin-top:5px;">
+                <div style="width:76px;height:5px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden;flex:none;"><div style="width:{{ r.barw }};height:100%;background:{{ r.barc }};"></div></div>
+                <div style="font-size:12px;color:#7B769B;">{{ r.wr }} · {{ r.games }}</div>
+              </div>
+            </div>
+            <div style="font-size:16px;font-weight:800;color:{{ r.barc }};flex:none;">{{ r.score }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="height:16px;"></div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isTier }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="padding:62px 20px 0;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#7FDCFF;">PATCH 6.2b · EMERALD+</div>
+        <div style="font-weight:900;font-size:34px;line-height:1;letter-spacing:-0.03em;margin-top:10px;">Tier list</div>
+      </div>
+      <div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:16px 46px 4px 20px;mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);">
+        <sc-for list="{{ tierRoles }}" as="r" hint-placeholder-count="6">
+          <div onClick="{{ r.pick }}" style="font-size:14px;font-weight:600;padding:0 15px;height:36px;display:flex;align-items:center;border-radius:18px;flex:none;color:{{ r.fg }};background:{{ r.bg }};border:1px solid {{ r.bd }};">{{ r.name }}</div>
+        </sc-for>
+      </div>
+
+      <div style="padding:8px 20px 0;">
+        <sc-for list="{{ tierBands }}" as="t" hint-placeholder-count="4">
+          <div style="margin-top:18px;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:30px;height:30px;border-radius:9px;background:{{ t.badgebg }};border:1px solid {{ t.bd }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:{{ t.c }};">{{ t.letter }}</div>
+              <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;color:{{ t.c }};">{{ t.label }}</div>
+              <div style="flex:1;height:1px;background:rgba(255,255,255,.08);"></div>
+              <div style="font-size:12px;color:#6E6A8C;">{{ t.count }}</div>
+            </div>
+            <sc-if value="{{ t.filled }}" hint-placeholder-val="{{ true }}">
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px;">
+                <sc-for list="{{ t.champs }}" as="c" hint-placeholder-count="8">
+                  <div onClick="{{ c.pick }}" style="display:flex;flex-direction:column;align-items:center;gap:7px;">
+                    <div style="width:100%;aspect-ratio:1;border-radius:50%;overflow:hidden;background:{{ c.bg }};border:2px solid {{ c.ring }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:rgba(0,0,0,.45);">
+                      <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                      <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+                    </div>
+                    <div style="font-size:12px;font-weight:600;color:#DEDCEE;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</div>
+                    <div style="font-size:11px;color:#6E6A8C;margin-top:-4px;">{{ c.wr }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ t.empty }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:14px;color:#5C5878;padding:14px 2px;">Nobody here in this lane.</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="height:20px;"></div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isDraft }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;position:relative;overflow:hidden;display:flex;flex-direction:column;">
+      <div style="padding:58px 20px 0;">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;">
+          <div style="min-width:0;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#7FDCFF;">CHAMPION SELECT</div>
+            <div style="font-weight:900;font-size:32px;line-height:1;letter-spacing:-0.03em;margin-top:9px;">Draft</div>
+          </div>
+          <div onClick="{{ openShare }}" style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:8px 13px;flex:none;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DEDCEE" stroke-width="2.1"><circle cx="18" cy="5.5" r="2.6"></circle><circle cx="6" cy="12" r="2.6"></circle><circle cx="18" cy="18.5" r="2.6"></circle><path d="M8.4 10.7l7.2-3.9M8.4 13.3l7.2 3.9"></path></svg>
+            <div style="width:5px;height:5px;border-radius:50%;background:#8FEDB8;animation:pulse 1.8s ease-in-out infinite;"></div>
+            <div style="font-size:12.5px;font-weight:600;color:#8FEDB8;">3</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;margin-top:15px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:7px;background:{{ phaseBg }};border:1px solid {{ phaseBd }};border-radius:16px;padding:6px 12px;flex:none;">
+            <div style="width:6px;height:6px;border-radius:50%;background:{{ phaseC }};animation:pulse 1.6s ease-in-out infinite;"></div>
+            <div style="font-size:10.5px;font-weight:800;letter-spacing:0.1em;color:{{ phaseC }};">{{ phaseBadge }}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:6px 12px;flex:none;">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8B87A8" stroke-width="2.2"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7.5V12l3 2"></path></svg>
+            <div style="font-size:12px;font-weight:600;color:#DEDCEE;font-variant-numeric:tabular-nums;">{{ elapsedLabel }}</div>
+            <div style="width:1px;height:11px;background:rgba(255,255,255,.14);"></div>
+            <div style="font-size:12px;font-weight:600;color:{{ phaseC }};font-variant-numeric:tabular-nums;">{{ phaseClock }}</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;margin-top:10px;">
+          <div style="font-size:10.5px;font-weight:800;letter-spacing:0.1em;color:#7FDCFF;">BLUE SIDE · FIRST PICK</div>
+          <div style="font-size:12px;color:#5C5878;">Ranked · Emerald II</div>
+          <sc-if value="{{ draftLocked }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ resetDraft }}" style="font-size:12.5px;font-weight:600;color:#8B87A8;margin-left:auto;flex:none;">Undo pick</div>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="flex:1;min-height:0;overflow-y:auto;padding:20px 20px 0;">
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:11px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7BC4E0;flex:1;">YOUR TEAM</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;color:#7FDCFF;background:rgba(22,192,255,.12);border:1px solid rgba(22,192,255,.3);border-radius:7px;padding:2px 6px;flex:none;">1ST PICK</div>
+        </div>
+        <div style="display:flex;gap:9px;">
+          <sc-for list="{{ allies }}" as="s" hint-placeholder-count="5">
+            <div style="flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <div style="position:relative;width:100%;aspect-ratio:1;border-radius:16px;overflow:hidden;background:{{ s.bg }};border:{{ s.bdw }} solid {{ s.bd }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:{{ s.inic }};box-sizing:border-box;">
+                <div style="width:100%;height:100%;opacity:{{ s.dim }};display:flex;align-items:center;justify-content:center;">
+                  <sc-if value="{{ s.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ s.name }}" style="width:100%;height:100%;background-image:url({{ s.artSafe }});background-size:cover;background-position:{{ s.pos }};"></div></sc-if>
+                  <sc-if value="{{ s.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ s.ini }}</div></sc-if>
+                </div>
+                <sc-if value="{{ s.isPre }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:0;right:0;bottom:0;background:rgba(11,10,18,.86);font-size:8px;font-weight:800;letter-spacing:0.06em;color:#7FDCFF;text-align:center;padding:3px 0;">PRE-PICK</div>
+                </sc-if>
+                <sc-if value="{{ s.isYou }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;left:0;top:0;background:#16C0FF;color:#04121B;font-size:8px;font-weight:900;letter-spacing:0.06em;padding:2px 4px;border-bottom-right-radius:6px;">YOU</div>
+                </sc-if>
+                <sc-if value="{{ s.lowConf }}" hint-placeholder-val="{{ false }}">
+                  <div onClick="{{ s.fix }}" style="position:absolute;right:0;top:0;background:#F0A87B;color:#1A0F08;font-size:8px;font-weight:900;padding:2px 4px;border-bottom-left-radius:6px;">?</div>
+                </sc-if>
+                <sc-if value="{{ s.manualSet }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;right:0;top:0;background:#9FCBE4;color:#0B1720;font-size:8px;font-weight:900;padding:2px 4px;border-bottom-left-radius:6px;">SET</div>
+                </sc-if>
+                <sc-if value="{{ s.showDel }}" hint-placeholder-val="{{ false }}">
+                  <div onClick="{{ s.del }}" style="position:absolute;right:2px;bottom:2px;width:20px;height:20px;border-radius:50%;background:rgba(8,7,14,.82);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#E58B7B" stroke-width="3"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+                  </div>
+                </sc-if>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <svg width="10" height="10" viewBox="0 0 100 100" fill="{{ s.glyphC }}" style="flex:none;"><path d="{{ s.glyph }}"></path></svg>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;color:{{ s.lanec }};">{{ s.lane }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;align-items:baseline;gap:8px;margin:22px 0 11px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#E58B7B;flex:1;">ENEMY TEAM</div>
+          <div style="font-size:10.5px;color:#5C5878;flex:none;">lanes inferred</div>
+        </div>
+        <div style="display:flex;gap:9px;">
+          <sc-for list="{{ enemies }}" as="s" hint-placeholder-count="5">
+            <div onClick="{{ s.open }}" style="flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;">
+              <div style="position:relative;width:100%;aspect-ratio:1;border-radius:16px;overflow:hidden;background:{{ s.bg }};border:{{ s.bdw }} solid {{ s.bd }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:{{ s.inic }};box-sizing:border-box;">
+                <sc-if value="{{ s.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ s.name }}" style="width:100%;height:100%;background-image:url({{ s.artSafe }});background-size:cover;background-position:{{ s.pos }};"></div></sc-if>
+                <sc-if value="{{ s.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ s.ini }}</div></sc-if>
+                <div style="position:absolute;left:0;top:0;background:rgba(11,10,18,.8);color:#8B87A8;font-size:8px;font-weight:800;padding:2px 4px;border-bottom-right-radius:6px;">{{ s.order }}</div>
+                <sc-if value="{{ s.flex }}" hint-placeholder-val="{{ false }}">
+                  <div style="position:absolute;right:0;top:0;background:#F0A87B;color:#1A0F08;font-size:7.5px;font-weight:900;letter-spacing:0.04em;padding:2px 4px;border-bottom-left-radius:6px;">FLEX</div>
+                </sc-if>
+                <sc-if value="{{ s.showDel }}" hint-placeholder-val="{{ false }}">
+                  <div onClick="{{ s.del }}" style="position:absolute;right:2px;bottom:2px;width:20px;height:20px;border-radius:50%;background:rgba(8,7,14,.82);border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;">
+                    <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#E58B7B" stroke-width="3"><path d="M5 5l14 14M19 5L5 19"></path></svg>
+                  </div>
+                </sc-if>
+              </div>
+              <div style="display:flex;align-items:center;gap:4px;">
+                <sc-if value="{{ s.hasGuess }}" hint-placeholder-val="{{ true }}">
+                  <svg width="10" height="10" viewBox="0 0 100 100" fill="#8A5F58" style="flex:none;"><path d="{{ s.topGlyph }}"></path></svg>
+                </sc-if>
+                <div style="font-size:10px;font-weight:600;letter-spacing:0.04em;color:#8B87A8;">{{ s.topLane }} {{ s.topPct }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:18px;margin-top:20px;overflow:hidden;">
+          <div onClick="{{ toggleLaneRead }}" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;">LANE READ</div>
+              <div style="font-size:12.5px;color:#7B769B;margin-top:4px;">Champion select hides enemy roles</div>
+            </div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6E6A8C" stroke-width="2.2" style="flex:none;"><path d="{{ laneReadChevron }}"></path></svg>
+          </div>
+          <sc-if value="{{ laneReadOpen }}" hint-placeholder-val="{{ true }}">
+            <div style="padding:0 18px 16px;display:flex;flex-direction:column;gap:14px;">
+              <sc-for list="{{ laneReadRows }}" as="e" hint-placeholder-count="3">
+                <div>
+                  <div style="display:flex;align-items:center;gap:9px;margin-bottom:8px;">
+                    <div style="width:26px;height:26px;border-radius:8px;overflow:hidden;background:{{ e.bg }};flex:none;">
+                      <sc-if value="{{ e.hasArt }}" hint-placeholder-val="{{ true }}"><div role="img" aria-label="{{ e.name }}" style="width:100%;height:100%;background-image:url({{ e.artSafe }});background-size:cover;background-position:{{ e.pos }};"></div></sc-if>
+                    </div>
+                    <div style="font-size:14px;font-weight:600;flex:1;min-width:0;">{{ e.name }}</div>
+                    <sc-if value="{{ e.flex }}" hint-placeholder-val="{{ false }}">
+                      <div style="font-size:9px;font-weight:800;letter-spacing:0.08em;color:#F0A87B;border:1px solid rgba(240,168,123,.4);border-radius:5px;padding:2px 5px;flex:none;">FLEX PICK</div>
+                    </sc-if>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:5px;padding-left:35px;">
+                    <sc-for list="{{ e.lanes }}" as="l" hint-placeholder-count="2">
+                      <div style="display:flex;align-items:center;gap:8px;">
+                        <svg width="10" height="10" viewBox="0 0 100 100" fill="{{ l.c }}" style="flex:none;opacity:.8;"><path d="{{ l.glyph }}"></path></svg>
+                        <div style="font-size:11.5px;color:{{ l.c }};width:52px;flex:none;">{{ l.lane }}</div>
+                        <div style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden;min-width:0;"><div style="width:{{ l.w }};height:100%;background:{{ l.bar }};"></div></div>
+                        <div style="font-size:11.5px;color:{{ l.c }};width:32px;text-align:right;flex:none;font-variant-numeric:tabular-nums;">{{ l.pct }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+
+        <div style="background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:18px;margin-top:24px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;margin-bottom:14px;">YOUR COMP NEEDS</div>
+          <sc-for list="{{ draftNeeds }}" as="n" hint-placeholder-count="3">
+            <div style="margin-bottom:13px;">
+              <div style="display:flex;justify-content:space-between;gap:12px;font-size:13px;margin-bottom:6px;">
+                <div style="color:#DEDCEE;font-weight:500;">{{ n.k }}</div>
+                <div style="color:{{ n.c }};font-weight:600;">{{ n.v }}</div>
+              </div>
+              <div style="height:5px;border-radius:3px;background:rgba(255,255,255,.08);overflow:hidden;"><div style="width:{{ n.w }};height:100%;background:{{ n.c }};"></div></div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:18px;margin-top:12px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;margin-bottom:12px;">THREAT READ</div>
+          <div style="font-size:13.5px;color:#BBB7D4;line-height:1.55;text-wrap:pretty;">{{ threatText }}</div>
+          <div style="display:flex;align-items:center;gap:11px;margin-top:14px;">
+            <div style="font-size:24px;font-weight:800;color:#E58B7B;letter-spacing:-0.02em;">62%</div>
+            <div style="font-size:12px;color:#7B769B;line-height:1.4;">of their damage<br>is physical</div>
+          </div>
+        </div>
+
+        <div style="margin-top:24px;">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:11px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#6E6A8C;">BANS</div>
+            <div style="font-size:11.5px;color:#4A4560;">5 each</div>
+          </div>
+          <sc-for list="{{ banGroups }}" as="g" hint-placeholder-count="2">
+            <div style="display:flex;align-items:center;gap:11px;margin-bottom:9px;">
+              <div style="width:44px;font-size:9.5px;font-weight:700;letter-spacing:0.08em;color:{{ g.c }};flex:none;">{{ g.label }}</div>
+              <div style="display:flex;gap:7px;flex:1;">
+                <sc-for list="{{ g.champs }}" as="b" hint-placeholder-count="5">
+                  <div style="flex:1;aspect-ratio:1;border-radius:11px;overflow:hidden;background:{{ b.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:rgba(0,0,0,.4);opacity:.42;min-width:0;">
+                    <sc-if value="{{ b.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ b.name }}" style="width:100%;height:100%;background-image:url({{ b.artSafe }});background-size:cover;background-position:{{ b.pos }};"></div></sc-if>
+                    <sc-if value="{{ b.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ b.ini }}</div></sc-if>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);border-radius:18px;margin-top:12px;overflow:hidden;">
+          <div style="display:flex;align-items:center;gap:9px;padding:15px 18px 13px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;flex:1;">SCREEN READ</div>
+            <sc-if value="{{ calibDone }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:5px;flex:none;">
+                <div style="width:5px;height:5px;border-radius:50%;background:#8FEDB8;animation:pulse 1.8s ease-in-out infinite;"></div>
+                <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;color:#8FEDB8;">RECORDING</div>
+              </div>
+            </sc-if>
+          </div>
+          <div style="display:flex;gap:14px;padding:0 18px 16px;align-items:flex-start;">
+            <div style="position:relative;width:132px;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#08070E;flex:none;border:1px solid rgba(255,255,255,.09);">
+              <div style="position:absolute;inset:0;background:linear-gradient(150deg,#141225,#0A0912 60%,#161327);"></div>
+              <div style="position:absolute;left:6%;top:12%;width:15%;bottom:12%;display:flex;flex-direction:column;gap:5%;">
+                <div style="flex:1;border-radius:2px;background:rgba(127,220,255,.3);"></div>
+                <div style="flex:1;border-radius:2px;background:rgba(127,220,255,.26);"></div>
+                <div style="flex:1;border-radius:2px;background:rgba(127,220,255,.2);"></div>
+                <div style="flex:1;border-radius:2px;background:rgba(127,220,255,.3);"></div>
+                <div style="flex:1;border-radius:2px;background:rgba(127,220,255,.14);"></div>
+              </div>
+              <div style="position:absolute;right:6%;top:12%;width:15%;bottom:12%;display:flex;flex-direction:column;gap:5%;">
+                <div style="flex:1;border-radius:2px;background:rgba(229,139,123,.3);"></div>
+                <div style="flex:1;border-radius:2px;background:rgba(229,139,123,.26);"></div>
+                <div style="flex:1;border-radius:2px;background:rgba(229,139,123,.22);"></div>
+                <div style="flex:1;border-radius:2px;background:rgba(229,139,123,.18);"></div>
+                <div style="flex:1;border-radius:2px;background:rgba(255,255,255,.06);"></div>
+              </div>
+              <div style="position:absolute;left:32%;right:32%;top:10%;height:10%;border-radius:2px;background:rgba(240,168,123,.28);"></div>
+              <sc-if value="{{ calibDone }}" hint-placeholder-val="{{ false }}">
+                <div>
+                  <div style="position:absolute;left:4%;top:9%;width:19%;bottom:9%;border:1px solid rgba(127,220,255,.85);border-radius:3px;"></div>
+                  <div style="position:absolute;right:4%;top:9%;width:19%;bottom:9%;border:1px solid rgba(229,139,123,.85);border-radius:3px;"></div>
+                  <div style="position:absolute;left:30%;right:30%;top:7%;height:16%;border:1px solid rgba(240,168,123,.8);border-radius:3px;"></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ calibRunning }}" hint-placeholder-val="{{ false }}">
+                <div style="position:absolute;inset:0;background:rgba(8,7,14,.8);display:flex;align-items:center;justify-content:center;">
+                  <div style="width:22px;height:22px;border-radius:50%;border:2.5px solid rgba(127,220,255,.22);border-top-color:#7FDCFF;animation:spin 850ms linear infinite;"></div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ calibIdle }}" hint-placeholder-val="{{ true }}">
+                <div style="position:absolute;inset:0;background:rgba(8,7,14,.84);display:flex;align-items:center;justify-content:center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5C5878" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2.5"></rect><path d="M8 19h8"></path></svg>
+                </div>
+              </sc-if>
+            </div>
+            <div style="flex:1;min-width:0;">
+              <sc-if value="{{ calibIdle }}" hint-placeholder-val="{{ true }}">
+                <div>
+                  <div style="font-size:13px;color:#BBB7D4;line-height:1.5;text-wrap:pretty;">Start a screen recording, then calibrate so we know where the lobby sits.</div>
+                  <div onClick="{{ startCalib }}" style="display:inline-flex;align-items:center;font-size:13px;font-weight:700;color:#04121B;background:#7FDCFF;border-radius:11px;padding:9px 16px;margin-top:11px;">Calibrate</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ calibRunning }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:center;gap:9px;">
+                  <div style="width:14px;height:14px;border-radius:50%;border:2px solid rgba(127,220,255,.22);border-top-color:#7FDCFF;animation:spin 850ms linear infinite;flex:none;"></div>
+                  <div style="font-size:13px;color:#BBB7D4;">Finding the pick columns…</div>
+                </div>
+              </sc-if>
+              <sc-if value="{{ calibDone }}" hint-placeholder-val="{{ false }}">
+                <div>
+                  <sc-for list="{{ capRegions }}" as="r" hint-placeholder-count="3">
+                    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                      <div style="width:4px;height:4px;border-radius:50%;background:#8FEDB8;flex:none;"></div>
+                      <div style="font-size:12.5px;color:#8B87A8;flex:1;min-width:0;">{{ r.k }}</div>
+                      <div style="font-size:12px;color:#8FEDB8;flex:none;">{{ r.v }}</div>
+                    </div>
+                  </sc-for>
+                  <div onClick="{{ recalib }}" style="font-size:12.5px;font-weight:600;color:#7B769B;margin-top:8px;">Recalibrate</div>
+                </div>
+              </sc-if>
+            </div>
+          </div>
+        </div>
+
+        <div style="height:264px;"></div>
+      </div>
+
+      <div style="position:absolute;left:0;right:0;bottom:93px;height:{{ sheetH }};background:rgba(18,16,30,.99);border-top:1px solid rgba(255,255,255,.12);border-radius:26px 26px 0 0;box-shadow:0 -20px 50px rgba(0,0,0,.55);display:flex;flex-direction:column;overflow:hidden;transition:{{ sheetTransition }};">
+        <div onPointerDown="{{ onSheetDown }}" onPointerMove="{{ onSheetMove }}" onPointerUp="{{ onSheetUp }}" onPointerCancel="{{ onSheetCancel }}" onLostPointerCapture="{{ onSheetCancel }}" style="flex:none;padding:12px 20px 0;cursor:grab;touch-action:none;">
+          <div style="width:38px;height:4px;border-radius:2px;background:rgba(255,255,255,.22);margin:0 auto 14px;"></div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:15.5px;font-weight:700;letter-spacing:-0.012em;">{{ draftHeading }}</div>
+              <div style="font-size:12.5px;color:#7B769B;margin-top:3px;">{{ sheetSub }}</div>
+            </div>
+          </div>
+
+          <sc-if value="{{ sheetPeek }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;gap:8px;margin-top:13px;">
+              <sc-for list="{{ peekPicks }}" as="p" hint-placeholder-count="3">
+                <div onClick="{{ p.lock }}" style="flex:1;min-width:0;display:flex;align-items:center;gap:9px;background:{{ p.wrapbg }};border:1px solid {{ p.wrapbd }};border-radius:14px;padding:6px;box-sizing:border-box;">
+                  <div style="width:32px;height:32px;border-radius:9px;overflow:hidden;background:{{ p.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:rgba(0,0,0,.5);flex:none;">
+                    <sc-if value="{{ p.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ p.name }}" style="width:100%;height:100%;background-image:url({{ p.artSafe }});background-size:cover;background-position:{{ p.pos }};"></div></sc-if>
+                    <sc-if value="{{ p.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ p.ini }}</div></sc-if>
+                  </div>
+                  <div data-r="peekscore" style="font-size:16px;font-weight:800;color:{{ p.scorec }};letter-spacing:-0.01em;">{{ p.score }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="flex:1;min-height:0;overflow-y:auto;">
+          <div style="padding:16px 20px 4px;display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ suggestions }}" as="c" hint-placeholder-count="3">
+              <div onClick="{{ c.lock }}" style="display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.05);border:1px solid {{ c.bd }};border-radius:16px;padding:12px;">
+                <div style="width:50px;height:50px;border-radius:14px;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:rgba(0,0,0,.45);flex:none;">
+                  <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                  <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+                </div>
+                <div style="flex:1;min-width:0;">
+                  <div style="display:flex;align-items:center;gap:8px;">
+                    <div style="font-size:16px;font-weight:700;">{{ c.name }}</div>
+                    <div style="font-size:9px;font-weight:700;letter-spacing:0.08em;padding:2px 7px;border-radius:10px;background:{{ c.tagbg }};color:{{ c.tagc }};">{{ c.tag }}</div>
+                  </div>
+                  <div style="font-size:13px;color:#8B87A8;line-height:1.45;margin-top:4px;">{{ c.why }}</div>
+                </div>
+                <div style="text-align:right;flex:none;">
+                  <div style="font-size:17px;font-weight:800;color:{{ c.scorec }};">{{ c.score }}</div>
+                  <div style="font-size:10px;color:#6E6A8C;">{{ c.wr }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+
+          <sc-if value="{{ sheetFull }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:22px 20px 4px;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;">{{ draftWhyTitle }}</div>
+              <sc-for list="{{ draftReasons }}" as="r" hint-placeholder-count="3">
+                <div style="display:flex;gap:11px;margin-top:13px;">
+                  <div style="font-size:11px;font-weight:800;color:#7FDCFF;width:12px;flex:none;line-height:1.5;">{{ r.n }}</div>
+                  <div style="font-size:13.5px;color:#BBB7D4;line-height:1.55;min-width:0;text-wrap:pretty;">{{ r.t }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+
+        <div style="flex:none;padding:12px 20px 20px;border-top:1px solid rgba(255,255,255,.07);">
+          <div onClick="{{ lockIn }}" style="height:52px;border-radius:15px;background:linear-gradient(135deg,#16C0FF,#0A72C8);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;">{{ lockLabel }}</div>
+        </div>
+      </div>
+      <sc-if value="{{ shareOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:fixed;inset:0;z-index:60;background:rgba(6,5,11,.7);display:flex;align-items:flex-end;">
+          <div onClick="{{ closeShare }}" style="position:absolute;inset:0;"></div>
+          <div style="position:relative;width:100%;background:#12101E;border-top:1px solid rgba(255,255,255,.13);border-radius:26px 26px 0 0;padding:16px 20px 30px;box-sizing:border-box;">
+            <div style="width:38px;height:4px;border-radius:2px;background:rgba(255,255,255,.22);margin:0 auto 16px;"></div>
+            <div style="font-weight:800;font-size:20px;letter-spacing:-0.02em;">Spectator link</div>
+            <div style="font-size:13.5px;color:#7B769B;line-height:1.5;margin-top:6px;text-wrap:pretty;">Read-only. Friends watch the board update as picks land.</div>
+            <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:12px 14px;margin-top:16px;">
+              <div style="flex:1;min-width:0;font-size:13.5px;color:#DEDCEE;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ shareLink }}</div>
+              <sc-if value="{{ shareNotCopied }}" hint-placeholder-val="{{ true }}">
+                <div onClick="{{ copyLink }}" style="font-size:13px;font-weight:700;color:#04121B;background:#7FDCFF;border-radius:10px;padding:8px 14px;flex:none;">Copy</div>
+              </sc-if>
+              <sc-if value="{{ shareCopied }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:13px;font-weight:700;color:#8FEDB8;flex:none;">Copied</div>
+              </sc-if>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);">
+              <div style="width:6px;height:6px;border-radius:50%;background:#8FEDB8;flex:none;animation:pulse 1.8s ease-in-out infinite;"></div>
+              <div style="font-size:13px;color:#8B87A8;flex:1;">{{ watchersLabel }}</div>
+              <div onClick="{{ closeShare }}" style="font-size:13.5px;font-weight:600;color:#7B769B;flex:none;">Close</div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ overrideOpen }}" hint-placeholder-val="{{ false }}">
+        <div style="position:fixed;inset:0;z-index:70;background:rgba(6,5,11,.74);display:flex;align-items:flex-end;">
+          <div onClick="{{ ovClose }}" style="position:absolute;inset:0;"></div>
+          <div style="position:relative;width:100%;max-height:88%;background:#12101E;border-top:1px solid rgba(255,255,255,.13);border-radius:26px 26px 0 0;display:flex;flex-direction:column;box-sizing:border-box;">
+            <div style="flex:none;padding:16px 20px 0;">
+              <div style="width:38px;height:4px;border-radius:2px;background:rgba(255,255,255,.22);margin:0 auto 16px;"></div>
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">MANUAL OVERRIDE</div>
+              <div style="font-weight:800;font-size:20px;letter-spacing:-0.02em;margin-top:9px;">Set this slot yourself</div>
+              <div style="font-size:13.5px;color:#7B769B;line-height:1.5;margin-top:6px;text-wrap:pretty;">Pick the champion you can see. Scoring updates immediately.</div>
+              <div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:14px;padding:12px 14px;margin-top:14px;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7B769B" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+                <input value="{{ ovQ }}" onChange="{{ onOvQ }}" placeholder="Search a champion" style="flex:1;min-width:0;background:transparent;border:none;outline:none;color:#fff;font-size:15px;font-family:inherit;">
+              </div>
+            </div>
+            <div style="flex:1;min-height:0;overflow-y:auto;padding:10px 12px 24px;">
+              <sc-for list="{{ ovResults }}" as="c" hint-placeholder-count="5">
+                <div onClick="{{ c.set }}" style="display:flex;align-items:center;gap:13px;padding:11px 10px;border-radius:14px;">
+                  <div style="width:44px;height:44px;border-radius:13px;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:rgba(0,0,0,.45);flex:none;">
+                    <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                    <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+                  </div>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:15.5px;font-weight:600;">{{ c.name }}</div>
+                    <div style="font-size:12.5px;color:#6E6A8C;margin-top:2px;">{{ c.meta }}</div>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isMatchup }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="position:relative;padding:58px 20px 0;background:linear-gradient(160deg,rgba(22,192,255,.12),transparent 46%,rgba(229,139,123,.14));">
+        <div onClick="{{ back }}" style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B87A8" stroke-width="2.2"><path d="M14 6l-6 6 6 6"></path></svg>
+          <div style="font-size:14px;color:#8B87A8;">Counters</div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="flex:1;min-width:0;display:flex;align-items:center;gap:11px;">
+            <div style="width:48px;height:48px;border-radius:14px;overflow:hidden;background:{{ muYou.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:rgba(0,0,0,.45);flex:none;border:1px solid rgba(22,192,255,.4);">
+              <sc-if value="{{ muYou.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ muYou.name }}" style="width:100%;height:100%;background-image:url({{ muYou.artSafe }});background-size:cover;background-position:{{ muYou.pos }};"></div></sc-if>
+              <sc-if value="{{ muYou.noArt }}" hint-placeholder-val="{{ true }}"><div>{{ muYou.ini }}</div></sc-if>
+            </div>
+            <div style="min-width:0;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#7FDCFF;">YOU</div>
+              <div style="font-weight:800;font-size:19px;letter-spacing:-0.02em;margin-top:2px;">{{ muYou.name }}</div>
+            </div>
+          </div>
+          <div style="font-weight:900;font-size:12px;letter-spacing:0.14em;color:#4A4560;flex:none;">VS</div>
+          <div style="flex:1;min-width:0;display:flex;align-items:center;gap:11px;justify-content:flex-end;text-align:right;">
+            <div style="min-width:0;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#E58B7B;">THEM</div>
+              <div style="font-weight:800;font-size:19px;letter-spacing:-0.02em;margin-top:2px;">{{ muThem.name }}</div>
+            </div>
+            <div style="width:48px;height:48px;border-radius:14px;overflow:hidden;background:{{ muThem.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px;color:rgba(0,0,0,.45);flex:none;border:1px solid rgba(229,139,123,.4);">
+              <sc-if value="{{ muThem.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ muThem.name }}" style="width:100%;height:100%;background-image:url({{ muThem.artSafe }});background-size:cover;background-position:{{ muThem.pos }};"></div></sc-if>
+              <sc-if value="{{ muThem.noArt }}" hint-placeholder-val="{{ true }}"><div>{{ muThem.ini }}</div></sc-if>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;margin-top:18px;">
+          <div style="display:flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:0.08em;color:{{ muVerdictC }};background:{{ muVerdictBg }};border:1px solid {{ muVerdictBd }};border-radius:16px;padding:6px 12px;flex:none;">
+            <div style="width:7px;height:7px;border-radius:50%;background:{{ muVerdictC }};"></div>{{ mu.verdict }}
+          </div>
+          <div style="flex:1;min-width:0;">
+            <div style="height:5px;border-radius:3px;background:rgba(255,255,255,.09);overflow:hidden;"><div style="width:{{ muScoreBarw }};height:100%;background:{{ muVerdictC }};"></div></div>
+          </div>
+          <div style="display:flex;align-items:baseline;gap:3px;flex:none;">
+            <div style="font-weight:800;font-size:18px;color:{{ muVerdictC }};">{{ mu.score }}</div>
+            <div style="font-size:11px;color:#6E6A8C;">/10</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:#6E6A8C;margin-top:10px;">{{ mu.lane }} · {{ mu.difficulty }} · {{ mu.sample }} · patch 6.2b</div>
+      </div>
+
+      <div style="position:sticky;top:0;z-index:10;background:rgba(11,10,18,.94);backdrop-filter:blur(12px);padding:14px 20px 12px;">
+        <div style="display:flex;gap:4px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:4px;">
+          <sc-for list="{{ muTabs }}" as="t" hint-placeholder-count="4">
+            <div onClick="{{ t.pick }}" style="flex:1;text-align:center;font-size:13px;font-weight:600;height:36px;display:flex;align-items:center;justify-content:center;border-radius:9px;color:{{ t.fg }};background:{{ t.bg }};">{{ t.name }}</div>
+          </sc-for>
+        </div>
+      </div>
+
+      <sc-if value="{{ muQuickOn }}" hint-placeholder-val="{{ true }}">
+      <div style="padding:6px 20px 0;">
+        <div style="background:rgba(22,192,255,.08);border:1px solid rgba(22,192,255,.3);border-radius:18px;padding:18px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:#7FDCFF;">RECOMMENDED LANE STYLE</div>
+          <div style="font-weight:900;font-size:22px;line-height:1.15;letter-spacing:-0.02em;margin-top:10px;">{{ mu.style }}</div>
+          <div style="position:relative;height:6px;border-radius:3px;background:linear-gradient(90deg,#7FB8D8,#F0A87B,#E58B7B);margin-top:18px;">
+            <div style="position:absolute;top:-5px;left:{{ muStylePos }};width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid #0B0A12;"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;font-weight:600;letter-spacing:0.06em;color:#6E6A8C;margin-top:8px;">
+            <div>DEFENSIVE</div><div>ALL-IN</div>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px;">
+          <sc-for list="{{ muQuick }}" as="q" hint-placeholder-count="4">
+            <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px;box-sizing:border-box;">
+              <div style="font-size:9px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">{{ q.k }}</div>
+              <div style="font-size:15px;font-weight:700;line-height:1.25;letter-spacing:-0.01em;color:{{ q.c }};margin-top:9px;text-wrap:pretty;">{{ q.v }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:7px;background:rgba(229,139,123,.08);border:1px solid rgba(229,139,123,.28);border-radius:16px;padding:16px;margin-top:12px;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:#E58B7B;">KEY RULE</div>
+          <div style="font-size:15px;font-weight:600;line-height:1.45;text-wrap:pretty;">{{ mu.rule }}</div>
+        </div>
+
+        <sc-if value="{{ muModelledOnly }}" hint-placeholder-val="{{ false }}">
+        <div style="background:rgba(240,168,123,.07);border:1px solid rgba(240,168,123,.3);border-radius:16px;padding:16px;margin-top:12px;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:#F0A87B;">MODELLED READ</div>
+          <div style="font-size:13.5px;color:#BBB7D4;line-height:1.55;margin-top:9px;text-wrap:pretty;">No written breakdown for this pairing yet. Everything here is modelled from match data.</div>
+          <div style="font-size:14px;color:#DEDCEE;line-height:1.55;margin-top:11px;text-wrap:pretty;">{{ muModelled.gapLine }}</div>
+        </div>
+        <sc-if value="{{ muModelledHasWhy }}" hint-placeholder-val="{{ false }}">
+        <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:16px;margin-top:10px;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.14em;color:#7FDCFF;">{{ muModelled.counterTag }}</div>
+          <div style="font-size:14.5px;color:#DEDCEE;line-height:1.55;margin-top:9px;text-wrap:pretty;">{{ muModelled.counterWhy }}</div>
+        </div>
+        </sc-if>
+        <sc-if value="{{ muModelledHasNotes }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:22px;font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;">WHAT TO KNOW</div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-top:13px;">
+          <sc-for list="{{ muModelledNotes }}" as="n" hint-placeholder-count="3">
+            <div style="display:flex;gap:11px;">
+              <div style="width:5px;height:5px;border-radius:50%;background:#6E6A8C;margin-top:8px;flex:none;"></div>
+              <div style="font-size:14px;color:#BBB7D4;line-height:1.55;text-wrap:pretty;">{{ n.t }}</div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+        <div style="height:20px;"></div>
+        </sc-if>
+
+        <sc-if value="{{ muAuthored }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:22px;font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;">WHEN CAN I FIGHT?</div>
+        <div style="display:flex;flex-direction:column;gap:0;margin-top:14px;">
+          <sc-for list="{{ muSpikes }}" as="s" hint-placeholder-count="5">
+            <div>
+              <div style="display:flex;align-items:center;gap:13px;">
+                <div style="width:14px;height:14px;border-radius:50%;background:{{ s.dotbg }};border:2px solid {{ s.c }};flex:none;"></div>
+                <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:{{ s.c }};width:64px;flex:none;">{{ s.at }}</div>
+                <div style="font-size:14px;color:#BBB7D4;">{{ s.label }}</div>
+              </div>
+              <div style="width:2px;height:14px;background:rgba(255,255,255,.08);margin-left:6px;"></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="height:20px;"></div>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ muDeepModelled }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:6px 20px 0;">
+        <div style="background:rgba(240,168,123,.07);border:1px solid rgba(240,168,123,.3);border-radius:18px;padding:18px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#F0A87B;">{{ muDeepTitle }} NOT WRITTEN YET</div>
+          <div style="font-size:14px;color:#BBB7D4;line-height:1.6;margin-top:11px;text-wrap:pretty;">{{ muYou.name }} into {{ muThem.name }} has no authored breakdown. The Quick tab still carries the modelled read from win rates and counter data.</div>
+          <div onClick="{{ goQuickTab }}" style="margin-top:15px;height:46px;border-radius:12px;background:rgba(22,192,255,.14);border:1px solid rgba(22,192,255,.36);color:#7FDCFF;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;">See the modelled read</div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ muPlanOn }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:6px 20px 0;display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ muPhases }}" as="p" hint-placeholder-count="3">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-top:3px solid {{ p.c }};border-radius:16px;padding:16px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:{{ p.c }};">{{ p.n }}</div>
+              <div style="font-size:12px;color:#6E6A8C;">{{ p.t }}</div>
+            </div>
+            <div style="font-size:14px;color:#BBB7D4;line-height:1.6;margin-top:10px;text-wrap:pretty;">{{ p.body }}</div>
+          </div>
+        </sc-for>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#E58B7B;margin-top:12px;">MISTAKES TO AVOID</div>
+        <sc-for list="{{ muMistakes }}" as="m" hint-placeholder-count="3">
+          <div style="display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E58B7B" stroke-width="2.4" style="flex:none;margin-top:2px;"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16.2v.1"></path></svg>
+            <div style="font-size:14px;color:#BBB7D4;line-height:1.55;text-wrap:pretty;">{{ m }}</div>
+          </div>
+        </sc-for>
+        <div style="height:20px;"></div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ muTradesOn }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:6px 20px 0;display:flex;flex-direction:column;gap:12px;">
+        <div style="background:rgba(123,224,168,.06);border:1px solid rgba(123,224,168,.28);border-radius:18px;padding:18px;">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8FEDB8" stroke-width="3"><path d="M4 12.5l5.2 5.2L20 7"></path></svg>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#8FEDB8;">{{ muGood.title }}</div>
+          </div>
+          <div style="margin-top:14px;">
+            <sc-for list="{{ muGood.steps }}" as="s" hint-placeholder-count="4">
+              <div>
+                <div style="display:flex;align-items:center;gap:11px;">
+                  <div style="width:21px;height:21px;border-radius:50%;background:rgba(123,224,168,.16);border:1px solid rgba(123,224,168,.34);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#8FEDB8;flex:none;">{{ s.n }}</div>
+                  <div style="font-size:14px;color:#DEDCEE;line-height:1.4;">{{ s.t }}</div>
+                </div>
+                <sc-if value="{{ s.notLast }}" hint-placeholder-val="{{ true }}">
+                  <div style="width:1px;height:11px;background:rgba(123,224,168,.3);margin-left:10px;"></div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-size:13px;color:#8FEDB8;line-height:1.5;margin-top:14px;padding-top:12px;border-top:1px solid rgba(123,224,168,.2);">{{ muGood.out }}</div>
+        </div>
+
+        <div style="background:rgba(229,139,123,.06);border:1px solid rgba(229,139,123,.28);border-radius:18px;padding:18px;">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#E58B7B" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#E58B7B;">{{ muBad.title }}</div>
+          </div>
+          <div style="margin-top:14px;">
+            <sc-for list="{{ muBad.steps }}" as="s" hint-placeholder-count="4">
+              <div>
+                <div style="display:flex;align-items:center;gap:11px;">
+                  <div style="width:21px;height:21px;border-radius:50%;background:rgba(229,139,123,.16);border:1px solid rgba(229,139,123,.34);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#E58B7B;flex:none;">{{ s.n }}</div>
+                  <div style="font-size:14px;color:#DEDCEE;line-height:1.4;">{{ s.t }}</div>
+                </div>
+                <sc-if value="{{ s.notLast }}" hint-placeholder-val="{{ true }}">
+                  <div style="width:1px;height:11px;background:rgba(229,139,123,.3);margin-left:10px;"></div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-size:13px;color:#E58B7B;line-height:1.5;margin-top:14px;padding-top:12px;border-top:1px solid rgba(229,139,123,.2);">{{ muBad.out }}</div>
+        </div>
+
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;margin-top:10px;">ABILITY INTERACTIONS</div>
+        <sc-for list="{{ muInteractions }}" as="x" hint-placeholder-count="4">
+          <div onClick="{{ x.toggle }}" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:40px;height:40px;border-radius:11px;background:{{ x.keybg }};border:1px solid {{ x.keybd }};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:{{ x.keyc }};flex:none;">{{ x.k }}</div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:15px;font-weight:700;letter-spacing:-0.01em;">{{ x.n }}</div>
+                <div style="font-size:11px;color:#6E6A8C;margin-top:2px;">{{ x.owner }}</div>
+              </div>
+              <div style="font-size:12px;font-weight:600;color:#7FDCFF;flex:none;">Why?</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap;">
+              <div style="font-size:13px;color:#BBB7D4;">{{ x.when }}</div>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4A4560" stroke-width="2.4" style="flex:none;"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+              <div style="font-size:13px;color:#BBB7D4;">{{ x.then }}</div>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4A4560" stroke-width="2.4" style="flex:none;"><path d="M5 12h13M13 6l6 6-6 6"></path></svg>
+              <div style="font-size:13px;font-weight:700;color:#8FEDB8;">{{ x.win }}</div>
+            </div>
+            <sc-if value="{{ x.open }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:13px;color:#A9A5C4;line-height:1.6;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);text-wrap:pretty;">{{ x.note }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+        <div style="height:20px;"></div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ muBuildOn }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:6px 20px 0;display:flex;flex-direction:column;gap:12px;">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:18px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;margin-bottom:14px;">ENEMY TEAM</div>
+          <div style="display:flex;gap:8px;">
+            <sc-for list="{{ muTeam }}" as="c" hint-placeholder-count="5">
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;gap:6px;">
+                <div style="width:100%;aspect-ratio:1;border-radius:12px;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:rgba(0,0,0,.45);">
+                  <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                  <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ true }}"><div>{{ c.ini }}</div></sc-if>
+                </div>
+                <div style="font-size:9px;color:#6E6A8C;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;">
+            <sc-for list="{{ muTags }}" as="t" hint-placeholder-count="4">
+              <div style="font-size:11px;font-weight:600;color:#BBB7D4;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:13px;padding:5px 10px;">{{ t }}</div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;margin-top:6px;">ITEMS FOR THIS MATCHUP</div>
+        <sc-for list="{{ muItems }}" as="i" hint-placeholder-count="4">
+          <div onClick="{{ i.toggle }}" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:38px;height:38px;border-radius:11px;background-color:{{ i.kindbg }};background-image:{{ i.plate }};background-size:{{ i.cover }};background-position:center;border:1px solid {{ i.c }};flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:{{ i.c }};">{{ i.mono }}</div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:15px;font-weight:600;">{{ i.n }}</div>
+                <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:{{ i.c }};margin-top:3px;">{{ i.kind }}</div>
+              </div>
+              <div style="font-size:12px;font-weight:600;color:#7FDCFF;flex:none;">Why?</div>
+            </div>
+            <div style="font-size:13px;color:#8B87A8;line-height:1.5;margin-top:9px;">{{ i.short }}</div>
+            <sc-if value="{{ i.open }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:13px;color:#BBB7D4;line-height:1.6;margin-top:11px;padding-top:11px;border-top:1px solid rgba(255,255,255,.08);text-wrap:pretty;">{{ i.detail }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;margin-top:6px;">RUNES</div>
+        <sc-for list="{{ muRunes }}" as="r" hint-placeholder-count="3">
+          <div onClick="{{ r.toggle }}" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:38px;height:38px;border-radius:50%;background-color:{{ r.kindbg }};background-image:{{ r.plate }};background-size:{{ r.cover }};background-position:center;border:1px solid {{ r.c }};flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:{{ r.c }};">{{ r.mono }}</div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:15px;font-weight:600;">{{ r.n }}</div>
+                <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:{{ r.c }};margin-top:3px;">{{ r.kind }}</div>
+              </div>
+              <div style="font-size:12px;font-weight:600;color:#7FDCFF;flex:none;">Why?</div>
+            </div>
+            <div style="font-size:13px;color:#8B87A8;line-height:1.5;margin-top:9px;">{{ r.short }}</div>
+            <sc-if value="{{ r.open }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size:13px;color:#BBB7D4;line-height:1.6;margin-top:11px;padding-top:11px;border-top:1px solid rgba(255,255,255,.08);text-wrap:pretty;">{{ r.detail }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+
+        <div style="background:rgba(22,192,255,.08);border:1px solid rgba(22,192,255,.28);border-radius:18px;padding:18px;margin-top:6px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;color:#7FDCFF;">COACHING</div>
+          <div style="font-size:15px;font-weight:600;margin-top:9px;">Explain my game plan</div>
+          <div style="font-size:13px;color:#8B87A8;line-height:1.5;margin-top:5px;">Combines this matchup with both teams and your build into a short brief.</div>
+          <div style="height:46px;border-radius:13px;background:linear-gradient(135deg,#16C0FF,#0A72C8);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;margin-top:14px;">Generate</div>
+        </div>
+        <div style="height:20px;"></div>
+      </div>
+      </sc-if>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isPatch }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="padding:62px 20px 0;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;color:#7FDCFF;">LIVE SINCE 6 AUGUST</div>
+        <div style="font-weight:900;font-size:38px;line-height:1;letter-spacing:-0.032em;margin-top:10px;">Patch 6.2b</div>
+        <div style="font-size:15px;color:#A9A5C4;line-height:1.55;margin-top:12px;text-wrap:pretty;">A correction patch aimed at top lane. Sustain-heavy bruisers lost their sticking power, and the champions that punish them got a little faster.</div>
+        <div style="display:flex;gap:10px;margin-top:18px;">
+          <sc-for list="{{ patchStats }}" as="s" hint-placeholder-count="3">
+            <div style="flex:1;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:13px 14px;">
+              <div style="font-weight:800;font-size:21px;letter-spacing:-0.02em;color:{{ s.c }};">{{ s.v }}</div>
+              <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;color:#7B769B;margin-top:4px;">{{ s.k }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:18px 46px 4px 20px;mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);-webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 46px),transparent);">
+        <sc-for list="{{ patchFilters }}" as="f" hint-placeholder-count="4">
+          <div onClick="{{ f.pick }}" style="font-size:14px;font-weight:600;padding:0 15px;height:36px;display:flex;align-items:center;border-radius:18px;flex:none;color:{{ f.fg }};background:{{ f.bg }};border:1px solid {{ f.bd }};">{{ f.name }}</div>
+        </sc-for>
+      </div>
+
+      <div style="padding:14px 20px 0;display:flex;flex-direction:column;gap:12px;">
+        <sc-for list="{{ patchChanges }}" as="c" hint-placeholder-count="5">
+          <div onClick="{{ c.open }}" style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:14px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:48px;height:48px;border-radius:14px;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;color:rgba(0,0,0,.45);flex:none;">
+                <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="font-size:17px;font-weight:700;letter-spacing:-0.012em;">{{ c.name }}</div>
+                  <div style="font-size:9px;font-weight:700;letter-spacing:0.08em;padding:2px 7px;border-radius:10px;background:{{ c.kindbg }};border:1px solid {{ c.kindbd }};color:{{ c.kindc }};">{{ c.kind }}</div>
+                </div>
+                <div style="font-size:12px;color:#6E6A8C;margin-top:3px;">{{ c.role }}</div>
+              </div>
+              <div style="text-align:right;flex:none;">
+                <div style="font-weight:800;font-size:19px;letter-spacing:-0.02em;color:{{ c.deltac }};">{{ c.delta }}</div>
+                <div style="font-size:10px;color:#6E6A8C;margin-top:2px;">now {{ c.wr }}</div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:9px;margin-top:13px;">
+              <sc-for list="{{ c.lines }}" as="l" hint-placeholder-count="2">
+                <div style="display:flex;gap:11px;align-items:center;">
+                  <sc-if value="{{ l.hasIcon }}" hint-placeholder-val="{{ false }}">
+                    <div style="width:26px;height:26px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.14);flex:none;">
+                      <div role="img" aria-label="{{ l.k }}" style="width:100%;height:100%;background-image:url({{ l.imgSafe }});background-size:cover;background-position:50% 50%;"></div>
+                    </div>
+                  </sc-if>
+                  <sc-if value="{{ l.noIcon }}" hint-placeholder-val="{{ true }}">
+                    <div style="width:26px;text-align:center;font-size:11px;font-weight:700;letter-spacing:0.06em;color:#6E6A8C;flex:none;">{{ l.k }}</div>
+                  </sc-if>
+                  <div style="font-size:13px;color:#BBB7D4;line-height:1.5;">{{ l.t }}</div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="padding:26px 20px 10px;font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;">ITEMS</div>
+      <div style="padding:0 20px;">
+        <sc-for list="{{ patchItems }}" as="i" hint-placeholder-count="3">
+          <div style="display:flex;gap:11px;margin-bottom:12px;">
+            <div style="width:5px;height:5px;border-radius:50%;background:#6E6A8C;margin-top:8px;flex:none;"></div>
+            <div style="font-size:13px;color:#BBB7D4;line-height:1.55;">{{ i }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div onClick="{{ goDraftFromPatch }}" style="margin:14px 20px 0;background:rgba(22,192,255,.1);border:1px solid rgba(22,192,255,.32);border-radius:18px;padding:16px;">
+        <div style="font-size:15px;font-weight:700;">Draft with the new numbers</div>
+        <div style="font-size:13px;color:#A9A5C4;margin-top:4px;line-height:1.5;">Suggestions already use 6.2b matchup data.</div>
+      </div>
+      <div style="height:22px;"></div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isMeAuth }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="padding:62px 20px 0;">
+        <div style="font-weight:800;font-size:30px;line-height:1.08;letter-spacing:-0.028em;">{{ mAuthTitle }}</div>
+        <div style="font-size:14px;color:#8B87A8;line-height:1.5;margin-top:10px;">{{ mAuthSub }}</div>
+        <div style="display:flex;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:5px;margin-top:22px;">
+          <sc-for list="{{ mAuthModes }}" as="m" hint-placeholder-count="2">
+            <div onClick="{{ m.pick }}" style="flex:1;height:40px;display:flex;align-items:center;justify-content:center;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;color:{{ m.fg }};background:{{ m.bg }};">{{ m.name }}</div>
+          </sc-for>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:22px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">EMAIL</div>
+          <input value="{{ mEmail }}" onChange="{{ onMEmail }}" placeholder="you@example.com" style="height:52px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);padding:0 16px;color:#fff;font-size:16px;outline:none;box-sizing:border-box;" style-focus="border-color:#7FDCFF;">
+          <sc-if value="{{ mErrEmailOn }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12.5px;color:#E58B7B;">{{ mErrEmail }}</div>
+          </sc-if>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:16px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">PASSWORD</div>
+          <input type="password" value="{{ mPass }}" onChange="{{ onMPass }}" placeholder="••••••••" style="height:52px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);padding:0 16px;color:#fff;font-size:16px;outline:none;box-sizing:border-box;" style-focus="border-color:#7FDCFF;">
+          <sc-if value="{{ mErrPassOn }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12.5px;color:#E58B7B;">{{ mErrPass }}</div>
+          </sc-if>
+        </div>
+        <div onClick="{{ mAuthSubmit }}" style="height:54px;border-radius:15px;background:linear-gradient(135deg,#16C0FF,#0A72C8);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;margin-top:22px;">{{ mAuthCta }}</div>
+        <div style="font-size:12px;color:#5C5878;line-height:1.5;margin-top:14px;">Demo account: you@example.com with the password wildrift.</div>
+      </div>
+      <div style="height:24px;"></div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isMeSetup }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="padding:58px 20px 0;">
+        <div style="display:flex;gap:6px;">
+          <sc-for list="{{ mSetupBars }}" as="b" hint-placeholder-count="3">
+            <div style="flex:1;height:4px;border-radius:2px;background:{{ b.c }};"></div>
+          </sc-for>
+        </div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.16em;color:#9FCBE4;margin-top:20px;">{{ mSetupStepLabel }}</div>
+        <div style="font-weight:800;font-size:28px;line-height:1.1;letter-spacing:-0.026em;margin-top:10px;">{{ mSetupTitle }}</div>
+        <div style="font-size:14px;color:#8B87A8;line-height:1.5;margin-top:10px;">{{ mSetupSub }}</div>
+
+        <sc-if value="{{ mSetupIs1 }}" hint-placeholder-val="{{ true }}">
+        <div style="margin-top:22px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">RIOT ID</div>
+          <input value="{{ mRiot }}" onChange="{{ onMRiot }}" placeholder="Summoner#NA1" style="height:52px;width:100%;margin-top:9px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);padding:0 16px;color:#fff;font-size:16px;outline:none;box-sizing:border-box;" style-focus="border-color:#7FDCFF;">
+          <div style="font-size:12.5px;color:#6E6A8C;line-height:1.5;margin-top:10px;">We read your ranked games so counters are weighted to the champions you play.</div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ mSetupIs2 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:22px;">
+          <sc-for list="{{ mLaneOpts }}" as="l" hint-placeholder-count="5">
+            <div onClick="{{ l.toggle }}" style="display:flex;align-items:center;gap:12px;border-radius:16px;background:{{ l.bg }};border:1px solid {{ l.bd }};padding:16px;">
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:16px;font-weight:700;color:{{ l.fg }};">{{ l.name }}</div>
+                <div style="font-size:12.5px;color:#7B769B;margin-top:3px;">{{ l.note }}</div>
+              </div>
+              <div style="width:24px;height:24px;border-radius:8px;border:1px solid {{ l.boxbd }};background:{{ l.boxbg }};display:flex;align-items:center;justify-content:center;flex:none;">
+                <sc-if value="{{ l.on }}" hint-placeholder-val="{{ false }}">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0B0A12" stroke-width="3.4"><path d="M4 12.5l5.2 5.2L20 7"></path></svg>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ mSetupIs3 }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:20px;">
+          <div style="font-size:12.5px;color:#7B769B;">{{ mSetupPoolCount }}</div>
+          <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px;">
+            <sc-for list="{{ mPoolOpts }}" as="c" hint-placeholder-count="9">
+              <div onClick="{{ c.toggle }}" style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:13px 6px;border-radius:15px;background:{{ c.rowbg }};border:1px solid {{ c.rowbd }};box-sizing:border-box;">
+                <div style="width:46px;height:46px;border-radius:50%;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:rgba(0,0,0,.45);border:2px solid {{ c.ring }};">
+                  <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                  <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+                </div>
+                <div style="font-size:12px;font-weight:600;color:{{ c.namec }};max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ mSetupErrOn }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:12.5px;color:#E58B7B;margin-top:16px;">{{ mSetupErr }}</div>
+        </sc-if>
+
+        <div onClick="{{ mSetupNext }}" style="height:54px;border-radius:15px;background:linear-gradient(135deg,#16C0FF,#0A72C8);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;margin-top:22px;">{{ mSetupCta }}</div>
+        <div onClick="{{ mSetupSkip }}" style="height:48px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#7B769B;">{{ mSetupSkipLabel }}</div>
+      </div>
+      <div style="height:20px;"></div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isMeSub }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="padding:58px 20px 0;display:flex;align-items:center;gap:11px;">
+        <div onClick="{{ back }}" style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;flex:none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DEDCEE" stroke-width="2.2"><path d="M14 6l-6 6 6 6"></path></svg>
+        </div>
+        <div style="font-weight:800;font-size:22px;letter-spacing:-0.02em;">{{ meSubTitle }}</div>
+      </div>
+
+      <sc-if value="{{ meNoticeOn }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:10px;background:rgba(123,224,168,.1);border:1px solid rgba(123,224,168,.3);border-radius:14px;padding:12px 14px;margin:16px 20px 0;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#8FEDB8;flex:none;"></div>
+          <div style="font-size:13px;color:#8FEDB8;">{{ meNotice }}</div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ meIsPool }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <div style="padding:20px 20px 0;font-size:13px;color:#7B769B;line-height:1.5;">{{ poolBlurb }}</div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:16px 20px 0;">
+          <sc-for list="{{ poolTiles }}" as="c" hint-placeholder-count="6">
+            <div style="position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 6px;border-radius:15px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);box-sizing:border-box;">
+              <div onClick="{{ c.remove }}" style="position:absolute;right:6px;top:6px;width:22px;height:22px;border-radius:50%;background:rgba(8,7,14,.7);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;font-size:13px;color:#BBB7D4;">×</div>
+              <div style="width:46px;height:46px;border-radius:50%;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:rgba(0,0,0,.45);">
+                <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+              </div>
+              <div style="font-size:12px;font-weight:600;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ c.name }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="padding:26px 20px 10px;font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;">ADD A CHAMPION</div>
+        <div style="padding:0 20px 14px;">
+          <div style="display:flex;align-items:center;gap:10px;height:48px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);padding:0 14px;box-sizing:border-box;">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7B769B" stroke-width="2.2" style="flex:none;"><circle cx="11" cy="11" r="7"></circle><path d="M16.2 16.2L21 21"></path></svg>
+            <input value="{{ poolQuery }}" onChange="{{ onPoolQuery }}" placeholder="Search champions" style="flex:1;min-width:0;height:100%;background:transparent;border:none;color:#fff;font-size:16px;outline:none;font-family:inherit;">
+            <sc-if value="{{ poolQueryOn }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ clearPoolQuery }}" style="width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;font-size:14px;color:#BBB7D4;flex:none;">×</div>
+            </sc-if>
+          </div>
+        </div>
+        <sc-if value="{{ poolAddEmpty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:6px 20px 0;font-size:13.5px;color:#7B769B;line-height:1.5;">{{ poolAddEmptyText }}</div>
+        </sc-if>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;padding:0 20px;">
+          <sc-for list="{{ poolAddOpts }}" as="c" hint-placeholder-count="8">
+            <div onClick="{{ c.add }}" style="display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);border-radius:22px;padding:5px 14px 5px 5px;">
+              <div style="width:28px;height:28px;border-radius:50%;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;color:rgba(0,0,0,.45);flex:none;">
+                <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+                <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+              </div>
+              <div style="font-size:13.5px;font-weight:600;color:#DEDCEE;">{{ c.name }}</div>
+              <div style="font-size:15px;color:#7FDCFF;line-height:1;">+</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ meIsSaved }}" hint-placeholder-val="{{ false }}">
+      <div>
+        <sc-if value="{{ savedFilled }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:10px;padding:18px 20px 0;">
+          <sc-for list="{{ savedList }}" as="s" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px;">
+              <div style="display:flex;flex:none;">
+                <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;background:{{ s.you.bg }};border:2px solid rgba(22,192,255,.5);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:rgba(0,0,0,.45);">
+                  <sc-if value="{{ s.you.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ s.you.name }}" style="width:100%;height:100%;background-image:url({{ s.you.artSafe }});background-size:cover;background-position:{{ s.you.pos }};"></div></sc-if>
+                  <sc-if value="{{ s.you.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ s.you.ini }}</div></sc-if>
+                </div>
+                <div style="width:38px;height:38px;border-radius:50%;overflow:hidden;background:{{ s.them.bg }};border:2px solid rgba(229,139,123,.5);margin-left:-11px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;color:rgba(0,0,0,.45);">
+                  <sc-if value="{{ s.them.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ s.them.name }}" style="width:100%;height:100%;background-image:url({{ s.them.artSafe }});background-size:cover;background-position:{{ s.them.pos }};"></div></sc-if>
+                  <sc-if value="{{ s.them.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ s.them.ini }}</div></sc-if>
+                </div>
+              </div>
+              <div onClick="{{ s.open }}" style="flex:1;min-width:0;">
+                <div style="font-size:15.5px;font-weight:700;">{{ s.title }}</div>
+                <div style="font-size:12.5px;color:{{ s.c }};margin-top:3px;">{{ s.verdict }}</div>
+              </div>
+              <div onClick="{{ s.remove }}" style="width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:14px;color:#BBB7D4;flex:none;">×</div>
+            </div>
+          </sc-for>
+        </div>
+        </sc-if>
+        <sc-if value="{{ savedEmpty }}" hint-placeholder-val="{{ false }}">
+          <div style="margin:18px 20px 0;border:1px dashed rgba(255,255,255,.16);border-radius:18px;padding:34px 20px;text-align:center;">
+            <div style="font-size:16px;font-weight:600;">Nothing saved yet</div>
+            <div style="font-size:13px;color:#7B769B;line-height:1.5;margin-top:8px;">Save a matchup and the plan is one tap away in champion select.</div>
+          </div>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ meIsNotif }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:18px 20px 0;">
+        <div style="display:flex;flex-direction:column;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:2px 14px;">
+          <sc-for list="{{ notifRows }}" as="n" hint-placeholder-count="4">
+            <div onClick="{{ n.toggle }}" style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:15px;font-weight:600;">{{ n.name }}</div>
+                <div style="font-size:12.5px;color:#7B769B;line-height:1.45;margin-top:3px;">{{ n.note }}</div>
+              </div>
+              <div style="width:46px;height:26px;border-radius:13px;background:{{ n.bg }};border:1px solid {{ n.bd }};padding:2px;box-sizing:border-box;display:flex;align-items:center;justify-content:{{ n.just }};flex:none;">
+                <div style="width:20px;height:20px;border-radius:50%;background:#fff;"></div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ meIsPlan }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:18px 20px 0;display:flex;flex-direction:column;gap:14px;">
+        <div style="background:rgba(22,192,255,.09);border:1px solid rgba(22,192,255,.3);border-radius:18px;padding:20px;">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;">CURRENT PLAN</div>
+            <div style="font-size:9px;font-weight:700;letter-spacing:0.1em;color:#8FEDB8;background:rgba(123,224,168,.14);border:1px solid rgba(123,224,168,.34);border-radius:10px;padding:3px 8px;">ACTIVE</div>
+          </div>
+          <div style="font-weight:900;font-size:26px;letter-spacing:-0.026em;margin-top:12px;">Beta · Free</div>
+          <div style="font-size:13.5px;color:#A9A5C4;line-height:1.5;margin-top:9px;">Everything is open while we are in beta. No card, no trial clock.</div>
+        </div>
+        <div style="background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:20px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;color:#7B769B;">LATER</div>
+          <div style="font-weight:900;font-size:26px;letter-spacing:-0.026em;margin-top:12px;">Forge Pro</div>
+          <div style="font-size:13.5px;color:#8B87A8;line-height:1.5;margin-top:9px;">Champion select overlay, your own match history as the data source, and shared team plans.</div>
+          <div onClick="{{ toggleWaitlist }}" style="height:48px;border-radius:14px;background:{{ waitBg }};border:1px solid {{ waitBd }};display:flex;align-items:center;justify-content:center;font-size:14.5px;font-weight:700;color:{{ waitC }};margin-top:18px;">{{ waitLabel }}</div>
+        </div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ meIsDrafts }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:18px 20px 0;">
+        <div style="font-size:13px;color:#7B769B;line-height:1.5;text-wrap:pretty;">Every assisted draft is saved with its recording. Recordings are kept for 30 days, then deleted automatically.</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px;">
+          <sc-for list="{{ draftSessions }}" as="s" hint-placeholder-count="3">
+            <div onClick="{{ s.open }}" style="display:flex;align-items:center;gap:12px;padding:12px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);">
+              <div style="position:relative;width:66px;height:40px;border-radius:9px;overflow:hidden;background:#08070E;border:1px solid rgba(255,255,255,.09);flex:none;">
+                <div style="position:absolute;inset:0;background:linear-gradient(150deg,#141225,#0A0912 60%,#161327);"></div>
+                <div style="position:absolute;left:8%;top:14%;width:14%;bottom:14%;border-radius:2px;background:rgba(127,220,255,.3);"></div>
+                <div style="position:absolute;right:8%;top:14%;width:14%;bottom:14%;border-radius:2px;background:rgba(229,139,123,.3);"></div>
+                <sc-if value="{{ s.hasClip }}" hint-placeholder-val="{{ true }}">
+                  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="rgba(255,255,255,.9)"><path d="M8 5l11 7-11 7z"></path></svg>
+                  </div>
+                </sc-if>
+              </div>
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:14.5px;font-weight:600;color:#DEDCEE;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ s.you.name }} into {{ s.vs.name }}</div>
+                <div style="font-size:12px;color:#6E6A8C;margin-top:3px;">{{ s.when }} · {{ s.len }} in draft</div>
+              </div>
+              <div style="font-size:11px;font-weight:800;color:{{ s.resC }};background:{{ s.resBg }};border-radius:7px;padding:4px 9px;flex:none;">{{ s.res }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);">
+          <sc-if value="{{ wipeIdle }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ askWipe }}" style="font-size:14px;font-weight:600;color:#E58B7B;">Delete all draft data</div>
+          </sc-if>
+          <sc-if value="{{ wipeAsking }}" hint-placeholder-val="{{ false }}">
+            <div>
+              <div style="font-size:13.5px;color:#DEDCEE;line-height:1.5;">Delete every session, recording and spectator link?</div>
+              <div style="display:flex;gap:10px;margin-top:12px;">
+                <div onClick="{{ doWipe }}" style="flex:1;text-align:center;font-size:14px;font-weight:700;color:#fff;background:rgba(229,139,123,.9);border-radius:12px;padding:12px 0;">Delete</div>
+                <div onClick="{{ cancelWipe }}" style="flex:1;text-align:center;font-size:14px;font-weight:600;color:#DEDCEE;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:11px 0;">Keep</div>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+        <div style="height:24px;"></div>
+      </div>
+      </sc-if>
+
+      <sc-if value="{{ meIsSettings }}" hint-placeholder-val="{{ false }}">
+      <div style="padding:18px 20px 0;">
+        <div style="display:flex;flex-direction:column;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:2px 14px;">
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">EMAIL</div>
+              <div style="font-size:15px;margin-top:5px;overflow:hidden;text-overflow:ellipsis;">{{ meEmail }}</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);">
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">RIOT ID</div>
+              <div style="font-size:15px;margin-top:5px;">{{ meRiotLine }}</div>
+            </div>
+            <div onClick="{{ toggleRiot }}" style="height:38px;padding:0 14px;border-radius:11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);display:flex;align-items:center;font-size:13px;font-weight:600;color:#DEDCEE;flex:none;">{{ riotBtnLabel }}</div>
+          </div>
+          <div style="padding:16px 0;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;color:#7B769B;">REGION</div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:11px;">
+              <sc-for list="{{ meRegions }}" as="r" hint-placeholder-count="5">
+                <div onClick="{{ r.pick }}" style="font-size:13px;font-weight:600;padding:0 14px;height:36px;display:flex;align-items:center;border-radius:11px;color:{{ r.fg }};background:{{ r.bg }};border:1px solid {{ r.bd }};">{{ r.name }}</div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <div onClick="{{ signOut }}" style="height:50px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:#DEDCEE;margin-top:18px;">Sign out</div>
+        <sc-if value="{{ deleteIdle }}" hint-placeholder-val="{{ true }}">
+          <div onClick="{{ askDelete }}" style="height:50px;border-radius:14px;border:1px solid rgba(229,139,123,.3);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:#E58B7B;margin-top:10px;">Delete account</div>
+        </sc-if>
+        <sc-if value="{{ deleteAsking }}" hint-placeholder-val="{{ false }}">
+          <div style="background:rgba(229,139,123,.08);border:1px solid rgba(229,139,123,.32);border-radius:16px;padding:18px;margin-top:12px;">
+            <div style="font-size:15px;font-weight:700;color:#E58B7B;">Delete this account?</div>
+            <div style="font-size:13px;color:#BBB7D4;line-height:1.5;margin-top:7px;">Your pool, saved matchups and Riot ID go with it.</div>
+            <div onClick="{{ confirmDelete }}" style="height:46px;border-radius:13px;background:rgba(229,139,123,.2);border:1px solid rgba(229,139,123,.55);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#E58B7B;margin-top:14px;">Yes, delete it</div>
+            <div onClick="{{ cancelDelete }}" style="height:46px;border-radius:13px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:#DEDCEE;margin-top:9px;">Keep my account</div>
+          </div>
+        </sc-if>
+      </div>
+      </sc-if>
+      <div style="height:24px;"></div>
+    </div>
+    </sc-if>
+
+    <sc-if value="{{ isMe }}" hint-placeholder-val="{{ false }}">
+    <div style="flex:1;">
+      <div style="padding:62px 20px 0;display:flex;align-items:center;gap:14px;">
+        <div style="width:62px;height:62px;border-radius:50%;background:linear-gradient(140deg,#16C0FF,#0A72C8);border:1px solid rgba(255,255,255,.18);flex:none;"></div>
+        <div style="flex:1;min-width:0;">
+          <div style="font-weight:800;font-size:22px;letter-spacing:-0.02em;">{{ meName }}</div>
+          <div style="font-size:13px;color:#7B769B;margin-top:3px;">{{ meSubline }}</div>
+        </div>
+      </div>
+      <sc-if value="{{ meNoticeOn }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;gap:10px;background:rgba(123,224,168,.1);border:1px solid rgba(123,224,168,.3);border-radius:14px;padding:12px 14px;margin:16px 20px 0;">
+          <div style="width:6px;height:6px;border-radius:50%;background:#8FEDB8;flex:none;"></div>
+          <div style="font-size:13px;color:#8FEDB8;">{{ meNotice }}</div>
+        </div>
+      </sc-if>
+      <div style="display:flex;gap:10px;padding:22px 20px 0;">
+        <sc-for list="{{ meStats }}" as="s" hint-placeholder-count="3">
+          <div style="flex:1;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:14px;">
+            <div style="font-weight:800;font-size:22px;letter-spacing:-0.02em;color:{{ s.c }};">{{ s.v }}</div>
+            <div style="font-size:10px;font-weight:600;letter-spacing:0.1em;color:#7B769B;margin-top:4px;">{{ s.k }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding:26px 20px 10px;display:flex;align-items:baseline;justify-content:space-between;gap:12px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;color:#9FCBE4;">YOUR CHAMPION POOL</div>
+        <div onClick="{{ goPool }}" style="font-size:13px;font-weight:600;color:#7FDCFF;">Manage</div>
+      </div>
+      <div style="padding:0 12px;">
+        <sc-for list="{{ pool }}" as="c" hint-placeholder-count="4">
+          <div onClick="{{ c.open }}" style="display:flex;align-items:center;gap:13px;padding:10px;border-radius:14px;">
+            <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;background:{{ c.bg }};display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:rgba(0,0,0,.45);flex:none;">
+              <sc-if value="{{ c.hasArt }}" hint-placeholder-val="{{ false }}"><div role="img" aria-label="{{ c.name }}" style="width:100%;height:100%;background-image:url({{ c.artSafe }});background-size:cover;background-position:{{ c.pos }};"></div></sc-if>
+              <sc-if value="{{ c.noArt }}" hint-placeholder-val="{{ false }}"><div>{{ c.ini }}</div></sc-if>
+            </div>
+            <div style="flex:1;min-width:0;">
+              <div style="font-size:16px;font-weight:600;">{{ c.name }}</div>
+              <div style="font-size:13px;color:#7B769B;margin-top:2px;">{{ c.note }}</div>
+            </div>
+            <div style="font-size:15px;font-weight:700;color:{{ c.wrc }};">{{ c.mywr }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);border-radius:18px;margin:20px 20px 0;padding:4px;">
+        <sc-for list="{{ meRows }}" as="r" hint-placeholder-count="4">
+          <div onClick="{{ r.go }}" style="display:flex;align-items:center;gap:12px;padding:14px 14px;">
+            <div style="flex:1;font-size:15px;color:#DEDCEE;">{{ r.label }}</div>
+            <div style="font-size:14px;color:#6E6A8C;">{{ r.value }}</div>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#4A4560" stroke-width="2.4"><path d="M9 6l6 6-6 6"></path></svg>
+          </div>
+        </sc-for>
+      </div>
+      <div style="height:22px;"></div>
+    </div>
+    </sc-if>
+
+    <div style="position:sticky;bottom:0;z-index:30;display:flex;padding:8px 10px 30px;background:linear-gradient(0deg,rgba(11,10,18,.98) 62%,rgba(11,10,18,.72));backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.07);">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <div onClick="{{ t.pick }}" style="flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;padding:6px 0;">
+          <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="{{ t.c }}" stroke-width="{{ t.sw }}" stroke-linecap="round" stroke-linejoin="round">
+            <sc-if value="{{ t.isSearch }}" hint-placeholder-val="{{ false }}"><g><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.6-3.6"></path></g></sc-if>
+            <sc-if value="{{ t.isTier }}" hint-placeholder-val="{{ false }}"><g><path d="M4 6h16"></path><path d="M4 12h11"></path><path d="M4 18h6"></path></g></sc-if>
+            <sc-if value="{{ t.isDraft }}" hint-placeholder-val="{{ false }}"><g><rect x="3" y="4" width="7" height="7" rx="2"></rect><rect x="14" y="4" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect></g></sc-if>
+            <sc-if value="{{ t.isPatchTab }}" hint-placeholder-val="{{ false }}"><g><path d="M4 19V7.5a2 2 0 012-2h9l4 4V19a2 2 0 01-2 2H6a2 2 0 01-2-2z"></path><path d="M8.5 12h7"></path><path d="M8.5 16h4"></path></g></sc-if>
+            <sc-if value="{{ t.isMe }}" hint-placeholder-val="{{ false }}"><g><circle cx="12" cy="8.5" r="3.8"></circle><path d="M4.8 20c1.2-3.6 3.9-5.4 7.2-5.4s6 1.8 7.2 5.4"></path></g></sc-if>
+          </svg>
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.02em;color:{{ t.c }};">{{ t.name }}</div>
+        </div>
+      </sc-for>
+    </div>
+
+  </div>
+
+</x-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:520,&quot;height&quot;:980}}">
+class Component extends DCLogic {
+  state = { tab: "search", screen: null, sel: "Sett", q: "", dir: "beaten", ab: 0, tierRole: "All", locked: null, patchFilter: "All", muTab: "Quick", why: null, muPair: "Garen|Darius",
+    signedIn: false, mAuthMode: "signin", mEmail: "", mPass: "", mErrEmail: "", mErrPass: "",
+    riotConnected: true, riotId: "Summoner#NA1", region: "NA", meEmail: "you@example.com", meNotice: "",
+    poolNames: ["Renekton", "Gwen", "Malphite", "Sett"], saved: [["Garen", "Darius"], ["Gwen", "Sett"]],
+    notif: { pool: true, tier: true, digest: false, counters: true }, waitlist: false, deleteConfirm: false,
+    setupStep: 1, mRiot: "", setupLanes: [], setupPool: [], setupErr: "",
+    draftSnap: 1, sheetDrag: null,
+    calib: "idle", elapsed: 0, phaseLeft: 18, ovr: {}, cleared: {}, overrideSlot: null, ovQ: "",
+    shareOpen: false, shareCopied: false, watchers: 3, laneReadOpen: true, wipe: null, delSessions: {} };
+
+  componentDidMount() {
+    this._tick = setInterval(() => {
+      if (this.state.tab !== "draft") return;
+      this.setState(s => ({ elapsed: s.elapsed + 1, phaseLeft: Math.max(0, (s.phaseLeft ?? 18) - 1) }));
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this._tick);
+    clearTimeout(this._calibT);
+  }
+
+  mmss(s) {
+    return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+  }
+
+  runCalibration() {
+    this.setState({ calib: "running" });
+    clearTimeout(this._calibT);
+    this._calibT = setTimeout(() => this.setState({ calib: "done" }), 2200);
+  }
+
+  finishMobileSetup() {
+    const st = this.state;
+    const riot = (st.mRiot || "").trim();
+    this.setState({
+      screen: null, signedIn: true, setupErr: "",
+      riotConnected: !!riot, riotId: riot || st.riotId,
+      poolNames: st.setupPool.length ? st.setupPool : st.poolNames,
+      meNotice: "Setup saved. Your pool comes first everywhere."
+    });
+  }
+
+  data() {
+    const U = {
+      Ashe: "uploads/more_art-1786470895700-w5u0.avif",
+      Volibear: "uploads/more_art-1786470895704-yijl.avif",
+      Gwen: "uploads/more_art-1786470895708-zrx7.avif",
+      Sett: "uploads/more_art-1786470895713-hupj.avif",
+      Renekton: "uploads/more_art-1786470895717-2xza.avif"
+    };
+    const g = (a, b) => `linear-gradient(150deg,${a},${b})`;
+    return {
+      Sett: { role: "Top · Fighter", wr: "51.4%", art: U.Sett, pos: "50% 12%", cardPos: "50% 16%", heroPos: "44% 22%", bg: g("#E8734A", "#B4341F") },
+      Volibear: { role: "Top · Fighter", wr: "56.2%", art: U.Volibear, pos: "56% 20%", cardPos: "58% 24%", heroPos: "52% 24%", bg: g("#5BC0F0", "#2A6FA8") },
+      Gwen: { role: "Top · Fighter", wr: "54.0%", art: U.Gwen, pos: "48% 14%", cardPos: "48% 18%", heroPos: "48% 22%", bg: g("#8FE0D0", "#2E8F84") },
+      Renekton: { role: "Top · Fighter", wr: "55.4%", art: U.Renekton, pos: "60% 14%", cardPos: "60% 18%", heroPos: "56% 22%", bg: g("#E39A55", "#9A5220") },
+      Ashe: { role: "ADC · Marksman", wr: "51.8%", art: U.Ashe, pos: "60% 24%", cardPos: "60% 26%", heroPos: "58% 26%", bg: g("#6FA8DC", "#2E5F94") },
+      Ahri: { role: "Mid · Mage", wr: "52.0%", bg: g("#F07AB5", "#A8317A") },
+      Yasuo: { role: "Mid · Fighter", wr: "49.1%", bg: g("#66C6E8", "#2E6E9E") },
+      Garen: { role: "Top · Fighter", wr: "53.3%", art: "uploads/splash-garen.jpg", pos: "68% 16%", cardPos: "64% 18%", heroPos: "58% 20%", bg: g("#E5C067", "#9A7526") },
+      Jinx: { role: "ADC · Marksman", wr: "51.9%", bg: g("#9B84FF", "#4B34B8") },
+      Darius: { role: "Top · Fighter", wr: "52.6%", art: "uploads/splash-darius.jpg", pos: "52% 12%", cardPos: "52% 16%", heroPos: "50% 18%", bg: g("#D4604A", "#8A2A22") },
+      Camille: { role: "Top · Fighter", wr: "52.4%", bg: g("#8E9BE6", "#3E4A9E") },
+      Fiora: { role: "Top · Fighter", wr: "51.9%", bg: g("#E894AE", "#9E3E62") },
+      Malphite: { role: "Top · Tank", wr: "53.1%", bg: g("#93A2B4", "#4A5666") },
+      Jax: { role: "Top · Fighter", wr: "51.2%", bg: g("#B9C46A", "#6B7530") },
+      Irelia: { role: "Top · Fighter", wr: "50.4%", bg: g("#A6C7E8", "#4B6E96") },
+      Caitlyn: { role: "ADC · Marksman", wr: "56.4%", bg: g("#E2C15F", "#94722A") },
+      Draven: { role: "ADC · Marksman", wr: "55.1%", bg: g("#D96A5C", "#8E2E2C") },
+      Vayne: { role: "ADC · Marksman", wr: "53.6%", bg: g("#9C8CF0", "#4E3AA8") },
+      Nasus: { role: "Top · Fighter", wr: "44.1%", bg: g("#E0B370", "#96682C") },
+      Teemo: { role: "Top · Marksman", wr: "45.6%", bg: g("#8FD48F", "#3E8446") },
+      Leona: { role: "Support · Tank", wr: "52.7%", bg: g("#E8C070", "#9A6A28") },
+      Braum: { role: "Support · Tank", wr: "51.1%", bg: g("#7FB8D8", "#3A6E94") },
+      Rammus: { role: "Jungle · Tank", wr: "50.8%", bg: g("#C4A86A", "#7A5E28") }
+    };
+  }
+
+  lanes() {
+    return {
+      Sett: ["Top", "Jungle"], Volibear: ["Top", "Jungle"], Gwen: ["Top", "Jungle"],
+      Renekton: ["Top"], Ashe: ["Dragon"], Ahri: ["Mid"], Yasuo: ["Mid", "Top"],
+      Garen: ["Top"], Jinx: ["Dragon"], Darius: ["Top", "Jungle"], Camille: ["Top", "Jungle"],
+      Fiora: ["Top"], Malphite: ["Top", "Support"], Jax: ["Top", "Jungle"],
+      Irelia: ["Top", "Mid"], Caitlyn: ["Dragon"], Draven: ["Dragon"], Vayne: ["Dragon"],
+      Nasus: ["Top", "Jungle"], Teemo: ["Top"], Leona: ["Support"], Braum: ["Support"]
+    };
+  }
+
+  matchups() {
+    return {
+      Sett: {
+        lane: "TOP LANE", games: "214,806",
+        blurb: "Punches through anything that stands still. Trade first, and his shield stays empty.",
+        stats: [{ v: "51.4%", k: "WIN RATE" }, { v: "18.9%", k: "PICK" }, { v: "9.2%", k: "BAN" }],
+        notes: [
+          "Grit only converts damage he has already taken. Hit first and the shield is worth nothing.",
+          "His pull needs two targets. Stand away from the minion wave and half the kit disappears.",
+          "After six he wants one all-in. Sustained damage beats his burst window."
+        ],
+        picks: [
+          { n: "Volibear", s: 78, wr: "56.2%", t: "STRONG COUNTER", w: "Wins extended trades outright and ignores the grit shield." },
+          { n: "Renekton", s: 75, wr: "55.4%", t: "STRONG COUNTER", w: "Owns levels 1 to 3 and stuns straight through the pull." },
+          { n: "Gwen", s: 72, wr: "54.0%", t: "GOOD COUNTER", w: "Her untargetable window blanks his ultimate entirely." }
+        ],
+        also: [{ n: "Malphite", s: 69, wr: "53.1%" }, { n: "Camille", s: 66, wr: "52.4%" }, { n: "Fiora", s: 64, wr: "51.9%" }, { n: "Jax", s: 61, wr: "51.2%" }]
+      },
+      Ashe: {
+        lane: "DRAGON LANE", games: "68,204",
+        blurb: "Long-range poke with permanent slows. Punish her before six, or out-range her after.",
+        stats: [{ v: "51.8%", k: "WIN RATE" }, { v: "22.4%", k: "PICK" }, { v: "6.1%", k: "BAN" }],
+        notes: [
+          "No dash and no escape. Any engage that lands is usually fatal.",
+          "Her slow is her only defence, so pressure her the moment it is on cooldown.",
+          "She wants a long lane. Push the wave and force her under tower."
+        ],
+        picks: [
+          { n: "Caitlyn", s: 79, wr: "56.4%", t: "STRONG COUNTER", w: "Out-ranges her poke and denies the wave with traps." },
+          { n: "Draven", s: 76, wr: "55.1%", t: "STRONG COUNTER", w: "Wins every level 1 to 5 trade if the axes land." },
+          { n: "Vayne", s: 71, wr: "53.6%", t: "GOOD COUNTER", w: "Condemn breaks her arrow, and she scales past it." }
+        ],
+        also: [{ n: "Jinx", s: 68, wr: "51.9%" }, { n: "Camille", s: 64, wr: "52.4%" }, { n: "Irelia", s: 62, wr: "50.4%" }, { n: "Teemo", s: 58, wr: "45.6%" }]
+      },
+      Volibear: {
+        lane: "TOP LANE", games: "96,412",
+        blurb: "A late-game bruiser with a tower-breaking ultimate. Beat him early or not at all.",
+        stats: [{ v: "56.2%", k: "WIN RATE" }, { v: "14.1%", k: "PICK" }, { v: "11.4%", k: "BAN" }],
+        notes: [
+          "Slow and immobile before level six. Poke him out of lane while you can.",
+          "His ultimate disables one tower, so track it before diving under yours.",
+          "Ranged pressure and percentage-health damage cut through his sustain."
+        ],
+        picks: [
+          { n: "Gwen", s: 74, wr: "54.0%", t: "STRONG COUNTER", w: "Percentage damage cuts through the health stacking." },
+          { n: "Fiora", s: 71, wr: "51.9%", t: "GOOD COUNTER", w: "Parries the bite and duels him down after level six." },
+          { n: "Renekton", s: 68, wr: "55.4%", t: "GOOD COUNTER", w: "Bullies him flat for the first six levels." }
+        ],
+        also: [{ n: "Teemo", s: 66, wr: "45.6%" }, { n: "Malphite", s: 62, wr: "53.1%" }, { n: "Camille", s: 60, wr: "52.4%" }, { n: "Jax", s: 57, wr: "51.2%" }]
+      },
+      Gwen: {
+        lane: "TOP LANE", games: "72,338",
+        blurb: "Scales into an unkillable duelist. Her mist is a small circle, so fight outside it.",
+        stats: [{ v: "54.0%", k: "WIN RATE" }, { v: "11.8%", k: "PICK" }, { v: "7.6%", k: "BAN" }],
+        notes: [
+          "The mist has a hard edge. Step out of it and she loses her defences.",
+          "Weak level 1 to 3 — most of her losses start there.",
+          "Grievous wounds gut the healing she relies on in extended fights."
+        ],
+        picks: [
+          { n: "Renekton", s: 76, wr: "55.4%", t: "STRONG COUNTER", w: "Wins the early levels before the mist matters." },
+          { n: "Sett", s: 70, wr: "51.4%", t: "GOOD COUNTER", w: "The true damage punch beats her scaling trades." },
+          { n: "Malphite", s: 67, wr: "53.1%", t: "GOOD COUNTER", w: "Armour stacking flattens the on-hit damage." }
+        ],
+        also: [{ n: "Darius", s: 65, wr: "52.6%" }, { n: "Jax", s: 62, wr: "51.2%" }, { n: "Irelia", s: 59, wr: "50.4%" }, { n: "Garen", s: 56, wr: "53.3%" }]
+      },
+      Renekton: {
+        lane: "TOP LANE", games: "118,540",
+        blurb: "Dominates the first ten minutes. Survive the early game and he falls off hard.",
+        stats: [{ v: "55.4%", k: "WIN RATE" }, { v: "16.2%", k: "PICK" }, { v: "12.8%", k: "BAN" }],
+        notes: [
+          "Empowered abilities need fury. Trade when the bar is empty.",
+          "His pressure fades after twenty minutes — play for the mid game.",
+          "Sustain and short cooldowns outlast his burst windows."
+        ],
+        picks: [
+          { n: "Gwen", s: 73, wr: "54.0%", t: "STRONG COUNTER", w: "Survives the early game and out-scales him completely." },
+          { n: "Volibear", s: 70, wr: "56.2%", t: "GOOD COUNTER", w: "Sustains through the fury windows and wins later." },
+          { n: "Malphite", s: 68, wr: "53.1%", t: "GOOD COUNTER", w: "Armour and passive shield blunt the early dives." }
+        ],
+        also: [{ n: "Camille", s: 64, wr: "52.4%" }, { n: "Fiora", s: 62, wr: "51.9%" }, { n: "Sett", s: 60, wr: "51.4%" }, { n: "Nasus", s: 54, wr: "44.1%" }]
+      }
+    };
+  }
+
+  abilities() {
+    return {
+      Garen: [
+        { k: "P", n: "Perseverance", img: "uploads/garen-passive.png", t: "Regenerates a share of maximum health each second after avoiding damage for a few seconds." },
+        { k: "Q", n: "Decisive Strike", img: "uploads/garen-q.png", t: "Breaks slows, gains movement speed, and the next attack silences and deals bonus damage." },
+        { k: "W", n: "Courage", img: "uploads/garen-w.png", t: "Shields himself and reduces incoming damage and crowd control for a short window." },
+        { k: "E", n: "Judgment", img: "uploads/garen-e.png", t: "Spins with his sword, damaging everything nearby and shredding armour as it lands." },
+        { k: "R", n: "Demacian Justice", img: "uploads/garen-r.png", t: "Calls down a strike that executes low-health enemies outright." }
+      ],
+      Darius: [
+        { k: "P", n: "Hemorrhage", img: "uploads/darius-passive.png", t: "Attacks and abilities bleed the target. At five stacks he gains a large attack damage bonus." },
+        { k: "Q", n: "Decimate", img: "uploads/darius-q.png", t: "Swings in a wide circle. Only the outer edge heals him, and it heals for more per champion hit." },
+        { k: "W", n: "Crippling Strike", img: "uploads/darius-w.png", t: "An empowered attack that slows heavily and refunds its cost on a kill." },
+        { k: "E", n: "Apprehend", img: "uploads/darius-e.png", t: "Pulls enemies toward him with the axe hook and grants armour penetration." },
+        { k: "R", n: "Noxian Guillotine", img: "uploads/darius-r.png", t: "Leaps and executes. The threshold rises sharply with each Hemorrhage stack on the target." }
+      ],
+      Gwen: [
+        { k: "P", n: "Thousand Cuts", img: "uploads/gwen-passive.avif", t: "Deals bonus magic damage based on the target's maximum health and heals her for part of it." },
+        { k: "Q", n: "Snip Snip!", img: "uploads/gwen-q.avif", t: "Six snips in a cone. The last one hits harder and reaches further." },
+        { k: "W", n: "Hallowed Mist", img: "uploads/gwen-w.avif", t: "Summons a mist that blocks damage from enemies outside it, and follows her once." },
+        { k: "E", n: "Skip 'n Slash", img: "uploads/gwen-e.avif", t: "Dashes and empowers her next attack with extra range and attack speed." },
+        { k: "R", n: "Needlework", img: "uploads/gwen-r.avif", t: "Throws needles that slow and damage. Recasts up to three times, each volley larger." }
+      ]
+    };
+  }
+
+  gearArt() {
+    return {
+      "Trinity Force": "uploads/item-trinity-force.png",
+      "Plated Steelcaps": "uploads/item-plated-steelcaps.png",
+      "Sterak's Gage": "uploads/item-steraks-gage.png",
+      "Death's Dance": "uploads/item-deaths-dance.png",
+      "Black Cleaver": "uploads/item-black-cleaver.png",
+      "Mercury's Treads": "uploads/item-mercurys-treads.png",
+      "Ionian Boots": "uploads/item-ionian-boots.png",
+      "Spirit Visage": "uploads/item-spirit-visage.png",
+      "Randuin's Omen": "uploads/item-randuins-omen.png",
+      "Force of Nature": "uploads/item-force-of-nature.png",
+      "Conqueror": "uploads/rune-conqueror.png",
+      "Bone Plating": "uploads/rune-bone-plating.png",
+      "Hunter\u2013Titan": "uploads/rune-hunter-titan.png"
+    };
+  }
+
+  plate(name) {
+    const src = this.gearArt()[name];
+    return {
+      plate: src ? `url(${src})` : "repeating-linear-gradient(135deg,rgba(255,255,255,.05) 0 5px,transparent 5px 10px)",
+      mono: src ? "" : (name || "?").slice(0, 1),
+      cover: src ? "cover" : "auto"
+    };
+  }
+
+  matchup() {
+    return {
+      you: "Garen", them: "Darius",
+      lane: "BARON LANE", verdict: "DARIUS FAVOURED", side: "them",
+      difficulty: "Hard", score: 7.5,
+      confidence: "High confidence", sample: "38,410 games",
+      style: "CAUTIOUS / SHORT TRADES", stylePos: 26,
+      quick: [
+        { k: "VERDICT", v: "Darius favoured", c: "#E58B7B" },
+        { k: "PLAYSTYLE", v: "Short trades", c: "#F0A87B" },
+        { k: "AVOID", v: "Extended fights", c: "#E58B7B" },
+        { k: "PUNISH", v: "Missed Darius Q", c: "#8FEDB8" }
+      ],
+      rule: "Do not let Darius extend the fight. Every second in melee range is a stack in his favour.",
+      phases: [
+        { n: "EARLY", t: "Levels 1–4", c: "#E58B7B", body: "Concede the first two waves rather than contest them. Trade only when his Q is down, and never past two auto-attacks." },
+        { n: "MID", t: "Levels 5–10", c: "#F0A87B", body: "Your ultimate creates real kill pressure once he is below half. Look for the window when he pushes without vision." },
+        { n: "LATE", t: "Levels 11+", c: "#8FEDB8", body: "Stop duelling him. Flank their carries and cut the back line instead." }
+      ],
+      good: { title: "GOOD TRADE", steps: ["Darius misses Q", "Garen closes with Q, silence lands", "Two auto-attacks", "Walk out before stack three"], out: "You win the exchange and reset the wave." },
+      bad: { title: "BAD TRADE", steps: ["Garen holds melee range", "Darius keeps auto-attacking", "Hemorrhage reaches five stacks", "Noxian Guillotine executes"], out: "He wins the trade outright." },
+      interactions: [
+        { own: false, k: "Q", n: "Decimate", when: "Misses the outer edge", then: "No heal", win: "~3s punish window", note: "The blade edge is where his healing comes from. Standing chest-to-chest denies it entirely." },
+        { own: false, k: "E", n: "Apprehend", when: "Pull whiffs", then: "9s cooldown", win: "Free trade window", note: "Stay on the far side of the wave. Without the pull he cannot start a fight you have not agreed to." },
+        { own: false, k: "R", n: "Noxian Guillotine", when: "At five stacks", then: "Execute threshold rises", win: "Leave before stack four", note: "Track your own health against his stacks, not against his health bar." },
+        { own: true, k: "W", n: "Courage", when: "Hold for his ultimate", then: "Not for his Q", win: "Survives the execute", note: "Spending it early is the single most common way this matchup is lost." }
+      ],
+      spikes: [
+        { at: "LVL 1", who: "them", label: "Darius favoured" },
+        { at: "LVL 3", who: "even", label: "Safer for Garen" },
+        { at: "LVL 5", who: "you", label: "Ultimate kill pressure" },
+        { at: "1st ITEM", who: "even", label: "Swings on build" },
+        { at: "LVL 11", who: "them", label: "He out-duels again" }
+      ],
+      mistakes: [
+        "Spending Courage on his Q instead of saving it for the execute.",
+        "Contesting the first wave and giving him a level-two all-in.",
+        "Duelling him in the side lane at full build instead of grouping."
+      ],
+      comp: { tags: ["2 Tanks", "High crowd control", "High armour", "Mixed damage"], team: ["Darius", "Rammus", "Leona", "Ahri", "Jinx"] },
+      items: [
+        { n: "Plated Steelcaps", kind: "MATCHUP", c: "#F0A87B", short: "High value into repeated physical trades.", detail: "Darius deals almost all of his lane damage through auto-attacks and Crippling Strike. Flat physical reduction is worth more here than tenacity." },
+        { n: "Black Cleaver", kind: "COMPOSITION", c: "#9FCBE4", short: "Their front line stacks armour.", detail: "Priority raised because Darius and Rammus both build armour. The shred applies to your whole team." },
+        { n: "Sterak's Gage", kind: "CORE", c: "#8FEDB8", short: "Survives the execute threshold.", detail: "The shield triggers below 30% health, exactly the window Noxian Guillotine looks for." },
+        { n: "Mercury's Treads", kind: "SITUATIONAL", c: "#8B87A8", short: "Only if Leona and Rammus are the bigger threat.", detail: "Swap off Steelcaps once teamfights matter more than the lane." }
+      ],
+      runes: [
+        { n: "Conqueror", kind: "KEYSTONE", c: "#8FEDB8", short: "Ramps in the short trades you want.", detail: "Stacks quickly through Q and two autos, which fits a short-trade pattern." },
+        { n: "Bone Plating", kind: "MATCHUP", c: "#F0A87B", short: "Blunts his full combo.", detail: "His damage arrives as a burst of three hits, exactly the pattern Bone Plating reduces." },
+        { n: "Hunter–Titan", kind: "COMPOSITION", c: "#9FCBE4", short: "Their team has four reliable stuns.", detail: "Tenacity is recommended because Leona, Rammus, Ahri and Darius all bring hard crowd control." }
+      ]
+    };
+  }
+
+  patchNotes() {
+    return [
+      { n: "Sett", kind: "NERF", d: -1.8, wr: "51.4%", lines: [
+        { k: "P", t: "Grit decay increased by 20%. The shield now falls off before a second trade." },
+        { k: "Base", t: "Health regen 7.5 → 6.0 per 5 seconds." }] },
+      { n: "Gwen", kind: "BUFF", d: 2.1, wr: "54.0%", lines: [
+        { k: "W", t: "Mist duration 5s → 5.5s, and the edge is now easier to hold." },
+        { k: "Q", t: "Damage per snip 8 → 10 at rank 1." }] },
+      { n: "Volibear", kind: "ADJUST", d: 1.2, wr: "56.2%", lines: [
+        { k: "R", t: "Tower disable duration 8s → 6s." },
+        { k: "Q", t: "Base damage up 15 at all ranks, cooldown up 1s early." }] },
+      { n: "Renekton", kind: "NERF", d: -0.9, wr: "55.4%", lines: [
+        { k: "P", t: "Fury generated on-hit 5 → 4." },
+        { k: "E", t: "Second cast damage ratio 1.2 → 1.05 bonus attack damage." }] },
+      { n: "Malphite", kind: "BUFF", d: 1.4, wr: "53.1%", lines: [
+        { k: "Q", t: "Armour ratio added: 15% bonus armour as damage." },
+        { k: "Base", t: "Armour growth 4.2 → 4.7." }] },
+      { n: "Ashe", kind: "ADJUST", d: 0.3, wr: "51.8%", lines: [
+        { k: "W", t: "Cone width reduced 10%, slow duration up 0.5s." },
+        { k: "E", t: "Hawkshot recharge 60s → 50s." }] },
+      { n: "Camille", kind: "NERF", d: -1.1, wr: "52.4%", lines: [
+        { k: "P", t: "Shield decays 25% faster out of combat." }] },
+      { n: "Nasus", kind: "BUFF", d: 0.8, wr: "44.1%", lines: [
+        { k: "W", t: "Wither slow 35% → 40% at rank 1." },
+        { k: "Base", t: "Attack speed growth 3.4% → 3.8%." }] }
+    ];
+  }
+
+  pairMatchup(key) {
+    const M = { "Garen|Darius": this.matchup() };
+    return M[key] || null;
+  }
+
+  resolveMatchup() {
+    const pair = this.state.muPair || "Garen|Darius";
+    const [you, them] = pair.split("|");
+    const authored = this.pairMatchup(pair);
+    if (authored) return { ...authored, authored: true };
+    return this.modelledMatchup(you, them);
+  }
+
+  modelledMatchup(you, them) {
+    const D = this.data();
+    const M = this.matchups();
+    const yd = D[you] || {}, td = D[them] || {};
+    const yw = parseFloat(yd.wr || "50"), tw = parseFloat(td.wr || "50");
+    const gap = +(yw - tw).toFixed(1);
+
+    const youCounters = (((M[them] || {}).picks) || []).find(p => p.n === you) || null;
+    const themCounters = (((M[you] || {}).picks) || []).find(p => p.n === them) || null;
+
+    let adv = tw - yw;
+    if (youCounters) adv -= 2;
+    if (themCounters) adv += 2;
+    const score = +Math.max(2.5, Math.min(9, 5 + adv)).toFixed(1);
+    const side = score >= 6.2 ? "them" : score <= 3.8 ? "you" : "even";
+    const difficulty = score >= 7.5 ? "Hard" : score >= 6.2 ? "Tricky" : score >= 3.8 ? "Even" : "Favourable";
+    const verdict = side === "them" ? `${(them || "").toUpperCase()} FAVOURED`
+      : side === "you" ? `${(you || "").toUpperCase()} FAVOURED` : "EVEN MATCHUP";
+
+    let h = 0;
+    for (const ch of `${you}|${them}`) h = (h * 31 + ch.charCodeAt(0)) % 100000;
+    const sample = `${(9 + (h % 34)).toLocaleString()},${String(100 + (h % 900))} games`;
+
+    const lane = ((yd.role || "Top").split("·")[0] || "Top").trim().toUpperCase() + " LANE";
+    const style = side === "them" ? "CAUTIOUS / SHORT TRADES" : side === "you" ? "AGGRESSIVE / PUNISH EARLY" : "MEASURED / FARM AND SCALE";
+    const stylePos = side === "them" ? 26 : side === "you" ? 76 : 50;
+
+    const rule = youCounters ? youCounters.w
+      : themCounters ? themCounters.w
+      : side === "them"
+        ? `${them} holds the better win rate this patch. Trade in short bursts and give up the wave rather than the fight.`
+        : side === "you"
+          ? `You hold the better win rate this patch. Force the fight before ${them} finishes a first item.`
+          : `Neither champion wins on stats alone. This lane comes down to who uses their cooldowns better.`;
+
+    return {
+      authored: false,
+      you, them, lane, verdict, side, difficulty, score,
+      confidence: youCounters || themCounters ? "Medium confidence" : "Low confidence",
+      sample, style, stylePos, rule,
+      phases: [], interactions: [], spikes: [], mistakes: [], items: [], runes: [],
+      good: { title: "GOOD TRADE", steps: [], out: "" },
+      bad: { title: "BAD TRADE", steps: [], out: "" },
+      comp: { tags: [], team: [] },
+      modelled: {
+        gapLine: `${you} ${yw.toFixed(1)}% · ${them} ${tw.toFixed(1)}% · ${gap > 0 ? "+" : ""}${gap.toFixed(1)} pts in your favour`,
+        counterWhy: youCounters ? youCounters.w : themCounters ? themCounters.w : "",
+        counterTag: youCounters ? youCounters.t : themCounters ? themCounters.t : "",
+        notes: (M[them] || {}).notes || []
+      }
+    };
+  }
+
+  blank() {
+    return [
+      { k: "P", n: "Passive", t: "Ability art not uploaded yet. Send the five icons and this fills in." },
+      { k: "Q", n: "First ability", t: "Ability art not uploaded yet." },
+      { k: "W", n: "Second ability", t: "Ability art not uploaded yet." },
+      { k: "E", n: "Third ability", t: "Ability art not uploaded yet." },
+      { k: "R", n: "Ultimate", t: "Ability art not uploaded yet." }
+    ];
+  }
+
+  go(screen, sel) {
+    this.setState(s => ({ screen, sel: sel || s.sel, q: "", ab: 0 }));
+  }
+
+  renderVals() {
+    const st = this.state;
+    const D = this.data();
+    const M = this.matchups();
+    const L = this.lanes();
+    const names = Object.keys(D);
+    const accent = "#16C0FF";
+    const scoreColor = s => s >= 74 ? "#8FEDB8" : s >= 66 ? "#F0A87B" : "#9FCBE4";
+    const SHEET_SNAPS = [196, 370, 640];
+    const sheetHeight = st.sheetDrag != null ? st.sheetDrag : SHEET_SNAPS[st.draftSnap ?? 1];
+
+    const LANE_ICON = {
+      Top: "M34.4 6 L36.3 6.6 L36.5 8.3 L30.8 30.5 L45.5 39.5 L45.5 40.4 L38.4 47.3 L49.9 59 L61.4 47.5 L54.5 40.4 L54.5 39.5 L69.2 30.5 L63.5 8.3 L63.5 7 L64.6 6 L66 6.2 L67.3 7.4 L100 42.7 L99.6 45 L85.3 60.9 L84.1 60.9 L83.2 60.3 L74.2 51.5 L67.3 51.5 L62.5 56.3 L58.1 60.9 L58.1 70.5 L65.6 77.9 L65.8 79.6 L64.2 81.7 L50.5 94 L48.6 93.6 L34.2 79.8 L34.4 77.9 L41.9 70.3 L41.9 60.9 L32.7 51.5 L25.8 51.5 L17 60.1 L15.9 60.9 L14.7 60.9 L0 44.1 L0 42.7 L2.1 39.9 L34.4 6Z",
+      Jungle: "M16.1 9.6 L17.1 9.6 L18.9 10.8 L26.8 17.7 L34.9 26.7 L40.8 35.6 L45.9 47.1 L47.2 52.2 L47.2 81 L46.9 89.2 L46.2 90.2 L44.4 90.4 L43.4 89.9 L20.9 75.6 L19.4 74.1 L0 41.2 L1.3 40.4 L21.4 54 L35.5 67.2 L32.9 56.5 L26.8 36.9 L21.7 24.1 L15.8 11.9 L15.6 10.1 L16.1 9.6ZM82.9 9.6 L84.2 9.6 L84.7 10.8 L78.6 23.6 L73.7 35.6 L68.4 52.2 L64.5 67.2 L79.1 53.7 L98.5 40.7 L99.7 40.4 L100 41.5 L80.4 74.6 L56.4 90.2 L54.6 90.4 L53.1 88.9 L53.1 50.6 L54.3 46.6 L59.4 35.3 L63.5 29 L68.1 23.3 L82.9 9.6Z",
+      Mid: "M49.4 6.6 L51.5 7.2 L75.1 68.6 L75.1 70.7 L50.9 93.4 L48.2 92.8 L25.1 70.7 L25.4 67.7 L49.4 6.6ZM27.5 26.3 L28.7 26.3 L29.6 27.8 L17.1 64.7 L15.9 66.5 L14.4 66.5 L0.6 50.3 L0 47.9 L1.8 45.2 L27.5 26.3ZM71.6 26.3 L74.3 27.2 L100 47 L99.4 50.9 L85.9 66.5 L84.4 66.5 L83.2 64.4 L70.7 27.8 L71.6 26.3Z",
+      Dragon: "M0.6 5.8 L2.2 5.8 L26 30.5 L26.3 18.8 L28 18 L45.7 34.9 L46 93.4 L45.2 94.2 L43.5 94.2 L30.5 86.7 L29.1 85 L28.8 78.7 L11.9 66.8 L11.4 65.7 L11.4 52.6 L12.2 51.5 L15.2 52.9 L29.1 63.2 L29.4 51.2 L0 28 L0 6.6 L0.6 5.8ZM97.8 5.8 L99.2 5.8 L100 6.6 L100 28 L70.6 51.2 L70.9 63.2 L86.4 51.8 L87.8 51.5 L88.6 52.6 L88.4 66.2 L71.2 78.7 L70.9 85 L69.5 86.7 L56.5 94.2 L54.8 94.2 L54 93.1 L54 35.5 L72 18 L72.9 18 L73.7 19.1 L74 30.5 L97.8 5.8Z",
+      Support: "M48.1 45.8 L51.9 45.8 L53.3 47 L63.3 79 L62.5 81 L50.4 87.7 L45.7 85.7 L37.5 81 L36.7 80 L46.2 48.5 L46.9 46.5 L48.1 45.8ZM38 12.3 L62 12.3 L69.7 21 L69.7 22.5 L51.6 38.1 L48.9 38.3 L30.3 22.5 L30.3 21 L38 12.3ZM0.7 34.1 L31 34.1 L41.2 42.6 L41.9 43.3 L41.9 44.5 L34.7 55.5 L33.7 56 L17.4 56 L15.9 55 L0.5 36.8 L0 34.9 L0.7 34.1ZM69 34.1 L99.3 34.1 L100 34.9 L100 36.1 L83.4 55.7 L66.3 56 L64.8 54.7 L58.1 44.5 L58.1 43.3 L69 34.1Z"
+    };
+
+    const dec = (name, extra = {}) => {
+      const d = D[name] || {};
+      return {
+        name, ini: name.slice(0, 1), role: d.role, wr: d.wr, bg: d.bg,
+        art: d.art, pos: d.pos, cardPos: d.cardPos, heroPos: d.heroPos,
+        hasArt: !!d.art, noArt: !d.art, artSafe: d.art || "",
+        pick: () => this.go("counters", name),
+        open: () => this.go("champ", name),
+        ...extra
+      };
+    };
+
+    const selName = st.sel;
+    const sd = D[selName] || {};
+    const m = M[selName] || M.Sett;
+    const ctaAlly = st.locked || ((m.picks || [])[0] || {}).n || "Garen";
+
+    const wrNum = n => parseFloat((D[n] || {}).wr || "50");
+    const tierOf = n => wrNum(n) >= 55 ? "S" : wrNum(n) >= 52 ? "A" : wrNum(n) >= 49 ? "B" : "C";
+    const tierStyle = t => t === "S" ? ["#8FEDB8", "rgba(123,224,168,.12)", "rgba(123,224,168,.34)"]
+      : t === "A" ? ["#F0A87B", "rgba(240,168,123,.12)", "rgba(240,168,123,.32)"]
+      : t === "B" ? ["#9FCBE4", "rgba(255,255,255,.06)", "rgba(255,255,255,.16)"]
+      : ["#8B87A8", "rgba(255,255,255,.05)", "rgba(255,255,255,.12)"];
+    const champTier = tierOf(selName);
+    const ts = tierStyle(champTier);
+
+    const ABL = this.abilities()[selName] || this.blank();
+    const abIdx = Math.min(st.ab, ABL.length - 1);
+
+    const beats = m.picks.map(p => ({ n: p.n, s: p.s, wr: p.wr, why: p.w }))
+      .concat(m.also.map(a => ({ n: a.n, s: a.s, wr: a.wr, why: "" })));
+    const beaten = Object.keys(M).filter(n => n !== selName)
+      .map((n, i) => ({ n, s: 72 - i * 4, wr: (D[n] || {}).wr, why: "" }))
+      .concat(["Darius", "Fiora", "Jax", "Irelia"].map((n, i) => ({ n, s: 58 - i * 3, wr: (D[n] || {}).wr, why: "" })));
+    const rowSrc = st.dir === "beaten" ? beats : beaten;
+
+    const lanesOf = n => L[n] || ["Top"];
+    const tierPool = names.filter(n => st.tierRole === "All" || lanesOf(n).includes(st.tierRole))
+      .sort((a, b) => wrNum(b) - wrNum(a));
+    const tierDefs = [
+      { letter: "S", label: "FIRST PICK" }, { letter: "A", label: "STRONG" },
+      { letter: "B", label: "PLAYABLE" }, { letter: "C", label: "STRUGGLING" }
+    ];
+
+    const enemyTop = "Sett";
+    const LANE_LABEL = { Top: "TOP", Jungle: "JGL", Mid: "MID", Dragon: "DRG", Support: "SUP" };
+    const mOvr = st.ovr || {};
+    const mCleared = st.cleared || {};
+    const mPre = st.prePick === undefined ? "Volibear" : st.prePick;
+
+    const rawAllies = [
+      { id: "a0", lane: "Top", n: st.locked, mine: true, pre: st.locked ? null : mPre },
+      { id: "a1", lane: "Jungle", n: "Volibear", conf: 97 },
+      { id: "a2", lane: "Mid", n: "Ahri", conf: 66 },
+      { id: "a3", lane: "Dragon", n: "Jinx", conf: 98, first: true },
+      { id: "a4", lane: "Support", n: "Leona", conf: 95 }
+    ];
+    const rawEnemies = [
+      { id: "e0", order: 1, n: "Sett", conf: 96, guess: [["Top", 78], ["Jungle", 16], ["Mid", 6]] },
+      { id: "e1", order: 2, n: "Camille", conf: 74, guess: [["Jungle", 54], ["Top", 41], ["Support", 5]] },
+      { id: "e2", order: 3, n: "Yasuo", conf: 91, guess: [["Mid", 62], ["Dragon", 33], ["Top", 5]] },
+      { id: "e3", order: 4, n: "Ashe", conf: 99, guess: [["Dragon", 94], ["Support", 6]] },
+      { id: "e4", order: 5, n: null }
+    ];
+
+    const mResolve = s => {
+      if (mCleared[s.id]) return { ...s, n: null, wiped: true };
+      const o = mOvr[s.id];
+      return o ? { ...s, n: o, conf: 100, manual: true } : s;
+    };
+
+    const slot = (raw, isAlly) => {
+      const s = mResolve(raw);
+      const low = !!s.n && !s.manual && (s.conf || 100) < 80;
+      const base = {
+        sid: s.id, lane: LANE_LABEL[s.lane] || s.lane, glyph: LANE_ICON[s.lane] || "",
+        isYou: !!s.mine, firstTag: !!raw.first,
+        lanec: s.mine ? "#7FDCFF" : "#8B87A8",
+        glyphC: s.mine ? "#7FDCFF" : isAlly ? "#6E6A8C" : "#8A5F58",
+        lowConf: low, manualSet: !!s.manual,
+        confLabel: s.manual ? "SET" : `${s.conf || 0}%`,
+        showDel: !!s.n,
+        fix: () => this.setState({ overrideSlot: s.id, ovQ: "" }),
+        del: () => this.setState(p => {
+          const c = { ...(p.cleared || {}) }; c[s.id] = 1;
+          const o = { ...(p.ovr || {}) }; delete o[s.id];
+          return { cleared: c, ovr: o };
+        })
+      };
+      if (s.n) return dec(s.n, {
+        ...base, dim: "1", isLocked: true, isPre: false, isEmpty: false,
+        bd: s.mine ? "#16C0FF" : isAlly ? "rgba(22,192,255,.4)" : "rgba(229,139,123,.34)",
+        bdw: s.mine ? "2px" : "1px", inic: "rgba(0,0,0,.5)",
+        open: () => this.go("counters", s.n)
+      });
+      if (s.pre) return dec(s.pre, {
+        ...base, dim: ".48", isLocked: false, isPre: true, isEmpty: false, showDel: false,
+        bd: "rgba(22,192,255,.6)", bdw: "2px", inic: "rgba(0,0,0,.5)",
+        open: () => this.go("counters", s.pre)
+      });
+      return {
+        ...base, name: "", ini: "+", hasArt: false, noArt: true, dim: "1",
+        isLocked: false, isPre: false, isEmpty: true, showDel: false, lowConf: false, manualSet: false,
+        bg: "rgba(255,255,255,.04)", inic: "#3E3A54",
+        bd: s.mine ? "#16C0FF" : "rgba(255,255,255,.1)", bdw: s.mine ? "2px" : "1px",
+        open: () => {}
+      };
+    };
+
+    const eslot = raw => {
+      const s = mResolve(raw);
+      const base = slot(raw, false);
+      const guess = (s.n && !s.manual) ? (raw.guess || []) : [];
+      return {
+        ...base,
+        order: `${raw.order}`,
+        hasGuess: guess.length > 0, noGuess: guess.length === 0,
+        flex: guess.length > 1 && guess[0][1] < 80,
+        topLane: guess[0] ? LANE_LABEL[guess[0][0]] : "?",
+        topGlyph: guess[0] ? (LANE_ICON[guess[0][0]] || "") : "",
+        topPct: guess[0] ? `${guess[0][1]}%` : "",
+        lanes: guess.map(([l, p], i) => ({
+          lane: l, pct: `${p}%`, w: `${p}%`, glyph: LANE_ICON[l] || "",
+          c: i === 0 ? "#DEDCEE" : "#7B769B",
+          bar: i === 0 ? "#E58B7B" : "rgba(229,139,123,.38)"
+        }))
+      };
+    };
+
+    const tabDefs = [
+      { key: "search", name: "Counters" }, { key: "tier", name: "Tiers" },
+      { key: "draft", name: "Draft" }, { key: "patch", name: "Patch" }, { key: "me", name: "Me" }
+    ];
+
+    const MU = this.resolveMatchup();
+    const notes = this.patchNotes();
+    const ABLall = this.abilities();
+    const iconFor = (champ, key) => ((ABLall[champ] || []).find(a => a.k === key) || {}).img;
+    const kindStyle = k => k === "BUFF" ? ["#8FEDB8", "rgba(123,224,168,.14)", "rgba(123,224,168,.38)"]
+      : k === "NERF" ? ["#E58B7B", "rgba(229,139,123,.14)", "rgba(229,139,123,.38)"]
+      : ["#9FCBE4", "rgba(255,255,255,.07)", "rgba(255,255,255,.18)"];
+    const filterMap = { Buffs: "BUFF", Nerfs: "NERF", Adjusted: "ADJUST" };
+    const patchList = (st.patchFilter === "All" ? notes : notes.filter(c => c.kind === filterMap[st.patchFilter]))
+      .slice().sort((a, b) => Math.abs(b.d) - Math.abs(a.d));
+
+    return {
+      isSearch: st.tab === "search" && !st.screen,
+      backTo: st.screen === "matchup" ? "Counters" : selName,
+      isCounters: st.tab === "search" && st.screen === "counters",
+      isChamp: st.tab === "search" && st.screen === "champ",
+      isTier: st.tab === "tier",
+      isDraft: st.tab === "draft",
+      back: () => this.setState(s => ({ screen: s.screen === "champ" ? "counters" : null, why: null })),
+      goTier: () => this.setState({ tab: "tier" }),
+
+      q: st.q, hasQ: !!st.q, browseOn: !st.q,
+      onQ: e => this.setState({ q: e.target.value }),
+      clearQ: () => this.setState({ q: "" }),
+      results: names.filter(n => n.toLowerCase().includes(st.q.toLowerCase())).slice(0, 6).map(n => dec(n)),
+      noResults: !!st.q && names.filter(n => n.toLowerCase().includes(st.q.toLowerCase())).length === 0,
+      popular: ["Sett", "Ashe", "Volibear", "Gwen", "Renekton"].map(n => dec(n)),
+      trending: [
+        { n: "Volibear", tag: "RISING", pr: "14.1%", tagc: "#8FEDB8" },
+        { n: "Caitlyn", tag: "S TIER", pr: "19.8%", tagc: "#8FEDB8" },
+        { n: "Gwen", tag: "BUFFED", pr: "11.8%", tagc: "#7FDCFF" },
+        { n: "Renekton", tag: "CONTESTED", pr: "16.2%", tagc: "#F0A87B" }
+      ].map(t => dec(t.n, { tag: t.tag, pr: t.pr, tagc: t.tagc })),
+      recent: [
+        { n: "Sett", note: "You lost 3 of 5 into him" },
+        { n: "Renekton", note: "Most banned in your lane" },
+        { n: "Gwen", note: "Buffed in 6.2b" },
+        { n: "Ashe", note: "Picked into you twice today" }
+      ].map(r => dec(r.n, { note: r.note })),
+
+      enemy: {
+        name: selName, upper: selName.toUpperCase(),
+        art: sd.art || "", artSafe: sd.art || "", hasArt: !!sd.art, noArt: !sd.art,
+        heroPos: sd.heroPos || "50% 24%", bg: sd.bg,
+        stats: m.stats, notes: m.notes, blurb: m.blurb || ""
+      },
+      muCtaSub: `Game plan, trades and build for ${ctaAlly} into ${selName}.`,
+      laneChips: lanesOf(selName).map((l, i) => ({
+        name: i === 0 ? `${l} lane` : l,
+        fg: "#9FCBE4", bg: "rgba(22,192,255,.1)", bd: "rgba(22,192,255,.28)",
+        pick: () => {}
+      })).concat([{ name: m.games + " games", fg: "#8B87A8", bg: "rgba(255,255,255,.04)", bd: "rgba(255,255,255,.09)", pick: () => {} }]),
+      picks: m.picks.map(p => dec(p.n, {
+        tag: p.t, why: p.w, score: p.s, scorec: scoreColor(p.s),
+        barw: `${p.s}%`, wr: p.wr,
+        tagbg: p.s >= 74 ? "rgba(123,224,168,.16)" : "rgba(240,168,123,.16)",
+        tagbd: p.s >= 74 ? "rgba(123,224,168,.4)" : "rgba(240,168,123,.4)",
+        tagc: scoreColor(p.s),
+        open: () => this.go("champ", p.n)
+      })),
+      alsoWorks: m.also.map(a => dec(a.n, {
+        score: a.s, wr: a.wr, scorec: scoreColor(a.s), open: () => this.go("champ", a.n)
+      })),
+
+      champ: {
+        name: selName, art: sd.art || "", artSafe: sd.art || "", hasArt: !!sd.art, noArt: !sd.art, heroPos: sd.heroPos || "50% 24%",
+        role: sd.role, wr: sd.wr, tier: champTier,
+        tierc: ts[0], tierbg: ts[1], tierbd: ts[2]
+      },
+      champAbilities: ABL.map((a, i) => ({
+        ...a, hasIcon: !!a.img, noIcon: !a.img, imgSafe: a.img || "",
+        ring: i === abIdx ? accent : "rgba(255,255,255,.13)",
+        glow: i === abIdx ? "0 0 0 4px rgba(22,192,255,.14)" : "none",
+        keyc: i === abIdx ? "#FFFFFF" : "#6E6A8C",
+        pick: () => this.setState({ ab: i })
+      })),
+      abilityDetail: ABL[abIdx],
+      dirToggle: [
+        { key: "beaten", name: `Beats ${selName}` },
+        { key: "beats", name: `${selName} beats` }
+      ].map(d => ({
+        name: d.name,
+        fg: st.dir === d.key ? "#0B0A12" : "#8B87A8",
+        bg: st.dir === d.key ? "#9FCBE4" : "transparent",
+        pick: () => this.setState({ dir: d.key })
+      })),
+      rows: rowSrc.map((r, i) => dec(r.n, {
+        rank: i + 1, rankc: i < 3 ? "#9FCBE4" : "#4A4560",
+        score: r.s, barw: `${r.s}%`, barc: scoreColor(r.s),
+        wr: r.wr, games: `${(12 - i)}.${i}k games`,
+        zebra: i % 2 ? "rgba(255,255,255,.025)" : "transparent",
+        pick: () => this.go("champ", r.n)
+      })),
+
+      tierRoles: ["All", "Top", "Jungle", "Mid", "Dragon", "Support"].map(r => ({
+        name: r,
+        fg: st.tierRole === r ? "#FFFFFF" : "#8B87A8",
+        bg: st.tierRole === r ? "rgba(22,192,255,.18)" : "rgba(255,255,255,.05)",
+        bd: st.tierRole === r ? accent : "rgba(255,255,255,.1)",
+        pick: () => this.setState({ tierRole: r })
+      })),
+      tierBands: tierDefs.map(t => {
+        const champs = tierPool.filter(n => tierOf(n) === t.letter);
+        const s = tierStyle(t.letter);
+        return {
+          letter: t.letter, label: t.label, c: s[0], badgebg: s[1], bd: s[2],
+          count: `${champs.length}`, filled: champs.length > 0, empty: champs.length === 0,
+          champs: champs.map(n => dec(n, { ring: s[2], pick: () => this.go("counters", n) }))
+        };
+      }),
+
+      timer: st.locked ? "LOCKED" : "0:18",
+      timerC: st.locked ? "#8FEDB8" : "#F0A87B",
+      timerBg: st.locked ? "rgba(123,224,168,.12)" : "rgba(240,168,123,.12)",
+      timerBd: st.locked ? "rgba(123,224,168,.36)" : "rgba(240,168,123,.36)",
+      allies: rawAllies.map(s => slot(s, true)),
+      enemies: rawEnemies.map(eslot),
+      laneReadRows: rawEnemies.map(eslot).filter(e => e.hasGuess),
+      laneReadOpen: !!st.laneReadOpen,
+      toggleLaneRead: () => this.setState(p => ({ laneReadOpen: !p.laneReadOpen })),
+      laneReadChevron: st.laneReadOpen ? "M6 15l6-6 6 6" : "M6 9l6 6 6-6",
+
+      elapsedLabel: this.mmss(st.elapsed || 0),
+      phaseClock: this.mmss(st.phaseLeft ?? 18),
+      phaseBadge: st.locked ? "PICK 7 OF 10" : "PICK 6 · YOUR TURN",
+      phaseC: st.locked ? "#9FCBE4" : "#F0A87B",
+      phaseBg: st.locked ? "rgba(159,203,228,.12)" : "rgba(240,168,123,.14)",
+      phaseBd: st.locked ? "rgba(159,203,228,.34)" : "rgba(240,168,123,.38)",
+
+      calibIdle: st.calib === "idle",
+      calibRunning: st.calib === "running",
+      calibDone: st.calib === "done",
+      startCalib: () => this.runCalibration(),
+      recalib: () => this.runCalibration(),
+      capRegions: [
+        { k: "Ally column", v: "5 of 5" },
+        { k: "Enemy column", v: "4 of 5" },
+        { k: "Phase timer", v: "Reading" }
+      ],
+
+      shareOpen: !!st.shareOpen,
+      openShare: () => this.setState({ shareOpen: true }),
+      closeShare: () => this.setState({ shareOpen: false, shareCopied: false }),
+      shareLink: "forge.gg/d/9KX2-TR",
+      watchersLabel: `${st.watchers || 0} watching`,
+      copyLink: () => this.setState({ shareCopied: true }),
+      shareCopied: !!st.shareCopied,
+      shareNotCopied: !st.shareCopied,
+
+      overrideOpen: !!st.overrideSlot,
+      ovClose: () => this.setState({ overrideSlot: null, ovQ: "" }),
+      ovQ: st.ovQ || "",
+      onOvQ: e => this.setState({ ovQ: e.target.value }),
+      ovResults: Object.keys(D)
+        .filter(n => !st.ovQ || n.toLowerCase().includes(st.ovQ.toLowerCase()))
+        .slice(0, 8)
+        .map(n => dec(n, {
+          meta: (D[n] || {}).role || "",
+          set: () => this.setState(p => {
+            const o = { ...(p.ovr || {}) }; o[p.overrideSlot] = n;
+            const c = { ...(p.cleared || {}) }; delete c[p.overrideSlot];
+            return { ovr: o, cleared: c, overrideSlot: null, ovQ: "" };
+          })
+        })),
+
+      draftSessions: [
+        { id: "s1", when: "Today · 19:42", len: "4:12", you: "Volibear", vs: "Sett", res: "W", clip: true },
+        { id: "s2", when: "Today · 19:08", len: "3:48", you: "Garen", vs: "Renekton", res: "L", clip: true },
+        { id: "s3", when: "Yesterday · 22:15", len: "4:36", you: "Gwen", vs: "Jax", res: "W", clip: false }
+      ].filter(s => !(st.delSessions || {})[s.id]).map(s => ({
+        ...s,
+        you: dec(s.you), vs: dec(s.vs),
+        resC: s.res === "W" ? "#8FEDB8" : "#E58B7B",
+        resBg: s.res === "W" ? "rgba(123,224,168,.14)" : "rgba(229,139,123,.14)",
+        hasClip: s.clip, noClip: !s.clip,
+        open: () => this.go("counters", s.vs)
+      })),
+      wipeIdle: !st.wipe,
+      wipeAsking: st.wipe === "ask",
+      askWipe: () => this.setState({ wipe: "ask" }),
+      cancelWipe: () => this.setState({ wipe: null }),
+      doWipe: () => this.setState({ wipe: null, delSessions: { s1: 1, s2: 1, s3: 1 } }),
+      draftLocked: !!st.locked,
+      draftOpen: !st.locked,
+      resetDraft: () => this.setState({ locked: null, draftSnap: 1, sheetDrag: null }),
+      banGroups: [
+        { label: "YOURS", c: "#7BC4E0", names: ["Darius", "Fiora", "Irelia", "Draven", "Nasus"] },
+        { label: "THEIRS", c: "#E58B7B", names: ["Renekton", "Gwen", "Jax", "Vayne", "Teemo"] }
+      ].map(g => ({ label: g.label, c: g.c, champs: g.names.map(n => dec(n)) })),
+      draftNeeds: st.locked
+        ? [{ k: "Frontline", v: "Covered", w: "76%", c: "#8FEDB8" },
+           { k: "Magic damage", v: "Covered", w: "72%", c: "#8FEDB8" },
+           { k: "Disengage", v: "Thin", w: "34%", c: "#F0A87B" }]
+        : [{ k: "Frontline", v: "Missing", w: "18%", c: "#E58B7B" },
+           { k: "Magic damage", v: "Covered", w: "72%", c: "#8FEDB8" },
+           { k: "Disengage", v: "Thin", w: "34%", c: "#F0A87B" }],
+      threatText: st.locked
+        ? `${st.locked} answers the Ashe engage, but their bot lane still out-ranges yours in the early game.`
+        : "Ashe plus Sett gives them the strongest engage in the draft. You have no reliable disengage yet.",
+      draftHeading: st.locked ? `${st.locked} locked in` : `${(M[enemyTop] || M.Sett).picks.length} picks for top`,
+      draftSub: st.locked ? "Their support is still open" : `vs ${enemyTop}`,
+      sheetH: `${sheetHeight}px`,
+      sheetTransition: st.sheetDrag == null ? "height .28s cubic-bezier(.4,0,.2,1)" : "none",
+      sheetPeek: sheetHeight < 300,
+      sheetFull: sheetHeight >= 620,
+      sheetSub: sheetHeight < 300 ? "Drag up for the list"
+        : sheetHeight < 620 ? "Drag up for the reasoning" : `Why ${(M[enemyTop] || M.Sett).picks[0].n}`,
+      topPick: dec((M[enemyTop] || M.Sett).picks[0].n, { score: (M[enemyTop] || M.Sett).picks[0].s }),
+      peekPicks: (M[enemyTop] || M.Sett).picks.slice(0, 3).map(p => dec(p.n, {
+        score: p.s, scorec: scoreColor(p.s),
+        wrapbg: p.s >= 74 ? "rgba(123,224,168,.1)" : p.s >= 66 ? "rgba(240,168,123,.1)" : "rgba(255,255,255,.05)",
+        wrapbd: p.s >= 74 ? "rgba(123,224,168,.32)" : p.s >= 66 ? "rgba(240,168,123,.32)" : "rgba(255,255,255,.11)",
+        lock: () => this.setState({ locked: p.n })
+      })),
+      draftWhyTitle: `WHY ${(M[enemyTop] || M.Sett).picks[0].n.toUpperCase()}`,
+      draftReasons: [
+        { n: "1", t: (M[enemyTop] || M.Sett).picks[0].w },
+        ...((M[enemyTop] || M.Sett).notes || []).slice(0, 2).map((t, i) => ({ n: String(i + 2), t }))
+      ],
+      onSheetDown: e => {
+        this._sheetY = e.clientY;
+        this._sheetStart = sheetHeight;
+        this._sheetDy = 0;
+        try { e.currentTarget.setPointerCapture(e.pointerId); } catch (_) {}
+        this.setState({ sheetDrag: sheetHeight });
+      },
+      onSheetMove: e => {
+        if (this.state.sheetDrag == null) return;
+        this._sheetDy = this._sheetY - e.clientY;
+        this.setState({ sheetDrag: Math.max(120, Math.min(SHEET_SNAPS[2], this._sheetStart + this._sheetDy)) });
+      },
+      onSheetUp: () => {
+        const cur = this.state.draftSnap ?? 1;
+        if (Math.abs(this._sheetDy || 0) <= 6) {
+          this._sheetDy = 0;
+          return this.setState({ draftSnap: (cur + 1) % 3, sheetDrag: null });
+        }
+        const h = this.state.sheetDrag != null ? this.state.sheetDrag : SHEET_SNAPS[cur];
+        let best = 1, bd = Infinity;
+        SHEET_SNAPS.forEach((s, i) => { const d = Math.abs(s - h); if (d < bd) { bd = d; best = i; } });
+        this._sheetDy = 0;
+        this.setState({ draftSnap: best, sheetDrag: null });
+      },
+      onSheetCancel: () => {
+        this._sheetDy = 0;
+        if (this.state.sheetDrag != null) this.setState({ sheetDrag: null });
+      },
+      suggestions: (M[enemyTop] || M.Sett).picks.map(p => dec(p.n, {
+        tag: p.s >= 74 ? "BEST" : "SOLID", why: p.w, score: p.s, wr: p.wr,
+        scorec: scoreColor(p.s),
+        bd: st.locked === p.n ? accent : "rgba(255,255,255,.09)",
+        tagbg: p.s >= 74 ? "rgba(123,224,168,.16)" : "rgba(255,255,255,.08)",
+        tagc: p.s >= 74 ? "#8FEDB8" : "#A9A5C4",
+        lock: () => this.setState({ locked: p.n })
+      })),
+      lockLabel: st.locked ? `See counters for ${enemyTop}` : "Lock in a pick",
+      lockIn: () => st.locked ? this.setState({ tab: "search", screen: "counters", sel: enemyTop }) : this.setState({ locked: "Volibear" }),
+
+      isMatchup: st.tab === "search" && st.screen === "matchup",
+      goMatchupScreen: () => this.setState({ screen: "matchup", muTab: "Quick", why: null, muPair: `${ctaAlly}|${selName}` }),
+      goQuickTab: () => this.setState({ muTab: "Quick" }),
+      mu: {
+        lane: MU.lane, verdict: MU.verdict, difficulty: MU.difficulty,
+        score: MU.score.toFixed(1), confidence: MU.confidence, sample: MU.sample,
+        rule: MU.rule, style: MU.style
+      },
+      muYou: dec(MU.you), muThem: dec(MU.them),
+      muVerdictC: MU.side === "them" ? "#E58B7B" : MU.side === "you" ? "#8FEDB8" : "#F0A87B",
+      muVerdictBg: MU.side === "them" ? "rgba(229,139,123,.12)" : "rgba(123,224,168,.12)",
+      muVerdictBd: MU.side === "them" ? "rgba(229,139,123,.38)" : "rgba(123,224,168,.38)",
+      muScoreBarw: `${MU.score * 10}%`,
+      muStylePos: `${MU.stylePos}%`,
+      muTabs: ["Quick", "Plan", "Trades", "Build"].map(t => ({
+        name: t,
+        fg: st.muTab === t ? "#0B0A12" : "#8B87A8",
+        bg: st.muTab === t ? "#9FCBE4" : "transparent",
+        pick: () => this.setState({ muTab: t })
+      })),
+      muQuickOn: st.muTab === "Quick",
+      muPlanOn: st.muTab === "Plan" && !!MU.authored,
+      muTradesOn: st.muTab === "Trades" && !!MU.authored,
+      muBuildOn: st.muTab === "Build" && !!MU.authored,
+      muAuthored: !!MU.authored,
+      muModelledOnly: !MU.authored,
+      muDeepModelled: !MU.authored && st.muTab !== "Quick",
+      muDeepTitle: st.muTab.toUpperCase(),
+      muModelled: MU.modelled || { gapLine: "", counterWhy: "", counterTag: "" },
+      muModelledNotes: ((MU.modelled || {}).notes || []).map(t => ({ t })),
+      muModelledHasWhy: !!((MU.modelled || {}).counterWhy),
+      muModelledHasNotes: (((MU.modelled || {}).notes) || []).length > 0,
+      muQuick: MU.quick,
+      muPhases: MU.phases,
+      muGood: { ...MU.good, steps: MU.good.steps.map((s, i) => ({ t: s, n: i + 1, notLast: i !== MU.good.steps.length - 1 })) },
+      muBad: { ...MU.bad, steps: MU.bad.steps.map((s, i) => ({ t: s, n: i + 1, notLast: i !== MU.bad.steps.length - 1 })) },
+      muInteractions: MU.interactions.map((x, i) => ({
+        ...x,
+        owner: x.own ? MU.you : MU.them,
+        keybg: x.own ? "rgba(22,192,255,.14)" : "rgba(229,139,123,.14)",
+        keybd: x.own ? "rgba(22,192,255,.36)" : "rgba(229,139,123,.36)",
+        keyc: x.own ? "#7FDCFF" : "#E58B7B",
+        open: st.why === `i${i}`,
+        toggle: () => this.setState({ why: st.why === `i${i}` ? null : `i${i}` })
+      })),
+      muSpikes: MU.spikes.map(s => ({
+        at: s.at, label: s.label,
+        c: s.who === "you" ? "#8FEDB8" : s.who === "them" ? "#E58B7B" : "#F0A87B",
+        dotbg: s.who === "you" ? "rgba(123,224,168,.16)" : s.who === "them" ? "rgba(229,139,123,.16)" : "rgba(240,168,123,.16)"
+      })),
+      muMistakes: MU.mistakes,
+      muTags: MU.comp.tags,
+      muTeam: MU.comp.team.map(n => dec(n)),
+      muItems: MU.items.map((x, i) => ({
+        ...x, kindbg: `${x.c}1F`, ...this.plate(x.n), open: st.why === `it${i}`,
+        toggle: () => this.setState({ why: st.why === `it${i}` ? null : `it${i}` })
+      })),
+      muRunes: MU.runes.map((x, i) => ({
+        ...x, kindbg: `${x.c}1F`, ...this.plate(x.n), open: st.why === `r${i}`,
+        toggle: () => this.setState({ why: st.why === `r${i}` ? null : `r${i}` })
+      })),
+      isPatch: st.tab === "patch",
+      goDraftFromPatch: () => this.setState({ tab: "draft", screen: null }),
+      patchStats: [
+        { v: String(notes.length), k: "CHAMPIONS CHANGED", c: "#FFFFFF" },
+        { v: String(notes.filter(c => c.kind === "BUFF").length), k: "BUFFED", c: "#8FEDB8" },
+        { v: String(notes.filter(c => c.kind === "NERF").length), k: "NERFED", c: "#E58B7B" }
+      ],
+      patchFilters: ["All", "Buffs", "Nerfs", "Adjusted"].map(f => ({
+        name: f,
+        fg: st.patchFilter === f ? "#FFFFFF" : "#8B87A8",
+        bg: st.patchFilter === f ? "rgba(22,192,255,.18)" : "rgba(255,255,255,.05)",
+        bd: st.patchFilter === f ? accent : "rgba(255,255,255,.1)",
+        pick: () => this.setState({ patchFilter: f })
+      })),
+      patchChanges: patchList.map(c => dec(c.n, {
+        kind: c.kind, wr: c.wr, role: (D[c.n] || {}).role,
+        delta: `${c.d > 0 ? "+" : ""}${c.d.toFixed(1)}`,
+        deltac: c.d > 0 ? "#8FEDB8" : c.d < 0 ? "#E58B7B" : "#9FCBE4",
+        kindc: kindStyle(c.kind)[0], kindbg: kindStyle(c.kind)[1], kindbd: kindStyle(c.kind)[2],
+        lines: c.lines.map(l => {
+          const img = iconFor(c.n, l.k);
+          return { ...l, img, imgSafe: img || "", hasIcon: !!img, noIcon: !img };
+        }),
+        open: () => this.go("champ", c.n)
+      })),
+      patchItems: [
+        "Sunfire Aegis burn now scales with bonus health instead of total health.",
+        "Black Cleaver stacks decay in 4s rather than 6s.",
+        "Serpent's Fang shield reduction 50% → 40% against shields under 300."
+      ],
+      isMe: st.tab === "me" && !st.screen && st.signedIn,
+      isMeAuth: st.tab === "me" && !st.screen && !st.signedIn,
+      isMeSetup: st.tab === "me" && st.screen === "setup",
+      isMeSub: st.tab === "me" && ["pool", "saved", "drafts", "notif", "plan", "settings"].includes(st.screen),
+      meIsDrafts: st.screen === "drafts",
+      meIsPool: st.screen === "pool", meIsSaved: st.screen === "saved", meIsNotif: st.screen === "notif",
+      meIsPlan: st.screen === "plan", meIsSettings: st.screen === "settings",
+      meSubTitle: st.screen === "pool" ? "Champion pool" : st.screen === "saved" ? "Saved matchups"
+        : st.screen === "drafts" ? "Draft history"
+        : st.screen === "notif" ? "Notifications" : st.screen === "plan" ? "Plan" : "Settings",
+      meNotice: st.meNotice, meNoticeOn: !!st.meNotice,
+      meName: st.riotConnected ? st.riotId : "Your account",
+      meSubline: st.riotConnected ? `Emerald II · Top lane · ${st.region}` : `${st.meEmail} · no Riot ID`,
+      meEmail: st.meEmail,
+      meRiotLine: st.riotConnected ? st.riotId : "Not connected",
+      riotBtnLabel: st.riotConnected ? "Disconnect" : "Connect",
+      toggleRiot: () => this.setState({ riotConnected: !st.riotConnected, meNotice: st.riotConnected ? "Riot ID disconnected." : "Riot ID connected." }),
+      meRegions: ["NA", "EUW", "BR", "KR", "SEA"].map(r => ({
+        name: r, fg: st.region === r ? "#FFFFFF" : "#8B87A8",
+        bg: st.region === r ? "#16C0FF" : "transparent",
+        bd: st.region === r ? "#16C0FF" : "rgba(255,255,255,.14)",
+        pick: () => this.setState({ region: r })
+      })),
+      mAuthTitle: st.mAuthMode === "signin" ? "Welcome back" : "Create your account",
+      mAuthSub: st.mAuthMode === "signin"
+        ? "Sign in to keep your champion pool and saved matchups on every device."
+        : "Free while we are in beta. Connect a Riot ID and counters follow your own games.",
+      mAuthCta: st.mAuthMode === "signin" ? "Sign in" : "Create account",
+      mAuthModes: [{ k: "signin", n: "Sign in" }, { k: "signup", n: "Create account" }].map(m => ({
+        name: m.n,
+        fg: st.mAuthMode === m.k ? "#FFFFFF" : "#8B87A8",
+        bg: st.mAuthMode === m.k ? "#16C0FF" : "transparent",
+        pick: () => this.setState({ mAuthMode: m.k, mErrEmail: "", mErrPass: "" })
+      })),
+      mEmail: st.mEmail, mPass: st.mPass,
+      onMEmail: e => this.setState({ mEmail: e.target.value, mErrEmail: "" }),
+      onMPass: e => this.setState({ mPass: e.target.value, mErrPass: "" }),
+      mErrEmail: st.mErrEmail, mErrEmailOn: !!st.mErrEmail,
+      mErrPass: st.mErrPass, mErrPassOn: !!st.mErrPass,
+      mAuthSubmit: () => {
+        const email = (st.mEmail || "").trim(), pass = st.mPass || "";
+        if (!email) return this.setState({ mErrEmail: "Enter your email", mErrPass: "" });
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return this.setState({ mErrEmail: "That does not look like an email address", mErrPass: "" });
+        if (st.mAuthMode === "signup") {
+          if (email.toLowerCase() === "you@example.com") return this.setState({ mErrEmail: "That email already has an account. Sign in instead.", mErrPass: "" });
+          if (!pass) return this.setState({ mErrEmail: "", mErrPass: "Choose a password" });
+          if (pass.length < 8) return this.setState({ mErrEmail: "", mErrPass: "Use at least 8 characters" });
+          return this.setState({ screen: "setup", setupStep: 1, setupErr: "", meEmail: email, mErrEmail: "", mErrPass: "", poolNames: [], saved: [], riotConnected: false });
+        }
+        if (!pass) return this.setState({ mErrEmail: "", mErrPass: "Enter your password" });
+        if (pass !== "wildrift") return this.setState({ mErrEmail: "", mErrPass: "That password does not match this account" });
+        this.setState({ signedIn: true, meEmail: email, mPass: "", mErrEmail: "", mErrPass: "" });
+      },
+      mSetupBars: [1, 2, 3].map(i => ({ c: i <= st.setupStep ? "#16C0FF" : "rgba(255,255,255,.1)" })),
+      mSetupStepLabel: `STEP ${st.setupStep} OF 3`,
+      mSetupIs1: st.setupStep === 1, mSetupIs2: st.setupStep === 2, mSetupIs3: st.setupStep === 3,
+      mSetupTitle: st.setupStep === 1 ? "Connect your Riot ID" : st.setupStep === 2 ? "Which lanes do you play?" : "Pick your champions",
+      mSetupSub: st.setupStep === 1
+        ? "Optional, but it makes every ranking about your games."
+        : st.setupStep === 2 ? "Your lanes come first in the tier list and the draft tool."
+          : "Add the champions you first-pick. You can change this later.",
+      mRiot: st.mRiot,
+      onMRiot: e => this.setState({ mRiot: e.target.value, setupErr: "" }),
+      mLaneOpts: [
+        { n: "Top", note: "Solo lane" }, { n: "Jungle", note: "Roaming" }, { n: "Mid", note: "Solo lane" },
+        { n: "Dragon", note: "Duo lane" }, { n: "Support", note: "Duo lane" }
+      ].map(l => {
+        const on = st.setupLanes.includes(l.n);
+        return {
+          name: l.n, note: l.note, on,
+          fg: on ? "#FFFFFF" : "#DEDCEE",
+          bg: on ? "rgba(22,192,255,.12)" : "rgba(255,255,255,.045)",
+          bd: on ? "rgba(22,192,255,.5)" : "rgba(255,255,255,.09)",
+          boxbg: on ? "#16C0FF" : "transparent",
+          boxbd: on ? "#16C0FF" : "rgba(255,255,255,.22)",
+          toggle: () => this.setState({ setupLanes: on ? st.setupLanes.filter(x => x !== l.n) : [...st.setupLanes, l.n], setupErr: "" })
+        };
+      }),
+      mSetupPoolCount: st.setupPool.length ? `${st.setupPool.length} selected` : "Nothing selected yet",
+      mPoolOpts: Object.keys(D).sort((a, b) => a.localeCompare(b)).map(n => {
+        const on = st.setupPool.includes(n);
+        return dec(n, {
+          ring: on ? "#16C0FF" : "rgba(255,255,255,.12)",
+          rowbg: on ? "rgba(22,192,255,.12)" : "rgba(255,255,255,.045)",
+          rowbd: on ? "rgba(22,192,255,.5)" : "rgba(255,255,255,.09)",
+          namec: on ? "#FFFFFF" : "#BBB7D4",
+          toggle: () => this.setState({ setupPool: on ? st.setupPool.filter(x => x !== n) : [...st.setupPool, n], setupErr: "" })
+        });
+      }),
+      mSetupErr: st.setupErr, mSetupErrOn: !!st.setupErr,
+      mSetupCta: st.setupStep === 3 ? "Finish setup" : "Continue",
+      mSetupSkipLabel: st.setupStep === 3 ? "Do this later" : st.setupStep === 2 ? "Back" : "Skip for now",
+      mSetupSkip: () => {
+        if (st.setupStep === 2) return this.setState({ setupStep: 1, setupErr: "" });
+        if (st.setupStep === 3) return this.finishMobileSetup();
+        this.setState({ setupStep: 2, setupErr: "" });
+      },
+      mSetupNext: () => {
+        if (st.setupStep === 1) {
+          const v = (st.mRiot || "").trim();
+          if (v && !/^[^\s#]{3,}#[A-Za-z0-9]{2,}$/.test(v)) return this.setState({ setupErr: "Riot IDs look like Summoner#NA1." });
+          return this.setState({ setupStep: 2, setupErr: "" });
+        }
+        if (st.setupStep === 2) {
+          if (!st.setupLanes.length) return this.setState({ setupErr: "Pick at least one lane." });
+          return this.setState({ setupStep: 3, setupErr: "" });
+        }
+        if (!st.setupPool.length) return this.setState({ setupErr: "Pick at least one champion, or do this later." });
+        this.finishMobileSetup();
+      },
+      goPool: () => this.setState({ screen: "pool", meNotice: "", poolQuery: "" }),
+      poolBlurb: `${st.poolNames.length} champions. Their matchups are ranked first across the app.`,
+      poolTiles: st.poolNames.map(n => dec(n, {
+        remove: () => this.setState({ poolNames: st.poolNames.filter(x => x !== n), meNotice: `${n} removed from your pool.` })
+      })),
+      poolQuery: st.poolQuery || "",
+      poolQueryOn: !!(st.poolQuery || "").trim(),
+      onPoolQuery: e => this.setState({ poolQuery: e.target.value }),
+      clearPoolQuery: () => this.setState({ poolQuery: "" }),
+      poolAddOpts: (() => {
+        const q = (st.poolQuery || "").trim().toLowerCase();
+        const avail = Object.keys(D).filter(n => !st.poolNames.includes(n));
+        const hits = q ? avail.filter(n => n.toLowerCase().includes(q)) : avail;
+        return (q ? hits.sort((a, b) => a.localeCompare(b)) : hits.sort((a, b) => parseFloat(D[b].wr) - parseFloat(D[a].wr)).slice(0, 8))
+          .map(n => dec(n, { add: () => this.setState({ poolNames: [...st.poolNames, n], poolQuery: "", meNotice: `${n} added to your pool.` }) }));
+      })(),
+      poolAddEmpty: (() => {
+        const q = (st.poolQuery || "").trim().toLowerCase();
+        if (!q) return false;
+        return !Object.keys(D).filter(n => !st.poolNames.includes(n)).some(n => n.toLowerCase().includes(q));
+      })(),
+      poolAddEmptyText: (() => {
+        const q = (st.poolQuery || "").trim();
+        if (!q) return "";
+        return Object.keys(D).some(n => n.toLowerCase().includes(q.toLowerCase()))
+          ? `${q} is already in your pool.`
+          : `No champion matches "${q}".`;
+      })(),
+      savedFilled: st.saved.length > 0, savedEmpty: st.saved.length === 0,
+      savedList: st.saved.map(([you, them]) => ({
+        you: dec(you), them: dec(them),
+        title: `${you} vs ${them}`,
+        verdict: you === "Garen" && them === "Darius" ? "Darius favoured · hard" : "Even matchup",
+        c: you === "Garen" && them === "Darius" ? "#E58B7B" : "#F0A87B",
+        open: () => this.setState({ tab: "search", screen: "matchup", muTab: "Quick" }),
+        remove: () => this.setState({ saved: st.saved.filter(p => !(p[0] === you && p[1] === them)), meNotice: `${you} vs ${them} removed.` })
+      })),
+      notifRows: [
+        { k: "pool", name: "Patch changes to my pool", note: "When a champion you play, or a common opponent, changes." },
+        { k: "tier", name: "Tier shifts in my lanes", note: "Only full-tier moves, not every decimal." },
+        { k: "counters", name: "New counters worth learning", note: "When a pick starts beating a champion you struggle with." },
+        { k: "digest", name: "Weekly digest", note: "One Monday summary instead of alerts all week." }
+      ].map(r => {
+        const on = !!st.notif[r.k];
+        return {
+          name: r.name, note: r.note,
+          bg: on ? "#16C0FF" : "rgba(255,255,255,.1)",
+          bd: on ? "#16C0FF" : "rgba(255,255,255,.16)",
+          just: on ? "flex-end" : "flex-start",
+          toggle: () => this.setState({ notif: { ...st.notif, [r.k]: !on } })
+        };
+      }),
+      waitLabel: st.waitlist ? "You are on the waitlist" : "Join the Pro waitlist",
+      waitBg: st.waitlist ? "rgba(123,224,168,.14)" : "rgba(255,255,255,.06)",
+      waitBd: st.waitlist ? "rgba(123,224,168,.4)" : "rgba(255,255,255,.14)",
+      waitC: st.waitlist ? "#8FEDB8" : "#DEDCEE",
+      toggleWaitlist: () => this.setState({ waitlist: !st.waitlist }),
+      deleteIdle: !st.deleteConfirm, deleteAsking: st.deleteConfirm,
+      askDelete: () => this.setState({ deleteConfirm: true }),
+      cancelDelete: () => this.setState({ deleteConfirm: false }),
+      confirmDelete: () => this.setState({ signedIn: false, deleteConfirm: false, screen: null, poolNames: [], saved: [], riotConnected: false, mPass: "", meNotice: "" }),
+      signOut: () => this.setState({ signedIn: false, screen: null, mPass: "", mAuthMode: "signin", meNotice: "" }),
+      meStats: st.riotConnected
+        ? [{ v: "57%", k: "WIN RATE", c: "#8FEDB8" }, { v: "148", k: "GAMES", c: "#FFFFFF" }, { v: String(st.poolNames.length), k: "POOL SIZE", c: "#FFFFFF" }]
+        : [{ v: "—", k: "WIN RATE", c: "#5C5878" }, { v: "—", k: "GAMES", c: "#5C5878" }, { v: String(st.poolNames.length), k: "POOL SIZE", c: "#FFFFFF" }],
+      pool: st.poolNames.map((n, i) => dec(n, {
+        note: st.riotConnected ? `${[42, 31, 18, 12][i] || 9} games this season` : "No games read yet",
+        mywr: st.riotConnected ? (["58%", "55%", "50%", "41%"][i] || "52%") : "—",
+        wrc: st.riotConnected ? (["#8FEDB8", "#8FEDB8", "#BBB7D4", "#E58B7B"][i] || "#BBB7D4") : "#5C5878",
+        open: () => this.go("champ", n)
+      })),
+      meRows: [
+        { label: "Draft history", value: String(["s1", "s2", "s3"].filter(id => !(st.delSessions || {})[id]).length), screen: "drafts" },
+        { label: "Saved matchups", value: String(st.saved.length), screen: "saved" },
+        { label: "Notifications", value: Object.values(st.notif).filter(Boolean).length + " on", screen: "notif" },
+        { label: "Plan", value: "Beta · free", screen: "plan" },
+        { label: "Settings", value: st.riotConnected ? st.region : "No Riot ID", screen: "settings" }
+      ].map(r => ({ label: r.label, value: r.value, go: () => this.setState({ screen: r.screen, meNotice: "", deleteConfirm: false }) })),
+      tabs: tabDefs.map(t => ({
+        name: t.name,
+        c: st.tab === t.key ? "#16C0FF" : "#5C5878",
+        sw: st.tab === t.key ? 2.4 : 1.9,
+        isSearch: t.key === "search", isTier: t.key === "tier",
+        isDraft: t.key === "draft", isPatchTab: t.key === "patch", isMe: t.key === "me",
+        pick: () => this.setState({ tab: t.key, screen: null, q: "" })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -18,7 +18,8 @@ Claude Design exports are stored under `design/handoffs/vNN-short-slug/`.
 | v10 | `v10-product-polish` | Product polish | Incremental desktop + mobile polish on the existing product canvases. |
 | v11 | `v11-lane-glyphs` | Lane glyphs + ability tips | Adds Lane Glyphs canvas and traced glyph sources (baron / mid / jungle / duo / support). |
 | v12 | `v12-loading-states` | Loading states and item art | Adds Loading States canvas: one sweep primitive (1.4s), three depths, 300ms show / 400ms hold, mapped onto six surfaces (tier rows, counter cards, coach, mobile picks, search, matchup hero). |
-| v13 | `v13-product-ui-update` | Save gate + Pro draft | Save-matchup auth gate; draft restaged as Pro gate / ready / live board. |
+| v13 | `v13-product-ui-update` | Save gate + Pro draft | Desktop product canvas adds a Save this matchup auth gate: splash header, three benefits, create-account / sign-in, return-here copy. |
+| v14 | `v14-draft-board-live-states` | Draft board live states | Draft board: role icons, pre-pick state, phase badge, elapsed timer, YOU marker, first pick, delete |
 
 ## v01 — Premium Gaming baseline
 
@@ -145,7 +146,20 @@ Claude Design exports are stored under `design/handoffs/vNN-short-slug/`.
 - Claude download name: Champion-art plan update (12).zip
 - Canvases: `Champion List Directions.dc.html`, `Draft Layout Ideas.dc.html`, `Email - Password Reset.html`, `Email - Weekly Digest.html`, `Email - Welcome.html`, `Lane Glyphs.dc.html`, `Loading States.dc.html`, `Matchup Page Directions.dc.html`, `Riftline - Next Screens.dc.html`, `Wild Rift Forge Mobile.dc.html`, `Wild Rift Forge.dc.html`, `WildRift Directions.dc.html`
 
-- Desktop product canvas adds a Save this matchup auth gate.
-- `/draft` restaged as Pro gate / ready / live. Live pick scoring is Pro; Free keeps counters, matchups, and the tier list.
-- Applied in `apps/web`: save gate + return-to-matchup auth, draft Pro landing, plan copy. Mobile canvas unchanged.
+- Desktop product canvas adds a Save this matchup auth gate: splash header, three benefits, create-account / sign-in, return-here copy.
+- /draft is restaged into three states: Forge Pro gate, Ready when the lobby is, and the live board. Live pick scoring is positioned as Pro.
+- Mobile product canvas, emails, and direction studies are unchanged vs v12.
+
+## v14 — Draft board live states
+
+- Folder: `design/handoffs/v14-draft-board-live-states/`
+- Ingested: 2026-08-17T22:15:27.540Z
+- Claude download name: Champion-art plan update (12).zip
+- Canvases: `Champion List Directions.dc.html`, `Draft Layout Ideas.dc.html`, `Email - Password Reset.html`, `Email - Weekly Digest.html`, `Email - Welcome.html`, `Lane Glyphs.dc.html`, `Loading States.dc.html`, `Matchup Page Directions.dc.html`, `Riftline - Next Screens.dc.html`, `Wild Rift Forge Mobile.dc.html`, `Wild Rift Forge.dc.html`, `WildRift Directions.dc.html`
+
+- Draft board: role icons, pre-pick state, phase badge, elapsed timer, YOU marker, first pick, delete
+- Capture: calibrated preview, calibrating spinner, manual override
+- Sessions: shareable link, account history, screenshot/video store
+- Enemy possible lanes
+- Applied in `apps/web`: live board (desktop + mobile), SCREEN READ, spectator `/draft/s/[token]`, session list on Ready + Account. Video upload is wired as a media kind; the first save is a screenshot of the last frame.
 

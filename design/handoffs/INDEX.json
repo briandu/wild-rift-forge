@@ -2,7 +2,7 @@
   "scheme": "vNN-short-slug",
   "zip_scheme": "wrf-design-vNN-short-slug.zip",
   "note": "Claude download names reset and collide. Use version + slug as identity.",
-  "latest": "v13-product-ui-update",
+  "latest": "v14-draft-board-live-states",
   "patches": [
     {
       "version": 1,
@@ -309,6 +309,36 @@
       "legacy_slug": null,
       "source_zip_basename": "Champion-art plan update (12).zip",
       "source_zip_versioned": "wrf-design-v13-product-ui-update.zip"
+    },
+    {
+      "version": 14,
+      "version_label": "v14",
+      "slug": "v14-draft-board-live-states",
+      "title": "Draft board live states",
+      "ingested_at": "2026-08-17T22:15:27.540Z",
+      "offers": [
+        "Draft board: role icons, pre-pick state, phase badge, elapsed timer, YOU marker, first pick, delete",
+        "Capture: calibrated preview, calibrating spinner, manual override",
+        "Sessions: shareable link, account history, screenshot/video store",
+        "Enemy possible lanes"
+      ],
+      "entry_html": [
+        "Champion List Directions.dc.html",
+        "Draft Layout Ideas.dc.html",
+        "Email - Password Reset.html",
+        "Email - Weekly Digest.html",
+        "Email - Welcome.html",
+        "Lane Glyphs.dc.html",
+        "Loading States.dc.html",
+        "Matchup Page Directions.dc.html",
+        "Riftline - Next Screens.dc.html",
+        "Wild Rift Forge Mobile.dc.html",
+        "Wild Rift Forge.dc.html",
+        "WildRift Directions.dc.html"
+      ],
+      "legacy_slug": null,
+      "source_zip_basename": "Champion-art plan update (12).zip",
+      "source_zip_versioned": "wrf-design-v14-draft-board-live-states.zip"
     }
   ]
 }

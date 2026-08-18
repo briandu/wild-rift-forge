@@ -1,0 +1,33 @@
+{
+  "bundle_version": "2026-08-15",
+  "included_ready_to_drop": 25,
+  "included": {
+    "runes": [
+      "rune-conqueror.png",
+      "rune-bone-plating.png",
+      "rune-hunter-titan.png"
+    ],
+    "items": [
+      "item-trinity-force.png",
+      "item-plated-steelcaps.png",
+      "item-steraks-gage.png",
+      "item-deaths-dance.png",
+      "item-black-cleaver.png",
+      "item-mercurys-treads.png",
+      "item-ionian-boots.png",
+      "item-spirit-visage.png",
+      "item-randuins-omen.png",
+      "item-force-of-nature.png"
+    ],
+    "abilities": [
+      "garen-passive.png", "garen-q.png", "garen-w.png", "garen-e.png", "garen-r.png",
+      "darius-passive.png", "darius-q.png", "darius-w.png", "darius-e.png", "darius-r.png"
+    ],
+    "splashes": ["splash-garen.jpg", "splash-darius.jpg"]
+  },
+  "legacy_assets": {
+    "rune-hunter-titan.png": "Replaced by Perseverance in Wild Rift patch 4.2",
+    "item-spirit-visage.png": "Removed in Wild Rift patch 7.0"
+  },
+  "remaining": "Run gather-wild-rift-assets.mjs to populate the other requested champion abilities and splash art."
+}
