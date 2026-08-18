@@ -1,11 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import {
+  allySlotsInPickOrder,
+  enemySlotsInPickOrder,
   bannedSlugs,
   BANS_PER_TEAM,
+  clearSlot,
   DRAFT_LANES,
   emptyDraftState,
   isDraftEmpty,
   parseDraftState,
+  setOverride,
+  slotView,
   takenSlugs,
 } from './draft-state';
 
@@ -17,6 +22,36 @@ describe('emptyDraftState', () => {
     expect(state.allyBans).toHaveLength(BANS_PER_TEAM);
     expect(state.enemyBans).toHaveLength(BANS_PER_TEAM);
     expect(isDraftEmpty(state)).toBe(true);
+  });
+});
+
+describe('allySlotsInPickOrder', () => {
+  it('keeps Baron→Support until every visual row has a lane', () => {
+    const state = emptyDraftState();
+    state.allyRowLanes = ['Mid', 'Jungle', null, 'Dragon', 'Support'];
+    expect(allySlotsInPickOrder(state).map((slot) => slot.lane)).toEqual([...DRAFT_LANES]);
+  });
+
+  it('follows the captured pick order once all five lanes are named', () => {
+    const state = emptyDraftState();
+    state.allies[2] = { lane: 'Mid', slug: 'yone' };
+    state.allyRowLanes = ['Mid', 'Jungle', 'Top', 'Dragon', 'Support'];
+    const ordered = allySlotsInPickOrder(state);
+    expect(ordered.map((slot) => slot.lane)).toEqual(['Mid', 'Jungle', 'Top', 'Dragon', 'Support']);
+    expect(ordered[0]?.slug).toBe('yone');
+    expect(ordered[0]?.boardIndex).toBe(2);
+  });
+});
+
+describe('enemySlotsInPickOrder', () => {
+  it('relabels enemy rows with the captured pick order', () => {
+    const state = emptyDraftState();
+    state.enemies[0] = { lane: 'Top', slug: 'ryze' };
+    state.allyRowLanes = ['Mid', 'Jungle', 'Top', 'Dragon', 'Support'];
+    const ordered = enemySlotsInPickOrder(state);
+    expect(ordered.map((slot) => slot.lane)).toEqual(['Mid', 'Jungle', 'Top', 'Dragon', 'Support']);
+    expect(ordered[0]?.slug).toBe('ryze');
+    expect(ordered[0]?.boardIndex).toBe(0);
   });
 });
 
@@ -66,6 +101,14 @@ describe('parseDraftState', () => {
     expect(parsed?.allyBans[1]).toBeNull();
   });
 
+  it('round-trips pre-picks, overrides and the start clock', () => {
+    const state = emptyDraftState();
+    state.allyPrePicks[0] = 'volibear';
+    state.overrides['enemy-1'] = 'ahri';
+    state.startedAt = 1_700_000_000_000;
+    expect(parseDraftState(JSON.stringify(state))).toEqual(state);
+  });
+
   it('keeps lanes canonical even if stored lanes were tampered with', () => {
     const state = emptyDraftState();
     const tampered = {
@@ -73,5 +116,29 @@ describe('parseDraftState', () => {
       allies: state.allies.map((slot) => ({ ...slot, lane: 'Bogus' })),
     };
     expect(parseDraftState(JSON.stringify(tampered))?.allies[0]?.lane).toBe('Top');
+  });
+});
+
+describe('slotView / clearSlot / setOverride', () => {
+  it('prefers a manual override over a locked or pre-picked slug', () => {
+    const state = emptyDraftState();
+    state.allies[0] = { lane: 'Top', slug: 'garen' };
+    state.allyPrePicks[0] = 'volibear';
+    expect(slotView(state, 'ally', 0)).toEqual({ slug: 'garen', isPre: false, isManual: false });
+    const overridden = setOverride(state, 'ally-0', 'renekton');
+    expect(slotView(overridden, 'ally', 0)).toEqual({
+      slug: 'renekton',
+      isPre: false,
+      isManual: true,
+    });
+  });
+
+  it('clears a slot so a later capture of the same champ cannot refill it', () => {
+    const state = emptyDraftState();
+    state.enemies[1] = { lane: 'Jungle', slug: 'riven' };
+    const cleared = clearSlot(state, 'enemy-1');
+    expect(cleared.enemies[1]?.slug).toBeNull();
+    expect(cleared.cleared['enemy-1']).toBe('riven');
+    expect(slotView(cleared, 'enemy', 1).slug).toBeNull();
   });
 });
