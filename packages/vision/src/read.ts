@@ -12,6 +12,7 @@ import {
   detectHighlightedRow,
   locateBanTrays,
   locatePortraitColumns,
+  refinePortraitColumns,
   seedLayoutProfile,
   withMeasuredRegions,
   type LayoutProfile,
@@ -31,7 +32,7 @@ import {
   matchTile,
   type IconReference,
 } from './match';
-import { detectPhase, type DraftPhase, type PhaseTemplate } from './phase';
+import { detectPhase, isAvatarPhase, type DraftPhase, type PhaseTemplate } from './phase';
 
 export type { DraftPhase };
 
@@ -142,7 +143,13 @@ export function readDraft(
     ...(locateBanTrays(frame) ?? []),
     ...brighterColumns(frame, base, locatePortraitColumns(frame) ?? []),
   ];
-  const profile: LayoutProfile = measured.length ? withMeasuredRegions(base, measured) : base;
+  const laidOut = measured.length ? withMeasuredRegions(base, measured) : base;
+  const titlePhase = detectPhase(frame, { templates: options.phaseTemplates });
+  // Per-row ban chips only exist while the HUD still shows avatars. During
+  // pick the circles stay put; refining then walks onto Flash/Ignite.
+  const profile: LayoutProfile = isAvatarPhase(titlePhase)
+    ? refinePortraitColumns(frame, laidOut)
+    : laidOut;
   const laneLabelRegions = profile.laneLabelRegions?.length
     ? profile.laneLabelRegions
     : seeded.laneLabelRegions;
@@ -214,7 +221,6 @@ export function readDraft(
   // Restore the profile's ordering so callers get a stable slot sequence.
   const slots = profile.regions.map((region) => resolved.get(region.key)!).filter(Boolean);
   const highlight = detectHighlightedRow(frame, profile.highlightRegions);
-  const titlePhase = detectPhase(frame, { templates: options.phaseTemplates });
 
   return {
     slots,

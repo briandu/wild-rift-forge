@@ -59,6 +59,7 @@ export {
   detectHighlightedRow,
   locateBanTrays,
   locatePortraitColumns,
+  refinePortraitColumns,
   parseSlotKey,
   refineRegion,
   shiftCompanionRegions,

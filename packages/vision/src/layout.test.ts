@@ -11,6 +11,7 @@ import {
   detectHighlightedRow,
   locateBanTrays,
   locatePortraitColumns,
+  refinePortraitColumns,
   parseSlotKey,
   refineRegion,
   SEED_PARAMS_PHONE,
@@ -348,6 +349,30 @@ describe('locateBanTrays', () => {
     }
     expect(locateBanTrays(frame)).toBeNull();
   });
+
+  it('stays in the header when the first portrait row is brighter than the tray', () => {
+    const frame = trayFrame({
+      allyLeft: 36,
+      enemyLeft: 770,
+      top: 12,
+      pitch: 41,
+      size: 28,
+      filled: [0, 2, 4],
+    });
+    for (const left of [110, 860]) {
+      pasteBitmap(frame, patternBitmap(64, 64, 200), {
+        x: left,
+        y: 70,
+        width: 48,
+        height: 48,
+      });
+    }
+    const regions = locateBanTrays(frame)!;
+    for (const region of regions) {
+      const rect = toPixelRect(region.rect, width, height);
+      expect(rect.y + rect.height).toBeLessThan(60);
+    }
+  });
 });
 
 describe('locatePortraitColumns', () => {
@@ -398,5 +423,67 @@ describe('locatePortraitColumns', () => {
       for (let x = 0; x < width; x += 1) setPixel(frame, x, y, 14, 12, 20);
     }
     expect(locatePortraitColumns(frame)).toBeNull();
+  });
+
+  it('nudges a single-X seed onto each row after a ban lock slides the circle', () => {
+    const frameW = 1024;
+    const frameH = 471;
+    const seed = seedLayoutProfile(frameW, frameH);
+    const pending = toPixelRect(seed.regions.find((region) => region.key === 'ally-0')!.rect, frameW, frameH);
+    const lockedX = pending.x - 28;
+    const frame = createBitmap(frameW, frameH);
+    for (let y = 0; y < frameH; y += 1) {
+      for (let x = 0; x < frameW; x += 1) setPixel(frame, x, y, 14, 12, 20);
+    }
+    let paint = 90;
+    for (const region of seed.regions.filter((row) => row.role === 'ally')) {
+      const rect = toPixelRect(region.rect, frameW, frameH);
+      const x = region.index === 1 ? lockedX : pending.x;
+      pasteBitmap(frame, patternBitmap(64, 64, paint), {
+        x,
+        y: rect.y,
+        width: rect.width,
+        height: rect.height,
+      });
+      // HUD portraits are circles in a square; dark corners + a bright ring
+      // are what refinePortraitColumns keys on.
+      for (const [dx, dy] of [
+        [0, 0],
+        [rect.width - 1, 0],
+        [0, rect.height - 1],
+        [rect.width - 1, rect.height - 1],
+      ] as const) {
+        setPixel(frame, x + dx, rect.y + dy, 8, 8, 8);
+      }
+      const cx = x + rect.width / 2;
+      const cy = rect.y + rect.height / 2;
+      const radius = rect.width * 0.42;
+      for (let step = 0; step < 16; step += 1) {
+        const angle = (step * Math.PI) / 8;
+        setPixel(
+          frame,
+          Math.round(cx + radius * Math.cos(angle)),
+          Math.round(cy + radius * Math.sin(angle)),
+          220,
+          220,
+          240,
+        );
+      }
+      paint += 1;
+      if (region.index !== 1) {
+        pasteBitmap(frame, patternBitmap(32, 32, paint), {
+          x: lockedX,
+          y: rect.y + 14,
+          width: 20,
+          height: 20,
+        });
+        paint += 1;
+      }
+    }
+    const refined = refinePortraitColumns(frame, seed);
+    const ally = refined.regions
+      .filter((region) => region.role === 'ally')
+      .map((region) => toPixelRect(region.rect, frameW, frameH));
+    expect(ally[0]!.x).toBeGreaterThan(ally[1]!.x + 12);
   });
 });

@@ -71,8 +71,8 @@ export type LayoutProfile = {
 /** Portrait columns sit outside this central band; the champion grid sits inside it. */
 export const CENTER_BAND = { min: 0.2, max: 0.8 };
 
-/** Ban trays live above this line. */
-export const BAN_TRAY_MAX_Y = 0.14;
+/** Ban trays live above this line — and above the first portrait row. */
+export const BAN_TRAY_MAX_Y = 0.11;
 
 export function aspectKey(width: number, height: number): string {
   if (height <= 0) return 'unknown';
@@ -275,7 +275,12 @@ export function seedLayoutProfile(
   };
 }
 
-/** Tray search window: the top slice of the frame and the outer edge of each side. */
+/**
+ * Search far enough to see a tray that sits a little low, but never prefer
+ * the first portrait row. A locked ban (Gabietch's Jhin, an enemy helmet +
+ * chip) is brighter than empty tray squares; the longest-span pick then
+ * fitted the "tray" across those portraits.
+ */
 const BAN_BAND_MAX_Y = 0.16;
 const BAN_SIDE_SPAN = 0.32;
 /** Two visible bans are enough to solve for spacing; one leaves the anchor ambiguous. */
@@ -329,8 +334,10 @@ function findBanBand(bitmap: Bitmap): { start: number; end: number } | null {
     brightness,
     Math.max(0.025, peak * 0.5),
     Math.max(4, Math.round(bitmap.height * 0.02)),
-  );
-  const band = candidates.sort((a, b) => b.end - b.start - (a.end - a.start))[0];
+  ).filter((span) => span.start <= bitmap.height * BAN_TRAY_MAX_Y);
+  // The header tray is the topmost band. A longer, brighter first-row band
+  // (locked portrait + pending-ban chip) is the thing we must not fit.
+  const band = candidates.sort((a, b) => a.start - b.start)[0];
   if (!band) return null;
   // A band too short to hold a ban icon means no ban art is on screen yet, and the
   // brightest row is some other chrome. Better to keep the seed than fit noise.
@@ -525,6 +532,69 @@ function columnRects(bitmap: Bitmap, side: 'ally' | 'enemy'): Rect[] | null {
 }
 
 /**
+ * Left edge of the `size` window that looks most like a HUD portrait:
+ * bright on the ring, dark in the square's corners. That beats a pending-ban
+ * chip, lane text, and the summoner-spell pair that sit beside the circle.
+ */
+/** Ring-minus-corners luma that a real HUD circle produces; pattern tiles stay near 0. */
+const CIRCLE_MIN = 12;
+
+/**
+ * Ally ban-phase circles sit a few pixels left of the face — the timer arc
+ * and the pending-ban chip pull the ring fit outward. Slide every ally
+ * square back onto the icon.
+ */
+const ALLY_BAN_NUDGE = 5;
+
+function circularFit(
+  bitmap: Bitmap,
+  x0: number,
+  top: number,
+  span: number,
+  size: number,
+): { left: number; circle: number } {
+  const maxLeft = Math.max(0, span - size);
+  const radius = size * 0.42;
+  const mid = size / 2;
+  let bestLeft = 0;
+  let bestScore = Number.NEGATIVE_INFINITY;
+  let bestCircle = 0;
+  for (let left = 0; left <= maxLeft; left += 1) {
+    let luma = 0;
+    const area = size * size;
+    for (let y = 0; y < size; y += 1) {
+      for (let x = 0; x < size; x += 1) luma += lumaAt(bitmap, x0 + left + x, top + y);
+    }
+    let ring = 0;
+    for (let step = 0; step < 16; step += 1) {
+      const angle = (step * Math.PI) / 8;
+      ring += lumaAt(
+        bitmap,
+        Math.round(x0 + left + mid + radius * Math.cos(angle)),
+        Math.round(top + mid + radius * Math.sin(angle)),
+      );
+    }
+    let corners = 0;
+    for (const [dx, dy] of [
+      [0, 0],
+      [size - 1, 0],
+      [0, size - 1],
+      [size - 1, size - 1],
+    ] as const) {
+      corners += lumaAt(bitmap, x0 + left + dx, top + dy);
+    }
+    const circle = ring / 16 - corners / 4;
+    const score = luma / area + Math.max(0, circle);
+    if (score > bestScore) {
+      bestScore = score;
+      bestLeft = left;
+      bestCircle = circle;
+    }
+  }
+  return { left: bestLeft, circle: bestCircle };
+}
+
+/**
  * Measure both player columns directly from a frame.
  *
  * Seed X values jump from 0.03 on 16:9 to 0.14 on a phone. A shared window that
@@ -583,6 +653,59 @@ function regionLuma(bitmap: Bitmap, region: LayoutRegion): number {
   const rect = toPixelRect(region.rect, bitmap.width, bitmap.height);
   const { r, g, b } = meanColor(bitmap, rect);
   return 0.299 * r + 0.587 * g + 0.114 * b;
+}
+
+/**
+ * Slide each portrait onto its circular frame for this frame.
+ *
+ * The seed (and a cached profile) store one X per column. During banning the
+ * HUD drops the per-row chip when that player locks, and the circle jumps
+ * toward the edge. A single X then hashes the chip, the name, or half a face.
+ */
+export function refinePortraitColumns(bitmap: Bitmap, profile: LayoutProfile): LayoutProfile {
+  const span = Math.round(bitmap.width * COLUMN_SIDE_SPAN);
+  if (span < 16) return profile;
+
+  const proposals = new Map<string, number>();
+  for (const role of ['ally', 'enemy'] as const) {
+    const rows = profile.regions.filter((region) => region.role === role);
+    const xs: number[] = [];
+    const next = new Map<string, number>();
+    for (const region of rows) {
+      const rect = toPixelRect(region.rect, bitmap.width, bitmap.height);
+      const x0 = role === 'ally' ? 0 : bitmap.width - span;
+      const pad = Math.round(rect.width * 0.75);
+      const local = rect.x - x0;
+      const searchLeft = Math.max(0, local - pad);
+      const searchSpan = Math.min(span, local + rect.width + pad) - searchLeft;
+      if (searchSpan < rect.width) continue;
+      const fit = circularFit(bitmap, x0 + searchLeft, rect.y, searchSpan, rect.width);
+      if (fit.circle < CIRCLE_MIN) continue;
+      const left = x0 + searchLeft + fit.left;
+      if (left < 0 || left + rect.width > bitmap.width) continue;
+      next.set(region.key, left);
+      xs.push(left);
+    }
+    // One X for every row is the normal pick-phase column. Only a mixed
+    // ban-lock state spreads the circles, and that is the only time we move.
+    if (xs.length >= 2 && Math.max(...xs) - Math.min(...xs) >= 16) {
+      for (const [key, left] of next) {
+        proposals.set(key, role === 'ally' ? left + ALLY_BAN_NUDGE : left);
+      }
+    }
+  }
+
+  if (proposals.size === 0) return profile;
+  const refined = profile.regions.map((region) => {
+    const left = proposals.get(region.key);
+    if (left === undefined) return region;
+    const rect = toPixelRect(region.rect, bitmap.width, bitmap.height);
+    return {
+      ...region,
+      rect: toNormalizedRect({ ...rect, x: left }, bitmap.width, bitmap.height),
+    };
+  });
+  return shiftCompanionRegions({ ...profile, regions: refined }, refined);
 }
 
 /**
