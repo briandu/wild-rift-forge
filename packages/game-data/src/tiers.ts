@@ -125,6 +125,28 @@ export function assignTierLetter(rankInLane: number, counts: TierBandCounts): Ti
   return 'C';
 }
 
+/**
+ * S+ is the headline band. Floors, hysteresis, and review moves can empty it;
+ * pull the top S champs up so a lane never shows S+ with nobody in it.
+ * Weak lanes that never reached S stay without S+.
+ */
+export function fillEmptySPlus<T extends { letter: TierLetter; rankInLane: number }>(
+  rows: readonly T[],
+  intendedCount = 1,
+): T[] {
+  if (rows.length === 0 || rows.some((row) => row.letter === 'S+')) {
+    return [...rows];
+  }
+  const fromS = rows
+    .filter((row) => row.letter === 'S')
+    .sort((a, b) => a.rankInLane - b.rankInLane);
+  if (fromS.length === 0) {
+    return [...rows];
+  }
+  const promote = new Set(fromS.slice(0, Math.max(1, intendedCount)));
+  return rows.map((row) => (promote.has(row) ? { ...row, letter: 'S+' } : row));
+}
+
 /** Empirical Bayes shrink of a noisy win rate toward the lane mean. */
 export function shrinkWinRate(winRate: number, pickRate: number, laneMeanWinRate: number): number {
   const weight = pickRate / (pickRate + SHRINKAGE_K);

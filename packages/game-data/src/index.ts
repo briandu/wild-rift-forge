@@ -97,6 +97,7 @@ export {
   championTierScore,
   compositeTierScore,
   daysSincePatch,
+  fillEmptySPlus,
   DEFAULT_RANK_BRACKET,
   DEFAULT_TIER_RULESET,
   HYSTERESIS_MARGIN,

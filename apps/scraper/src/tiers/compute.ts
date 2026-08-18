@@ -8,6 +8,7 @@ import {
   championTierScore,
   compositeTierScore,
   daysSincePatch,
+  fillEmptySPlus,
   patchChangeSign,
   patchNudge,
   TIER_LANES,
@@ -84,9 +85,9 @@ export function placementsFromCnStats(snapshots: SnapshotRow[]): ComputedPlaceme
       }))
       .sort((a, b) => b.score - a.score || b.winRate - a.winRate);
     const counts = tierBandCounts(laneRows.length);
-    laneRows.forEach((row, index) => {
+    const laneOut: ComputedPlacement[] = laneRows.map((row, index) => {
       const rankInLane = index + 1;
-      out.push({
+      return {
         snapshotDate: row.snapshotDate,
         championId: row.championId,
         lane: row.lane,
@@ -102,8 +103,9 @@ export function placementsFromCnStats(snapshots: SnapshotRow[]): ComputedPlaceme
         skillSpread: null,
         confidence: null,
         previousLetter: null,
-      });
+      };
     });
+    out.push(...fillEmptySPlus(laneOut, counts['S+']));
   }
   return out;
 }
@@ -140,13 +142,13 @@ export function placementsFromBlended(input: {
       })
       .sort((a, b) => b.score - a.score || b.row.winRate - a.row.winRate);
     const counts = tierBandCounts(scored.length);
-    scored.forEach((entry, index) => {
+    const laneOut: ComputedPlacement[] = scored.map((entry, index) => {
       const rankInLane = index + 1;
       const previousLetter = previousByKey.get(adjustmentKey(entry.row.championId, lane)) ?? null;
       const proposed = assignTierLetterHybrid(rankInLane, counts, entry.score);
       const held = assignTierLetterWithHysteresis(proposed, previousLetter, entry.score);
       const delta = input.adjustments?.get(adjustmentKey(entry.row.championId, lane)) ?? 0;
-      out.push({
+      return {
         snapshotDate: entry.row.snapshotDate,
         championId: entry.row.championId,
         lane,
@@ -162,8 +164,9 @@ export function placementsFromBlended(input: {
         skillSpread: entry.skillSpread,
         confidence: entry.confidence,
         previousLetter,
-      });
+      };
     });
+    out.push(...fillEmptySPlus(laneOut, counts['S+']));
   }
   return out;
 }

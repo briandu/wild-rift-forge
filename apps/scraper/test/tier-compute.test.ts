@@ -33,9 +33,49 @@ describe('placementsFromCnStats / placementsFromBlended', () => {
     const blendedOneTrick = blended.find((row) => row.championId === 1);
     const blendedContested = blended.find((row) => row.championId === 2);
 
-    expect(legacyOneTrick?.letter).toBe('S');
+    expect(legacyOneTrick?.letter).toBe('S+');
     expect(blendedOneTrick?.letter).not.toBe('S+');
     expect(blendedOneTrick?.letter).not.toBe('S');
     expect(blendedContested?.rankInLane).toBeLessThan(blendedOneTrick?.rankInLane ?? 99);
+  });
+
+  it('refills S+ from the top S champs when floors empty the band', () => {
+    const snapshots = Array.from({ length: 20 }, (_, index) => ({
+      ...base,
+      championId: index + 1,
+      winRate: 52.8 - index * 0.04,
+      pickRate: 8,
+      banRate: 2,
+    }));
+
+    const blended = placementsFromBlended({
+      snapshots,
+      bracket: 'diamond_plus',
+      previous: [],
+      nudgeByChampion: new Map(),
+    });
+    const letters = blended.filter((row) => row.lane === 'Mid').sort((a, b) => a.rankInLane - b.rankInLane);
+
+    expect(letters[0]?.letter).toBe('S+');
+    expect(letters.some((row) => row.letter === 'S+')).toBe(true);
+  });
+
+  it('does not invent S+ when the lane never reached S', () => {
+    const snapshots = Array.from({ length: 20 }, (_, index) => ({
+      ...base,
+      championId: index + 1,
+      winRate: 51 - index * 0.05,
+      pickRate: 8,
+      banRate: 0,
+    }));
+
+    const blended = placementsFromBlended({
+      snapshots,
+      bracket: 'diamond_plus',
+      previous: [],
+      nudgeByChampion: new Map(),
+    });
+
+    expect(blended.every((row) => row.letter !== 'S+' && row.letter !== 'S')).toBe(true);
   });
 });

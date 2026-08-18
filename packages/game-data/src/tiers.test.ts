@@ -9,6 +9,7 @@ import {
   championTierScore,
   compositeTierScore,
   daysSincePatch,
+  fillEmptySPlus,
   HYSTERESIS_MARGIN,
   PATCH_NUDGE_CAP,
   PATCH_NUDGE_DECAY_DAYS,
@@ -120,6 +121,36 @@ describe('patchNudge', () => {
   it('treats a missing release date as day zero', () => {
     expect(daysSincePatch(null, '2026-08-14')).toBe(0);
     expect(daysSincePatch('2026-08-07', '2026-08-14')).toBe(7);
+  });
+});
+
+describe('fillEmptySPlus', () => {
+  it('promotes the top S champs when S+ was emptied', () => {
+    const rows = [
+      { letter: 'S' as const, rankInLane: 1 },
+      { letter: 'S' as const, rankInLane: 2 },
+      { letter: 'S' as const, rankInLane: 3 },
+      { letter: 'A' as const, rankInLane: 4 },
+    ];
+    const filled = fillEmptySPlus(rows, 2);
+    expect(filled.map((row) => row.letter)).toEqual(['S+', 'S+', 'S', 'A']);
+  });
+
+  it('leaves a lane alone when S+ already has someone', () => {
+    const rows = [
+      { letter: 'S+' as const, rankInLane: 1 },
+      { letter: 'S' as const, rankInLane: 2 },
+    ];
+    expect(fillEmptySPlus(rows, 2).map((row) => row.letter)).toEqual(['S+', 'S']);
+  });
+
+  it('does not manufacture S+ from A in a weak lane', () => {
+    const rows = [
+      { letter: 'A' as const, rankInLane: 1 },
+      { letter: 'A' as const, rankInLane: 2 },
+      { letter: 'B' as const, rankInLane: 3 },
+    ];
+    expect(fillEmptySPlus(rows, 1).map((row) => row.letter)).toEqual(['A', 'A', 'B']);
   });
 });
 
