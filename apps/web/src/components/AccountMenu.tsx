@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { useChampionAvatar } from '@/hooks/useChampionAvatar';
+import { parsePlanId, type PlanId } from '@/lib/plans';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { firstNameFromUser, fullNameFromUser } from '@/lib/user-name';
@@ -16,7 +17,7 @@ const ACCOUNT_MENU = [
   { href: '/me?tab=pool', label: 'Champion pool' },
   { href: '/me?tab=saved', label: 'Saved matchups' },
   { href: '/me?tab=notifications', label: 'Notifications' },
-  { href: '/me?tab=plan', label: 'Plan', meta: 'Free' },
+  { href: '/me?tab=plan', label: 'Plan' },
 ] as const;
 
 function initialsFor(user: User): string {
@@ -51,6 +52,7 @@ export function AccountMenu() {
   const rootRef = useRef<HTMLDivElement>(null);
   const [user, setUser] = useState<User | null>(null);
   const [riotId, setRiotId] = useState<string | null>(null);
+  const [plan, setPlan] = useState<PlanId>('Free');
   const [ready, setReady] = useState(false);
   const [open, setOpen] = useState(false);
   const { url: avatarUrl } = useChampionAvatar(user);
@@ -81,11 +83,13 @@ export function AccountMenu() {
     const supabase = createClient();
     void supabase
       .from('profiles')
-      .select('riot_id')
+      .select('riot_id, plan')
       .eq('id', user.id)
       .maybeSingle()
       .then(({ data }) => {
-        setRiotId((data as { riot_id?: string | null } | null)?.riot_id?.trim() || riotIdFor(user));
+        const row = data as { riot_id?: string | null; plan?: string | null } | null;
+        setRiotId(row?.riot_id?.trim() || riotIdFor(user));
+        setPlan(parsePlanId(row?.plan));
       });
   }, [user]);
 
@@ -170,7 +174,7 @@ export function AccountMenu() {
               onClick={() => setOpen(false)}
             >
               <span>{item.label}</span>
-              {'meta' in item && item.meta ? <span className={styles.accountMeta}>{item.meta}</span> : null}
+              {item.label === 'Plan' ? <span className={styles.accountMeta}>{plan}</span> : null}
             </Link>
           ))}
           <button type="button" className={styles.accountSignOut} role="menuitem" onClick={() => void signOut()}>

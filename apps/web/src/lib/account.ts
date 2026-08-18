@@ -1,5 +1,6 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
 import type { TierLane } from '@wild-rift-forge/game-data';
+import { parsePlanId, type PlanId } from './plans';
 import { DEFAULT_ROLE_ORDER, normalizeRoleOrder } from './roles';
 
 export const ACCOUNT_REGIONS = ['NA', 'EUW', 'BR', 'KR', 'SEA'] as const;
@@ -18,6 +19,7 @@ export type AccountProfile = {
   channel: AccountChannel;
   proWaitlisted: boolean;
   preferredRoles: TierLane[];
+  plan: PlanId;
 };
 
 export type SavedMatchupRow = {
@@ -36,6 +38,7 @@ type ProfileDb = {
   notify_channel: string;
   pro_waitlisted_at: string | null;
   preferred_roles: string[] | null;
+  plan: string | null;
 };
 
 const DEFAULT_PROFILE: AccountProfile = {
@@ -48,6 +51,7 @@ const DEFAULT_PROFILE: AccountProfile = {
   channel: 'Email',
   proWaitlisted: false,
   preferredRoles: [...DEFAULT_ROLE_ORDER],
+  plan: 'Free',
 };
 
 function asRegion(value: string | null | undefined): AccountRegion {
@@ -70,6 +74,7 @@ export function profileFromRow(row: ProfileDb | null): AccountProfile {
     channel: asChannel(row.notify_channel),
     proWaitlisted: Boolean(row.pro_waitlisted_at),
     preferredRoles: normalizeRoleOrder(row.preferred_roles),
+    plan: parsePlanId(row.plan),
   };
 }
 
@@ -79,7 +84,7 @@ export async function loadAccountState(supabase: SupabaseClient, userId: string)
     supabase
       .from('profiles')
       .select(
-        'riot_id, region, notify_pool, notify_tier, notify_counters, notify_digest, notify_channel, pro_waitlisted_at, preferred_roles',
+        'riot_id, region, notify_pool, notify_tier, notify_counters, notify_digest, notify_channel, pro_waitlisted_at, preferred_roles, plan',
       )
       .eq('id', userId)
       .maybeSingle(),

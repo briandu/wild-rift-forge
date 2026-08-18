@@ -2,6 +2,10 @@ export const PLAN_IDS = ['Free', 'Pro', 'Squad'] as const;
 export type PlanId = (typeof PLAN_IDS)[number];
 export type Billing = 'Monthly' | 'Annual';
 
+export function parsePlanId(value: string | null | undefined): PlanId {
+  return PLAN_IDS.includes(value as PlanId) ? (value as PlanId) : 'Free';
+}
+
 export const PLANS: Array<{
   id: PlanId;
   price: Record<Billing, string>;
