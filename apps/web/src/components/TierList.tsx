@@ -122,12 +122,16 @@ export function TierList({
         </div>
 
         <div className={styles.bands}>
-          {bands.map((band) => (
-            <div
-              key={band.letter}
-              className={styles.band}
-              style={{ borderColor: band.bd, background: band.rowbg }}
-            >
+          {bands.map((band) => {
+            if (band.champs.length === 0 && placements.length > 0) {
+              return null;
+            }
+            return (
+              <div
+                key={band.letter}
+                className={styles.band}
+                style={{ borderColor: band.bd, background: band.rowbg }}
+              >
               <div className={styles.badge} style={{ background: band.badgebg, borderColor: band.bd }}>
                 <div
                   className={band.letter.length > 1 ? styles.letterWide : styles.letter}
@@ -186,7 +190,8 @@ export function TierList({
                 )}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className={styles.footer}>
