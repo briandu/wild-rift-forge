@@ -7,10 +7,10 @@ import { PHASE_HEADER, phaseLabel } from '@wild-rift-forge/vision';
 import styles from './DraftScreenRead.module.css';
 
 function boxClass(role: LayoutRegion['role']): string {
-  if (role === 'ally') return styles.boxAlly;
-  if (role === 'enemy') return styles.boxEnemy;
-  if (role === 'ban-ally') return styles.boxBanAlly;
-  return styles.boxBanEnemy;
+  if (role === 'ally') return styles.boxAlly ?? '';
+  if (role === 'enemy') return styles.boxEnemy ?? '';
+  if (role === 'ban-ally') return styles.boxBanAlly ?? '';
+  return styles.boxBanEnemy ?? '';
 }
 
 /** Map a content-relative region onto the full preview, including letterbox bars. */
