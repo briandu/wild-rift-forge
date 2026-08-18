@@ -1,3 +1,15 @@
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
 .spin {
   width: 13px;
   height: 13px;
@@ -133,9 +145,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .spin,
-  .spinLight,
   .refreshFill {
     animation: none !important;
+  }
+
+  .spin,
+  .spinLight {
+    animation: pulse 0.9s ease-in-out infinite;
   }
 }

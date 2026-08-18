@@ -49,6 +49,7 @@ import { isSupabaseConfigured } from '@/lib/supabase/env';
 import { accountHeadingName } from '@/lib/user-name';
 import { ChampFace } from './ChampFace';
 import { ChampionPicker } from './ChampionPicker';
+import { DraftSessionList } from './DraftSessionList';
 import { LaneGlyph } from './LaneGlyph';
 import { PendingLabel } from './LoadState';
 import styles from './AccountView.module.css';
@@ -153,6 +154,7 @@ const EMPTY_PROFILE: AccountProfile = {
   channel: 'Email',
   proWaitlisted: false,
   preferredRoles: [...DEFAULT_ROLE_ORDER],
+  plan: 'Free',
 };
 
 function DragHandle() {
@@ -523,6 +525,7 @@ export function AccountView({
             portraits={portraits}
             champions={champions}
             placements={placements}
+            userId={user?.id ?? null}
             riotConnected={riotConnected}
             riotId={riotId}
             riotDraft={riotDraft}
@@ -722,6 +725,7 @@ function Overview({
   portraits,
   champions,
   placements,
+  userId,
   riotConnected,
   riotId,
   riotDraft,
@@ -736,6 +740,7 @@ function Overview({
   portraits: Record<string, string>;
   champions: ApiChampion[];
   placements: TierPlacementDto[];
+  userId: string | null;
   riotConnected: boolean;
   riotId: string;
   riotDraft: string;
@@ -841,6 +846,7 @@ function Overview({
         </div>
       </section>
     </div>
+    <DraftSessionList userId={userId} champions={champions} portraits={portraits} />
     <PreferredRoles
       roles={roleOrder}
       pool={pool}

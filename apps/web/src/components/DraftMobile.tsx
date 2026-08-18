@@ -3,7 +3,21 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { ApiChampion, TierPlacementDto } from '@/lib/api';
-import { type DraftState } from '@/lib/draft-state';
+import type { AppliedRead } from '@/lib/capture/to-draft-state';
+import type { CalibStatus, CaptureStatus } from '@/lib/capture/use-draft-capture';
+import {
+  firstPickKnown,
+  formatClock,
+  guessChampionLanes,
+  isFlexPick,
+  type PhaseChrome,
+} from '@/lib/draft-live';
+import { allySlotsInPickOrder, enemySlotsInPickOrder, slotView, type DraftState } from '@/lib/draft-state';
+import type { LayoutProfile } from '@wild-rift-forge/vision';
+import { DraftScreenRead } from './DraftScreenRead';
+import { DraftShare } from './DraftShare';
+import { LaneGlyph } from './LaneGlyph';
+import { Spinner } from './LoadState';
 import {
   traitCoverage,
   type CompNeed,
@@ -82,10 +96,22 @@ export function DraftMobile({
   onAllyLane,
   onEnemyTile,
   onBan,
+  onClear,
   onLock,
   onUndo,
   onReset,
   mode,
+  scanning = false,
+  chrome,
+  elapsed = 0,
+  phaseLeft = 0,
+  firstPick = false,
+  shareOpen = false,
+  shareLink = null,
+  signedIn = false,
+  onShare,
+  onCloseShare,
+  capture,
 }: {
   champions: ApiChampion[];
   portraits: Record<string, string>;
@@ -101,14 +127,37 @@ export function DraftMobile({
   onAllyLane: (index: number) => void;
   onEnemyTile: (index: number) => void;
   onBan: (side: 'allyBans' | 'enemyBans', index: number) => void;
+  onClear: (key: string) => void;
   onLock: (slug: string) => void;
   onUndo: () => void;
   onReset: () => void;
   mode?: string;
+  scanning?: boolean;
+  chrome: PhaseChrome;
+  elapsed?: number;
+  phaseLeft?: number;
+  firstPick?: boolean;
+  shareOpen?: boolean;
+  shareLink?: string | null;
+  signedIn?: boolean;
+  onShare: () => void;
+  onCloseShare: () => void;
+  capture: {
+    status: CaptureStatus;
+    calib: CalibStatus;
+    previewUrl: string | null;
+    profile: LayoutProfile | null;
+    lastRead: AppliedRead | null;
+    error: string | null;
+    onArm: () => void;
+    onCalibrate: () => void;
+    onDisarm: () => void;
+  };
 }) {
   const snaps = useSheetSnaps();
   const [snap, setSnap] = useState(0);
   const [dragH, setDragH] = useState<number | null>(null);
+  const [laneReadOpen, setLaneReadOpen] = useState(true);
   const startY = useRef(0);
   const startH = useRef(snaps[0] ?? PEEK);
   const dy = useRef(0);
@@ -224,32 +273,58 @@ export function DraftMobile({
           <div className={styles.kicker}>CHAMPION SELECT</div>
           <h1 className={styles.title}>Draft</h1>
         </div>
-        <div className={styles.headRight}>
-          <div className={`${styles.timer} ${locked ? styles.timerLocked : ''}`}>
-            <span className={styles.timerDot} />
-            <span>{locked ? 'LOCKED' : `Your pick · ${pickingLane}`}</span>
-          </div>
-          {locked ? (
-            <button type="button" className={styles.textBtn} onClick={onUndo}>
-              Undo pick
-            </button>
-          ) : (
-            <div className={styles.rankNote}>{mode ?? 'Tap a slot to fill the lobby'}</div>
-          )}
-          <button type="button" className={styles.textBtn} onClick={onReset}>
-            End draft
-          </button>
+        <button type="button" className={styles.shareChip} onClick={onShare}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#DEDCEE" strokeWidth="2.1">
+            <circle cx="18" cy="5.5" r="2.6" />
+            <circle cx="6" cy="12" r="2.6" />
+            <circle cx="18" cy="18.5" r="2.6" />
+            <path d="M8.4 10.7l7.2-3.9M8.4 13.3l7.2 3.9" />
+          </svg>
+          <span className={styles.shareDot} />
+        </button>
+      </div>
+      <div className={styles.phaseRow}>
+        <div
+          className={styles.phaseBadge}
+          style={{ background: chrome.background, border: `1px solid ${chrome.border}` }}
+        >
+          <span className={styles.timerDot} style={{ background: chrome.color }} />
+          <span style={{ color: chrome.color }}>{chrome.badge}</span>
         </div>
+        <div className={styles.clocks}>
+          <span>{formatClock(elapsed)}</span>
+          <span className={styles.clockSplit} />
+          <span style={{ color: chrome.color }}>{formatClock(phaseLeft)}</span>
+        </div>
+      </div>
+      <div className={styles.phaseMeta}>
+        {firstPick || firstPickKnown(state) ? <span className={styles.firstPick}>FIRST PICK</span> : null}
+        <span>{mode ?? 'Ranked'}</span>
+        {locked ? (
+          <button type="button" className={styles.textBtn} onClick={onUndo}>
+            Undo pick
+          </button>
+        ) : null}
+        <button type="button" className={styles.textBtn} onClick={onReset}>
+          End
+        </button>
       </div>
 
       <div className={styles.board} style={{ paddingBottom: height + 16 }}>
-        <div className={styles.sideLabelAlly}>YOUR TEAM</div>
+        <div className={styles.sideHead}>
+          <div className={styles.sideLabelAlly} style={{ marginBottom: 0 }}>
+            YOUR TEAM
+          </div>
+          {firstPick || firstPickKnown(state) ? <span className={styles.firstPickTag}>1ST PICK</span> : null}
+        </div>
         <div className={styles.row}>
-          {state.allies.map((slot, index) => {
-            const champ = champions.find((row) => row.slug === slot.slug);
+          {allySlotsInPickOrder(state).map((slot) => {
+            const index = slot.boardIndex;
+            const view = slotView(state, 'ally', index);
+            const champ = champions.find((row) => row.slug === view.slug);
             const mine = index === state.mySlotIndex;
             const active = picking?.side === 'ally' && picking.index === index;
-            const showSlug = mine && locked ? locked.slug : slot.slug;
+            const showSlug = mine && locked ? locked.slug : view.slug;
             const showName = mine && locked ? locked.name : champ?.name;
             return (
               <div key={slot.lane} className={styles.slot}>
@@ -261,11 +336,26 @@ export function DraftMobile({
                 >
                   {showSlug ? (
                     face(showSlug, showName)
+                  ) : scanning ? (
+                    <Spinner />
                   ) : (
                     <span className={mine ? styles.tileMarkYou : styles.tileMark}>
                       {mine ? '?' : '+'}
                     </span>
                   )}
+                  {view.isPre ? <span className={styles.preBadge}>PRE-PICK</span> : null}
+                  {mine ? <span className={styles.youBadge}>YOU</span> : null}
+                  {view.slug && !view.isPre ? (
+                    <span
+                      className={styles.delBadge}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onClear(`ally-${index}`);
+                      }}
+                    >
+                      ×
+                    </span>
+                  ) : null}
                 </button>
                 <button
                   type="button"
@@ -273,39 +363,128 @@ export function DraftMobile({
                   onClick={() => onAllyLane(index)}
                   aria-pressed={mine}
                 >
+                  <LaneGlyph lane={slot.lane} size={10} />
                   {LANE_SHORT[slot.lane]}
                 </button>
               </div>
             );
           })}
         </div>
+        <DraftScreenRead
+          compact
+          status={capture.status}
+          calib={capture.calib}
+          previewUrl={capture.previewUrl}
+          profile={capture.profile}
+          lastRead={capture.lastRead}
+          error={capture.error}
+          onArm={capture.onArm}
+          onCalibrate={capture.onCalibrate}
+          onDisarm={capture.onDisarm}
+        />
 
-        <div className={styles.sideLabelEnemy}>ENEMY TEAM</div>
+        <div className={styles.sideHead}>
+          <div className={styles.sideLabelEnemy} style={{ marginBottom: 0 }}>
+            ENEMY TEAM
+          </div>
+          <span className={styles.inferred}>lanes inferred</span>
+        </div>
         <div className={styles.row}>
-          {state.enemies.map((slot, index) => {
-            const champ = champions.find((row) => row.slug === slot.slug);
-            const threat = index === state.mySlotIndex && Boolean(slot.slug);
+          {enemySlotsInPickOrder(state).map((slot, order) => {
+            const index = slot.boardIndex;
+            const view = slotView(state, 'enemy', index);
+            const champ = champions.find((row) => row.slug === view.slug);
+            const guesses = guessChampionLanes(view.slug, placements);
+            const threat = index === state.mySlotIndex && Boolean(view.slug);
             const active = picking?.side === 'enemy' && picking.index === index;
             return (
-              <div key={slot.lane} className={styles.slot}>
+              <div key={`${slot.lane}-${index}`} className={styles.slot}>
                 <button
                   type="button"
                   className={`${styles.tile} ${threat ? styles.tileThreat : ''} ${active ? styles.tileActive : ''}`}
                   onClick={() => onEnemyTile(index)}
                   aria-label={`${slot.lane}${champ ? `, ${champ.name}` : ', empty'}`}
                 >
-                  {slot.slug ? (
-                    face(slot.slug, champ?.name)
+                  {view.slug ? (
+                    face(view.slug, champ?.name)
+                  ) : scanning ? (
+                    <Spinner />
                   ) : (
                     <span className={styles.tileMark}>+</span>
                   )}
+                  <span className={styles.orderBadge}>PICK {order + 1}</span>
+                  {isFlexPick(guesses) ? <span className={styles.flexBadge}>FLEX</span> : null}
+                  {view.slug ? (
+                    <span
+                      className={styles.delBadge}
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onClear(`enemy-${index}`);
+                      }}
+                    >
+                      ×
+                    </span>
+                  ) : null}
                 </button>
                 <span className={`${styles.lane} ${threat ? styles.laneThreat : ''}`}>
-                  {LANE_SHORT[slot.lane]}
+                  {guesses[0] ? (
+                    <>
+                      <LaneGlyph lane={guesses[0].lane} size={10} />
+                      {LANE_SHORT[guesses[0].lane]} {guesses[0].pct}%
+                    </>
+                  ) : (
+                    LANE_SHORT[slot.lane]
+                  )}
                 </span>
               </div>
             );
           })}
+        </div>
+
+        <div className={styles.laneRead}>
+          <button type="button" className={styles.laneReadHead} onClick={() => setLaneReadOpen((open) => !open)}>
+            <div>
+              <div className={styles.cardLabel} style={{ marginBottom: 0 }}>
+                LANE READ
+              </div>
+              <div className={styles.laneReadSub}>Champion select hides enemy roles</div>
+            </div>
+            <span aria-hidden>{laneReadOpen ? '▾' : '▸'}</span>
+          </button>
+          {laneReadOpen
+            ? enemySlotsInPickOrder(state)
+                .map((slot) => {
+                  const view = slotView(state, 'enemy', slot.boardIndex);
+                  const guesses = guessChampionLanes(view.slug, placements);
+                  const champ = champions.find((row) => row.slug === view.slug);
+                  if (!view.slug || !guesses.length) return null;
+                  return (
+                    <div key={slot.boardIndex} className={styles.laneReadRow}>
+                      <div className={styles.laneReadChamp}>
+                        {face(view.slug, champ?.name, 26)}
+                        <span>{champ?.name ?? view.slug}</span>
+                        {isFlexPick(guesses) ? <span className={styles.flexTag}>FLEX PICK</span> : null}
+                      </div>
+                      {guesses.map((guess, i) => (
+                        <div key={guess.lane} className={styles.guessRow}>
+                          <LaneGlyph lane={guess.lane} size={10} />
+                          <span className={styles.guessLane}>{guess.lane}</span>
+                          <span className={styles.guessTrack}>
+                            <span
+                              className={styles.guessFill}
+                              style={{
+                                width: `${guess.pct}%`,
+                                background: i === 0 ? '#E58B7B' : 'rgba(229,139,123,.4)',
+                              }}
+                            />
+                          </span>
+                          <span className={styles.guessPct}>{guess.pct}%</span>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })
+            : null}
         </div>
 
         <div className={styles.card}>
@@ -343,35 +522,43 @@ export function DraftMobile({
             <span className={styles.bansKicker}>BANS</span>
             <span className={styles.bansMeta}>{state.allyBans.length} each</span>
           </div>
-          {(
-            [
-              ['YOURS', 'allyBans', '#7BC4E0'],
-              ['THEIRS', 'enemyBans', '#E58B7B'],
-            ] as const
-          ).map(([label, side, color]) => (
-            <div key={side} className={styles.banRow}>
-              <span className={styles.banSide} style={{ color }}>
-                {label}
-              </span>
-              <div className={styles.banTiles}>
-                {state[side].map((slug, index) => {
-                  const champ = champions.find((row) => row.slug === slug);
-                  const active = picking?.side === side && picking.index === index;
-                  return (
-                    <button
-                      key={index}
-                      type="button"
-                      className={`${styles.banTile} ${slug ? styles.banFilled : ''} ${active ? styles.tileActive : ''}`}
-                      onClick={() => onBan(side, index)}
-                      title={champ?.name ?? 'Empty ban'}
-                    >
-                      {slug ? face(slug, champ?.name, 40) : <span className={styles.tileMark}>—</span>}
-                    </button>
-                  );
-                })}
+          <div className={styles.bansSides}>
+            {(
+              [
+                ['YOURS', 'allyBans', '#7BC4E0'],
+                ['THEIRS', 'enemyBans', '#E58B7B'],
+              ] as const
+            ).map(([label, side, color]) => (
+              <div key={side} className={styles.banRow}>
+                <span className={styles.banSide} style={{ color }}>
+                  {label}
+                </span>
+                <div className={styles.banTiles}>
+                  {state[side].map((slug, index) => {
+                    const champ = champions.find((row) => row.slug === slug);
+                    const active = picking?.side === side && picking.index === index;
+                    return (
+                      <button
+                        key={index}
+                        type="button"
+                        className={`${styles.banTile} ${slug ? styles.banFilled : ''} ${active ? styles.tileActive : ''}`}
+                        onClick={() => onBan(side, index)}
+                        title={champ?.name ?? 'Empty ban'}
+                      >
+                        {slug ? (
+                          face(slug, champ?.name, 40)
+                        ) : scanning ? (
+                          <Spinner />
+                        ) : (
+                          <span className={styles.tileMark}>—</span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
@@ -502,6 +689,17 @@ export function DraftMobile({
           )}
         </div>
       </div>
+      {shareOpen ? (
+        <div className={styles.shareSheet}>
+          <button type="button" className={styles.shareScrim} onClick={onCloseShare} aria-label="Close share" />
+          <DraftShare
+            sheet
+            link={shareLink}
+            signedIn={signedIn}
+            onClose={onCloseShare}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

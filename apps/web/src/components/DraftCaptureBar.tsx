@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import type { ApiChampion } from '@/lib/api';
 import { phaseLabel } from '@wild-rift-forge/vision';
 import { toIconReferences } from '@/lib/capture/to-draft-state';
@@ -23,20 +23,52 @@ export function DraftCaptureBar({
   portraits,
   state,
   onRead,
+  onScanning,
+  resetToken = 0,
 }: {
   signatures: IconSignatureDto[];
   champions: ApiChampion[];
   portraits: Record<string, string>;
   state: DraftState;
   onRead: (next: DraftState) => void;
+  onScanning?: (scanning: boolean) => void;
+  resetToken?: number;
 }) {
   const references = useMemo(() => toIconReferences(signatures), [signatures]);
   const { status, error, lastRead, arm, disarm, capture, calibrate } = useDraftCapture(references);
 
   const armed = status === 'armed' || status === 'reading';
   const busy = status === 'reading' || status === 'arming';
+  const stateRef = useRef(state);
+  stateRef.current = state;
+  const applyGen = useRef(0);
+
+  function applyIfCurrent(gen: number, next: DraftState | undefined) {
+    if (gen !== applyGen.current || !next) return;
+    onRead(next);
+  }
+
+  useEffect(() => {
+    applyGen.current += 1;
+    disarm();
+    onScanning?.(false);
+  }, [resetToken, disarm, onScanning]);
+
+  useEffect(() => {
+    onScanning?.(armed || busy);
+  }, [armed, busy, onScanning]);
+
+  useEffect(() => {
+    if (!armed) return;
+    const tick = window.setInterval(() => {
+      const gen = applyGen.current;
+      void capture(stateRef.current).then((applied) => applyIfCurrent(gen, applied?.state));
+    }, 900);
+    return () => window.clearInterval(tick);
+  }, [armed, capture, onRead]);
 
   // One keypress to re-read, since champion select does not leave time to aim a mouse.
+
   useEffect(() => {
     if (!armed) return;
     const onKey = (event: KeyboardEvent) => {
@@ -45,7 +77,8 @@ export function DraftCaptureBar({
       if (target && /^(INPUT|TEXTAREA|SELECT)$/.test(target.tagName)) return;
       if (event.metaKey || event.ctrlKey || event.altKey) return;
       event.preventDefault();
-      void capture(state).then((applied) => applied && onRead(applied.state));
+      const gen = applyGen.current;
+      void capture(state).then((applied) => applyIfCurrent(gen, applied?.state));
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -82,7 +115,10 @@ export function DraftCaptureBar({
               type="button"
               className={styles.primary}
               disabled={busy}
-              onClick={() => void capture(state).then((a) => a && onRead(a.state))}
+              onClick={() => {
+                const gen = applyGen.current;
+                void capture(state).then((applied) => applyIfCurrent(gen, applied?.state));
+              }}
             >
               {status === 'reading' ? 'Reading…' : 'Capture now'}
             </button>
@@ -109,8 +145,11 @@ export function DraftCaptureBar({
 
       {error ? <p className={styles.error}>{error}</p> : null}
 
-      {lastRead ? (
+      {busy && !lastRead ? (
+        <p className={styles.note}>Reading the shared screen…</p>
+      ) : lastRead ? (
         <p className={styles.note}>
+          {busy ? 'Reading… ' : ''}
           {lastRead.phase !== 'unknown' ? `${phaseLabel(lastRead.phase)}. ` : ''}
           Read {lastRead.resolved} slot{lastRead.resolved === 1 ? '' : 's'}.
           {lastRead.review.length

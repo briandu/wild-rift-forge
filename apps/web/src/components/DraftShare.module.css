@@ -1,0 +1,138 @@
+.pop {
+  position: absolute;
+  right: 0;
+  top: 44px;
+  z-index: 40;
+  width: 302px;
+  background: #12101e;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.sheet {
+  position: relative;
+  width: 100%;
+  background: #12101e;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 26px 26px 0 0;
+  padding: 16px 20px 30px;
+  box-sizing: border-box;
+}
+
+.grip {
+  width: 38px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.22);
+  margin: 0 auto 16px;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.sheet .title {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+
+.copy {
+  margin: 5px 0 0;
+  font-size: 12.5px;
+  color: #7b769b;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.sheet .copy {
+  font-size: 13.5px;
+  margin-top: 6px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 11px;
+  padding: 9px 11px;
+  margin-top: 13px;
+}
+
+.sheet .row {
+  border-radius: 14px;
+  padding: 12px 14px;
+  margin-top: 16px;
+}
+
+.link {
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  color: var(--text-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.copyBtn {
+  font-size: 12px;
+  font-weight: 700;
+  color: #0b0a12;
+  background: var(--accent-soft);
+  border: 0;
+  border-radius: 8px;
+  padding: 5px 11px;
+  flex: none;
+  cursor: pointer;
+}
+
+.copied {
+  font-size: 12px;
+  font-weight: 700;
+  color: #8fedb8;
+  flex: none;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.watchDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #8fedb8;
+  flex: none;
+}
+
+.watch {
+  font-size: 12px;
+  color: #8b87a8;
+  flex: 1;
+}
+
+.close {
+  font-size: 12px;
+  font-weight: 600;
+  color: #7b769b;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  flex: none;
+}
+
+.close:hover {
+  color: var(--text-soft);
+}

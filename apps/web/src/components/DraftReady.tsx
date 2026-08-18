@@ -6,6 +6,7 @@ import type { ApiChampion } from '@/lib/api';
 import { DRAFT_LANES } from '@/lib/draft-state';
 import { DRAFT_MODES, DRAFT_READY_STEPS, type DraftMode } from '@/lib/draft-copy';
 import { ChampFace } from './ChampFace';
+import { DraftSessionList } from './DraftSessionList';
 import styles from './DraftLanding.module.css';
 
 export function DraftReady({
@@ -17,6 +18,7 @@ export function DraftReady({
   onMode,
   onLane,
   onStart,
+  userId = null,
 }: {
   champions: ApiChampion[];
   portraits: Record<string, string>;
@@ -26,6 +28,7 @@ export function DraftReady({
   onMode: (mode: DraftMode) => void;
   onLane: (lane: TierLane) => void;
   onStart: () => void;
+  userId?: string | null;
 }) {
   const faces = pool.slice(0, 6).map((slug) => {
     const champ = champions.find((row) => row.slug === slug);
@@ -125,6 +128,8 @@ export function DraftReady({
             </div>
           ))}
         </div>
+
+        <DraftSessionList userId={userId} champions={champions} portraits={portraits} />
       </div>
     </div>
   );

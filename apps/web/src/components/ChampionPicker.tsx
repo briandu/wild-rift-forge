@@ -17,7 +17,9 @@ const FUSE_OPTIONS: IFuseOptions<ApiChampion> = {
 
 export function ChampionPicker({
   open,
+  kicker,
   title,
+  note,
   champions,
   portraits,
   exclude = [],
@@ -25,7 +27,9 @@ export function ChampionPicker({
   onClose,
 }: {
   open: boolean;
+  kicker?: string;
   title: string;
+  note?: string;
   champions: ApiChampion[];
   portraits: Record<string, string>;
   exclude?: string[];
@@ -60,7 +64,11 @@ export function ChampionPicker({
       <button type="button" className={styles.scrim} onClick={onClose} aria-label="Close" />
       <div className={styles.panel}>
         <div className={styles.head}>
-          <h2 className={styles.title}>{title}</h2>
+          <div>
+            {kicker ? <div className={styles.kicker}>{kicker}</div> : null}
+            <h2 className={styles.title}>{title}</h2>
+            {note ? <p className={styles.note}>{note}</p> : null}
+          </div>
           <button type="button" className={styles.close} onClick={onClose} aria-label="Close">
             ×
           </button>
