@@ -20,6 +20,9 @@ const nextConfig: NextConfig = {
   },
   images: {
     qualities: [75, 90],
+    // Champion art rarely changes. Without this, the optimizer re-fetches the
+    // full Storage original (often 500KB+) on a short TTL and burns egress.
+    minimumCacheTTL: 60 * 60 * 24 * 30,
     remotePatterns: [
       { protocol: 'https', hostname: '**.supabase.co' },
       { protocol: 'https', hostname: '**.supabase.in' },

@@ -51,7 +51,12 @@ jobs:
 
       - name: Email pool patch alerts
         if: steps.patch.outputs.inserted == 'true'
-        run: node scripts/send-account-alerts.mjs --kind=pool
+        run: |
+          if [ -z "$RESEND_API_KEY" ] || [ -z "$SMTP_FROM" ]; then
+            echo "Skipping pool emails: RESEND_API_KEY / SMTP_FROM not set in repo secrets."
+            exit 0
+          fi
+          node scripts/send-account-alerts.mjs --kind=pool
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}

@@ -223,7 +223,7 @@ export function ChampionRoster({
                       fill
                       className={styles.art}
                       style={{ objectPosition: `${focus.x}% ${focus.y}%` }}
-                      sizes="(max-width: 900px) 140vw, 640px"
+                      sizes="240px"
                       quality={90}
                     />
                   ) : (

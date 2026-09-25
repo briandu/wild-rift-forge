@@ -32,7 +32,7 @@ function useDirectDb(): boolean {
 
 async function apiFetch<T>(path: string): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
-    next: { revalidate: 30 },
+    next: { revalidate: 3600 },
   });
   if (!res.ok) {
     throw new Error(`API ${path} failed: ${res.status}`);
