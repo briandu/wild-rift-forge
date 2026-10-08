@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '@/components/Image';
 import { ART_BY_SLUG, FACE_FALLBACK_BG, initials } from '@/lib/champions';
 import styles from './ChampFace.module.css';
 

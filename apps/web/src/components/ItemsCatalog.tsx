@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/Image';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { ART_BY_SLUG, HERO_FALLBACK, initials } from '@/lib/champions';

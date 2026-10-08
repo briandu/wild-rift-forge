@@ -20,12 +20,13 @@ const nextConfig: NextConfig = {
   },
   images: {
     qualities: [75, 90],
-    // Champion art rarely changes. Without this, the optimizer re-fetches the
-    // full Storage original (often 500KB+) on a short TTL and burns egress.
+    // Hosts that still use the optimizer. A cache miss re-downloads the full
+    // original, so keep the optimized file for 30 days.
+    // Supabase Storage is omitted on purpose. Those URLs render unoptimized
+    // (apps/web/src/lib/storage-image.ts) and the browser loads the hosted object.
+    // Listing them here would let /_next/image fetch the originals again.
     minimumCacheTTL: 60 * 60 * 24 * 30,
     remotePatterns: [
-      { protocol: 'https', hostname: '**.supabase.co' },
-      { protocol: 'https', hostname: '**.supabase.in' },
       { protocol: 'https', hostname: '**.leagueoflegends.com' },
       { protocol: 'https', hostname: '**.riotgames.com' },
       { protocol: 'https', hostname: 'cmsassets.rgpub.io' },

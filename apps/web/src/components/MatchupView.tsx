@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/Image';
 import { useEffect, useMemo, useRef, useState, useTransition, type CSSProperties } from 'react';
 import { useRouter } from 'next/navigation';
 import { TIER_LANES, type TierLane } from '@wild-rift-forge/game-data';

@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/Image';
 import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { ApiChampion, IconSignatureDto, TierPlacementDto } from '@/lib/api';

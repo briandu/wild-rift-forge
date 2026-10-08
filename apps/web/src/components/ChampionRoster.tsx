@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/Image';
 import Link from 'next/link';
 import { useMemo, useState, type CSSProperties } from 'react';
 import type { ApiChampion, TierPlacementDto } from '@/lib/api-types';

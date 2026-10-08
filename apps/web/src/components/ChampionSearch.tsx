@@ -1,7 +1,7 @@
 'use client';
 
 import Fuse, { type IFuseOptions } from 'fuse.js';
-import Image from 'next/image';
+import Image from '@/components/Image';
 import { useRouter } from 'next/navigation';
 import {
   useEffect,

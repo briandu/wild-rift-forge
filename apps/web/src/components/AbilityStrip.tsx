@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/Image';
 import { useState } from 'react';
 import type { AbilityInfo } from '@/lib/abilities';
 import { AbilityMarkup, AbilityMeta } from './AbilityMarkup';

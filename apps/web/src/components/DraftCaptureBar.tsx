@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/Image';
 import { useEffect, useMemo, useRef } from 'react';
 import type { ApiChampion } from '@/lib/api';
 import { phaseLabel } from '@wild-rift-forge/vision';

@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import Image from '@/components/Image';
 import Link from 'next/link';
 import { TIER_LANES } from '@wild-rift-forge/game-data';
 import type { CountersResponse } from '@/lib/api-types';
