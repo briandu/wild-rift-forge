@@ -14,6 +14,7 @@ import {
 import { createPortal } from 'react-dom';
 import type { AbilityInfo } from '@/lib/abilities';
 import { parseAbilityMentions } from '@/lib/ability-mentions';
+import { omitStorageUrl } from '@/lib/storage-image';
 import { AbilityMarkup, AbilityMeta } from './AbilityMarkup';
 import styles from './AbilityTip.module.css';
 
@@ -113,10 +114,10 @@ function AbilityTipOverlay({ tip }: { tip: AbilityTipPayload }) {
       }
     >
       <div className={styles.head}>
-        {tip.imageUrl ? (
+        {omitStorageUrl(tip.imageUrl) ? (
           // Riot CDN icons — skip the Next optimizer so query-string URLs load.
           // eslint-disable-next-line @next/next/no-img-element
-          <img className={styles.art} src={tip.imageUrl} alt="" />
+          <img className={styles.art} src={omitStorageUrl(tip.imageUrl)} alt="" />
         ) : (
           <div className={styles.letter}>{tip.letter}</div>
         )}
@@ -152,19 +153,20 @@ export function AbilityChip({
   size?: number;
 }) {
   const tip = useAbilityTip();
-  const payload = { id, slot, name, text, letter, imageUrl };
+  const art = omitStorageUrl(imageUrl);
+  const payload = { id, slot, name, text, letter, imageUrl: art };
   const radius = Math.max(4, Math.round(size * 0.28));
   const font = Math.max(9, Math.round(size * 0.48));
   return (
     <span
-      className={`${styles.chip} ${imageUrl ? styles.chipArt : styles.chipLetter}`}
+      className={`${styles.chip} ${art ? styles.chipArt : styles.chipLetter}`}
       style={{
         width: size,
         height: size,
         borderRadius: radius,
         fontSize: font,
         lineHeight: `${size}px`,
-        backgroundImage: imageUrl ? `url(${imageUrl})` : undefined,
+        backgroundImage: art ? `url(${art})` : undefined,
       }}
       onMouseEnter={(event) => tip.open(event, payload)}
       onMouseLeave={tip.close}
@@ -177,7 +179,7 @@ export function AbilityChip({
       tabIndex={0}
       aria-label={`${slot}: ${name}`}
     >
-      {imageUrl ? <span className={styles.chipKey}>{letter}</span> : letter}
+      {art ? <span className={styles.chipKey}>{letter}</span> : letter}
     </span>
   );
 }

@@ -14,6 +14,7 @@ import type {
 import { resolveAbilities } from '@/lib/abilities';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { ART_BY_SLUG, HERO_FALLBACK, initials, portraitFor, roleLabel } from '@/lib/champions';
+import { omitStorageUrl } from '@/lib/storage-image';
 import { bestPlacement, formatRate, laneFromLabel, tierBadge } from '@/lib/placements';
 import { abilitySlotLabel } from '@/lib/ability-mentions';
 import { AbilityMarkup } from './AbilityMarkup';
@@ -63,7 +64,7 @@ export function ChampionProfile({
   const router = useRouter();
   const [tab, setTab] = useState<(typeof TABS)[number]>('Matchups');
   const [dir, setDir] = useState<'beaten' | 'beats'>('beaten');
-  const art = imageUrl || ART_BY_SLUG[slug] || HERO_FALLBACK;
+  const art = omitStorageUrl(imageUrl) || ART_BY_SLUG[slug] || HERO_FALLBACK;
   const focus = bannerFocusFor(slug);
   const avatar = portraitFor(slug, imageUrl, thumbnailUrl);
   const abilities = resolveAbilities(abilitiesProp ?? counters?.abilities, slug);

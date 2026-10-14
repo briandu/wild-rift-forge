@@ -1,4 +1,5 @@
 import type { ApiChampion } from './api-types';
+import { omitStorageUrl } from './storage-image';
 
 /** Local visual fallbacks when the DB roster is empty. */
 export const FALLBACK_CHAMPIONS: ApiChampion[] = [
@@ -70,12 +71,12 @@ export function initials(name: string): string {
 }
 
 export function artFor(slug: string, imageUrl?: string | null): string {
-  return imageUrl || ART_BY_SLUG[slug.toLowerCase()] || HERO_FALLBACK;
+  return omitStorageUrl(imageUrl) || ART_BY_SLUG[slug.toLowerCase()] || HERO_FALLBACK;
 }
 
 /** Splash for poster tiles. No shared hero fallback — missing art uses initials. */
 export function splashFor(slug: string, imageUrl?: string | null): string | undefined {
-  return imageUrl || ART_BY_SLUG[slug.toLowerCase()] || undefined;
+  return omitStorageUrl(imageUrl) || ART_BY_SLUG[slug.toLowerCase()] || undefined;
 }
 
 /** Portrait URL when we have one; otherwise the caller should show initials. */
@@ -84,7 +85,7 @@ export function portraitFor(
   imageUrl?: string | null,
   thumbnailUrl?: string | null,
 ): string | undefined {
-  return thumbnailUrl || imageUrl || ART_BY_SLUG[slug.toLowerCase()] || undefined;
+  return omitStorageUrl(thumbnailUrl) || omitStorageUrl(imageUrl) || ART_BY_SLUG[slug.toLowerCase()] || undefined;
 }
 
 export function resolveChampionSlug(
@@ -100,7 +101,7 @@ export function resolveChampionSlug(
 export function portraitsFromRoster(champions: ApiChampion[]): Record<string, string> {
   const map = { ...ART_BY_SLUG };
   for (const champion of champions) {
-    const portrait = champion.thumbnailUrl || champion.imageUrl;
+    const portrait = omitStorageUrl(champion.thumbnailUrl) || omitStorageUrl(champion.imageUrl);
     if (portrait) {
       map[champion.slug] = portrait;
     }

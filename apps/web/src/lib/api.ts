@@ -1,4 +1,4 @@
-import { cache } from 'react';
+import { stripStorageFields } from './storage-image';
 import type {
   ApiChampion,
   CountersResponse,
@@ -43,11 +43,11 @@ async function apiFetch<T>(path: string): Promise<T> {
 export async function fetchChampions(): Promise<ApiChampion[]> {
   if (useDirectDb()) {
     const { loadChampions } = await import('./server/game');
-    return loadChampions();
+    return stripStorageFields(await loadChampions());
   }
   try {
     const data = await apiFetch<{ champions: ApiChampion[] }>('/champions');
-    return data.champions;
+    return stripStorageFields(data.champions);
   } catch {
     return [];
   }
@@ -56,11 +56,11 @@ export async function fetchChampions(): Promise<ApiChampion[]> {
 export async function fetchChampion(slug: string): Promise<ApiChampion | null> {
   if (useDirectDb()) {
     const { loadChampion } = await import('./server/game');
-    return loadChampion(slug);
+    return stripStorageFields(await loadChampion(slug));
   }
   try {
     const data = await apiFetch<{ champion: ApiChampion }>(`/champions/${slug}`);
-    return data.champion;
+    return stripStorageFields(data.champion);
   } catch {
     return null;
   }
@@ -72,11 +72,11 @@ export async function fetchCounters(
 ): Promise<CountersResponse | null> {
   if (useDirectDb()) {
     const { loadCounters } = await import('./server/game');
-    return loadCounters(slug, lane);
+    return stripStorageFields(await loadCounters(slug, lane));
   }
   try {
     const suffix = lane ? `?lane=${encodeURIComponent(lane)}` : '';
-    return await apiFetch<CountersResponse>(`/counters/${slug}${suffix}`);
+    return stripStorageFields(await apiFetch<CountersResponse>(`/counters/${slug}${suffix}`));
   } catch {
     return null;
   }
@@ -89,12 +89,12 @@ export async function fetchMatchup(
 ): Promise<MatchupResponse | null> {
   if (useDirectDb()) {
     const { loadMatchup } = await import('./server/game');
-    return loadMatchup(you, them, lane);
+    return stripStorageFields(await loadMatchup(you, them, lane));
   }
   try {
     const params = new URLSearchParams({ you, them });
     if (lane) params.set('lane', lane);
-    return await apiFetch<MatchupResponse>(`/matchups?${params}`);
+    return stripStorageFields(await apiFetch<MatchupResponse>(`/matchups?${params}`));
   } catch {
     return null;
   }
@@ -116,10 +116,10 @@ export async function fetchIconSignatures(): Promise<IconSignaturesResponse> {
 export async function fetchTiers(): Promise<TiersResponse | null> {
   if (useDirectDb()) {
     const { loadTiers } = await import('./server/game');
-    return loadTiers();
+    return stripStorageFields(await loadTiers());
   }
   try {
-    return await apiFetch<TiersResponse>('/tiers?bracket=diamond_plus');
+    return stripStorageFields(await apiFetch<TiersResponse>('/tiers?bracket=diamond_plus'));
   } catch {
     return null;
   }
@@ -129,9 +129,9 @@ export const fetchLatestPatch = cache(async function fetchLatestPatch(): Promise
   try {
     if (useDirectDb()) {
       const { loadLatestPatch } = await import('./server/game');
-      return loadLatestPatch();
+      return stripStorageFields(await loadLatestPatch());
     }
-    return await apiFetch<LatestPatchResponse>('/patches/latest');
+    return stripStorageFields(await apiFetch<LatestPatchResponse>('/patches/latest'));
   } catch (err) {
     console.warn('fetchLatestPatch failed:', err instanceof Error ? err.message : err);
     return null;

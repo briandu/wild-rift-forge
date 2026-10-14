@@ -1,4 +1,5 @@
 import type { SupabaseClient, User } from '@supabase/supabase-js';
+import { omitStorageUrl } from './storage-image';
 
 export type ChampionAvatarMeta = {
   avatar_champion_slug?: string;
@@ -18,7 +19,7 @@ type AssignedAvatar = {
 export function avatarUrlFromUser(user: User | null | undefined): string | undefined {
   const meta = user?.user_metadata as ChampionAvatarMeta | undefined;
   const url = meta?.avatar_champion_url?.trim();
-  return url || undefined;
+  return omitStorageUrl(url);
 }
 
 const inflight = new Map<string, Promise<{ url?: string; slug?: string }>>();
@@ -55,14 +56,14 @@ async function resolveChampionAvatar(
 
   const row = profile as ProfileRow | null;
   if (row?.avatar_url) {
-    return { url: row.avatar_url, slug: row.avatar_champion_slug ?? undefined };
+    return { url: omitStorageUrl(row.avatar_url), slug: row.avatar_champion_slug ?? undefined };
   }
 
   const { data: assigned } = await supabase.rpc('ensure_default_avatar');
   const payload = assigned as AssignedAvatar | null;
   if (payload?.url) {
     void supabase.auth.refreshSession();
-    return { url: payload.url, slug: payload.slug ?? undefined };
+    return { url: omitStorageUrl(payload.url), slug: payload.slug ?? undefined };
   }
 
   return {};
@@ -82,5 +83,5 @@ export async function applyChampionAvatar(
     },
   });
   await supabase.auth.refreshSession();
-  return { url: payload?.url ?? undefined, slug: payload?.slug ?? slug };
+  return { url: omitStorageUrl(payload?.url), slug: payload?.slug ?? slug };
 }

@@ -11,6 +11,7 @@ import {
 import { formatClock } from '@/lib/draft-live';
 import { createClient } from '@/lib/supabase/client';
 import { isSupabaseConfigured } from '@/lib/supabase/env';
+import { omitStorageUrl } from '@/lib/storage-image';
 import { ChampFace } from './ChampFace';
 import styles from './DraftLanding.module.css';
 
@@ -64,13 +65,13 @@ export function DraftSessionList({
           {rows.map((row) => {
             const you = champions.find((champ) => champ.slug === row.youSlug);
             const vs = champions.find((champ) => champ.slug === row.vsSlug);
+            const thumb = omitStorageUrl(row.thumbUrl);
             return (
               <div key={row.id} className={styles.session}>
                 <div className={styles.sessionThumb}>
-                  {row.thumbUrl ? (
-                    // Signed storage URL for a user-owned capture.
+                  {thumb ? (
                     // eslint-disable-next-line @next/next/no-img-element
-                    <img src={row.thumbUrl} alt="" />
+                    <img src={thumb} alt="" />
                   ) : (
                     <div className={styles.sessionThumbEmpty} />
                   )}

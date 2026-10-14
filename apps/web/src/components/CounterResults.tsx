@@ -7,6 +7,7 @@ import type { CountersResponse } from '@/lib/api-types';
 import { resolveAbilities } from '@/lib/abilities';
 import { bannerFocusFor } from '@/lib/banner-focus';
 import { artFor, HERO_FALLBACK, initials, portraitFor } from '@/lib/champions';
+import { omitStorageUrl } from '@/lib/storage-image';
 import { laneFromLabel } from '@/lib/placements';
 import { skeletonDelay } from '@/lib/loading';
 import { AbilityStrip } from './AbilityStrip';
@@ -19,7 +20,7 @@ const NAME_SKEL = ['Volibear', 'Renekton', 'Gwen'] as const;
 
 export function CounterResults({ data }: { data: CountersResponse }) {
   const enemy = data.enemy;
-  const art = enemy.imageUrl || HERO_FALLBACK;
+  const art = omitStorageUrl(enemy.imageUrl) || HERO_FALLBACK;
   const focus = bannerFocusFor(enemy.slug);
   const abilities = resolveAbilities(data.abilities);
   const activeLane = laneFromLabel(data.lane);

@@ -3,6 +3,7 @@
 import Image from '@/components/Image';
 import { useState } from 'react';
 import type { AbilityInfo } from '@/lib/abilities';
+import { omitStorageUrl } from '@/lib/storage-image';
 import { AbilityMarkup, AbilityMeta } from './AbilityMarkup';
 import styles from './AbilityStrip.module.css';
 
@@ -26,6 +27,7 @@ export function AbilityStrip({
       <div className={styles.icons} role="list">
         {abilities.map((ability, i) => {
           const selected = i === active;
+          const icon = omitStorageUrl(ability.imageUrl);
           return (
             <button
               key={ability.key}
@@ -37,14 +39,14 @@ export function AbilityStrip({
               onClick={() => setActive(i)}
               aria-label={`${ability.key}: ${ability.name}`}
             >
-              {ability.imageUrl ? (
-                ability.imageUrl.startsWith('http') ? (
+              {icon ? (
+                icon.startsWith('http') ? (
                   // Riot CDN icons — skip the Next optimizer so query-string Sanity URLs load.
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={ability.imageUrl} alt="" />
+                  <img src={icon} alt="" />
                 ) : (
                   <Image
-                    src={ability.imageUrl}
+                    src={icon}
                     alt=""
                     width={size === 'lg' ? 66 : 52}
                     height={size === 'lg' ? 66 : 52}
