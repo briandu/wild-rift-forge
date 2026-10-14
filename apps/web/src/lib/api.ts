@@ -1,3 +1,4 @@
+import { cache } from 'react';
 import { stripStorageFields } from './storage-image';
 import type {
   ApiChampion,
